@@ -12725,5 +12725,2304 @@
    "https://www.parkrun.com.de/kulturparkneubrandenburg/course/"
   ],
   "geprueft": "2026-10-19"
+ },
+ {
+  "id": "frankfurt-parkrun-nidda",
+  "name": "Nidda parkrun",
+  "art": "Laufen",
+  "stadt": "Frankfurt am Main",
+  "land": "Deutschland",
+  "treffpunkt": "Niddapark, Am Ginnheimer Wäldchen 4 (Start nahe Parkplatz SV Blau-Gelb)",
+  "lat": 50.14123,
+  "lon": 8.64006,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/nidda/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr im Niddapark in Frankfurt; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am in Frankfurt's Niddapark; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/nidda/",
+   "https://www.parkrun.com.de/nidda/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wiesbaden-parkrun-maaraue",
+  "name": "Maaraue parkrun",
+  "art": "Laufen",
+  "stadt": "Wiesbaden",
+  "land": "Deutschland",
+  "treffpunkt": "Grillhütte auf der Maaraue, Maaraue 27, Mainz-Kostheim",
+  "lat": 49.99951,
+  "lon": 8.28888,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/maaraue/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr auf der Maaraue (Mainz-Kostheim), drei Runden um das Freibad, danach Kaffee an der Grillhütte; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am on the Maaraue river island (Mainz-Kostheim), three laps around the outdoor pool, coffee afterwards at the barbecue hut; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/maaraue/",
+   "https://www.parkrun.com.de/maaraue/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "dreieich-parkrun-offenthal",
+  "name": "Offenthal parkrun",
+  "art": "Laufen",
+  "stadt": "Dreieich",
+  "land": "Deutschland",
+  "treffpunkt": "Sportgelände an der Sandkaut, Dreieich-Offenthal",
+  "lat": 49.98712,
+  "lon": 8.75399,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/offenthal/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr am Sportgelände an der Sandkaut in Dreieich-Offenthal, danach kostenloses Frühstücksbuffet im Zielbereich; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am at the Sandkaut sports ground in Dreieich-Offenthal, followed by a free breakfast buffet at the finish; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/offenthal/",
+   "https://www.parkrun.com.de/offenthal/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "giessen-parkrun-schwanenteich",
+  "name": "Schwanenteich parkrun",
+  "art": "Laufen",
+  "stadt": "Gießen",
+  "land": "Deutschland",
+  "treffpunkt": "Stadtpark Wieseckaue, Ringallee (zwischen Schwimmbad-Parkplatz und Messeplatz)",
+  "lat": 50.59003,
+  "lon": 8.68341,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/schwanenteich/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr mit zwei Runden um Schwanenteich und Neuen Teich im Stadtpark Wieseckaue, danach meist Frühstück im Vereinsheim von Blau-Weiß Gießen; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am two laps around the Schwanenteich and Neuer Teich in the Wieseckaue park, usually followed by breakfast at the Blau-Weiß Gießen clubhouse; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/schwanenteich/",
+   "https://www.parkrun.com.de/schwanenteich/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "marburg-parkrun-lahnwiesen",
+  "name": "Lahnwiesen parkrun",
+  "art": "Laufen",
+  "stadt": "Marburg",
+  "land": "Deutschland",
+  "treffpunkt": "Lahnwiesen, Start parallel zur Dörfflerstraße",
+  "lat": 50.80073,
+  "lon": 8.76786,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/lahnwiesen/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr auf den Lahnwiesen entlang der Lahn, danach Kaffee im Zielbereich; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am on the Lahn river meadows, with coffee at the finish afterwards; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/lahnwiesen/",
+   "https://www.parkrun.com.de/lahnwiesen/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "kassel-parkrun-bugasee",
+  "name": "Bugasee parkrun, Kassel",
+  "art": "Laufen",
+  "stadt": "Kassel",
+  "land": "Deutschland",
+  "treffpunkt": "Bugasee, Fuldaaue 11 (Start nahe der Seglerbrücke)",
+  "lat": 51.29223,
+  "lon": 9.50479,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/bugasee/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr rund um den Bugasee in der Fuldaaue; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am around the Bugasee lake in the Fulda river meadows; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/bugasee/",
+   "https://www.parkrun.com.de/bugasee/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "fulda-parkrun-fuldaaue",
+  "name": "Fuldaaue parkrun",
+  "art": "Laufen",
+  "stadt": "Fulda",
+  "land": "Deutschland",
+  "treffpunkt": "Fuldaaue, Johannisstraße 44 (Start nahe dem Umweltzentrum)",
+  "lat": 50.5506,
+  "lon": 9.66859,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/fuldaaue/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr in der Fuldaaue, Start nahe dem Umweltzentrum; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am in the Fuldaaue park, starting near the environmental centre; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/fuldaaue/",
+   "https://www.parkrun.com.de/fuldaaue/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wetzlar-parkrun-naturlehrpfadwetzlar",
+  "name": "Naturlehrpfad parkrun, Wetzlar",
+  "art": "Laufen",
+  "stadt": "Wetzlar",
+  "land": "Deutschland",
+  "treffpunkt": "Naturlehrpfad am Leitzpark (Begrüßung im Zielbereich)",
+  "lat": 50.55519,
+  "lon": 8.53264,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/naturlehrpfadwetzlar/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr am Naturlehrpfad beim Leitz-Park, danach Kaffee in der Bäckerei Künkel Spilburg; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am on the nature trail by the Leitz-Park, coffee afterwards at Bäckerei Künkel Spilburg; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/naturlehrpfadwetzlar/",
+   "https://www.parkrun.com.de/naturlehrpfadwetzlar/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "koblenz-parkrun-wasserwerkoberwerth",
+  "name": "Wasserwerk Oberwerth parkrun",
+  "art": "Laufen",
+  "stadt": "Koblenz",
+  "land": "Deutschland",
+  "treffpunkt": "Eingang Wasserwerk Oberwerth, Jahnstraße 40",
+  "lat": 50.33111,
+  "lon": 7.58804,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/wasserwerkoberwerth/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr mit drei Runden um das Wasserwerk Oberwerth; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am three laps around the Oberwerth waterworks; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/wasserwerkoberwerth/",
+   "https://www.parkrun.com.de/wasserwerkoberwerth/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "trier-parkrun-mattheiserweiher",
+  "name": "Mattheiser Weiher parkrun",
+  "art": "Laufen",
+  "stadt": "Trier",
+  "land": "Deutschland",
+  "treffpunkt": "Mattheiser Weiher, Auf der Weismark (Mitte des Parks, am großen Baum neben der Boulefläche)",
+  "lat": 49.73462,
+  "lon": 6.64172,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/mattheiserweiher/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr im Park am Mattheiser Weiher, danach Kaffee oder Tee im Zielbereich; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am in the park around the Mattheiser Weiher ponds, with coffee or tea at the finish; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/mattheiserweiher/",
+   "https://www.parkrun.com.de/mattheiserweiher/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "ramsteinmiesenbach-parkrun-seewoog",
+  "name": "Seewoog parkrun",
+  "art": "Laufen",
+  "stadt": "Ramstein-Miesenbach",
+  "land": "Deutschland",
+  "treffpunkt": "Seewoog, Waldstraße 40",
+  "lat": 49.45903,
+  "lon": 7.56546,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/seewoog/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr rund um den Seewoog auf Wald- und Schotterwegen, danach Kaffee in der Seewooghütte; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am around the Seewoog lake on forest and gravel trails, coffee afterwards at the Seewooghütte; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/seewoog/",
+   "https://www.parkrun.com.de/seewoog/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "speyer-parkrun-speyerleinpfad",
+  "name": "Speyer Leinpfad parkrun",
+  "art": "Laufen",
+  "stadt": "Speyer",
+  "land": "Deutschland",
+  "treffpunkt": "Rheinufer-Leinpfad auf Höhe der Strandbar, Rheinstrand 1",
+  "lat": 49.31512,
+  "lon": 8.45218,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/speyerleinpfad/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr am Rhein-Leinpfad und durch den Domgarten, danach Kaffee und Brot; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am along the Rhine towpath and through the cathedral gardens, with coffee and bread afterwards; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/speyerleinpfad/",
+   "https://www.parkrun.com.de/speyerleinpfad/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "landau-parkrun-ebenberg",
+  "name": "Ebenberg parkrun",
+  "art": "Laufen",
+  "stadt": "Landau in der Pfalz",
+  "land": "Deutschland",
+  "treffpunkt": "Aussichtsturm auf dem Landesgartenschaugelände Ebenberg, beim Kirchenpavillon",
+  "lat": 49.18393,
+  "lon": 8.12096,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/ebenberg/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr auf dem Landesgartenschaugelände am Ebenberg, danach Frühstück in Nina's Mehlstübchen; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am on the former garden show grounds at Ebenberg, breakfast afterwards at Nina's Mehlstübchen; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/ebenberg/",
+   "https://www.parkrun.com.de/ebenberg/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "merzig-parkrun-leinpfad",
+  "name": "Leinpfad parkrun",
+  "art": "Laufen",
+  "stadt": "Merzig",
+  "land": "Deutschland",
+  "treffpunkt": "Stadtpark Merzig, Alter Leinpfad (neben Bahnhof Merzig Stadtmitte)",
+  "lat": 49.44276,
+  "lon": 6.63467,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung (Barcode) für die Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/leinpfad/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr im Stadtpark Merzig am Saar-Leinpfad, danach gemeinsam ins Café Bilo; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am in Merzig's town park on the Saar towpath, followed by coffee at Café Bilo; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/leinpfad/",
+   "https://www.parkrun.com.de/leinpfad/course/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "frankfurt-kraft-runners",
+  "name": "KRAFT Runners Frankfurt",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "RimeD Kiosk, Schichaustraße 13 (Ostend)",
+  "lat": 50.11195,
+  "lon": 8.70369,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/frankfurt",
+  "instagram": "https://www.instagram.com/kraftrunners/",
+  "merkmale": [
+   "gepaeck"
+  ],
+  "beschreibung_de": "Social Run Club, der sich jeden Donnerstag um 19 Uhr am RimeD Kiosk im Ostend trifft; jedes Tempo ist willkommen, Gepäckabgabe vor Ort.",
+  "beschreibung_en": "Social run club meeting every Thursday at 7 pm at RimeD Kiosk in the Ostend district; every pace welcome, bag drop available.",
+  "quelle": [
+   "https://kraftrunners.de/frankfurt",
+   "https://www.hessenschau.de/panorama/instagram-hype-social-run-club-viel-mehr-als-der-lauf-treff-von-frueher-v1,running-clubs-hessen-100.html"
+  ],
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "frankfurt-laufshop-montagslauftreff",
+  "name": "Montagslauftreff Frankfurter Laufshop",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "Frankfurter Laufshop, Große Friedberger Straße 37-39",
+  "lat": 50.11644,
+  "lon": 8.68582,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:30",
+    "bezeichnung": "nicht an Feiertagen"
+   }
+  ],
+  "distanz_km": [
+   8,
+   11
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "4:30",
+   "bis": "6:30"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.frankfurter-laufshop.de/montagslauftreff/",
+  "instagram": "https://www.instagram.com/frankfurter_laufshop/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Lauftreff des Frankfurter Laufshops jeden Montag um 19:30 Uhr mit fünf Tempogruppen, rund eine Stunde am Main entlang.",
+  "beschreibung_en": "Running shop group run every Monday at 7:30 pm with five pace groups, about one hour along the Main river.",
+  "quelle": [
+   "https://www.frankfurter-laufshop.de/montagslauftreff/",
+   "https://socialrunclubs.de/frankfurt-am-main/montags-lauftreff/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Treffpunkt auf der Seite nicht ausdrücklich genannt, Ladenadresse angenommen; Kosten nicht genannt",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "frankfurt-portobello-running-club",
+  "name": "PB Running Club Frankfurt (Portobello Runners)",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "vor dem Literaturhaus Frankfurt, Schöne Aussicht 2",
+  "lat": 50.10939,
+  "lon": 8.6931,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "11:00",
+    "bezeichnung": "Weekend Run",
+    "distanz_km": [
+     10,
+     10
+    ]
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00",
+    "bezeichnung": "After-Work Run",
+    "distanz_km": [
+     7,
+     7
+    ]
+   }
+  ],
+  "dauer_min": 60,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "WhatsApp-Gruppe für aktuelle Infos",
+  "webseite": "https://runningclubfrankfurt.de/",
+  "instagram": "https://www.instagram.com/portobello.runners/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "beschreibung_de": "Kostenlose Gruppenläufe am Mainufer ab dem Literaturhaus, samstags rund 10 km und mittwochs rund 7 km, danach oft gemeinsames Essen.",
+  "beschreibung_en": "Free group runs along the Main riverbank from the Literaturhaus, about 10 km on Saturdays and 7 km on Wednesdays, often followed by food together.",
+  "quelle": [
+   "https://running.life/de/termine/pb-running-club-frankfurt/2026-07-25",
+   "https://meetup.com/frankfurt-runners-club",
+   "https://socialrunclubs.de/frankfurt-am-main/portobello-running-club-frankfurt/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Uhrzeiten widersprüchlich/nur aus Sammelseiten (Sa 11:00 laut Meetup, Mi 19:00 laut Suchtreffer); eigene Webseite ohne Inhalt",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "frankfurt-bad-habits-run-club",
+  "name": "Bad Habits Run Club (Asphaltgold Frankfurt)",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "Asphaltgold Store, Berliner Straße 60",
+  "lat": 50.1115,
+  "lon": 8.67963,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "webseite": "https://www.asphaltgold.com/pages/badhabits-run-club",
+  "instagram": "https://www.instagram.com/badhabitsrunclub/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Run Club des Sneakerladens Asphaltgold donnerstags um 19 Uhr mit mehreren Tempogruppen und Getränken danach; läuft abwechselnd in Frankfurt und Darmstadt.",
+  "beschreibung_en": "Run club of the Asphaltgold sneaker store on Thursdays at 7 pm with several pace groups and drinks afterwards; alternates between Frankfurt and Darmstadt.",
+  "quelle": [
+   "https://socialrunclubs.de/frankfurt-am-main/bad-habits-run-club/",
+   "https://www.journal-frankfurt.de/journal_news/freizeit-163/Lauftreffs-in-Frankfurt-Run-Clubs-Laufen-Kaffee-trinken-neue-Leute-kennenlernen-45460.html"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "wechselt zwischen Frankfurt und Darmstadt – welche Donnerstage in Frankfurt, unklar; Asphaltgold-Seite antwortete 429",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "frankfurt-europaviertel-running-club",
+  "name": "Europaviertel Running Club",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "Paul and Tim, Europa-Allee 147",
+  "lat": 50.10738,
+  "lon": 8.62659,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   8
+  ],
+  "dauer_min": 60,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "WhatsApp-Gruppe",
+  "webseite": "https://www.mainathlet.de/",
+  "instagram": "https://www.instagram.com/mainathlet/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser Sonntagslauf über 5–8 km ab dem Café Paul and Tim im Europaviertel Richtung Rebstock und Nidda, alle Niveaus willkommen.",
+  "beschreibung_en": "Free Sunday run of 5–8 km from Paul and Tim café in the Europaviertel towards Rebstock and the Nidda, all levels welcome.",
+  "quelle": [
+   "https://socialrunclubs.de/frankfurt-am-main/europaviertel-running-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; mainathlet.de nennt den Lauf nicht",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "frankfurt-feinripp-live-sessions",
+  "name": "Feinripp Live Sessions",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "Massif Central, Bethmannstraße 7-9",
+  "lat": 50.11012,
+  "lon": 8.67925,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "06:30"
+   }
+  ],
+  "distanz_km": [
+   6.5,
+   6.5
+  ],
+  "merkmale": [
+   "kaffee"
+  ],
+  "webseite": "https://livesessions.feinripp.net/",
+  "instagram": "https://www.instagram.com/feinrippdotnet/",
+  "beschreibung_de": "Frühlauf freitags um 6:30 Uhr über rund 6,5 km im Plaudertempo, danach Kaffee.",
+  "beschreibung_en": "Early Friday run at 6:30 am, about 6.5 km at talking pace, with coffee afterwards.",
+  "quelle": [
+   "https://socialrunclubs.de/frankfurt-am-main/feinripp-live-sessions/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Start ab 08.05.2026 angekündigt, Webseite leitet nur auf Formular",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "frankfurt-local-legends-run-club",
+  "name": "LOCAL LEGENDS Run Club",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "Grüneburgweg 95 (dienstags) bzw. Kunstverein Familie Montez (freitags)",
+  "lat": 50.12323,
+  "lon": 8.66503,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:30",
+    "bezeichnung": "Social Run, Grüneburgweg 95",
+    "distanz_km": [
+     6,
+     6
+    ]
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Social Run, Kunstverein Familie Montez",
+    "distanz_km": [
+     6,
+     6
+    ]
+   }
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "6:00"
+  },
+  "instagram": "https://www.instagram.com/local_legends_run_club/",
+  "merkmale": [
+   "gepaeck"
+  ],
+  "beschreibung_de": "Social Runs über 6 km im 6er-Schnitt dienstags am Grüneburgweg und freitags am Kunstverein Familie Montez, mit Gepäckabgabe.",
+  "beschreibung_en": "6 km social runs at about 6:00 min/km on Tuesdays at Grüneburgweg and Fridays at Kunstverein Familie Montez, bag drop available.",
+  "quelle": [
+   "https://socialrunclubs.de/frankfurt-am-main/local-legends-run-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; zwei Treffpunkte, Koordinaten nur für Dienstag",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "frankfurt-main-runners",
+  "name": "Main Runners Frankfurt",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "Rapunzelturm im Grüneburgpark",
+  "lat": 50.1272,
+  "lon": 8.6622,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:15"
+   }
+  ],
+  "instagram": "https://www.instagram.com/main_runners/",
+  "beschreibung_de": "Lockere Gemeinschaftsläufe mittwochs ab dem Grüneburgpark, gelegentlich auch im Feldberggebiet.",
+  "beschreibung_en": "Casual community runs on Wednesdays from Grüneburgpark, sometimes also in the Feldberg forest.",
+  "quelle": [
+   "https://socialrunclubs.de/frankfurt-am-main/main-runners-frankfurt/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Treffpunkt wechselt evtl. (Rapunzelturm oder anderer Ort 19:30), Koordinate = Grüneburgpark",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "frankfurt-run-club-merianplatz",
+  "name": "Run Club Merianplatz",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "Merianplatz",
+  "lat": 50.11998,
+  "lon": 8.69508,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "08:00",
+    "bezeichnung": "Long Run"
+   }
+  ],
+  "distanz_km": [
+   18,
+   35
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:15"
+  },
+  "stufen": [
+   "fortgeschritten"
+  ],
+  "instagram": "https://www.instagram.com/run_club_merianplatz/",
+  "beschreibung_de": "Lange Läufe von 18 bis 35 km jeden Sonntag um 8 Uhr ab dem Merianplatz.",
+  "beschreibung_en": "Long runs of 18 to 35 km every Sunday at 8 am from Merianplatz.",
+  "quelle": [
+   "https://socialrunclubs.de/frankfurt-am-main/run-club-merianplatz/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "frankfurt-oace-run-club",
+  "name": "OACE Run Club Frankfurt",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "Braky Café, Sandweg 6C",
+  "lat": 50.11632,
+  "lon": 8.69591,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "6:30"
+  },
+  "instagram": "https://www.instagram.com/oace.club/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Lockerer 6-km-Lauf jeden Donnerstag ab dem Braky Café im Nordend, Tempo um 6:30 min/km, danach Ausklang im Café.",
+  "beschreibung_en": "Easy 6 km run every Thursday from Braky Café in the Nordend at about 6:30 min/km, followed by time in the café.",
+  "quelle": [
+   "https://socialrunclubs.de/frankfurt-am-main/oace-club-frankfurt/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "frankfurt-pancake-run-club",
+  "name": "Pancake Run Club",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "Laufshop Leder (Treffen 9:00, Start 9:30)",
+  "lat": 50.11163,
+  "lon": 8.67949,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "nter": 1
+   },
+   {
+    "rhythmus": "monatlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "nter": 3
+   }
+  ],
+  "instagram": "https://www.instagram.com/pancakerunclub/",
+  "beschreibung_de": "Samstagslauf am ersten und dritten Samstag im Monat ab dem Laufshop Leder, Treffen um 9 Uhr, Start 9:30 Uhr.",
+  "beschreibung_en": "Saturday run on the first and third Saturday of the month from the Leder running shop, meet at 9 am, start 9:30 am.",
+  "quelle": [
+   "https://socialrunclubs.de/frankfurt-am-main/pancake-run-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Adresse Laufshop Leder nicht genannt, Koordinate von der Sammelseite",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "frankfurt-ecclesia-running-club",
+  "name": "Ecclesia Running Club",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "Mainkai 36 (Primusticket-Shop)",
+  "lat": 50.10928,
+  "lon": 8.68153,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "20:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/erc_frankfurt/",
+  "beschreibung_de": "Lauftreff der Freikirche Ecclesia freitags um 20 Uhr am Mainkai, mit gemeinsamem Laufen und Gebet.",
+  "beschreibung_en": "Running group of the Ecclesia church on Fridays at 8 pm at Mainkai, combining running and prayer.",
+  "quelle": [
+   "https://socialrunclubs.de/frankfurt-am-main/ecclesia-running-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Gemeindeseite nennt den Lauftreff nicht",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "darmstadt-darmstaedter-lauftreff",
+  "name": "Darmstädter Lauf-Treff (SV Darmstadt 98)",
+  "stadt": "Darmstadt",
+  "treffpunkt": "Parkplatz vor dem Merck-Stadion am Böllenfalltor, Nieder-Ramstädter Straße",
+  "lat": 49.85771,
+  "lon": 8.67241,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "09:30",
+    "bezeichnung": "Start an der Oberförsterwiese"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "16:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.darmstaedter-lauftreff.de/",
+  "instagram": "https://www.instagram.com/darmstaedter.lauftreff.1974/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Traditionsreicher Lauftreff für Jogger und Walker mit Einsteigergruppen, montags, donnerstags und samstags am Böllenfalltor, dienstags vormittags an der Oberförsterwiese; kostenlos und unverbindlich.",
+  "beschreibung_en": "Long-standing running group for joggers and walkers including beginners, Mondays, Thursdays and Saturdays at the Böllenfalltor stadium, Tuesday mornings at the Oberförsterwiese; free and informal.",
+  "quelle": [
+   "https://www.sv98.de/dates-for-the-darmstadt-running-club-2026/",
+   "https://www.darmstaedter-lauftreff.de/"
+  ],
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "darmstadt-laeuferherz-lauftreff",
+  "name": "Läuferherz Mittwochs-Lauftreff",
+  "stadt": "Darmstadt",
+  "treffpunkt": "Läuferherz Laufshop, Schulstraße 9",
+  "lat": 49.87046,
+  "lon": 8.65579,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "distanz_km": [
+   10,
+   14
+  ],
+  "pace": {
+   "von": "5:00",
+   "bis": "6:00"
+  },
+  "webseite": "https://laeuferherz.com/woechentlicher-lauftreff/",
+  "instagram": "https://www.instagram.com/laeuferherz_darmstadt/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Lauftreff des Laufladens Läuferherz jeden Mittwoch um 19 Uhr mit drei Gruppen über 10–14 km zwischen 5:00 und 6:00 min/km.",
+  "beschreibung_en": "Running shop group run every Wednesday at 7 pm with three groups covering 10–14 km at 5:00 to 6:00 min/km.",
+  "quelle": [
+   "https://laeuferherz.com/woechentlicher-lauftreff/"
+  ],
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "darmstadt-bad-habits-run-club",
+  "name": "Bad Habits Run Club (Asphaltgold Darmstadt)",
+  "stadt": "Darmstadt",
+  "treffpunkt": "Asphaltgold Store am Ludwigsplatz",
+  "lat": 49.87071,
+  "lon": 8.65387,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "webseite": "https://www.asphaltgold.com/pages/badhabits-run-club",
+  "instagram": "https://www.instagram.com/badhabitsrunclub/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Run Club des Sneakerladens Asphaltgold donnerstags um 19 Uhr mit Tempogruppen und Getränken danach; läuft abwechselnd in Darmstadt und Frankfurt.",
+  "beschreibung_en": "Run club of the Asphaltgold sneaker store on Thursdays at 7 pm with pace groups and drinks afterwards; alternates between Darmstadt and Frankfurt.",
+  "quelle": [
+   "https://socialrunclubs.de/darmstadt/bad-habits-run-club/",
+   "https://www.journal-frankfurt.de/journal_news/freizeit-163/Lauftreffs-in-Frankfurt-Run-Clubs-Laufen-Kaffee-trinken-neue-Leute-kennenlernen-45460.html"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "wechselt zwischen Darmstadt und Frankfurt – welche Donnerstage in Darmstadt, unklar; Asphaltgold-Seite antwortete 429",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "darmstadt-bdd-run-club",
+  "name": "bdd run club",
+  "stadt": "Darmstadt",
+  "treffpunkt": "Friedensplatz",
+  "lat": 49.87463,
+  "lon": 8.65386,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "wochentag": 5,
+    "uhrzeit": "17:30",
+    "nter": 2
+   }
+  ],
+  "dauer_min": 60,
+  "instagram": "https://www.instagram.com/bewegdichdarmstadt/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Monatlicher Gemeinschaftslauf am zweiten Freitag ab dem Friedensplatz, 45–60 Minuten ohne Leistungsdruck.",
+  "beschreibung_en": "Monthly community run on the second Friday from Friedensplatz, 45–60 minutes with no pressure.",
+  "quelle": [
+   "https://socialrunclubs.de/darmstadt/bdd-run-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "mainz-tuesday-night-run-club",
+  "name": "Mainz Social Running (Tuesday Night Run Club)",
+  "stadt": "Mainz",
+  "land": "Deutschland",
+  "treffpunkt": "vor Kelly's Irish Pub am Mainz Hauptbahnhof",
+  "lat": 50.00111,
+  "lon": 8.25872,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   7
+  ],
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://www.tuesdaynightrun.club/",
+  "instagram": "https://www.instagram.com/mainzsocialrunning/",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "beschreibung_de": "Englischsprachiger Social Run jeden Dienstag um 19 Uhr ab dem Hauptbahnhof über 5–7 km in wechselnden Routen, danach Essen oder Drinks.",
+  "beschreibung_en": "English-speaking social run every Tuesday at 7 pm from the main station, 5–7 km on changing routes, followed by dinner or drinks.",
+  "quelle": [
+   "https://www.tuesdaynightrun.club/",
+   "https://meetup.com/mainz-social-running-squad"
+  ],
+  "art": "Laufen",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "mainz-laufzeit-lauftreff",
+  "name": "LaufZeit Mainz Lauftreff (Rheinrunners)",
+  "stadt": "Mainz",
+  "treffpunkt": "Parkplatz Sportraum Mainz, Curiestraße 2",
+  "lat": 49.97099,
+  "lon": 8.26827,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "distanz_km": [
+   7,
+   12
+  ],
+  "pace": {
+   "von": "4:40",
+   "bis": "6:30"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "WhatsApp-Gruppe",
+  "webseite": "https://laufzeit-mainz.de/lauftreff",
+  "instagram": "https://www.instagram.com/deine_laufzeit/",
+  "merkmale": [
+   "mehrere_gruppen",
+   "gepaeck"
+  ],
+  "beschreibung_de": "Kostenloser Lauftreff des Laufladens LaufZeit donnerstags um 19 Uhr am Sportraum Mainz mit drei Tempogruppen über 7–12 km.",
+  "beschreibung_en": "Free running shop group run on Thursdays at 7 pm at Sportraum Mainz with three pace groups over 7–12 km.",
+  "quelle": [
+   "https://laufzeit-mainz.de/lauftreff"
+  ],
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "mainz-meenzrunners",
+  "name": "MeenzRunners",
+  "stadt": "Mainz",
+  "treffpunkt": "Theodor-Heuss-Brücke (Mainzer Rheinufer)",
+  "lat": 50.0073,
+  "lon": 8.2709,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/meenzrunners/",
+  "beschreibung_de": "Social Run jeden Dienstag um 19 Uhr an der Theodor-Heuss-Brücke.",
+  "beschreibung_en": "Social run every Tuesday at 7 pm at the Theodor-Heuss bridge.",
+  "quelle": [
+   "https://socialrunclubs.de/mainz/meenzrunners/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; genaue Brückenseite unklar, Koordinate Rheinufer Altstadt",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "mainz-ag-run-club",
+  "name": "AG Run Club",
+  "stadt": "Mainz",
+  "treffpunkt": "Brückenkopf Mainz am Rhein",
+  "lat": 50.0073,
+  "lon": 8.2709,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/ag.medical.fitness/",
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lauftreff jeden Montag um 19 Uhr am Rheinufer in zwei Tempogruppen für Einsteiger und Fortgeschrittene.",
+  "beschreibung_en": "Group run every Monday at 7 pm on the Rhine bank in two pace groups for beginners and advanced runners.",
+  "quelle": [
+   "https://socialrunclubs.de/mainz/ag-run-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Koordinate Rheinufer an der Theodor-Heuss-Brücke angenommen",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "mainz-the-run-collective",
+  "name": "The Run Collective Mainz",
+  "stadt": "Mainz",
+  "treffpunkt": "Via del Wir, Altstadt",
+  "lat": 49.99945,
+  "lon": 8.27643,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "11:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/theruncollective.mainz/",
+  "beschreibung_de": "Social Run jeden Sonntag um 11 Uhr in der Mainzer Altstadt, alle Tempi willkommen.",
+  "beschreibung_en": "Social run every Sunday at 11 am in Mainz old town, all paces welcome.",
+  "quelle": [
+   "https://socialrunclubs.de/mainz/the-run-collective/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Koordinate von der Sammelseite",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "mainz-laufleben-bahntraining",
+  "name": "Laufleben Running Crew – offenes Bahntraining",
+  "stadt": "Mainz",
+  "treffpunkt": "Sportanlage Mainzer TV 1817, Schillstraße 15",
+  "lat": 49.98704,
+  "lon": 8.2646,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "webseite": "https://lauflebenrunningcrew.de/",
+  "instagram": "https://www.instagram.com/lauflebenrunningcrew/",
+  "beschreibung_de": "Offenes Bahntraining der Laufleben Running Crew jeden Dienstag um 19 Uhr.",
+  "beschreibung_en": "Open track session of the Laufleben Running Crew every Tuesday at 7 pm.",
+  "quelle": [
+   "https://socialrunclubs.de/mainz/laufleben-running-crew-e-v/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Vereinsseite nennt Zeiten nicht, Offenheit für Gäste prüfen",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "wiesbaden-lc-olympia-lauftreff",
+  "name": "LC Olympia Wiesbaden Lauftreff",
+  "stadt": "Wiesbaden",
+  "treffpunkt": "Parkplatz Nerobergbahn, Nerotal",
+  "lat": 50.09661,
+  "lon": 8.22762,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00",
+    "bezeichnung": "nur in der Sommerzeit (April bis Oktober)"
+   }
+  ],
+  "dauer_min": 75,
+  "webseite": "https://www.lcolympia.de/index.php/sport/lauftreff",
+  "instagram": "https://www.instagram.com/lcolympia/",
+  "beschreibung_de": "Vereinslauftreff im Nerotal, sonntags ganzjährig um 10 Uhr und mittwochs in der Sommerzeit um 19 Uhr, Gäste willkommen.",
+  "beschreibung_en": "Club running group in the Nerotal valley, Sundays at 10 am all year and Wednesdays at 7 pm during summer time, guests welcome.",
+  "quelle": [
+   "https://www.lcolympia.de/index.php/sport/lauftreff"
+  ],
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "wiesbaden-monday-runday",
+  "name": "Monday Runday",
+  "stadt": "Wiesbaden",
+  "treffpunkt": "Luisenstraße 17",
+  "lat": 50.07932,
+  "lon": 8.24159,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/mondayrunday_wi/",
+  "beschreibung_de": "Lauftreff jeden Montag um 19 Uhr in der Wiesbadener Innenstadt.",
+  "beschreibung_en": "Group run every Monday at 7 pm in Wiesbaden city centre.",
+  "quelle": [
+   "https://socialrunclubs.de/wiesbaden/monday-runday/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "wiesbaden-rununity-club",
+  "name": "RunUnity Club",
+  "stadt": "Wiesbaden",
+  "treffpunkt": "Eingang Kurpark",
+  "lat": 50.08559,
+  "lon": 8.24512,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/rununityclub/",
+  "beschreibung_de": "Sonntagslauf um 10 Uhr ab dem Eingang des Kurparks.",
+  "beschreibung_en": "Sunday run at 10 am from the Kurpark entrance.",
+  "quelle": [
+   "https://socialrunclubs.de/wiesbaden/rununityclub/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Eintrag von 2025, Koordinate Kurhaus",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "fulda-runners-club",
+  "name": "Fulda Runners Club",
+  "stadt": "Fulda",
+  "treffpunkt": "Parkplatz Weimarer Straße",
+  "lat": 50.55679,
+  "lon": 9.67095,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://fuldarunners.de/",
+  "instagram": "https://www.instagram.com/fuldarunnersclub/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Lauftreff jeden Dienstag um 19 Uhr am Parkplatz Weimarer Straße in kleinen Gruppen unterschiedlichen Tempos, Einsteiger willkommen.",
+  "beschreibung_en": "Group run every Tuesday at 7 pm from the Weimarer Straße car park in small groups of different paces, beginners welcome.",
+  "quelle": [
+   "https://fuldarunners.de/"
+  ],
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "fulda-coffee-run",
+  "name": "Coffee Run Fulda (Social Run Fulda)",
+  "stadt": "Fulda",
+  "treffpunkt": "Dom, Domplatz",
+  "lat": 50.55402,
+  "lon": 9.6732,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/socialrunfulda/",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Lockerer Sonntagslauf um 10 Uhr ab dem Dom, Tempo egal, danach Kaffee.",
+  "beschreibung_en": "Relaxed Sunday run at 10 am from the cathedral, any pace, coffee afterwards.",
+  "quelle": [
+   "https://socialrunclubs.de/fulda/coffee-run-fulda/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "fulda-laufbande",
+  "name": "Laufbande Fulda",
+  "stadt": "Fulda",
+  "treffpunkt": "heimat.bar",
+  "lat": 50.55028,
+  "lon": 9.67806,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "instagram": "https://www.instagram.com/laufbande_fd/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Running Crew mit kostenlosem Lauf jeden Mittwoch um 19 Uhr an der heimat.bar in mehreren Tempogruppen.",
+  "beschreibung_en": "Running crew with a free run every Wednesday at 7 pm at heimat.bar in several pace groups.",
+  "quelle": [
+   "https://socialrunclubs.de/fulda/laufbande-fulda/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Adresse heimat.bar nicht genannt, Koordinate von der Sammelseite",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "hanau-nice-attitude-club",
+  "name": "Nice Attitude Club",
+  "stadt": "Hanau",
+  "treffpunkt": "Klara, Am Markt 8c",
+  "lat": 50.13255,
+  "lon": 8.91767,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:30"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "instagram": "https://www.instagram.com/nice.attitude.club/",
+  "beschreibung_de": "5-km-Social-Run jeden Sonntag um 10:30 Uhr ab dem Café Klara am Markt.",
+  "beschreibung_en": "5 km social run every Sunday at 10:30 am from Café Klara at the market square.",
+  "quelle": [
+   "https://socialrunclubs.de/hanau/nac/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "giessen-metasport-run-club",
+  "name": "Metasport Run Club",
+  "stadt": "Gießen",
+  "treffpunkt": "Metasport Store",
+  "lat": 50.58378,
+  "lon": 8.66835,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:15",
+    "bezeichnung": "Treffen ab 17:45"
+   }
+  ],
+  "instagram": "https://www.instagram.com/metasport.de/",
+  "beschreibung_de": "Lauftreff des Sportgeschäfts Metasport jeden Montag am Laden, Treffen ab 17:45 Uhr.",
+  "beschreibung_en": "Group run of the Metasport store every Monday, meeting from 5:45 pm.",
+  "quelle": [
+   "https://socialrunclubs.de/giessen/metasport-run-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Uhrzeit 17:45 oder 18:15 unklar, Ladenadresse fehlt, Koordinate von der Sammelseite",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "marburg-laufschule-lauftreff",
+  "name": "Laufschule Marburg Lauftreff",
+  "stadt": "Marburg",
+  "treffpunkt": "Eingang Universitätsstadion, Jahnstraße",
+  "lat": 50.80268,
+  "lon": 8.77437,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   6,
+   10
+  ],
+  "webseite": "https://www.laufschule-marburg.de",
+  "instagram": "https://www.instagram.com/laufschule_marburg/",
+  "beschreibung_de": "Privat organisierter, gesundheitsorientierter Lauftreff jeden Dienstag um 18:30 Uhr ab dem Unistadion mit Runden von 6–10 km.",
+  "beschreibung_en": "Privately organised, health-oriented running group every Tuesday at 6:30 pm from the university stadium with loops of 6–10 km.",
+  "quelle": [
+   "http://www.laufschule-marburg.de",
+   "https://socialrunclubs.de/marburg/laufschule-marburg/"
+  ],
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "marburg-marburgrunners",
+  "name": "Marburgrunners",
+  "stadt": "Marburg",
+  "treffpunkt": "Georg-Gaßmann-Stadion",
+  "lat": 50.79779,
+  "lon": 8.75442,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/marburgrunners/",
+  "beschreibung_de": "Offener wöchentlicher Crew Run donnerstags um 18:30 Uhr am Georg-Gaßmann-Stadion.",
+  "beschreibung_en": "Open weekly crew run on Thursdays at 6:30 pm at the Georg-Gaßmann stadium.",
+  "quelle": [
+   "https://socialrunclubs.de/marburg/marburgrunners/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "kassel-laufteam-kassel",
+  "name": "Laufteam Kassel",
+  "stadt": "Kassel",
+  "treffpunkt": "Auestadion, Frankfurter Straße",
+  "lat": 51.29874,
+  "lon": 9.48303,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "17:30"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "17:30"
+   }
+  ],
+  "webseite": "https://www.laufteam-kassel.de/",
+  "instagram": "https://www.instagram.com/laufteam_kassel/",
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Vereinstraining dienstags und donnerstags um 17:30 Uhr am Auestadion mit Leistungs-, Breitensport- und Einsteigergruppe.",
+  "beschreibung_en": "Club training on Tuesdays and Thursdays at 5:30 pm at the Auestadion with performance, recreational and beginner groups.",
+  "quelle": [
+   "https://www.laufteam-kassel.de/",
+   "https://socialrunclubs.de/kassel/laufteam-kassel/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Vereinstraining – ob Gäste ohne Mitgliedschaft mitlaufen dürfen, nicht genannt; Sammelseite nennt 17:45",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "kassel-running-party-crew",
+  "name": "Running.Party.Crew",
+  "stadt": "Kassel",
+  "treffpunkt": "Laufladen Kassel",
+  "lat": 51.31237,
+  "lon": 9.49609,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/running.party.crew/",
+  "beschreibung_de": "Social Run jeden Freitag um 18:30 Uhr ab dem Laufladen Kassel.",
+  "beschreibung_en": "Social run every Friday at 6:30 pm from Laufladen Kassel.",
+  "quelle": [
+   "https://socialrunclubs.de/kassel/running-party-crew/",
+   "https://www.hessenschau.de/panorama/instagram-hype-social-run-club-viel-mehr-als-der-lauf-treff-von-frueher-v1,running-clubs-hessen-100.html"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Ladenadresse fehlt, Koordinate von der Sammelseite",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "kassel-running-flow",
+  "name": "Running Flow Kassel",
+  "stadt": "Kassel",
+  "treffpunkt": "Haltestelle Kirchweg",
+  "lat": 51.31553,
+  "lon": 9.46442,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/runningflowks/",
+  "beschreibung_de": "Communitylauf jeden Donnerstag um 18:30 Uhr ab der Haltestelle Kirchweg im Vorderen Westen.",
+  "beschreibung_en": "Community run every Thursday at 6:30 pm from the Kirchweg tram stop in the Vorderer Westen district.",
+  "quelle": [
+   "https://socialrunclubs.de/kassel/running-flow-kassel/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Angabe von 2025",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "kassel-ahoi-running-club",
+  "name": "Ahoi Running Club",
+  "stadt": "Kassel",
+  "treffpunkt": "Ahoi Bootsverleih an der Fulda",
+  "lat": 51.31032,
+  "lon": 9.50491,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "17:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/ahoi__kassel/",
+  "beschreibung_de": "Sonntagslauf um 17:30 Uhr ab dem Ahoi Bootsverleih an der Fulda.",
+  "beschreibung_en": "Sunday run at 5:30 pm from the Ahoi boat rental on the Fulda river.",
+  "quelle": [
+   "https://socialrunclubs.de/kassel/ahoi-running-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Angabe von 2025, evtl. nur Sommer; Koordinate von der Sammelseite",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "koblenz-meddys-lwt-sommer",
+  "name": "Meddy's Lauf- und Walking-Treff Koblenz (im Sommerhalbjahr)",
+  "stadt": "Koblenz",
+  "treffpunkt": "Parkplatz Eichenplatz (Remstecken)",
+  "lat": 50.3112,
+  "lon": 7.55384,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 75,
+  "kosten": {
+   "gratis": false,
+   "betrag_eur": 25,
+   "text": "für Mitglieder; Gäste: Schnuppertraining oder Zehnerkarte für 25 €"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.meddys-lwt.de/de/laufen/",
+  "instagram": "https://www.instagram.com/lwtkoblenz/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "saison": {
+   "von": "04-01",
+   "bis": "09-30"
+  },
+  "beschreibung_de": "Vereinslauftreff dienstags und donnerstags um 19 Uhr am Remstecken im Sommerhalbjahr, Gruppenwahl nach Strecke; Gäste laufen mit Schnuppertraining oder Zehnerkarte.",
+  "beschreibung_en": "Club running group on Tuesdays and Thursdays at 7 pm in summer from the Remstecken car park, groups by route; guests join via a trial session or a 10-session card.",
+  "quelle": [
+   "https://www.meddys-lwt.de/de/laufen/"
+  ],
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "koblenz-meddys-lwt-winter",
+  "name": "Meddy's Lauf- und Walking-Treff Koblenz (im Winterhalbjahr)",
+  "stadt": "Koblenz",
+  "treffpunkt": "Parkplatz Stadion Oberwerth",
+  "lat": 50.33052,
+  "lon": 7.58661,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 75,
+  "kosten": {
+   "gratis": false,
+   "betrag_eur": 25,
+   "text": "für Mitglieder; Gäste: Schnuppertraining oder Zehnerkarte für 25 €"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.meddys-lwt.de/de/laufen/",
+  "instagram": "https://www.instagram.com/lwtkoblenz/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "saison": {
+   "von": "10-01",
+   "bis": "03-31"
+  },
+  "beschreibung_de": "Vereinslauftreff dienstags und donnerstags um 19 Uhr am Stadion Oberwerth im Winterhalbjahr, Gruppenwahl nach Strecke; Gäste laufen mit Schnuppertraining oder Zehnerkarte.",
+  "beschreibung_en": "Club running group on Tuesdays and Thursdays at 7 pm in winter from the Stadion Oberwerth car park, groups by route; guests join via a trial session or a 10-session card.",
+  "quelle": [
+   "https://www.meddys-lwt.de/de/laufen/"
+  ],
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "trier-city-sport-community-thursday",
+  "name": "CITY SPORT Trier – Community Thursday",
+  "stadt": "Trier",
+  "treffpunkt": "vor dem CITY SPORT Laden, Palaststraße 23",
+  "lat": 49.75446,
+  "lon": 6.64221,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 60,
+  "webseite": "https://citysport-trier.de/laufkurse/",
+  "instagram": "https://www.instagram.com/city_sport_trier/",
+  "beschreibung_de": "Donnerstagslauftreff des Laufladens CITY SPORT um 19 Uhr, rund eine Stunde ab dem Laden in der Altstadt.",
+  "beschreibung_en": "Thursday group run of the CITY SPORT running shop at 7 pm, about one hour from the store in the old town.",
+  "quelle": [
+   "https://citysport-trier.de/laufkurse/"
+  ],
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "trier-run-collective",
+  "name": "Run Collective Trier",
+  "stadt": "Trier",
+  "treffpunkt": "CITY SPORT Trier, Palaststraße 23",
+  "lat": 49.75446,
+  "lon": 6.64221,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/runcollective_trier/",
+  "beschreibung_de": "Samstagslauf um 10:30 Uhr ab dem Laufladen CITY SPORT.",
+  "beschreibung_en": "Saturday run at 10:30 am from the CITY SPORT running shop.",
+  "quelle": [
+   "https://socialrunclubs.de/trier/run-collective-trier/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Ladenseite nennt den Samstagslauf nicht",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "trier-lauftreff-tulux",
+  "name": "Lauftreff TuLux",
+  "stadt": "Trier",
+  "treffpunkt": "Turm Luxemburg, Behringstraße (Olewig)",
+  "lat": 49.75126,
+  "lon": 6.67577,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/lauftreff_tulux/",
+  "beschreibung_de": "Lauftreff dienstags und donnerstags um 19 Uhr am Turm Luxemburg oberhalb von Olewig.",
+  "beschreibung_en": "Group run on Tuesdays and Thursdays at 7 pm at the Turm Luxemburg tower above Olewig.",
+  "quelle": [
+   "https://socialrunclubs.de/trier/lauftreff-tulux/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "saarbruecken-staden-runners",
+  "name": "Staden Runners",
+  "stadt": "Saarbrücken",
+  "treffpunkt": "Ulanen Pavillon, Am Staden 17",
+  "lat": 49.2263,
+  "lon": 7.00704,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "instagram": "https://www.instagram.com/stadenrunners_sb/",
+  "beschreibung_de": "Kostenfreie Laufgruppe jeden Montag um 18:30 Uhr am Ulanen Pavillon am Staden.",
+  "beschreibung_en": "Free running group every Monday at 6:30 pm at the Ulanen Pavillon on the Staden riverside.",
+  "quelle": [
+   "https://socialrunclubs.de/saarbruecken/staden-runners/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "saarbruecken-rigatoni-runners",
+  "name": "Rigatoni Runners Club",
+  "stadt": "Saarbrücken",
+  "treffpunkt": "Halle 4",
+  "lat": 49.2321,
+  "lon": 7.00555,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/rigatoni_runners/",
+  "beschreibung_de": "Social Run jeden Donnerstag um 18:30 Uhr ab der Halle 4.",
+  "beschreibung_en": "Social run every Thursday at 6:30 pm from Halle 4.",
+  "quelle": [
+   "https://socialrunclubs.de/saarbruecken/rigatoni-runners-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Adresse der Halle 4 fehlt, Koordinate von der Sammelseite, Angabe von 2025",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "neustadt-thunderheart-running-club",
+  "name": "Thunderheart Running Club",
+  "stadt": "Neustadt an der Weinstraße",
+  "treffpunkt": "CrossFit Thunderheart, Hermann-Wehrle-Straße 5",
+  "lat": 49.34342,
+  "lon": 8.17396,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "wochentag": 7,
+    "uhrzeit": "09:00",
+    "nter": 1
+   }
+  ],
+  "distanz_km": [
+   5,
+   6
+  ],
+  "merkmale": [
+   "kaffee"
+  ],
+  "webseite": "https://www.crossfit-thunderheart.de/",
+  "instagram": "https://www.instagram.com/crossfit_thunderheart/",
+  "beschreibung_de": "Gemeinschaftslauf über 5–6 km am ersten Sonntag im Monat um 9 Uhr ab der CrossFit-Box, danach Kaffee.",
+  "beschreibung_en": "5–6 km community run on the first Sunday of the month at 9 am from the CrossFit box, followed by coffee.",
+  "quelle": [
+   "https://socialrunclubs.de/neustadt-an-der-weinstrasse/thunderheart-running-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Box-Webseite nennt den Lauf nicht",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
+ },
+ {
+  "id": "worms-social-run",
+  "name": "Worms Social Run",
+  "stadt": "Worms",
+  "treffpunkt": "Pfrimmpark",
+  "lat": 49.63608,
+  "lon": 8.33274,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/worms_socialrun/",
+  "beschreibung_de": "Social Runs mittwochs um 18:30 Uhr und sonntags um 9 Uhr im Pfrimmpark.",
+  "beschreibung_en": "Social runs on Wednesdays at 6:30 pm and Sundays at 9 am in the Pfrimmpark.",
+  "quelle": [
+   "https://socialrunclubs.de/worms/worms-social-run/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; genauer Treffpunkt im Park unklar",
+  "land": "Deutschland",
+  "art": "Laufen",
+  "geprueft": "2026-10-19",
+  "sprachen": [
+   "de"
+  ]
  }
 ]
