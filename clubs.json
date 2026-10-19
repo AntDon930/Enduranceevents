@@ -746,5 +746,1510 @@
   ],
   "land": "Deutschland",
   "geprueft": "2026-10-19"
+ },
+ {
+  "id": "leipzig-parkrun-kuechenholz",
+  "name": "Küchenholz parkrun",
+  "art": "Laufen",
+  "stadt": "Leipzig",
+  "treffpunkt": "Küchenholzallee im Volkspark Kleinzschocher, ca. 200 m südlich der Antonienstraße",
+  "lat": 51.31533,
+  "lon": 12.33781,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/kuechenholz/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, zwei flache Runden durch Stadtpark und Auwald; Gehen, Joggen und Laufen sind willkommen, danach Kaffee im Café WB, Könneritzstraße 100.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am, two flat laps through the park and floodplain forest; walkers, joggers and runners welcome, with coffee afterwards at Café WB, Könneritzstraße 100.",
+  "quelle": [
+   "https://www.parkrun.com.de/kuechenholz/",
+   "https://www.parkrun.com.de/kuechenholz/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "halle-parkrun-ziegelwiese",
+  "name": "Ziegelwiese parkrun",
+  "art": "Laufen",
+  "stadt": "Halle (Saale)",
+  "treffpunkt": "An der Fontäne auf der Ziegelwiese (Peißnitzstraße)",
+  "lat": 51.49366,
+  "lon": 11.95466,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/ziegelwiese/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, flache Strecke über die Ziegelwiese und um die Fontäne; Gehen, Joggen und Laufen sind willkommen, danach Kaffee im Peißnitzhaus, Peißnitzinsel 4.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am, a flat course across the Ziegelwiese and around the fountain; walkers, joggers and runners welcome, with coffee afterwards at Peißnitzhaus, Peißnitzinsel 4.",
+  "quelle": [
+   "https://www.parkrun.com.de/ziegelwiese/",
+   "https://www.parkrun.com.de/ziegelwiese/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "dresden-parkrun-priessnitzgrund",
+  "name": "Prießnitzgrund parkrun",
+  "art": "Laufen",
+  "stadt": "Dresden",
+  "treffpunkt": "Unter der Prießnitzgrundbrücke der Stauffenbergallee am Eingang zur Dresdner Heide",
+  "lat": 51.07442,
+  "lon": 13.76259,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/priessnitzgrund/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, flacher Waldweg im Prießnitzgrund, 2,5 km hin und zurück; Gehen, Joggen und Laufen sind willkommen, danach Kaffee im Café EckeNord, Frühlingstraße 22.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am, a flat forest path in the Prießnitzgrund, 2.5 km out and back; walkers, joggers and runners welcome, with coffee afterwards at Café EckeNord, Frühlingstraße 22.",
+  "quelle": [
+   "https://www.parkrun.com.de/priessnitzgrund/",
+   "https://www.parkrun.com.de/priessnitzgrund/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hennigsdorf-parkrun-havelkanal",
+  "name": "Havelkanal parkrun",
+  "art": "Laufen",
+  "stadt": "Hennigsdorf",
+  "treffpunkt": "Am Havelkanal hinter der rot-weißen Schranke, ca. 200 m nach dem Ende der Straße „Am Neuen Kanal“",
+  "lat": 52.61395,
+  "lon": 13.1918,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/havelkanal/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, asphaltierter Weg am Havelkanal, 2,5 km hin und zurück; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am, a paved path along the Havel canal, 2.5 km out and back; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/havelkanal/",
+   "https://www.parkrun.com.de/havelkanal/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "chemnitz-parkrun-stadtparkchemnitz",
+  "name": "Stadtpark parkrun, Chemnitz",
+  "art": "Laufen",
+  "stadt": "Chemnitz",
+  "treffpunkt": "Stadtpark nahe dem „Polargarten“ (Zufahrt Scheffelstraße 99)",
+  "lat": 50.80505,
+  "lon": 12.90118,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/stadtparkchemnitz/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, zwei Runden durch den Stadtpark auf überwiegend befestigten Wegen; Gehen, Joggen und Laufen sind willkommen, danach Kaffee im Feel Good Club.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am, two laps of the city park on mostly paved paths; walkers, joggers and runners welcome, with coffee afterwards at Feel Good Club.",
+  "quelle": [
+   "https://www.parkrun.com.de/stadtparkchemnitz/",
+   "https://www.parkrun.com.de/stadtparkchemnitz/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "frankenberg-parkrun-zschopauaue",
+  "name": "Zschopauaue parkrun",
+  "art": "Laufen",
+  "stadt": "Frankenberg/Sa.",
+  "treffpunkt": "Am Kletterpark Zschopauaue, ca. 150 m westlich der „ZeitWerkStadt“, Chemnitzer Str. 64",
+  "lat": 50.90821,
+  "lon": 13.02311,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/zschopauaue/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, hinter den Deichen beiderseits der Zschopau mit zwei Wendepunkten; Gehen, Joggen und Laufen sind willkommen, danach Kaffee im Museumscafé in der ZeitWerkStadt.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am, behind the dykes on both sides of the Zschopau with two turnarounds; walkers, joggers and runners welcome, with coffee afterwards at Museumscafé in der ZeitWerkStadt.",
+  "quelle": [
+   "https://www.parkrun.com.de/zschopauaue/",
+   "https://www.parkrun.com.de/zschopauaue/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "caputh-parkrun-caputhersee",
+  "name": "Caputher See parkrun",
+  "art": "Laufen",
+  "stadt": "Schwielowsee (Caputh)",
+  "treffpunkt": "Im Wald ca. 60 m vom Ende der Seestraße, 14548 Caputh",
+  "lat": 52.34266,
+  "lon": 12.99999,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/caputhersee/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, am Ufer des Caputher Sees und durch Mischwald; Gehen, Joggen und Laufen sind willkommen, danach Kaffee im Havelerie, Straße der Einheit 52.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am, along Lake Caputh and through mixed forest; walkers, joggers and runners welcome, with coffee afterwards at Havelerie, Straße der Einheit 52.",
+  "quelle": [
+   "https://www.parkrun.com.de/caputhersee/",
+   "https://www.parkrun.com.de/caputhersee/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "freital-parkrun-rabenauergrund",
+  "name": "Rabenauer Grund parkrun",
+  "art": "Laufen",
+  "stadt": "Freital",
+  "treffpunkt": "Südliches Ende der Straße „An der Kleinbahn“ direkt nach der Brücke",
+  "lat": 50.97108,
+  "lon": 13.61927,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/rabenauergrund/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, hin und zurück auf befestigtem Waldweg entlang der Roten Weißeritz; Gehen, Joggen und Laufen sind willkommen, danach Kaffee im Ballsäle Coßmannsdorf, An der Kleinbahn 2.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am, out and back on a forest track along the Rote Weißeritz; walkers, joggers and runners welcome, with coffee afterwards at Ballsäle Coßmannsdorf, An der Kleinbahn 2.",
+  "quelle": [
+   "https://www.parkrun.com.de/rabenauergrund/",
+   "https://www.parkrun.com.de/rabenauergrund/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "magdeburg-parkrun-stadtparkrotehorn",
+  "name": "Stadtpark Rotehorn parkrun",
+  "art": "Laufen",
+  "stadt": "Magdeburg",
+  "treffpunkt": "Heinrich-Heine-Platz an der Ecke Sternbrücke (Parkseite)",
+  "lat": 52.11669,
+  "lon": 11.63906,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/stadtparkrotehorn/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, entlang der Elbe und zwei Runden durch den Stadtpark Rotehorn; Gehen, Joggen und Laufen sind willkommen, danach Kaffee im Café Franz am Domfelsen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am, along the Elbe and two laps of Rotehorn park; walkers, joggers and runners welcome, with coffee afterwards at Café Franz am Domfelsen.",
+  "quelle": [
+   "https://www.parkrun.com.de/stadtparkrotehorn/",
+   "https://www.parkrun.com.de/stadtparkrotehorn/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-on-run-club",
+  "name": "On Run Club Berlin",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "On Store Berlin Mitte, Neue Schönhauser Straße 19",
+  "lat": 52.52476,
+  "lon": 13.40605,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "webseite": "https://www.on.com/de-de/explore/stores/berlin-mitte",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "stufen": [
+   "anfaenger",
+   "fortgeschritten"
+  ],
+  "beschreibung_de": "Wöchentlicher Lauf des On Stores in Mitte, donnerstags um 18:30 Uhr mit Coaches; wer Schuhe testen möchte, kommt um 18 Uhr.",
+  "beschreibung_en": "Weekly run from the On store in Mitte every Thursday at 6:30 pm led by coaches; arrive at 6 pm to test a pair of shoes.",
+  "quelle": [
+   "https://www.on.com/en-us/explore/stores/berlin-mitte"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-midnight-runners",
+  "name": "Midnight Runners Berlin",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "wechselnd in Berlin-Mitte (Ankündigung je Termin in der Heylo-App)",
+  "lat": 52.52,
+  "lon": 13.40495,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00",
+    "distanz_km": [
+     10,
+     10
+    ]
+   }
+  ],
+  "distanz_km": [
+   10,
+   10
+  ],
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Heylo",
+  "webseite": "https://www.midnightrunners.com/cities/berlin",
+  "instagram": "https://www.instagram.com/midnightrunnersberlin/",
+  "strava": "https://www.strava.com/clubs/berlinmidnightrunners",
+  "sprachen": [
+   "en"
+  ],
+  "beschreibung_de": "Bekannter Social Run Club mit 10-km-Läufen mit Bootcamp-Stopps am Mittwochabend; Treffpunkt und Anmeldung über die Heylo-App.",
+  "beschreibung_en": "Well-known social run club with 10 km Wednesday evening runs including bootcamp stops; meeting point and sign-up via the Heylo app.",
+  "quelle": [
+   "https://socialrunclubs.de/berlin/midnight-runners-berlin/",
+   "https://heylo.group/midnight-runners-berlin",
+   "https://www.midnightrunners.com/cities/berlin"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Treffpunkt wechselt je Termin; Koordinaten nur Stadtmitte; Mittwoch 19 Uhr aus Sammelseite und Heylo-Terminen (21.10./28.10.)",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-pankrunners",
+  "name": "Pankrunners",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Bürgerpark Pankow, Eingang Wilhelm-Kuhr-Straße 1",
+  "lat": 52.56942,
+  "lon": 13.40013,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30",
+    "pace": {
+     "von": "6:00",
+     "bis": "6:30"
+    }
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "07:17",
+    "bezeichnung": "Schlosspark Pankow, an der Pumpe",
+    "pace": {
+     "von": "6:30",
+     "bis": "7:00"
+    }
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "07:17",
+    "pace": {
+     "von": "6:30",
+     "bis": "7:00"
+    }
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "strava": "https://www.strava.com/clubs/pankrunners",
+  "webseite": "https://www.pankrunners.de/",
+  "beschreibung_de": "Lauftreff in Pankow mit drei festen Terminen pro Woche im Bürgerpark und im Schlosspark Pankow.",
+  "beschreibung_en": "Running group in Pankow with three fixed weekly sessions in Bürgerpark and Schlosspark Pankow.",
+  "quelle": [
+   "https://socialrunclubs.de/berlin/pankrunners/",
+   "https://www.strava.com/clubs/pankrunners"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Zeiten nur von der Sammelseite (Stand 18.09.2026); eigene Webseite leitet nur auf Facebook-Gruppe weiter; Mittwochstermin startet im Schlosspark",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-the-rolling-mile",
+  "name": "The Rolling Mile",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Café La Maison, Paul-Lincke-Ufer 17 (Kreuzberg)",
+  "lat": 52.4933,
+  "lon": 13.4311,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "07:15"
+   }
+  ],
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/therollingmile/",
+  "strava": "https://www.strava.com/clubs/therollingmile",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Morgendlicher Social Run am Mittwoch ab dem Café La Maison am Landwehrkanal.",
+  "beschreibung_en": "Wednesday morning social run from Café La Maison on the Landwehr canal.",
+  "quelle": [
+   "https://socialrunclubs.de/berlin/the-rolling-mile/",
+   "https://www.strava.com/clubs/therollingmile"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 08/2025); eigene Quelle nicht lesbar (Instagram/Strava gesperrt)",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-treptrunners",
+  "name": "TreptRunners",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Treptower Park (Ost)",
+  "lat": 52.4937,
+  "lon": 13.46219,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:30"
+   }
+  ],
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/treptrunnersberlin/",
+  "strava": "https://www.strava.com/clubs/1358783",
+  "beschreibung_de": "Social Run Club, der sich samstagmorgens im Treptower Park trifft.",
+  "beschreibung_en": "Social run club meeting on Saturday mornings in Treptower Park.",
+  "quelle": [
+   "https://socialrunclubs.de/berlin/treptrunners/",
+   "https://www.strava.com/clubs/1358783"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 08/2025); genauer Treffpunkt im Park unklar",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-kiez-rennt",
+  "name": "KIEZ rennt",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Plan B, Wilhelmstraße 144 (Spandau)",
+  "lat": 52.52399,
+  "lon": 13.19272,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/kiezrennt/",
+  "beschreibung_de": "Laufgruppe aus Spandau, die mittwochs ab dem Plan B in der Wilhelmstraße startet.",
+  "beschreibung_en": "Running group from Spandau starting on Wednesdays from Plan B on Wilhelmstraße.",
+  "quelle": [
+   "https://socialrunclubs.de/berlin/kiez-rennt/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 11/2025), eigene Quelle nur Instagram",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-decathlon-runners",
+  "name": "Decathlon Runners Berlin",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Decathlon Berlin Alexanderplatz",
+  "lat": 52.51963,
+  "lon": 13.41116,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "webseite": "https://www.decathlon.de/Decathlon-Runners-Berlin_lp-7V1O93",
+  "strava": "https://www.strava.com/clubs/583040",
+  "beschreibung_de": "Lauftreff der Decathlon-Filiale am Alexanderplatz, jeden Mittwoch um 18 Uhr.",
+  "beschreibung_en": "Running group of the Decathlon store at Alexanderplatz, every Wednesday at 6 pm.",
+  "quelle": [
+   "https://socialrunclubs.de/berlin/decathlon-runners-berlin/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Decathlon-Seite antwortet 403, Angaben nur von der Sammelseite (Stand 10/2025); Kosten/Anmeldung unbestätigt",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-slow-poke-run-club",
+  "name": "Slow Poke Run Club",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Mauerpark",
+  "lat": 52.54372,
+  "lon": 13.40193,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "instagram": "https://www.instagram.com/slowpokerunclub.berlin/",
+  "strava": "https://www.strava.com/clubs/1411302",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "sprachen": [
+   "en"
+  ],
+  "beschreibung_de": "Ausdrücklich langsamer 5-km-Social-Run am Montagabend im Mauerpark.",
+  "beschreibung_en": "Deliberately slow 5 km social run on Monday evenings at Mauerpark.",
+  "quelle": [
+   "https://socialrunclubs.de/berlin/slow-poke-run-club/",
+   "https://urbansportsclub.com/de/venues/tiergarten-run-with-coach-meg"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Sammelseite nennt Mauerpark, Urban Sports Club nennt Tiergarten; genauer Treffpunkt und Kosten unklar",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-green-runners",
+  "name": "Green Runners",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Am Fahnenmast vor dem Reichstagsgebäude, Platz der Republik",
+  "lat": 52.51868,
+  "lon": 13.37312,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/greenrunnersbln/",
+  "beschreibung_de": "Laufgruppe, die sich sonntags um 10 Uhr vor dem Reichstagsgebäude trifft.",
+  "beschreibung_en": "Running group meeting on Sundays at 10 am in front of the Reichstag building.",
+  "quelle": [
+   "https://socialrunclubs.de/berlin/green-runners/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 11/2025), eigene Quelle nur Instagram; parteinahe Gruppe – Offenheit für alle prüfen",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-run-club-hakenfelde",
+  "name": "Run Club Hakenfelde Spandau",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Goltzstraße / Maselakekanal (Hakenfelde)",
+  "lat": 52.56237,
+  "lon": 13.21377,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "17:00",
+    "distanz_km": [
+     5,
+     10
+    ]
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "17:00",
+    "distanz_km": [
+     5,
+     10
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   10
+  ],
+  "instagram": "https://www.instagram.com/runclub_hakenfelde/",
+  "strava": "https://www.strava.com/clubs/1946929",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Community Runs dienstags und donnerstags über 5–10 km in lockerem Tempo, dazu ein Long Run am Sonntag.",
+  "beschreibung_en": "Community runs on Tuesdays and Thursdays over 5–10 km at an easy pace, plus a Sunday long run.",
+  "quelle": [
+   "https://socialrunclubs.de/berlin/run-club-hakenfelde-spandau/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 03/2026); Uhrzeit Sonntags-Long-Run unbekannt und daher nicht eingetragen",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-nomovo-runners",
+  "name": "NOMOVO Runners",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Soul of Coffee, Reinickendorfer Straße 66 (Wedding)",
+  "lat": 52.5529,
+  "lon": 13.36635,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "09:30",
+    "distanz_km": [
+     16,
+     30
+    ],
+    "pace": {
+     "von": "5:30",
+     "bis": "6:00"
+    }
+   }
+  ],
+  "distanz_km": [
+   16,
+   30
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:00"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Luma / Strava",
+  "webseite": "https://nomovo.fit/nomovorunners-berlin/",
+  "instagram": "https://www.instagram.com/nomovo.fit/",
+  "strava": "https://www.strava.com/clubs/nomovorunners",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Sonntäglicher Lauf über 16, 21 oder 30 km durch Berliner Parks mit Start und Ziel am Café Soul of Coffee.",
+  "beschreibung_en": "Sunday run of 16, 21 or 30 km through Berlin parks starting and finishing at Soul of Coffee.",
+  "quelle": [
+   "https://socialrunclubs.de/berlin/nomovo-runners/",
+   "https://nomovo.fit/nomovorunners-berlin/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin/Treffpunkt nur auf der Sammelseite (Stand 05/2026); eigene Seite kündigt Läufe nur über Instagram/Luma/Strava an",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "leipzig-kraft-runners",
+  "name": "KRAFT Runners Leipzig",
+  "art": "Laufen",
+  "stadt": "Leipzig",
+  "treffpunkt": "Galopprennbahn Scheibenholz, Rennbahnweg 2a",
+  "lat": 51.32591,
+  "lon": 12.35769,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/leipzig",
+  "instagram": "https://www.instagram.com/kraftrunners/",
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentlicher KRAFT-Tuesday-Lauf an der Galopprennbahn Scheibenholz, ohne Anmeldung, jedes Tempo willkommen, Taschenablage vor Ort.",
+  "beschreibung_en": "Weekly KRAFT Tuesday run at the Scheibenholz racecourse, no sign-up, every pace welcome, bag drop on site.",
+  "quelle": [
+   "https://kraftrunners.de/leipzig"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "leipzig-bdo-feierabendrunde",
+  "name": "BDO Feierabendrunde",
+  "art": "Fahrrad",
+  "stadt": "Leipzig",
+  "treffpunkt": "Bike Department Ost, Karl-Liebknecht-Straße 31",
+  "lat": 51.32747,
+  "lon": 12.37449,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Faster Far (38+ km/h)"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Gravel"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Rennrad"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Rennrad, nur FLINTA"
+   }
+  ],
+  "rad_typ": "gemischt",
+  "anmeldung": "nein",
+  "webseite": "https://www.komoot.com/user/963269208892",
+  "merkmale": [
+   "no_drop",
+   "frauen"
+  ],
+  "beschreibung_de": "Wöchentliche Feierabendrunden des Fahrradladens Bike Department Ost: montags schnell, dienstags Gravel, mittwochs Rennrad, donnerstags Rennrad nur für FLINTA, gemeinsamer Start und gemeinsame Rückkehr.",
+  "beschreibung_en": "Weekly after-work rides from the Bike Department Ost shop: fast on Mondays, gravel on Tuesdays, road on Wednesdays, road FLINTA-only on Thursdays; the group leaves and returns together.",
+  "quelle": [
+   "https://www.komoot.com/user/963269208892",
+   "https://www.pedali.de/haendler/bike-department-ost-gmbh-leipzig-zentrum-sued-04107-leipzig"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Termine aus dem Komoot-Profil des Ladens (Stand ca. 02/2026); bdoleipzig.de nicht abrufbar; Winterbetrieb/Saison unklar; Montag ist eine schnelle Gruppe (38+ km/h)",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "leipzig-laufgruppe-buendnis-gegen-depression",
+  "name": "Offene Laufgruppe des Leipziger Bündnis gegen Depression",
+  "art": "Laufen",
+  "stadt": "Leipzig",
+  "treffpunkt": "Vor der Arena Sportsbar, QUARTERBACK Immobilien ARENA, Am Sportforum 2",
+  "lat": 51.34315,
+  "lon": 12.35332,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "17:30",
+    "distanz_km": [
+     5,
+     7
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   7
+  ],
+  "pace": {
+   "von": "5:50",
+   "bis": "7:30"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://buendnis-depression-leipzig.de/sportgruppen/laufgruppe",
+  "instagram": "https://www.instagram.com/austauschbewegt/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Offene, entspannte Laufgruppe über einen 5–7-km-Rundkurs, donnerstags ab der Arena am Sportforum; eingeladen sind alle, die gern gemeinsam laufen.",
+  "beschreibung_en": "Open, relaxed running group on a 5–7 km loop every Thursday from the arena at Sportforum; everyone who enjoys running together is welcome.",
+  "quelle": [
+   "https://buendnis-depression-leipzig.de/sportgruppen/laufgruppe"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "leipzig-decathlon-runners",
+  "name": "Decathlon Runners Leipzig",
+  "art": "Laufen",
+  "stadt": "Leipzig",
+  "treffpunkt": "Decathlon Leipzig Petersbogen",
+  "lat": 51.33735,
+  "lon": 12.37483,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "anmeldung": "empfohlen",
+  "webseite": "https://www.decathlon.de/Decathlon-Runners-Leipzig_lp-HRCXUF",
+  "strava": "https://www.strava.com/clubs/583040",
+  "beschreibung_de": "Lauftreff der Decathlon-Filiale im Petersbogen, jeden Freitag um 18 Uhr.",
+  "beschreibung_en": "Running group of the Decathlon store in the Petersbogen, every Friday at 6 pm.",
+  "quelle": [
+   "https://socialrunclubs.de/leipzig/decathlon-runners-leipzig/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Decathlon-Seite antwortet 403, Angaben nur von der Sammelseite (Stand 10/2025)",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "dresden-kraft-runners",
+  "name": "KRAFT Runners Dresden",
+  "art": "Laufen",
+  "stadt": "Dresden",
+  "treffpunkt": "Emma No.1, Bischofsweg 32 (Neustadt)",
+  "lat": 51.07001,
+  "lon": 13.75346,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/dresden",
+  "instagram": "https://www.instagram.com/kraftrunners/",
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentlicher KRAFT-Wednesday-Lauf ab dem Emma No.1 in der Neustadt, ohne Anmeldung, jedes Tempo willkommen, Taschenablage vor Ort.",
+  "beschreibung_en": "Weekly KRAFT Wednesday run from Emma No.1 in the Neustadt, no sign-up, every pace welcome, bag drop on site.",
+  "quelle": [
+   "https://kraftrunners.de/dresden"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "dresden-pace-killers",
+  "name": "Pace Killers",
+  "art": "Laufen",
+  "stadt": "Dresden",
+  "treffpunkt": "Tagesbar Löwe",
+  "lat": 51.06117,
+  "lon": 13.745,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/pacekillers/",
+  "beschreibung_de": "Social Run Club, der sich dienstags um 19 Uhr an der Tagesbar Löwe trifft.",
+  "beschreibung_en": "Social run club meeting on Tuesdays at 7 pm at Tagesbar Löwe.",
+  "quelle": [
+   "https://socialrunclubs.de/dresden/pace-killers/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 08/2025); Adresse der Tagesbar nicht bestätigt, Koordinaten von der Sammelseite",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "dresden-lauf-dich-raus",
+  "name": "Lauf dich raus!",
+  "art": "Laufen",
+  "stadt": "Dresden",
+  "treffpunkt": "Fähranleger Dresden-Neustadt (Fähre Johannstadt–Neustadt), Treff 16:45 Uhr",
+  "lat": 51.06298,
+  "lon": 13.76535,
+  "termine": [
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 1,
+    "uhrzeit": "17:00",
+    "ab": "2026-10-19",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "instagram": "https://www.instagram.com/lauf.dich.raus/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Laufgruppe des Dresdner Bündnisses gegen Depression, montags in ungeraden Kalenderwochen, 5 km ab dem Fähranleger in der Neustadt.",
+  "beschreibung_en": "Running group of the Dresden alliance against depression, Mondays in odd calendar weeks, 5 km from the Neustadt ferry landing.",
+  "quelle": [
+   "https://socialrunclubs.de/dresden/lauf-dich-raus/",
+   "https://www.deutsche-depressionshilfe.de/regionale-angebote/dresden/regelmaessige-angebote"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Depressionshilfe-Seite antwortet 403, Angaben nur von der Sammelseite (Stand 12/2025); Rhythmus 'ungerade Woche' als zweiwöchentlich ab 19.10.2026 (KW 43) umgesetzt",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "chemnitz-athletic-sonnenberg-running",
+  "name": "Athletic Sonnenberg Running",
+  "art": "Laufen",
+  "stadt": "Chemnitz",
+  "treffpunkt": "Eingang der Bar „U Brambory“, Karl-Liebknecht-Straße 37",
+  "lat": 50.8421,
+  "lon": 12.92577,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "17:30",
+    "distanz_km": [
+     5,
+     6
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   6
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://athleticsonnenberg.de/neu-running/",
+  "instagram": "https://www.instagram.com/athletic_sonnenberg_running/",
+  "strava": "https://www.strava.com/clubs/1167682",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lockerer Lauftreff der Laufsparte von Athletic Sonnenberg jeden Montag über 5–6 km; alle sind willkommen, danach Ausklang in der Bar.",
+  "beschreibung_en": "Easy-going weekly running group of Athletic Sonnenberg every Monday over 5–6 km; everyone welcome, drinks at the bar afterwards.",
+  "quelle": [
+   "https://athleticsonnenberg.de/neu-running/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "chemnitz-mitlaufgelegenheit",
+  "name": "Mitlaufgelegenheit Chemnitz",
+  "art": "Laufen",
+  "stadt": "Chemnitz",
+  "treffpunkt": "Milchhäuschen am Schloßteich",
+  "lat": 50.84239,
+  "lon": 12.91279,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Runde durch Küchwald oder um den Schloßteich"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "20:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://mitlaufgelegenheit-chemnitz.de/lauftreffs/",
+  "strava": "https://www.strava.com/clubs/mlgc",
+  "beschreibung_de": "Offener Lauftreff seit 2016 mit Runden durch den Küchwald oder um den Schloßteich sowie Intervalltraining, Treffpunkt am Milchhäuschen.",
+  "beschreibung_en": "Open running group since 2016 with runs through Küchwald or around the Schloßteich plus interval sessions, meeting at the Milchhäuschen.",
+  "quelle": [
+   "https://mitlaufgelegenheit-chemnitz.de/lauftreffs/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "potsdam-meilenweit-community-run",
+  "name": "Meilenweit Community Run (Absolute Run)",
+  "art": "Laufen",
+  "stadt": "Potsdam",
+  "treffpunkt": "Laufladen Absolute Run / Meilenweit, Anna-Zielenziger-Straße 2 (Treff ab 18:15 Uhr)",
+  "lat": 52.39578,
+  "lon": 13.06004,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30",
+    "distanz_km": [
+     5,
+     10
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   10
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://absolute-run-potsdam.de/community-run/",
+  "instagram": "https://www.instagram.com/meilenweit_potsdam/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Lockerer Lauftreff des Laufladens jeden Mittwoch (außer an Feiertagen) über 5–10 km in mehreren Tempogruppen, ohne Anmeldung.",
+  "beschreibung_en": "Relaxed weekly running group of the running shop every Wednesday (except public holidays), 5–10 km in several pace groups, no sign-up.",
+  "quelle": [
+   "https://absolute-run-potsdam.de/community-run/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "potsdam-lauferleben",
+  "name": "lauferleben Lauftreff",
+  "art": "Laufen",
+  "stadt": "Potsdam",
+  "treffpunkt": "I-Punkt im Volkspark Potsdam",
+  "lat": 52.41931,
+  "lon": 13.0486,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://lauferleben.de/",
+  "instagram": "https://www.instagram.com/lauferleben/",
+  "beschreibung_de": "Kostenloser Lauftreff jeden Sonntag um 10 Uhr ab dem I-Punkt im Volkspark Potsdam.",
+  "beschreibung_en": "Free running group every Sunday at 10 am from the info point in Volkspark Potsdam.",
+  "quelle": [
+   "https://lauferleben.de/",
+   "https://socialrunclubs.de/potsdam/lauferleben-potsdam/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Koordinaten des I-Punkts von der Sammelseite übernommen, bitte prüfen",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "potsdam-runners",
+  "name": "Potsdam Runners",
+  "art": "Laufen",
+  "stadt": "Potsdam",
+  "treffpunkt": "Brandenburger Tor (Potsdam), samstags am Hauptbahnhof",
+  "lat": 52.39955,
+  "lon": 13.04808,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Brandenburger Tor"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:30",
+    "bezeichnung": "Treffpunkt Hauptbahnhof"
+   }
+  ],
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/potsdam.runners/",
+  "strava": "https://www.strava.com/clubs/potsdamrunners",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "beschreibung_de": "Internationale Laufgruppe seit 2016 mit zwei Gruppen für alle Tempi, dienstags am Brandenburger Tor und samstags am Hauptbahnhof, ohne Anmeldung.",
+  "beschreibung_en": "International running group since 2016 with two groups for all paces, Tuesdays at the Brandenburg Gate and Saturdays at the main station, no sign-up.",
+  "quelle": [
+   "https://socialrunclubs.de/potsdam/potsdam-runners/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 08/2025); Samstagstermin hat anderen Treffpunkt (Hauptbahnhof 52.39149/13.06734)",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "potsdam-love-and-pace",
+  "name": "Love & Pace",
+  "art": "Laufen",
+  "stadt": "Potsdam",
+  "treffpunkt": "Café Zanotto, Dortustraße 53",
+  "lat": 52.39961,
+  "lon": 13.05361,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/loveandpacerc/",
+  "strava": "https://www.strava.com/clubs/2238494",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Sonntäglicher Social Run ab dem Café Zanotto durch den Park Sanssouci, alle sind willkommen.",
+  "beschreibung_en": "Sunday social run from Café Zanotto through Sanssouci park, everyone welcome.",
+  "quelle": [
+   "https://socialrunclubs.de/potsdam/love-pace/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 07/2026), eigene Quelle nur Instagram/Strava",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "magdeburg-apex-running-club",
+  "name": "APEX Running Club",
+  "art": "Laufen",
+  "stadt": "Magdeburg",
+  "treffpunkt": "Café square.with.love, Hasselbachplatz",
+  "lat": 52.12051,
+  "lon": 11.62819,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "07:00",
+    "distanz_km": [
+     5,
+     7
+    ]
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "distanz_km": [
+     5,
+     7
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   7
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "6:30",
+   "bis": "6:30"
+  },
+  "instagram": "https://www.instagram.com/apex.magdeburg/",
+  "strava": "https://www.strava.com/clubs/1603931",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Social Run am Hasselbachplatz mittwochs früh und sonntags vormittags über etwa 5–7 km bei rund 6:30 min/km.",
+  "beschreibung_en": "Social run from Hasselbachplatz early on Wednesdays and on Sunday mornings, about 5–7 km at around 6:30 min/km.",
+  "quelle": [
+   "https://socialrunclubs.de/magdeburg/apex-running-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 09/2025); Koordinaten von der Sammelseite",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "magdeburg-dram-athletics-sunday-run",
+  "name": "DRAM Athletics Sunday Running Club",
+  "art": "Laufen",
+  "stadt": "Magdeburg",
+  "treffpunkt": "Sternbrücke",
+  "lat": 52.11663,
+  "lon": 11.63696,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/dramathletics/",
+  "strava": "https://www.strava.com/clubs/dramathletics",
+  "beschreibung_de": "Sonntagslauf von DRAM Athletics mit Start an der Sternbrücke.",
+  "beschreibung_en": "Sunday run by DRAM Athletics starting at the Sternbrücke bridge.",
+  "quelle": [
+   "https://socialrunclubs.de/magdeburg/dram-athletics/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 09/2025); dramathletics.com antwortet 404",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "erfurt-kraft-runners",
+  "name": "KRAFT Runners Erfurt",
+  "art": "Laufen",
+  "stadt": "Erfurt",
+  "treffpunkt": "Pizzeria Le Grazie, Auenstraße 73",
+  "lat": 50.98562,
+  "lon": 11.02108,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/erfurt",
+  "instagram": "https://www.instagram.com/kraftrunners/",
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentlicher KRAFT-Tuesday-Lauf ab der Pizzeria Le Grazie, ohne Anmeldung, jedes Tempo willkommen, Taschenablage vor Ort.",
+  "beschreibung_en": "Weekly KRAFT Tuesday run from Pizzeria Le Grazie, no sign-up, every pace welcome, bag drop on site.",
+  "quelle": [
+   "https://kraftrunners.de/erfurt"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "erfurt-runnerschaft",
+  "name": "runnerschaft.erfurt",
+  "art": "Laufen",
+  "stadt": "Erfurt",
+  "treffpunkt": "Domplatz",
+  "lat": 50.97689,
+  "lon": 11.02384,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/runnerschaft.erfurt/",
+  "beschreibung_de": "Lauftreff für alle jeden Mittwoch um 19:30 Uhr auf dem Domplatz.",
+  "beschreibung_en": "Running group for everyone every Wednesday at 7:30 pm on Domplatz.",
+  "quelle": [
+   "https://socialrunclubs.de/erfurt/runnerschaft-erfurt/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 09/2025), eigene Quelle nur Instagram",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "jena-soma-runclub",
+  "name": "SOMA runclub.jena",
+  "art": "Laufen",
+  "stadt": "Jena",
+  "treffpunkt": "Ernst-Abbe-Mensa, Ernst-Abbe-Platz",
+  "lat": 50.92883,
+  "lon": 11.58264,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "instagram": "https://www.instagram.com/runclub.jena/",
+  "strava": "https://www.strava.com/clubs/somaklub",
+  "beschreibung_de": "5-km-Social-Run mittwochs um 19 Uhr ab der Ernst-Abbe-Mensa.",
+  "beschreibung_en": "5 km social run on Wednesdays at 7 pm from the Ernst-Abbe canteen.",
+  "quelle": [
+   "https://socialrunclubs.de/jena/soma-runclub-jena/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 06/2026), eigene Quelle nur Instagram/WhatsApp",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "jena-intervallexpress",
+  "name": "Jenaer Intervallexpress",
+  "art": "Laufen",
+  "stadt": "Jena",
+  "treffpunkt": "Laufbahn am Universitätssportzentrum, Oberaue",
+  "lat": 50.91816,
+  "lon": 11.58594,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:15",
+    "bezeichnung": "Intervalle auf der Bahn"
+   }
+  ],
+  "instagram": "https://www.instagram.com/jenaer_intervallexpress/",
+  "beschreibung_de": "Lauftrainingsgruppe mit Intervallen auf der Bahn am Unisportzentrum, dienstags um 18:15 Uhr.",
+  "beschreibung_en": "Running training group doing track intervals at the university sports centre, Tuesdays at 6:15 pm.",
+  "quelle": [
+   "https://socialrunclubs.de/jena/jenaer-intervallexpress/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 06/2026); Zugang zur Unibahn für Gäste unklar",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "weimar-bunter-lauftreff",
+  "name": "Bunter Lauftreff Weimar",
+  "art": "Laufen",
+  "stadt": "Weimar",
+  "treffpunkt": "Vor Goethes Gartenhaus (Park an der Ilm)",
+  "lat": 50.976,
+  "lon": 11.33675,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "08:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/bunter_lauftreff_weimar/",
+  "beschreibung_de": "Lauftreff sonntags um 8:30 Uhr vor Goethes Gartenhaus im Park an der Ilm.",
+  "beschreibung_en": "Running group on Sundays at 8:30 am in front of Goethe's Garden House in the Park on the Ilm.",
+  "quelle": [
+   "https://socialrunclubs.de/weimar/bunter-lauftreff-weimar/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "nur Sammelseite (Stand 08/2025), eigene Quelle nur Instagram",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
  }
 ]
