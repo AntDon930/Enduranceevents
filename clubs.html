@@ -61,7 +61,7 @@
 <link rel="stylesheet" href="site.css?v=fdec6406">
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=92628441">
-<link rel="stylesheet" href="clubs.css?v=c115c32a">
+<link rel="stylesheet" href="clubs.css?v=b8482093">
 </head>
 <body>
 
@@ -303,7 +303,9 @@
   function kachel(c, termin) {
     const s = EC.stufen(c);
     const tags = [];
-    tags.push(`<span class="club-tag${EC.istGratis(c) ? ' club-tag--gratis' : ''}">${esc(EC.formatKosten(c, lang))}</span>`);
+    // Kosten nur, wenn die Quelle etwas sagt - ein „–" als Tag sähe kaputt aus.
+    const kosten = EC.formatKosten(c, lang);
+    if (kosten !== '–') tags.push(`<span class="club-tag${EC.istGratis(c) ? ' club-tag--gratis' : ''}">${esc(kosten)}</span>`);
     s.forEach(x => tags.push(`<span class="club-tag">${esc(EC.tx(lang, 'stufe_' + x))}</span>`));
     const d = EC.formatDistanz(c.distanz_km, lang);
     if (d) tags.push(`<span class="club-tag">${esc(d)}</span>`);

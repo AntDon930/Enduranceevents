@@ -115,6 +115,8 @@
   gap: 24px;
   align-items: start;
   padding: 18px var(--seite-rand) 32px;
+  /* Die Fußzeile bleibt unten, auch wenn nur wenige Clubs passen. */
+  min-height: calc(100vh - 230px);
 }
 .club-kopf { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
 .club-kopf .result-count { margin: 0; }

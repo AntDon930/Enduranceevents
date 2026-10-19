@@ -1,1 +1,750 @@
-[]
+[
+ {
+  "id": "hamburg-parkrun-alstervorland",
+  "name": "Alstervorland parkrun",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "treffpunkt": "Café AlsterCliff, Fährdamm 13 (Westufer der Außenalster, Alstervorland)",
+  "lat": 53.57371,
+  "lon": 10.00246,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/alstervorland/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme über zwei Runden im Alstervorland, jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen, danach Kaffee im Café AlsterCliff.",
+  "beschreibung_en": "Free timed 5 km run (two laps) in the Alstervorland park every Saturday at 9 am; walkers, joggers and runners all welcome, with coffee afterwards at Café AlsterCliff.",
+  "quelle": [
+   "https://www.parkrun.com.de/alstervorland/",
+   "https://www.parkrun.com.de/alstervorland/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-waterkant-store-running-club",
+  "name": "WATERKANT Store Running Club",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "treffpunkt": "Vor dem Waterkant Store, Ottenser Hauptstraße 56 (Treffen 19:15, Start 19:30)",
+  "lat": 53.55173,
+  "lon": 9.92658,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:30",
+    "distanz_km": [
+     5,
+     10
+    ],
+    "pace": {
+     "von": "6:00",
+     "bis": "7:00"
+    }
+   }
+  ],
+  "distanz_km": [
+   5,
+   10
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "7:00"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava (Terminbestätigung) oder Name/Telefon im Store für WhatsApp-Infos",
+  "webseite": "https://waterkantstore.de/pages/waterkant-running-club",
+  "instagram": "https://www.instagram.com/waterkant.store/",
+  "strava": "https://www.strava.com/clubs/Waterkant",
+  "merkmale": [
+   "gepaeck"
+  ],
+  "beschreibung_de": "Dienstagslauf des Ottensener Waterkant Stores über 5–10 km bei 6–7 min/km mit wechselnder Strecke; Taschen und Kleidung können im Laden eingeschlossen werden.",
+  "beschreibung_en": "Tuesday evening run from the Waterkant store in Ottensen, 5–10 km at 6–7 min/km on varying routes; bags and clothes can be locked away in the store.",
+  "quelle": [
+   "https://waterkantstore.de/pages/waterkant-running-club",
+   "https://www.strava.com/clubs/Waterkant"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-lauftreff-alstertal",
+  "name": "Lauftreff Alstertal e.V.",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "treffpunkt": "Parkplatz des Hockey- und Tennisclubs UHC, Wesselblek 8 (Hummelsbüttel)",
+  "lat": 53.63941,
+  "lon": 10.05751,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Lauftreff + Walking (ohne Anmeldung, ca. 1–1,5 h)"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "14:00",
+    "bezeichnung": "Lauftreff + (Nordic-)Walking (bitte vorher anmelden, ca. 1,5–3 h)"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://www.lauftreff-alstertal.de/",
+  "instagram": "https://www.instagram.com/lauftreff_alstertal_ev/",
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich",
+   "dusche",
+   "kaffee"
+  ],
+  "beschreibung_de": "Traditionsreicher Lauftreff im Alstertal mit Gruppen von schnell bis gemütlich auf Naturwegen entlang der Alster; dienstags ohne Anmeldung, Umkleiden und Duschen am UHC, danach Klönen in der Vereinsgaststätte.",
+  "beschreibung_en": "Long-standing running group in the Alster valley with groups from fast to easy on trails along the river; no sign-up on Tuesdays, changing rooms and showers at the UHC club, social time in the clubhouse afterwards.",
+  "quelle": [
+   "https://www.lauftreff-alstertal.de/lauftreff/trainingszeiten",
+   "https://www.lauftreff-alstertal.de/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-hamburg-running-lauftreff-stadtpark",
+  "name": "hamburg running – Lauftreff im Stadtpark",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "treffpunkt": "Hauptgebäude der Jahnkampfbahn, Stadtpark (im Winter vor dem Eingang der Leichtathletik-Halle; Ort kann im Winter wechseln)",
+  "lat": 53.59778,
+  "lon": 10.00743,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 90,
+  "pace": {
+   "von": "6:00",
+   "bis": "6:00"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Kontaktformular des Vereins",
+  "webseite": "https://hamburg-running.de/training/lauftreff-im-stadtpark/",
+  "instagram": "https://www.instagram.com/hhrunning/",
+  "strava": "https://www.strava.com/clubs/hamburg-running-e-v-244612",
+  "beschreibung_de": "Vereins-Lauftreff von hamburg running e.V.: 45–60 Minuten Dauerlauf um 6:00 min/km durch den Stadtpark, danach angeleitete Lauftechnik und Athletik; Neueinsteiger sind ausdrücklich willkommen.",
+  "beschreibung_en": "Club run by hamburg running e.V.: 45–60 minutes of steady running at about 6:00 min/km through the Stadtpark, followed by coached drills and strength work; newcomers explicitly welcome.",
+  "quelle": [
+   "https://hamburg-running.de/training/lauftreff-im-stadtpark/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-tide-runners",
+  "name": "Tide Runners Hamburg",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "treffpunkt": "Superbude St. Pauli, Juliusstraße 1–7 (Sternschanze)",
+  "lat": 53.56029,
+  "lon": 9.96,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "21:00",
+    "distanz_km": [
+     8,
+     15
+    ],
+    "pace": {
+     "von": "5:50",
+     "bis": "5:50"
+    }
+   }
+  ],
+  "distanz_km": [
+   8,
+   15
+  ],
+  "pace": {
+   "von": "5:50",
+   "bis": "5:50"
+  },
+  "instagram": "https://www.instagram.com/tiderunnershamburg/",
+  "strava": "https://www.strava.com/clubs/tiderunners",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "beschreibung_de": "Social Running Crew seit 2014: jeden Mittwoch um 21 Uhr ab der Superbude St. Pauli, wahlweise 8 oder 15 km in lockerem Tempo um 5:50 min/km.",
+  "beschreibung_en": "Social running crew since 2014: every Wednesday at 9 pm from Superbude St. Pauli, choose 8 or 15 km at an easy pace of about 5:50 min/km.",
+  "quelle": [
+   "https://www.strava.com/clubs/tiderunners"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-kraft-runners",
+  "name": "KRAFT Runners Hamburg",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "treffpunkt": "PALLAS Bar, Neuer Pferdemarkt 13 (St. Pauli/Sternschanze)",
+  "lat": 53.55916,
+  "lon": 9.96479,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00",
+    "bezeichnung": "KRAFT Wednesday"
+   }
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "kostenlos, ohne Mitgliedschaft"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/hamburg",
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentliches Community-Training der KRAFT Runners mit gemeinsamem Einlaufen (ca. 5:30–6:00 min/km) und Intervallen, bei denen jede:r die Intensität selbst wählt; ohne Anmeldung, Bag Drop vor Ort.",
+  "beschreibung_en": "Weekly KRAFT Runners community session with an easy warm-up (about 5:30–6:00 min/km) and intervals where everyone sets their own intensity; no sign-up, bag drop on site.",
+  "quelle": [
+   "https://kraftrunners.de/hamburg",
+   "https://kraftrunners.de/faq",
+   "https://socialrunclubs.de/hamburg/kraft-runners-hanburg/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-lunchride",
+  "name": "#Lunchride Hamburg (BSV Hamburg Radsport)",
+  "art": "Fahrrad",
+  "stadt": "Hamburg",
+  "treffpunkt": "Oberbaumbrücke (HafenCity/Altstadt)",
+  "lat": 53.5471,
+  "lon": 10.00479,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "12:00"
+   }
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": 20,
+   "bis": 20
+  },
+  "strava": "https://www.strava.com/clubs/BSVHHRad",
+  "rad_typ": "gemischt",
+  "merkmale": [
+   "no_drop"
+  ],
+  "beschreibung_de": "Gemütliche Mittagsrunde seit 2017, meist rund um den Spreehafen, mit etwa 20 km/h und Orientierung am langsamsten Teilnehmer; jedes Rad ist willkommen.",
+  "beschreibung_en": "Relaxed lunchtime ride since 2017, usually around the Spreehafen, at about 20 km/h and paced to the slowest rider; any bike welcome.",
+  "quelle": [
+   "https://www.strava.com/clubs/467041/group_events/3461698874421993582",
+   "https://www.strava.com/clubs/1987405/group_events/3461829611344940812",
+   "https://rundedrehen.de/grouprides/hamburg"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-radcrew-raceteam-training",
+  "name": "RadCrew Hamburg – Raceteam-Training",
+  "art": "Fahrrad",
+  "stadt": "Hamburg",
+  "treffpunkt": "Sperrwerk Billwerder Bucht, Ausschläger Elbdeich (Rothenburgsort)",
+  "lat": 53.52885,
+  "lon": 10.04415,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:30"
+   }
+  ],
+  "dauer_min": 120,
+  "stufen": [
+   "fortgeschritten"
+  ],
+  "webseite": "https://radcrew.hamburg/events/",
+  "strava": "https://www.strava.com/clubs/rchh",
+  "rad_typ": "gemischt",
+  "beschreibung_de": "Mittwochstraining des RadCrew Hamburg Raceteams auf der Deichrunde mit Intervallsprints über 40 km/h (Roadies) bzw. Technikübungen (Cross-Gruppe); Voraussetzung ist Gruppenerfahrung bei deutlich über 35 km/h.",
+  "beschreibung_en": "Wednesday training of the RadCrew Hamburg race team on the dyke loop with interval sprints above 40 km/h (road group) or skills drills (cross group); requires group-riding experience well above 35 km/h.",
+  "quelle": [
+   "https://radcrew.hamburg/event/radcrew-hamburg-raceteam-training/2026-10-21/",
+   "https://radcrew.hamburg/events/",
+   "https://www.strava.com/clubs/1283051/group_events/1976379"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-parkrun-hasenheide",
+  "name": "Hasenheide parkrun",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Café Hasenschänke im Volkspark Hasenheide (nahe Märchenspielplatz/Naturtheater)",
+  "lat": 52.48293,
+  "lon": 13.41603,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/hasenheide/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme über zwei Runden durch die Hasenheide, jeden Samstag um 9 Uhr; danach Kaffee im Café Blume (Fontanestraße 32).",
+  "beschreibung_en": "Free timed 5 km run (two laps) through Hasenheide park every Saturday at 9 am; coffee afterwards at Café Blume (Fontanestraße 32).",
+  "quelle": [
+   "https://www.parkrun.com.de/hasenheide/",
+   "https://www.parkrun.com.de/hasenheide/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-parkrun-tempelhofer-feld",
+  "name": "Tempelhofer Feld parkrun",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Westende der nördlichen Start- und Landebahn, ca. 5 Gehminuten vom Eingang Paradestraße",
+  "lat": 52.47432,
+  "lon": 13.39117,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/tempelhoferfeld/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme auf einer flachen Runde über das ehemalige Flugfeld Tempelhof, jeden Samstag um 9 Uhr.",
+  "beschreibung_en": "Free timed 5 km run on a flat single loop across the former Tempelhof airfield, every Saturday at 9 am.",
+  "quelle": [
+   "https://www.parkrun.com.de/tempelhoferfeld/",
+   "https://www.parkrun.com.de/tempelhoferfeld/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-parkrun-mauerweg",
+  "name": "Mauerweg parkrun",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Mauerweg südlich des Jenbacher Wegs (Lichterfelde), Briefing auf der Wiese daneben; Navi: Jenbacher Weg 4",
+  "lat": 52.40797,
+  "lon": 13.34158,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/mauerweg/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme auf flachem Asphalt entlang des ehemaligen Mauerstreifens zwischen Lichterfelde und Marienfelde, jeden Samstag um 9 Uhr (keine Toiletten vor Ort).",
+  "beschreibung_en": "Free timed 5 km run on flat tarmac along the former Berlin Wall strip between Lichterfelde and Marienfelde, every Saturday at 9 am (no toilets on site).",
+  "quelle": [
+   "https://www.parkrun.com.de/mauerweg/",
+   "https://www.parkrun.com.de/mauerweg/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-parkrun-grosser-spektesee",
+  "name": "Großer Spektesee parkrun",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Nordufer des Großen Spektesees (Spandau), westlich der Badestelle nahe Parkplatz Am Kiesteich",
+  "lat": 52.54656,
+  "lon": 13.16482,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/grosserspektesee/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Neuer kostenloser 5-km-parkrun (2,5 Runden um den Großen Spektesee) in Spandau, jeden Samstag um 9 Uhr; danach Kaffee im Café Viva la Vida.",
+  "beschreibung_en": "New free 5 km parkrun (2.5 laps around Großer Spektesee lake) in Spandau, every Saturday at 9 am; coffee afterwards at Café Viva la Vida.",
+  "quelle": [
+   "https://www.parkrun.com.de/grosserspektesee/",
+   "https://www.parkrun.com.de/grosserspektesee/course/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-kraft-runners",
+  "name": "KRAFT Runners Berlin",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "KORNER, Linienstraße 106 (Mitte)",
+  "lat": 52.52802,
+  "lon": 13.39454,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00",
+    "bezeichnung": "KRAFT Tuesday"
+   }
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "kostenlos, ohne Mitgliedschaft"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/berlin",
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentliches Community-Training der KRAFT Runners: gemeinsames Einlaufen (ca. 5:30–6:00 min/km) und Intervalle im eigenen Tempo; ohne Anmeldung, jedes Tempo willkommen, Bag Drop vor Ort.",
+  "beschreibung_en": "Weekly KRAFT Runners community session: easy warm-up (about 5:30–6:00 min/km) and intervals at your own intensity; no sign-up, every pace welcome, bag drop on site.",
+  "quelle": [
+   "https://kraftrunners.de/berlin",
+   "https://kraftrunners.de/faq"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-tsv-gutsmuths-lauftreff",
+  "name": "TSV GutsMuths – Lauftreff für alle",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Turn- und Freizeitzentrum „Wulle“, Wullenweberstraße 15 (Moabit)",
+  "lat": 52.51819,
+  "lon": 13.33168,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Dienstag, je nach Jahreszeit Tiergarten oder Schloss Charlottenburg"
+   }
+  ],
+  "dauer_min": 90,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Mitlaufen kostenlos; Duschen/Umkleiden nur mit Vereins- oder Kursmitgliedschaft"
+  },
+  "webseite": "https://www.tsvgutsmuths-berlin.de/sportangebote/leichtathletik-laufen-walking/lauftreff-fuer-frauen-und-maenner/",
+  "beschreibung_de": "Betreuter Lauftreff des TSV GutsMuths seit 1986 für Spaßläufer bis Marathonis; dienstags ab der „Wulle“ in den Tiergarten oder zum Schloss Charlottenburg, Mitlaufen kostenlos.",
+  "beschreibung_en": "Coached running group of TSV GutsMuths since 1986, from casual runners to marathoners; Tuesdays from the 'Wulle' centre into the Tiergarten or to Charlottenburg Palace, free to join.",
+  "quelle": [
+   "https://www.tsvgutsmuths-berlin.de/sportangebote/leichtathletik-laufen-walking/lauftreff-fuer-frauen-und-maenner/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-mikkeller-running-club",
+  "name": "Mikkeller Running Club Berlin",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Mikkeller Bar Berlin, Torstraße (Mitte)",
+  "lat": 52.52952,
+  "lon": 13.4039,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "wochentag": 6,
+    "nter": 1,
+    "uhrzeit": "12:00",
+    "distanz_km": [
+     5,
+     7.5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   7.5
+  ],
+  "anmeldung": "nein",
+  "strava": "https://www.strava.com/clubs/MRC-BLN",
+  "instagram": "https://www.instagram.com/mrc_berlin/",
+  "webseite": "https://www.mikkeller.com/mrc/chapters",
+  "sprachen": [
+   "en"
+  ],
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Monatlicher Lauf am ersten Samstag im Monat um 12 Uhr ab der Mikkeller Bar, 5 bis 7,5 km auf festen Routen, danach gemeinsames Bier – einfach vorbeikommen.",
+  "beschreibung_en": "Monthly run on the first Saturday of the month at noon from the Mikkeller Bar, 5 to 7.5 km on set routes, followed by a beer together – just turn up.",
+  "quelle": [
+   "https://www.strava.com/clubs/MRC-BLN",
+   "https://www.mikkeller.com/mrc/chapters"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-coffee-run-union",
+  "name": "CRU – Coffee Run Union",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "treffpunkt": "Friedrichshain, Café Frau Honig, Dolziger Straße 1 (Treffpunkt laut Verzeichnis; vorab auf Instagram prüfen)",
+  "lat": 52.51969,
+  "lon": 13.46271,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/crurunningbln",
+  "instagram": "https://www.instagram.com/cru_running/",
+  "sprachen": [
+   "en"
+  ],
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Lockerer Social Run in Friedrichshain jeden Samstag um 10 Uhr mit anschließendem Kaffee und Austausch.",
+  "beschreibung_en": "Casual social run in Friedrichshain every Saturday at 10 am, followed by coffee and chat.",
+  "quelle": [
+   "https://www.strava.com/clubs/crurunningbln",
+   "https://socialrunclubs.de/berlin/coffee-run-union/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-8bar-community-ride",
+  "name": "8bar Community Ride",
+  "art": "Fahrrad",
+  "stadt": "Berlin",
+  "treffpunkt": "8bar Showroom, Köpenicker Straße 100 (Mitte), in der Unterführung",
+  "lat": 52.51102,
+  "lon": 13.41563,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Treffen 18:00, Abfahrt 18:15"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/8barcommunity",
+  "webseite": "https://8bar-bikes.com/comm-rides/",
+  "rad_typ": "gemischt",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Wöchentliche Dienstagsausfahrt ab dem 8bar Showroom: von April bis September Rennradrunden auf vier Routen (East/South/West/North), im Herbst 45 Minuten Gravel Night Crit auf dem Tempelhofer Feld (Helm- und Lichtpflicht), danach optional Kaltgetränk.",
+  "beschreibung_en": "Weekly Tuesday ride from the 8bar showroom: road rides on four routes from April to September, in autumn a 45-minute gravel night crit on Tempelhofer Feld (helmet and lights required), optional drink afterwards.",
+  "quelle": [
+   "https://www.strava.com/clubs/8barcommunity",
+   "https://www.strava.com/clubs/126466/group_events/3546087226225493178"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-roter-stern-gravel-nord",
+  "name": "Roter Stern Berlin Radsport – Gravel Nord",
+  "art": "Fahrrad",
+  "stadt": "Berlin",
+  "treffpunkt": "Norwegerstraße (Prenzlauer Berg/Nordisches Viertel)",
+  "lat": 52.55227,
+  "lon": 13.39966,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30",
+    "distanz_km": [
+     40,
+     40
+    ]
+   }
+  ],
+  "distanz_km": [
+   40,
+   40
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "bis zu 4 Ausfahrten in 4 Wochen kostenlos, danach Vereinsmitgliedschaft"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Ausfahrt über die Vereinswebseite anfragen / Strava-Club",
+  "webseite": "https://roter-stern.berlin/radsport/",
+  "strava": "https://www.strava.com/clubs/RSBRSG",
+  "instagram": "https://www.instagram.com/radsport_rsb/",
+  "rad_typ": "Gravel",
+  "merkmale": [
+   "no_drop",
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Dienstägliche Feierabend-Gravelrunde der Radsportgruppe des Roter Stern Berlin, im Herbst/Winter um 40 km; gewartet wird aufeinander, danach meist Pommes und Getränke.",
+  "beschreibung_en": "Tuesday after-work gravel ride of Roter Stern Berlin's cycling section, about 40 km in autumn/winter; the group waits for everyone, usually fries and drinks afterwards.",
+  "quelle": [
+   "https://roter-stern.berlin/radsport/",
+   "https://www.strava.com/clubs/1111046/group_events/3545444106864399036",
+   "https://www.strava.com/clubs/RSBRSG"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "berlin-grx-bande-shake-out-ride",
+  "name": "GRX Bande Berlin – Shake Out Ride",
+  "art": "Fahrrad",
+  "stadt": "Berlin",
+  "treffpunkt": "Am Schloßpark 6–8 (Pankow)",
+  "lat": 52.57422,
+  "lon": 13.40848,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "dauer_min": 120,
+  "stufen": [
+   "anfaenger"
+  ],
+  "strava": "https://www.strava.com/clubs/1014321",
+  "rad_typ": "gemischt",
+  "beschreibung_de": "Montagsausfahrt der GRX Bande, im Winter als kurze, einfache Shake Out Ride von rund zwei Stunden zum Lockern der Beine; Helmpflicht.",
+  "beschreibung_en": "Monday ride of the GRX Bande, in winter run as a short, easy two-hour shake-out ride to loosen the legs; helmet required.",
+  "quelle": [
+   "https://www.strava.com/clubs/1014321/group_events/3395325614216680584",
+   "https://rundedrehen.de/grouprides/berlin"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ }
+]
