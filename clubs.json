@@ -4928,5 +4928,459 @@
   "geprueft": "2026-10-19",
   "pruefung_offen": true,
   "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "bozen-uisp-laufgruppe",
+  "name": "Aktives Laufen (UISP) im Social Park",
+  "art": "Laufen",
+  "stadt": "Bozen",
+  "land": "Italien (Südtirol)",
+  "treffpunkt": "Garten der Religionen (Giardino delle Religioni), Semirurali-Park",
+  "lat": 46.48652,
+  "lon": 11.32637,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 60,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "webseite": "https://eventi.comune.bolzano.it/content/download/92114/883325/file/POSTE_SOCIAL_PARK_VERTICALE.pdf",
+  "sprachen": [
+   "de",
+   "it"
+  ],
+  "saison": {
+   "von": "05-11",
+   "bis": "07-27"
+  },
+  "beschreibung_de": "Kostenlose Laufgruppe der UISP im Sommerprogramm des Semirurali Social Park, offen für alle.",
+  "beschreibung_en": "Free UISP running group in the summer programme of Bolzano's Semirurali Social Park, open to everyone.",
+  "quelle": [
+   "https://eventi.comune.bolzano.it/content/download/92114/883325/file/POSTE_SOCIAL_PARK_VERTICALE.pdf"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur Programm 2026 (11.05.–27.07.) belegt, 2027 unbestätigt; Zuordnung der Zeile im zweispaltigen PDF nicht ganz eindeutig; Koordinaten = Semirurali-Park, nicht der Garten selbst"
+ },
+ {
+  "id": "muehlwald-lauf-treff",
+  "name": "Lauf-Treff Mühlwald",
+  "art": "Laufen",
+  "stadt": "Mühlwald",
+  "land": "Italien (Südtirol)",
+  "treffpunkt": "Fußballplatz Mühlwald",
+  "lat": 46.89075,
+  "lon": 11.85666,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 120,
+  "webseite": "https://www.suedtirol.info/de/de/erlebnisse-und-events/events-suedtirol/pdp-event.77311CE4B1234D46A6F4D205959C7E55.lauf-treff-s.muehlwald",
+  "sprachen": [
+   "de"
+  ],
+  "saison": {
+   "von": "06-01",
+   "bis": "08-31"
+  },
+  "beschreibung_de": "Sommerlicher Lauftreff im Mühlwalder Tal; die Runde wird vor Ort unter den Teilnehmenden ausgemacht.",
+  "beschreibung_en": "Summer running meet-up in the Mühlwald valley; the route is agreed on the spot among participants.",
+  "quelle": [
+   "https://www.suedtirol.info/de/de/erlebnisse-und-events/events-suedtirol/pdp-event.77311CE4B1234D46A6F4D205959C7E55.lauf-treff-s.muehlwald"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur ein Termin (Di 23.06.2026, 19–21 Uhr) aus dem Suchindex belegt, Eventseite inzwischen 404; Rhythmus und Saison geschätzt; Koordinaten = Ortsmitte"
+ },
+ {
+  "id": "corvara-gefuehrte-rennradtour",
+  "name": "Geführte Rennradtour Alta Badia (Bike-Hike)",
+  "art": "Fahrrad",
+  "stadt": "Corvara",
+  "land": "Italien (Südtirol)",
+  "treffpunkt": "Skischule Corvara (alternativ 09:00 Tourismusbüro La Villa)",
+  "lat": 46.54957,
+  "lon": 11.87403,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "09:20"
+   }
+  ],
+  "distanz_km": [
+   55,
+   55
+  ],
+  "dauer_min": 190,
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "Bike-Hike Colfosco / Tourismusbüro (+39 0471 847037)",
+  "rad_typ": "Rennrad",
+  "webseite": "https://www.alta-badia.org/it/calendario/dettagli/tour-guidato-in-bici-da-corsa_63022/",
+  "sprachen": [
+   "it",
+   "de"
+  ],
+  "saison": {
+   "von": "06-01",
+   "bis": "09-30"
+  },
+  "beschreibung_de": "Geführte Rennradrunde über Campolongo, Falzarego und Valparola (55 km, rund 1.400 Höhenmeter) mit Voranmeldung.",
+  "beschreibung_en": "Guided road-bike loop over the Campolongo, Falzarego and Valparola passes (55 km, about 1,400 m climbing), booking required.",
+  "quelle": [
+   "https://www.alta-badia.org/it/calendario/dettagli/tour-guidato-in-bici-da-corsa_63022/",
+   "https://www.suedtirolerland.it/it/calendario/dettagli/tour-guidato-in-bici-da-corsa_63022/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Gästeprogramm mit Guide, Kosten unbekannt; belegt sind Mittwochstermine im Juni/Juli und Sept. 2026, Saisonumfang geschätzt; Koordinaten = Ortsmitte Corvara, nicht die Skischule"
+ },
+ {
+  "id": "zuerich-open-water-swim-pod",
+  "name": "Züri Open Water Swim Pod",
+  "art": "Schwimmen",
+  "stadt": "Zürich",
+  "land": "Schweiz",
+  "treffpunkt": "Seebad Utoquai, Utoquai 50",
+  "lat": 47.36176,
+  "lon": 8.54701,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "07:02"
+   }
+  ],
+  "distanz_km": [
+   1.4,
+   1.4
+  ],
+  "kosten": {
+   "gratis": false,
+   "betrag_eur": null,
+   "text": "Badi-Eintritt CHF 8 oder Saisonabo"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://www.meetup.com/zuri-open-water-swim-pod/",
+  "sprachen": [
+   "en"
+  ],
+  "merkmale": [
+   "kaffee"
+  ],
+  "schwimm_ort": "Freiwasser",
+  "saison": {
+   "von": "06-01",
+   "bis": "09-15"
+  },
+  "beschreibung_de": "Freitagmorgen-Schwimmen im Zürichsee vom Utoquai zum Seebad Enge und zurück (je rund 700 m), danach Kaffee; nur für sichere Schwimmer.",
+  "beschreibung_en": "Friday-morning lake swim from Utoquai to Seebad Enge and back (about 700 m each way), coffee afterwards; for confident swimmers only.",
+  "quelle": [
+   "https://www.meetup.com/zuri-open-water-swim-pod/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-slrg-feierabendschwimmen",
+  "name": "Feierabendschwimmen SLRG Höngg",
+  "art": "Schwimmen",
+  "stadt": "Zürich",
+  "land": "Schweiz",
+  "treffpunkt": "Parkplatz Hallenbad Bläsi, Brunnwiesenstrasse (Höngg)",
+  "lat": 47.40133,
+  "lon": 8.50188,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "Webseite (Frag ab)",
+  "webseite": "https://slrgstaff.jimdofree.com/freiwasserschwimmen-fluss-see",
+  "sprachen": [
+   "de"
+  ],
+  "schwimm_ort": "Freiwasser",
+  "saison": {
+   "von": "07-09",
+   "bis": "08-13"
+  },
+  "beschreibung_de": "Begleitetes Feierabendschwimmen in Limmat, Reuss oder Katzensee mit anschliessendem Grillieren; alle Freiwasserschwimmer sind eingeladen.",
+  "beschreibung_en": "Accompanied after-work swims in the Limmat, Reuss or Katzensee followed by a barbecue; all open-water swimmers are welcome.",
+  "quelle": [
+   "https://slrgstaff.jimdofree.com/freiwasserschwimmen-fluss-see"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "basel-begleitetes-rheinschwimmen",
+  "name": "Begleitetes Rheinschwimmen (Sportamt Basel / SLRG)",
+  "art": "Schwimmen",
+  "stadt": "Basel",
+  "land": "Schweiz",
+  "treffpunkt": "Unterhalb Museum Tinguely, bei der blauen Flagge des Sportamts",
+  "lat": 47.55922,
+  "lon": 7.6123,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "17:45"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "Online-Anmeldung Sportamt (bs.trainingplus.ch)",
+  "webseite": "https://www.bs.ch/themen/kultur-sport-und-freizeit/parks-und-rhein/rhein",
+  "sprachen": [
+   "de"
+  ],
+  "schwimm_ort": "Freiwasser",
+  "saison": {
+   "von": "07-01",
+   "bis": "09-08"
+  },
+  "beschreibung_de": "Kostenloses Rheinschwimmen bis zur Wettsteinbrücke in Begleitung von Rettungsschwimmern der SLRG, für sichere Schwimmer jeden Alters.",
+  "beschreibung_en": "Free Rhine swim down to the Wettstein bridge accompanied by SLRG lifeguards, for confident swimmers of any age.",
+  "quelle": [
+   "https://www.bs.ch/themen/kultur-sport-und-freizeit/parks-und-rhein/rhein",
+   "https://baselundregion.ch/2026/07/13/sicher-in-den-rhein-2026-kostenlos-begleitetes-rheinschwimmen-in-basel/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wandlitz-open-water-swimming-berlin",
+  "name": "Open Water Swimming Berlin (Meetup)",
+  "art": "Schwimmen",
+  "stadt": "Wandlitz",
+  "land": "Deutschland",
+  "treffpunkt": "Liepnitzsee, Westufer",
+  "lat": 52.74865,
+  "lon": 13.51497,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Fahrt- und Parkkosten werden geteilt"
+  },
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://www.meetup.com/meetup-group-lyymviwv/",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "schwimm_ort": "Freiwasser",
+  "beschreibung_de": "Gemischte Freiwasser- und Kaltwassergruppe aus Berlin, die ganzjährig vor allem im Liepnitzsee schwimmt; Einsteiger nur von Mai bis September.",
+  "beschreibung_en": "Mixed open- and cold-water group from Berlin swimming year-round, mostly at Liepnitzsee; beginners only from May to September.",
+  "quelle": [
+   "https://www.meetup.com/meetup-group-lyymviwv/",
+   "https://www.meetup.com/Berlin-Wild-Swimmers/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Kein fester Wochentermin; zuletzt Sa/So 9 oder 10 Uhr am Liepnitzsee (Aug./Sept.); Beitritt nach fünf Fragen, Einsteiger Okt.–Apr. nicht zugelassen; Koordinaten = Seemitte"
+ },
+ {
+  "id": "langen-swimpower-open-water",
+  "name": "Swimpower Open-Water-Training Langener Waldsee",
+  "art": "Schwimmen",
+  "stadt": "Langen",
+  "land": "Deutschland",
+  "treffpunkt": "DRK-Häuschen, Langener Waldsee",
+  "lat": 50.01392,
+  "lon": 8.6205,
+  "termine": [
+   {
+    "rhythmus": "zweiwoechentlich",
+    "ab": "2026-05-04",
+    "wochentag": 1,
+    "uhrzeit": "18:40"
+   }
+  ],
+  "dauer_min": 60,
+  "kosten": {
+   "gratis": false,
+   "betrag_eur": 25,
+   "text": "25 € plus Online-Ticket für den See"
+  },
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "E-Mail an den Coach",
+  "webseite": "https://www.swimpower.de/open-water/",
+  "sprachen": [
+   "de"
+  ],
+  "schwimm_ort": "Freiwasser",
+  "saison": {
+   "von": "05-04",
+   "bis": "07-27"
+  },
+  "beschreibung_de": "Gecoachte Open-Water-Einheit jeden zweiten Montag am Langener Waldsee, ab fünf Teilnehmenden.",
+  "beschreibung_en": "Coached open-water session every other Monday at Langener Waldsee, from five participants.",
+  "quelle": [
+   "https://www.swimpower.de/open-water/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Jahr auf der Seite nicht genannt (Termine passen auf 2026); kostenpflichtiges Coaching, kein offener Treff; Koordinaten = See, nicht das DRK-Häuschen"
+ },
+ {
+  "id": "hamburg-eisbademeisters",
+  "name": "Eisbademeisters Hamburg",
+  "art": "Schwimmen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Elbstrand Övelgönne, Höhe Strandperle (Övelgönne 60)",
+  "lat": 53.54446,
+  "lon": 9.9055,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "11:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Sponsoren spenden je Badende/n"
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "Vor Ort mit Vornamen eintragen",
+  "webseite": "https://eisbademeisters-hamburg.de/",
+  "sprachen": [
+   "de"
+  ],
+  "schwimm_ort": "Freiwasser",
+  "saison": {
+   "von": "10-31",
+   "bis": "02-28"
+  },
+  "beschreibung_de": "Wöchentliches Eisbaden in der Elbe für den guten Zweck, offen für alle; bitte 30 Minuten vorher da sein.",
+  "beschreibung_en": "Weekly charity ice dip in the Elbe, open to everyone; arrive 30 minutes early.",
+  "quelle": [
+   "https://eisbademeisters-hamburg.de/eventtermine/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termine wechseln zwischen Fr 16:00 und Sa 11:00 (eingetragen: Sa); Eisbaden, kein Streckenschwimmen – passt es zur Seite? · Eisbaden (kurzes Eintauchen, kein Streckenschwimmen) – gehört das auf die Seite?"
+ },
+ {
+  "id": "wien-eisbaden-neue-donau",
+  "name": "Eisbaden Wien an der Neuen Donau",
+  "art": "Schwimmen",
+  "stadt": "Wien",
+  "land": "Österreich",
+  "treffpunkt": "Familienbadestrand Neue Donau, bei der U6-Station Neue Donau",
+  "lat": 48.2463,
+  "lon": 16.3947,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "12:30"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "12:30"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "webseite": "https://www.ganz-wien.at/freizeit/sport/wintersport/eisbaden.html",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "schwimm_ort": "Freiwasser",
+  "saison": {
+   "von": "10-01",
+   "bis": "04-30"
+  },
+  "beschreibung_de": "Gruppe, die im Winterhalbjahr am Wochenende in der Neuen Donau badet; Anfänger und Erfahrene sind willkommen.",
+  "beschreibung_en": "Group taking winter weekend dips in the Neue Donau; beginners and experienced swimmers welcome.",
+  "quelle": [
+   "https://www.ganz-wien.at/freizeit/sport/wintersport/eisbaden.html"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur Stadtmagazin (Stand 15.10.2025), eigene Seite der Gruppe (Facebook „Eisbaden Wien“) nicht gefunden; Saisonbeginn geschätzt; Eisbaden statt Streckenschwimmen · Eisbaden (kurzes Eintauchen, kein Streckenschwimmen) – gehört das auf die Seite?"
+ },
+ {
+  "id": "stuttgart-tb-cannstatt-schwimmtraining",
+  "name": "TB Cannstatt Triathlon – Schwimmtraining",
+  "art": "Schwimmen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Sportbad NeckarPark, Lenore-Volz-Straße 2",
+  "lat": 48.79572,
+  "lon": 9.2231,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "20:30"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:45"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "20:30"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "07:45"
+   }
+  ],
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Kontakt zum Verein",
+  "webseite": "https://www.tbc-triathlon.de/",
+  "sprachen": [
+   "de"
+  ],
+  "schwimm_ort": "Hallenbad",
+  "beschreibung_de": "Vereins-Schwimmtraining der Triathlonabteilung; Interessierte dürfen dreimal unverbindlich mittrainieren.",
+  "beschreibung_en": "Club swim sessions of the triathlon section; newcomers may join three sessions without obligation.",
+  "quelle": [
+   "https://www.tbc-triathlon.de/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Probetraining für künftige Mitglieder, nicht ausdrücklich für Durchreisende; Badeintritt/Kosten unbekannt"
  }
 ]
