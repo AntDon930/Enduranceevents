@@ -9495,5 +9495,3235 @@
   ],
   "land": "Schweiz",
   "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-niendorfer-laufladen-community-run",
+  "name": "Community Run Niendorfer Laufladen",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Niendorfer Laufladen, Tibarg 18",
+  "lat": 53.61857,
+  "lon": 9.95153,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   10
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://niendorfer-laufladen.de/",
+  "instagram": "https://www.instagram.com/niendorfer_laufladen/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "mehrere_gruppen",
+   "gepaeck"
+  ],
+  "beschreibung_de": "Wöchentlicher Lauf ab dem Niendorfer Laufladen am Tibarg mit Gruppen über 5, 7,5 und 10 km; jedes Tempo ist willkommen, Taschen können im Laden bleiben, danach Getränke und Snacks.",
+  "beschreibung_en": "Weekly run from the Niendorfer Laufladen running shop on Tibarg with groups over 5, 7.5 and 10 km; every pace welcome, bags can stay in the shop, drinks and snacks afterwards.",
+  "quelle": [
+   "https://niendorfer-laufladen.de/",
+   "https://socialrunclubs.de/hamburg/community-run-niendorfer-laufladen/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-enduure-sunday-run",
+  "name": "enduure Sunday Run Hamburg",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Brammibal's Donuts, Jungfernstieg 47 (am Gänsemarkt)",
+  "lat": 53.55494,
+  "lon": 9.9893,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "11:00"
+   }
+  ],
+  "distanz_km": [
+   9,
+   9
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "6:30"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.enduure.de/community",
+  "strava": "https://www.strava.com/clubs/enduure",
+  "instagram": "https://www.instagram.com/enduure.community/",
+  "merkmale": [
+   "kaffee"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Sonntagslauf der enduure-Community ab Brammibal's Donuts am Jungfernstieg, rund 9 km in lockerem Tempo um 6:30 min/km.",
+  "beschreibung_en": "Sunday run of the enduure community from Brammibal's Donuts on Jungfernstieg, about 9 km at an easy pace around 6:30 min/km.",
+  "quelle": [
+   "https://www.enduure.de/community",
+   "https://socialrunclubs.de/hamburg/enduure/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Treffpunkt und Wochentag auf enduure.de bestätigt; Uhrzeit (10:45 Treffen / 11:00 Start) und Distanz nur von socialrunclubs.de"
+ },
+ {
+  "id": "hamburg-grove-running",
+  "name": "Grove Running",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Parkplatz am Waldcafé Corell, Niendorfer Gehege 50",
+  "lat": 53.61577,
+  "lon": 9.93234,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   11
+  ],
+  "dauer_min": 75,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://groverunning.de/",
+  "strava": "https://www.strava.com/clubs/2322307",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "no_drop"
+  ],
+  "beschreibung_de": "Jeden Sonntag eine gemeinsame Laufeinheit im Niendorfer Gehege, oft Intervalle auf einer Runde, bei der jede und jeder das eigene Tempo läuft; gegen 11:15 Uhr zurück am Parkplatz.",
+  "beschreibung_en": "Every Sunday a shared running session in the Niendorfer Gehege woods, often intervals on a loop where everyone runs their own pace; back at the car park around 11:15.",
+  "quelle": [
+   "https://groverunning.de/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-hhsc-lauftraining-stadtpark",
+  "name": "Lauftraining Hamburger Sportclub",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Eingang zu den Umkleiden der Jahnkampfbahn, Stadtpark (Linnering)",
+  "lat": 53.59778,
+  "lon": 10.00743,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:15",
+    "bezeichnung": "Gruppen für Anfänger, Wiedereinsteiger und Fortgeschrittene"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:15",
+    "bezeichnung": "Tempo- und Intervalltraining"
+   }
+  ],
+  "dauer_min": 90,
+  "stufen": [
+   "anfaenger",
+   "mittel",
+   "fortgeschritten"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Die ersten drei Monate unverbindlich und kostenfrei, danach Vereinsmitgliedschaft"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://hhsc.de/lauftraining-hamburg",
+  "instagram": "https://www.instagram.com/hamburgersportclub/",
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Vereinslauftraining des Hamburger Sportclubs an der Jahnkampfbahn im Stadtpark: montags in Gruppen für Einsteiger, Wiedereinsteiger und Fortgeschrittene, donnerstags strukturiertes Tempotraining.",
+  "beschreibung_en": "Club running training of Hamburger Sportclub at the Jahnkampfbahn in Stadtpark: Mondays in groups for beginners, returners and advanced runners, Thursdays structured speed sessions.",
+  "quelle": [
+   "https://hhsc.de/lauftraining-hamburg"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-inselrunners",
+  "name": "Inselrunners (Hamburg Running)",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Vor dem Wälderhaus, Inselpark Wilhelmsburg",
+  "lat": 53.4961,
+  "lon": 10.00324,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "distanz_km": [
+   10,
+   10
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "6:00",
+   "bis": "6:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://hamburg-running.de/training/inselrunners/",
+  "strava": "https://www.strava.com/clubs/inselrunners",
+  "beschreibung_de": "Donnerstagslauf von Hamburg Running über die Elbinsel Wilhelmsburg, rund 10 km in einer Stunde für Läuferinnen und Läufer mit etwas Erfahrung; Treffen ab 18:45 Uhr, ohne Vereinsmitgliedschaft.",
+  "beschreibung_en": "Thursday run by Hamburg Running across the Wilhelmsburg river island, about 10 km in one hour for runners with some experience; meet from 6:45 pm, no club membership needed.",
+  "quelle": [
+   "https://hamburg-running.de/training/inselrunners/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-sweet-salty-run-club",
+  "name": "Sweet & Salty Run Club",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Krugkoppelbrücke (Außenalster)",
+  "lat": 53.57993,
+  "lon": 9.9991,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   7.5,
+   7.5
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://www.sweetandsalty.run/",
+  "strava": "https://www.strava.com/clubs/sweetandsalty",
+  "instagram": "https://www.instagram.com/sweetandsaltyrun/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Samstagslauf über die 7,5 km lange Alsterrunde ab der Krugkoppelbrücke, für alle Leistungsstufen.",
+  "beschreibung_en": "Saturday run on the 7.5 km Alster loop from Krugkoppelbrücke, open to all levels.",
+  "quelle": [
+   "https://www.sweetandsalty.run/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-silent-run-club",
+  "name": "Silent Run Club Hamburg",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Rad Race Shop Hamburg, Fischmarkt 9",
+  "lat": 53.54557,
+  "lon": 9.95192,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "distanz_km": [
+   8,
+   8
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://silentrunclub.com/",
+  "instagram": "https://www.instagram.com/radrace_shop_hamburg/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Entspannter 8-km-Lauf am Mittwochabend ab dem Rad Race Shop, bei dem alle über Kopfhörer dieselbe Musik hören; danach Getränke im Laden.",
+  "beschreibung_en": "Relaxed 8 km run on Wednesday evenings from the Rad Race Shop with everyone listening to the same music on headphones; drinks in the shop afterwards.",
+  "quelle": [
+   "https://silentrunclub.com/",
+   "https://socialrunclubs.de/hamburg/sielent-run-club/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-female-run-club-alster",
+  "name": "The Female Run Club – Sunday Run Alster",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "core club, Plan 8",
+  "lat": 53.55137,
+  "lon": 9.99383,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   7,
+   7
+  ],
+  "pace": {
+   "von": "7:00",
+   "bis": "7:00"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Webseite",
+  "webseite": "https://thefemalerunclub.de/blogs/stadt/hamburg-alster",
+  "instagram": "https://www.instagram.com/thefemalerunclub/",
+  "merkmale": [
+   "frauen",
+   "anfaengerfreundlich"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauf-Community nur für Frauen: sonntags rund 7 km an der Alster im ruhigen Tempo um 7 min/km, Start und Ziel am core club.",
+  "beschreibung_en": "Women-only running community: Sundays about 7 km along the Alster at an easy pace around 7 min/km, start and finish at core club.",
+  "quelle": [
+   "https://thefemalerunclub.de/blogs/stadt/hamburg-alster"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Seite nennt für Alster und Elbe beide sonntags 10:00 Uhr – unklar, ob beide jede Woche stattfinden oder abwechseln; Anmeldung über die Seite"
+ },
+ {
+  "id": "hamburg-female-run-club-elbe",
+  "name": "The Female Run Club – Sunday Run Elbe",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Altonaer Balkon",
+  "lat": 53.54549,
+  "lon": 9.94116,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   6.5,
+   6.5
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "7:00"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Webseite",
+  "webseite": "https://thefemalerunclub.de/blogs/stadt/hamburg-elbe",
+  "instagram": "https://www.instagram.com/thefemalerunclub/",
+  "merkmale": [
+   "frauen",
+   "anfaengerfreundlich"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauf-Community nur für Frauen: sonntags 6,5 km an der Elbe in Altona im Tempo von 6:30 bis 7 min/km, Start und Ziel am Altonaer Balkon.",
+  "beschreibung_en": "Women-only running community: Sundays 6.5 km along the Elbe in Altona at 6:30 to 7 min/km, start and finish at Altonaer Balkon.",
+  "quelle": [
+   "https://thefemalerunclub.de/blogs/stadt/hamburg-elbe"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Seite nennt für Alster und Elbe beide sonntags 10:00 Uhr – unklar, ob beide jede Woche stattfinden oder abwechseln; Anmeldung über die Seite"
+ },
+ {
+  "id": "hamburg-female-run-club-planten-un-blomen",
+  "name": "The Female Run Club – After Work Run Planten un Blomen",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "EVO Fitness Stadthausbrücke",
+  "lat": 53.54951,
+  "lon": 9.98493,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   6.5,
+   6.5
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "7:00"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Webseite",
+  "webseite": "https://thefemalerunclub.de/blogs/stadt/hamburg-planten-un-blomen",
+  "instagram": "https://www.instagram.com/thefemalerunclub/",
+  "merkmale": [
+   "frauen",
+   "anfaengerfreundlich"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Feierabendlauf nur für Frauen am Mittwoch: 6,5 km durch Planten un Blomen im Tempo von 6:30 bis 7 min/km, Start an der Stadthausbrücke.",
+  "beschreibung_en": "Women-only after-work run on Wednesdays: 6.5 km through Planten un Blomen at 6:30 to 7 min/km, starting at Stadthausbrücke.",
+  "quelle": [
+   "https://thefemalerunclub.de/blogs/stadt/hamburg-planten-un-blomen"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-laufwerk-open-lauftreff",
+  "name": "Laufwerk Open Lauftreff Samstag",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Vor der Jahnkampfbahn, Stadtpark (Linnering)",
+  "lat": 53.59778,
+  "lon": 10.00743,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   5.6,
+   11.2
+  ],
+  "dauer_min": 60,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "gratis, alternativ Check-in mit Wellpass"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.laufwerk-hamburg.de/open-lauftreff-samstag/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Offener Lauftreff des Laufgeschäfts Laufwerk im Stadtpark: Aufwärmrunde und Gymnastik, um 10:15 Uhr Start auf die 5,6 km lange Parkrunde, meist eine zweite Runde dazu.",
+  "beschreibung_en": "Open Saturday running group of the Laufwerk running shop in Stadtpark: warm-up lap and exercises, then at 10:15 a 5.6 km park loop, usually followed by a second one.",
+  "quelle": [
+   "https://www.laufwerk-hamburg.de/open-lauftreff-samstag/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-paceheads-community-ride",
+  "name": "Paceheads Community Ride Hamburg",
+  "art": "Fahrrad",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Paceheads / Trionik, Barmbeker Straße 2-6",
+  "lat": 53.5827,
+  "lon": 10.01983,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "anmeldung": "nein",
+  "anmeldung_ueber": "WhatsApp-Gruppe für Infos",
+  "rad_typ": "Rennrad",
+  "webseite": "https://www.komoot.com/user/paceheads",
+  "strava": "https://www.strava.com/clubs/paceheads",
+  "merkmale": [
+   "no_drop"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Wöchentliche Rennrad-Ausfahrt ab dem Paceheads-Laden in Winterhude; alle fahren als eine Gruppe im gemeinsamen Tempo, ohne Anmeldung.",
+  "beschreibung_en": "Weekly road bike ride from the Paceheads shop in Winterhude; everyone rides as one group at a shared pace, no registration needed.",
+  "quelle": [
+   "https://www.komoot.com/user/paceheads"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Komoot nennt den Ride seit April 2025 jeden Mittwoch; ob er auch im Winter (Dunkelheit) stattfindet, ist nicht angegeben"
+ },
+ {
+  "id": "rosengarten-harburger-rg-rennradtraining",
+  "name": "Rennradtraining Harburger RG",
+  "art": "Fahrrad",
+  "stadt": "Rosengarten",
+  "land": "Deutschland",
+  "treffpunkt": "Vor Erhorns Gasthaus, Harburger Straße 18, Vahrendorf",
+  "lat": 53.43353,
+  "lon": 9.90726,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "17:30"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "17:30"
+   }
+  ],
+  "distanz_km": [
+   50,
+   100
+  ],
+  "pace": {
+   "von": 28,
+   "bis": 32
+  },
+  "saison": {
+   "von": "04-01",
+   "bis": "09-30"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Kontaktformular des Vereins",
+  "rad_typ": "Rennrad",
+  "webseite": "https://harburger-rg.de/trainingstreffs/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "stufen": [
+   "fortgeschritten"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Sommer-Rennradtraining der Harburger Radsportgemeinschaft am südlichen Hamburger Stadtrand, 50 bis 100 km mit 28 bis 32 km/h, je nach Teilnehmenden in Leistungsgruppen; vorherige Kontaktaufnahme empfohlen.",
+  "beschreibung_en": "Summer road training of the Harburger Radsportgemeinschaft just south of Hamburg, 50 to 100 km at 28 to 32 km/h, split into ability groups; contacting the club beforehand is recommended.",
+  "quelle": [
+   "https://harburger-rg.de/trainingstreffs/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hamburg-6am-morning-run-club",
+  "name": "6 a.m. Morning Run Club",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Krugkoppelbrücke (Außenalster)",
+  "lat": 53.57993,
+  "lon": 9.9991,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "06:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "06:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "06:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/6a.m.morning.run.club.hamburg/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Früher Lauftreff um 6 Uhr an der Krugkoppelbrücke, montags, mittwochs und freitags.",
+  "beschreibung_en": "Early run at 6 am from Krugkoppelbrücke on Mondays, Wednesdays and Fridays.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/6-a-m-morning-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hamburg-bergedorf-runners",
+  "name": "Bergedorf Runners",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Rathaus Bergedorf",
+  "lat": 53.48747,
+  "lon": 10.21962,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/bergedorf_runners/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauftreff am Dienstagabend ab dem Bergedorfer Rathaus.",
+  "beschreibung_en": "Tuesday evening run from Bergedorf town hall.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/bergedorf-runners/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hamburg-downlaufen",
+  "name": "Downlaufen",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Niendorfer Gehege",
+  "lat": 53.61412,
+  "lon": 9.93535,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "14:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/downlaufen/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Inklusiver Laufverein, der sich mittwochs und sonntags im Niendorfer Gehege trifft.",
+  "beschreibung_en": "Inclusive running club meeting on Wednesdays and Sundays in the Niendorfer Gehege woods.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/downlaufen/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; genauer Treffpunkt im Niendorfer Gehege fehlt"
+ },
+ {
+  "id": "hamburg-meet-run-club",
+  "name": "Meet & Run Club",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Joe & The Juice (Innenstadt)",
+  "lat": 53.5521,
+  "lon": 9.9934,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "12:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/meetandrunclub/",
+  "strava": "https://www.strava.com/clubs/meetandrunclub",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Sonntagslauf ab einer Filiale von Joe & The Juice in der Innenstadt.",
+  "beschreibung_en": "Sunday run from a Joe & The Juice branch in the city centre.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/meet-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; welche Filiale genau, nur aus dem Kartenpunkt der Sammelseite"
+ },
+ {
+  "id": "hamburg-no-matter-the-weather",
+  "name": "No Matter The Weather Run Club",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Fernsichtbrücke, 22301 Hamburg",
+  "lat": 53.58082,
+  "lon": 10.00267,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/nm_twclub/",
+  "strava": "https://www.strava.com/clubs/NOMATTER-THEWEATHER",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Community-Lauftreff bei jedem Wetter, sonntags ab der Fernsichtbrücke, für Einsteiger und Erfahrene.",
+  "beschreibung_en": "Community run in any weather, Sundays from Fernsichtbrücke, for beginners and seasoned runners.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/no-matter-the-weather/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hamburg-oace-run-club",
+  "name": "OACE Run Club Hamburg",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "MAORA Matcha & Coffee, Jungfernstieg 48",
+  "lat": 53.55515,
+  "lon": 9.98977,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "instagram": "https://www.instagram.com/oace.club/",
+  "strava": "https://www.strava.com/clubs/1522645",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Donnerstagslauf über 6 km ab einem Café am Jungfernstieg, jedes Tempo willkommen.",
+  "beschreibung_en": "Thursday 6 km run from a café on Jungfernstieg, every pace welcome.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/oace-club-hamburg/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hamburg-pace-silhouettes",
+  "name": "Pace & Silhouettes",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Krugkoppelbrücke (Außenalster)",
+  "lat": 53.57993,
+  "lon": 9.9991,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "09:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/paceandsilhouettes/",
+  "strava": "https://www.strava.com/clubs/1561372",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Sonntagslauf ab der Krugkoppelbrücke an der Außenalster.",
+  "beschreibung_en": "Sunday run from Krugkoppelbrücke on the Outer Alster.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/pace-silhouettes/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hamburg-run-fleet",
+  "name": "Run Fleet",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Minus Bar",
+  "lat": 53.55767,
+  "lon": 9.97524,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/runfleet/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Abendlicher Lauftreff mit Start an einer Bar.",
+  "beschreibung_en": "Evening social run starting from a bar.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/run-fleet/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "socialrunclubs.de nennt Dienstag 19:00 an der Minus Bar, eine Liste von 2025 dagegen Donnerstag 18:30 am Generator Hamburg – widersprüchlich"
+ },
+ {
+  "id": "hamburg-run-n-bass",
+  "name": "Run'n'Bass Hamburg",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "S-Bahnhof Stellingen, hinter den Fußgängertunneln Richtung Stadion",
+  "lat": 53.58939,
+  "lon": 9.91447,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "pace": {
+   "von": "7:50",
+   "bis": "7:50"
+  },
+  "instagram": "https://www.instagram.com/raverun.hh/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauf mit mobiler Musikanlage durch den Altonaer Volkspark: 18:30 Uhr Treffen und Aufwärmen, 19 Uhr Start, rund 6 km im gemütlichen Tempo.",
+  "beschreibung_en": "Run behind a mobile sound system through Altonaer Volkspark: meet and warm up at 6:30 pm, start at 7 pm, about 6 km at an easy pace.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/run-n-bass-hamburg/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hamburg-runners-high",
+  "name": "Runners High Hamburg",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Café No 28",
+  "lat": 53.5644,
+  "lon": 9.95931,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:30"
+   }
+  ],
+  "distanz_km": [
+   10,
+   10
+  ],
+  "instagram": "https://www.instagram.com/rhh.club/",
+  "strava": "https://www.strava.com/clubs/1434322",
+  "merkmale": [
+   "kaffee"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Sonntagslauf über 10 km ab einem Café.",
+  "beschreibung_en": "Sunday 10 km run from a café.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/runners-high-hamburg/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hamburg-telemichel-runners",
+  "name": "Telemichel Runners",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Am Fernsehturm (Telemichel)",
+  "lat": 53.56313,
+  "lon": 9.97581,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/telemichelrunners/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Community-Lauf jeden Donnerstagabend am Hamburger Fernsehturm.",
+  "beschreibung_en": "Community run every Thursday evening at the Hamburg TV tower.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/telemichel-runners/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hamburg-teveo-run-club",
+  "name": "TEVEO Run Club Hamburg",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "New York Bagel Bar, Eppendorfer Baum 38",
+  "lat": 53.58461,
+  "lon": 9.98248,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   10,
+   10
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:30"
+  },
+  "strava": "https://www.strava.com/clubs/teveorunclub",
+  "merkmale": [
+   "mehrere_gruppen",
+   "gepaeck",
+   "kaffee"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Sonntagslauf über 10 km um die Alster in drei Tempogruppen, Taschen und Jacken können in der Bagel-Bar bleiben.",
+  "beschreibung_en": "Sunday 10 km run around the Alster in three pace groups; bags and jackets can stay at the bagel bar.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/teveo-run-club-hamburg/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hamburg-nike-we-run-ham",
+  "name": "We Run HAM (Nike Store)",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Nike Store Hamburg",
+  "lat": 53.55278,
+  "lon": 10.00486,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/werunham/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauftreff am Montagabend ab dem Nike Store in der Innenstadt.",
+  "beschreibung_en": "Monday evening run from the Nike Store in the city centre.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/werunham/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hamburg-we-run-this",
+  "name": "We Run This Hamburg",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Holmes Place, Hamburger Meile",
+  "lat": 53.57346,
+  "lon": 10.03168,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/werunthishamburg/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauftreff jeden Montag zum Wochenstart ab dem Fitnessclub an der Hamburger Meile.",
+  "beschreibung_en": "Run every Monday to start the week, from the gym at Hamburger Meile.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/werunthishamburg/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hamburg-tru-running-club",
+  "name": "TRU x MØB Running Club",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "TRU Fitness Club",
+  "lat": 53.58789,
+  "lon": 10.04501,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "webseite": "https://trufitnessclub.de/",
+  "strava": "https://www.strava.com/clubs/2281509",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Mittwochslauf ab dem Fitnessclub TRU.",
+  "beschreibung_en": "Wednesday run from the TRU fitness club.",
+  "quelle": [
+   "https://socialrunclubs.de/hamburg/tru-running-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; die Seite des Fitnessclubs nennt den Lauf nicht"
+ },
+ {
+  "id": "hamburg-alster-lauftreff",
+  "name": "Alster-Lauftreff",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Vor dem Restaurant Cliff, Fährdamm 13",
+  "lat": 53.57404,
+  "lon": 10.00215,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "webseite": "https://www.alster-acht.de/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauftreff am Montagabend an der Außenalster, Treffpunkt vor dem Restaurant Cliff.",
+  "beschreibung_en": "Monday evening run on the Outer Alster, meeting in front of the Cliff restaurant.",
+  "quelle": [
+   "https://hhlv.de/wp-content/uploads/2025_Lauftreffs_Hamburg.pdf"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur aus der Lauftreff-Liste des Hamburger Leichtathletik-Verbands (Stand 28.09.2024), nicht auf einer aktuellen eigenen Seite bestätigt"
+ },
+ {
+  "id": "hamburg-asv-eintracht-lauftreff",
+  "name": "Lauftreff ASV Eintracht Hamburg",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "land": "Deutschland",
+  "treffpunkt": "Fernsichtbrücke (Außenalster)",
+  "lat": 53.58082,
+  "lon": 10.00267,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "webseite": "https://www.eintracht-hamburg.de/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Vereinslauftreff montags und donnerstags ab der Fernsichtbrücke an der Alster, auch mit Betreuung für Anfänger.",
+  "beschreibung_en": "Club running group on Mondays and Thursdays from Fernsichtbrücke on the Alster, with support for beginners.",
+  "quelle": [
+   "https://hhlv.de/wp-content/uploads/2025_Lauftreffs_Hamburg.pdf"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur aus der Lauftreff-Liste des Hamburger Leichtathletik-Verbands (Stand 28.09.2024), nicht auf einer aktuellen eigenen Seite bestätigt"
+ },
+ {
+  "id": "wedel-lauftreff-wedel",
+  "name": "Lauftreff Wedel",
+  "art": "Laufen",
+  "stadt": "Wedel",
+  "land": "Deutschland",
+  "treffpunkt": "Elbestadion, Bekstraße 22",
+  "lat": 53.57521,
+  "lon": 9.69997,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 60,
+  "anmeldung": "nein",
+  "webseite": "https://www.lauftreff-wedel.de/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Schnuppern kostenlos, danach günstige Vereinsmitgliedschaft"
+  },
+  "beschreibung_de": "Vereinslauftreff am Elbestadion in Wedel dienstags und donnerstags, je nach Anspruch in passenden Gruppen; wer eine Stunde locker laufen kann, darf erst einmal schnuppern.",
+  "beschreibung_en": "Club running group at the Elbestadion in Wedel on Tuesdays and Thursdays in groups by ability; anyone who can jog for an hour is welcome to try it out.",
+  "quelle": [
+   "https://www.lauftreff-wedel.de/",
+   "https://hhlv.de/wp-content/uploads/2025_Lauftreffs_Hamburg.pdf"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bremen-absolute-run-community-run",
+  "name": "Absolute Run Bremen Community Run",
+  "art": "Laufen",
+  "stadt": "Bremen",
+  "land": "Deutschland",
+  "treffpunkt": "Absolute Run Bremen, Am Wall 143",
+  "lat": 53.07557,
+  "lon": 8.81254,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://absolute-run-bremen.de/",
+  "instagram": "https://www.instagram.com/absoluterunbremen/",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Wöchentlicher Community Run am Dienstagabend ab dem Laufgeschäft Absolute Run am Wall.",
+  "beschreibung_en": "Weekly community run on Tuesday evenings from the Absolute Run running shop on Am Wall.",
+  "quelle": [
+   "https://absolute-run-bremen.de/",
+   "https://socialrunclubs.de/bremen/absolute-run/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bremen-antifascist-running-club",
+  "name": "Antifascist Running Club Bremen",
+  "art": "Laufen",
+  "stadt": "Bremen",
+  "land": "Deutschland",
+  "treffpunkt": "Hollersee (Bürgerpark)",
+  "lat": 53.08814,
+  "lon": 8.82056,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "nter": 1,
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "instagram": "https://www.instagram.com/antifascistrunningclub_hb/",
+  "strava": "https://www.strava.com/clubs/2359412",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauf über 5 km für alle Tempi am ersten Sonntag im Monat am Hollersee, verbunden mit politischem Anliegen.",
+  "beschreibung_en": "5 km run for all paces on the first Sunday of the month at Hollersee, combined with a political cause.",
+  "quelle": [
+   "https://socialrunclubs.de/bremen/antifascist-running-club-bremen/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "bremen-fischfrikadellen-lauftreff",
+  "name": "Lauftreff Bremer Fischfrikadellen",
+  "art": "Laufen",
+  "stadt": "Bremen",
+  "land": "Deutschland",
+  "treffpunkt": "Finnbahn im Bürgerpark",
+  "lat": 53.10271,
+  "lon": 8.83815,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "nter": 3,
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/bremer_fischfrikadellen/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauftreff am dritten Dienstag im Monat an der Finnbahn im Bürgerpark.",
+  "beschreibung_en": "Running meet-up on the third Tuesday of the month at the Finnbahn trail in Bürgerpark.",
+  "quelle": [
+   "https://socialrunclubs.de/bremen/bremer-fischfrikadellen/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "bremen-easy-miles-running-club",
+  "name": "Easy Miles Running Club",
+  "art": "Laufen",
+  "stadt": "Bremen",
+  "land": "Deutschland",
+  "treffpunkt": "Harbour Coffee, Überseestadt",
+  "lat": 53.09485,
+  "lon": 8.77086,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/easymiles.runningclub/",
+  "merkmale": [
+   "kaffee"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lockerer Sonntagslauf ab einem Café in der Überseestadt.",
+  "beschreibung_en": "Easy Sunday run from a café in the Überseestadt district.",
+  "quelle": [
+   "https://socialrunclubs.de/bremen/easymilesrunningclub/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; Adresse des Cafés nur aus dem Kartenpunkt der Sammelseite"
+ },
+ {
+  "id": "bremen-the-social-run-club",
+  "name": "The Social Run Club Bremen",
+  "art": "Laufen",
+  "stadt": "Bremen",
+  "land": "Deutschland",
+  "treffpunkt": "Bürgerpark, am Bunker B31",
+  "lat": 53.0879,
+  "lon": 8.8278,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/thesocialrun_bremen/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Samstagslauf ab dem Bürgerpark; zusätzlich mittwochs um 19:30 Uhr ein Lauf ab dem Top Gym.",
+  "beschreibung_en": "Saturday run from Bürgerpark; additionally a Wednesday 7:30 pm run from Top Gym.",
+  "quelle": [
+   "https://socialrunclubs.de/bremen/the-social-run-club-bremen/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hannover-runners-lister-turm",
+  "name": "Hannover Runners Lauftreff Lister Turm",
+  "art": "Laufen",
+  "stadt": "Hannover",
+  "land": "Deutschland",
+  "treffpunkt": "Lister Turm, Walderseestraße 100",
+  "lat": 52.39005,
+  "lon": 9.75704,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:30",
+    "bezeichnung": "Sonntags-Lauftreff Eilenriede, 10 km in Pacegruppen",
+    "distanz_km": [
+     10,
+     10
+    ],
+    "pace": {
+     "von": "5:00",
+     "bis": "7:00"
+    }
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Schnecken-Lauftreff für Anfänger und Wiedereinsteiger, 1–6 km mit Gehpausen",
+    "distanz_km": [
+     1,
+     6
+    ]
+   }
+  ],
+  "stufen": [
+   "anfaenger",
+   "mittel",
+   "fortgeschritten"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.hannover-runners.de/lauftreffs/sonntags-lauftreff-eilenriede-runde-n/",
+  "strava": "https://www.strava.com/clubs/hannoverrunners",
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Offene Lauftreffs der Hannover Runners am Lister Turm: sonntags 10 km durch die Eilenriede in Pacegruppen von 5 bis 7 min/km, donnerstags ein langsamer Treff für Einsteiger mit Gehpausen.",
+  "beschreibung_en": "Open runs of the Hannover Runners club at Lister Turm: Sundays 10 km through the Eilenriede forest in pace groups from 5 to 7 min/km, Thursdays a slow group for beginners with walking breaks.",
+  "quelle": [
+   "https://www.hannover-runners.de/lauftreffs/sonntags-lauftreff-eilenriede-runde-n/",
+   "https://www.hannover-runners.de/lauftreffs/donnerstags-schnecken-lauftreff/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hannover-runners-rennschnecken-maschsee",
+  "name": "Hannover Runners Rennschnecken-Lauftreff",
+  "art": "Laufen",
+  "stadt": "Hannover",
+  "land": "Deutschland",
+  "treffpunkt": "Maschsee, Anleger Nord (Maschsee-Kiosk)",
+  "lat": 52.36202,
+  "lon": 9.73595,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "8:30"
+  },
+  "stufen": [
+   "anfaenger",
+   "mittel"
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://www.hannover-runners.de/lauftreffs/rennschnecken-lauftreff/",
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Dienstags einmal um den Maschsee (6 km) in Pacegruppen zwischen 6 und 8:30 min/km, für Einsteiger und Fortgeschrittene.",
+  "beschreibung_en": "Tuesdays once around the Maschsee lake (6 km) in pace groups between 6 and 8:30 min/km, for beginners and more experienced runners.",
+  "quelle": [
+   "https://www.hannover-runners.de/lauftreffs/rennschnecken-lauftreff/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hannover-runners-maschsee-mittwoch",
+  "name": "Hannover Runners Maschsee beleuchtet / Extended",
+  "art": "Laufen",
+  "stadt": "Hannover",
+  "land": "Deutschland",
+  "treffpunkt": "Fußgängerampel beim NDR-Sendesaal (Seeseite)",
+  "lat": 52.3607,
+  "lon": 9.74178,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "distanz_km": [
+   6,
+   15
+  ],
+  "pace": {
+   "von": "5:00",
+   "bis": "6:30"
+  },
+  "stufen": [
+   "mittel",
+   "fortgeschritten"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Facebook-Veranstaltung; beim ersten Mal kurze E-Mail an den Verein",
+  "webseite": "https://www.hannover-runners.de/lauftreffs/maschsee-beleuchtet-extended/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Mittwochslauf am Maschsee in Pacegruppen von 5 bis 6:30 min/km: von Ende September bis Ende März 6 oder 12 km auf der beleuchteten Runde, von April bis Mitte September 15 km.",
+  "beschreibung_en": "Wednesday run at the Maschsee lake in pace groups from 5 to 6:30 min/km: 6 or 12 km on the lit loop from late September to late March, 15 km from April to mid-September.",
+  "quelle": [
+   "https://www.hannover-runners.de/lauftreffs/maschsee-beleuchtet-extended/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Koordinate des Treffpunkts nicht an einer Quelle geprüft"
+ },
+ {
+  "id": "hannover-kraft-runners",
+  "name": "KRAFT Runners Hannover",
+  "art": "Laufen",
+  "stadt": "Hannover",
+  "land": "Deutschland",
+  "treffpunkt": "Gottfried's Feinkiosk, Holzmarkt 6",
+  "lat": 52.3713,
+  "lon": 9.7323,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/hannover",
+  "instagram": "https://www.instagram.com/kraftrunners/",
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauftreff der KRAFT Runners am Dienstagabend ab einem Kiosk in der Altstadt, ohne Anmeldung, jedes Tempo willkommen, Taschen können abgegeben werden.",
+  "beschreibung_en": "KRAFT Runners Tuesday evening run from a kiosk in the old town, no sign-up, every pace welcome, bag drop available.",
+  "quelle": [
+   "https://kraftrunners.de/hannover"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hannover-girls-run",
+  "name": "Girls Run Hannover",
+  "art": "Laufen",
+  "stadt": "Hannover",
+  "land": "Deutschland",
+  "treffpunkt": "Neue Speisekammer, Altstadt",
+  "lat": 52.37171,
+  "lon": 9.73271,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "instagram": "https://www.instagram.com/girlsrunhannover/",
+  "merkmale": [
+   "frauen",
+   "anfaengerfreundlich"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauf über 5 km nur für Frauen am Mittwochabend ab der Altstadt, jedes Tempo willkommen.",
+  "beschreibung_en": "Women-only 5 km run on Wednesday evenings from the old town, all paces welcome.",
+  "quelle": [
+   "https://socialrunclubs.de/hannover/girls-run-hannover/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hannover-laufmaeuse",
+  "name": "Laufmäuse",
+  "art": "Laufen",
+  "stadt": "Hannover",
+  "land": "Deutschland",
+  "treffpunkt": "Maschsee Nordufer",
+  "lat": 52.36202,
+  "lon": 9.73595,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/laufmaeuse_/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Community-Lauf jeden Mittwochabend ab dem Maschsee-Nordufer.",
+  "beschreibung_en": "Community run every Wednesday evening from the north shore of the Maschsee lake.",
+  "quelle": [
+   "https://socialrunclubs.de/hannover/laufmaeuse/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hannover-linden-laeuft",
+  "name": "Linden läuft",
+  "art": "Laufen",
+  "stadt": "Hannover",
+  "land": "Deutschland",
+  "treffpunkt": "Schmuckplatz, Linden",
+  "lat": 52.37259,
+  "lon": 9.70596,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "instagram": "https://www.instagram.com/linden.laeuft/",
+  "anmeldung": "nein",
+  "beschreibung_de": "Kostenloser, offener Lauftreff in Linden am Montagabend.",
+  "beschreibung_en": "Free, open running group in Linden on Monday evenings.",
+  "quelle": [
+   "https://socialrunclubs.de/hannover/linden-laeuft/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "hannover-night-runners",
+  "name": "Night Runners Hannover",
+  "art": "Laufen",
+  "stadt": "Hannover",
+  "land": "Deutschland",
+  "treffpunkt": "Maschsee",
+  "lat": 52.35281,
+  "lon": 9.74437,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/nightrunners.hannover/",
+  "strava": "https://www.strava.com/clubs/1339633",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Abendlauf am Donnerstag am Maschsee.",
+  "beschreibung_en": "Thursday evening run at the Maschsee lake.",
+  "quelle": [
+   "https://socialrunclubs.de/hannover/night-runners-hannover/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; genauer Treffpunkt am Maschsee fehlt"
+ },
+ {
+  "id": "braunschweig-plant-paced",
+  "name": "Plant Paced",
+  "art": "Laufen",
+  "stadt": "Braunschweig",
+  "land": "Deutschland",
+  "treffpunkt": "Prinzenpark (an der Matthäuskirche)",
+  "lat": 52.26895,
+  "lon": 10.55183,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "dauer_min": 60,
+  "instagram": "https://www.instagram.com/plant_paced/",
+  "strava": "https://www.strava.com/clubs/2057243",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Veganer Runners Club, montags rund 60 Minuten in zwei Tempogruppen ab dem Prinzenpark; alle sind willkommen.",
+  "beschreibung_en": "Vegan runners club, Mondays about 60 minutes in two pace groups from Prinzenpark; everyone welcome.",
+  "quelle": [
+   "https://socialrunclubs.de/braunschweig/plant-paced/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "braunschweig-sweet-run-club",
+  "name": "Sweet Run Club",
+  "art": "Laufen",
+  "stadt": "Braunschweig",
+  "land": "Deutschland",
+  "treffpunkt": "sweet spot studio Braunschweig",
+  "lat": 52.26478,
+  "lon": 10.5495,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:15"
+   }
+  ],
+  "distanz_km": [
+   6,
+   10
+  ],
+  "instagram": "https://www.instagram.com/sweet_spot_studio_/",
+  "strava": "https://www.strava.com/clubs/sw33t",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Donnerstagslauf über 6 bis 10 km ab einem Fitnessstudio, meist in zwei Tempogruppen.",
+  "beschreibung_en": "Thursday run over 6 to 10 km from a fitness studio, usually in two pace groups.",
+  "quelle": [
+   "https://socialrunclubs.de/braunschweig/sweet-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; Adresse des Studios nur aus dem Kartenpunkt der Sammelseite"
+ },
+ {
+  "id": "braunschweig-miles-collective",
+  "name": "Miles Collective Braunschweig",
+  "art": "Laufen",
+  "stadt": "Braunschweig",
+  "land": "Deutschland",
+  "treffpunkt": "Winter: VW Halle; Sommer: Löwenwall-Park",
+  "lat": 52.25736,
+  "lon": 10.51907,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/milescollective.braunschweig/",
+  "strava": "https://www.strava.com/clubs/1446647",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Donnerstagabendlauf, im Winter ab der VW Halle und im Sommer ab dem Löwenwall-Park; einmal im Monat ein Coffee-Run.",
+  "beschreibung_en": "Thursday evening run, in winter from the VW Halle arena and in summer from Löwenwall park; a coffee run once a month.",
+  "quelle": [
+   "https://socialrunclubs.de/braunschweig/milescollective-braunschweig/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; Treffpunkt wechselt nach Jahreszeit, Koordinaten = Winter-Treffpunkt"
+ },
+ {
+  "id": "oldenburg-absolute-run-community-run",
+  "name": "Absolute Run Oldenburg Community Run",
+  "art": "Laufen",
+  "stadt": "Oldenburg",
+  "land": "Deutschland",
+  "treffpunkt": "Absolute Run Oldenburg, Lange Straße 90",
+  "lat": 53.1429,
+  "lon": 8.21297,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://absolute-run-oldenburg.de/communiy-run/",
+  "instagram": "https://www.instagram.com/absoluterunoldenburg/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Wöchentlicher Community Run am Montagabend ab dem Laufgeschäft in der Innenstadt, jedes Tempo willkommen, danach ein Getränk im Laden.",
+  "beschreibung_en": "Weekly community run on Monday evenings from the running shop in the city centre, every pace welcome, with a drink in the shop afterwards.",
+  "quelle": [
+   "https://absolute-run-oldenburg.de/communiy-run/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "oldenburg-espresso-run-club",
+  "name": "Espresso Run Club Oldenburg",
+  "art": "Laufen",
+  "stadt": "Oldenburg",
+  "land": "Deutschland",
+  "treffpunkt": "Schlossgarten",
+  "lat": 53.13429,
+  "lon": 8.21053,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/espresso.runclub/",
+  "strava": "https://www.strava.com/clubs/2041408",
+  "merkmale": [
+   "kaffee"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Sonntagslauf ab dem Oldenburger Schlossgarten.",
+  "beschreibung_en": "Sunday run from Oldenburg's palace gardens.",
+  "quelle": [
+   "https://socialrunclubs.de/oldenburg/espresso-run-club-oldenburg/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "oldenburg-harbor-running",
+  "name": "Harbor Running",
+  "art": "Laufen",
+  "stadt": "Oldenburg",
+  "land": "Deutschland",
+  "treffpunkt": "Oldenburger Hafen, Am Rundtörn",
+  "lat": 53.13915,
+  "lon": 8.22933,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:45"
+   }
+  ],
+  "distanz_km": [
+   5,
+   8.5
+  ],
+  "instagram": "https://www.instagram.com/harborrunning/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Montagabendlauf über 5 bis 8,5 km direkt am Oldenburger Hafen.",
+  "beschreibung_en": "Monday evening run over 5 to 8.5 km right at Oldenburg harbour.",
+  "quelle": [
+   "https://socialrunclubs.de/oldenburg/harborrunning/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "oldenburg-city-runners",
+  "name": "Oldenburg City Runners",
+  "art": "Laufen",
+  "stadt": "Oldenburg",
+  "land": "Deutschland",
+  "treffpunkt": "Bürgerbusch",
+  "lat": 53.17219,
+  "lon": 8.20495,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/oldenburgcityrunners/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Mittwochabendlauf im Bürgerbusch.",
+  "beschreibung_en": "Wednesday evening run in the Bürgerbusch woods.",
+  "quelle": [
+   "https://socialrunclubs.de/oldenburg/oldenburg-city-runners/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "oldenburg-social-run-club",
+  "name": "Social Running Club Oldenburg",
+  "art": "Laufen",
+  "stadt": "Oldenburg",
+  "land": "Deutschland",
+  "treffpunkt": "Julius-Mosen-Platz",
+  "lat": 53.14112,
+  "lon": 8.20908,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/socialrunningclub.ol/",
+  "strava": "https://www.strava.com/clubs/src-ol",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Sonntagslauf ab dem Julius-Mosen-Platz in der Innenstadt.",
+  "beschreibung_en": "Sunday run from Julius-Mosen-Platz in the city centre.",
+  "quelle": [
+   "https://socialrunclubs.de/oldenburg/social-run-club-oldenburg/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "oldenburg-running-club-eversten",
+  "name": "Running Club Eversten",
+  "art": "Laufen",
+  "stadt": "Oldenburg",
+  "land": "Deutschland",
+  "treffpunkt": "Laufrausch, Eversten",
+  "lat": 53.13316,
+  "lon": 8.18449,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   6,
+   8
+  ],
+  "instagram": "https://www.instagram.com/runningclub_eversten/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Entspannter Donnerstagslauf über 6 bis 8 km durchs Eversten Holz und den Schlossgarten.",
+  "beschreibung_en": "Relaxed Thursday run over 6 to 8 km through Eversten woods and the palace gardens.",
+  "quelle": [
+   "https://socialrunclubs.de/oldenburg/running-club-eversten/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; genaue Adresse des Treffpunkts nur aus dem Kartenpunkt der Sammelseite"
+ },
+ {
+  "id": "osnabrueck-os-runningclub-community-run",
+  "name": "OS.RunningClub Community Run",
+  "art": "Laufen",
+  "stadt": "Osnabrück",
+  "land": "Deutschland",
+  "treffpunkt": "„Die Scholle“, Limberger Straße 71",
+  "lat": 52.26256,
+  "lon": 8.0327,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:45"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://osrunningclub.de/",
+  "strava": "https://www.strava.com/clubs/1342383",
+  "instagram": "https://www.instagram.com/os.runningclub/",
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Community Run am Donnerstag in mehreren Tempogruppen für Einsteiger bis Fortgeschrittene, mit Musik durch die Osnabrücker Wüste.",
+  "beschreibung_en": "Thursday community run in several pace groups from beginners to advanced, with music through the Wüste park area.",
+  "quelle": [
+   "https://osrunningclub.de/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "osnabrueck-os-runningclub-sunday-long-run",
+  "name": "OS.RunningClub Sunday Long Run",
+  "art": "Laufen",
+  "stadt": "Osnabrück",
+  "land": "Deutschland",
+  "treffpunkt": "Sportzentrum Hochschulsport (Universität Osnabrück)",
+  "lat": 52.26811,
+  "lon": 8.03165,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "11:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://osrunningclub.de/",
+  "strava": "https://www.strava.com/clubs/1342383",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lange Sonntagsrunde durch Wälder und Siedlungen in verschiedenen Tempogruppen.",
+  "beschreibung_en": "Long Sunday run through woods and neighbourhoods in several pace groups.",
+  "quelle": [
+   "https://osrunningclub.de/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Seite nennt nur „Sportzentrum Hochschulsport“ ohne Adresse; Koordinaten über Nominatim, bitte prüfen"
+ },
+ {
+  "id": "osnabrueck-active-lauftreff",
+  "name": "ACTIVE-Lauftreff",
+  "art": "Laufen",
+  "stadt": "Osnabrück",
+  "land": "Deutschland",
+  "treffpunkt": "ACTIVE Sportshop Osnabrück",
+  "lat": 52.26617,
+  "lon": 8.05398,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:45"
+   }
+  ],
+  "instagram": "https://www.instagram.com/activesportshoposnabrueck/",
+  "strava": "https://www.strava.com/clubs/1331486",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauftreff des Laufgeschäfts ACTIVE am Mittwochabend.",
+  "beschreibung_en": "Wednesday evening run of the ACTIVE running shop.",
+  "quelle": [
+   "https://socialrunclubs.de/osnabrueck/active-lauftreff/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; Ladenadresse nur aus dem Kartenpunkt der Sammelseite"
+ },
+ {
+  "id": "goettingen-paceheads-community-ride",
+  "name": "Paceheads Community Ride Göttingen",
+  "art": "Fahrrad",
+  "stadt": "Göttingen",
+  "land": "Deutschland",
+  "treffpunkt": "Paceheads, Papendiek 24-26",
+  "lat": 51.53294,
+  "lon": 9.93133,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "dauer_min": 90,
+  "anmeldung": "nein",
+  "anmeldung_ueber": "WhatsApp-Gruppe für Infos",
+  "rad_typ": "Rennrad",
+  "webseite": "https://www.komoot.com/user/paceheads",
+  "strava": "https://www.strava.com/clubs/paceheads",
+  "merkmale": [
+   "no_drop"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Wöchentliche Rennradrunde von etwa anderthalb Stunden ab dem Paceheads-Laden in der Innenstadt, alle fahren als eine Gruppe in moderatem Tempo, danach Getränke.",
+  "beschreibung_en": "Weekly road ride of about an hour and a half from the Paceheads shop in the city centre, everyone rides as one group at a moderate pace, drinks afterwards.",
+  "quelle": [
+   "https://www.komoot.com/user/paceheads"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Komoot nennt den Ride seit April 2025 jeden Mittwoch; ob er auch im Winter stattfindet, ist nicht angegeben"
+ },
+ {
+  "id": "goettingen-sundays-running-club",
+  "name": "Sundays Running Club",
+  "art": "Laufen",
+  "stadt": "Göttingen",
+  "land": "Deutschland",
+  "treffpunkt": "Café Sundays, Theaterstraße 6",
+  "lat": 51.53465,
+  "lon": 9.93693,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/sundays.coffee.club/",
+  "merkmale": [
+   "kaffee"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Sonntagslauf ab einem Specialty-Coffee-Café in der Göttinger Innenstadt.",
+  "beschreibung_en": "Sunday run from a specialty coffee café in central Göttingen.",
+  "quelle": [
+   "https://socialrunclubs.de/goettingen/sundays-running-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; die frühere Seite sundays-coffee.de/sundays-running-club ist nicht mehr erreichbar (404)"
+ },
+ {
+  "id": "goettingen-the-rise-club",
+  "name": "The Rise Club",
+  "art": "Laufen",
+  "stadt": "Göttingen",
+  "land": "Deutschland",
+  "treffpunkt": "Parkplatz Jahnstadion",
+  "lat": 51.51926,
+  "lon": 9.9267,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   5,
+   6
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "6:30"
+  },
+  "instagram": "https://www.instagram.com/join.theriseclub/",
+  "strava": "https://www.strava.com/clubs/2080478",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "frauen",
+   "anfaengerfreundlich"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauf nur für Frauen: montags 5 bis 6 km im entspannten Tempo von 6 bis 6:30 min/km, Internationale willkommen.",
+  "beschreibung_en": "Women-only run: Mondays 5 to 6 km at a relaxed 6 to 6:30 min/km, internationals welcome.",
+  "quelle": [
+   "https://socialrunclubs.de/goettingen/the-rise-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "kiel-kraft-runners",
+  "name": "KRAFT Runners Kiel",
+  "art": "Laufen",
+  "stadt": "Kiel",
+  "land": "Deutschland",
+  "treffpunkt": "Seeburg Biergarten, Kiellinie 2a",
+  "lat": 54.34575,
+  "lon": 10.15307,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/kiel",
+  "instagram": "https://www.instagram.com/kraftrunners/",
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauftreff der KRAFT Runners am Dienstagabend ab dem Seeburg Biergarten an der Kiellinie, ohne Anmeldung, jedes Tempo willkommen, Taschen können abgegeben werden.",
+  "beschreibung_en": "KRAFT Runners Tuesday evening run from the Seeburg beer garden on the Kiellinie waterfront, no sign-up, every pace welcome, bag drop available.",
+  "quelle": [
+   "https://kraftrunners.de/kiel"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "kiel-kieler-running-crew",
+  "name": "Kieler Running Crew",
+  "art": "Laufen",
+  "stadt": "Kiel",
+  "land": "Deutschland",
+  "treffpunkt": "Uni-Sportplatz Kiel, Olshausenstraße (Tribüne)",
+  "lat": 54.34306,
+  "lon": 10.11416,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "dauer_min": 90,
+  "anmeldung": "nein",
+  "webseite": "https://www.yannick-von-soosten.de/kieler-crew",
+  "instagram": "https://www.instagram.com/kielercrew/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauftreff für Anfänger, Hobbyläufer und Ambitionierte montags und donnerstags von 18 bis 19:30 Uhr am Uni-Sportplatz.",
+  "beschreibung_en": "Running group for beginners, hobby runners and ambitious athletes on Mondays and Thursdays from 6 to 7:30 pm at the university sports ground.",
+  "quelle": [
+   "https://www.yannick-von-soosten.de/kieler-crew"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "kiel-hot-heels-run-club",
+  "name": "Hot Heels Run Club",
+  "art": "Laufen",
+  "stadt": "Kiel",
+  "land": "Deutschland",
+  "treffpunkt": "Schrevenpark",
+  "lat": 54.32824,
+  "lon": 10.12384,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:30"
+   }
+  ],
+  "distanz_km": [
+   5,
+   8
+  ],
+  "instagram": "https://www.instagram.com/hotheels.run/",
+  "strava": "https://www.strava.com/clubs/1859431",
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Sonntagslauf im Schrevenpark: Social Run über 8 km um 6 min/km und eine 5-km-Gruppe für Anfängerinnen (FLINTA*).",
+  "beschreibung_en": "Sunday run in Schrevenpark: 8 km social run at 6 min/km and a 5 km group for beginner FLINTA* runners.",
+  "quelle": [
+   "https://socialrunclubs.de/kiel/hot-heels-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "kiel-flitzende-flintas",
+  "name": "Flitzende FLINTA*s",
+  "art": "Laufen",
+  "stadt": "Kiel",
+  "land": "Deutschland",
+  "treffpunkt": "Internationaler Frauenraum, Hermann-Weigmann-Straße 20",
+  "lat": 54.32115,
+  "lon": 10.12176,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "7:00"
+  },
+  "instagram": "https://www.instagram.com/flitzendeflintas/",
+  "merkmale": [
+   "frauen"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Laufgruppe nur für FLINTA*: montags 5 km im Tempo von 6:30 bis 7 min/km.",
+  "beschreibung_en": "FLINTA*-only running group: Mondays 5 km at 6:30 to 7 min/km.",
+  "quelle": [
+   "https://socialrunclubs.de/kiel/flitzende-flinta-s/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "kiel-social-run",
+  "name": "Social Run Kiel",
+  "art": "Laufen",
+  "stadt": "Kiel",
+  "land": "Deutschland",
+  "treffpunkt": "Sternstunde Kiel",
+  "lat": 54.32451,
+  "lon": 10.12306,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/kiel.socialrun/",
+  "strava": "https://www.strava.com/clubs/1270937",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Lauftreff am Dienstagabend mit Start an der Sternstunde.",
+  "beschreibung_en": "Tuesday evening social run starting at Sternstunde.",
+  "quelle": [
+   "https://socialrunclubs.de/kiel/social-run-kiel/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; Adresse des Treffpunkts nur aus dem Kartenpunkt der Sammelseite"
+ },
+ {
+  "id": "kiel-we-run-kiel",
+  "name": "We Run Kiel",
+  "art": "Laufen",
+  "stadt": "Kiel",
+  "land": "Deutschland",
+  "treffpunkt": "Camp 24/7",
+  "lat": 54.33248,
+  "lon": 10.15111,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/werunkiel/",
+  "strava": "https://www.strava.com/clubs/WeRunKiel",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Sonntagslauf ab dem Camp 24/7 an der Förde.",
+  "beschreibung_en": "Sunday run from Camp 24/7 on the Kiel fjord.",
+  "quelle": [
+   "https://socialrunclubs.de/kiel/we-run-kiel/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "luebeck-sudden-death-running-club",
+  "name": "Sudden Death Running Club",
+  "art": "Laufen",
+  "stadt": "Lübeck",
+  "land": "Deutschland",
+  "treffpunkt": "An der Brauerei",
+  "lat": 53.87806,
+  "lon": 10.68357,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/suddendeathrunningclub/",
+  "strava": "https://www.strava.com/clubs/1372598",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Mittwochslauf ab einer Brauerei, offen für Erfahrene und Anfänger.",
+  "beschreibung_en": "Wednesday run from a brewery, open to experienced runners and beginners.",
+  "quelle": [
+   "https://socialrunclubs.de/luebeck/sudden-death-running-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; welche Brauerei, nur aus dem Kartenpunkt der Sammelseite"
+ },
+ {
+  "id": "luebeck-laeuft-bunt",
+  "name": "Lübeck läuft bunt",
+  "art": "Laufen",
+  "stadt": "Lübeck",
+  "land": "Deutschland",
+  "treffpunkt": "Sportplatz Falkenwiese",
+  "lat": 53.87081,
+  "lon": 10.70098,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "17:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/luebecklaeuftbunt.llb/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Inklusiver Lauftreff für Vielfalt und Toleranz donnerstags auf dem Sportplatz Falkenwiese.",
+  "beschreibung_en": "Inclusive running group for diversity and tolerance on Thursdays at the Falkenwiese sports ground.",
+  "quelle": [
+   "https://socialrunclubs.de/luebeck/luebeck-laeuft-bunt/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "rostock-baltic-breeze-runners",
+  "name": "Baltic Breeze Runners",
+  "art": "Laufen",
+  "stadt": "Rostock",
+  "land": "Deutschland",
+  "treffpunkt": "Barnstorfer Wald",
+  "lat": 54.08125,
+  "lon": 12.09848,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/baltic_breeze_runners/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Dienstagabendlauf im Barnstorfer Wald.",
+  "beschreibung_en": "Tuesday evening run in the Barnstorf forest.",
+  "quelle": [
+   "https://socialrunclubs.de/rostock/baltic-breeze-runners/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; genauer Treffpunkt im Barnstorfer Wald fehlt"
+ },
+ {
+  "id": "rostock-running-crew",
+  "name": "Rostock Running Crew",
+  "art": "Laufen",
+  "stadt": "Rostock",
+  "land": "Deutschland",
+  "treffpunkt": "Fähranleger am Kabutzenhof",
+  "lat": 54.09188,
+  "lon": 12.11273,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/rostockrunningcrew/",
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Abendlauf am Dienstag ab dem Fähranleger am Kabutzenhof.",
+  "beschreibung_en": "Tuesday evening run from the ferry landing at Kabutzenhof.",
+  "quelle": [
+   "https://socialrunclubs.de/rostock/rostock-runningcrew/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt"
+ },
+ {
+  "id": "schwerin-lake-runners",
+  "name": "Lake Runners Schwerin",
+  "art": "Laufen",
+  "stadt": "Schwerin",
+  "land": "Deutschland",
+  "treffpunkt": "Tisch Coworking Café",
+  "lat": 53.62855,
+  "lon": 11.40861,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/lakerunners_sn/",
+  "merkmale": [
+   "kaffee"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "beschreibung_de": "Mittwochabendlauf ab einem Coworking-Café.",
+  "beschreibung_en": "Wednesday evening run from a coworking café.",
+  "quelle": [
+   "https://socialrunclubs.de/schwerin/lake-runners-schwerin/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; Adresse nur aus dem Kartenpunkt der Sammelseite"
+ },
+ {
+  "id": "kiel-parkrun-kiellinie",
+  "name": "Kiellinie parkrun",
+  "art": "Laufen",
+  "stadt": "Kiel",
+  "land": "Deutschland",
+  "treffpunkt": "Kiellinie, 24105 Kiel",
+  "lat": 54.33462,
+  "lon": 10.1537,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/kiellinie/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen. Danach Kaffee: Kiel.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome. Coffee afterwards.",
+  "quelle": [
+   "https://www.parkrun.com.de/kiellinie/",
+   "https://www.parkrun.com.de/kiellinie/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "norderstedt-parkrun-moorbek",
+  "name": "Moorbek parkrun",
+  "art": "Laufen",
+  "stadt": "Norderstedt",
+  "land": "Deutschland",
+  "treffpunkt": "Moorbek Park, Jörg-Peter-Hahn-Platz / Alter Heidberg 1, 22846 Norderstedt",
+  "lat": 53.70882,
+  "lon": 9.99328,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/moorbek/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/moorbek/",
+   "https://www.parkrun.com.de/moorbek/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "halstenbek-parkrun-krupundersee",
+  "name": "Krupunder See parkrun",
+  "art": "Laufen",
+  "stadt": "Halstenbek",
+  "land": "Deutschland",
+  "treffpunkt": "Krupunder See, Altonaer Straße, 25469 Halstenbek",
+  "lat": 53.62518,
+  "lon": 9.87603,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/krupundersee/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen. Danach Kaffee: Hotel Krupunder Park.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome. Coffee afterwards.",
+  "quelle": [
+   "https://www.parkrun.com.de/krupundersee/",
+   "https://www.parkrun.com.de/krupundersee/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "sittensen-parkrun-koenigshof",
+  "name": "Königshof parkrun",
+  "art": "Laufen",
+  "stadt": "Sittensen",
+  "land": "Deutschland",
+  "treffpunkt": "Königshofallee 36, 27419 Sittensen",
+  "lat": 53.27535,
+  "lon": 9.49196,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/koenigshof/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/koenigshof/",
+   "https://www.parkrun.com.de/koenigshof/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bremen-parkrun-unisee",
+  "name": "Unisee parkrun",
+  "art": "Laufen",
+  "stadt": "Bremen",
+  "land": "Deutschland",
+  "treffpunkt": "Unisee, Wetterungsweg, 28357 Bremen",
+  "lat": 53.10858,
+  "lon": 8.83482,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/unisee/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen. Danach Kaffee: Konditorei & Bäckerei Behrens-Meyer, Max-von-Laue-Straße 1.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome. Coffee afterwards.",
+  "quelle": [
+   "https://www.parkrun.com.de/unisee/",
+   "https://www.parkrun.com.de/unisee/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bremen-parkrun-werdersee",
+  "name": "Werdersee parkrun",
+  "art": "Laufen",
+  "stadt": "Bremen",
+  "land": "Deutschland",
+  "treffpunkt": "Werdersee, am Werdersee-Kiosk/Deichschart, Weserdeich, 28201 Bremen",
+  "lat": 53.06202,
+  "lon": 8.81112,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/werdersee/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen. Danach Kaffee: Bäcker Meyer Mönchhof, Buntentorsteinweg 171.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome. Coffee afterwards.",
+  "quelle": [
+   "https://www.parkrun.com.de/werdersee/",
+   "https://www.parkrun.com.de/werdersee/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "hannover-parkrun-georgengarten",
+  "name": "Georgengarten parkrun",
+  "art": "Laufen",
+  "stadt": "Hannover",
+  "land": "Deutschland",
+  "treffpunkt": "Georgengarten, Herrenhäuser Straße 1H, Hannover",
+  "lat": 52.3905,
+  "lon": 9.70294,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/georgengarten/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen. Danach Kaffee: Bäckerei Steinecke.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome. Coffee afterwards.",
+  "quelle": [
+   "https://www.parkrun.com.de/georgengarten/",
+   "https://www.parkrun.com.de/georgengarten/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "braunschweig-parkrun-prinzenpark",
+  "name": "Prinzenpark parkrun",
+  "art": "Laufen",
+  "stadt": "Braunschweig",
+  "land": "Deutschland",
+  "treffpunkt": "Prinzenpark, Ebertallee, 38104 Braunschweig",
+  "lat": 52.2646,
+  "lon": 10.55254,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/prinzenpark/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen. Danach Kaffee: Bäckerei Schaper (Löwenbäcker), Kastanienallee 36.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome. Coffee afterwards.",
+  "quelle": [
+   "https://www.parkrun.com.de/prinzenpark/",
+   "https://www.parkrun.com.de/prinzenpark/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wolfsburg-parkrun-allerpark",
+  "name": "Allerpark parkrun",
+  "art": "Laufen",
+  "stadt": "Wolfsburg",
+  "land": "Deutschland",
+  "treffpunkt": "Allerpark, Allersee, 38448 Wolfsburg",
+  "lat": 52.43523,
+  "lon": 10.8176,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/allerpark/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen. Danach Kaffee: am letzten Samstag im Monat in der Finca & Bar Celona, sonst Kaffee und Kekse vor Ort.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome. Coffee afterwards.",
+  "quelle": [
+   "https://www.parkrun.com.de/allerpark/",
+   "https://www.parkrun.com.de/allerpark/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "goettingen-parkrun-kiessee",
+  "name": "Kiessee parkrun",
+  "art": "Laufen",
+  "stadt": "Göttingen",
+  "land": "Deutschland",
+  "treffpunkt": "Kiessee, Sandweg, 37083 Göttingen",
+  "lat": 51.51935,
+  "lon": 9.92398,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/kiessee/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen. Danach Kaffee: Kaffee, Tee und oft Kuchen im Ziel.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome. Coffee afterwards.",
+  "quelle": [
+   "https://www.parkrun.com.de/kiessee/",
+   "https://www.parkrun.com.de/kiessee/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "osnabrueck-parkrun-rubbenbruchsee",
+  "name": "Rubbenbruchsee parkrun",
+  "art": "Laufen",
+  "stadt": "Osnabrück",
+  "land": "Deutschland",
+  "treffpunkt": "Rubbenbruchsee, Barenteich 2, 49076 Osnabrück",
+  "lat": 52.28929,
+  "lon": 7.98907,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/rubbenbruchsee/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen. Danach Kaffee: mitgebrachte Heißgetränke.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome. Coffee afterwards.",
+  "quelle": [
+   "https://www.parkrun.com.de/rubbenbruchsee/",
+   "https://www.parkrun.com.de/rubbenbruchsee/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bad-pyrmont-parkrun-emmerwiesen",
+  "name": "Emmerwiesen parkrun",
+  "art": "Laufen",
+  "stadt": "Bad Pyrmont",
+  "land": "Deutschland",
+  "treffpunkt": "Emmerwiesen, Hauptmann-Boelcke-Weg, 31812 Bad Pyrmont",
+  "lat": 51.97946,
+  "lon": 9.25315,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/emmerwiesen/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen. Danach Kaffee: Café im Hotel an der Hauptallee, Kaiserplatz 1.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome. Coffee afterwards.",
+  "quelle": [
+   "https://www.parkrun.com.de/emmerwiesen/",
+   "https://www.parkrun.com.de/emmerwiesen/course/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "neubrandenburg-parkrun-kulturparkneubrandenburg",
+  "name": "Kulturpark Neubrandenburg parkrun",
+  "art": "Laufen",
+  "stadt": "Neubrandenburg",
+  "land": "Deutschland",
+  "treffpunkt": "Kulturpark Neubrandenburg, Lessingstraße 12, 17033 Neubrandenburg",
+  "lat": 53.55207,
+  "lon": 13.25503,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/kulturparkneubrandenburg/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km run every Saturday at 9 am; walkers, joggers and runners all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/kulturparkneubrandenburg/",
+   "https://www.parkrun.com.de/kulturparkneubrandenburg/course/"
+  ],
+  "geprueft": "2026-10-19"
  }
 ]
