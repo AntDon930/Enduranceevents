@@ -38,7 +38,10 @@ try:
     from openpyxl.styles import Alignment, Font, PatternFill
     from openpyxl.worksheet.datavalidation import DataValidation
 except ImportError:  # pragma: no cover
-    sys.exit("openpyxl fehlt: pip install openpyxl")
+    # Erst beim Export/Import nötig - die Textumwandlung der Termine
+    # braucht es nicht, und der Regressionstest (CI ohne openpyxl) nutzt
+    # nur die. Ein sys.exit hier beendete den ganzen Test still.
+    Workbook = None
 
 WURZEL = Path(__file__).resolve().parent.parent
 CLUBS_JSON = WURZEL / "clubs.json"
@@ -345,6 +348,8 @@ def importiere(datei: Path, dry_run: bool) -> int:
 
 
 def main() -> int:
+    if Workbook is None:
+        sys.exit("openpyxl fehlt: pip install openpyxl")
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
     e = sub.add_parser("export")
