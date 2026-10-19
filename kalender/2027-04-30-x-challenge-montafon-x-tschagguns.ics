@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-30-x-challenge-montafon-x-tschagguns@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:X Challenge Montafon
+LOCATION:Tschagguns\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.xchallenge.at
+TRANSP:TRANSPARENT
+URL:https://www.xchallenge.at
+END:VEVENT
+END:VCALENDAR

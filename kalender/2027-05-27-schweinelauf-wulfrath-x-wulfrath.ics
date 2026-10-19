@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-schweinelauf-wulfrath-x-wulfrath@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:Schweinelauf Wülfrath
+LOCATION:Wülfrath\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.schweinelauf.
+ de/
+TRANSP:TRANSPARENT
+URL:https://www.schweinelauf.de/
+END:VEVENT
+END:VCALENDAR

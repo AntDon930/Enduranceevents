@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-ultralauf-festival-24h-bottrop@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270830
+SUMMARY:Ultralauf Festival – 24h Lauf und 24h Staffel auf dem gleichen 837
+  m Rundkurs.
+LOCATION:Bottrop\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://www.adler-lang
+ lauf.de/24h-ultralauf/
+TRANSP:TRANSPARENT
+URL:https://www.adler-langlauf.de/24h-ultralauf/
+END:VEVENT
+END:VCALENDAR

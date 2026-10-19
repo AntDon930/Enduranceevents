@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-kaiserkrone-trail-8-3km-scheffau-am-wilden-kaiser@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:Kaiserkrone Trail – 8\,3 km Kaiserkrone Short
+LOCATION:Scheffau am Wilden Kaiser\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.3 km\nhttps://time2win.at/e
+ vent/1129
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1129
+END:VEVENT
+END:VCALENDAR

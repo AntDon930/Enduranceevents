@@ -8,11 +8,11 @@ UID:2026-12-13-gevattersee-marathon-42-2km-buckeburg@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
-SUMMARY:Gevattersee-Marathon
+SUMMARY:Gevattersee-Marathon – Marathon
 LOCATION:Bückeburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://jobst-von-pa
- lombini.webnode.com
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://jobst-von-p
+ alombini.webnode.page/l/a71-gevatterseemarathon/
 TRANSP:TRANSPARENT
-URL:http://jobst-von-palombini.webnode.com
+URL:https://jobst-von-palombini.webnode.page/l/a71-gevatterseemarathon/
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-durch-den-dunnwalder-bosch-1h-bergisch-gladba
+ ch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf "Durch den Dünnwalder Bösch"
+LOCATION:Bergisch Gladbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttps://www.silvesterla
+ uf.lt-dtv.de/
+TRANSP:TRANSPARENT
+URL:https://www.silvesterlauf.lt-dtv.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-08-matschfuss-camp-60km-warder@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270708
+DTEND;VALUE=DATE:20270712
+SUMMARY:Matschfuss Camp
+LOCATION:Warder\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 60 km\nhttps://plattfuss-po
+ dcast.de/
+TRANSP:TRANSPARENT
+URL:https://plattfuss-podcast.de/
+END:VEVENT
+END:VCALENDAR

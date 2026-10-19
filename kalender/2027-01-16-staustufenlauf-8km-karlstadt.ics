@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-staustufenlauf-8km-karlstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Staustufenlauf
+LOCATION:Karlstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.sas-online
+ .net/eventportal_bs/849/
+TRANSP:TRANSPARENT
+URL:https://www.sas-online.net/eventportal_bs/849/
+END:VEVENT
+END:VCALENDAR

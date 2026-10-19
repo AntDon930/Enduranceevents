@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-charity-trail-mannebach-24km-mannebach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Charity Trail Mannebach
+LOCATION:Mannebach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail · Charity\nLänge: 24 km\nhttps://tray
+ lrunner.jimdosite.com/
+TRANSP:TRANSPARENT
+URL:https://traylrunner.jimdosite.com/
+END:VEVENT
+END:VCALENDAR

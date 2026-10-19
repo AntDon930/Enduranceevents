@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-09-osterreichischer-friedenslauf-x-donauinsel@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270409
+DTEND;VALUE=DATE:20270410
+SUMMARY:Österreichischer Friedenslauf
+LOCATION:Donauinsel\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://friedenslauf.at/
+TRANSP:TRANSPARENT
+URL:https://friedenslauf.at/
+END:VEVENT
+END:VCALENDAR

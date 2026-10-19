@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-crosslauf-rund-um-das-stadion-8km-schwalbach@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Crosslauf "Rund um das Stadion"
+LOCATION:Schwalbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://ladv.de/ausschr
+ eibung/detail/49539/Crosslauf-Rund-um-das-Stadion-Elm.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49539/Crosslauf-Rund-um-das-Stadi
+ on-Elm.htm
+END:VEVENT
+END:VCALENDAR

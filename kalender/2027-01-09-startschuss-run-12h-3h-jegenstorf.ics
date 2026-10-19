@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-startschuss-run-12h-3h-jegenstorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Startschuss Run 12h
+LOCATION:Jegenstorf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 3 h\nhttps://my.raceresult.c
+ om/427730/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/427730/
+END:VEVENT
+END:VCALENDAR

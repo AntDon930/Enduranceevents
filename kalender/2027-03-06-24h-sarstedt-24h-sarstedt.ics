@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-24h-sarstedt-24h-sarstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270308
+SUMMARY:24h Sarstedt
+LOCATION:Sarstedt\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 24 h\nhttp://meininnerste
+ bad.de/
+TRANSP:TRANSPARENT
+URL:http://meininnerstebad.de/
+END:VEVENT
+END:VCALENDAR

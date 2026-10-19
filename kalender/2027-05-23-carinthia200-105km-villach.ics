@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-carinthia200-105km-villach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Carinthia200 – Radmarathon 105 km
+LOCATION:Villach\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 105 km\nhttps://carinthia20
+ 0.com
+TRANSP:TRANSPARENT
+URL:https://carinthia200.com
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-zytturm-triathlon-51-5km-zug@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Zytturm-Triathlon – Triathlon Series Standard 51.5 km (1.5 km Schw
+ im / 40 km Rad / 10 km Laufen)
+LOCATION:Zug\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 51.5 km\nhttps://zyttur
+ mtriathlon.ch/
+TRANSP:TRANSPARENT
+URL:https://zytturmtriathlon.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-hunsruck-trail-7km-morschied@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Hunsrück-Trail
+LOCATION:Mörschied\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://www.xn--hunsrck
+ -trail-0ob.de/
+TRANSP:TRANSPARENT
+URL:https://www.xn--hunsrck-trail-0ob.de/
+END:VEVENT
+END:VCALENDAR

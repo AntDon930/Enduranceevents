@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-octopus-gravel-andermatt-155km-andermatt@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Octopus Gravel Andermatt
+LOCATION:Andermatt\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 155 km\nhttps://epicos.cc/e
+ vents/octopus/
+TRANSP:TRANSPARENT
+URL:https://epicos.cc/events/octopus/
+END:VEVENT
+END:VCALENDAR

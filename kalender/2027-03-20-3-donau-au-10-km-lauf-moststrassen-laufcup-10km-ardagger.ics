@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-3-donau-au-10-km-lauf-moststrassen-laufcup-10km-ardagger@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:3. Donau-Au-10 km Lauf (MostStraßen Laufcup)
+LOCATION:Ardagger\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.ulc-ardagg
+ er.at
+TRANSP:TRANSPARENT
+URL:http://www.ulc-ardagger.at
+END:VEVENT
+END:VCALENDAR

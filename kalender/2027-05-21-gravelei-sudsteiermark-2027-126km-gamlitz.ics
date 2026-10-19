@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-21-gravelei-sudsteiermark-2027-126km-gamlitz@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270524
+SUMMARY:Gravelei Südsteiermark 2027
+LOCATION:Gamlitz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 126 km\nhttps://www.gravele
+ i.com/event/
+TRANSP:TRANSPARENT
+URL:https://www.gravelei.com/event/
+END:VEVENT
+END:VCALENDAR

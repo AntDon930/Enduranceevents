@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:FLVW Crossmeisterschaften
 LOCATION:Paderborn-Schloß Neuhaus\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/flvw-crossmeisterschaften
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://flvwdialog.de
+ /info.php?id=21795
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/flvw-crossmeisterschaften
+URL:https://flvwdialog.de/info.php?id=21795
 END:VEVENT
 END:VCALENDAR

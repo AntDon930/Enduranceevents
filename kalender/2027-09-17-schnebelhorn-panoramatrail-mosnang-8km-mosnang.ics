@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-17-schnebelhorn-panoramatrail-mosnang-8km-mosnang@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270917
+DTEND;VALUE=DATE:20270919
+SUMMARY:Schnebelhorn-Panoramatrail Mosnang
+LOCATION:Mosnang\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://panoramatrail.c
+ h
+TRANSP:TRANSPARENT
+URL:https://panoramatrail.ch
+END:VEVENT
+END:VCALENDAR

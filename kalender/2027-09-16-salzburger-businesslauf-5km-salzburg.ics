@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-16-salzburger-businesslauf-5km-salzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270916
+DTEND;VALUE=DATE:20270917
+SUMMARY:Salzburger Businesslauf
+LOCATION:Salzburg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.salzburger
+ -businesslauf.at/
+TRANSP:TRANSPARENT
+URL:https://www.salzburger-businesslauf.at/
+END:VEVENT
+END:VCALENDAR

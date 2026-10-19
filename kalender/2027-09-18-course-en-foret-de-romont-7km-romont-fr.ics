@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-course-en-foret-de-romont-7km-romont-fr@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Course en Forêt de Romont
+LOCATION:Romont (FR)\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://carc.ch/course
+ -en-foret-2/
+TRANSP:TRANSPARENT
+URL:https://carc.ch/course-en-foret-2/
+END:VEVENT
+END:VCALENDAR

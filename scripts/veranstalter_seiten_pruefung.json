@@ -13735,5 +13735,5897 @@
    "host:deadly"
   ],
   "flag": "LEER"
+ },
+ "adria alpen cup swim|kanzian klopeiner see st": {
+  "name": "Alpen-Adria Swim Cup Klopeiner See",
+  "ort": "St. Kanzian am Klopeiner See",
+  "url": "https://alpenadriaswimcup.at/",
+  "letzte_ausgabe": null,
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3651,
+  "nennt_den_lauf": [
+   "host:alpen"
+  ],
+  "seiten_km": [
+   1.0,
+   1.5,
+   2.5,
+   5.0,
+   5.4,
+   10.0,
+   17.5,
+   34.0
+  ],
+  "flag": "NICHTS"
+ },
+ "alpseeschwimmen|allgau immenstadt": {
+  "name": "Alpseeschwimmen Immenstadt",
+  "ort": "Immenstadt im Allgäu",
+  "url": "http://www.alpseeschwimmen.de/",
+  "letzte_ausgabe": null,
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 333,
+  "nennt_den_lauf": [
+   "host:alpseeschwimmen"
+  ],
+  "seiten_km": [
+   1.9,
+   3.8
+  ],
+  "flag": "NICHTS"
+ },
+ "bonnet radmarathon|grossostheim": {
+  "name": "Bonnet-Radmarathon",
+  "ort": "Großostheim",
+  "url": "https://rsv-wenigumstadt.de/",
+  "letzte_ausgabe": null,
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-05-30"
+  ],
+  "kandidaten": [
+   "2027-05-30"
+  ],
+  "textlaenge": 2941,
+  "nennt_den_lauf": [
+   "bonnet"
+  ],
+  "seiten_km": [
+   42.2
+  ],
+  "flag": "NEU"
+ },
+ "de hesselberg tour|wassertrudingen": {
+  "name": "Tour de Hesselberg",
+  "ort": "Wassertrüdingen",
+  "url": "https://www.tour-de-hesselberg.de/",
+  "letzte_ausgabe": null,
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 15541,
+  "nennt_den_lauf": [
+   "host:hesselberg"
+  ],
+  "seiten_km": [
+   2.0,
+   3.3,
+   3.5,
+   3.8,
+   4.0,
+   21.1,
+   40.0,
+   42.0,
+   80.0,
+   82.0,
+   90.0,
+   102.0,
+   700.0
+  ],
+  "flag": "NICHTS"
+ },
+ "denergie tour|gottingen": {
+  "name": "Tour d'Energie",
+  "ort": "Göttingen",
+  "url": "https://www.tourdenergie.de/",
+  "letzte_ausgabe": null,
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3470,
+  "nennt_den_lauf": [
+   "host:energie"
+  ],
+  "seiten_km": [
+   100.0
+  ],
+  "flag": "NICHTS"
+ },
+ "kriteriums meisterschaft obkm offene|bremen": {
+  "name": "OBKM – Offene Bremer Kriteriums-Meisterschaft",
+  "ort": "Bremen",
+  "url": "https://obkm.de/",
+  "letzte_ausgabe": null,
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1643,
+  "nennt_den_lauf": [
+   "bremer"
+  ],
+  "flag": "NICHTS"
+ },
+ "langstreckenschwimmen stausee|losheim see": {
+  "name": "Langstreckenschwimmen im Stausee Losheim",
+  "ort": "Losheim am See",
+  "url": "https://freiwasserschwimmen-losheim.de/",
+  "letzte_ausgabe": null,
+  "geprueft_am": "2026-10-19",
+  "status": "fehler:SSLError",
+  "flag": "FEHLER"
+ },
+ "muritzschwimmen|muritz waren": {
+  "name": "Müritzschwimmen",
+  "ort": "Waren (Müritz)",
+  "url": "https://www.waren.m-vp.de/veranstaltungen/mueritzschwimmen/",
+  "letzte_ausgabe": null,
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 6070,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   1.9,
+   3.8
+  ],
+  "flag": "NICHTS"
+ },
+ "neusiedler schwimmfestival|morbisch see": {
+  "name": "Schwimmfestival Neusiedler See",
+  "ort": "Mörbisch am See",
+  "url": "https://www.schwimmfestival.at/",
+  "letzte_ausgabe": null,
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2044,
+  "nennt_den_lauf": [
+   "host:schwimmfestival"
+  ],
+  "seiten_km": [
+   1.5,
+   3.0,
+   3.1,
+   7.0,
+   14.0
+  ],
+  "flag": "NICHTS"
+ },
+ "rtf|lubeck": {
+  "name": "Lübecker RTF",
+  "ort": "Lübeck",
+  "url": "https://rst-luebeck.de/",
+  "letzte_ausgabe": null,
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-25",
+   "2026-10-26"
+  ],
+  "kandidaten": [
+   "2026-10-25",
+   "2026-10-26"
+  ],
+  "textlaenge": 6766,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   21.1,
+   42.2,
+   83.0
+  ],
+  "flag": "NEU?"
+ },
+ "swim worthersee|klagenfurt": {
+  "name": "Wörthersee Swim",
+  "ort": "Klagenfurt",
+  "url": "https://woerthersee-swim.com/",
+  "letzte_ausgabe": null,
+  "geprueft_am": "2026-10-19",
+  "status": 403,
+  "flag": "FEHLER"
+ },
+ "challenge rad ultra|bei hartberg kaindorf": {
+  "name": "Ultra Rad Challenge",
+  "ort": "Kaindorf bei Hartberg",
+  "url": "https://www.ultraradchallenge.com/",
+  "letzte_ausgabe": "2025-07-18",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1427,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "around bike lake the|lankowitz maria": {
+  "name": "Bike around the Lake",
+  "ort": "Maria Lankowitz",
+  "url": "https://www.crazy-cross-biker.at/bikearoundthelake/",
+  "letzte_ausgabe": "2026-04-18",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4022,
+  "nennt_den_lauf": [
+   "around"
+  ],
+  "seiten_km": [
+   2.1,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "jedermann radrennen|rostock": {
+  "name": "Rostocker Jedermann-Radrennen",
+  "ort": "Rostock",
+  "url": "https://www.jedermann-radrennen.de/rostock/",
+  "letzte_ausgabe": "2026-04-19",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1489,
+  "nennt_den_lauf": [
+   "host:radrennen"
+  ],
+  "seiten_km": [
+   45.0,
+   57.0,
+   63.0,
+   90.0
+  ],
+  "flag": "NICHTS"
+ },
+ "fahrenhorst hans schwimmen|mohnesee": {
+  "name": "Hans-Fahrenhorst-Schwimmen",
+  "ort": "Möhnesee",
+  "url": "https://soest.dlrg.de/hfs/",
+  "letzte_ausgabe": "2026-05-01",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-30",
+   "2026-10-31",
+   "2026-11-06",
+   "2026-11-13",
+   "2026-11-14",
+   "2026-11-15",
+   "2026-11-22",
+   "2026-12-06"
+  ],
+  "kandidaten": [],
+  "textlaenge": 7617,
+  "nennt_den_lauf": [
+   "fahrenhorst"
+  ],
+  "seiten_km": [
+   1.0,
+   1.5
+  ],
+  "flag": "NICHTS"
+ },
+ "rheinschwimmen|koln": {
+  "name": "Rheinschwimmen Köln",
+  "ort": "Köln",
+  "url": "https://duc.koeln/",
+  "letzte_ausgabe": "2026-05-14",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5944,
+  "nennt_den_lauf": [
+   "host:koeln"
+  ],
+  "flag": "NICHTS"
+ },
+ "bikefestival veloschatz|oschatz": {
+  "name": "VelOschatz Bikefestival",
+  "ort": "Oschatz",
+  "url": "https://veloschatz.de/",
+  "letzte_ausgabe": "2026-05-21",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-05-13",
+   "2027-05-16"
+  ],
+  "kandidaten": [
+   "2027-05-13",
+   "2027-05-16"
+  ],
+  "textlaenge": 2834,
+  "nennt_den_lauf": [
+   "host:veloschatz"
+  ],
+  "seiten_km": [
+   20.0,
+   40.0,
+   42.2,
+   50.0,
+   100.0,
+   300.0,
+   500.0,
+   900.0
+  ],
+  "flag": "NEU"
+ },
+ "radmarathon rhon|grossenluder": {
+  "name": "Rhön-Radmarathon",
+  "ort": "Großenlüder",
+  "url": "https://www.rhoen-radmarathon.de/",
+  "letzte_ausgabe": "2026-05-23",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2788,
+  "nennt_den_lauf": [
+   "host:radmarathon"
+  ],
+  "seiten_km": [
+   20.0,
+   42.2,
+   52.0,
+   81.0,
+   86.0,
+   116.0,
+   159.0,
+   183.0,
+   214.0,
+   258.0
+  ],
+  "flag": "NICHTS"
+ },
+ "den dom rund um|magdeburg": {
+  "name": "Rund um den Dom",
+  "ort": "Magdeburg",
+  "url": "https://rundumdendom.de/",
+  "letzte_ausgabe": "2026-06-06",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 11445,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   1.0,
+   1.2,
+   1.9,
+   2.4,
+   11.2,
+   15.2,
+   17.1,
+   28.5,
+   38.0,
+   45.6
+  ],
+  "flag": "NICHTS"
+ },
+ "challenge everesting|oberhof": {
+  "name": "Everesting Challenge Oberhof",
+  "ort": "Oberhof",
+  "url": "https://everesting.de/everesting-challenge-oberhof/",
+  "letzte_ausgabe": "2026-06-07",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "termin_von": "https://everesting.de/",
+  "kuenftige_termine": [
+   "2027-07-24"
+  ],
+  "kandidaten": [
+   "2027-07-24"
+  ],
+  "textlaenge": 9700,
+  "nennt_den_lauf": [
+   "host:everesting"
+  ],
+  "flag": "NEU?",
+  "grund": "anderer Wochentag als die vorige Ausgabe"
+ },
+ "dusseldorf300|dusseldorf": {
+  "name": "Düsseldorf300",
+  "ort": "Düsseldorf",
+  "url": "https://www.dus300.de/",
+  "letzte_ausgabe": "2026-06-20",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 65,
+  "nennt_den_lauf": [],
+  "flag": "LEER"
+ },
+ "langstreckenschwimmen|warin": {
+  "name": "Wariner Langstreckenschwimmen",
+  "ort": "Warin",
+  "url": "https://warin.dlrg.de/kinder-langstreckenschwimmen/",
+  "letzte_ausgabe": "2026-06-28",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2040,
+  "nennt_den_lauf": [
+   "langstreckenschwimmen"
+  ],
+  "flag": "NICHTS"
+ },
+ "freiwasserschwimmen|heddesheim": {
+  "name": "Freiwasserschwimmen Heddesheim",
+  "ort": "Heddesheim",
+  "url": "https://heddesheim-schwimmen.de/",
+  "letzte_ausgabe": "2026-07-04",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-25",
+   "2026-11-07",
+   "2026-11-08",
+   "2026-11-11",
+   "2026-11-15",
+   "2026-11-28"
+  ],
+  "kandidaten": [],
+  "textlaenge": 5046,
+  "nennt_den_lauf": [
+   "host:heddesheim"
+  ],
+  "flag": "NICHTS"
+ },
+ "sundschwimmen|stralsund": {
+  "name": "Internationales Sundschwimmen Stralsund",
+  "ort": "Stralsund",
+  "url": "http://sundschwimmen.de/",
+  "letzte_ausgabe": "2026-07-04",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5860,
+  "nennt_den_lauf": [
+   "host:sundschwimmen"
+  ],
+  "seiten_km": [
+   2.3
+  ],
+  "flag": "NICHTS"
+ },
+ "radmarathon zollernkonig|tubingen": {
+  "name": "Zollernkönig Radmarathon",
+  "ort": "Tübingen",
+  "url": "https://www.rvpfeil-tuebingen.de/",
+  "letzte_ausgabe": "2026-07-05",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3545,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   100.0
+  ],
+  "flag": "NICHTS"
+ },
+ "race rennen stunden|kelheim": {
+  "name": "Race-24 Kelheim – 24-Stunden-Rennen",
+  "ort": "Kelheim",
+  "url": "https://www.race-24.de/",
+  "letzte_ausgabe": "2026-07-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2628,
+  "nennt_den_lauf": [
+   "stunden"
+  ],
+  "flag": "NICHTS"
+ },
+ "schwarzwaldkonig|waldkirch": {
+  "name": "Schwarzwaldkönig",
+  "ort": "Waldkirch",
+  "url": "https://schwarzwaldkoenig.de/",
+  "letzte_ausgabe": "2026-07-12",
+  "geprueft_am": "2026-10-19",
+  "status": "fehler:SSLError",
+  "flag": "FEHLER"
+ },
+ "hallstattersee marathon schwimm|hallstatt": {
+  "name": "Hallstättersee Schwimm Marathon",
+  "ort": "Hallstatt",
+  "url": "https://www.schwimmmarathon.at/",
+  "letzte_ausgabe": "2026-07-25",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3150,
+  "nennt_den_lauf": [
+   "host:schwimm"
+  ],
+  "seiten_km": [
+   2.1,
+   5.0,
+   7.0,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "bruckenschwimmen|an brandenburg havel": {
+  "name": "Brückenschwimmen Brandenburg",
+  "ort": "Brandenburg an der Havel",
+  "url": "https://sv-brandenburg.dlrg.de/brueckenschwimmen/",
+  "letzte_ausgabe": "2026-08-01",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-21",
+   "2026-10-22",
+   "2026-10-28",
+   "2026-11-02",
+   "2026-11-04",
+   "2026-11-09",
+   "2026-11-11"
+  ],
+  "kandidaten": [],
+  "textlaenge": 5871,
+  "nennt_den_lauf": [
+   "host:brandenburg"
+  ],
+  "seiten_km": [
+   1.0
+  ],
+  "flag": "NICHTS"
+ },
+ "nuclearban tour|bretten": {
+  "name": "Nuclearban Tour",
+  "ort": "Bretten",
+  "url": "https://nuclearban-tour.de/",
+  "letzte_ausgabe": "2026-08-08",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5344,
+  "nennt_den_lauf": [
+   "host:nuclearban"
+  ],
+  "seiten_km": [
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "weserschwimmen|minden": {
+  "name": "Weserschwimmen Minden",
+  "ort": "Minden",
+  "url": "https://www.weserschwimmen.de/",
+  "letzte_ausgabe": "2026-08-15",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 376,
+  "nennt_den_lauf": [
+   "host:weserschwimmen"
+  ],
+  "flag": "NICHTS"
+ },
+ "freiwasserschwimmen see|senftenberg": {
+  "name": "Freiwasserschwimmen Senftenberger See",
+  "ort": "Senftenberg",
+  "url": "https://freiwasserschwimmen-senftenberg.de/",
+  "letzte_ausgabe": "2026-08-16",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3530,
+  "nennt_den_lauf": [
+   "host:freiwasserschwimmen"
+  ],
+  "seiten_km": [
+   1.2,
+   5.0
+  ],
+  "flag": "NICHTS"
+ },
+ "fuschlseecrossing|fuschl see": {
+  "name": "Fuschlseecrossing",
+  "ort": "Fuschl am See",
+  "url": "https://www.fuschlseecrossing.at/",
+  "letzte_ausgabe": "2026-08-29",
+  "geprueft_am": "2026-10-19",
+  "status": "fehler:SSLError",
+  "flag": "FEHLER"
+ },
+ "langstreckenschwimmen munchner|oberschleissheim": {
+  "name": "Münchner Langstreckenschwimmen",
+  "ort": "Oberschleißheim",
+  "url": "https://www.schwimmen-muenchen.de/",
+  "letzte_ausgabe": "2026-08-29",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1538,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   1.0,
+   4.0
+  ],
+  "flag": "NICHTS"
+ },
+ "ultraschwimmen|munster": {
+  "name": "Ultraschwimmen Münster",
+  "ort": "Münster",
+  "url": "https://ultraschwimmen.de/",
+  "letzte_ausgabe": "2026-08-29",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 602,
+  "nennt_den_lauf": [
+   "host:ultraschwimmen"
+  ],
+  "flag": "NICHTS"
+ },
+ "wakenitzman|lubeck": {
+  "name": "WakenitzMan",
+  "ort": "Lübeck",
+  "url": "https://www.wakenitzman.de/",
+  "letzte_ausgabe": "2026-08-30",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2346,
+  "nennt_den_lauf": [
+   "host:wakenitzman"
+  ],
+  "seiten_km": [
+   1.5
+  ],
+  "flag": "NICHTS"
+ },
+ "classic sophienalpen|wien": {
+  "name": "Sophienalpen Classic",
+  "ort": "Wien",
+  "url": "https://www.on-fahrrad.at/sophienalpenclassic/",
+  "letzte_ausgabe": "2026-09-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1842,
+  "nennt_den_lauf": [
+   "sophienalpen"
+  ],
+  "seiten_km": [
+   3.0
+  ],
+  "flag": "NICHTS"
+ },
+ "light northern road ultra|kaltenkirchen": {
+  "name": "Northern Light Road Ultra",
+  "ort": "Kaltenkirchen",
+  "url": "https://nl-rg.de/road/",
+  "letzte_ausgabe": "2026-09-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2247,
+  "nennt_den_lauf": [
+   "northern"
+  ],
+  "seiten_km": [
+   500.0
+  ],
+  "flag": "NICHTS"
+ },
+ "jedermann radrennen|schwerin": {
+  "name": "Schweriner Jedermann-Radrennen",
+  "ort": "Schwerin",
+  "url": "https://www.jedermann-radrennen.de/schwerin/",
+  "letzte_ausgabe": "2026-09-13",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-09-19"
+  ],
+  "kandidaten": [
+   "2027-09-19"
+  ],
+  "textlaenge": 2749,
+  "nennt_den_lauf": [
+   "host:radrennen"
+  ],
+  "seiten_km": [
+   45.0,
+   57.0,
+   63.0,
+   90.0
+  ],
+  "flag": "NEU"
+ },
+ "gravel grostl n|kaiserwinkl walchsee": {
+  "name": "Gravel 'n' Gröstl",
+  "ort": "Walchsee, Kaiserwinkl",
+  "url": "https://gravelngroestl.com/",
+  "letzte_ausgabe": "2026-10-08",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1304,
+  "nennt_den_lauf": [
+   "host:gravel"
+  ],
+  "seiten_km": [
+   100.0,
+   540.0
+  ],
+  "flag": "NICHTS"
+ },
+ "gravel grostl n|walchsee": {
+  "name": "Gravel 'n' Gröstl",
+  "ort": "Walchsee",
+  "url": "https://gravelngroestl.com",
+  "letzte_ausgabe": "2026-10-08",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1304,
+  "nennt_den_lauf": [
+   "host:gravel"
+  ],
+  "seiten_km": [
+   100.0,
+   540.0
+  ],
+  "flag": "NICHTS"
+ },
+ "bewegt inklusionslauf|olsberg": {
+  "name": "Olsberg bewegt Inklusionslauf",
+  "ort": "Olsberg",
+  "url": "https://www.olsberg.de/olsberg-bewegt",
+  "letzte_ausgabe": "2026-10-09",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 7449,
+  "nennt_den_lauf": [
+   "host:olsberg"
+  ],
+  "seiten_km": [
+   2.2,
+   4.5,
+   9.0
+  ],
+  "flag": "NICHTS"
+ },
+ "gravel sugar|stuttgart": {
+  "name": "Sugar Gravel Stuttgart",
+  "ort": "Stuttgart",
+  "url": "https://sugar-gravel.jimdosite.com",
+  "letzte_ausgabe": "2026-10-09",
+  "geprueft_am": "2026-10-19",
+  "status": 403,
+  "flag": "FEHLER"
+ },
+ "marathon|graz": {
+  "name": "Graz Marathon",
+  "ort": "Graz",
+  "url": "https://www.grazmarathon.at/",
+  "letzte_ausgabe": "2026-10-09",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-08",
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-08",
+   "2027-10-10"
+  ],
+  "textlaenge": 6053,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   21.1,
+   42.2
+  ],
+  "flag": "NEU?"
+ },
+ "moorlauf|osterronfeld": {
+  "name": "Osterrönfelder Moorlauf",
+  "ort": "Osterrönfeld",
+  "url": "http://www.moorlauf.wetzstopp.de/",
+  "letzte_ausgabe": "2026-10-09",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2297,
+  "nennt_den_lauf": [
+   "host:moorlauf"
+  ],
+  "seiten_km": [
+   1.2,
+   5.0,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "pfalzer ultratrail weinsteig|rechtenbach schweigen": {
+  "name": "Ultratrail Pfälzer Weinsteig",
+  "ort": "Schweigen-Rechtenbach",
+  "url": "https://www.ultratrail-pfaelzer-weinsteig.de/",
+  "letzte_ausgabe": "2026-10-09",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-09"
+  ],
+  "kandidaten": [
+   "2027-10-09"
+  ],
+  "textlaenge": 2959,
+  "nennt_den_lauf": [
+   "host:ultratrail"
+  ],
+  "seiten_km": [
+   70.0,
+   170.0,
+   173.0
+  ],
+  "flag": "NEU?",
+  "grund": "anderer Wochentag als die vorige Ausgabe"
+ },
+ "5km de des hommes les suisse terre|genf": {
+  "name": "Les 5km de Terre des Hommes Suisse",
+  "ort": "Genf",
+  "url": "https://www.marchedelespoir.ch/course/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 6084,
+  "nennt_den_lauf": [
+   "terre"
+  ],
+  "seiten_km": [
+   5.0
+  ],
+  "flag": "NICHTS"
+ },
+ "abt degen|main zeil": {
+  "name": "31. Abt-Degen-Lauf",
+  "ort": "Zeil am Main",
+  "url": "https://abt-degen-lauf.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 268,
+  "nennt_den_lauf": [
+   "host:degen"
+  ],
+  "flag": "LEER"
+ },
+ "afeno bike cup quer|riken": {
+  "name": "Afeno Quer und Bike Cup #2",
+  "ort": "Riken",
+  "url": "https://qubcup.jimdofree.com/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-24",
+   "2026-10-31",
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21"
+  ],
+  "kandidaten": [],
+  "textlaenge": 2232,
+  "nennt_den_lauf": [
+   "afeno"
+  ],
+  "flag": "NICHTS"
+ },
+ "ahmadiyya charity walk|dietzenbach": {
+  "name": "Ahmadiyya Charity Walk Dietzenbach",
+  "ort": "Dietzenbach",
+  "url": "https://charitywalk.de/events/8-ahmadiyya-charity-walk-dietzenbach-ilaqa-hessen-sd-ost",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 43,
+  "nennt_den_lauf": [],
+  "flag": "LEER"
+ },
+ "altwarmbuchen volkslauf|isernhagen": {
+  "name": "Volkslauf Altwarmbüchen",
+  "ort": "Isernhagen",
+  "url": "http://www.tus-altwarmbüchen.de",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3837,
+  "nennt_den_lauf": [
+   "host:altwarmbuchen"
+  ],
+  "seiten_km": [
+   20.0
+  ],
+  "flag": "NICHTS"
+ },
+ "ansorge branchenlauf|biessenhofen": {
+  "name": "Ansorge Branchenlauf",
+  "ort": "Biessenhofen",
+  "url": "https://ansorge-logistik.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 9401,
+  "nennt_den_lauf": [
+   "host:ansorge"
+  ],
+  "flag": "NICHTS"
+ },
+ "auwaldlauf|dautphetal": {
+  "name": "Auwaldlauf",
+  "ort": "Dautphetal",
+  "url": "https://www.ssvhommertshausen.de/auwaldlauf",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2113,
+  "nennt_den_lauf": [
+   "auwaldlauf"
+  ],
+  "seiten_km": [
+   1.0,
+   7.0,
+   14.0,
+   21.0,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "backyard lechtal ultra|vorderhornbach": {
+  "name": "Lechtal Backyard Ultra",
+  "ort": "Vorderhornbach",
+  "url": "https://www.hornbacher-sv.at/backyard",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-06"
+  ],
+  "kandidaten": [],
+  "textlaenge": 2640,
+  "nennt_den_lauf": [
+   "lechtal"
+  ],
+  "seiten_km": [
+   120.6
+  ],
+  "flag": "NICHTS"
+ },
+ "berg wein|ramsthal": {
+  "name": "Ramsthaler Wein-Berg-Lauf",
+  "ort": "Ramsthal",
+  "url": "https://www.saaletal-marathon.de/weinberglauf",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5577,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   1.2,
+   1.5,
+   2.7,
+   3.1,
+   4.3,
+   4.5,
+   5.4,
+   8.5,
+   10.0,
+   17.3,
+   21.0,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "berglauf brigerberg|brig ried": {
+  "name": "Berglauf am Brigerberg",
+  "ort": "Ried-Brig",
+  "url": "https://36er.ch/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-09"
+  ],
+  "kandidaten": [
+   "2027-10-09"
+  ],
+  "textlaenge": 2935,
+  "nennt_den_lauf": [
+   "brigerberg"
+  ],
+  "seiten_km": [
+   1.4,
+   1.8,
+   2.5,
+   6.4,
+   8.4
+  ],
+  "flag": "NEU"
+ },
+ "berglauf brigerberg|termen": {
+  "name": "Berglauf am Brigerberg",
+  "ort": "Termen",
+  "url": "https://36er.ch/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-09"
+  ],
+  "kandidaten": [
+   "2027-10-09"
+  ],
+  "textlaenge": 2935,
+  "nennt_den_lauf": [
+   "brigerberg"
+  ],
+  "seiten_km": [
+   1.4,
+   1.8,
+   2.5,
+   6.4,
+   8.4
+  ],
+  "flag": "NEU"
+ },
+ "berlin zeitfahren|hamburg": {
+  "name": "Zeitfahren Hamburg  Berlin",
+  "ort": "Hamburg",
+  "url": "https://audaxclub-sh.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-05-06",
+   "2027-05-09"
+  ],
+  "kandidaten": [],
+  "textlaenge": 7678,
+  "nennt_den_lauf": [
+   "zeitfahren"
+  ],
+  "seiten_km": [
+   200.0,
+   620.0
+  ],
+  "flag": "NICHTS"
+ },
+ "bike day propain|vogt": {
+  "name": "Propain Bike Day",
+  "ort": "Vogt",
+  "url": "https://www.propain-bikes.com/en/propain-bike-days/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5638,
+  "nennt_den_lauf": [
+   "host:propain"
+  ],
+  "flag": "NICHTS"
+ },
+ "bike marathon wasgau|lemberg": {
+  "name": "Wasgau-Bike-Marathon",
+  "ort": "Lemberg",
+  "url": "https://www.wasgau-bike-marathon.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2408,
+  "nennt_den_lauf": [
+   "host:wasgau"
+  ],
+  "seiten_km": [
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "bismarckturm den herbstwaldlauf rund um|viersen": {
+  "name": "79. Viersener Herbstwaldlauf Rund um den Bismarckturm",
+  "ort": "Viersen",
+  "url": "https://lgviersen.de/wp-content/uploads/2026/09/261010-Herbstwaldlauf.pdf",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5157,
+  "nennt_den_lauf": [
+   "herbstwaldlauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "bl cross cyclo galoppcross|bremen": {
+  "name": "BL Cyclo Cross 5. Galoppcross Bremen",
+  "ort": "Bremen",
+  "url": "https://www.radsport-hb.de/veranstaltungen/2885369/2026/10/10/galoppcross-5.0-cyclocross-bundesliega.html",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 404,
+  "startseite": 200,
+  "umgezogen": "https://www.radsport-hb.de/",
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1751,
+  "nennt_den_lauf": [
+   "cyclo"
+  ],
+  "flag": "NICHTS"
+ },
+ "brakelsieker volkslauf|schieder schwalenberg": {
+  "name": "Brakelsieker Volkslauf",
+  "ort": "Schieder-Schwalenberg",
+  "url": "https://www.tus08brakelsiek.de/volkslauf/volkslauf-ausschreibung/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2412,
+  "nennt_den_lauf": [
+   "brakelsieker"
+  ],
+  "flag": "NICHTS"
+ },
+ "bremserlauf dem herberts tsv|zornheim": {
+  "name": "Herberts Bremserlauf mit dem TSV Zornheim",
+  "ort": "Zornheim",
+  "url": "https://www.tsv-zornheim.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 6035,
+  "nennt_den_lauf": [
+   "host:zornheim"
+  ],
+  "flag": "NICHTS"
+ },
+ "brocken gebirgslauf harz marathon|wernigerode": {
+  "name": "Harz-Gebirgslauf (Brocken-Marathon)",
+  "ort": "Wernigerode",
+  "url": "https://harz-gebirgslauf.de/event/48-harz-gebirgslauf.html",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-08",
+   "2026-12-31"
+  ],
+  "kandidaten": [],
+  "textlaenge": 1380,
+  "nennt_den_lauf": [
+   "host:gebirgslauf"
+  ],
+  "seiten_km": [
+   2.0,
+   4.8,
+   11.0,
+   11.2,
+   22.5,
+   25.0,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "burenlauf|aare an buren": {
+  "name": "Bürenlauf - Büren an der Aare",
+  "ort": "Büren an der Aare",
+  "url": "https://buerenlauf.ch/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-16"
+  ],
+  "kandidaten": [
+   "2027-10-16"
+  ],
+  "textlaenge": 3524,
+  "nennt_den_lauf": [
+   "host:buerenlauf"
+  ],
+  "flag": "NEU"
+ },
+ "burgunderlauf|waldkirch": {
+  "name": "Burgunderlauf",
+  "ort": "Waldkirch",
+  "url": "https://www.buchholzer-weine.de/info/termine-events.html",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 9016,
+  "nennt_den_lauf": [
+   "burgunderlauf"
+  ],
+  "seiten_km": [
+   6.0,
+   11.0
+  ],
+  "flag": "NICHTS"
+ },
+ "christ du lascension roi|lens": {
+  "name": "L'Ascension du Christ-Roi Lens",
+  "ort": "Lens",
+  "url": "https://www.ascensionduchristroi.ch",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 10647,
+  "nennt_den_lauf": [
+   "host:ascension"
+  ],
+  "seiten_km": [
+   1.6,
+   2.2,
+   6.2
+  ],
+  "flag": "NICHTS"
+ },
+ "citylauf djk|coesfeld": {
+  "name": "32. Coesfelder DJK - Citylauf",
+  "ort": "Coesfeld",
+  "url": "https://www.djk-coesfeld.de/de/citylauf-startseite/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2219,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "citylauf nv|polten st": {
+  "name": "14. NV Citylauf",
+  "ort": "St.Pölten",
+  "url": "https://ustp-la.sportunion.at/nv-citylauf",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2284,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "club continental finale gravel tour|wietze": {
+  "name": "Continental Gravel Club Tour, Finale",
+  "ort": "Wietze",
+  "url": "https://gravel-club.com/2026/03/13/gravel-club-tour-2026/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 18461,
+  "nennt_den_lauf": [
+   "host:gravel"
+  ],
+  "seiten_km": [
+   40.0,
+   80.0
+  ],
+  "flag": "NICHTS"
+ },
+ "cross duathlon harteste norden|gustrow": {
+  "name": "Güstrower Cross-Duathlon \"Das Härteste im Norden\"",
+  "ort": "Güstrow",
+  "url": "https://trifun.de/events/cross-duathlon",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 6599,
+  "nennt_den_lauf": [
+   "harteste"
+  ],
+  "seiten_km": [
+   2.5,
+   5.0,
+   6.9,
+   14.0,
+   27.0
+  ],
+  "flag": "NICHTS"
+ },
+ "cross duathlon|wendelstein": {
+  "name": "3. Cross Duathlon Wendelstein",
+  "ort": "Wendelstein",
+  "url": "https://www.teamoptimum.de",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4549,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   2.0
+  ],
+  "flag": "NICHTS"
+ },
+ "crosslauf horner rennbahn|hamburg": {
+  "name": "Crosslauf Horner Rennbahn",
+  "ort": "Hamburg",
+  "url": "https://www.bsv-hamburg.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-20",
+   "2026-10-24",
+   "2026-10-28",
+   "2026-10-30",
+   "2026-11-02",
+   "2026-11-11",
+   "2026-11-14",
+   "2026-11-15"
+  ],
+  "kandidaten": [],
+  "textlaenge": 5477,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "crosslauf|torgelow": {
+  "name": "Torgelower Crosslauf",
+  "ort": "Torgelow",
+  "url": "http://uer-laufcup.de/wp-content/uploads/2025/10/Ausschreibungen-Torgelower-Crosslauf-2024.pdf",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 38939,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "ctf egge|neuhaus schloss": {
+  "name": "Egge CTF",
+  "ort": "Schloss-Neuhaus",
+  "url": "https://www.rmc-schloss-neuhaus.de/egge-ctf/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [
+   "2026-12-18",
+   "2027-03-19"
+  ],
+  "kandidaten": [],
+  "textlaenge": 12726,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   28.0,
+   41.0,
+   47.0,
+   48.0,
+   54.0,
+   63.0,
+   71.0,
+   79.0,
+   112.0,
+   150.0
+  ],
+  "flag": "NICHTS"
+ },
+ "cup mtb schwarzwalder|ehrenstetten": {
+  "name": "Schwarzwälder MTB Cup #8",
+  "ort": "Ehrenstetten",
+  "url": "http://www.rmsv-ehrenkirchen.de",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 790,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "cyclocrossrennen|zossen": {
+  "name": "Cyclocrossrennen Zossen",
+  "ort": "Zossen",
+  "url": "https://www.rad-net.de/rad-net-portal/rad-net-ausschreibungen.htm?url=%2Fmodules.php%3Fname%3DAusschreibung%26ID_Veranstaltung%3D43002%26mode%3Dascr_detail&url_hash=0PKX6uyY5-Eic3KxOE5CiYgM04FDNX8MyvNiWjysmuA",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4706,
+  "nennt_den_lauf": [
+   "cyclocrossrennen"
+  ],
+  "flag": "NICHTS"
+ },
+ "dallee tour|sellin": {
+  "name": "Tour d’Allée",
+  "ort": "Sellin",
+  "url": "https://ketterechts.eu/etn/32-tour-d-allee-ruegen-radfahren-mit-prominenten/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-06-05"
+  ],
+  "kandidaten": [],
+  "textlaenge": 4257,
+  "nennt_den_lauf": [
+   "dallee"
+  ],
+  "seiten_km": [
+   20.0,
+   50.0,
+   60.0
+  ],
+  "flag": "NICHTS"
+ },
+ "day donalds family marathon mc|graz": {
+  "name": "Graz Marathon - Mc Donalds Family Day",
+  "ort": "Graz",
+  "url": "http://www.grazmarathon.at",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-08",
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-08",
+   "2027-10-10"
+  ],
+  "textlaenge": 6053,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   21.1,
+   42.2
+  ],
+  "flag": "NEU?"
+ },
+ "de joux la trail vallee xterra|chenit le": {
+  "name": "XTERRA Trail de la Vallée de Joux",
+  "ort": "Le Chenit",
+  "url": "https://trailvalleedejoux.ch/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2479,
+  "nennt_den_lauf": [
+   "host:vallee"
+  ],
+  "seiten_km": [
+   10.0,
+   56.0,
+   76.0
+  ],
+  "flag": "NICHTS"
+ },
+ "donaulauf|ottensheim": {
+  "name": "Donaulauf Ottensheim",
+  "ort": "Ottensheim",
+  "url": "https://www.donaulauf.ottensheim.at/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1026,
+  "nennt_den_lauf": [
+   "host:donaulauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "enduro one|bad endbach": {
+  "name": "Enduro One Bad Endbach",
+  "ort": "Bad Endbach",
+  "url": "https://www.enduro-one.com",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-12-01"
+  ],
+  "kandidaten": [],
+  "textlaenge": 2270,
+  "nennt_den_lauf": [
+   "host:enduro"
+  ],
+  "flag": "NICHTS"
+ },
+ "esellauf warzer|alfeld leine": {
+  "name": "Warzer Esellauf",
+  "ort": "Alfeld (Leine)",
+  "url": "https://tsv-warzen.de/2026/06/esellauf2026/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": "fehler:ReadTimeout",
+  "flag": "FEHLER"
+ },
+ "fire trail|nesselwang": {
+  "name": "Fire Trail Nesselwang",
+  "ort": "Nesselwang",
+  "url": "https://www.fire-trail-nesselwang.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "umgezogen": "https://www.xn--fire-trail-allgu-9nb.de/nesselwang/",
+  "kuenftige_termine": [
+   "2027-06-19"
+  ],
+  "kandidaten": [],
+  "textlaenge": 1548,
+  "nennt_den_lauf": [
+   "host:nesselwang"
+  ],
+  "flag": "NICHTS"
+ },
+ "freundschaftslauf|marpingen": {
+  "name": "Freundschaftslauf Marpingen",
+  "ort": "Marpingen",
+  "url": "https://www.slb-saarland.com/zahlen-daten-fakten/termine/newsdetail-termine?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=14734&cHash=efbf42cd2e9388e26b5286fbbdba339e",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1566,
+  "nennt_den_lauf": [
+   "freundschaftslauf"
+  ],
+  "seiten_km": [
+   6.0,
+   6.5,
+   11.0
+  ],
+  "flag": "NICHTS"
+ },
+ "fur krebsforschung|wien": {
+  "name": "Lauf für die Krebsforschung",
+  "ort": "Wien",
+  "url": "https://www.wienlaeuft.at/de/veranstaltungen-bewerbe/eventdbshow-19.-lauf-fuer-die-krebsforschung-10.10.2026?flat",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1689,
+  "nennt_den_lauf": [
+   "krebsforschung"
+  ],
+  "seiten_km": [
+   1.6
+  ],
+  "flag": "NICHTS"
+ },
+ "hase|bersenbruck": {
+  "name": "Hase - Lauf Bersenbrück",
+  "ort": "Bersenbrück",
+  "url": "http://www.tus-bersenbrück.de",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-23",
+   "2026-10-28",
+   "2026-11-01"
+  ],
+  "kandidaten": [],
+  "textlaenge": 4729,
+  "nennt_den_lauf": [
+   "host:bersenbruck"
+  ],
+  "flag": "NICHTS"
+ },
+ "herbstlauf|oder schwedt": {
+  "name": "Schwedter Herbstlauf",
+  "ort": "Schwedt/Oder",
+  "url": "https://tsv-blauweiss65schwedt.de/?cat=7",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2401,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   2.0
+  ],
+  "flag": "NICHTS"
+ },
+ "herbstlauf|schutterwald": {
+  "name": "25. Herbstlauf",
+  "ort": "Schutterwald",
+  "url": "https://www.lfv-schutterwald.de/herbstlauf.html",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1111,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "herbstwaldlauf zellerreiter|ramerberg": {
+  "name": "Zellerreiter Herbstwaldlauf",
+  "ort": "Ramerberg",
+  "url": "https://wsv-zellerreit.de/zellerreiter-herbstwaldlauf/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-09"
+  ],
+  "kandidaten": [
+   "2027-10-09"
+  ],
+  "textlaenge": 1797,
+  "nennt_den_lauf": [
+   "zellerreiter"
+  ],
+  "flag": "NEU"
+ },
+ "h|helpup": {
+  "name": "24h Helpup",
+  "ort": "Helpup",
+  "url": "http://www.tus-helpup.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2445,
+  "nennt_den_lauf": [
+   "host:helpup"
+  ],
+  "flag": "NICHTS"
+ },
+ "h|schonungen": {
+  "name": "24h Schonungen",
+  "ort": "Schonungen",
+  "url": "https://schonungen.dlrg.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-30",
+   "2026-11-10",
+   "2026-11-27",
+   "2026-12-06",
+   "2026-12-08",
+   "2026-12-18"
+  ],
+  "kandidaten": [],
+  "textlaenge": 3708,
+  "nennt_den_lauf": [
+   "host:schonungen"
+  ],
+  "flag": "NICHTS"
+ },
+ "inklusionslauf sovd|berlin": {
+  "name": "SoVD-Inklusionslauf",
+  "ort": "Berlin",
+  "url": "https://www.inklusionslauf.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2426,
+  "nennt_den_lauf": [
+   "host:inklusionslauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "kemptener naturfreundehaus or ride|allgau i immenstadt": {
+  "name": "Ride or Run zum Kemptener Naturfreundehaus",
+  "ort": "Immenstadt i. Allgäu",
+  "url": "https://www.tvimmenstadt-triathlon.de",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1513,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "kranichlauf wanninchen|crinitz": {
+  "name": "Kranichlauf Wanninchen",
+  "ort": "Crinitz",
+  "url": "https://www.luckauer-laeuferbund.de/events/2-kranichlauf",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-23",
+   "2026-11-15"
+  ],
+  "kandidaten": [],
+  "textlaenge": 3484,
+  "nennt_den_lauf": [
+   "kranichlauf"
+  ],
+  "seiten_km": [
+   2.5,
+   5.0,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "krebsforschungslauf|wien": {
+  "name": "Krebsforschungslauf",
+  "ort": "Wien",
+  "url": "https://www.meduniwien.ac.at/web/krebsforschungslauf/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 10330,
+  "nennt_den_lauf": [
+   "krebsforschungslauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "kreuzbergllauf|klagenfurt worthersee": {
+  "name": "Klagenfurter Kreuzbergllauf",
+  "ort": "Klagenfurt am Wörthersee",
+  "url": "https://klagenfurt.naturfreunde.at/kreuzbergl-lauf/kreuzbergl-lauf",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 7565,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   10.0,
+   16.0
+  ],
+  "flag": "NICHTS"
+ },
+ "kuckucks trail|damscheid": {
+  "name": "Kuckucks-Trail Damscheid",
+  "ort": "Damscheid",
+  "url": "https://kuckuckstrail.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 403,
+  "flag": "FEHLER"
+ },
+ "kuppinger mondfangerlauf|herrenberg": {
+  "name": "16. Kuppinger Mondfängerlauf",
+  "ort": "Herrenberg",
+  "url": "https://www.schoenbuch-cup.de/kuppingen",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 403,
+  "flag": "FEHLER"
+ },
+ "landarenca trail|calanca": {
+  "name": "Landarenca Trail",
+  "ort": "Calanca",
+  "url": "https://www.landarenca-trail.ch",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2109,
+  "nennt_den_lauf": [
+   "host:landarenca"
+  ],
+  "flag": "NICHTS"
+ },
+ "laufcup marktlauf moststrasse|an erlauf purgstall": {
+  "name": "6. Purgstaller Marktlauf (Moststraße Laufcup)",
+  "ort": "Purgstall an der Erlauf",
+  "url": "https://purgstall.sportunion.at/marktlauf-2026/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-09"
+  ],
+  "kandidaten": [
+   "2027-10-09"
+  ],
+  "textlaenge": 4548,
+  "nennt_den_lauf": [
+   "marktlauf"
+  ],
+  "seiten_km": [
+   5.1
+  ],
+  "flag": "NEU"
+ },
+ "laufspecktakel|diespeck": {
+  "name": "DieSPECKer LaufSPECKtakel",
+  "ort": "Diespeck",
+  "url": "https://laufspecktakel.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1518,
+  "nennt_den_lauf": [
+   "host:laufspecktakel"
+  ],
+  "seiten_km": [
+   12.0,
+   27.0,
+   42.2,
+   72.0
+  ],
+  "flag": "NICHTS"
+ },
+ "lenjambee nocturne|porrentruy": {
+  "name": "L'Enjambée Nocturne",
+  "ort": "Porrentruy",
+  "url": "https://enjambeenocturne.ch/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1914,
+  "nennt_den_lauf": [
+   "host:enjambee"
+  ],
+  "flag": "NICHTS"
+ },
+ "lichterlauf|steckenborn": {
+  "name": "Lichterlauf in Steckenborn",
+  "ort": "Steckenborn",
+  "url": "http://komet-steckenborn.de",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1066,
+  "nennt_den_lauf": [
+   "host:steckenborn"
+  ],
+  "seiten_km": [
+   8.0,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "lido stunden|wien": {
+  "name": "12 Stunden LiDo",
+  "ort": "Wien",
+  "url": "https://www.wienzufuss.at/12-stunden-lido-2026/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "umgezogen": "https://mobilitaetsagentur.at/12-stunden-lido",
+  "kuenftige_termine": [
+   "2026-10-21",
+   "2026-10-22",
+   "2026-10-24"
+  ],
+  "kandidaten": [],
+  "textlaenge": 4806,
+  "nennt_den_lauf": [
+   "stunden"
+  ],
+  "seiten_km": [
+   50.0
+  ],
+  "flag": "NICHTS"
+ },
+ "locarno|ascona": {
+  "name": "Ascona-Locarno Run",
+  "ort": "Ascona",
+  "url": "https://www.ascona-locarno-run.ch/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5157,
+  "nennt_den_lauf": [
+   "host:ascona"
+  ],
+  "seiten_km": [
+   5.0,
+   10.0,
+   21.0,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "marathon rugenbrucken sparkassen|stralsund": {
+  "name": "Sparkassen Rügenbrücken-Marathon",
+  "ort": "Stralsund",
+  "url": "https://ruegenmarathon.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-09"
+  ],
+  "kandidaten": [
+   "2027-10-09"
+  ],
+  "textlaenge": 6523,
+  "nennt_den_lauf": [
+   "rugenbrucken"
+  ],
+  "seiten_km": [
+   3.0,
+   6.0,
+   10.0,
+   21.1,
+   42.2
+  ],
+  "flag": "NEU"
+ },
+ "matschfuss|kiel": {
+  "name": "Matschfuss Kiel",
+  "ort": "Kiel",
+  "url": "https://plattfuss-podcast.de/pages/matschfuss-kiel-das-original",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 6576,
+  "nennt_den_lauf": [
+   "matschfuss"
+  ],
+  "seiten_km": [
+   60.0,
+   65.0,
+   100.0,
+   120.0
+  ],
+  "flag": "NICHTS"
+ },
+ "mederun|medebach": {
+  "name": "MedeRun",
+  "ort": "Medebach",
+  "url": "https://www.mederun.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "umgezogen": "https://www.medebach.de/leben-in-medebach/veranstaltungen/mederun",
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 12444,
+  "nennt_den_lauf": [
+   "host:mederun"
+  ],
+  "seiten_km": [
+   1.2,
+   5.0,
+   10.0,
+   21.0,
+   21.1,
+   22.0,
+   30.0
+  ],
+  "flag": "NICHTS"
+ },
+ "messelauf|wertheim": {
+  "name": "Wertheimer Messelauf",
+  "ort": "Wertheim",
+  "url": "https://www.messelauf-svn.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 9423,
+  "nennt_den_lauf": [
+   "host:messelauf"
+  ],
+  "seiten_km": [
+   1.0,
+   2.5,
+   4.5,
+   10.0,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "muswiesenlauf|rot see": {
+  "name": "41. Muswiesenlauf",
+  "ort": "Rot am See",
+  "url": "https://www.muswiesenlauf.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-09",
+   "2028-10-07"
+  ],
+  "kandidaten": [
+   "2027-10-09"
+  ],
+  "textlaenge": 2072,
+  "nennt_den_lauf": [
+   "host:muswiesenlauf"
+  ],
+  "seiten_km": [
+   1.0,
+   2.5,
+   5.0
+  ],
+  "flag": "NEU"
+ },
+ "pegnitztallauf|vorra": {
+  "name": "41. Pegnitztallauf 2026",
+  "ort": "Vorra",
+  "url": "https://ski-club-artelshofen.jimdoweb.com/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-05"
+  ],
+  "kandidaten": [],
+  "textlaenge": 5974,
+  "nennt_den_lauf": [
+   "pegnitztallauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "pfalzer ultratrail weinsteig|an neustadt weinstrasse": {
+  "name": "Ultratrail Pfälzer Weinsteig",
+  "ort": "Neustadt an der Weinstraße",
+  "url": "https://www.ultratrail-pfaelzer-weinsteig.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-09"
+  ],
+  "kandidaten": [
+   "2027-10-09"
+  ],
+  "textlaenge": 2959,
+  "nennt_den_lauf": [
+   "host:ultratrail"
+  ],
+  "seiten_km": [
+   70.0,
+   170.0,
+   173.0
+  ],
+  "flag": "NEU"
+ },
+ "rtc saisonabschlussparty saisonfinale|koln": {
+  "name": "RTC Köln Saisonfinale mit Saisonabschlußparty",
+  "ort": "Köln",
+  "url": "https://rtc-koeln.de",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 20,
+  "nennt_den_lauf": [
+   "host:koeln"
+  ],
+  "flag": "LEER"
+ },
+ "solvay|bernburg": {
+  "name": "18. Solvay Lauf",
+  "ort": "Bernburg",
+  "url": "https://lauf.psv-bernburg.de/solvay-lauf/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "termin_von": "https://lauf.psv-bernburg.de/",
+  "kuenftige_termine": [
+   "2027-04-30",
+   "2027-09-18"
+  ],
+  "kandidaten": [
+   "2027-09-18"
+  ],
+  "textlaenge": 4869,
+  "nennt_den_lauf": [
+   "solvay"
+  ],
+  "seiten_km": [
+   21.1
+  ],
+  "flag": "NEU?",
+  "grund": "Termin von der Startseite, nicht von der Seite des Laufs"
+ },
+ "stadtlauf|weimar": {
+  "name": "Weimarer Stadtlauf",
+  "ort": "Weimar",
+  "url": "https://hsv-weimar.de/hsv/stadtlauf/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2328,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   5.5,
+   11.0
+  ],
+  "flag": "NICHTS"
+ },
+ "strassenlauf|wonneberg": {
+  "name": "Wonneberger Strassenlauf",
+  "ort": "Wonneberg",
+  "url": "https://www.sv-wonneberg.de/aktuelles/strassenlauf/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 586,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "verticalp|sembrancher": {
+  "name": "Vertic'Alp",
+  "ort": "Sembrancher",
+  "url": "https://www.verticalp.ch/la-course",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3729,
+  "nennt_den_lauf": [
+   "host:vertic"
+  ],
+  "seiten_km": [
+   1.1,
+   2.0,
+   2.2,
+   2.3,
+   3.0
+  ],
+  "flag": "NICHTS"
+ },
+ "volkslauf|wadersloh": {
+  "name": "Wadersloher Volkslauf",
+  "ort": "Wadersloh",
+  "url": "https://www.tus-wadersloh.de/lauftreff/index.php/wadersloher-volkslauf",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [
+   "2029-12-31"
+  ],
+  "kandidaten": [],
+  "textlaenge": 6255,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   1.0,
+   2.0,
+   5.0,
+   7.5,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "waldlauf|lossburg": {
+  "name": "30. Loßburger Waldlauf",
+  "ort": "Loßburg",
+  "url": "http://www.skiclub-lossburg.de",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-04-10"
+  ],
+  "kandidaten": [],
+  "textlaenge": 3504,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   3.0
+  ],
+  "flag": "NICHTS"
+ },
+ "willibalds|eichstatt": {
+  "name": "Willibalds-Lauf",
+  "ort": "Eichstätt",
+  "url": "https://willibaldslauf.de/",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5152,
+  "nennt_den_lauf": [
+   "host:willibalds"
+  ],
+  "seiten_km": [
+   1.4,
+   5.0,
+   8.5,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "woidwetza|leiben": {
+  "name": "WoidWetza",
+  "ort": "Leiben",
+  "url": "https://www.woidwetza.at",
+  "letzte_ausgabe": "2026-10-10",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3096,
+  "nennt_den_lauf": [
+   "host:woidwetza"
+  ],
+  "seiten_km": [
+   5.0,
+   12.0,
+   17.0
+  ],
+  "flag": "NICHTS"
+ },
+ "ag ctf mittelholstein o sparkasse|westensee": {
+  "name": "Sparkasse Mittelholstein AG O-CTF in Westensee",
+  "ort": "Westensee",
+  "url": "https://www.rbc-1894.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4079,
+  "nennt_den_lauf": [
+   "mittelholstein"
+  ],
+  "seiten_km": [
+   34.0,
+   49.0,
+   64.0,
+   90.0
+  ],
+  "flag": "NICHTS"
+ },
+ "ahmadiyya charity walk|heddesheim": {
+  "name": "Ahmadiyya Charity Walk Heddesheim",
+  "ort": "Heddesheim",
+  "url": "https://charitywalk.de/events/8-ahmadiyya-charity-walk-heddesheim",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 43,
+  "nennt_den_lauf": [],
+  "flag": "LEER"
+ },
+ "ahmadiyya charity walk|neuwied": {
+  "name": "Ahmadiyya Charity Walk Neuwied",
+  "ort": "Neuwied",
+  "url": "https://charitywalk.de/events/12-ahmadiyya-charity-walk-neuwied",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 43,
+  "nennt_den_lauf": [],
+  "flag": "LEER"
+ },
+ "b bikestore cube dein king nord of p queen seeschlacht store wien|langenzersdorf": {
+  "name": "11. King & Queen of Seeschlacht p.b. CUBE STORE - Wien Nord, dein BikeStore",
+  "ort": "Langenzersdorf",
+  "url": "https://www.free-eagle.at",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 7449,
+  "nennt_den_lauf": [
+   "queen"
+  ],
+  "seiten_km": [
+   3.0,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "backumer crosslauf durch tal|disteln herten": {
+  "name": "27. Crosslauf durch das Backumer Tal",
+  "ort": "Herten-Disteln",
+  "url": "https://la-herten.de/veranstaltungen/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3434,
+  "nennt_den_lauf": [
+   "durch"
+  ],
+  "flag": "NICHTS"
+ },
+ "baskets enfile tes|onex": {
+  "name": "Enfile tes baskets",
+  "ort": "Onex",
+  "url": "https://enfiletesbaskets.ch/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4347,
+  "nennt_den_lauf": [
+   "host:enfile"
+  ],
+  "seiten_km": [
+   2.0,
+   5.0
+  ],
+  "flag": "NICHTS"
+ },
+ "berglauf jenner|konigssee schonau": {
+  "name": "41. Int. Jenner-Berglauf",
+  "ort": "Schönau am Königssee",
+  "url": "https://www.skberchtesgaden.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1107,
+  "nennt_den_lauf": [
+   "jenner"
+  ],
+  "flag": "NICHTS"
+ },
+ "berglauf rinderberg|zweisimmen": {
+  "name": "Berglauf Rinderberg Zweisimmen",
+  "ort": "Zweisimmen",
+  "url": "https://www.zweisimmen.ch/berglauf-rinderberg",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4990,
+  "nennt_den_lauf": [
+   "host:zweisimmen"
+  ],
+  "seiten_km": [
+   2.1
+  ],
+  "flag": "NICHTS"
+ },
+ "berglauf schneelaufverein|geislingen steige": {
+  "name": "Berglauf Schneelaufverein Geislingen e.V.",
+  "ort": "Geislingen (Steige)",
+  "url": "http://www.schneelaufverein-geislingen.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 746,
+  "nennt_den_lauf": [
+   "host:schneelaufverein"
+  ],
+  "flag": "NICHTS"
+ },
+ "bergzeitfahren bike ginner team|waidhofen": {
+  "name": "BIKE TEAM GINNER Bergzeitfahren",
+  "ort": "Waidhofen",
+  "url": "https://www.bike-team-ginner.com",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 14506,
+  "nennt_den_lauf": [
+   "host:ginner"
+  ],
+  "seiten_km": [
+   2.1,
+   2.4,
+   5.4,
+   8.0,
+   10.0,
+   21.3,
+   22.0,
+   24.0,
+   33.0,
+   36.0,
+   37.0,
+   42.2,
+   98.0,
+   100.0,
+   213.0,
+   340.0
+  ],
+  "flag": "NICHTS"
+ },
+ "bikemarathon lautertal|spiegelberg": {
+  "name": "Lautertal Bikemarathon",
+  "ort": "Spiegelberg",
+  "url": "https://www.lautertal-bikemarathon.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1230,
+  "nennt_den_lauf": [
+   "host:lautertal"
+  ],
+  "seiten_km": [
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "bottwartal marathon trainingslauf|an murr steinheim": {
+  "name": "10. Trainingslauf Bottwartal-Marathon",
+  "ort": "Steinheim an der Murr",
+  "url": "http://www.bottwartal-marathon.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4477,
+  "nennt_den_lauf": [
+   "host:bottwartal"
+  ],
+  "seiten_km": [
+   5.0,
+   10.0,
+   21.0,
+   21.1,
+   32.0,
+   42.0,
+   42.2,
+   51.0
+  ],
+  "flag": "NICHTS"
+ },
+ "bramfelder halbmarathon|hamburg": {
+  "name": "Bramfelder Halbmarathon",
+  "ort": "Hamburg",
+  "url": "https://www.bramfelder-halbmarathon.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4345,
+  "nennt_den_lauf": [
+   "host:bramfelder"
+  ],
+  "seiten_km": [
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "brienzerseelauf|brienz": {
+  "name": "Brienzerseelauf",
+  "ort": "Brienz",
+  "url": "https://www.brienzerseelauf.ch/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3882,
+  "nennt_den_lauf": [
+   "host:brienzerseelauf"
+  ],
+  "seiten_km": [
+   10.0,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "brooks by marathon|munchen": {
+  "name": "Marathon München by Brooks",
+  "ort": "München",
+  "url": "https://marathonmuenchen.org/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 10969,
+  "nennt_den_lauf": [
+   "host:muenchen"
+  ],
+  "seiten_km": [
+   10.0,
+   21.1,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "burgenlauf|bad belzig": {
+  "name": "Burgenlauf Bad Belzig",
+  "ort": "Bad Belzig",
+  "url": "https://www.burgenlauf.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-06",
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-06",
+   "2027-10-10"
+  ],
+  "textlaenge": 29089,
+  "nennt_den_lauf": [
+   "host:burgenlauf"
+  ],
+  "seiten_km": [
+   1.0,
+   1.3,
+   4.0,
+   8.0,
+   25.0,
+   50.0
+  ],
+  "flag": "NEU?"
+ },
+ "burglauf|leisnig": {
+  "name": "Leisniger Burglauf",
+  "ort": "Leisnig",
+  "url": "https://mittelsaechsische-lauftour.com/wettkaempfe/leisniger-burglauf.html",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2152,
+  "nennt_den_lauf": [
+   "burglauf"
+  ],
+  "seiten_km": [
+   4.0,
+   8.0,
+   12.0
+  ],
+  "flag": "NICHTS"
+ },
+ "cassya la|bains les yverdon": {
+  "name": "La Cassya Run",
+  "ort": "Yverdon-les-Bains",
+  "url": "https://www.mso.swiss/events/2535-la-cassya-run",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-28"
+  ],
+  "kandidaten": [],
+  "textlaenge": 2853,
+  "nennt_den_lauf": [
+   "cassya"
+  ],
+  "seiten_km": [
+   2.3,
+   4.0,
+   8.0
+  ],
+  "flag": "NICHTS"
+ },
+ "chalets defis des les|maurice saint": {
+  "name": "Les Défis des Chalets",
+  "ort": "Saint-Maurice",
+  "url": "https://lesdefis.ch/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-10"
+  ],
+  "textlaenge": 5236,
+  "nennt_den_lauf": [
+   "host:defis"
+  ],
+  "seiten_km": [
+   1.5,
+   1.6,
+   3.0,
+   3.3,
+   12.8,
+   24.0,
+   42.2
+  ],
+  "flag": "NEU"
+ },
+ "charity gravel hospiz mtb ride sibilla|hennef": {
+  "name": "Sibilla Hospiz - Charity Ride Gravel MTB",
+  "ort": "Hennef",
+  "url": "http://www.radclub-cito-hennef.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "umgezogen": "https://www.cito-hennef.de/",
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2405,
+  "nennt_den_lauf": [
+   "sibilla"
+  ],
+  "seiten_km": [
+   76.0
+  ],
+  "flag": "NICHTS"
+ },
+ "charitylauf rotary|albstadt": {
+  "name": "Rotary Albstadt Charitylauf",
+  "ort": "Albstadt",
+  "url": "https://rotary-albstadt-charitylauf.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3450,
+  "nennt_den_lauf": [
+   "host:rotary"
+  ],
+  "flag": "NICHTS"
+ },
+ "citylauf ribe|schwabach": {
+  "name": "RIBE Citylauf Schwabach",
+  "ort": "Schwabach",
+  "url": "https://schwabacher-citylauf.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-10"
+  ],
+  "textlaenge": 2635,
+  "nennt_den_lauf": [
+   "host:schwabach"
+  ],
+  "seiten_km": [
+   1.2,
+   1.6,
+   5.3,
+   10.2,
+   21.1
+  ],
+  "flag": "NEU"
+ },
+ "citylauf|schwabach": {
+  "name": "Citylauf Schwabach",
+  "ort": "Schwabach",
+  "url": "https://schwabacher-citylauf.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-10"
+  ],
+  "textlaenge": 2635,
+  "nennt_den_lauf": [
+   "host:schwabach"
+  ],
+  "seiten_km": [
+   1.2,
+   1.6,
+   5.3,
+   10.2,
+   21.1
+  ],
+  "flag": "NEU"
+ },
+ "country cross ctf linneser tag|giessen": {
+  "name": "Linneser Cross-Country Tag CTF",
+  "ort": "Gießen",
+  "url": "https://www.rv-kleinlinden.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2508,
+  "nennt_den_lauf": [
+   "linneser"
+  ],
+  "seiten_km": [
+   333.0
+  ],
+  "flag": "NICHTS"
+ },
+ "country cross gravel linneser tag|giessen": {
+  "name": "Linneser Cross-Country-Tag (GRAVEL)",
+  "ort": "Gießen",
+  "url": "https://www.rv-kleinlinden.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2508,
+  "nennt_den_lauf": [
+   "linneser"
+  ],
+  "seiten_km": [
+   333.0
+  ],
+  "flag": "NICHTS"
+ },
+ "cross event|a d donau worth": {
+  "name": "Cross-Event Wörth a. d. Donau",
+  "ort": "Wörth a.d. Donau",
+  "url": "https://www.tsv-woerth.de/cross-event-2026/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 15721,
+  "nennt_den_lauf": [
+   "host:woerth"
+  ],
+  "seiten_km": [
+   1.2,
+   2.7,
+   3.7,
+   4.4,
+   8.0
+  ],
+  "flag": "NICHTS"
+ },
+ "crosscup gunsha|borna": {
+  "name": "GUNSHA Crosscup Borna",
+  "ort": "Borna",
+  "url": "https://rsvborna.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 20,
+  "nennt_den_lauf": [
+   "host:borna"
+  ],
+  "flag": "LEER"
+ },
+ "crosslauf zachower|havel ketzin": {
+  "name": "Zachower Crosslauf",
+  "ort": "Ketzin/Havel",
+  "url": "http://ketzin-fischerman.de/6-zachower-crosslauf/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-06-27"
+  ],
+  "kandidaten": [],
+  "textlaenge": 3254,
+  "nennt_den_lauf": [
+   "zachower"
+  ],
+  "seiten_km": [
+   1.5,
+   5.0,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "ctf dreckig ich mags o tour|lohnhorst schwanewede": {
+  "name": "Die ich mag's dreckig Tour - O-CTF",
+  "ort": "Schwanewede-Löhnhorst",
+  "url": "https://www.rsc-rot-gold.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 536,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "ctf gravel tour|westensee": {
+  "name": "CTF und Gravel-Tour Westensee",
+  "ort": "Westensee",
+  "url": "https://www.rbc-1894.de/rbc-ctf-2026/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2975,
+  "nennt_den_lauf": [
+   "gravel"
+  ],
+  "seiten_km": [
+   90.0
+  ],
+  "flag": "NICHTS"
+ },
+ "cup cycling|thaur": {
+  "name": "Cycling Cup Thaur",
+  "ort": "Thaur",
+  "url": "https://www.innsbrucker-schwalben.at",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3043,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "cup energiesudwest|an offenbach queich": {
+  "name": "EnergieSüdwest Cup",
+  "ort": "Offenbach an der Queich",
+  "url": "https://energie-suedwest.de/energiesuedwest-cup/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 404,
+  "startseite": 200,
+  "umgezogen": "https://energie-suedwest.de/",
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5817,
+  "nennt_den_lauf": [
+   "energiesudwest"
+  ],
+  "flag": "NICHTS"
+ },
+ "cup nordic stockles walking|trochtelfingen": {
+  "name": "21. Trochtelfinger Nordic Walking Stöckles-Cup",
+  "ort": "Trochtelfingen",
+  "url": "https://stoeckles-cup.jimdofree.com/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-10"
+  ],
+  "textlaenge": 2211,
+  "nennt_den_lauf": [
+   "host:stoeckles"
+  ],
+  "flag": "NEU"
+ },
+ "day gravel propain|vogt": {
+  "name": "Propain Gravel Day",
+  "ort": "Vogt",
+  "url": "https://www.propain-bikes.com/en/propain-bike-days/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5638,
+  "nennt_den_lauf": [
+   "host:propain"
+  ],
+  "flag": "NICHTS"
+ },
+ "de respect tdrmar tour|koln": {
+  "name": "Tour de Respect / TdRMAR 2026 Köln",
+  "ort": "Köln",
+  "url": "https://www.tourderespect.org/MitdemRennradgegenAntisemitismusundgegenHassjeglicherArt",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3106,
+  "nennt_den_lauf": [
+   "host:respect"
+  ],
+  "seiten_km": [
+   75.0,
+   80.0,
+   120.0
+  ],
+  "flag": "NICHTS"
+ },
+ "de trail vallee|joux": {
+  "name": "Trail Vallée de Joux",
+  "ort": "Joux",
+  "url": "https://www.trailvalleedejoux.ch",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2479,
+  "nennt_den_lauf": [
+   "host:vallee"
+  ],
+  "seiten_km": [
+   10.0,
+   56.0,
+   76.0
+  ],
+  "flag": "NICHTS"
+ },
+ "defis des les|chalets": {
+  "name": "Les Défis des Chalets",
+  "ort": "Chalets",
+  "url": "https://www.lesdefis.ch",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-10"
+  ],
+  "textlaenge": 5236,
+  "nennt_den_lauf": [
+   "host:defis"
+  ],
+  "seiten_km": [
+   1.5,
+   1.6,
+   3.0,
+   3.3,
+   12.8,
+   24.0,
+   42.2
+  ],
+  "flag": "NEU"
+ },
+ "den dummer friesengang um|lembruch": {
+  "name": "Friesengang um den Dümmer",
+  "ort": "Lembruch",
+  "url": "http://svlembruch.blogspot.com/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5147,
+  "nennt_den_lauf": [
+   "friesengang"
+  ],
+  "flag": "NICHTS"
+ },
+ "des f herbstmarathon lcc wien wiener wrc|hauptalle prater": {
+  "name": "Int. Wiener Herbstmarathon des LCC-Wien (WRC F)",
+  "ort": "Prater Hauptalle",
+  "url": "https://www.lcc-wien.at/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-08",
+   "2026-12-06"
+  ],
+  "kandidaten": [],
+  "textlaenge": 11721,
+  "nennt_den_lauf": [
+   "wiener"
+  ],
+  "seiten_km": [
+   5.0,
+   7.0,
+   10.0,
+   20.0,
+   21.1,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "des mountainbike rc tour|aisch neustadt": {
+  "name": "20. Mountainbike-Tour des RC 88 Neustadt/Aisch",
+  "ort": "Neustadt/Aisch",
+  "url": "https://www.rc88.de/galerie/58274/ctf.html",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-24",
+   "2026-10-31",
+   "2026-11-07"
+  ],
+  "kandidaten": [],
+  "textlaenge": 2692,
+  "nennt_den_lauf": [
+   "mountainbike"
+  ],
+  "seiten_km": [
+   36.0,
+   57.0,
+   80.0
+  ],
+  "flag": "NICHTS"
+ },
+ "dorf hochmuth muterlauf|tirol": {
+  "name": "Muterlauf (Dorf Tirol - Hochmuth)",
+  "ort": "Tirol",
+  "url": "http://www.muterlauf.it/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4614,
+  "nennt_den_lauf": [
+   "host:muterlauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "du grand le petit|valbroye": {
+  "name": "Le Grand Run du Petit",
+  "ort": "Valbroye",
+  "url": "https://grandrundupetit.ch/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2511,
+  "nennt_den_lauf": [
+   "host:grand"
+  ],
+  "seiten_km": [
+   11.0
+  ],
+  "flag": "NICHTS"
+ },
+ "eine fur gravelride hand schotter voll|waltrop": {
+  "name": "6. Waltroper Gravelride \"Für eine Hand voll Schotter\"",
+  "ort": "Waltrop",
+  "url": "https://www.sprinter-waltrop.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-21",
+   "2026-10-28",
+   "2026-11-02",
+   "2026-11-04",
+   "2026-11-11",
+   "2026-11-12",
+   "2026-11-18",
+   "2026-11-21"
+  ],
+  "kandidaten": [],
+  "textlaenge": 3183,
+  "nennt_den_lauf": [
+   "schotter"
+  ],
+  "seiten_km": [
+   42.2,
+   100.0
+  ],
+  "flag": "NICHTS"
+ },
+ "energie f halbmarathon hervis kleine marathon steiermark viertelmarathon wrc zeitung|graz": {
+  "name": "Kleine Zeitung Graz Marathon / Hervis Halbmarathon / Energie Steiermark Viertelmarathon (WRC F)",
+  "ort": "Graz",
+  "url": "http://www.grazmarathon.at",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-08",
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-08",
+   "2027-10-10"
+  ],
+  "textlaenge": 6053,
+  "nennt_den_lauf": [
+   "kleine"
+  ],
+  "seiten_km": [
+   21.1,
+   42.2
+  ],
+  "flag": "NEU?",
+  "grund": "anderer Wochentag als die vorige Ausgabe"
+ },
+ "erbhof schloss thanhuser|thedinghausen": {
+  "name": "Thänhuser Schloss Erbhof-Lauf 2026",
+  "ort": "Thedinghausen",
+  "url": "https://tsv-thedinghausen.de/erbhoflauf-2026",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 7663,
+  "nennt_den_lauf": [
+   "thanhuser"
+  ],
+  "seiten_km": [
+   5.0,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "franklin meilenlauf|mannheim": {
+  "name": "Franklin Meilenlauf",
+  "ort": "Mannheim",
+  "url": "https://www.franklin-meilenlauf.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2639,
+  "nennt_den_lauf": [
+   "host:franklin"
+  ],
+  "seiten_km": [
+   1.5,
+   5.0,
+   10.0,
+   21.1,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "fredrich gedenklauf lc lm nlc sebastian|lubmin": {
+  "name": "25. Sebastian Fredrich Gedenklauf (LM/LC/NLC)",
+  "ort": "Lubmin",
+  "url": "https://www.hsguni-greifswald.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-11",
+   "2026-12-09"
+  ],
+  "kandidaten": [],
+  "textlaenge": 4166,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "gesundheitslauf prosana|schramberg": {
+  "name": "ProSana Gesundheitslauf",
+  "ort": "Schramberg",
+  "url": "https://prosana-schramberg.de/gesundheitslauf",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3190,
+  "nennt_den_lauf": [
+   "host:prosana"
+  ],
+  "seiten_km": [
+   1.0
+  ],
+  "flag": "NICHTS"
+ },
+ "gk halbmarathon knollenlauf|geilenkirchen": {
+  "name": "GK Knollenlauf und Halbmarathon",
+  "ort": "Geilenkirchen",
+  "url": "https://www.djk-gillrath.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-24",
+   "2026-11-07",
+   "2026-11-21"
+  ],
+  "kandidaten": [],
+  "textlaenge": 4798,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "grand prix stadt|marchtrenk": {
+  "name": "Stadt-Grand-Prix Marchtrenk",
+  "ort": "Marchtrenk",
+  "url": "https://www.stadtgrandprix.at/Veranstaltung/Informationen",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4330,
+  "nennt_den_lauf": [
+   "host:stadt"
+  ],
+  "flag": "NICHTS"
+ },
+ "hartsfeld panoramalauf|neresheim": {
+  "name": "Härtsfeld Panoramalauf",
+  "ort": "Neresheim",
+  "url": "https://www.sdz-medien.de/events/haertsfelder-panoramalauf/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4677,
+  "nennt_den_lauf": [
+   "hartsfeld"
+  ],
+  "seiten_km": [
+   1.8,
+   6.0,
+   6.5,
+   10.0,
+   21.0,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "herbstlauf neu|schmellwitz": {
+  "name": "Neu-Schmellwitzer Herbstlauf",
+  "ort": "Schmellwitz",
+  "url": "https://www.bv-schmellwitz.de/herbstlauf/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4546,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   1.0,
+   1.2,
+   2.5,
+   5.0,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "herbstlauf schollanger|oberstdorf": {
+  "name": "Schöllanger Herbstlauf",
+  "ort": "Oberstdorf",
+  "url": "https://www.sc-rubihorn.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-25"
+  ],
+  "kandidaten": [],
+  "textlaenge": 1735,
+  "nennt_den_lauf": [
+   "schollanger"
+  ],
+  "flag": "NICHTS"
+ },
+ "herbstmarathon|wien": {
+  "name": "Wiener Herbstmarathon",
+  "ort": "Wien",
+  "url": "https://www.lcc-wien.at/index.php?option=com_content&view=article&id=748",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-08",
+   "2026-12-06"
+  ],
+  "kandidaten": [],
+  "textlaenge": 8851,
+  "nennt_den_lauf": [
+   "wiener"
+  ],
+  "seiten_km": [
+   7.0,
+   21.1,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "hohenbuschei|dortmund": {
+  "name": "Hohenbuschei-Lauf",
+  "ort": "Dortmund",
+  "url": "http://www.hohenbuschei.info",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5867,
+  "nennt_den_lauf": [
+   "host:hohenbuschei"
+  ],
+  "flag": "NICHTS"
+ },
+ "ilmtallauf|geisenfeld": {
+  "name": "Ilmtallauf Geisenfeld",
+  "ort": "Geisenfeld",
+  "url": "https://sport-in-blog.de/2026/01/07/ilmtallauf-geisenfeld-3/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2596,
+  "nennt_den_lauf": [
+   "ilmtallauf"
+  ],
+  "seiten_km": [
+   1.6
+  ],
+  "flag": "NICHTS"
+ },
+ "intern jennerberglauf|konigssee schonau": {
+  "name": "Intern. Jennerberglauf",
+  "ort": "Schönau am Königssee",
+  "url": "https://www.skberchtesgaden.de/cdn/uploads/ausschreibung-2026.pdf",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 125772,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "kapellen tour|waghausel": {
+  "name": "21. Kapellen Tour",
+  "ort": "Waghäusel",
+  "url": "https://www.rv-kirrlach.com",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "umgezogen": "https://kapellentour.jimdofree.com/",
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3823,
+  "nennt_den_lauf": [
+   "kapellen"
+  ],
+  "seiten_km": [
+   15.0,
+   42.2,
+   52.0,
+   71.0,
+   75.0
+  ],
+  "flag": "NICHTS"
+ },
+ "kerwelauf maudacher|ludwigshafen rhein": {
+  "name": "Maudacher Kerwelauf",
+  "ort": "Ludwigshafen am Rhein",
+  "url": "https://maudach.de/kerwe-lauf.html",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 764,
+  "nennt_den_lauf": [
+   "maudacher"
+  ],
+  "seiten_km": [
+   5.5,
+   10.3
+  ],
+  "flag": "NICHTS"
+ },
+ "kippe rund um witznitzer|borna": {
+  "name": "Rund um die Witznitzer Kippe",
+  "ort": "Borna",
+  "url": "https://rsvborna.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 20,
+  "nennt_den_lauf": [],
+  "flag": "LEER"
+ },
+ "klosterlauf|aurachtal": {
+  "name": "5. Klosterlauf Aurachtal",
+  "ort": "Aurachtal",
+  "url": "https://sc-muenchaurach.de/4-klosterlauf-aurachtal/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": "fehler:ConnectionError",
+  "startseite": "fehler:ConnectionError",
+  "flag": "FEHLER"
+ },
+ "kreuzberglauf meisterschaften ufr|an brend schonau": {
+  "name": "34. Kreuzberglauf mit Ufr. Meisterschaften",
+  "ort": "Schönau an der Brend",
+  "url": "http://olympia-schoenau.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4992,
+  "nennt_den_lauf": [
+   "kreuzberglauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "lander marathon sparkasse|lindau": {
+  "name": "Sparkasse 3-Länder-Marathon",
+  "ort": "Lindau",
+  "url": "https://www.sparkasse-3-laender-marathon.at/de/home/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-10"
+  ],
+  "textlaenge": 4029,
+  "nennt_den_lauf": [
+   "host:laender"
+  ],
+  "seiten_km": [
+   1.8,
+   5.0,
+   10.9,
+   11.0,
+   21.1,
+   42.2
+  ],
+  "flag": "NEU"
+ },
+ "liepnitzseelauf|utzdorf": {
+  "name": "Liepnitzseelauf",
+  "ort": "Ützdorf",
+  "url": "https://bernauer-lauffreunde.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 7141,
+  "nennt_den_lauf": [
+   "liepnitzseelauf"
+  ],
+  "seiten_km": [
+   4.9,
+   42.2,
+   72.0
+  ],
+  "flag": "NICHTS"
+ },
+ "lollslauf|bad hersfeld": {
+  "name": "Bad Hersfelder Lollslauf",
+  "ort": "Bad Hersfeld",
+  "url": "https://lollslauf.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5134,
+  "nennt_den_lauf": [
+   "host:lollslauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "lucies lust wendlandmarathon|kolborn luchow": {
+  "name": "34. Wendlandmarathon \"Lucies Lust\"",
+  "ort": "Kolborn (Lüchow)",
+  "url": "https://www.igaswendland.de",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-01",
+   "2026-12-31"
+  ],
+  "kandidaten": [],
+  "textlaenge": 87817,
+  "nennt_den_lauf": [
+   "wendlandmarathon"
+  ],
+  "seiten_km": [
+   1.0,
+   1.1,
+   1.3,
+   1.5,
+   1.9,
+   2.0,
+   2.1,
+   2.2,
+   2.5,
+   2.6,
+   2.7,
+   2.9,
+   3.0,
+   3.4,
+   3.6,
+   3.7,
+   3.8,
+   4.0,
+   4.1,
+   4.2,
+   4.4,
+   4.7,
+   5.0,
+   5.2,
+   5.5,
+   5.7,
+   6.0,
+   6.2,
+   6.4,
+   7.1,
+   7.4,
+   8.4,
+   8.5,
+   9.0,
+   9.2,
+   9.4,
+   10.0,
+   10.5,
+   11.0,
+   12.3
+  ],
+  "flag": "NICHTS"
+ },
+ "mainuferlauf|main offenbach": {
+  "name": "Offenbacher Mainuferlauf",
+  "ort": "Offenbach am Main",
+  "url": "https://www.offenbacher-lc.de/index.php/mainuferlauf",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-21",
+   "2026-10-24"
+  ],
+  "kandidaten": [],
+  "textlaenge": 1805,
+  "nennt_den_lauf": [
+   "host:offenbacher"
+  ],
+  "seiten_km": [
+   5.0,
+   10.0,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "mainuferlauf|offenbach": {
+  "name": "Offenbacher Mainuferlauf",
+  "ort": "Offenbach",
+  "url": "https://www.offenbacher-lc.de/index.php/mainuferlauf",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-21",
+   "2026-10-24"
+  ],
+  "kandidaten": [],
+  "textlaenge": 1805,
+  "nennt_den_lauf": [
+   "host:offenbacher"
+  ],
+  "seiten_km": [
+   5.0,
+   10.0,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "neustadtstrasse rund strassenlauf styrumer um|an mulheim ruhr": {
+  "name": "43. Styrumer Straßenlauf \"Rund um die Neustadtstraße\"",
+  "ort": "Mülheim an der Ruhr",
+  "url": "https://www.styrumertv.de/strassenlauf/styrumer-strassenlauf-2026/ausschreibung",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4783,
+  "nennt_den_lauf": [
+   "host:styrumer"
+  ],
+  "seiten_km": [
+   1.0,
+   2.0,
+   5.0,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "nordstadt walter|pforzheim": {
+  "name": "Walter Nordstadt-Lauf",
+  "ort": "Pforzheim",
+  "url": "https://www.autozentrum-walter.de/walter-nordstadt-lauf",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 404,
+  "startseite": 200,
+  "umgezogen": "https://www.autozentrum-walter.de/",
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 8583,
+  "nennt_den_lauf": [
+   "host:walter"
+  ],
+  "flag": "NICHTS"
+ },
+ "ortslauf|steinbrunn": {
+  "name": "Steinbrunner Ortslauf",
+  "ort": "Steinbrunn",
+  "url": "https://lvsteinbrunn.wordpress.com/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 8011,
+  "nennt_den_lauf": [
+   "ortslauf"
+  ],
+  "seiten_km": [
+   1.0,
+   1.7,
+   3.3,
+   5.0,
+   10.0,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "paradies trail|an donau worth": {
+  "name": "Trail-Lauf im Paradies",
+  "ort": "Wörth an der Donau",
+  "url": "https://www.tsv-woerth.de/cross-event-2026/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 15721,
+  "nennt_den_lauf": [
+   "paradies"
+  ],
+  "seiten_km": [
+   1.2,
+   2.7,
+   3.7,
+   4.4,
+   8.0
+  ],
+  "flag": "NICHTS"
+ },
+ "powerman|wurselen": {
+  "name": "POWERMAN Würselen",
+  "ort": "Würselen",
+  "url": "https://mc-eschweiler.de/veranstaltungen/powerman-wuerselen/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5381,
+  "nennt_den_lauf": [
+   "powerman"
+  ],
+  "seiten_km": [
+   5.0,
+   10.0,
+   40.0,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "querfeldein|langenzersdorf": {
+  "name": "Querfeldein Langenzersdorf",
+  "ort": "Langenzersdorf",
+  "url": "https://www.weinviertler-radcup.at/langenzersdorf.php",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-04-11",
+   "2027-05-08",
+   "2027-05-27",
+   "2027-08-28",
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-08-28",
+   "2027-10-10"
+  ],
+  "textlaenge": 1524,
+  "nennt_den_lauf": [
+   "querfeldein"
+  ],
+  "seiten_km": [
+   2.5,
+   42.2
+  ],
+  "flag": "NEU?"
+ },
+ "radquer|steinmaur": {
+  "name": "Radquer Steinmaur",
+  "ort": "Steinmaur",
+  "url": "https://www.vcsteinmaur.ch/de/radquer-steinmaur",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2959,
+  "nennt_den_lauf": [
+   "host:steinmaur"
+  ],
+  "flag": "NICHTS"
+ },
+ "ramsberglauf|laubach": {
+  "name": "Laubacher Ramsberglauf",
+  "ort": "Laubach",
+  "url": "https://www.sv1874laubach.de/index.php/lauftreff/ramsberglauf",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3309,
+  "nennt_den_lauf": [
+   "ramsberglauf"
+  ],
+  "seiten_km": [
+   1.5,
+   5.0,
+   7.5,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "rolandlauf|bei burg magdeburg": {
+  "name": "Burger Rolandlauf",
+  "ort": "Burg (bei Magdeburg)",
+  "url": "https://www.elbe-ohre-cup.de/veranstaltungen/burger-rolandlauf/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-14"
+  ],
+  "kandidaten": [],
+  "textlaenge": 4414,
+  "nennt_den_lauf": [
+   "burger"
+  ],
+  "seiten_km": [
+   2.1,
+   2.2,
+   6.5,
+   6.8,
+   10.2,
+   10.5,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "saarathon sparkassen|saarbrucken": {
+  "name": "Sparkassen-SAARathon",
+  "ort": "Saarbrücken",
+  "url": "https://www.westspangenlauf.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 670,
+  "nennt_den_lauf": [
+   "saarathon"
+  ],
+  "flag": "NICHTS"
+ },
+ "salzachbruckenlauf|burghausen": {
+  "name": "25. Salzachbrückenlauf",
+  "ort": "Burghausen",
+  "url": "https://www.salzach-brueckenlauf.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-10"
+  ],
+  "textlaenge": 966,
+  "nennt_den_lauf": [],
+  "flag": "NEU?"
+ },
+ "see|mark storkow": {
+  "name": "37. Storkower See Lauf",
+  "ort": "Storkow (Mark)",
+  "url": "https://tv-fuerstenwalde.org/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-24"
+  ],
+  "kandidaten": [],
+  "textlaenge": 5115,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "solvay|bernburg saale": {
+  "name": "Solvay-Lauf",
+  "ort": "Bernburg (Saale)",
+  "url": "https://lauf.psv-bernburg.de/solvay-lauf",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "termin_von": "https://lauf.psv-bernburg.de/",
+  "kuenftige_termine": [
+   "2027-04-30",
+   "2027-09-18"
+  ],
+  "kandidaten": [
+   "2027-09-18"
+  ],
+  "textlaenge": 4869,
+  "nennt_den_lauf": [
+   "solvay"
+  ],
+  "seiten_km": [
+   21.1
+  ],
+  "flag": "NEU?",
+  "grund": "anderer Wochentag als die vorige Ausgabe"
+ },
+ "stadtgrandprix|marchtrenk stadtplatz": {
+  "name": "12. Marchtrenker stadtgrandprix",
+  "ort": "Stadtplatz Marchtrenk",
+  "url": "https://www.stadtgrandprix.at/Veranstaltung/Informationen",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4330,
+  "nennt_den_lauf": [
+   "host:stadtgrandprix"
+  ],
+  "flag": "NICHTS"
+ },
+ "stadtlauf|an brenz giengen": {
+  "name": "Stadtlauf Giengen an der Brenz",
+  "ort": "Giengen an der Brenz",
+  "url": "https://www.tsg-giengen.de/de/Stadtlauf/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4617,
+  "nennt_den_lauf": [
+   "host:giengen"
+  ],
+  "flag": "NICHTS"
+ },
+ "stadtlauf|burscheid": {
+  "name": "24. Burscheider Stadtlauf",
+  "ort": "Burscheid",
+  "url": "https://stadtsportverband-burscheid.de/index.php/stadtlauf-2026",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 16946,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "trail|blasenstein sankt thomas": {
+  "name": "Blasenstein Trail",
+  "ort": "Sankt Thomas am Blasenstein",
+  "url": "https://www.blasenstein-trail.at/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-05-01",
+   "2027-10-10"
+  ],
+  "kandidaten": [
+   "2027-10-10"
+  ],
+  "textlaenge": 2193,
+  "nennt_den_lauf": [
+   "host:blasenstein"
+  ],
+  "seiten_km": [
+   5.0,
+   12.0
+  ],
+  "flag": "NEU"
+ },
+ "volkslauf|porta westfalica": {
+  "name": "Porta-Volkslauf",
+  "ort": "Porta Westfalica",
+  "url": "https://www.scnammen.de/index.php/veranstaltungen/volkslauf-porta",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2961,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "westbahnlauf|ratingen": {
+  "name": "Westbahnlauf",
+  "ort": "Ratingen",
+  "url": "https://westbahnlauf.de/",
+  "letzte_ausgabe": "2026-10-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1835,
+  "nennt_den_lauf": [
+   "host:westbahnlauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "stadionlauf yb|bern": {
+  "name": "YB-Stadionlauf",
+  "ort": "Bern",
+  "url": "https://www.bscyb.ch/news?nid=15216",
+  "letzte_ausgabe": "2026-10-12",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 12791,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "challenge heidi|berlin": {
+  "name": "Heidi-Challenge",
+  "ort": "Berlin",
+  "url": "https://heidichallenge.run",
+  "letzte_ausgabe": "2026-10-14",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 7518,
+  "nennt_den_lauf": [
+   "host:heidi"
+  ],
+  "seiten_km": [
+   42.2,
+   56.7,
+   61.8,
+   63.0,
+   66.6,
+   68.3,
+   128.4,
+   316.0
+  ],
+  "flag": "NICHTS"
+ },
+ "journey womens|frankfurt main": {
+  "name": "Women's Journey Frankfurt",
+  "ort": "Frankfurt am Main",
+  "url": "https://women-journey.com/",
+  "letzte_ausgabe": "2026-10-14",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-12-06"
+  ],
+  "kandidaten": [],
+  "textlaenge": 4238,
+  "nennt_den_lauf": [
+   "host:women"
+  ],
+  "seiten_km": [
+   2.3,
+   5.0
+  ],
+  "flag": "NICHTS"
+ },
+ "ultramarathon|ladbergen": {
+  "name": "Ladbergen Ultramarathon",
+  "ort": "Ladbergen",
+  "url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+  "letzte_ausgabe": "2026-10-14",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [
+   "2027-05-14"
+  ],
+  "kandidaten": [],
+  "textlaenge": 6523,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   42.2,
+   45.0,
+   63.0,
+   114.0,
+   380.0
+  ],
+  "flag": "NICHTS"
+ },
+ "altmuhltal panoramaweg trail ultra|kelheim": {
+  "name": "Altmühltal-Panoramaweg-Ultra-Trail",
+  "ort": "Kelheim",
+  "url": "https://altmuehltal.wixsite.com/altmuehltaltrail/blank",
+  "letzte_ausgabe": "2026-10-16",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 7141,
+  "nennt_den_lauf": [
+   "host:altmuehltal"
+  ],
+  "seiten_km": [
+   4.2,
+   4.3,
+   20.0,
+   25.0,
+   200.0
+  ],
+  "flag": "NICHTS"
+ },
+ "auenlauf|inntal oberhofen": {
+  "name": "Auenlauf Oberhofen",
+  "ort": "Oberhofen im Inntal",
+  "url": "http://www.sv-oberhofen.at",
+  "letzte_ausgabe": "2026-10-16",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1253,
+  "nennt_den_lauf": [
+   "host:oberhofen"
+  ],
+  "flag": "NICHTS"
+ },
+ "green marathon mcs|zurich": {
+  "name": "100 MCS Green Marathon",
+  "ort": "Zürich",
+  "url": "https://www.100marathonclub.ch/",
+  "letzte_ausgabe": "2026-10-16",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-31"
+  ],
+  "kandidaten": [],
+  "textlaenge": 1846,
+  "nennt_den_lauf": [
+   "green"
+  ],
+  "seiten_km": [
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "100mi chiemgauer100 stundenrunden|bergen": {
+  "name": "Chiemgauer100 StundenRunden - 100mi",
+  "ort": "Bergen",
+  "url": "https://chiemgauer100.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4042,
+  "nennt_den_lauf": [
+   "host:chiemgauer"
+  ],
+  "seiten_km": [
+   100.0
+  ],
+  "flag": "NICHTS"
+ },
+ "ahmadiyya charity walk|ellwangen jagst": {
+  "name": "Ahmadiyya Charity Walk Ellwangen",
+  "ort": "Ellwangen (Jagst)",
+  "url": "https://charitywalk.de/events/3-ahmadiyya-charity-walk-ellwangen",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 43,
+  "nennt_den_lauf": [],
+  "flag": "LEER"
+ },
+ "alpbachtal360|alpbach": {
+  "name": "Alpbachtal360",
+  "ort": "Alpbach",
+  "url": "https://www.alpbachtal.at/de/alpbachtal360",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-08",
+   "2026-12-04"
+  ],
+  "kandidaten": [],
+  "textlaenge": 14949,
+  "nennt_den_lauf": [
+   "host:alpbachtal"
+  ],
+  "seiten_km": [
+   1.5,
+   6.0,
+   12.0,
+   14.0
+  ],
+  "flag": "NICHTS"
+ },
+ "alpine trail|berchtesgaden": {
+  "name": "Berchtesgaden Alpine Trail",
+  "ort": "Berchtesgaden",
+  "url": "https://www.runthrough.co.uk/event/runthrough-trails-berchtesgaden-october-2026",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-24",
+   "2027-02-21",
+   "2027-05-16",
+   "2027-06-19",
+   "2027-08-21",
+   "2027-09-12",
+   "2027-10-03"
+  ],
+  "kandidaten": [
+   "2027-08-21",
+   "2027-09-12",
+   "2027-10-03"
+  ],
+  "textlaenge": 10073,
+  "nennt_den_lauf": [
+   "alpine"
+  ],
+  "seiten_km": [
+   1.6,
+   2.5,
+   12.0,
+   21.1,
+   26.0,
+   42.0,
+   42.2
+  ],
+  "flag": "NEU?"
+ },
+ "altmuhltrail|dollnstein": {
+  "name": "12. Altmühltrail",
+  "ort": "Dollnstein",
+  "url": "https://www.altmuehltrail.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-02-08"
+  ],
+  "kandidaten": [],
+  "textlaenge": 5526,
+  "nennt_den_lauf": [
+   "host:altmuehltrail"
+  ],
+  "flag": "NICHTS"
+ },
+ "angermunde|bei berlin bernau": {
+  "name": "Berlin - Angermünde - Berlin",
+  "ort": "Bernau bei Berlin",
+  "url": "https://steppenwolf-berlin.de/bab/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "termin_von": "https://steppenwolf-berlin.de/",
+  "kuenftige_termine": [
+   "2027-03-13",
+   "2027-05-20",
+   "2027-05-23",
+   "2027-09-03",
+   "2027-09-05"
+  ],
+  "kandidaten": [
+   "2027-09-03",
+   "2027-09-05"
+  ],
+  "textlaenge": 9060,
+  "nennt_den_lauf": [
+   "host:berlin"
+  ],
+  "seiten_km": [
+   50.0,
+   60.0,
+   80.0,
+   100.0,
+   150.0,
+   200.0,
+   240.0,
+   300.0
+  ],
+  "flag": "NEU?",
+  "grund": "anderer Wochentag als die vorige Ausgabe"
+ },
+ "badener einzelzeitfahren|grossau": {
+  "name": "Badener Einzelzeitfahren",
+  "ort": "Großau",
+  "url": "https://www.trirunnersbaden.at",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-22"
+  ],
+  "kandidaten": [],
+  "textlaenge": 1236,
+  "nennt_den_lauf": [
+   "badener"
+  ],
+  "flag": "NICHTS"
+ },
+ "benediktbeurer kirta|benediktbeuern": {
+  "name": "Benediktbeurer Kirta Lauf",
+  "ort": "Benediktbeuern",
+  "url": "https://home.skiclub-bb.com/aktuell/eventuebersicht.html",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 7391,
+  "nennt_den_lauf": [
+   "benediktbeurer"
+  ],
+  "flag": "NICHTS"
+ },
+ "berglauf geschriebenstein|gebirge gunser": {
+  "name": "Berglauf Geschriebenstein",
+  "ort": "Günser -Gebirge",
+  "url": "http://www.geschriebensteinlauf.at",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "umgezogen": "https://irottkofutas.hu/de/",
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 6699,
+  "nennt_den_lauf": [
+   "host:geschriebenstein"
+  ],
+  "seiten_km": [
+   1.0,
+   7.0,
+   18.0,
+   21.1,
+   23.0,
+   36.0,
+   42.2,
+   55.0,
+   100.0,
+   102.0
+  ],
+  "flag": "NICHTS"
+ },
+ "berglauf meisterschaft rlp|bad durkheim": {
+  "name": "29. Bad Dürkheimer Berglauf mit RLP-Meisterschaft",
+  "ort": "Bad Dürkheim",
+  "url": "https://www.laufclub.de/bad-duerkheimer-berglauf/ausschreibung",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5977,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   4.5,
+   8.7
+  ],
+  "flag": "NICHTS"
+ },
+ "bike brain race the usedom|krummin": {
+  "name": "The Brain Bike Race Usedom",
+  "ort": "Krummin",
+  "url": "https://waterkant-gravel.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5552,
+  "nennt_den_lauf": [
+   "brain"
+  ],
+  "seiten_km": [
+   5.0,
+   34.0,
+   72.0,
+   100.0,
+   210.0
+  ],
+  "flag": "NICHTS"
+ },
+ "blaulichtlauf feuerwehr freiwilligen|schwaan": {
+  "name": "Blaulichtlauf der Freiwilligen Feuerwehr Schwaan",
+  "ort": "Schwaan",
+  "url": "https://blaulicht-lauf.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-04-27"
+  ],
+  "kandidaten": [],
+  "textlaenge": 7041,
+  "nennt_den_lauf": [
+   "blaulichtlauf"
+  ],
+  "seiten_km": [
+   5.0,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "bolbergtrail|sonnenbuhl": {
+  "name": "Bolbergtrail",
+  "ort": "Sonnenbühl",
+  "url": "https://www.bolbergtrail.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2763,
+  "nennt_den_lauf": [
+   "host:bolbergtrail"
+  ],
+  "seiten_km": [
+   1.5,
+   6.5,
+   23.0
+  ],
+  "flag": "NICHTS"
+ },
+ "brain fit for|hauptallee prater": {
+  "name": "FIT For BRAIN RUN",
+  "ort": "Prater Hauptallee",
+  "url": "https://www.fitforbrainrun.at/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 403,
+  "flag": "FEHLER"
+ },
+ "brain fit for|wien": {
+  "name": "FIT For BRAIN RUN",
+  "ort": "Wien",
+  "url": "https://www.fitforbrainrun.at/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 403,
+  "flag": "FEHLER"
+ },
+ "chiemgauer100 stundenrundenlauf|bergen chiemgau": {
+  "name": "3. Chiemgauer100 StundenRundenLauf 2026",
+  "ort": "Bergen (Chiemgau)",
+  "url": "https://chiemgauer100.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4042,
+  "nennt_den_lauf": [
+   "host:chiemgauer"
+  ],
+  "seiten_km": [
+   100.0
+  ],
+  "flag": "NICHTS"
+ },
+ "cross crosslauf des djk intern kr laufmeisterschaft ndb rahmen|passau": {
+  "name": "Ndb. und KR Passau Cross-Laufmeisterschaft im Rahmen des 5. intern. DJK Crosslauf in Passau",
+  "ort": "Passau",
+  "url": "https://spoferan.com/events/5-internationaler-djk-crosslauf-in-passau-draft-q9qrs1/participation-classes#category-l-5-6000-meter",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-31",
+   "2026-11-07",
+   "2026-11-08",
+   "2026-11-18",
+   "2026-12-27",
+   "2026-12-30",
+   "2027-01-02",
+   "2027-01-22",
+   "2027-01-24",
+   "2027-02-05"
+  ],
+  "kandidaten": [],
+  "textlaenge": 4171,
+  "nennt_den_lauf": [
+   "intern"
+  ],
+  "seiten_km": [
+   1.2,
+   1.8,
+   2.4,
+   4.2,
+   6.0
+  ],
+  "flag": "NICHTS"
+ },
+ "cross cup cyclo stevens|grambek": {
+  "name": "Stevens Cyclo-Cross-Cup #4",
+  "ort": "Grambek",
+  "url": "https://www.pirate-hamburg.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5176,
+  "nennt_den_lauf": [
+   "stevens"
+  ],
+  "flag": "NICHTS"
+ },
+ "cross herbst|bechtsrieth": {
+  "name": "Herbst Cross Lauf - Bechtsrieth",
+  "ort": "Bechtsrieth",
+  "url": "http://www.tv-bechtsrieth.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3401,
+  "nennt_den_lauf": [
+   "host:bechtsrieth"
+  ],
+  "flag": "NICHTS"
+ },
+ "cross schloss|laupheim": {
+  "name": "24. Schloss Cross Laupheim",
+  "ort": "Laupheim",
+  "url": "https://schloss-cross.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 6224,
+  "nennt_den_lauf": [
+   "host:schloss"
+  ],
+  "flag": "NICHTS"
+ },
+ "crosslauf lichterfelde tus volks|krumme lanke": {
+  "name": "Volks-Crosslauf TuS Lichterfelde",
+  "ort": "Krumme Lanke",
+  "url": "https://tusli.de/leichtathletik",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-31",
+   "2026-11-04"
+  ],
+  "kandidaten": [],
+  "textlaenge": 22419,
+  "nennt_den_lauf": [
+   "lichterfelde"
+  ],
+  "seiten_km": [
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "crosslauf|endingen kaiserstuhl": {
+  "name": "Crosslauf Endingen",
+  "ort": "Endingen am Kaiserstuhl",
+  "url": "https://www.turnverein-endingen.com/crosslaufseite/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3191,
+  "nennt_den_lauf": [
+   "host:endingen"
+  ],
+  "flag": "NICHTS"
+ },
+ "cup isar mtb|wartenberg": {
+  "name": "MTB Isar Cup",
+  "ort": "Wartenberg",
+  "url": "https://rsverding.de/mtb-isar-cup-2026/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1983,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   110.0
+  ],
+  "flag": "NICHTS"
+ },
+ "des herbstlauf lsv porz|koln": {
+  "name": "Herbstlauf des LSV Porz",
+  "ort": "Köln",
+  "url": "http://www.helmuturbach.de/herbstlauf.html",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [
+   "2027-01-01",
+   "2027-01-17"
+  ],
+  "kandidaten": [],
+  "textlaenge": 4944,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   1.0,
+   5.0,
+   10.0,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "des herbstlauf lsv|eil koln porz": {
+  "name": "Herbstlauf des LSV Porz",
+  "ort": "Köln-Porz-Eil",
+  "url": "http://helmuturbach.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-01-01",
+   "2027-01-17",
+   "2027-02-01",
+   "2027-02-14"
+  ],
+  "kandidaten": [],
+  "textlaenge": 1488,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "djk herbstlauf|feudenheim mannheim": {
+  "name": "35. Herbstlauf der DJK Feudenheim",
+  "ort": "Mannheim-Feudenheim",
+  "url": "http://www.djk-feudenheim.de/Herbstlauf",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 13803,
+  "nennt_den_lauf": [
+   "host:feudenheim"
+  ],
+  "seiten_km": [
+   1.0,
+   1.2,
+   3.5,
+   10.0,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "eifellauf|echternach": {
+  "name": "Eifellauf Echternach",
+  "ort": "Echternach",
+  "url": "http://www.Eifellauf.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 41,
+  "nennt_den_lauf": [
+   "host:eifellauf"
+  ],
+  "flag": "LEER"
+ },
+ "ensinger laufcup|an enz vaihingen": {
+  "name": "Ensinger Laufcup",
+  "ort": "Vaihingen an der Enz",
+  "url": "https://ensinger-laufcup.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-23"
+  ],
+  "kandidaten": [
+   "2027-10-23"
+  ],
+  "textlaenge": 1811,
+  "nennt_den_lauf": [
+   "host:ensinger"
+  ],
+  "seiten_km": [
+   5.0,
+   10.0
+  ],
+  "flag": "NEU"
+ },
+ "eulenlauf|rodewald": {
+  "name": "Rodewalder Eulenlauf",
+  "ort": "Rodewald",
+  "url": "https://ssv-rodewald.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 20567,
+  "nennt_den_lauf": [
+   "eulenlauf"
+  ],
+  "seiten_km": [
+   1.0,
+   6.0,
+   12.0
+  ],
+  "flag": "NICHTS"
+ },
+ "fackellauf steigerwald|burghaslach": {
+  "name": "39. Steigerwald - Fackellauf 2026",
+  "ort": "Burghaslach",
+  "url": "https://www.tsv-burghaslach.de/2026/04/17/39-burghaslacher-fackellauf-2026/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3632,
+  "nennt_den_lauf": [
+   "steigerwald"
+  ],
+  "flag": "NICHTS"
+ },
+ "falke marathon rothaarsteig|fleckenberg": {
+  "name": "FALKE Rothaarsteig-Marathon",
+  "ort": "Fleckenberg",
+  "url": "https://www.rothaarsteig-marathon.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5427,
+  "nennt_den_lauf": [
+   "host:rothaarsteig"
+  ],
+  "seiten_km": [
+   1.0,
+   3.5,
+   5.0,
+   12.5,
+   21.1,
+   22.6,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "festival gravel|bern": {
+  "name": "Gravel Festival Bern",
+  "ort": "Bern",
+  "url": "https://ridegravel.ch/bern/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2177,
+  "nennt_den_lauf": [
+   "host:gravel"
+  ],
+  "flag": "NICHTS"
+ },
+ "fichtelultra|bischofsgrun": {
+  "name": "FichtelUltra",
+  "ort": "Bischofsgrün",
+  "url": "https://fichtelultra.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5002,
+  "nennt_den_lauf": [
+   "host:fichtelultra"
+  ],
+  "seiten_km": [
+   1.0,
+   1.2,
+   2.0,
+   9.8,
+   10.0,
+   20.7,
+   21.1,
+   30.0,
+   31.8,
+   48.7,
+   50.0,
+   71.9,
+   72.0
+  ],
+  "flag": "NICHTS"
+ },
+ "for life orc ride|corbieres": {
+  "name": "ORC 2 - Ride for Life",
+  "ort": "Corbières",
+  "url": "https://www.omniumromand.com/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1104,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "gravel rennen|deisslingen": {
+  "name": "Deißlinger Gravel-Rennen",
+  "ort": "Deißlingen",
+  "url": "https://radlerlust.eu/gravelrennen/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2333,
+  "nennt_den_lauf": [
+   "gravel"
+  ],
+  "flag": "NICHTS"
+ },
+ "gravelday|gutersloh": {
+  "name": "Gütersloher Gravelday",
+  "ort": "Gütersloh",
+  "url": "https://www.rsv-guetersloh.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3064,
+  "nennt_den_lauf": [
+   "gravelday"
+  ],
+  "seiten_km": [
+   25.0,
+   65.0,
+   82.0
+  ],
+  "flag": "NICHTS"
+ },
+ "herbstlauf laufcup raiffeisen weinviertler|an nordbahn strasshof": {
+  "name": "26. Strasshofer Herbstlauf (Weinviertler Raiffeisen Laufcup)",
+  "ort": "Strasshof an der Nordbahn",
+  "url": "https://www.laufclub-strasshof.at/herbstlauf/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2322,
+  "nennt_den_lauf": [
+   "weinviertler"
+  ],
+  "seiten_km": [
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "herbstlauf|konigstetten": {
+  "name": "Königstetter Herbstlauf",
+  "ort": "Königstetten",
+  "url": "https://www.alpenverein.at/koenigstetten/Herbstlauf_Koenigstetten/01_Allgemeine_Informationen/Startseite.php",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-29"
+  ],
+  "kandidaten": [],
+  "textlaenge": 9928,
+  "nennt_den_lauf": [
+   "konigstetter"
+  ],
+  "flag": "NICHTS"
+ },
+ "hero pyramidenkogel|keutschach": {
+  "name": "Pyramidenkogel Hero",
+  "ort": "Keutschach",
+  "url": "https://www.mountainsport.at/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3360,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "hero pyramidenkogel|keutschach see": {
+  "name": "Pyramidenkogel Hero",
+  "ort": "Keutschach am See",
+  "url": "https://www.mountainsport.at/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3360,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "jubilaumslauf philippi road runners|mucke": {
+  "name": "Philippi Road Runners Jubiläumslauf",
+  "ort": "Mücke",
+  "url": "https://www.philippi-reisen.de/philippi-lauf/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 13111,
+  "nennt_den_lauf": [
+   "host:philippi"
+  ],
+  "seiten_km": [
+   6.0,
+   11.0,
+   21.1,
+   22.0
+  ],
+  "flag": "NICHTS"
+ },
+ "junior marathon wolfgangsee|strobl": {
+  "name": "17. Wolfgangsee Junior-Marathon",
+  "ort": "Strobl",
+  "url": "http://www.wolfgangseelauf.at",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4245,
+  "nennt_den_lauf": [
+   "host:wolfgangsee"
+  ],
+  "seiten_km": [
+   5.2,
+   10.0,
+   17.0,
+   21.1,
+   27.0,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "kernberglauf|jena": {
+  "name": "Jenaer Kernberglauf",
+  "ort": "Jena",
+  "url": "https://www.kernberglauf.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-16"
+  ],
+  "kandidaten": [
+   "2027-10-16"
+  ],
+  "textlaenge": 3403,
+  "nennt_den_lauf": [
+   "host:kernberglauf"
+  ],
+  "seiten_km": [
+   15.0,
+   17.0
+  ],
+  "flag": "NEU"
+ },
+ "king of pirates|grambek": {
+  "name": "King of Pirates",
+  "ort": "Grambek",
+  "url": "https://www.pirate-hamburg.de/events/scc/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5207,
+  "nennt_den_lauf": [
+   "pirates"
+  ],
+  "flag": "NICHTS"
+ },
+ "kirtalauf|schechen": {
+  "name": "Schechener Kirtalauf",
+  "ort": "Schechen",
+  "url": "https://www.sv-schechen.de/kirtalauf/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-23"
+  ],
+  "kandidaten": [
+   "2027-10-23"
+  ],
+  "textlaenge": 9009,
+  "nennt_den_lauf": [
+   "kirtalauf"
+  ],
+  "seiten_km": [
+   1.3,
+   3.4,
+   6.7,
+   10.0
+  ],
+  "flag": "NEU"
+ },
+ "krummenseelauf|krummensee mittenwalde": {
+  "name": "46. Krummenseelauf",
+  "ort": "Krummensee (Mittenwalde)",
+  "url": "https://www.leichtathletik-kw.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": "fehler:SSLError",
+  "flag": "FEHLER"
+ },
+ "krummenseelauf|mittenwalde": {
+  "name": "46. Krummenseelauf",
+  "ort": "Mittenwalde",
+  "url": "https://www.leichtathletik-kw.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": "fehler:SSLError",
+  "flag": "FEHLER"
+ },
+ "lake the walk|brunnwind": {
+  "name": "5. Walk the Lake",
+  "ort": "Brunnwind",
+  "url": "http://www.wolfgangseelauf.at",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4245,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   5.2,
+   10.0,
+   17.0,
+   21.1,
+   27.0,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "laui trail|reichenburg": {
+  "name": "Laui-Trail-Run",
+  "ort": "Reichenburg",
+  "url": "https://screichenburg.ch/clubdesk/www?p=1000077",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3548,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   11.4,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "lowenlauf|hachenburg": {
+  "name": "Löwenlauf Hachenburg",
+  "ort": "Hachenburg",
+  "url": "https://www.loewenlauf-hachenburg.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2048,
+  "nennt_den_lauf": [
+   "host:hachenburg"
+  ],
+  "seiten_km": [
+   6.3,
+   10.5,
+   21.1,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "marathon|schlaubetal": {
+  "name": "17. Schlaubetal-Marathon",
+  "ort": "Schlaubetal",
+  "url": "https://schlaubetalmarathon.blogspot.com/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5882,
+  "nennt_den_lauf": [
+   "host:schlaubetal"
+  ],
+  "seiten_km": [
+   5.6,
+   21.1,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "maultaschenlauf|nattheim": {
+  "name": "Nattheimer Maultaschenlauf",
+  "ort": "Nattheim",
+  "url": "https://www.tsg-nattheim.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-01",
+   "2026-11-08"
+  ],
+  "kandidaten": [],
+  "textlaenge": 15459,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "megamarsch rugen|sassnitz": {
+  "name": "Megamarsch Rügen",
+  "ort": "Sassnitz",
+  "url": "https://www.megamarsch.de/ruegen",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-02-20",
+   "2027-03-06",
+   "2027-03-20",
+   "2027-04-03",
+   "2027-04-10",
+   "2027-04-24",
+   "2027-05-08",
+   "2027-05-15",
+   "2027-05-22",
+   "2027-06-05"
+  ],
+  "kandidaten": [],
+  "textlaenge": 5148,
+  "nennt_den_lauf": [
+   "host:megamarsch"
+  ],
+  "seiten_km": [
+   4.2,
+   6.0,
+   50.0,
+   100.0
+  ],
+  "flag": "NICHTS"
+ },
+ "moormeile prignitzer|bad wilsnack": {
+  "name": "26. Prignitzer Moormeile",
+  "ort": "Bad Wilsnack",
+  "url": "https://www.moormeile.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3414,
+  "nennt_den_lauf": [
+   "host:moormeile"
+  ],
+  "seiten_km": [
+   1.0,
+   12.4,
+   100.0
+  ],
+  "flag": "NICHTS"
+ },
+ "moormeile|bad wilsnack": {
+  "name": "Moormeile Bad Wilsnack",
+  "ort": "Bad Wilsnack",
+  "url": "https://www.moormeile.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3414,
+  "nennt_den_lauf": [
+   "host:moormeile"
+  ],
+  "seiten_km": [
+   1.0,
+   12.4,
+   100.0
+  ],
+  "flag": "NICHTS"
+ },
+ "o see trail ultra|oybin": {
+  "name": "O-SEE Ultra Trail",
+  "ort": "Oybin",
+  "url": "https://www.o-see-sports.de/veranstaltungen/o-see-ultra-trail",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3779,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   1.1,
+   1.3,
+   2.0,
+   2.7,
+   3.1,
+   3.5,
+   4.0,
+   5.9,
+   6.5,
+   16.1,
+   21.1,
+   25.1,
+   42.2,
+   50.5,
+   75.8,
+   100.0,
+   100.2
+  ],
+  "flag": "NICHTS"
+ },
+ "oberwaldlauf|karlsruhe": {
+  "name": "40. Oberwaldlauf",
+  "ort": "Karlsruhe",
+  "url": "https://www.tus-rueppurr.de/laufsport/oberwaldlauf",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4688,
+  "nennt_den_lauf": [
+   "oberwaldlauf"
+  ],
+  "seiten_km": [
+   5.0,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "panoramalauf|niedenstein": {
+  "name": "24. Panoramalauf Niedenstein",
+  "ort": "Niedenstein",
+  "url": "http://www.sg1898chattengau.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2721,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "pfettrachtaler|altdorf": {
+  "name": "Pfettrachtaler Lauf",
+  "ort": "Altdorf",
+  "url": "https://lauf.sc-pfettrach.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1431,
+  "nennt_den_lauf": [
+   "pfettrachtaler"
+  ],
+  "flag": "NICHTS"
+ },
+ "pfettrachtaler|pfettrach": {
+  "name": "Pfettrachtaler Lauf",
+  "ort": "Pfettrach",
+  "url": "https://lauf.sc-pfettrach.de/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1431,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "race vortex|lausanne": {
+  "name": "Vortex Race",
+  "ort": "Lausanne",
+  "url": "https://vortexrace.ch/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1284,
+  "nennt_den_lauf": [
+   "host:vortex"
+  ],
+  "flag": "NICHTS"
+ },
+ "rottachseelauf|mittelberg oy": {
+  "name": "35. Rottachseelauf 2026",
+  "ort": "Oy-Mittelberg",
+  "url": "https://www.tsvpetersthal.de/Rottachseelauf/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-10-16"
+  ],
+  "kandidaten": [
+   "2027-10-16"
+  ],
+  "textlaenge": 1241,
+  "nennt_den_lauf": [
+   "rottachseelauf"
+  ],
+  "seiten_km": [
+   1.2,
+   2.4,
+   15.0
+  ],
+  "flag": "NEU"
+ },
+ "sportscheck|berlin": {
+  "name": "SportScheck Run Berlin",
+  "ort": "Berlin",
+  "url": "https://www.sportscheck.com/run-berlin.html",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 403,
+  "flag": "FEHLER"
+ },
+ "stadtwaldlauf|furth": {
+  "name": "Fürther Stadtwaldlauf",
+  "ort": "Fürth",
+  "url": "https://tv-fuerth-1860.de/leichtathletik/stadtwaldlauf/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 14688,
+  "nennt_den_lauf": [
+   "stadtwaldlauf"
+  ],
+  "seiten_km": [
+   1.7,
+   3.0,
+   5.2,
+   10.0,
+   12.0
+  ],
+  "flag": "NICHTS"
+ },
+ "staufenlauf|dornbirn": {
+  "name": "Staufenlauf Dornbirn",
+  "ort": "Dornbirn",
+  "url": "https://staufenlauf.com/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 8512,
+  "nennt_den_lauf": [
+   "host:staufenlauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "sudsteirischen terrassenlauf|kitzeck sausal": {
+  "name": "Südsteirischen Terrassenlauf",
+  "ort": "Kitzeck im Sausal",
+  "url": "https://www.runningleibnitz.at/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 1702,
+  "nennt_den_lauf": [
+   "terrassenlauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "sv ultralauf|schwindegg": {
+  "name": "SV Schwindegg Ultralauf",
+  "ort": "Schwindegg",
+  "url": "https://ultralauf.sv-schwindegg.de/2026-vr-bank-lauf-deutsche-meisterschaften-im-6h-lauf/",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 404,
+  "startseite": 200,
+  "umgezogen": "https://ultralauf.sv-schwindegg.de/",
+  "kuenftige_termine": [
+   "2027-10-15"
+  ],
+  "kandidaten": [
+   "2027-10-15"
+  ],
+  "textlaenge": 4735,
+  "nennt_den_lauf": [
+   "host:schwindegg"
+  ],
+  "seiten_km": [
+   42.2
+  ],
+  "flag": "NEU?",
+  "grund": "anderer Wochentag als die vorige Ausgabe"
+ },
+ "teutomarsch|hohne lengerich": {
+  "name": "TeutoMarsch",
+  "ort": "Lengerich-Hohne",
+  "url": "http://www.tvh1911.de",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 12115,
+  "nennt_den_lauf": [
+   "teutomarsch"
+  ],
+  "flag": "NICHTS"
+ },
+ "volkslauf|vellberg": {
+  "name": "2. Vellberger Volkslauf",
+  "ort": "Vellberg",
+  "url": "https://stadtwerke-hall.de/ueber-uns/wir-fuer-die-region/laufevents/vellberg",
+  "letzte_ausgabe": "2026-10-17",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2396,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   1.6,
+   5.0,
+   10.0
+  ],
+  "flag": "NICHTS"
+ },
+ "lake tri|foce ischitella varano": {
+  "name": "Lake Varano Tri 226",
+  "ort": "Foce Varano – Ischitella",
+  "url": "https://flippertriathlon.it/varano",
+  "letzte_ausgabe": "2026-10-18",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 11975,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "leopoldilauf|ernst happel laufsportzentrum lcc stadion": {
+  "name": "LCC Leopoldilauf",
+  "ort": "Ernst-Happel-Stadion LCC-Laufsportzentrum",
+  "url": "https://www.lcc-wien.at",
+  "letzte_ausgabe": "2026-11-08",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-08",
+   "2026-12-06"
+  ],
+  "kandidaten": [],
+  "textlaenge": 11721,
+  "nennt_den_lauf": [
+   "leopoldilauf"
+  ],
+  "seiten_km": [
+   5.0,
+   7.0,
+   10.0,
+   20.0,
+   21.1,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "cross cx mas vol|marktgrafneusiedl": {
+  "name": "CX-MAS Cross Vol.4",
+  "ort": "Marktgrafneusiedl",
+  "url": "https://www.team-bikestore.sportunion.at",
+  "letzte_ausgabe": "2026-12-13",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 2354,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "cross cx mas|gerasdorf": {
+  "name": "CX-Mas Cross",
+  "ort": "Gerasdorf",
+  "url": "https://team-bikestore.sportunion.at/cross-rennen/",
+  "letzte_ausgabe": "2026-12-13",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "startseite": 200,
+  "kuenftige_termine": [
+   "2026-12-13"
+  ],
+  "kandidaten": [],
+  "textlaenge": 9921,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "silvesterlauf|ponitz": {
+  "name": "41. Pönitzer Silvesterlauf",
+  "ort": "Pönitz",
+  "url": "http://www.svg-poenitz.de",
+  "letzte_ausgabe": "2026-12-31",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3913,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "lg winterlaufserie|dornburg langendernbach": {
+  "name": "2. Lauf der 36. Winterlaufserie der LG Dornburg",
+  "ort": "Dornburg-Langendernbach",
+  "url": "http://www.lg-dornburg.de",
+  "letzte_ausgabe": "2027-02-13",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-10-24",
+   "2027-01-30",
+   "2027-02-27"
+  ],
+  "kandidaten": [],
+  "textlaenge": 48852,
+  "nennt_den_lauf": [
+   "host:dornburg"
+  ],
+  "seiten_km": [
+   1.0,
+   3.0,
+   4.1,
+   5.0,
+   10.0,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "eisbarcup eisbarlauf ii lcc|einmundung hauptallee hohe marathonweg prater": {
+  "name": "LCC-Eisbärlauf II (26. Eisbärcup)",
+  "ort": "Prater Hauptallee Höhe Einmündung Marathonweg",
+  "url": "https://www.lcc-wien.at/",
+  "letzte_ausgabe": "2027-02-14",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-08",
+   "2026-12-06"
+  ],
+  "kandidaten": [],
+  "textlaenge": 11721,
+  "nennt_den_lauf": [
+   "eisbarlauf"
+  ],
+  "seiten_km": [
+   5.0,
+   7.0,
+   10.0,
+   20.0,
+   21.1,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "eisbarcup eisbarlauf ii lcc|wien": {
+  "name": "LCC-Eisbärlauf II (26. Eisbärcup)",
+  "ort": "Wien",
+  "url": "https://www.lcc-wien.at/",
+  "letzte_ausgabe": "2027-02-14",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2026-11-08",
+   "2026-12-06"
+  ],
+  "kandidaten": [],
+  "textlaenge": 11721,
+  "nennt_den_lauf": [
+   "eisbarlauf"
+  ],
+  "seiten_km": [
+   5.0,
+   7.0,
+   10.0,
+   20.0,
+   21.1,
+   42.2
+  ],
+  "flag": "NICHTS"
+ },
+ "berge|dodenhausen haina": {
+  "name": "23. 3 Berge Lauf",
+  "ort": "Haina-Dodenhausen",
+  "url": "http://www.la.sv-dodenhausen.de",
+  "letzte_ausgabe": "2027-04-03",
+  "geprueft_am": "2026-10-19",
+  "status": "fehler:SSLError",
+  "flag": "FEHLER"
+ },
+ "6h riesenbecker|horstel": {
+  "name": "Riesenbecker 6h Lauf",
+  "ort": "Hörstel",
+  "url": "https://riesenbecker-6stundenlauf.de/",
+  "letzte_ausgabe": "2027-05-08",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-05-08"
+  ],
+  "kandidaten": [],
+  "textlaenge": 810,
+  "nennt_den_lauf": [
+   "host:riesenbecker"
+  ],
+  "flag": "NICHTS"
+ },
+ "riesenbecker stundenlauf|rheine": {
+  "name": "3. Riesenbecker 6 Stundenlauf",
+  "ort": "Rheine",
+  "url": "https://riesenbecker-6stundenlauf.de/",
+  "letzte_ausgabe": "2027-05-08",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-05-08"
+  ],
+  "kandidaten": [],
+  "textlaenge": 810,
+  "nennt_den_lauf": [
+   "host:riesenbecker"
+  ],
+  "flag": "NICHTS"
+ },
+ "volkslauf wandertag|oldendorf preuss": {
+  "name": "43. Int. Volkslauf und Wandertag",
+  "ort": "Preuß. Oldendorf",
+  "url": "https://otsv.de/leichtathletik/volkslauf/",
+  "letzte_ausgabe": "2027-05-16",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4097,
+  "nennt_den_lauf": [
+   "wandertag"
+  ],
+  "seiten_km": [
+   1.4,
+   5.0,
+   12.4,
+   20.0
+  ],
+  "flag": "NICHTS"
+ },
+ "windmuhlenlauf|alsfeld lingelbach": {
+  "name": "22. Lingelbacher Windmühlenlauf",
+  "ort": "Alsfeld-Lingelbach",
+  "url": "http://www.tsv-lingelbach.de",
+  "letzte_ausgabe": "2027-06-05",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 511,
+  "nennt_den_lauf": [
+   "windmuhlenlauf"
+  ],
+  "flag": "NICHTS"
+ },
+ "megamarsch weserbergland|rinteln": {
+  "name": "Megamarsch Weserbergland",
+  "ort": "Rinteln",
+  "url": "https://www.megamarsch.de/weserbergland",
+  "letzte_ausgabe": "2027-06-12",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-02-20",
+   "2027-03-06",
+   "2027-03-20",
+   "2027-04-03",
+   "2027-04-10",
+   "2027-04-24",
+   "2027-05-08",
+   "2027-05-15",
+   "2027-05-22",
+   "2027-06-05"
+  ],
+  "kandidaten": [],
+  "textlaenge": 4367,
+  "nennt_den_lauf": [
+   "host:megamarsch"
+  ],
+  "seiten_km": [
+   4.2,
+   6.0,
+   20.0,
+   100.0
+  ],
+  "flag": "NICHTS"
+ },
+ "mytransalp|del garda riva ziel": {
+  "name": "MYTRANSALP",
+  "ort": "Riva del Garda (Ziel)",
+  "url": "https://mytransalp.com/",
+  "letzte_ausgabe": "2027-06-20",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-06-26"
+  ],
+  "kandidaten": [],
+  "textlaenge": 3229,
+  "nennt_den_lauf": [
+   "host:mytransalp"
+  ],
+  "seiten_km": [
+   750.0
+  ],
+  "flag": "NICHTS"
+ },
+ "volkslauf|ponitz": {
+  "name": "42. Pönitzer Volkslauf",
+  "ort": "Pönitz",
+  "url": "http://www.svg-poenitz.de",
+  "letzte_ausgabe": "2027-07-11",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 3913,
+  "nennt_den_lauf": [],
+  "flag": "NICHTS"
+ },
+ "himmelsschaukel um|brundersen wolfhagen": {
+  "name": "Lauf um die Himmelsschaukel Bründersen 2027",
+  "ort": "Wolfhagen-Bründersen",
+  "url": "http://www.bruendersen.de",
+  "letzte_ausgabe": "2027-08-15",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 5102,
+  "nennt_den_lauf": [
+   "host:bruendersen"
+  ],
+  "flag": "NICHTS"
+ },
+ "volkslauf waldlauf|hetzbach oberzent odw": {
+  "name": "50. Waldlauf / .40 Volkslauf",
+  "ort": "Oberzent-Hetzbach/Odw.",
+  "url": "https://tv-hetzbach.de",
+  "letzte_ausgabe": "2027-08-15",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4056,
+  "nennt_den_lauf": [],
+  "seiten_km": [
+   5.0,
+   10.0,
+   21.1
+  ],
+  "flag": "NICHTS"
+ },
+ "des stations tour|verbier": {
+  "name": "Tour des Stations",
+  "ort": "Verbier",
+  "url": "https://tourdesstations.ch/en/",
+  "letzte_ausgabe": "2027-08-28",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [
+   "2027-08-28"
+  ],
+  "kandidaten": [],
+  "textlaenge": 13130,
+  "nennt_den_lauf": [
+   "host:stations"
+  ],
+  "seiten_km": [
+   77.0,
+   241.0,
+   242.0
+  ],
+  "flag": "NICHTS"
+ },
+ "sunset wattenmeer|hamburg": {
+  "name": "SUNSET Wattenmeer",
+  "ort": "Hamburg",
+  "url": "https://www.sunset-series.de",
+  "letzte_ausgabe": "2027-08-28",
+  "geprueft_am": "2026-10-19",
+  "status": 200,
+  "kuenftige_termine": [],
+  "kandidaten": [],
+  "textlaenge": 4801,
+  "nennt_den_lauf": [
+   "host:sunset"
+  ],
+  "seiten_km": [
+   5.0,
+   250.0,
+   251.0
+  ],
+  "flag": "NICHTS"
  }
 }

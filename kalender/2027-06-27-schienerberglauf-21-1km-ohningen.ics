@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-schienerberglauf-21-1km-ohningen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Schienerberglauf – 21\,1 km Halbmarathon\, ca. 500 m Höhenmeter
+LOCATION:Öhningen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttps://schienerberg
+ lauf.de/
+TRANSP:TRANSPARENT
+URL:https://schienerberglauf.de/
+END:VEVENT
+END:VCALENDAR

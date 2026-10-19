@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-brevet-durchs-altmuhltal-200km-treuchtlingen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Brevet Durchs Altmühltal – Brevet 200 km
+LOCATION:Treuchtlingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 200 km\nhttp://www.randonne
+ ure.de/
+TRANSP:TRANSPARENT
+URL:http://www.randonneure.de/
+END:VEVENT
+END:VCALENDAR

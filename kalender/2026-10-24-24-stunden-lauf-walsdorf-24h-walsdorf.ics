@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-24-stunden-lauf-walsdorf-24h-walsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261026
+SUMMARY:24-Stunden-Lauf Walsdorf
+LOCATION:Walsdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 24 h\nhttps://my.raceresult.co
+ m/427191/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/427191/
+END:VEVENT
+END:VCALENDAR

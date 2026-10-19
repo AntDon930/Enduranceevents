@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-grazer-junior-challenge-stattegg-x-graz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Grazer Junior Challenge Stattegg – Cross-Country
+LOCATION:Graz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.bike09
+ .at
+TRANSP:TRANSPARENT
+URL:https://www.bike09.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-oldendorfer-winterlauf-40km-oldendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Oldendorfer Winterlauf
+LOCATION:Oldendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 40 km\nhttps://ladv.de/aussc
+ hreibung/detail/49515/28.-Winterlauf-in-Oldendorf-Oldendorf-%28Landkreis-
+ Stade%29.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49515/28.-Winterlauf-in-Oldendorf
+ -Oldendorf-%28Landkreis-Stade%29.htm
+END:VEVENT
+END:VCALENDAR
