@@ -6673,5 +6673,1171 @@
   "pruefung_grund": "Nur Sammelseite; die verlinkte ESN-Eventseite liefert 404; semesterabhängig, Uhrzeit 16:00 ungewöhnlich",
   "land": "Österreich",
   "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenchen-parkrun-westpark",
+  "name": "Westpark parkrun",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Westpark (Startpunkt laut parkrun-Eventdatei: „Westpark, München“)",
+  "lat": 48.12297,
+  "lon": 11.53103,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/westpark/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme im Westpark, jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km parkrun at Westpark every Saturday; walkers, joggers and runners are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/westpark/",
+   "https://images.parkrun.com/events.json",
+   "https://socialrunclubs.de/muenchen/westpark-parkrun/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenchen-parkrun-riemer",
+  "name": "Riemer parkrun",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Riemer Park (Startpunkt laut parkrun-Eventdatei: „Riemerpark, München“)",
+  "lat": 48.12678,
+  "lon": 11.69204,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/riemer/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme im Riemer Park, jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km parkrun at Riemer Park every Saturday; walkers, joggers and runners are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/riemer/",
+   "https://images.parkrun.com/events.json",
+   "https://socialrunclubs.de/muenchen/riemer-parkrun/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "nuernberg-parkrun-woehrdersee",
+  "name": "Wöhrder See parkrun",
+  "art": "Laufen",
+  "stadt": "Nürnberg",
+  "land": "Deutschland",
+  "treffpunkt": "Wöhrder See (Startpunkt laut parkrun-Eventdatei: „Wöhrder See, Nürnberg“)",
+  "lat": 49.45344,
+  "lon": 11.09989,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/woehrdersee/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme im Wöhrder See, jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km parkrun at Wöhrder See every Saturday; walkers, joggers and runners are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/woehrdersee/",
+   "https://images.parkrun.com/events.json",
+   "https://socialrunclubs.de/nuernberg/woehrder-see-parkrun/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "fuerth-parkrun-stadtpark",
+  "name": "Stadtpark parkrun Fürth",
+  "art": "Laufen",
+  "stadt": "Fürth",
+  "land": "Deutschland",
+  "treffpunkt": "Stadtpark Fürth (Startpunkt laut parkrun-Eventdatei: „Stadtpark, Fürth“)",
+  "lat": 49.47441,
+  "lon": 10.99843,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/stadtpark/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme im Stadtpark Fürth, jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km parkrun at Stadtpark Fürth every Saturday; walkers, joggers and runners are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/stadtpark/",
+   "https://images.parkrun.com/events.json",
+   "https://socialrunclubs.de/fuerth/stadtpark-parkrun/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "augsburg-parkrun-wittelsbacher",
+  "name": "Wittelsbacher parkrun",
+  "art": "Laufen",
+  "stadt": "Augsburg",
+  "land": "Deutschland",
+  "treffpunkt": "Wittelsbacher Park (Startpunkt laut parkrun-Eventdatei: „Wittelsbacher“)",
+  "lat": 48.35994,
+  "lon": 10.88621,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/wittelsbacher/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme im Wittelsbacher Park, jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km parkrun at Wittelsbacher Park every Saturday; walkers, joggers and runners are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/wittelsbacher/",
+   "https://images.parkrun.com/events.json",
+   "https://socialrunclubs.de/augsburg/wittelsbacher-parkrun/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "ingolstadt-parkrun-luitpold",
+  "name": "Luitpold parkrun",
+  "art": "Laufen",
+  "stadt": "Ingolstadt",
+  "land": "Deutschland",
+  "treffpunkt": "Luitpoldpark (Startpunkt laut parkrun-Eventdatei: „Luitpoldpark, Ingolstadt“)",
+  "lat": 48.75536,
+  "lon": 11.42723,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/luitpold/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme im Luitpoldpark, jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km parkrun at Luitpoldpark every Saturday; walkers, joggers and runners are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/luitpold/",
+   "https://images.parkrun.com/events.json",
+   "https://socialrunclubs.de/ingolstadt/luitpold-parkrun/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wuerzburg-parkrun-kurt-schumacher-promenade",
+  "name": "Kurt-Schumacher-Promenade parkrun",
+  "art": "Laufen",
+  "stadt": "Würzburg",
+  "land": "Deutschland",
+  "treffpunkt": "Kurt-Schumacher-Promenade (Startpunkt laut parkrun-Eventdatei: „Kurt-Schumacher-Promenade, Würzburg“)",
+  "lat": 49.77806,
+  "lon": 9.93172,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/kurtschumacherpromenade/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme im Kurt-Schumacher-Promenade, jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km parkrun at Kurt-Schumacher-Promenade every Saturday; walkers, joggers and runners are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/kurtschumacherpromenade/",
+   "https://images.parkrun.com/events.json",
+   "https://socialrunclubs.de/wuerzburg/kurt-schumacher-promenade-parkrun/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "kempten-parkrun-illerufer",
+  "name": "Illerufer parkrun, Kempten",
+  "art": "Laufen",
+  "stadt": "Kempten",
+  "land": "Deutschland",
+  "treffpunkt": "Illerufer (Startpunkt laut parkrun-Eventdatei: „Illerufer, Kempten“)",
+  "lat": 47.74113,
+  "lon": 10.3086,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/illeruferkempten/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme im Illerufer, jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km parkrun at Illerufer every Saturday; walkers, joggers and runners are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/illeruferkempten/",
+   "https://images.parkrun.com/events.json",
+   "https://socialrunclubs.de/kempten-allgaeu/illerufer-parkrun/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "neumarkt-parkrun-landesgartenschaupark",
+  "name": "Landesgartenschau Park parkrun",
+  "art": "Laufen",
+  "stadt": "Neumarkt in der Oberpfalz",
+  "land": "Deutschland",
+  "treffpunkt": "Gelände der ehemaligen Landesgartenschau (Startpunkt laut parkrun-Eventdatei: „Gelände der ehemaligen Landesgartenschau, Neumarkt“)",
+  "lat": 49.28912,
+  "lon": 11.45595,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/landesgartenschaupark/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme im Gelände der ehemaligen Landesgartenschau, jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km parkrun at Gelände der ehemaligen Landesgartenschau every Saturday; walkers, joggers and runners are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/landesgartenschaupark/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "aschaffenburg-parkrun-schoenbusch",
+  "name": "Schönbusch parkrun",
+  "art": "Laufen",
+  "stadt": "Aschaffenburg",
+  "land": "Deutschland",
+  "treffpunkt": "Park Schönbusch (Startpunkt laut parkrun-Eventdatei: „Schönbusch, Aschaffenburg“)",
+  "lat": 49.95444,
+  "lon": 9.10789,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "einmalige Registrierung (Barcode) für Zeitnahme",
+  "webseite": "https://www.parkrun.com.de/schoenbusch/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme im Park Schönbusch, jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km parkrun at Park Schönbusch every Saturday; walkers, joggers and runners are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/schoenbusch/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenchen-kraft-runners",
+  "name": "KRAFT Runners München",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "Maxi Kiosk, Schleißheimer Str. 80, 80798 München",
+  "lat": 48.15381,
+  "lon": 11.56113,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00",
+    "bezeichnung": "KRAFT Tuesday"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/muenchen",
+  "instagram": "https://www.instagram.com/kraftrunners/",
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentlicher Run-Club-Abend der KRAFT Runners am Maxi Kiosk in der Maxvorstadt, ohne Anmeldung und für jedes Tempo; Infos zum Training vorab auf Instagram.",
+  "beschreibung_en": "Weekly KRAFT Runners club evening at Maxi Kiosk in Maxvorstadt, no sign-up and every pace welcome; session details are posted on Instagram beforehand.",
+  "quelle": [
+   "https://kraftrunners.de/muenchen",
+   "https://socialrunclubs.de/muenchen/kraft-runners-muenchen/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "augsburg-kraft-runners",
+  "name": "KRAFT Runners Augsburg",
+  "art": "Laufen",
+  "stadt": "Augsburg",
+  "treffpunkt": "Ben's Gym, Wankstraße 3, 86165 Augsburg",
+  "lat": 48.36813,
+  "lon": 10.93309,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00",
+    "bezeichnung": "KRAFT Wednesday"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/augsburg",
+  "instagram": "https://www.instagram.com/kraftrunners/",
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentlicher Lauftreff der KRAFT Runners am Ben's Gym in Lechhausen, ohne Anmeldung und für jedes Tempo, Gepäckablage vor Ort.",
+  "beschreibung_en": "Weekly KRAFT Runners session at Ben's Gym in Lechhausen, no sign-up and every pace welcome, bag drop on site.",
+  "quelle": [
+   "https://kraftrunners.de/augsburg",
+   "https://socialrunclubs.de/augsburg/kraft-runners-augsburg/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenchen-isartrail-runners",
+  "name": "Isartrail Runners (LOWA Community Run)",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "Naturfreundehaus Thalkirchen, Zentralländstraße 16, 81379 München (nahe U3 Thalkirchen)",
+  "lat": 48.09882,
+  "lon": 11.5472,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   10,
+   12
+  ],
+  "dauer_min": 90,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://lowa.com/en/experience-lowa/events/isartrail-runners",
+  "instagram": "https://www.instagram.com/lowa.outdoor",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Trailrunning-Gruppe von LOWA mit Coach auf den Isartrails, 10 bis 12 km in moderatem Tempo, bei Bedarf in zwei Tempogruppen; im Herbst und Winter Stirnlampe mitbringen.",
+  "beschreibung_en": "LOWA trail running group with a coach on Munich's Isar trails, 10 to 12 km at a moderate pace, two pace groups if needed; bring a headlamp in autumn and winter.",
+  "quelle": [
+   "https://lowa.com/en/experience-lowa/events/isartrail-runners",
+   "https://socialrunclubs.de/muenchen/isartrail-runners/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Seite nennt 'every week', im Zitat aber 'every other Wednesday'; Jahr/Saison nicht angegeben",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenchen-runfurther-crew",
+  "name": "Runfurther Crew",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "Odeonsplatz, München (Runde im Englischen Garten)",
+  "lat": 48.14277,
+  "lon": 11.57632,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "pace": {
+   "von": "5:00",
+   "bis": "6:30"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.runfurther.de/laufgruppe-in-muenchen-die-runfurther-crew",
+  "instagram": "https://www.instagram.com/runfurther.de",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kleine, familiäre Laufgruppe, die sich dienstags am Odeonsplatz zu einer Runde durch den Englischen Garten trifft; zusätzlich jeden dritten Samstag im Monat ein Treff am Kiosk 1917 in Thalkirchen.",
+  "beschreibung_en": "Small, friendly running group meeting on Tuesdays at Odeonsplatz for a loop through the English Garden; also a meet-up at Kiosk 1917 in Thalkirchen every third Saturday of the month.",
+  "quelle": [
+   "https://www.runfurther.de/laufgruppe-in-muenchen-die-runfurther-crew",
+   "https://socialrunclubs.de/muenchen/runfurther-crew/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenchen-flow-trail-afterwork",
+  "name": "FLOW Trail Afterwork Run",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "Campus HUB, Milchstraße 4, 81667 München",
+  "lat": 48.13093,
+  "lon": 11.59516,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "17:00"
+   }
+  ],
+  "dauer_min": 45,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.flowoutdoor.de/index.php/flow-trail-mehr-als-gipfelblicke/",
+  "instagram": "https://www.instagram.com/flowoutdoorcommunity",
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Afterwork-Run der kleinen Trailrunning-Community FLOW Trail am Campus HUB in Haidhausen, alle Levels willkommen, danach Zeit zum Austausch im HUB; dazu einmal im Monat ein Trailrun im Umland mit Anmeldung.",
+  "beschreibung_en": "Midweek after-work run by the small FLOW Trail running community at Campus HUB in Haidhausen, all levels welcome, hangout afterwards; plus a monthly trail run outside the city with sign-up.",
+  "quelle": [
+   "https://www.flowoutdoor.de/index.php/flow-trail-mehr-als-gipfelblicke/",
+   "https://socialrunclubs.de/muenchen/flow-trail/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenchen-mobil-lauftreff",
+  "name": "Mobil Krankenkasse Lauftreff München",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "SV Weißblau-Allianz München e.V., Osterwaldstr. 144, 80805 München",
+  "lat": 48.17558,
+  "lon": 11.60847,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "dauer_min": 75,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://mobil-krankenkasse.de/trainingszone/sport-und-bewegung/lauftreff/lauftreffmuc.html",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "mehrere_gruppen",
+   "dusche"
+  ],
+  "beschreibung_de": "Angeleiteter Lauftreff mit Lauf-ABC, Technik und Intervallen in mehreren Tempogruppen, für Versicherte und Nicht-Versicherte kostenlos; Umkleiden und Duschen vor Ort.",
+  "beschreibung_en": "Coached running session with drills, technique and intervals in several pace groups, free for everyone; changing rooms and showers on site.",
+  "quelle": [
+   "https://mobil-krankenkasse.de/trainingszone/sport-und-bewegung/lauftreff/lauftreffmuc.html"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenchen-decathlon-runners",
+  "name": "Decathlon Runners München",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "Decathlon München Elisenhof (Laufabteilung), Elisenstraße 3, 80335 München",
+  "lat": 48.14147,
+  "lon": 11.56178,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "distanz_km": [
+   4,
+   6
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "vor Ort im Store",
+  "webseite": "https://www.decathlon.de/lp/c/decathlon-runners-m-nchen",
+  "strava": "https://www.strava.com/clubs/583040",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "mehrere_gruppen",
+   "gepaeck"
+  ],
+  "beschreibung_de": "Kostenloser Lauftreff ab der Laufabteilung des Decathlon am Elisenhof beim Hauptbahnhof, 4 bis 6 km in Gruppen nach Tempo, Garderobe im Store.",
+  "beschreibung_en": "Free weekly run from the running department of Decathlon Elisenhof near the main station, 4 to 6 km in pace groups, cloakroom in the store.",
+  "quelle": [
+   "https://www.decathlon.de/lp/c/decathlon-runners-m-nchen",
+   "https://socialrunclubs.de/muenchen/decathlon-runners-muenchen/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenchen-freanks-athletes-club",
+  "name": "fREanks Athletes Club Morning Run",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "Café Chance, Liebigstraße 26, 80538 München",
+  "lat": 48.14051,
+  "lon": 11.59243,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "07:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/freanks.athletes.club",
+  "strava": "https://www.strava.com/clubs/reboots",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Morgenlauf durch München mit zwei Run Captains, die sich am Tempo der Gruppe orientieren; danach Kaffee und Recovery-Angebot von Reboots.",
+  "beschreibung_en": "Morning run through Munich with two run captains adapting to the group's pace; coffee and a Reboots recovery session afterwards.",
+  "quelle": [
+   "https://urbansportsclub.com/de/venues/freanks-athletes-club-run-muc",
+   "https://socialrunclubs.de/muenchen/freanks-athletes-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Partnerseite von Urban Sports Club; eigene Kanäle (Instagram/Strava) nicht lesbar",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenchen-26-miles",
+  "name": "26.Miles München",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "Ryzon Concept Store, München",
+  "lat": 48.12375,
+  "lon": 11.56735,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Tempo Tuesday"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "07:00",
+    "bezeichnung": "Morning Miles"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "webseite": "https://www.26miles.de/",
+  "instagram": "https://www.instagram.com/26.miles_running",
+  "strava": "https://www.strava.com/clubs/26miles",
+  "beschreibung_de": "Laufcommunity mit kostenlosem Training: dienstagabends Tempo-Einheit, donnerstagmorgens lockere Morning Miles ab dem Ryzon Concept Store; freitags früh zusätzlich eine Gruppe im Münchner Norden.",
+  "beschreibung_en": "Running community with free sessions: Tempo Tuesday in the evening and easy Morning Miles on Thursday mornings from the Ryzon Concept Store; plus an early Friday group in the north of Munich.",
+  "quelle": [
+   "https://www.26miles.de/",
+   "https://socialrunclubs.de/muenchen/26-miles-munich/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Webseite nennt nur 'Ryzon Concept Store' ohne Adresse; Koordinaten vom OSM-Eintrag Ryzon, Auenstraße 29 – Adresse bestätigen",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "augsburg-awhu-running",
+  "name": "AWHU Running",
+  "art": "Laufen",
+  "stadt": "Augsburg",
+  "treffpunkt": "Torbogen am Fronhof, Peutingerstraße, Augsburg",
+  "lat": 48.37183,
+  "lon": 10.89627,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "6:30"
+  },
+  "webseite": "https://www.awhu-awhu.com/",
+  "instagram": "https://www.instagram.com/awhu.awhu",
+  "beschreibung_de": "Lockerer Gruppenlauf des Augsburger Labels AWHU über rund 6 km; Treffen um 19 Uhr am Torbogen am Fronhof, Start 19:15 Uhr.",
+  "beschreibung_en": "Easy group run of about 6 km by Augsburg label AWHU; meet at 7 pm at the archway at Fronhof, start at 7:15 pm.",
+  "quelle": [
+   "https://www.awhu-awhu.com/",
+   "https://socialrunclubs.de/augsburg/awhu-running/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Webseite ohne Datum (Fußzeile ©2023), Kosten nicht genannt; Aktualität bestätigen",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "regensburg-llc-lauftreff",
+  "name": "LLC Marathon Regensburg Lauftreff",
+  "art": "Laufen",
+  "stadt": "Regensburg",
+  "treffpunkt": "Infineon-Parkplatz beim Westbad, Messerschmittstraße, Regensburg",
+  "lat": 49.02467,
+  "lon": 12.05403,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "08:00",
+    "bezeichnung": "Lange Einheit (ca. 1,5–2 Std.)"
+   }
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "5:00",
+   "bis": "8:00"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.llc-marathon-regensburg.de/sportangebot/llc-lauftreff.html",
+  "instagram": "https://www.instagram.com/llcmarathonregensburg",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Vereinslauftreff des LLC Marathon Regensburg mit Tempogruppen von 5 bis 8 min/km; Gäste kommen unverbindlich dazu, man sollte eine Stunde am Stück laufen können.",
+  "beschreibung_en": "Club running group of LLC Marathon Regensburg with pace groups from 5 to 8 min/km; guests can join without obligation, you should be able to run for an hour.",
+  "quelle": [
+   "https://www.llc-marathon-regensburg.de/sportangebot/llc-lauftreff.html",
+   "https://socialrunclubs.de/regensburg/llc-marathon-regensburg-e-v/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wuerzburg-espresso-running-club",
+  "name": "Espresso Running Club",
+  "art": "Laufen",
+  "stadt": "Würzburg",
+  "treffpunkt": "Felix-Freudenberger-Platz, 97070 Würzburg",
+  "lat": 49.78955,
+  "lon": 9.92758,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "09:50",
+    "bezeichnung": "Sunday Social Run & Coffee",
+    "distanz_km": [
+     6.5,
+     8.5
+    ],
+    "pace": {
+     "von": "5:30",
+     "bis": "6:30"
+    }
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Tuesday Sundowner",
+    "distanz_km": [
+     12,
+     16
+    ],
+    "pace": {
+     "von": "5:00",
+     "bis": "6:30"
+    }
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://espressorunningclub.de/",
+  "instagram": "https://www.instagram.com/espressorunningclub/",
+  "strava": "https://www.strava.com/clubs/espressorunningclub",
+  "merkmale": [
+   "kaffee",
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Run Club mit sonntäglicher Mainrunde in vier Tempogruppen und anschließendem Kaffee sowie einem längeren Sundowner-Lauf am Dienstagabend.",
+  "beschreibung_en": "Run club with a Sunday loop along the Main river in four pace groups followed by coffee, plus a longer sundowner run on Tuesday evenings.",
+  "quelle": [
+   "https://espressorunningclub.de/pages/run-with-us-in-wurzburg",
+   "https://espressorunningclub.de/pages/tuesday-sundowner",
+   "https://socialrunclubs.de/wuerzburg/espresso-running-club/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Kosten nicht ausdrücklich genannt (als gratis angenommen); Tuesday Sundowner ohne Saisonangabe",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wuerzburg-espresso-trail-thursday",
+  "name": "Espresso Running Club – Trail Thursday",
+  "art": "Laufen",
+  "stadt": "Würzburg",
+  "treffpunkt": "QR-Code-Platz, Würzburg",
+  "lat": 49.79543,
+  "lon": 9.93325,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   10,
+   15
+  ],
+  "pace": {
+   "von": "5:00",
+   "bis": "6:00"
+  },
+  "webseite": "https://espressorunningclub.de/pages/track-thursday",
+  "instagram": "https://www.instagram.com/espressorunningclub/",
+  "beschreibung_de": "Trailrunde im Winterhalbjahr mit 250 bis 300 Höhenmetern auf einer von vier Routen, überwiegend im Dunkeln – Stirnlampe oder reflektierende Kleidung mitbringen.",
+  "beschreibung_en": "Winter-season trail run with 250 to 300 m of climbing on one of four routes, mostly in the dark – bring a headlamp or reflective clothing.",
+  "quelle": [
+   "https://espressorunningclub.de/pages/track-thursday"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur in der Wintersaison (Zeitraum nicht genannt); Koordinaten des QR-Code-Platzes aus Nominatim nur ungefähr (Eichhornstraße)",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "rosenheim-lauffeuer-chiemgau-lauftreff",
+  "name": "Lauffeuer Chiemgau Lauftreff",
+  "art": "Laufen",
+  "stadt": "Rosenheim",
+  "treffpunkt": "Arche gegenüber dem Eisstadion Rosenheim (Jahnstraße 1)",
+  "lat": 47.85152,
+  "lon": 12.13242,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "6:25",
+   "bis": "7:45"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://lauffeuer-chiemgau.de/training/lauftraining/",
+  "instagram": "https://www.instagram.com/lauffeuer_chiemgau",
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Offener Vereinslauftreff ohne Anmeldung, ganzjährig 45 bis 60 Minuten in Tempogruppen von etwa 6:25 bis 7:45 min/km.",
+  "beschreibung_en": "Open club running group, no sign-up, year-round 45 to 60 minutes in pace groups from about 6:25 to 7:45 min/km.",
+  "quelle": [
+   "https://lauffeuer-chiemgau.de/training/lauftraining/",
+   "https://socialrunclubs.de/rosenheim/lauffeuer-chiemgau/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bayreuth-werunbt",
+  "name": "werunbt® Lauftreff",
+  "art": "Laufen",
+  "stadt": "Bayreuth",
+  "treffpunkt": "Intersport Gießübel, Bayreuth",
+  "lat": 49.93156,
+  "lon": 11.56473,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "nter": -1,
+    "wochentag": 6,
+    "uhrzeit": "16:00"
+   }
+  ],
+  "distanz_km": [
+   10,
+   10
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.werunbt.de/",
+  "instagram": "https://www.instagram.com/werunbt",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Freier, vereinsunabhängiger Lauftreff einmal im Monat über rund 10 km, jeder in seinem Tempo; danach Obst, Getränke und eine kleine Challenge.",
+  "beschreibung_en": "Free, independent monthly running meet-up over about 10 km, everyone at their own pace; fruit, drinks and a small challenge afterwards.",
+  "quelle": [
+   "https://www.werunbt.de/",
+   "https://www.werunbt.de/de/events/",
+   "https://socialrunclubs.de/bayreuth/werunbt/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin wird monatlich einzeln angekündigt (nächster Sa 31.10.2026, 16 Uhr); 'letzter Samstag' nur abgeleitet; welche Intersport-Gießübel-Filiale (Otto-Hahn-Str. 1 angenommen) unklar",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "garmisch-gap-pub-run",
+  "name": "GAP Pub Run",
+  "art": "Laufen",
+  "stadt": "Garmisch-Partenkirchen",
+  "treffpunkt": "CONradl Bikeshop neben der Sport Conrad Filiale, Chamonixstraße, Garmisch-Partenkirchen",
+  "lat": 47.49484,
+  "lon": 11.094,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   8,
+   10
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.sport-conrad.com/blog/gap-pub-run-lauftreff-garmisch-partenkirchen",
+  "strava": "https://www.strava.com/clubs/964796",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentlicher Lauftreff von Sport Conrad mit wechselnden Strecken rund um Garmisch-Partenkirchen (150–300 Hm); Treffen 18:30 Uhr, Start 19 Uhr, danach ein Getränk.",
+  "beschreibung_en": "Weekly Sport Conrad running group with changing routes around Garmisch-Partenkirchen (150–300 m climbing); meet 6:30 pm, start 7 pm, a drink afterwards.",
+  "quelle": [
+   "https://www.sport-conrad.com/blog/gap-pub-run-lauftreff-garmisch-partenkirchen",
+   "https://socialrunclubs.de/garmisch-partenkirchen/gap-pub-run/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Saison 2026 ab 25.03.; ob der Treff im Winter weiterläuft, sagt die Seite nicht",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "nuernberg-finish-line-community-run",
+  "name": "Finish Line Community Run",
+  "art": "Laufen",
+  "stadt": "Nürnberg",
+  "treffpunkt": "Laufladen Finish Line, Karl-Grillenberger-Straße 3, 90402 Nürnberg",
+  "lat": 49.45132,
+  "lon": 11.06994,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   6,
+   12
+  ],
+  "dauer_min": 120,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://finish-line.de/news/lauftreff-community-run/",
+  "instagram": "https://www.instagram.com/finishline_store_nbg",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Kostenloser Lauftreff ab dem Laufladen in der Altstadt mit zwei Leistungsgruppen, 6 bis 12 km sowie Stabi-, Kräftigungs- und Dehnübungen.",
+  "beschreibung_en": "Free weekly run from the running shop in the old town with two ability groups, 6 to 12 km plus stability, strength and stretching exercises.",
+  "quelle": [
+   "https://finish-line.de/news/lauftreff-community-run/",
+   "https://socialrunclubs.de/nuernberg/finish-line-community-run/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Ankündigung von 2021; Laden firmiert laut OSM inzwischen als 'Absolute Run Finish Line' – aktuellen Termin bestätigen",
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "kempten-saukel-tempo-lauftreff",
+  "name": "Laufsport Saukel Tempo-Lauftreff",
+  "art": "Laufen",
+  "stadt": "Kempten",
+  "treffpunkt": "Laufsport Saukel, Kronenstraße 12, 87435 Kempten",
+  "lat": 47.72481,
+  "lon": 10.31741,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "dauer_min": 75,
+  "kosten": {
+   "gratis": false,
+   "betrag_eur": null,
+   "text": "kostenlos für Inhaber der Laufsport-Saukel-Kundenkarte"
+  },
+  "webseite": "https://www.laufsport-saukel.de/tempo-lauftreff/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "saison": {
+   "von": "02-01",
+   "bis": "10-31"
+  },
+  "beschreibung_de": "Strukturierter Community-Run des Kemptener Laufladens mit Technik-, Ausdauer- und Tempoeinheiten in drei Trainingsblöcken von Februar bis Oktober, für alle Leistungsstufen.",
+  "beschreibung_en": "Structured community run of the Kempten running shop with technique, endurance and tempo sessions in three training blocks from February to October, for all levels.",
+  "quelle": [
+   "https://www.laufsport-saukel.de/tempo-lauftreff/"
+  ],
+  "land": "Deutschland",
+  "geprueft": "2026-10-19"
  }
 ]
