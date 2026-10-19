@@ -1850,11 +1850,36 @@ def test_clubs() -> None:
             fehler.append(f"{n}: kein Link (Webseite, Instagram oder Strava)")
         if not c.get("quelle"):
             fehler.append(f"{n}: quelle fehlt (jede Angabe braucht einen Beleg)")
+        if c.get("pruefung_offen") and not c.get("pruefung_grund"):
+            fehler.append(f"{n}: pruefung_offen ohne pruefung_grund")
         try:
             _dt.date.fromisoformat(c.get("geprueft") or "")
         except ValueError:
             fehler.append(f"{n}: geprueft kein Datum")
     check("jeder Club hält sich an das Format", fehler, [])
+
+    # Die Korrekturliste liest ihre eigenen Texte verlustfrei zurück.
+    import clubs_korrekturliste as ck
+    proben = [{"rhythmus": "woechentlich", "wochentag": 2, "uhrzeit": "19:00"},
+              {"rhythmus": "zweiwoechentlich", "wochentag": 6, "uhrzeit": "09:00", "ab": "2026-10-03"},
+              {"rhythmus": "monatlich", "wochentag": 7, "uhrzeit": "10:00", "nter": 1, "bezeichnung": "Long Run"},
+              {"rhythmus": "monatlich", "wochentag": 5, "uhrzeit": "18:30", "nter": -1}]
+    check("Korrekturliste: Termine hin und zurück",
+          ck.termine_aus_text("\n".join(ck.termin_text(t) for t in proben), []), proben)
+    for c in clubs:
+        check(f"Korrekturliste: {c['id']} Termine hin und zurück",
+              ck.termine_aus_text(ck.zelle(c, "termine"), c["termine"]), c["termine"]) if c.get("termine") else None
+    check("Korrekturliste: Tempo/Distanz/Kosten",
+          (ck.spanne_aus_text("5:30–6:30", "Laufen", True), ck.spanne_aus_text("25-30", "Fahrrad", True),
+           ck.spanne_aus_text("5–10", "Laufen", False), ck.kosten_aus_text("kostenlos"), ck.kosten_aus_text("5 €")),
+          ({"von": "5:30", "bis": "6:30"}, {"von": 25, "bis": 30}, [5, 10],
+           {"gratis": True, "betrag_eur": None, "text": None}, {"gratis": False, "betrag_eur": 5.0, "text": None}))
+    try:
+        ck.termine_aus_text("alle 2 Wochen Sa 09:00 ab 2026-10-05", [])
+        falsch = None
+    except ValueError:
+        falsch = "abgewiesen"
+    check("Korrekturliste: ab-Datum auf falschem Wochentag wird abgewiesen", falsch, "abgewiesen")
 
     node = shutil.which("node")
     if not node:

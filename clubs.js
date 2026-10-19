@@ -632,7 +632,14 @@
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const daten = await res.json();
     const liste = Array.isArray(daten) ? daten : (daten.clubs || []);
-    return liste.filter(c => c && c.id && ARTEN.includes(c.art) && Array.isArray(c.termine) && c.termine.length);
+    // Unsichere Clubs (`pruefung_offen`, Korrekturliste
+    // scripts/clubs_korrekturliste.py) sind ausgeblendet, bis der Betreiber
+    // sie geprüft hat – wie bei den Events. Mit ?pruefen=1 in der Adresse
+    // sind sie zum Nachsehen sichtbar.
+    let pruefen = false;
+    try { pruefen = new URLSearchParams(global.location.search).get('pruefen') === '1'; } catch (e) { /* ignorieren */ }
+    return liste.filter(c => c && c.id && ARTEN.includes(c.art) && Array.isArray(c.termine) && c.termine.length
+      && (pruefen || !c.pruefung_offen));
   }
 
   global.EnduranceClubs = {

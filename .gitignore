@@ -33,3 +33,5 @@ ausgabe/
 # Der Freigabe-Plan (insta_inhalte.py --plan): entsteht im Pages-Workflow
 # und im Rauchtest, wie events.web.json.
 marketing/instagram/plan.json
+
+clubs_korrekturliste.xlsx
