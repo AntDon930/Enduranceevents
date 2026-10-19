@@ -18822,5 +18822,176 @@
    "https://www.instagram.com/069runclub/"
   ],
   "geprueft": "2026-10-19"
+ },
+ {
+  "id": "jena-run-club-paradise",
+  "name": "Run Club Paradise",
+  "art": "Laufen",
+  "stadt": "Jena",
+  "land": "Deutschland",
+  "treffpunkt": "Paradiespark",
+  "lat": 50.92454,
+  "lon": 11.58651,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/runclubparadise/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Donnerstags und sonntags gemeinsame Läufe über 5 bis 7,5 km für alle Niveaus.",
+  "beschreibung_en": "Group runs on Thursdays and Sundays over 5 to 7.5 km for all levels.",
+  "quelle": [
+   "https://www.instagram.com/runclubparadise/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Instagram nennt nur Do und So, 5–7,5 km, alle Niveaus – Uhrzeiten und Treffpunkt GERATEN (Do 18:30, So 10:00, Paradiespark), bitte nachtragen",
+  "distanz_km": [
+   5,
+   7.5
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ]
+ },
+ {
+  "id": "berlin-slow-runners-run-club",
+  "name": "Slow Runners Run Club",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "Berlin (Treffpunkt unbekannt)",
+  "lat": 52.51628,
+  "lon": 13.3777,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/slowrunnersrunclub_berlin/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Run Club für ein ruhiges Tempo von etwa 6:30 bis 8:30 min/km.",
+  "beschreibung_en": "Run club for an easy pace of about 6:30 to 8:30 min/km.",
+  "quelle": [
+   "https://www.instagram.com/slowrunnersrunclub_berlin/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Tempo 6:30–8:30 aus der Bio; Wochentag, Uhrzeit und Treffpunkt in der Bio abgeschnitten – alles GERATEN (So 10:00, Koordinate Berlin-Mitte), bitte nachtragen",
+  "pace": {
+   "von": "6:30",
+   "bis": "8:30"
+  },
+  "stufen": [
+   "anfaenger"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ]
+ },
+ {
+  "id": "berlin-croissant-run-club",
+  "name": "Croissant Run Club Berlin",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "S-Bahnhof Bellevue",
+  "lat": 52.51987,
+  "lon": 13.34713,
+  "termine": [
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 7,
+    "uhrzeit": "11:00",
+    "ab": "2026-10-25"
+   }
+  ],
+  "instagram": "https://www.instagram.com/croissantrunclubberlin/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Alle zwei Wochen sonntags um 11 Uhr ab der S-Bahn Bellevue, danach Croissants.",
+  "beschreibung_en": "Every other Sunday at 11 am from S-Bahn Bellevue, followed by croissants.",
+  "quelle": [
+   "https://www.instagram.com/croissantrunclubberlin/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Bio von 2025 (alle 2 Wochen So 11:00, S Bellevue); welcher Sonntag aktuell gilt, ist unbekannt – Startdatum 25.10. GERATEN, bitte bestätigen",
+  "merkmale": [
+   "kaffee"
+  ]
+ },
+ {
+  "id": "berlin-another-run-club",
+  "name": "Another Run Club Berlin",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "S-Bahnhof Schlachtensee",
+  "lat": 52.44,
+  "lon": 13.216,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/anotherrunclub.berlin/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Gemeinsame Läufe ab der S-Bahn Schlachtensee, Termine werden einzeln angekündigt.",
+  "beschreibung_en": "Group runs from S-Bahn Schlachtensee, dates are announced one by one.",
+  "quelle": [
+   "https://www.instagram.com/anotherrunclub.berlin/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "keine regelmäßigen Termine, letzter Beitrag 30.07.2026 (S Schlachtensee) – Rhythmus und Uhrzeit GERATEN; noch aktiv? Sonst löschen"
+ },
+ {
+  "id": "berlin-utah-berlin-scenario",
+  "name": "Utah Berlin Scenario",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "Berlin (Treffpunkt unbekannt)",
+  "lat": 52.51628,
+  "lon": 13.3777,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/utahberlinscenario/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Lauf-Community in Berlin.",
+  "beschreibung_en": "Running community in Berlin.",
+  "quelle": [
+   "https://www.instagram.com/utahberlinscenario/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "auf dem Profil keine Termine sichtbar – Termin, Treffpunkt und Art GERATEN; ist das überhaupt ein offener Treff? Sonst löschen"
  }
 ]
