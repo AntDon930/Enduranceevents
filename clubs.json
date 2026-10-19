@@ -15024,5 +15024,3169 @@
   "sprachen": [
    "de"
   ]
+ },
+ {
+  "id": "bonn-rheinaue-parkrun",
+  "name": "Rheinaue parkrun",
+  "art": "Laufen",
+  "stadt": "Bonn",
+  "land": "Deutschland",
+  "treffpunkt": "Freizeitpark Rheinaue",
+  "lat": 50.70906,
+  "lon": 7.14888,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/rheinaue/",
+  "instagram": "https://www.instagram.com/rheinaue_parkrun/",
+  "strava": "https://www.strava.com/clubs/rheinaue-parkrun",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, 2 Runden durch den Freizeitpark Rheinaue; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, two laps through Rheinaue park; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/rheinaue"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "koeln-aachenerweiher-parkrun",
+  "name": "Aachener Weiher parkrun",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Aachener Weiher / Hiroshima-Nagasaki-Park",
+  "lat": 50.9343,
+  "lon": 6.92755,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/aachenerweiher/",
+  "instagram": "https://www.instagram.com/aachenerweiherparkrun/",
+  "strava": "https://www.strava.com/clubs/AWparkrun",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, 2 Runden im Hiroshima-Nagasaki-Park am Aachener Weiher; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, two laps in Hiroshima-Nagasaki Park at Aachener Weiher; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/aachenerweiher"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "koeln-rheinpark-parkrun",
+  "name": "Rheinpark parkrun",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Rheinpark, Kennedy-Ufer",
+  "lat": 50.94589,
+  "lon": 6.96998,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/rheinpark/",
+  "instagram": "https://www.instagram.com/rheinparkparkrun/",
+  "strava": "https://www.strava.com/clubs/rheinparkparkrun",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, eine Runde durch Rheinpark und Jugendpark; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, one lap through Rheinpark and Jugendpark; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/rheinpark"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "duesseldorf-volksgarten-parkrun",
+  "name": "Volksgarten parkrun",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Volksgarten",
+  "lat": 51.20647,
+  "lon": 6.80195,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/volksgarten/",
+  "instagram": "https://www.instagram.com/volksgarten_parkrun/",
+  "strava": "https://www.strava.com/clubs/volksgarten",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, 2 Runden durch den Volksgarten; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, two laps through Volksgarten park; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/volksgarten",
+   "https://rausgegangen.de/events/volksgarten-parkrun-dusseldorf-108/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bielefeld-obersee-parkrun",
+  "name": "Obersee parkrun",
+  "art": "Laufen",
+  "stadt": "Bielefeld",
+  "land": "Deutschland",
+  "treffpunkt": "Obersee",
+  "lat": 52.05862,
+  "lon": 8.55889,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/obersee/",
+  "instagram": "https://www.instagram.com/oberseeparkrun/",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, durch ein Waldstück und um den Obersee; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, through woodland and around the Obersee lake; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/obersee"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenster-wienburgpark-parkrun",
+  "name": "Wienburgpark parkrun",
+  "art": "Laufen",
+  "stadt": "Münster",
+  "land": "Deutschland",
+  "treffpunkt": "Wienburgpark",
+  "lat": 51.98196,
+  "lon": 7.62236,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/wienburgpark/",
+  "instagram": "https://www.instagram.com/wienburgpark_parkrun/",
+  "strava": "https://www.strava.com/clubs/wienburgpark-parkrun",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, 2 Runden im Wienburgpark; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, two laps in Wienburgpark; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/wienburgpark"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bochum-kemnadersee-parkrun",
+  "name": "Kemnader See parkrun",
+  "art": "Laufen",
+  "stadt": "Bochum",
+  "land": "Deutschland",
+  "treffpunkt": "Kemnader See",
+  "lat": 51.43807,
+  "lon": 7.28127,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/kemnadersee/",
+  "instagram": "https://www.instagram.com/kemnadersee_parkrun/",
+  "strava": "https://www.strava.com/clubs/Kemnader-See-parkrun",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, Wendepunktstrecke am Ufer des Kemnader Sees; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, out-and-back course along Kemnader See; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/kemnadersee"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "aachen-lousberg-parkrun",
+  "name": "Lousberg parkrun",
+  "art": "Laufen",
+  "stadt": "Aachen",
+  "land": "Deutschland",
+  "treffpunkt": "Lousberg",
+  "lat": 50.78587,
+  "lon": 6.08444,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/lousberg/",
+  "instagram": "https://www.instagram.com/lousberg_parkrun/",
+  "strava": "https://www.strava.com/clubs/Lousberg_parkrun",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, 2 Runden an der Nordseite des Lousbergs; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, two laps on the north side of the Lousberg; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/lousberg"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "dortmund-pferdebachtal-parkrun",
+  "name": "Pferdebachtal parkrun",
+  "art": "Laufen",
+  "stadt": "Dortmund",
+  "land": "Deutschland",
+  "treffpunkt": "Rombergpark / Pferdebachtal",
+  "lat": 51.47671,
+  "lon": 7.47044,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/pferdebachtal/",
+  "instagram": "https://www.instagram.com/pferdebachtalparkrun",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, durch Rombergpark und Pferdebachtal; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, through Rombergpark and the Pferdebach valley; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/pferdebachtal"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "krefeld-uerdingerstadtpark-parkrun",
+  "name": "Uerdinger Stadtpark parkrun",
+  "art": "Laufen",
+  "stadt": "Krefeld",
+  "land": "Deutschland",
+  "treffpunkt": "Uerdinger Stadtpark",
+  "lat": 51.36207,
+  "lon": 6.63749,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/uerdingerstadtpark/",
+  "instagram": "https://www.instagram.com/uerdinger_stadtpark_parkrun/",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, 3 Runden im Uerdinger Stadtpark; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, three laps in Uerdingen town park; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/uerdingerstadtpark"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "paderborn-padersee-parkrun",
+  "name": "Padersee parkrun",
+  "art": "Laufen",
+  "stadt": "Paderborn",
+  "land": "Deutschland",
+  "treffpunkt": "Padersee (Schloß Neuhaus)",
+  "lat": 51.73417,
+  "lon": 8.72655,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/padersee/",
+  "instagram": "https://www.instagram.com/padersee_parkrun",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, 2,5 Runden um den Padersee; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, 2.5 laps around the Padersee lake; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/padersee"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "leverkusen-ophovenerweiher-parkrun",
+  "name": "Ophovener Weiher parkrun",
+  "art": "Laufen",
+  "stadt": "Leverkusen",
+  "land": "Deutschland",
+  "treffpunkt": "Ophovener Weiher",
+  "lat": 51.04551,
+  "lon": 7.0634,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/ophovenerweiher/",
+  "instagram": "https://www.instagram.com/ophovener_weiher_parkrun/",
+  "strava": "https://www.strava.com/clubs/1718435",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, am Ophovener Weiher und im Mühlenbachtal; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, around Ophovener Weiher and the Mühlenbach valley; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/ophovenerweiher"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "moenchengladbach-schlossrheydt-parkrun",
+  "name": "Schloss Rheydt parkrun",
+  "art": "Laufen",
+  "stadt": "Mönchengladbach",
+  "land": "Deutschland",
+  "treffpunkt": "Schloss Rheydt",
+  "lat": 51.18015,
+  "lon": 6.48322,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00",
+    "bezeichnung": "parkrun",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung auf parkrun.com.de (Barcode)",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://www.parkrun.com.de/schlossrheydt/",
+  "instagram": "https://www.instagram.com/schloss_rheydt_parkrun/",
+  "strava": "https://www.strava.com/clubs/Schloss-Rheydt-parkrun",
+  "beschreibung_de": "Kostenloser, ehrenamtlich organisierter 5-km-Lauf jeden Samstag um 9 Uhr, 2 Runden durch den Wald bei Schloss Rheydt und entlang der Niers; Gehen, Joggen und Laufen sind willkommen.",
+  "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, two laps through the woods at Schloss Rheydt and along the Niers; walkers, joggers and runners welcome.",
+  "quelle": [
+   "https://images.parkrun.com/events.json",
+   "https://parkruns.de/schlossrheydt"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "aachen-lauf-doch-mit",
+  "name": "Lauf Doch Mit (Runner Shop Aachen)",
+  "art": "Laufen",
+  "stadt": "Aachen",
+  "land": "Deutschland",
+  "treffpunkt": "Parkplatz Hangeweiher, beim Kreisverkehr Aachener-und-Münchener-Allee",
+  "lat": 50.76172,
+  "lon": 6.0734,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.runner-shop.de/",
+  "instagram": "https://www.instagram.com/runner_shop_aachen/",
+  "beschreibung_de": "Kostenloser Lauftreff des Runner Shop Aachen und Physio Vital jeden Montagabend am Hangeweiher.",
+  "beschreibung_en": "Free weekly Monday-evening running group of Runner Shop Aachen and Physio Vital, starting at Hangeweiher pond.",
+  "quelle": [
+   "https://www.runner-shop.de/",
+   "https://socialrunclubs.de/aachen/lauf-doch-mit/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bielefeld-active-lauftreff",
+  "name": "Active Lauftreff",
+  "art": "Laufen",
+  "stadt": "Bielefeld",
+  "land": "Deutschland",
+  "treffpunkt": "Active Sportshop, Am Niederwall 6",
+  "lat": 52.02193,
+  "lon": 8.5336,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:45"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "instagram": "https://www.instagram.com/activesportshopbielefeld/",
+  "beschreibung_de": "Wöchentlicher Lauftreff ab dem Laden (Treff 18:30 Uhr) in drei Tempogruppen, kostenlos und ohne Anmeldung.",
+  "beschreibung_en": "Weekly free running group from the shop (meet 18:30) in three pace groups, no sign-up.",
+  "quelle": [
+   "https://socialrunclubs.de/bielefeld/active-lauftreff/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; nicht an Feiertagen"
+ },
+ {
+  "id": "bielefeld-apero-runners",
+  "name": "Apero Runners",
+  "art": "Laufen",
+  "stadt": "Bielefeld",
+  "land": "Deutschland",
+  "treffpunkt": "Café Lutter",
+  "lat": 52.01726,
+  "lon": 8.53816,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/apero_runners/",
+  "beschreibung_de": "Social Run Club mit Treffpunkt am Café Lutter am Donnerstagabend.",
+  "beschreibung_en": "Social run club meeting at Café Lutter on Thursday evenings.",
+  "quelle": [
+   "https://socialrunclubs.de/bielefeld/apero-runners/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "bielefeld-lasslaufen",
+  "name": "LassLaufen (Haltestulle Running Club)",
+  "art": "Laufen",
+  "stadt": "Bielefeld",
+  "land": "Deutschland",
+  "treffpunkt": "Haltestulle, Jüngststraße 2",
+  "lat": 52.01602,
+  "lon": 8.53607,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "07:15"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:15"
+   }
+  ],
+  "distanz_km": [
+   5,
+   8
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "7:00"
+  },
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/lasslaufenxhaltestulle/",
+  "strava": "https://www.strava.com/clubs/1618912",
+  "beschreibung_de": "Lockere Läufe über 5 bis 8 km am Dienstagmorgen und Samstagvormittag, Start und Ziel an der Haltestulle, ohne Anmeldung.",
+  "beschreibung_en": "Easy 5–8 km runs on Tuesday mornings and Saturday mornings from Haltestulle, no sign-up needed.",
+  "quelle": [
+   "https://socialrunclubs.de/bielefeld/lasslaufen/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "bielefeld-teilzeitlaeufer",
+  "name": "Teilzeitläufer",
+  "art": "Laufen",
+  "stadt": "Bielefeld",
+  "land": "Deutschland",
+  "treffpunkt": "Rathaus Bielefeld",
+  "lat": 52.02179,
+  "lon": 8.53562,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "20:00"
+   }
+  ],
+  "webseite": "https://www.teilzeitlaeufer.de/",
+  "instagram": "https://www.instagram.com/teilzeitlaeuferbi/",
+  "beschreibung_de": "Laufgruppe mit Treffpunkt am Rathaus am Mittwochabend.",
+  "beschreibung_en": "Running group meeting at Bielefeld town hall on Wednesday evenings.",
+  "quelle": [
+   "https://socialrunclubs.de/bielefeld/teilzeitlaeufer/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; eigene Webseite teilzeitlaeufer.de nicht erreichbar"
+ },
+ {
+  "id": "bielefeld-up-running-club",
+  "name": "UP Running Club Bielefeld",
+  "art": "Laufen",
+  "stadt": "Bielefeld",
+  "land": "Deutschland",
+  "treffpunkt": "Venue Coffee",
+  "lat": 52.02106,
+  "lon": 8.5292,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:30"
+   }
+  ],
+  "merkmale": [
+   "kaffee"
+  ],
+  "instagram": "https://www.instagram.com/uprunningclub/",
+  "strava": "https://www.strava.com/clubs/uprunningclub",
+  "beschreibung_de": "Entspannte Sonntagsläufe mit anschließendem Beisammensein im Café.",
+  "beschreibung_en": "Relaxed Sunday chill runs with time to connect at the café afterwards.",
+  "quelle": [
+   "https://socialrunclubs.de/bielefeld/up-running-club-bielefeld/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "bonn-absolute-run",
+  "name": "Absolute Run Community Run Bonn",
+  "art": "Laufen",
+  "stadt": "Bonn",
+  "land": "Deutschland",
+  "treffpunkt": "Laufladen Absolute Run, Bonngasse 13a",
+  "lat": 50.73623,
+  "lon": 7.10097,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "webseite": "https://laufladen-bonn.de/community-run/",
+  "instagram": "https://www.instagram.com/laufladen_bonn/",
+  "beschreibung_de": "Kostenloser Community Run des Laufladens in mehreren Niveaugruppen, geleitet von Trainern; etwa 15 Minuten vorher da sein.",
+  "beschreibung_en": "Free community run from the running store in several level groups led by coaches; arrive about 15 minutes early.",
+  "quelle": [
+   "https://laufladen-bonn.de/community-run/",
+   "https://socialrunclubs.de/bonn/absolute-run/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Veranstalterseite zuletzt im März 2024 aktualisiert"
+ },
+ {
+  "id": "bonn-dav-trailtreff",
+  "name": "DAV Trailtreff Bonn",
+  "art": "Laufen",
+  "stadt": "Bonn",
+  "land": "Deutschland",
+  "treffpunkt": "Parkplatz Firma Comma Soft, Holtorfer Straße / Ecke Pützchens Chaussee, Bonn-Pützchen",
+  "lat": 50.74142,
+  "lon": 7.15091,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00",
+    "distanz_km": [
+     10,
+     12
+    ]
+   }
+  ],
+  "distanz_km": [
+   10,
+   12
+  ],
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "kurze Nachricht an die Gruppe vor dem ersten Mal",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "no_drop"
+  ],
+  "webseite": "https://dav-bonn.de/gruppen/trailrunning-neu/",
+  "instagram": "https://www.instagram.com/dav.bonn/",
+  "beschreibung_de": "Einsteigerfreundlicher Trailrun der DAV-Sektion Bonn über 10 bis 12 km im Ennert; die Gruppe wartet auf alle, dreimal Schnuppern ohne Mitgliedschaft.",
+  "beschreibung_en": "Beginner-friendly trail run of the German Alpine Club Bonn section, 10–12 km in the Ennert forest; nobody gets dropped, three trial sessions without membership.",
+  "quelle": [
+   "https://dav-bonn.de/gruppen/trailrunning-neu/",
+   "https://socialrunclubs.de/bonn/dav-trailtreff/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bonn-running-fast-and-far",
+  "name": "running.fast.and.far",
+  "art": "Laufen",
+  "stadt": "Bonn",
+  "land": "Deutschland",
+  "treffpunkt": "China-Schiff, Bonn-Beuel",
+  "lat": 50.73761,
+  "lon": 7.1132,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Blackout Run",
+    "distanz_km": [
+     10,
+     10
+    ]
+   }
+  ],
+  "distanz_km": [
+   10,
+   10
+  ],
+  "pace": {
+   "von": "5:00",
+   "bis": "5:30"
+  },
+  "stufen": [
+   "fortgeschritten"
+  ],
+  "instagram": "https://www.instagram.com/running.fast.and.far/",
+  "strava": "https://www.strava.com/clubs/1835287",
+  "beschreibung_de": "Speedwork-Runclub mit 10-km-Lauf am Donnerstagabend ab dem China-Schiff in Beuel.",
+  "beschreibung_en": "Speed-focused run club with a 10 km Thursday-evening run from the China-Schiff in Beuel.",
+  "quelle": [
+   "https://socialrunclubs.de/bonn/running-fast-and-far/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "dortmund-bunert-speed-club",
+  "name": "Bunert Speed Club",
+  "art": "Laufen",
+  "stadt": "Dortmund",
+  "land": "Deutschland",
+  "treffpunkt": "Laufladen Bunert, Heiliger Weg 10 (Training im Hoeschpark)",
+  "lat": 51.5131,
+  "lon": 7.47484,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "webseite": "https://www.bunert-dortmund.de/bunert-speed-club",
+  "instagram": "https://www.instagram.com/bunertdortmund/",
+  "beschreibung_de": "Tempotraining des Laufladens: Treff im Store, dann Intervalle und Tempoläufe auf der Bahn im Hoeschpark in passenden Pacegruppen.",
+  "beschreibung_en": "Running store speed session: meet at the store, then intervals and tempo work on the Hoeschpark track in pace groups.",
+  "quelle": [
+   "https://www.bunert-dortmund.de/bunert-speed-club",
+   "https://socialrunclubs.de/dortmund/bunert-speed-club/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "dortmund-lt-bittermark-dienstag",
+  "name": "Lauftreff Bittermark – Dienstagsrunde",
+  "art": "Laufen",
+  "stadt": "Dortmund",
+  "land": "Deutschland",
+  "treffpunkt": "Parkplatz Wohnstift Augustinum, Kirchhörder Straße 101",
+  "lat": 51.4579,
+  "lon": 7.47185,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:00",
+    "distanz_km": [
+     10.5,
+     10.5
+    ]
+   }
+  ],
+  "distanz_km": [
+   10.5,
+   10.5
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "7:00"
+  },
+  "webseite": "https://www.lt-bittermark.de/",
+  "instagram": "https://www.instagram.com/ltbittermarkdortmund/",
+  "beschreibung_de": "Flache Dienstagsrunde des Lauftreffs Bittermark über 10,5 km zum Rombergpark, Laufgruppe für jedermann.",
+  "beschreibung_en": "Flat 10.5 km Tuesday loop to Rombergpark by the Bittermark running group, open to everyone.",
+  "quelle": [
+   "https://www.lt-bittermark.de/trainings/dienstagstraining-flach/",
+   "https://socialrunclubs.de/dortmund/lt-bittermark-dortmund/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "dortmund-lt-bittermark-rote-erde",
+  "name": "Lauftreff Bittermark – Donnerstag Rote Erde",
+  "art": "Laufen",
+  "stadt": "Dortmund",
+  "land": "Deutschland",
+  "treffpunkt": "Stadion Rote Erde, Strobelallee 50",
+  "lat": 51.49249,
+  "lon": 7.45185,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00",
+    "distanz_km": [
+     12,
+     12
+    ]
+   }
+  ],
+  "distanz_km": [
+   12,
+   12
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "5:30"
+  },
+  "webseite": "https://www.lt-bittermark.de/",
+  "instagram": "https://www.instagram.com/ltbittermarkdortmund/",
+  "beschreibung_de": "12-km-Runde vom Stadion Rote Erde am Westfalenpark vorbei zum Phoenixsee und zurück.",
+  "beschreibung_en": "12 km loop from Stadion Rote Erde past Westfalenpark to Phoenixsee and back.",
+  "quelle": [
+   "https://www.lt-bittermark.de/trainings/stadion-rote-erde/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "dortmund-pace-pack-runners",
+  "name": "Pace Pack Runners",
+  "art": "Laufen",
+  "stadt": "Dortmund",
+  "land": "Deutschland",
+  "treffpunkt": "Stehbierhalle Bergmann Brauerei",
+  "lat": 51.48922,
+  "lon": 7.48769,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/pace_pack_runners/",
+  "strava": "https://www.strava.com/clubs/193843",
+  "beschreibung_de": "Social Run am Donnerstagabend ab der Stehbierhalle der Bergmann Brauerei.",
+  "beschreibung_en": "Thursday-evening social run from the Bergmann brewery standing bar.",
+  "quelle": [
+   "https://socialrunclubs.de/dortmund/pace-pack-runners/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; pacepresso.de nicht abrufbar"
+ },
+ {
+  "id": "dortmund-run-squad",
+  "name": "Run Squad Dortmund",
+  "art": "Laufen",
+  "stadt": "Dortmund",
+  "land": "Deutschland",
+  "treffpunkt": "Helmut-Körnig-Halle",
+  "lat": 51.49389,
+  "lon": 7.45616,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Dauerlauf"
+   }
+  ],
+  "instagram": "https://www.instagram.com/runsquaddortmund/",
+  "beschreibung_de": "Laufgruppe mit Dauerlauf am Montagabend ab der Helmut-Körnig-Halle.",
+  "beschreibung_en": "Running crew with an endurance run on Monday evenings from Helmut-Körnig-Halle.",
+  "quelle": [
+   "https://socialrunclubs.de/dortmund/run-squad-dortmund/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; donnerstags zusätzlich Intervalle im Stadion Hacheney"
+ },
+ {
+  "id": "dortmund-social-run-44",
+  "name": "social run 44",
+  "art": "Laufen",
+  "stadt": "Dortmund",
+  "land": "Deutschland",
+  "treffpunkt": "Westpark",
+  "lat": 51.51128,
+  "lon": 7.44752,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00",
+    "distanz_km": [
+     4.4,
+     4.4
+    ]
+   }
+  ],
+  "distanz_km": [
+   4.4,
+   4.4
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "instagram": "https://www.instagram.com/socialrun44/",
+  "beschreibung_de": "Social Run Club mit 4,4 km in Social Pace am Montagabend im Westpark.",
+  "beschreibung_en": "Social run club doing 4.4 km at social pace on Monday evenings in Westpark.",
+  "quelle": [
+   "https://socialrunclubs.de/dortmund/social-run-44/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; zusätzlich jeden zweiten Donnerstag am Bergmann Kiosk"
+ },
+ {
+  "id": "duesseldorf-absolute-run",
+  "name": "Absolute Run Community Run (#WeRunDUS)",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Absolute Run, Roßstraße 69, Düsseldorf-Derendorf",
+  "lat": 51.24601,
+  "lon": 6.77948,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "5:30",
+   "bis": "7:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "merkmale": [
+   "mehrere_gruppen",
+   "gepaeck"
+  ],
+  "webseite": "https://www.absolute-run-duesseldorf.de/absolute-run-store/community-run/",
+  "instagram": "https://www.instagram.com/absoluterun_duesseldorf/",
+  "strava": "https://www.strava.com/clubs/absoluteruncrewduesseldorf",
+  "beschreibung_de": "Kostenloser Community Run des Laufladens am Mittwochabend in Tempogruppen über 30 oder 60 Minuten (Treffen ab 18:30 Uhr), danach Getränke.",
+  "beschreibung_en": "Free Wednesday-evening community run from the running store in pace groups of 30 or 60 minutes (meet from 18:30), drinks afterwards.",
+  "quelle": [
+   "https://www.absolute-run-duesseldorf.de/absolute-run-store/community-run/",
+   "https://socialrunclubs.de/duesseldorf/absolute-run/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "duesseldorf-absolute-run-sonntag",
+  "name": "Absolute Run Sunday Community Run",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Innenhof der Jugendherberge Düsseldorf-Oberkassel, Düsseldorfer Straße 1",
+  "lat": 51.22667,
+  "lon": 6.75821,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "nter": 3,
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "pace": {
+   "von": "4:30",
+   "bis": "8:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Eventseite von Absolute Run Düsseldorf",
+  "merkmale": [
+   "mehrere_gruppen",
+   "gepaeck"
+  ],
+  "webseite": "https://www.absolute-run-duesseldorf.de/absolute-run-store/community-run/",
+  "instagram": "https://www.instagram.com/absoluterun_duesseldorf/",
+  "beschreibung_de": "Am dritten Sonntag im Monat Lauf in Tempogruppen über 30, 60 oder 90 Minuten mit Testschuhausgabe ab 9:30 Uhr; kostenlos, Anmeldung über die Eventseite erbeten.",
+  "beschreibung_en": "On the third Sunday of each month, a run in pace groups of 30, 60 or 90 minutes with test shoes from 9:30; free, sign-up via the event page requested.",
+  "quelle": [
+   "https://www.absolute-run-duesseldorf.de/absolute-run-store/community-run/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "duesseldorf-bridgerunners",
+  "name": "Bridgerunners – Track Thursday",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Bezirkssportanlage Düsseltal, Windscheidstraße 18",
+  "lat": 51.2455,
+  "lon": 6.80006,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Track Thursday"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "webseite": "https://bridgerunners.de/",
+  "instagram": "https://www.instagram.com/bridge.runners/",
+  "strava": "https://www.strava.com/clubs/bridge-runners",
+  "beschreibung_de": "Ehrenamtlich organisiertes Bahntraining mit Workouts verschiedener Intensität; kostenlos, einfach vorbeikommen, im Winter mit Flutlicht.",
+  "beschreibung_en": "Volunteer-run track session with workouts at different intensities; free, just show up, floodlit in winter.",
+  "quelle": [
+   "https://bridgerunners.de/",
+   "https://socialrunclubs.de/duesseldorf/bridgerunners/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "duesseldorf-paus",
+  "name": "PAUS Run Club – Saturday Run",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Zeit für Brot, Flinger Straße 7",
+  "lat": 51.22499,
+  "lon": 6.77287,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:30",
+    "bezeichnung": "15 km",
+    "distanz_km": [
+     15,
+     15
+    ],
+    "pace": {
+     "von": "5:30",
+     "bis": "5:30"
+    }
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00",
+    "bezeichnung": "10 km",
+    "distanz_km": [
+     10,
+     10
+    ],
+    "pace": {
+     "von": "6:00",
+     "bis": "6:00"
+    }
+   }
+  ],
+  "distanz_km": [
+   10,
+   15
+  ],
+  "anmeldung": "nein",
+  "merkmale": [
+   "mehrere_gruppen",
+   "kaffee"
+  ],
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "webseite": "https://paus.works/community",
+  "instagram": "https://www.instagram.com/paus.works/",
+  "strava": "https://www.strava.com/clubs/paus",
+  "beschreibung_de": "Samstagslauf über 15 km (5:30 min/km) oder 10 km (6:00 min/km) ab der Bäckerei Zeit für Brot, offen für alle, die pünktlich da sind.",
+  "beschreibung_en": "Saturday run of 15 km (5:30/km) or 10 km (6:00/km) from the Zeit für Brot bakery, open to anyone who shows up on time.",
+  "quelle": [
+   "https://paus.works/community",
+   "https://socialrunclubs.de/duesseldorf/paus/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "duesseldorf-hype-collective",
+  "name": "hy:pe collective",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Kaiserstraße 28",
+  "lat": 51.23389,
+  "lon": 6.77915,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "instagram": "https://www.instagram.com/hy.pecollective/",
+  "strava": "https://www.strava.com/clubs/1931880",
+  "beschreibung_de": "Run Club für jedes Level am Dienstagabend, Taschenabgabe möglich.",
+  "beschreibung_en": "Run club for every level on Tuesday evenings, bag drop available.",
+  "quelle": [
+   "https://socialrunclubs.de/duesseldorf/hy-pe-collective/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "duesseldorf-jade-runners",
+  "name": "Jade Runners – Social Run",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Café Don Melone, Unterbilk",
+  "lat": 51.21194,
+  "lon": 6.76403,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:10",
+    "distanz_km": [
+     5.4,
+     5.4
+    ]
+   }
+  ],
+  "distanz_km": [
+   5.4,
+   5.4
+  ],
+  "stufen": [
+   "anfaenger",
+   "mittel"
+  ],
+  "merkmale": [
+   "kaffee"
+  ],
+  "instagram": "https://www.instagram.com/jaderunners/",
+  "strava": "https://www.strava.com/clubs/JadeRunners",
+  "beschreibung_de": "Social Run über 5,4 km zur Rheinkniebrücke, über die Rheinwiesen und zurück zum Café.",
+  "beschreibung_en": "5.4 km social run to the Rheinknie bridge, across the Rhine meadows and back to the café.",
+  "quelle": [
+   "https://socialrunclubs.de/duesseldorf/jade-runners/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "duesseldorf-lauftreff-wersten",
+  "name": "Lauftreff Wersten",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Grünzug Wersten, Wiese zwischen Pferdekoppel und Mitmachzirkus, parallel zum Ohmweg",
+  "lat": 51.18639,
+  "lon": 6.80729,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:30"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "instagram": "https://www.instagram.com/waeschte161_kultur_bud/",
+  "strava": "https://www.strava.com/clubs/LauftreffWersten",
+  "beschreibung_de": "Sonntäglicher Lauftreff über mindestens 5 km am Brückerbach (Treff ab 10:15 Uhr).",
+  "beschreibung_en": "Sunday running group covering at least 5 km along the Brückerbach stream (meet from 10:15).",
+  "quelle": [
+   "https://socialrunclubs.de/duesseldorf/lauftreff-wersten/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; Projektseite kulturbud.de nicht mehr erreichbar (404)"
+ },
+ {
+  "id": "duesseldorf-oace",
+  "name": "OACE Run Club Düsseldorf",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Café Daily Dose, Joachim-Erwin-Platz 1",
+  "lat": 51.22643,
+  "lon": 6.78201,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30",
+    "distanz_km": [
+     6,
+     6
+    ]
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "6:30"
+  },
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "instagram": "https://www.instagram.com/oace.club/",
+  "strava": "https://www.strava.com/clubs/1522645",
+  "beschreibung_de": "Etwa 6 km über beide Rheinbrücken ohne Tempodruck, für Anfänger wie Erfahrene.",
+  "beschreibung_en": "About 6 km across both Rhine bridges with no pace pressure, for beginners and experienced runners.",
+  "quelle": [
+   "https://socialrunclubs.de/duesseldorf/oace-club-duesseldorf/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "duesseldorf-rainbow-runners",
+  "name": "Rainbow Runners Düsseldorf",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "vor den Rheinterrassen",
+  "lat": 51.23621,
+  "lon": 6.77104,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/rainbow_runners_dusseldorf/",
+  "beschreibung_de": "Queere Laufgruppe am Dienstagabend mit Treffpunkt vor den Rheinterrassen.",
+  "beschreibung_en": "Queer running group on Tuesday evenings, meeting in front of the Rheinterrassen.",
+  "quelle": [
+   "https://socialrunclubs.de/duesseldorf/rainbow-runners/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "duesseldorf-then-n-there",
+  "name": "THEN ‘N‘ THERE Running Club",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Goethe-Museum (Hofgarten)",
+  "lat": 51.23092,
+  "lon": 6.78764,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/thn_n_thr/",
+  "strava": "https://www.strava.com/clubs/tntbyafew",
+  "beschreibung_de": "Lockerer Easy Run jeden Sonntag am Goethe-Museum.",
+  "beschreibung_en": "Easy run every Sunday at the Goethe Museum.",
+  "quelle": [
+   "https://socialrunclubs.de/duesseldorf/then-n-there-running-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "duesseldorf-zone-2-running-club",
+  "name": "Zone 2 Running Club",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Theodor-Heuss-Brücke",
+  "lat": 51.24643,
+  "lon": 6.7583,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "pace": {
+   "von": "7:00",
+   "bis": "7:30"
+  },
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "instagram": "https://www.instagram.com/zone2.runningclub/",
+  "strava": "https://www.strava.com/clubs/zone2",
+  "beschreibung_de": "Bewusst langsamer Run Club mit 7:00 bis 7:30 min/km am Dienstagabend.",
+  "beschreibung_en": "Deliberately slow run club at 7:00–7:30 min/km on Tuesday evenings.",
+  "quelle": [
+   "https://socialrunclubs.de/duesseldorf/zone-2-running-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; genauer Treffpunkt an der Brücke unklar"
+ },
+ {
+  "id": "duesseldorf-tru-running-club",
+  "name": "TRU Running Club",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "TRU Fitness Club, Völklinger Straße 4",
+  "lat": 51.2129,
+  "lon": 6.76257,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "webseite": "https://trufitnessclub.de/",
+  "instagram": "https://www.instagram.com/trufitnessclub/",
+  "strava": "https://www.strava.com/clubs/2281509",
+  "beschreibung_de": "Lauftreff des TRU Fitness Clubs am Mittwochabend.",
+  "beschreibung_en": "Running club of TRU Fitness Club on Wednesday evenings.",
+  "quelle": [
+   "https://socialrunclubs.de/duesseldorf/tru-running-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; Webseite des Studios nennt den Lauftreff nicht, offen für Nichtmitglieder unklar"
+ },
+ {
+  "id": "duesseldorf-mondaymiles",
+  "name": "Mondaymiles",
+  "art": "Fahrrad",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Rheinbrücke Flehe (A46), Düsseldorfer Seite",
+  "lat": 51.18895,
+  "lon": 6.77214,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00",
+    "distanz_km": [
+     85,
+     85
+    ]
+   }
+  ],
+  "rad_typ": "Rennrad",
+  "distanz_km": [
+   85,
+   85
+  ],
+  "pace": {
+   "von": 30,
+   "bis": 30
+  },
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "grouprides.cc",
+  "webseite": "https://www.grouprides.cc/rides/mondaymiles-2026-10-26",
+  "beschreibung_de": "Entspannte Rennrad-Ausfahrt am Montagabend über rund 85 km mit kurzem Supermarktstopp, kein Rennen.",
+  "beschreibung_en": "Relaxed Monday-evening road ride of about 85 km with a short supermarket stop, no racing.",
+  "quelle": [
+   "https://www.grouprides.cc/rides/mondaymiles-2026-10-26"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf grouprides.cc, kein eigener Kanal gefunden; Startzeit wechselte von 17:30 (19.10.) auf 18:00; Wintertermine unsicher; Koordinaten nur Stadtteil Flehe, genauer Treffpunkt an der Brücke offen"
+ },
+ {
+  "id": "duisburg-anchor-running-crew",
+  "name": "Anchor Running Crew",
+  "art": "Laufen",
+  "stadt": "Duisburg",
+  "land": "Deutschland",
+  "treffpunkt": "Kleingartenverein, Steinbruchstraße 4",
+  "lat": 51.41366,
+  "lon": 6.79734,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "20:00",
+    "distanz_km": [
+     5,
+     8
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   8
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://sites.google.com/view/anchorrunningcrew",
+  "instagram": "https://www.instagram.com/anchorrunningcrewduisburg/",
+  "beschreibung_de": "Urban Run Crew aus Duisburg mit einer 5- bis 8-km-Runde am Montagabend, alle sind willkommen.",
+  "beschreibung_en": "Duisburg urban run crew doing a 5–8 km loop on Monday evenings, everybody welcome.",
+  "quelle": [
+   "https://sites.google.com/view/anchorrunningcrew",
+   "https://socialrunclubs.de/duisburg/anchor-running-crew/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "duisburg-lc-lauftreff",
+  "name": "Lauftreff für Jedermann (Lauf-Club Duisburg)",
+  "art": "Laufen",
+  "stadt": "Duisburg",
+  "land": "Deutschland",
+  "treffpunkt": "Vereinsheim LC Duisburg, Kalkweg 145, Parkplatz",
+  "lat": 51.40137,
+  "lon": 6.7838,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "distanz_km": [
+   6,
+   10
+  ],
+  "dauer_min": 60,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "mehrere_gruppen"
+  ],
+  "webseite": "https://www.laufclub-duisburg.de/trainingsangebot/lauftreff/index.html",
+  "instagram": "https://www.instagram.com/lc_duisburg/",
+  "beschreibung_de": "Kostenloser, unverbindlicher Lauftreff in sechs Gruppen von 6 km mit Gehpausen bis 10 km in 60 Minuten, geführt von erfahrenen Vereinsläufern.",
+  "beschreibung_en": "Free drop-in running group in six groups from 6 km with walk breaks up to 10 km in 60 minutes, led by experienced club runners.",
+  "quelle": [
+   "https://www.laufclub-duisburg.de/trainingsangebot/lauftreff/index.html",
+   "https://socialrunclubs.de/duisburg/lauf-club-duisburg/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "moers-ccm-group-ride",
+  "name": "CCM Group Ride (Cycling Club Moers)",
+  "art": "Fahrrad",
+  "stadt": "Moers",
+  "land": "Deutschland",
+  "treffpunkt": "ENNI Eventhalle, Parkplatz Filder Straße 142",
+  "lat": 51.44013,
+  "lon": 6.61905,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "17:00",
+    "distanz_km": [
+     46,
+     46
+    ]
+   }
+  ],
+  "rad_typ": "Rennrad",
+  "distanz_km": [
+   46,
+   46
+  ],
+  "pace": {
+   "von": 28,
+   "bis": 28
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "grouprides.cc",
+  "webseite": "https://www.grouprides.cc/rides/ccm-group-ride-2026-10-21",
+  "beschreibung_de": "Flache Rennrad-Gruppenausfahrt über etwa 46 km am Mittwoch, entspannt und nach StVO; Helm und Licht Pflicht.",
+  "beschreibung_en": "Flat group road ride of about 46 km on Wednesdays, relaxed and following traffic rules; helmet and lights required.",
+  "quelle": [
+   "https://www.grouprides.cc/rides/ccm-group-ride-2026-10-21"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf grouprides.cc, kein eigener Kanal gefunden"
+ },
+ {
+  "id": "essen-bunert-lauftreff",
+  "name": "Bunert Lauftreff Essen",
+  "art": "Laufen",
+  "stadt": "Essen",
+  "land": "Deutschland",
+  "treffpunkt": "Parkplatz am Baldeneysee (Seaside Beach), Freiherr-vom-Stein-Straße 280",
+  "lat": 51.40532,
+  "lon": 7.0155,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "pace": {
+   "von": "4:45",
+   "bis": "7:30"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "webseite": "https://essen.bunert.de/lauftreff",
+  "instagram": "https://www.instagram.com/bunertessen/",
+  "beschreibung_de": "Kostenloser Lauftreff des Laufladens Bunert mit einer Seerunde in Leistungsgruppen von 7:30 bis 4:45 min/km, ohne Anmeldung.",
+  "beschreibung_en": "Free running group of the Bunert store with a lap of Lake Baldeney in pace groups from 7:30 to 4:45 min/km, no sign-up.",
+  "quelle": [
+   "https://essen.bunert.de/lauftreff",
+   "https://socialrunclubs.de/essen/bunert-lauftreff/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "gelsenkirchen-buerunners",
+  "name": "Buerunners",
+  "art": "Laufen",
+  "stadt": "Gelsenkirchen",
+  "land": "Deutschland",
+  "treffpunkt": "1000-Freunde-Mauer an der Veltins-Arena",
+  "lat": 51.55545,
+  "lon": 7.06611,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:04"
+   }
+  ],
+  "instagram": "https://www.instagram.com/buerunners/",
+  "beschreibung_de": "Laufgruppe mit Treffpunkt an der 1000-Freunde-Mauer der Veltins-Arena am Dienstagabend.",
+  "beschreibung_en": "Running group meeting at the 1000 Friends Wall of the Veltins-Arena on Tuesday evenings.",
+  "quelle": [
+   "https://socialrunclubs.de/gelsenkirchen/buerunners/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "koeln-gaffel-lauffreunde",
+  "name": "Gaffel Lauffreunde",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Parkplatz vor dem HDI, Charles-de-Gaulle-Platz 1, Köln-Deutz",
+  "lat": 50.9422,
+  "lon": 6.97105,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "nter": 3,
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "Formular auf gaffel.de",
+  "webseite": "https://gaffel.de/erleben/lauffreunde/",
+  "instagram": "https://www.instagram.com/gaffel_koelsch/",
+  "strava": "https://www.strava.com/clubs/gaffellauffreunde",
+  "beschreibung_de": "Großer Lauftreff der Privatbrauerei Gaffel am Rhein mit individuell wählbarer Strecke und Getränk danach; nur nach Anmeldung zu den bestätigten Terminen (15.10., 19.11., 17.12.2026).",
+  "beschreibung_en": "Large running meet-up of the Gaffel brewery along the Rhine with flexible distances and a drink afterwards; registration required for the confirmed dates (15 Oct, 19 Nov, 17 Dec 2026).",
+  "quelle": [
+   "https://gaffel.de/erleben/lauffreunde/",
+   "https://socialrunclubs.de/koeln/gaffel-lauffreunde/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "koeln-kraft-runners",
+  "name": "KRAFT Runners Köln",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Zappes Zentrale, Roonstraße 71",
+  "lat": 50.93375,
+  "lon": 6.93279,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "merkmale": [
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://kraftrunners.de/koeln",
+  "instagram": "https://www.instagram.com/kraftrunners/",
+  "beschreibung_de": "Wöchentlicher Run Club am Donnerstag ohne Anmeldung, jedes Tempo willkommen, Taschenabgabe vor Ort.",
+  "beschreibung_en": "Weekly Thursday run club without sign-up, every pace welcome, bag drop on site.",
+  "quelle": [
+   "https://kraftrunners.de/koeln",
+   "https://socialrunclubs.de/koeln/kraft-runners-koeln/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "koeln-milers-afterwork",
+  "name": "Milers Colonia – After Work Run",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Ostende des Clarenbachkanals",
+  "lat": 50.93526,
+  "lon": 6.92074,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30",
+    "distanz_km": [
+     8,
+     12
+    ]
+   }
+  ],
+  "distanz_km": [
+   8,
+   12
+  ],
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "webseite": "https://milers.run/",
+  "instagram": "https://www.instagram.com/milerscolonia/",
+  "beschreibung_de": "Lockerer After-Work-Lauf über 8 bis 12 km im Stadtwald in mehreren Tempogruppen, offen auch ohne Vereinszugehörigkeit.",
+  "beschreibung_en": "Easy after-work run of 8–12 km in the Stadtwald in several pace groups, open regardless of club membership.",
+  "quelle": [
+   "https://milers.run/training/",
+   "https://socialrunclubs.de/koeln/milers-colonia/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "koeln-milers-longrun",
+  "name": "Milers Colonia – Sunday Long Run",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Stadtwaldkreisel / Kitschburger Straße",
+  "lat": 50.93259,
+  "lon": 6.90084,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "webseite": "https://milers.run/",
+  "instagram": "https://www.instagram.com/milerscolonia/",
+  "beschreibung_de": "Gemeinsamer Long Run am Sonntagmorgen im Stadtwald mit vielen Tempogruppen.",
+  "beschreibung_en": "Group long run on Sunday mornings in the Stadtwald with many pace groups.",
+  "quelle": [
+   "https://milers.run/training/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "koeln-offtrack-community-run",
+  "name": "OFFTRACK x RYZON Community Run",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "RYZON Flagship Store, Maastrichter Straße 45",
+  "lat": 50.93798,
+  "lon": 6.93578,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   6,
+   10
+  ],
+  "pace": {
+   "von": "5:15",
+   "bis": "7:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "grouprides.cc",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "instagram": "https://www.instagram.com/offtrack_cologne/",
+  "strava": "https://www.strava.com/clubs/OFFTRACK",
+  "beschreibung_de": "Community Run nach kurzem Aufwärmen in zwei Tempogruppen (10 km in 5:15 min/km, 6 km in 7:00 min/km) durch den Stadtwald, danach Getränke im Store.",
+  "beschreibung_en": "Community run after a short warm-up in two pace groups (10 km at 5:15/km, 6 km at 7:00/km) through the Stadtwald, drinks at the store afterwards.",
+  "quelle": [
+   "https://www.grouprides.cc/rides/community-run-2026-10-21",
+   "https://socialrunclubs.de/koeln/offtrack/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "koeln-offtrack-coffee-run",
+  "name": "OFFTRACK Coffee Run",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Kiosk Brüsseler Platz, Brüsseler Straße 70",
+  "lat": 50.93816,
+  "lon": 6.93489,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "distanz_km": [
+     13,
+     13
+    ]
+   }
+  ],
+  "distanz_km": [
+   13,
+   13
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "6:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "grouprides.cc",
+  "merkmale": [
+   "kaffee"
+  ],
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "instagram": "https://www.instagram.com/offtrack_cologne/",
+  "strava": "https://www.strava.com/clubs/OFFTRACK",
+  "beschreibung_de": "Flacher 13-km-Community-Run am Sonntagvormittag in etwa 6:00 min/km, danach gemeinsamer Kaffee.",
+  "beschreibung_en": "Flat 13 km community run on Sunday mornings at about 6:00/km, followed by coffee together.",
+  "quelle": [
+   "https://www.grouprides.cc/rides/coffee-run-2026-10-25",
+   "https://socialrunclubs.de/koeln/offtrack/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "koeln-cologne-running-crew",
+  "name": "Cologne Running Crew",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Laufsport Bunert, Aachener Straße 233-237",
+  "lat": 50.93649,
+  "lon": 6.92046,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "20:00",
+    "distanz_km": [
+     10,
+     10
+    ]
+   }
+  ],
+  "distanz_km": [
+   10,
+   10
+  ],
+  "instagram": "https://www.instagram.com/colognerunningcrew/",
+  "strava": "https://www.strava.com/clubs/colognerunningcrew",
+  "beschreibung_de": "Laufcrew mit 10-km-Lauf am Mittwochabend ab dem Laufladen Bunert.",
+  "beschreibung_en": "Running crew doing 10 km on Wednesday evenings from the Bunert running store.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/cologne-running-crew/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "koeln-date-with-zone-2",
+  "name": "Date with Zone 2 – Community Run",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "21run Store, Antwerpener Straße 6-12",
+  "lat": 50.94045,
+  "lon": 6.93687,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/datewithzone2/",
+  "strava": "https://www.strava.com/clubs/1811832",
+  "beschreibung_de": "Community Run am Samstagvormittag ab dem 21run Store im Belgischen Viertel.",
+  "beschreibung_en": "Community run on Saturday mornings from the 21run store in the Belgian Quarter.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/date-with-zone-2/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "koeln-her-run-cologne",
+  "name": "Her Run Cologne",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Aachener Weiher, Japanisches Kulturinstitut",
+  "lat": 50.93443,
+  "lon": 6.92579,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Fortgeschritten",
+    "distanz_km": [
+     5,
+     5
+    ],
+    "pace": {
+     "von": "6:00",
+     "bis": "7:00"
+    }
+   },
+   {
+    "rhythmus": "monatlich",
+    "nter": 2,
+    "wochentag": 7,
+    "uhrzeit": "13:00",
+    "bezeichnung": "Anfängerfreundlich",
+    "distanz_km": [
+     3,
+     3
+    ]
+   },
+   {
+    "rhythmus": "monatlich",
+    "nter": 4,
+    "wochentag": 7,
+    "uhrzeit": "13:00",
+    "bezeichnung": "Anfängerfreundlich",
+    "distanz_km": [
+     3,
+     3
+    ]
+   }
+  ],
+  "distanz_km": [
+   3,
+   5
+  ],
+  "stufen": [
+   "anfaenger",
+   "mittel"
+  ],
+  "merkmale": [
+   "frauen",
+   "anfaengerfreundlich"
+  ],
+  "instagram": "https://www.instagram.com/her_run_cologne/",
+  "strava": "https://www.strava.com/clubs/1927342",
+  "beschreibung_de": "Laufgruppe für Frauen: sonntags 5 km in 6:00–7:00 min/km, am 2. und 4. Sonntag zusätzlich eine anfängerfreundliche 3-km-Runde mit Pausen.",
+  "beschreibung_en": "Running group for women: 5 km at 6:00–7:00/km on Sundays, plus a beginner-friendly 3 km loop with breaks on the 2nd and 4th Sunday.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/her-run-cologne/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "koeln-oace",
+  "name": "OACE Run Club Köln",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Crop Coffee, Apostelnstraße 1-3",
+  "lat": 50.937,
+  "lon": 6.94474,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00",
+    "distanz_km": [
+     6,
+     6
+    ]
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "6:30"
+  },
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "instagram": "https://www.instagram.com/oace.club/",
+  "strava": "https://www.strava.com/clubs/1522645",
+  "beschreibung_de": "Gemeinsame 6 km am Donnerstagabend in etwa 6:30 min/km, für Anfänger wie Erfahrene.",
+  "beschreibung_en": "A 6 km group run on Thursday evenings at about 6:30/km, for beginners and experienced runners.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/oace-club-cologne/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "koeln-omtra",
+  "name": "ømtra Community Run",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Hültzplatz",
+  "lat": 50.93433,
+  "lon": 6.90458,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00",
+    "distanz_km": [
+     8,
+     8
+    ]
+   }
+  ],
+  "distanz_km": [
+   8,
+   8
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "6:30"
+  },
+  "instagram": "https://www.instagram.com/omtra.community/",
+  "strava": "https://www.strava.com/clubs/omtra",
+  "beschreibung_de": "Community Run am Montagabend über etwa 8 km in 6:30 min/km, jeder ist willkommen, keine Taschenabgabe.",
+  "beschreibung_en": "Monday-evening community run of about 8 km at 6:30/km, everyone welcome, no bag drop.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/omtra/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "koeln-one-move",
+  "name": "One Move Running Club",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "St. Maria Königin, Südpark (Marienburg)",
+  "lat": 50.89767,
+  "lon": 6.97113,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "webseite": "https://1move.de/",
+  "instagram": "https://www.instagram.com/1move.de/",
+  "beschreibung_de": "Kostenloser Community Run über 5 km durch Marienburg jeden Samstag.",
+  "beschreibung_en": "Free 5 km community run through Marienburg every Saturday.",
+  "quelle": [
+   "https://1move.de/",
+   "https://socialrunclubs.de/koeln/one-move-running-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Uhrzeit nur auf socialrunclubs.de, Webseite nennt nur „jeden Samstag“"
+ },
+ {
+  "id": "koeln-pace-and-power",
+  "name": "Pace & Power CGN",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Kölschbar, Lindenstraße 56",
+  "lat": 50.93353,
+  "lon": 6.93504,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30",
+    "distanz_km": [
+     6,
+     8
+    ]
+   }
+  ],
+  "distanz_km": [
+   6,
+   8
+  ],
+  "instagram": "https://www.instagram.com/pace.und.power/",
+  "strava": "https://www.strava.com/clubs/1431218",
+  "beschreibung_de": "Lauf an den Lindenthaler Kanälen über 6 bis 8 km am Dienstagabend.",
+  "beschreibung_en": "Tuesday-evening run of 6–8 km along the Lindenthal canals.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/pace-power-cgn/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "koeln-pals",
+  "name": "PALS coffee & run club",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Holzmarkt 59-65",
+  "lat": 50.93166,
+  "lon": 6.96232,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:30",
+    "bezeichnung": "Saturday Run Club"
+   }
+  ],
+  "merkmale": [
+   "kaffee"
+  ],
+  "instagram": "https://www.instagram.com/pals_club_cgn/",
+  "strava": "https://www.strava.com/clubs/1560613",
+  "beschreibung_de": "Coffee & Run Club mit Samstagslauf am Holzmarkt.",
+  "beschreibung_en": "Coffee and run club with a Saturday run from the Holzmarkt.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/pals-coffee-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "koeln-plan-b",
+  "name": "Plan B ofc",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Aachener Weiher",
+  "lat": 50.93526,
+  "lon": 6.92762,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "merkmale": [
+   "no_drop",
+   "anfaengerfreundlich"
+  ],
+  "instagram": "https://www.instagram.com/plan.b.ofc/",
+  "beschreibung_de": "Lauf in entspannter Pace am Mittwochabend, niemand wird zurückgelassen.",
+  "beschreibung_en": "Relaxed-pace Wednesday-evening run, nobody gets left behind.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/plan-b-ofc/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; genauer Treffpunkt am Weiher unklar"
+ },
+ {
+  "id": "koeln-rappid-runs",
+  "name": "rappid. runs cologne",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "True Motion Office, Weyertal 13",
+  "lat": 50.92215,
+  "lon": 6.92831,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30",
+    "distanz_km": [
+     7,
+     9
+    ]
+   }
+  ],
+  "distanz_km": [
+   7,
+   9
+  ],
+  "instagram": "https://www.instagram.com/rappid.runs/",
+  "strava": "https://www.strava.com/clubs/rappidrunscologne",
+  "beschreibung_de": "Easy Run über 7 bis 9 km am Dienstagabend.",
+  "beschreibung_en": "Easy-pace 7–9 km run on Tuesday evenings.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/rappid-runs-cologne/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "koeln-run-for-love",
+  "name": "RUN FOR LOVE – Afterwork Run",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Zappes Süd",
+  "lat": 50.93836,
+  "lon": 6.95997,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "merkmale": [
+   "gepaeck"
+  ],
+  "webseite": "https://runforlove.de/",
+  "instagram": "https://www.instagram.com/runforlove.koeln/",
+  "beschreibung_de": "Single-Runclub: gemeinsamer Lauf zum Kennenlernen am Montagabend mit Taschenabgabe.",
+  "beschreibung_en": "Singles run club: a Monday-evening run to meet new people, with bag drop.",
+  "quelle": [
+   "https://runforlove.de/",
+   "https://socialrunclubs.de/koeln/rfl-run-for-love-koeln/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Treffpunkt „Zappes Süd“ nur auf socialrunclubs.de, Adresse und Koordinaten fehlen (Stadtmitte eingetragen)"
+ },
+ {
+  "id": "koeln-tmc-true-motion",
+  "name": "TMC – by True Motion",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Antwerpener Straße 42",
+  "lat": 50.94034,
+  "lon": 6.93416,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/tmc.runclub/",
+  "beschreibung_de": "Run Club des Laufschuhherstellers True Motion am Donnerstagabend.",
+  "beschreibung_en": "Run club of the running shoe brand True Motion on Thursday evenings.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/tmc-by-true-motion/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "koeln-w1nnas-run-club",
+  "name": "w1nnas run club",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Händelstraße 25",
+  "lat": 50.93459,
+  "lon": 6.93606,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:45"
+   }
+  ],
+  "instagram": "https://www.instagram.com/w1nnas.runclub/",
+  "strava": "https://www.strava.com/clubs/1270257",
+  "beschreibung_de": "Run Club am Montagabend ab der Händelstraße.",
+  "beschreibung_en": "Monday-evening run club from Händelstraße.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/w1nnas-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "koeln-athlx",
+  "name": "athlx",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "GuMo Café",
+  "lat": 50.94025,
+  "lon": 6.93819,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "07:00",
+    "distanz_km": [
+     6,
+     6
+    ]
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "6:00"
+  },
+  "merkmale": [
+   "kaffee"
+  ],
+  "webseite": "https://athlxclub.com",
+  "instagram": "https://www.instagram.com/athlxclub/",
+  "strava": "https://www.strava.com/clubs/athlxclub",
+  "beschreibung_de": "Früher Mittwochslauf über 6 km in 6:00 min/km ab dem GuMo Café.",
+  "beschreibung_en": "Early Wednesday run of 6 km at 6:00/km from GuMo Café.",
+  "quelle": [
+   "https://socialrunclubs.de/koeln/athlx/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; Webseite athlxclub.com ohne Termine"
+ },
+ {
+  "id": "koeln-podium-cycling-club",
+  "name": "Podium Cycling Club – Thursday Ride",
+  "art": "Fahrrad",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Lenauplatz, Köln-Neuehrenfeld",
+  "lat": 50.95714,
+  "lon": 6.91909,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "rad_typ": "Rennrad",
+  "distanz_km": [
+   45,
+   60
+  ],
+  "pace": {
+   "von": 27,
+   "bis": 32
+  },
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "instagram": "https://www.instagram.com/podium.cc/",
+  "beschreibung_de": "Rennrad-Community-Ride am Donnerstag in zwei Gruppen (27–29 km/h über 45–50 km, 30–32 km/h über 55–60 km), wetterabhängig; ab 18 Jahren.",
+  "beschreibung_en": "Thursday community road ride in two groups (27–29 km/h for 45–50 km, 30–32 km/h for 55–60 km), weather permitting; 18+.",
+  "quelle": [
+   "https://urbansportsclub.com/de/venues/podium-cycling-club-kln-lenauplatz"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "nur auf Buchungsplattform Urban Sports Club; Fahrt wird wöchentlich über WhatsApp/Strava bestätigt, Saison im Winter unklar"
+ },
+ {
+  "id": "moenchengladbach-lt-volksgarten",
+  "name": "Lauftreff MG-Volksgarten",
+  "art": "Laufen",
+  "stadt": "Mönchengladbach",
+  "land": "Deutschland",
+  "treffpunkt": "Kita Flohkiste, Carl-Diem-Straße 62",
+  "lat": 51.19561,
+  "lon": 6.4628,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "distanz_km": [
+   3.7,
+   10.9
+  ],
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Anruf beim Ansprechpartner (Nummer auf der Webseite)",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "mehrere_gruppen"
+  ],
+  "webseite": "https://ltmg-volksgarten.blogspot.com/",
+  "beschreibung_de": "Großer Lauftreff mit Strecken von 3,7 bis 10,9 km für alle Niveaus, Walker willkommen; vorher kurz anrufen.",
+  "beschreibung_en": "Large running group with routes from 3.7 to 10.9 km for all levels, walkers welcome; please call ahead.",
+  "quelle": [
+   "https://ltmg-volksgarten.blogspot.com/",
+   "https://socialrunclubs.de/moenchengladbach/lauftreff-mg-volksgarten/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "moenchengladbach-solemates",
+  "name": "Solemates MG – Sonntagslauf",
+  "art": "Laufen",
+  "stadt": "Mönchengladbach",
+  "land": "Deutschland",
+  "treffpunkt": "Kaiser-Friedrich-Halle, Hohenzollernstraße 15",
+  "lat": 51.20028,
+  "lon": 6.43641,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "08:40"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "09:20"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   10
+  ],
+  "anmeldung": "nein",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "webseite": "https://solematesmg.de/",
+  "instagram": "https://www.instagram.com/solemates.mg/",
+  "strava": "https://www.strava.com/clubs/solematesmg",
+  "beschreibung_de": "Sonntagslauf durch den Bunten Garten mit drei Startzeiten, ohne Druck und ohne Anmeldung, danach gemeinsam ins Café.",
+  "beschreibung_en": "Sunday run through the Bunter Garten park with three start times, no pressure and no sign-up, café together afterwards.",
+  "quelle": [
+   "https://solematesmg.de/",
+   "https://socialrunclubs.de/moenchengladbach/solemates-mg/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "moenchengladbach-easy-going",
+  "name": "Easy Going Run Club",
+  "art": "Laufen",
+  "stadt": "Mönchengladbach",
+  "land": "Deutschland",
+  "treffpunkt": "Rewe-Parkplatz Wickrath",
+  "lat": 51.12662,
+  "lon": 6.41187,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "08:30",
+    "distanz_km": [
+     2,
+     12
+    ]
+   }
+  ],
+  "distanz_km": [
+   2,
+   12
+  ],
+  "pace": {
+   "von": "8:00",
+   "bis": "8:00"
+  },
+  "stufen": [
+   "anfaenger"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "instagram": "https://www.instagram.com/easygoing.runclub/",
+  "beschreibung_de": "Laufen ohne Leistungsdruck über 2 bis 12 km in etwa 8 min/km am Sonntagmorgen.",
+  "beschreibung_en": "Pressure-free Sunday-morning runs of 2–12 km at about 8 min/km.",
+  "quelle": [
+   "https://socialrunclubs.de/moenchengladbach/easy-going-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "muenster-kraft-runners",
+  "name": "KRAFT Runners Münster",
+  "art": "Laufen",
+  "stadt": "Münster",
+  "land": "Deutschland",
+  "treffpunkt": "Fyal Coffeeshop, Geisbergweg 8",
+  "lat": 51.96139,
+  "lon": 7.62584,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "merkmale": [
+   "gepaeck",
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://kraftrunners.de/muenster",
+  "instagram": "https://www.instagram.com/kraftrunners/",
+  "beschreibung_de": "Wöchentlicher Run Club am Dienstag ohne Anmeldung, jedes Tempo willkommen, Taschenabgabe vor Ort.",
+  "beschreibung_en": "Weekly Tuesday run club without sign-up, every pace welcome, bag drop on site.",
+  "quelle": [
+   "https://kraftrunners.de/muenster",
+   "https://socialrunclubs.de/muenster/kraft-runners-muenster/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenster-active-laufshop-club",
+  "name": "Active Laufshop Club",
+  "art": "Laufen",
+  "stadt": "Münster",
+  "land": "Deutschland",
+  "treffpunkt": "Active Laufshop am Ludgerikreisel",
+  "lat": 51.95585,
+  "lon": 7.62538,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00",
+    "distanz_km": [
+     6,
+     7
+    ]
+   }
+  ],
+  "distanz_km": [
+   6,
+   7
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:30"
+  },
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "instagram": "https://www.instagram.com/activelaufshop/",
+  "strava": "https://www.strava.com/clubs/1809325",
+  "beschreibung_de": "Feierabendlauf über Promenade und Aasee in zwei Gruppen (ca. 5:30 und 6:30 min/km) über 6 bis 7 km.",
+  "beschreibung_en": "After-work run along the Promenade and Aasee in two groups (about 5:30 and 6:30/km) over 6–7 km.",
+  "quelle": [
+   "https://socialrunclubs.de/muenster/active-laufshop-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "muenster-oace",
+  "name": "OACE Run Club Münster",
+  "art": "Laufen",
+  "stadt": "Münster",
+  "land": "Deutschland",
+  "treffpunkt": "LunaVia Café & Weinbar, Hoyastraße 2A",
+  "lat": 51.97003,
+  "lon": 7.62262,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30",
+    "distanz_km": [
+     6,
+     6
+    ]
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "instagram": "https://www.instagram.com/oace.club/",
+  "strava": "https://www.strava.com/clubs/1522645",
+  "beschreibung_de": "Gemeinsame 6 km am Donnerstagabend ohne Leistungsdruck.",
+  "beschreibung_en": "A 6 km group run on Thursday evenings without pressure.",
+  "quelle": [
+   "https://socialrunclubs.de/muenster/oace-club-muenster/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "muenster-running-crew",
+  "name": "Running Crew Münster – Community Run",
+  "art": "Laufen",
+  "stadt": "Münster",
+  "land": "Deutschland",
+  "treffpunkt": "Fyal Coffeeshop, Geisbergweg 8",
+  "lat": 51.96139,
+  "lon": 7.62584,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "17:30"
+   }
+  ],
+  "merkmale": [
+   "kaffee"
+  ],
+  "instagram": "https://www.instagram.com/runningcrew.ms/",
+  "beschreibung_de": "Community Run am Freitagnachmittag ab dem Fyal Coffeeshop.",
+  "beschreibung_en": "Community run on Friday afternoons from Fyal Coffeeshop.",
+  "quelle": [
+   "https://socialrunclubs.de/muenster/running-crew-munster/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "paderborn-lauftreff-lieth",
+  "name": "Lauftreff Lieth",
+  "art": "Laufen",
+  "stadt": "Paderborn",
+  "land": "Deutschland",
+  "treffpunkt": "Parkplatz Grundschule Lieth, Peckelsheimer Weg 24",
+  "lat": 51.71458,
+  "lon": 8.79414,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00",
+    "distanz_km": [
+     10,
+     12
+    ]
+   }
+  ],
+  "distanz_km": [
+   10,
+   12
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "7:00"
+  },
+  "webseite": "https://lt-lieth35.ulrich-klute.de/index.php/start/trainingszeiten",
+  "beschreibung_de": "Lauftreff bei jedem Wetter über 10 bis 12 km in moderatem Tempo, auch für Allein-Läufer gedacht.",
+  "beschreibung_en": "Running group in any weather, 10–12 km at a moderate pace, also aimed at people who usually run alone.",
+  "quelle": [
+   "https://lt-lieth35.ulrich-klute.de/index.php/start/trainingszeiten",
+   "https://socialrunclubs.de/paderborn/lauftreff-lieth/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "paderborn-beyond-miles",
+  "name": "Beyond Miles Run Club",
+  "art": "Laufen",
+  "stadt": "Paderborn",
+  "land": "Deutschland",
+  "treffpunkt": "Josefs Bier & Bar",
+  "lat": 51.72136,
+  "lon": 8.75675,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/beyondmilesrunclub/",
+  "strava": "https://www.strava.com/clubs/1528875",
+  "beschreibung_de": "Run Club am Dienstagabend ab Josefs Bier & Bar.",
+  "beschreibung_en": "Tuesday-evening run club from Josefs Bier & Bar.",
+  "quelle": [
+   "https://socialrunclubs.de/paderborn/beyond-miles-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "paderborn-pader-pace",
+  "name": "Pader Pace",
+  "art": "Laufen",
+  "stadt": "Paderborn",
+  "land": "Deutschland",
+  "treffpunkt": "Kiosk am Rosentor",
+  "lat": 51.71497,
+  "lon": 8.75203,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/paderpace/",
+  "beschreibung_de": "Community Run jeden Sonntag am Kiosk am Rosentor.",
+  "beschreibung_en": "Community run every Sunday at the kiosk at Rosentor.",
+  "quelle": [
+   "https://socialrunclubs.de/paderborn/pader-pace/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; Club erst seit August 2026 aktiv"
+ },
+ {
+  "id": "paderborn-run-club",
+  "name": "Run Club Paderborn",
+  "art": "Laufen",
+  "stadt": "Paderborn",
+  "land": "Deutschland",
+  "treffpunkt": "Fischteiche",
+  "lat": 51.73891,
+  "lon": 8.73719,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/runclubpaderborn/",
+  "beschreibung_de": "Sonntagslauf an den Fischteichen.",
+  "beschreibung_en": "Sunday run at the Fischteiche ponds.",
+  "quelle": [
+   "https://socialrunclubs.de/paderborn/run-club-paderborn/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; genauer Treffpunkt unklar"
+ },
+ {
+  "id": "wuppertal-bunert-lauftreff",
+  "name": "Bunert Lauftreff Wuppertal",
+  "art": "Laufen",
+  "stadt": "Wuppertal",
+  "land": "Deutschland",
+  "treffpunkt": "vor dem Laden Bunert, Friedrich-Ebert-Straße",
+  "lat": 51.25375,
+  "lon": 7.13412,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "pace": {
+   "von": "5:00",
+   "bis": "6:00"
+  },
+  "instagram": "https://www.instagram.com/bunertwuppertal/",
+  "beschreibung_de": "Samstagslauf ab dem Laufladen Bunert in 5:00 bis 6:00 min/km.",
+  "beschreibung_en": "Saturday run from the Bunert running store at 5:00–6:00/km.",
+  "quelle": [
+   "https://socialrunclubs.de/wuppertal/bunert-lauftreff/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; Hausnummer fehlt"
+ },
+ {
+  "id": "wuppertal-first-miles",
+  "name": "First Miles Running Club",
+  "art": "Laufen",
+  "stadt": "Wuppertal",
+  "land": "Deutschland",
+  "treffpunkt": "Bahnhof Varresbeck (Nordbahntrasse)",
+  "lat": 51.25282,
+  "lon": 7.09752,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/firstmilescrew/",
+  "strava": "https://www.strava.com/clubs/1582958",
+  "beschreibung_de": "Run Club am Montagabend ab dem Bahnhof Varresbeck an der Nordbahntrasse.",
+  "beschreibung_en": "Monday-evening run club from Varresbeck station on the Nordbahntrasse.",
+  "quelle": [
+   "https://socialrunclubs.de/wuppertal/first-miles-running-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "wuppertal-runclub42",
+  "name": "RUNCLUB42",
+  "art": "Laufen",
+  "stadt": "Wuppertal",
+  "land": "Deutschland",
+  "treffpunkt": "Ottenbrucher Bahnhof",
+  "lat": 51.2624,
+  "lon": 7.12287,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/runclub42/",
+  "strava": "https://www.strava.com/clubs/1631981",
+  "beschreibung_de": "Run Club am Donnerstagabend ab dem Ottenbrucher Bahnhof.",
+  "beschreibung_en": "Thursday-evening run club from Ottenbruch station.",
+  "quelle": [
+   "https://socialrunclubs.de/wuppertal/runclub42/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "wuppertal-swarm",
+  "name": "swarm – Running people",
+  "art": "Laufen",
+  "stadt": "Wuppertal",
+  "land": "Deutschland",
+  "treffpunkt": "Parkplatz Utopiastadt (Mirker Bahnhof)",
+  "lat": 51.26666,
+  "lon": 7.14469,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/swarm.running/",
+  "strava": "https://www.strava.com/clubs/1705543",
+  "beschreibung_de": "Laufgruppe am Donnerstagabend ab dem Parkplatz Utopiastadt.",
+  "beschreibung_en": "Thursday-evening running group from the Utopiastadt car park.",
+  "quelle": [
+   "https://socialrunclubs.de/wuppertal/swarm-running-people/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "wuppertal-tal-tiger",
+  "name": "Tal Tiger Runclub",
+  "art": "Laufen",
+  "stadt": "Wuppertal",
+  "land": "Deutschland",
+  "treffpunkt": "Mirker Bahnhof",
+  "lat": 51.26617,
+  "lon": 7.14346,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "11:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/taltiger.wpt/",
+  "strava": "https://www.strava.com/clubs/1609827",
+  "beschreibung_de": "Sonntagslauf ab dem Mirker Bahnhof.",
+  "beschreibung_en": "Sunday run from Mirker Bahnhof.",
+  "quelle": [
+   "https://socialrunclubs.de/wuppertal/tal-tiger-runclub/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "wuppertal-running-club",
+  "name": "Wuppertal Running Club",
+  "art": "Laufen",
+  "stadt": "Wuppertal",
+  "land": "Deutschland",
+  "treffpunkt": "Mirker Bahnhof",
+  "lat": 51.26617,
+  "lon": 7.14346,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/wtalrunning/",
+  "strava": "https://www.strava.com/clubs/wtalrunning",
+  "beschreibung_de": "Mittwochslauf ab dem Mirker Bahnhof (Treff 18:30 Uhr, Start 19:00 Uhr).",
+  "beschreibung_en": "Wednesday run from Mirker Bahnhof (meet 18:30, start 19:00).",
+  "quelle": [
+   "https://socialrunclubs.de/wuppertal/wuppertal-running-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
  }
 ]
