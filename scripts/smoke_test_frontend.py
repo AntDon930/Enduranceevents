@@ -580,6 +580,36 @@ def pruefe_kacheln(ctx, basis):
     seite.close()
 
 
+def pruefe_karte_ipad(browser, basis):
+    """Die Karte, direkt in iPad-Größen GEÖFFNET (19.10.2026, vom Nutzer
+    gemeldet: „Ich seh auf dem iPad die Karte nicht mehr"). Passt die
+    Region erst unter Zoom 6, zoomt setzeMinZoom() schon beim Laden; das
+    zoomend lief in aktualisiereFlach(), bevor referenzLayer deklariert
+    war, und das Skript brach ab. Die anderen Prüfungen öffnen die Karte
+    auf 390 px und ändern die Größe erst danach - dort zoomt das Laden
+    nicht, der Fehler war unsichtbar."""
+    print("\nKarte auf dem iPad (Laden in Tablet-Größen)")
+    for breite, hoehe in ((1366, 1024), (820, 1180), (1180, 820)):
+        ctx = browser.new_context(viewport={"width": breite, "height": hoehe},
+                                  has_touch=True)
+        try:
+            seite, probleme = seite_oeffnen(ctx, basis + "/karte.html")
+            seite.wait_for_function(
+                "() => /\\d/.test((document.getElementById('map-hint') || {}).textContent || '')",
+                timeout=20000)
+            stand = seite.evaluate("""() => ({
+                marker: document.querySelectorAll('.leaflet-marker-icon').length,
+                hint: document.getElementById('map-hint').textContent })""")
+            fehler = [x for x in probleme if x.startswith("Skriptfehler")]
+            pruefe(not fehler, "%d x %d: Karte lädt ohne Skriptfehler (%s)" % (breite, hoehe, "; ".join(fehler)[:120]))
+            pruefe(stand["marker"] > 0, "%d x %d: Marker stehen auf der Karte (%d, %s)"
+                   % (breite, hoehe, stand["marker"], stand["hint"]))
+        except Exception as ex:                      # noqa: BLE001
+            pruefe(False, "%d x %d: Karte lädt (%s)" % (breite, hoehe, str(ex).splitlines()[0]))
+        finally:
+            ctx.close()
+
+
 def pruefe_plattformen(ctx, basis):
     """Android, Windows, Linux (14.10.2026): was auf dem iPhone schon stimmte,
     aber auf den häufigsten anderen Geräten nicht.
@@ -2987,6 +3017,7 @@ def main() -> int:
                 pruefe_kacheln(ctx, basis)
                 pruefe_chips_handy(ctx, basis)
                 pruefe_plattformen(ctx, basis)
+                pruefe_karte_ipad(browser, basis)
                 pruefe_startseite(ctx, basis)
                 pruefe_mastersuche(ctx, basis)
                 pruefe_such_vorschlaege(ctx, basis)

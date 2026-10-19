@@ -4440,6 +4440,18 @@ zoomen"). Alles in `karte.html`:
   Box zählen nicht. Der Rauchtest (`pruefe_kartenrahmen`) prüft
   „Region ganz im Bild und groß" und „Doppeltippen = eine Stufe, Mitte
   bleibt" an zwei Orientierungsorten.
+- **Das erste `setzeMinZoom()` zoomt schon beim Laden** (19.10.2026, vom
+  Nutzer gemeldet: „Ich seh auf dem iPad die Karte nicht mehr", iPhone
+  ging): Wo die Region erst unter Zoom 6 passt (iPad 1366 × 1024, iPad
+  hochkant 820 × 1180), löst das `zoomend` → `aktualisiereFlach()` aus,
+  und das griff auf `referenzLayer` zu, das weiter unten deklariert war –
+  Temporal Dead Zone, das Skript brach ab, die Legende blieb bei „Lade
+  Events…". `referenzLayer` steht jetzt VOR `aktualisiereFlach()`. Alle
+  anderen Prüfungen öffnen die Karte auf 390 px und ändern die Größe
+  erst danach; `pruefe_karte_ipad` öffnet sie deshalb direkt in drei
+  iPad-Größen. **Wer einen `zoomend`-/`moveend`-Zuhörer vor dem ersten
+  `setzeMinZoom()` einhängt, prüft, dass alles, was er anfasst, schon
+  deklariert ist.**
 
 Die Welt steht genau einmal da (vom Nutzer gemeldet: „die Weltkarte
 wird immer dupliziert"); was folgt, ist die Geschichte bis zum

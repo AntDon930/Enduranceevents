@@ -774,6 +774,12 @@
   // Orientierungsorte (graue Punkte) gibt es nur in der flachen
   // Ansicht - darüber stehen die Namen auf den Kacheln.
   const TILES_AB_ZOOM = 8;
+  // Steht HIER, nicht bei ihrem Pane weiter unten: setzeMinZoom() zoomt
+  // schon beim Laden (iPad hochkant und 1366 x 1024 passen die Region
+  // erst unter Zoom 6), das löst zoomend -> aktualisiereFlach() aus, und
+  // weiter unten deklariert warf das „Cannot access 'referenzLayer'
+  // before initialization" - die Karte blieb leer („Lade Events…").
+  const referenzLayer = L.layerGroup();
   function aktualisiereFlach() {
     const flach = map.getZoom() < TILES_AB_ZOOM;
     map.getContainer().classList.toggle('map-flach', flach);
@@ -923,7 +929,6 @@
   map.createPane('referenzPane');
   map.getPane('referenzPane').style.zIndex = 300;
   map.getPane('referenzPane').style.pointerEvents = 'none';
-  const referenzLayer = L.layerGroup();
   aktualisiereFlach();
 
   // Das Rechteck reicht weit über Europa hinaus - `maxBounds` lässt
