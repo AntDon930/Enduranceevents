@@ -1811,9 +1811,14 @@ def test_clubs() -> None:
         if not (isinstance(lat, (int, float)) and isinstance(lon, (int, float)) and 45.8 <= lat <= 55.1 and 5.8 <= lon <= 17.2):
             fehler.append(f"{n}: Koordinaten außerhalb von D/A/CH")
         for t in c.get("termine") or []:
-            if t.get("rhythmus") not in ("woechentlich", "zweiwoechentlich", "monatlich"):
+            if t.get("rhythmus") not in ("woechentlich", "zweiwoechentlich", "monatlich", "einmalig"):
                 fehler.append(f"{n}: rhythmus {t.get('rhythmus')!r}")
-            if t.get("wochentag") not in range(1, 8):
+            if t.get("rhythmus") == "einmalig":
+                try:
+                    _dt.date.fromisoformat(t.get("datum") or "")
+                except ValueError:
+                    fehler.append(f"{n}: einmalig ohne gültiges datum")
+            elif t.get("wochentag") not in range(1, 8):
                 fehler.append(f"{n}: wochentag {t.get('wochentag')!r}")
             if t.get("uhrzeit") and not uhr.match(t["uhrzeit"]):
                 fehler.append(f"{n}: uhrzeit {t['uhrzeit']!r}")
@@ -1863,7 +1868,8 @@ def test_clubs() -> None:
     proben = [{"rhythmus": "woechentlich", "wochentag": 2, "uhrzeit": "19:00"},
               {"rhythmus": "zweiwoechentlich", "wochentag": 6, "uhrzeit": "09:00", "ab": "2026-10-03"},
               {"rhythmus": "monatlich", "wochentag": 7, "uhrzeit": "10:00", "nter": 1, "bezeichnung": "Long Run"},
-              {"rhythmus": "monatlich", "wochentag": 5, "uhrzeit": "18:30", "nter": -1}]
+              {"rhythmus": "monatlich", "wochentag": 5, "uhrzeit": "18:30", "nter": -1},
+              {"rhythmus": "einmalig", "datum": "2026-10-28", "uhrzeit": "17:30", "bezeichnung": "Community Run"}]
     check("Korrekturliste: Termine hin und zurück",
           ck.termine_aus_text("\n".join(ck.termin_text(t) for t in proben), []), proben)
     for c in clubs:
@@ -1910,6 +1916,8 @@ def test_clubs() -> None:
       r.stufen_quelle = EC.stufen({ art: 'Laufen', stufen: ['fortgeschritten', 'anfaenger'], pace: { von: '5:00', bis: '5:00' }, termine: [] });
       r.rrule = [EC.rrule({ rhythmus: 'woechentlich', wochentag: 2 }), EC.rrule({ rhythmus: 'zweiwoechentlich', wochentag: 6 }), EC.rrule({ rhythmus: 'monatlich', wochentag: 7, nter: -1 })];
       r.regel = EC.formatRegel({ rhythmus: 'monatlich', wochentag: 7, nter: 1, uhrzeit: '10:00' }, 'de');
+      r.einmalig = tage(club([{ rhythmus: 'einmalig', datum: '2026-10-28', uhrzeit: '17:30' }, { rhythmus: 'woechentlich', wochentag: 1, uhrzeit: '19:00' }]), '2026-10-25', '2026-11-03');
+      r.einmalig_rrule = EC.rrule({ rhythmus: 'einmalig', datum: '2026-10-28' });
       console.log(JSON.stringify(r));
     """
     erg = subprocess.run([node, "-e", skript, str(wurzel)], capture_output=True, text=True)
@@ -1932,6 +1940,8 @@ def test_clubs() -> None:
     check("Stufe aus der Quelle schlägt das Tempo", r["stufen_quelle"], ["anfaenger", "fortgeschritten"])
     check("Kalender-Regeln (RRULE)", r["rrule"], ["FREQ=WEEKLY;BYDAY=TU", "FREQ=WEEKLY;INTERVAL=2;BYDAY=SA", "FREQ=MONTHLY;BYDAY=-1SU"])
     check("Regel in Worten", r["regel"], "Jeden 1. Sonntag im Monat, 10:00 Uhr")
+    check("Einzeltermin neben wöchentlichem Termin", r["einmalig"], ["2026-10-26 19:00", "2026-10-28 17:30", "2026-11-02 19:00"])
+    check("Einzeltermin hat keine RRULE", r["einmalig_rrule"], None)
 
 
 def test_farbschema_skript() -> None:

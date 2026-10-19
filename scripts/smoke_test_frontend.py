@@ -2984,6 +2984,11 @@ def pruefe_clubs(ctx, basis):
     print("\nClubs (clubs.html, Schalter auf der Karte):")
     with open(os.path.join(WURZEL, "clubs.json"), encoding="utf-8") as f:
         clubs = json.load(f)
+    # Sichtbar ist, was nicht zur Prüfung steht und noch einen Termin hat
+    # (nur vergangene Einzeltermine = ausgeblendet, clubs.js loadClubs).
+    heute = datetime.date.today().isoformat()
+    clubs = [c for c in clubs if not c.get("pruefung_offen")
+             and not all(t.get("rhythmus") == "einmalig" and t.get("datum", "") < heute for t in c.get("termine", []))]
     if not clubs:
         ueberspringe("clubs.json ist leer")
         return

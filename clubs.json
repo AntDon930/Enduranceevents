@@ -18210,6 +18210,12 @@
     "wochentag": 7,
     "uhrzeit": "09:30",
     "bezeichnung": "Sunday Social Run, Brienner Straße 50a"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-28",
+    "uhrzeit": "19:00",
+    "bezeichnung": "Olympia Hill Sprints (mit SOYL)"
    }
   ],
   "strava": "https://www.strava.com/clubs/1313031",
@@ -18386,5 +18392,58 @@
   "geprueft": "2026-10-19",
   "pruefung_offen": true,
   "pruefung_grund": "Laut Recherche kostenpflichtig (Abo) – können Gäste einfach mitlaufen? Drei Orte, Kartenpunkt am Montags-Treffpunkt"
+ },
+ {
+  "id": "koeln-sportscheck-community",
+  "name": "SportScheck Community Köln",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "SportScheck, Schildergasse 38",
+  "lat": 50.93678,
+  "lon": 6.95471,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-28",
+    "uhrzeit": "17:30",
+    "bezeichnung": "Community Run powered by ASICS"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/260630",
+  "webseite": "https://www.sportscheck.com/",
+  "beschreibung_de": "Community-Läufe von SportScheck in Köln – einzelne Termine, keine feste Wiederholung.",
+  "beschreibung_en": "SportScheck community runs in Cologne – individual dates, no fixed schedule.",
+  "quelle": [
+   "https://www.strava.com/clubs/260630",
+   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "muenchen-dsrc",
+  "name": "DSRC",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Gudrunstraße 3, 80634 München",
+  "lat": 48.15289,
+  "lon": 11.53059,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-29",
+    "uhrzeit": "16:00",
+    "bezeichnung": "DSRC x La Marzocco Roadshow"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/1065107",
+  "beschreibung_de": "Münchner Running Club mit einzelnen Community-Läufen.",
+  "beschreibung_en": "Munich running club with individual community runs.",
+  "quelle": [
+   "https://www.strava.com/clubs/1065107",
+   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-19"
  }
 ]

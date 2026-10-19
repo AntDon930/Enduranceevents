@@ -27,7 +27,7 @@
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
   const ARTEN = ['Laufen', 'Fahrrad', 'Schwimmen'];
-  const RHYTHMEN = ['woechentlich', 'zweiwoechentlich', 'monatlich'];
+  const RHYTHMEN = ['woechentlich', 'zweiwoechentlich', 'monatlich', 'einmalig'];
   const STUFEN = ['anfaenger', 'mittel', 'fortgeschritten'];
   const MERKMALE = ['anfaengerfreundlich', 'mehrere_gruppen', 'no_drop', 'kaffee', 'gepaeck', 'dusche', 'frauen'];
   // Wie weit voraus nach dem nächsten Termin gesucht wird. Monatliche
@@ -39,7 +39,7 @@
       art_Laufen: 'Laufen', art_Fahrrad: 'Rad', art_Schwimmen: 'Schwimmen',
       club: 'Club',
       stufe_anfaenger: 'Anfänger', stufe_mittel: 'Mittel', stufe_fortgeschritten: 'Fortgeschritten',
-      rh_woechentlich: 'Wöchentlich', rh_zweiwoechentlich: 'Alle 2 Wochen', rh_monatlich: 'Monatlich',
+      rh_woechentlich: 'Wöchentlich', rh_zweiwoechentlich: 'Alle 2 Wochen', rh_monatlich: 'Monatlich', rh_einmalig: 'Einzeltermine',
       wt_lang: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
       wt_plural: ['sonntags', 'montags', 'dienstags', 'mittwochs', 'donnerstags', 'freitags', 'samstags'],
       jeden: (tag) => `Jeden ${tag}`,
@@ -73,7 +73,7 @@
       d_strava: 'Strava',
       d_karte: 'Auf der Karte',
       d_liste: 'In der Liste',
-      d_kalender: 'In den Kalender (wiederkehrend)',
+      d_kalender: 'In den Kalender',
       d_teilen: 'Club teilen',
       d_schliessen: 'Schließen',
       d_geprueft: (d) => `Zuletzt geprüft: ${d}. Treffs ändern sich oft – vor dem ersten Mal kurz auf der Webseite oder bei Instagram nachsehen.`,
@@ -88,7 +88,7 @@
       art_Laufen: 'Running', art_Fahrrad: 'Cycling', art_Schwimmen: 'Swimming',
       club: 'Club',
       stufe_anfaenger: 'Beginner', stufe_mittel: 'Intermediate', stufe_fortgeschritten: 'Advanced',
-      rh_woechentlich: 'Weekly', rh_zweiwoechentlich: 'Every 2 weeks', rh_monatlich: 'Monthly',
+      rh_woechentlich: 'Weekly', rh_zweiwoechentlich: 'Every 2 weeks', rh_monatlich: 'Monthly', rh_einmalig: 'One-off sessions',
       wt_lang: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       wt_plural: ['Sundays', 'Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays'],
       jeden: (tag) => `Every ${tag}`,
@@ -122,7 +122,7 @@
       d_strava: 'Strava',
       d_karte: 'On the map',
       d_liste: 'In the list',
-      d_kalender: 'Add to calendar (recurring)',
+      d_kalender: 'Add to calendar',
       d_teilen: 'Share club',
       d_schliessen: 'Close',
       d_geprueft: (d) => `Last checked: ${d}. Clubs change often – check their website or Instagram before you go.`,
@@ -183,6 +183,9 @@
 
   // Findet die Regel an diesem Tag statt?
   function terminAmTag(termin, nr) {
+    // Einzeltermin (seit dem 19.10.2026, vom Nutzer: „wir können schon auch
+    // Einzeltermine aufnehmen … das sind auch Community-Läufe"): genau ein Tag.
+    if (termin.rhythmus === 'einmalig') return !!termin.datum && isoVonTag(nr) === termin.datum;
     if (isoWochentag(nr) !== termin.wochentag) return false;
     if (termin.rhythmus === 'woechentlich') return true;
     if (termin.rhythmus === 'zweiwoechentlich') {
@@ -352,6 +355,10 @@
   // "Jeden Dienstag, 19:00 Uhr" / "Alle 2 Wochen samstags, 09:00 Uhr" /
   // "Jeden 1. Sonntag im Monat, 10:00 Uhr".
   function formatRegel(termin, lang) {
+    if (termin.rhythmus === 'einmalig') {
+      const d = EF ? EF.formatDateLong(termin.datum, lang).replace(/\s\d{4}$/, '') : termin.datum;
+      return termin.uhrzeit ? `${d}, ${tx(lang, 'uhr', termin.uhrzeit)}` : d;
+    }
     const wtIdx = termin.wochentag % 7;   // 7 (So) -> 0
     const tag = tx(lang, 'wt_lang')[wtIdx];
     let text;
@@ -367,6 +374,7 @@
     const r = (club.termine || []).map(t => t.rhythmus);
     if (r.includes('woechentlich')) return 'woechentlich';
     if (r.includes('zweiwoechentlich')) return 'zweiwoechentlich';
+    if (r.includes('monatlich')) return 'monatlich';
     return r[0] || 'woechentlich';
   }
 
@@ -436,6 +444,7 @@
   // den Treff dann jede Woche, ohne dass wir je etwas nachschieben.
   const ICS_TAG = ['', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
   function rrule(termin) {
+    if (termin.rhythmus === 'einmalig') return null;
     const tag = ICS_TAG[termin.wochentag];
     if (termin.rhythmus === 'zweiwoechentlich') return `FREQ=WEEKLY;INTERVAL=2;BYDAY=${tag}`;
     if (termin.rhythmus === 'monatlich') return `FREQ=MONTHLY;BYDAY=${termin.nter === -1 ? -1 : (termin.nter || 1)}${tag}`;
@@ -462,7 +471,7 @@
       `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+Z$/, 'Z')}`,
       `DTSTART;TZID=Europe/Berlin:${start}`,
       `DTEND;TZID=Europe/Berlin:${ende}`,
-      `RRULE:${rrule(termin)}`,
+      rrule(termin) ? `RRULE:${rrule(termin)}` : null,
       `SUMMARY:${esc(club.name)}`,
       `LOCATION:${esc([club.treffpunkt, club.stadt].filter(Boolean).join(', '))}`,
       `DESCRIPTION:${esc(beschreibung)}`,
@@ -639,7 +648,9 @@
     let pruefen = false;
     try { pruefen = new URLSearchParams(global.location.search).get('pruefen') === '1'; } catch (e) { /* ignorieren */ }
     return liste.filter(c => c && c.id && ARTEN.includes(c.art) && Array.isArray(c.termine) && c.termine.length
-      && (pruefen || !c.pruefung_offen));
+      && (pruefen || !c.pruefung_offen)
+      // Nur noch vergangene Einzeltermine: der Club ist (vorerst) vorbei.
+      && (pruefen || !c.termine.every(t => t.rhythmus === 'einmalig') || naechsterTermin(c)));
   }
 
   global.EnduranceClubs = {

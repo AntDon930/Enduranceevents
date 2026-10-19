@@ -18,6 +18,7 @@ Termine stehen als Text, eine Einheit je Zeile:
     wöchentlich Di 19:00
     alle 2 Wochen Sa 09:00 ab 2026-10-03
     monatlich 1. So 10:00          (auch: monatlich letzter Fr 18:30)
+    einmalig 2026-10-28 17:30 (Community Run)
     wöchentlich Sa 09:30 (Long Run)
 
 Verglichen wird gegen das ausgeblendete Blatt `_original` (Stand beim
@@ -72,6 +73,9 @@ SPALTEN = [
 # ---------- Text <-> Daten ----------
 
 def termin_text(t: dict) -> str:
+    if t["rhythmus"] == "einmalig":
+        s = f"einmalig {t['datum']} {t.get('uhrzeit', '')}".strip()
+        return s + (f" ({t['bezeichnung']})" if t.get("bezeichnung") else "")
     tag = TAGE[t["wochentag"] - 1]
     if t["rhythmus"] == "zweiwoechentlich":
         s = f"alle 2 Wochen {tag} {t.get('uhrzeit', '')}".strip() + (f" ab {t['ab']}" if t.get("ab") else "")
@@ -91,11 +95,23 @@ _TERMIN_RE = re.compile(
     r"(?:\s+ab\s+(?P<ab>\d{4}-\d{2}-\d{2}))?\s*(?:\((?P<bez>.*)\))?$", re.I)
 
 
+_EINMALIG_RE = re.compile(r"^einmalig\s+(?P<datum>\d{4}-\d{2}-\d{2})\s+(?P<zeit>\d{1,2}[:.]\d{2})\s*(?:\((?P<bez>.*)\))?$", re.I)
+
+
 def termine_aus_text(text: str, alte: list[dict]) -> list[dict]:
     """Liest die Termin-Zellen zurück; Felder der alten Einheit gleicher
     Stelle (distanz_km, pace) bleiben erhalten. Wirft ValueError."""
     neue = []
     for i, zeile in enumerate(z.strip() for z in re.split(r"[\n;]+", text or "") if z.strip()):
+        e = _EINMALIG_RE.match(zeile)
+        if e:
+            datetime.date.fromisoformat(e["datum"])
+            h, mi = re.split(r"[:.]", e["zeit"])
+            t = {"rhythmus": "einmalig", "datum": e["datum"], "uhrzeit": f"{int(h):02d}:{mi}"}
+            if e["bez"]:
+                t["bezeichnung"] = e["bez"].strip()
+            neue.append(t)
+            continue
         m = _TERMIN_RE.match(zeile)
         if not m:
             raise ValueError(f"Termin nicht lesbar: {zeile!r}")
@@ -236,7 +252,7 @@ def export(ziel: Path) -> int:
         "Jede Zeile ist ein Club, bei dem etwas unsicher ist (Spalte „Grund der Prüfung“).",
         "Diese Clubs sind auf der Seite AUSGEBLENDET, bis du sie prüfst.",
         "Status: „Stimmt so“ oder „Korrigiert“ = freigeben (geänderte Zellen werden übernommen), „Löschen“ = Club entfernen, leer = bleibt offen.",
-        "Termine: eine Einheit je Zeile, z. B. „wöchentlich Di 19:00“, „alle 2 Wochen Sa 09:00 ab 2026-10-03“, „monatlich 1. So 10:00“, „monatlich letzter Fr 18:30“, Zusatz in Klammern: „wöchentlich Sa 09:30 (Long Run)“.",
+        "Termine: eine Einheit je Zeile, z. B. „wöchentlich Di 19:00“, „alle 2 Wochen Sa 09:00 ab 2026-10-03“, „monatlich 1. So 10:00“, „monatlich letzter Fr 18:30“, „einmalig 2026-10-28 17:30“ (Einzeltermin), Zusatz in Klammern: „wöchentlich Sa 09:30 (Long Run)“.",
         "Tempo: Laufen „5:30–6:30“ (min/km), Rad „25–30“ (km/h), Schwimmen „1:50–2:15“ (min/100 m).",
         "Kosten: „kostenlos“, „5 €“ oder freier Text („CHF 10, Gäste frei“).",
         "Graue Spalten nicht ändern. Was nicht in eine Zelle passt, in „Anmerkung“ schreiben.",
