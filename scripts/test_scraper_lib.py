@@ -1159,13 +1159,50 @@ def test_js_syntax() -> None:
                 check(f"{name}: Inline-Skript {nr} ist gültiges JS",
                       fehlerzeile(erg), "")
         for name in ("filters.js", "filter-ui.js", "event-detail.js", "auth.js", "stats.js",
-                     "firebase-config.js", "functions/index.js", "functions/stats_aggregate.js"):
+                     "firebase-config.js", "vorschau-sperre.js",
+                     "functions/index.js", "functions/stats_aggregate.js"):
             pfad = wurzel / name
             if not pfad.exists():
                 continue
             erg = subprocess.run([node, "--check", str(pfad)],
                                  capture_output=True, text=True)
             check(f"{name} ist gültiges JS", fehlerzeile(erg), "")
+
+
+def test_vorschau_sperre() -> None:
+    """Anmeldesperre für /vorschau/ (19.10.2026): pages.yml setzt
+    vorschau-sperre.js in JEDE Vorschau-Seite, und vor dem Upload fliegt
+    eine Vorschau ohne Sperre ganz heraus. Die Sperre fragt admins/<uid>
+    wie admin.html und lädt Firebase aus einem Pfad, den es geben muss."""
+    print("\nAnmeldesperre der Vorschau:")
+    import re as _re
+    wurzel = Path(__file__).resolve().parent.parent
+    js = (wurzel / "vorschau-sperre.js").read_text(encoding="utf-8")
+    pfad = _re.search(r"FIREBASE_PFAD = '([^']+)'", js).group(1)
+    for datei in ("firebase-app-compat.js", "firebase-auth-compat.js"):
+        check(f"Firebase-Pfad der Sperre gibt es: {pfad}{datei}", (wurzel / pfad / datei).exists(), True)
+    check("Sperre fragt admins/<uid> per REST", "/documents/admins/" in js and "getIdToken" in js, True)
+    check("Sperre ist sofort zu (vor <body>)", js.index("root.classList.add('vs-zu')") < js.index("function zu("), True)
+    check("verborgen über opacity, nicht display (Leaflet misst sonst 0 px)",
+          "opacity:0!important" in js and "display:none" not in js, True)
+    regeln = (wurzel / "firestore.rules").read_text(encoding="utf-8")
+    check("firestore.rules: das eigene admins-Dokument ist abfragbar",
+          "allow get: if request.auth != null && request.auth.uid == uid;" in regeln, True)
+    # Als Text, nicht mit yaml: PyYAML gibt es in der CI nicht (13.10.2026).
+    workflow = (wurzel / ".github/workflows/pages.yml").read_text(encoding="utf-8")
+    teile = _re.split(r"\n      - name: ", workflow)
+    schritte = {t.split("\n", 1)[0].strip(): {"run": t} for t in teile[1:]}
+    namen = list(schritte)
+    marke = 'src="/vorschau/vorschau-sperre.js"'
+    vorbereiten = schritte.get("Vorschau vorbereiten", {}).get("run", "")
+    check("pages.yml kopiert die Sperre in die Vorschau", "cp vorschau-sperre.js vorschau/" in vorbereiten, True)
+    check("pages.yml setzt sie in jede Vorschau-Seite", marke in vorbereiten and "find vorschau -name '*.html'" in vorbereiten, True)
+    check("pages.yml räumt die Vorschau bei einem Fehler weg", "trap 'rm -rf vorschau' ERR" in vorbereiten, True)
+    waechter = schritte.get("Vorschau nur mit Anmeldesperre", {}).get("run", "")
+    check("Wächter prüft dieselbe Marke und wirft sonst die Vorschau raus",
+          marke in waechter and "rm -rf vorschau" in waechter, True)
+    check("Wächter läuft vor dem Upload",
+          "Vorschau nur mit Anmeldesperre" in namen and namen.index("Vorschau nur mit Anmeldesperre") < namen.index("Upload site as Pages artifact"), True)
 
 
 def test_abo_rhythmen() -> None:
@@ -5567,7 +5604,7 @@ def main() -> int:
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,
                  test_keine_fremden_dateien, test_laender_maske,
-                 test_asset_stempel, test_farbschema_skript, test_wartung,
+                 test_asset_stempel, test_farbschema_skript, test_wartung, test_vorschau_sperre,
                  test_lauf_im_triathlonkalender,
                  test_wettbewerb_zusatz, test_triathlon_format, test_charity_merkmal,
                  test_triathlon_format_kopie):

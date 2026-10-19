@@ -99,11 +99,19 @@ jobs:
         if: steps.vorschau.outcome == 'success'
         continue-on-error: true
         run: |
+          # Lieber keine Vorschau als eine ohne Anmeldesperre: Bricht hier
+          # ein Befehl ab, fliegt der ganze Ordner aus dem Upload.
+          trap 'rm -rf vorschau' ERR
           rm -rf vorschau/.git vorschau/.github vorschau/scripts vorschau/functions vorschau/marketing vorschau/kalender vorschau/korrektur
           cp events.json events.web.json vorschau/
           cp -r kalender vorschau/kalender
-          for f in vorschau/*.html; do
-            sed -i 's#<head>#<head>\n<meta name="robots" content="noindex, nofollow">#' "$f"
+          # Die Anmeldesperre (seit 19.10.2026, vom Nutzer gewünscht): nur wer
+          # in Firestore unter admins/<uid> steht, sieht die Seiten – wie
+          # admin.html. Erstes Skript im <head>, Pfad absolut, damit er auch
+          # aus Unterordnern stimmt. Sichtschutz, kein Tresor (siehe Datei).
+          cp vorschau-sperre.js vorschau/
+          find vorschau -name '*.html' -print0 | while IFS= read -r -d '' f; do
+            sed -i 's#<head>#<head>\n<script src="/vorschau/vorschau-sperre.js"></script>\n<meta name="robots" content="noindex, nofollow">#' "$f"
           done
 
       # Die Korrekturseite ist ein privates claude.ai-Artifact (CLAUDE.md,
@@ -112,6 +120,19 @@ jobs:
       # (nichts von fremden Servern).
       - name: Nur-Artifact-Dateien weglassen
         run: rm -rf korrektur
+
+      # Letzte Sicherung vor dem Upload, auch wenn ein Vorschau-Schritt mit
+      # continue-on-error halb lief (z. B. nur der Checkout): Trägt EINE
+      # Seite unter vorschau/ die Anmeldesperre nicht, geht keine Vorschau raus.
+      - name: Vorschau nur mit Anmeldesperre
+        run: |
+          if [ -d vorschau ]; then
+            ohne=$(find vorschau -name '*.html' -exec grep -L 'src="/vorschau/vorschau-sperre.js"' {} + || true)
+            if [ -n "$ohne" ] || [ ! -f vorschau/vorschau-sperre.js ]; then
+              echo "::warning::Vorschau ohne Anmeldesperre – wird nicht ausgeliefert: $ohne"
+              rm -rf vorschau
+            fi
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

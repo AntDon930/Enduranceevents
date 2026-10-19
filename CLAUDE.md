@@ -32,9 +32,23 @@ Entwicklungs-Branch oben; der Clubs-Branch holt sie per **Merge** nach
 (nie umgekehrt vor dem Launch). `pages.yml` legt bei jedem Deploy den
 Clubs-Stand unter **`/vorschau/`** (noindex, robots.txt gesperrt, Daten
 vom Live-Stand); ein Push auf den Clubs-Branch stößt den Deploy über
-`vorschau.yml` an. **Launch**: Clubs-Branch in den Entwicklungs-Branch
-mergen, dann die beiden Vorschau-Schritte in `pages.yml`, `vorschau.yml`
-und die Zeile `Disallow: /vorschau/` in `robots.txt` entfernen.
+`vorschau.yml` an. **Seit dem 19.10.2026 mit Anmeldesperre** (vom Nutzer
+gewünscht, nachdem er gefragt hatte, ob die Vorschau geschützt ist – sie
+war es nicht, jede/r mit der Adresse kam drauf): `pages.yml` setzt
+`vorschau-sperre.js` als erstes Skript in jede Vorschau-Seite; sie zeigt
+die Seite nur, wenn das angemeldete Konto unter `admins/<uid>` steht (wie
+`admin.html`, REST mit ID-Token), sonst „Mit Google anmelden“ bzw. „kein
+Zugang“ mit der Konto-ID. Fail-closed: bis zur Bestätigung ist alles
+dahinter `opacity:0` + `inert`, und der Schritt „Vorschau nur mit
+Anmeldesperre“ wirft vor dem Upload die ganze Vorschau heraus, wenn EINE
+Seite die Sperre nicht trägt. **Grenze, dem Nutzer gesagt: Sichtschutz,
+kein Tresor** – GitHub Pages liefert die Dateien (HTML, Daten) an jeden
+aus, der sie direkt abruft. Ein Firebase-Update in `vendor/` muss
+`FIREBASE_PFAD` in der Datei mitnehmen (`test_vorschau_sperre` prüft den
+Pfad). **Launch**: Clubs-Branch in den Entwicklungs-Branch mergen, dann
+die drei Vorschau-Schritte in `pages.yml` (holen, vorbereiten, Wächter),
+`vorschau.yml`, `vorschau-sperre.js` und die Zeile `Disallow: /vorschau/`
+in `robots.txt` entfernen.
 
 ## Dateien
 
@@ -79,6 +93,7 @@ und die Zeile `Disallow: /vorschau/` in `robots.txt` entfernen.
 | `scripts/veranstalter_seiten_pruefung.json` | Bericht von `pruefen` (je Veranstaltung Flag NEU/NEU?/LEER/NICHTS/FEHLER, gefundene Termine); entsteht im Datenlauf, wird mitcommittet |
 | `scripts/korrekturliste.py` | **Excel-Korrekturliste für den Nutzer** (seit 05.10.2026): `export` schreibt alle Strecken mit fehlender/fraglicher Angabe (Audit-Meldungen ohne Eintrag in `geprueft.json`, vorläufige Termine, „unklar“-Fälle) als `.xlsx`, Zellen rot = fehlt, orange = fraglich; `import datei.xlsx [--dry-run]` liest die korrigierte Fassung zurück (Vergleich gegen das ausgeblendete Blatt `_original`), schreibt `manual_overrides.json` + `geprueft.json` und lässt `clean_events.py --no-geocoding` und `build_ics.py` laufen. Braucht `openpyxl`. Die `.xlsx` wird nicht committet. **Seit dem Livegang (13.10.2026) ist die Liste der Schalter: Jede Zeile, die in ihr steht, trägt in `events.json` `pruefung_offen: true` und ist auf der Seite ausgeblendet** (siehe „Livegang") |
 | `korrektur/korrekturliste.html`, `scripts/korrektur_seite.py` | **Die Korrekturseite** (seit 19.10.2026, statt die zwei Excel-Listen hin- und herzuschicken): privates claude.ai-Artifact mit Datenbank, gleiche Spalten, Farben und Auswahllisten wie die Excel; `korrektur_seite.py daten events\|clubs` baut die Zeilen aus dem Excel-Export (`korrektur/daten/*.json`, nicht committet), `einlesen` schickt die Antworten durch den VORHANDENEN Import – siehe „Korrekturseite“ |
+| `vorschau-sperre.js` | **Anmeldesperre der Clubs-Vorschau** (seit 19.10.2026): `pages.yml` kopiert sie nach `vorschau/` und setzt sie in jede Vorschau-Seite; nur Konten in `admins/<uid>` sehen die Seiten – siehe „Vorschau-Branch für die Clubs“ oben |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
