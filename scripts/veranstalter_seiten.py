@@ -137,7 +137,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "scripts"))
 from scraper_lib import (  # noqa: E402
-    _haversine_km, _kern_tokens, find_override, is_portal_link,
+    _haversine_km, _kern_tokens, find_override, is_portal_link, is_same_event,
     load_manual_overrides, normalize_event_name,
 )
 from veranstalter_links import ALLGEMEIN, host_von, kein_veranstalter  # noqa: E402
@@ -1012,6 +1012,18 @@ def uebernehmen(eintraege: list[tuple], heute: str, pfad: Path = MANUAL_EVENTS) 
         zeilen = manual_events_aus(eintrag, start, ende, heute, seiten_km)
         if (normalize_event_name(zeilen[0]["name"]), start) in vorhanden:
             continue
+        # Dieselbe Ausgabe unter einem ZWEITEN Gedächtnis-Eintrag (Sponsorname,
+        # 19.10.2026: „RIBE Citylauf Schwabach“ neben „Citylauf Schwabach“):
+        # Strecken, die schon in der Datei stehen, kommen nicht noch einmal –
+        # dieselbe Duplikat-Regel, nach der add_manual_events() sie überginge.
+        gleiche_tage = [e for e in liste if e.get("datum_start") == start]
+        doppelt = [z for z in zeilen if any(is_same_event(z, e) for e in gleiche_tage)]
+        if doppelt:
+            zeilen = [z for z in zeilen if z not in doppelt]
+            bericht.append(f"{eintrag.get('name')} ({eintrag.get('standort')}): {len(doppelt)} Strecke(n) "
+                           f"stehen schon unter einem anderen Namen in manual_events.json")
+            if not zeilen:
+                continue
         liste.extend(zeilen)
         vorhanden.add((normalize_event_name(zeilen[0]["name"]), start))
         bericht.append(f"{zeilen[0]['name']} ({eintrag.get('standort')}): Ausgabe {start} mit "

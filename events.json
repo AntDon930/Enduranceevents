@@ -6383,7 +6383,7 @@
     "lat": 46.7603344,
     "lon": 6.749057,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail",
     "datum_start": "2026-11-01",
     "datum_ende": "2026-11-01",
     "laenge_km": 5.0,
@@ -36816,19 +36816,6 @@
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://bienwald-marathon.de/",
     "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "53. Königsforst-Marathon Bensberg",
-    "standort": "Bensberg",
-    "lat": 51.2323776,
-    "lon": 9.3541143,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-14",
-    "datum_ende": "2027-03-14",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://koenigsforst-marathon.de"
   },
   {
     "land": "Deutschland",
