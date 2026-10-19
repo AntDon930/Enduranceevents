@@ -2251,5 +2251,2682 @@
   "pruefung_grund": "nur Sammelseite (Stand 08/2025), eigene Quelle nur Instagram",
   "land": "Deutschland",
   "geprueft": "2026-10-19"
+ },
+ {
+  "id": "stuttgart-rennwerk-lauftreff",
+  "name": "Lauftreff rennwerk Stuttgart",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "rennwerk Stuttgart, Rotebühlstraße 50",
+  "lat": 48.77321,
+  "lon": 9.16689,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Treffen 19:00, Start 19:15"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://rennwerk.info/lauftreff-stuttgart/",
+  "instagram": "https://www.instagram.com/rennwerk_die_laufexperten/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Wöchentlicher Lauftreff des Laufladens rennwerk mit gemeinsamem Aufwärmen und anschließender Runde; ohne Anmeldung.",
+  "beschreibung_en": "Weekly group run hosted by the running store rennwerk, starting with a joint warm-up; no registration needed.",
+  "quelle": [
+   "https://rennwerk.info/lauftreff-stuttgart/",
+   "https://socialrunclubs.de/stuttgart/lauftreff-vom-rennwerk-stuttgart/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Eigene Seite zuletzt 2024 aktualisiert – Termin 2026 bestätigen"
+ },
+ {
+  "id": "stuttgart-hoam-0711-runners",
+  "name": "HOAM Sports Club x Fietsen (0711 Runners)",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Fietsen Radcafé, Silberburgstraße 84",
+  "lat": 48.77933,
+  "lon": 9.16245,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:45"
+   }
+  ],
+  "distanz_km": [
+   6,
+   7
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://fietsen-stuttgart.de/",
+  "instagram": "https://www.instagram.com/hoam.sportsclub/",
+  "strava": "https://www.strava.com/clubs/0711Runners",
+  "merkmale": [
+   "mehrere_gruppen",
+   "kaffee"
+  ],
+  "beschreibung_de": "Social Run im Stuttgarter Westen mit mehreren Tempogruppen über 6–7 km, danach Treffen im Radcafé Fietsen.",
+  "beschreibung_en": "Social run in Stuttgart-West with several pace groups over 6–7 km, followed by a get-together at the Fietsen bike café.",
+  "quelle": [
+   "https://fietsen-stuttgart.de/",
+   "https://socialrunclubs.de/stuttgart/hoam-sports-club/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "stuttgart-fietsen-spaeti",
+  "name": "Fietsen Späti (Social Ride)",
+  "art": "Fahrrad",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Fietsen Radcafé, Silberburgstraße 84",
+  "lat": 48.77933,
+  "lon": 9.16245,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "distanz_km": [
+   50,
+   50
+  ],
+  "dauer_min": 150,
+  "anmeldung": "nein",
+  "webseite": "https://fietsen-stuttgart.de/",
+  "strava": "https://www.strava.com/clubs/fietsen-stuttgart",
+  "merkmale": [
+   "no_drop",
+   "kaffee"
+  ],
+  "rad_typ": "gemischt",
+  "beschreibung_de": "Feierabendrunde des Radcafés Fietsen über rund 50 km auf Straße oder Schotter im Social-Tempo, es wird auf alle gewartet.",
+  "beschreibung_en": "After-work ride from the Fietsen bike café, about 50 km on road or gravel at social pace, nobody gets dropped.",
+  "quelle": [
+   "https://fietsen-stuttgart.de/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "stuttgart-alf-sonntags-long-ride",
+  "name": "alf cycling Sonntags Long Ride",
+  "art": "Fahrrad",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "alf cycling Café & Bar, Villastraße 14 (Stuttgart-Ost)",
+  "lat": 48.79417,
+  "lon": 9.20302,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   80,
+   80
+  ],
+  "pace": {
+   "von": 25,
+   "bis": 26
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "grouprides.cc",
+  "webseite": "https://www.grouprides.cc/brand/alf-cycling",
+  "instagram": "https://www.instagram.com/alf_cycling/",
+  "merkmale": [
+   "kaffee"
+  ],
+  "rad_typ": "Rennrad",
+  "beschreibung_de": "Längere Sonntagsrunde mit dem Rennrad über rund 80 km ab dem alf cycling Café; derzeit ohne Guide, die Route kommt über grouprides.",
+  "beschreibung_en": "Longer Sunday road ride of about 80 km from the alf cycling café; currently self-guided with the route shared on grouprides.",
+  "quelle": [
+   "https://www.grouprides.cc/rides/alf-cycling-or-sonntags-long-ride-2026-10-25"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "stuttgart-alf-friday-run",
+  "name": "alf cycling 9 a.m. Friday Run",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "alf cycling Café & Bar, Villastraße 14 (Stuttgart-Ost)",
+  "lat": 48.79417,
+  "lon": 9.20302,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "pace": {
+   "von": "6:10",
+   "bis": "6:10"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.grouprides.cc/brand/alf-cycling",
+  "instagram": "https://www.instagram.com/alf_cycling/",
+  "merkmale": [
+   "dusche",
+   "kaffee"
+  ],
+  "beschreibung_de": "Ruhiger 6-km-Lauf am Freitagmorgen ab dem alf cycling Café, danach Duschen und Espresso vor Ort; ohne Anmeldung.",
+  "beschreibung_en": "Easy 6 km Friday morning run from the alf cycling café, with showers and espresso afterwards; no sign-up needed.",
+  "quelle": [
+   "https://www.grouprides.cc/rides/9-a.m.-friday-run-2026-10-23"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "stuttgart-dav-trailrun-lauftreff",
+  "name": "Trailrunning Lauftreff DAV Sektion Schwaben",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Servicestelle im AlpinZentrum, Waldau (Degerloch)",
+  "lat": 48.75101,
+  "lon": 9.18689,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "dauer_min": 60,
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Kontakt zur Gruppe vor der ersten Teilnahme",
+  "webseite": "https://www.alpenverein-schwaben.de/gruppen/trailrunning",
+  "strava": "https://www.strava.com/clubs/trailrunning_dav_schwaben",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Wöchentlicher Trailrun von etwa einer Stunde auf den Trails rund um die Waldau, Tempo nach Gruppe; vor dem ersten Mal kurz melden.",
+  "beschreibung_en": "Weekly trail run of about an hour on the trails around Waldau, pace adapted to the group; please get in touch before your first time.",
+  "quelle": [
+   "https://www.alpenverein-schwaben.de/gruppen/trailrunning",
+   "https://www.alpenverein-schwaben.de/trailrunning"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "stuttgart-kesselrun-club",
+  "name": "KesselRUN Club",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Huginn Café & Bar",
+  "lat": 48.77582,
+  "lon": 9.17342,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "17:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/kesselrun_club/",
+  "strava": "https://www.strava.com/clubs/1383094",
+  "beschreibung_de": "Wöchentlicher Social Run am Freitagabend ab dem Huginn Café.",
+  "beschreibung_en": "Weekly social run on Friday evenings from Huginn café.",
+  "quelle": [
+   "https://socialrunclubs.de/stuttgart/kesselrunclub/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; Adresse des Cafés fehlt"
+ },
+ {
+  "id": "stuttgart-pace-pastry-crew",
+  "name": "Pace & Pastry Crew",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Café Bona",
+  "lat": 48.79022,
+  "lon": 9.19946,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   8
+  ],
+  "instagram": "https://www.instagram.com/pacepastry/",
+  "strava": "https://www.strava.com/clubs/2193840",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Sonntagslauf über 5–8 km mit anschließendem Café-Besuch.",
+  "beschreibung_en": "Sunday run of 5–8 km followed by coffee and pastries.",
+  "quelle": [
+   "https://socialrunclubs.de/stuttgart/pace-pastry-crew/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; Adresse des Cafés fehlt"
+ },
+ {
+  "id": "stuttgart-runs-n-rolls",
+  "name": "Runs N Rolls",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Café Lang (Stuttgart-Süd)",
+  "lat": 48.74873,
+  "lon": 9.16991,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/runsnrolls/",
+  "strava": "https://www.strava.com/clubs/1409879",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Samstagslauf in Stuttgart-Süd mit Treffpunkt am Café Lang.",
+  "beschreibung_en": "Saturday run in Stuttgart-Süd meeting at Café Lang.",
+  "quelle": [
+   "https://socialrunclubs.de/stuttgart/run-n-rolls/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "stuttgart-soft-pace-club",
+  "name": "Soft Pace Club (Girls Run Club)",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Staatstheater Stuttgart",
+  "lat": 48.78021,
+  "lon": 9.18493,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   3,
+   5
+  ],
+  "pace": {
+   "von": "7:30",
+   "bis": "8:15"
+  },
+  "instagram": "https://www.instagram.com/soft.pace.club/",
+  "strava": "https://www.strava.com/clubs/softpaceclub",
+  "merkmale": [
+   "frauen",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lauftreff nur für Frauen am Samstagmorgen über 3 oder 5 km in ruhigem Tempo.",
+  "beschreibung_en": "Women-only Saturday morning run over 3 or 5 km at a relaxed pace.",
+  "quelle": [
+   "https://socialrunclubs.de/stuttgart/soft-pace-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "stuttgart-tuesday-athletic",
+  "name": "Tuesday Athletic",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "KIOST",
+  "lat": 48.78617,
+  "lon": 9.20805,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 60,
+  "instagram": "https://www.instagram.com/tuesdayathletic/",
+  "strava": "https://www.strava.com/clubs/tuesdayathletic",
+  "beschreibung_de": "Dienstagstreff mit wöchentlichem Wechsel zwischen etwa einstündigem Lauf und Intervallen.",
+  "beschreibung_en": "Tuesday meet-up alternating weekly between an hour-long run and interval training.",
+  "quelle": [
+   "https://socialrunclubs.de/stuttgart/tuesday-athletic/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; genaue Lage des KIOST unklar"
+ },
+ {
+  "id": "stuttgart-sporting-run-club",
+  "name": "Sporting Run Club",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Löwen Records Run and Cycling, Weilimdorf",
+  "lat": 48.81351,
+  "lon": 9.11343,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:45"
+   }
+  ],
+  "instagram": "https://www.instagram.com/sporting.run.club/",
+  "strava": "https://www.strava.com/clubs/2378239",
+  "beschreibung_de": "Samstagslauf in Stuttgart-Weilimdorf ab dem Laden Löwen Records Run and Cycling.",
+  "beschreibung_en": "Saturday run in Stuttgart-Weilimdorf from the Löwen Records Run and Cycling shop.",
+  "quelle": [
+   "https://socialrunclubs.de/stuttgart/sporting-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; erst im Oktober 2026 eingetragen"
+ },
+ {
+  "id": "stuttgart-laufzeitstr",
+  "name": "LaufzeitSTR",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Stadion Festwiese, Bad Cannstatt",
+  "lat": 48.78999,
+  "lon": 9.22706,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/laufzeitstr/",
+  "beschreibung_de": "Lauf- und Trainingsteam, das sich donnerstags am Stadion Festwiese trifft.",
+  "beschreibung_en": "Running and training team meeting on Thursdays at Stadion Festwiese.",
+  "quelle": [
+   "https://socialrunclubs.de/stuttgart/laufzeitstr/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; unklar, ob Gäste ohne Mitgliedschaft mitlaufen können"
+ },
+ {
+  "id": "karlsruhe-rennwerk-lauftreff",
+  "name": "Lauftreff rennwerk Karlsruhe",
+  "art": "Laufen",
+  "stadt": "Karlsruhe",
+  "land": "Deutschland",
+  "treffpunkt": "rennwerk Karlsruhe, Kaiserstraße 72",
+  "lat": 49.00975,
+  "lon": 8.40447,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Treffen 18:30, Start 19:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   7
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://rennwerk.info/lauftreff-karlsruhe/",
+  "instagram": "https://www.instagram.com/rennwerk_pf_ka/",
+  "beschreibung_de": "Wöchentlicher Lauftreff des Laufladens rennwerk über 5–7 km rund um das Schloss Richtung Hardtwald, in moderatem Tempo.",
+  "beschreibung_en": "Weekly group run from the rennwerk running store, 5–7 km around the palace towards the Hardtwald at a moderate pace.",
+  "quelle": [
+   "https://rennwerk.info/lauftreff-karlsruhe/",
+   "https://socialrunclubs.de/karlsruhe/lauftreff-vom-rennwerk-karlsruhe/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Eigene Seite zuletzt 2024 aktualisiert – Termin 2026 bestätigen"
+ },
+ {
+  "id": "karlsruhe-stark-running",
+  "name": "STARK Running",
+  "art": "Laufen",
+  "stadt": "Karlsruhe",
+  "land": "Deutschland",
+  "treffpunkt": "rennwerk Karlsruhe, Kaiserstraße 72",
+  "lat": 49.00975,
+  "lon": 8.40447,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "17:45",
+    "bezeichnung": "10 km Community Run",
+    "distanz_km": [
+     10,
+     10
+    ]
+   }
+  ],
+  "instagram": "https://www.instagram.com/stark_running/",
+  "strava": "https://www.strava.com/clubs/1112119",
+  "beschreibung_de": "Community Run über 10 km am Dienstag ab dem rennwerk Karlsruhe; mittwochs gibt es laut Sammelseite zusätzlich einen 5-km-Afterwork-Run ab Café Bertis.",
+  "beschreibung_en": "10 km community run on Tuesdays from rennwerk Karlsruhe; according to a directory there is also a 5 km after-work run on Wednesdays from Café Bertis.",
+  "quelle": [
+   "https://socialrunclubs.de/karlsruhe/stark-running/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "karlsruhe-slow-running-club",
+  "name": "Slow Running Club Karlsruhe",
+  "art": "Laufen",
+  "stadt": "Karlsruhe",
+  "land": "Deutschland",
+  "treffpunkt": "Günther-Klotz-Anlage",
+  "lat": 49.00071,
+  "lon": 8.37192,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "17:00"
+   }
+  ],
+  "distanz_km": [
+   3,
+   5
+  ],
+  "pace": {
+   "von": "8:00",
+   "bis": "9:30"
+  },
+  "stufen": [
+   "anfaenger"
+  ],
+  "instagram": "https://www.instagram.com/slowrunningclub_ka/",
+  "strava": "https://www.strava.com/clubs/1966633",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Bewusst langsame Laufgruppe für Einsteiger und Wiedereinsteiger über 3–5 km.",
+  "beschreibung_en": "Deliberately slow running group for beginners and returners over 3–5 km.",
+  "quelle": [
+   "https://socialrunclubs.de/karlsruhe/slow-running-club-karlsruhe/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "karlsruhe-no-matter-pace",
+  "name": "No Matter Pace Run Club",
+  "art": "Laufen",
+  "stadt": "Karlsruhe",
+  "land": "Deutschland",
+  "treffpunkt": "Trimm-dich-Pfad am Wildpark, Eggensteiner Allee",
+  "lat": 49.02498,
+  "lon": 8.40166,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "08:00"
+   }
+  ],
+  "stufen": [
+   "anfaenger"
+  ],
+  "instagram": "https://www.instagram.com/nomatterpacerunclub/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "no_drop"
+  ],
+  "beschreibung_de": "Entspannter Samstagslauf für Einsteiger, bei dem die Gruppe zusammenbleibt.",
+  "beschreibung_en": "Relaxed Saturday run for beginners where the group stays together.",
+  "quelle": [
+   "https://socialrunclubs.de/karlsruhe/no-matter-pace-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "karlsruhe-ssc-runners",
+  "name": "SSC Runners",
+  "art": "Laufen",
+  "stadt": "Karlsruhe",
+  "land": "Deutschland",
+  "treffpunkt": "SSC Karlsruhe",
+  "lat": 49.02605,
+  "lon": 8.44101,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "pace": {
+   "von": "6:40",
+   "bis": "6:50"
+  },
+  "instagram": "https://www.instagram.com/ssc_runners/",
+  "beschreibung_de": "Running Crew für entspannte Läufe am Dienstagabend.",
+  "beschreibung_en": "Running crew for relaxed runs on Tuesday evenings.",
+  "quelle": [
+   "https://socialrunclubs.de/karlsruhe/ssc-runners/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; Treffpunkt nur als „SSC“ angegeben"
+ },
+ {
+  "id": "mannheim-caffeine-sunday-social-run",
+  "name": "CaffeineRunningClub – Sunday Social Run",
+  "art": "Laufen",
+  "stadt": "Mannheim",
+  "land": "Deutschland",
+  "treffpunkt": "Mensawiese, Universität Mannheim",
+  "lat": 49.48457,
+  "lon": 8.45918,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   3,
+   7
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://caffeinerunningclub.com/",
+  "instagram": "https://www.instagram.com/caffeinerunningclub/",
+  "strava": "https://www.strava.com/clubs/CaffeineRunningClub",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "merkmale": [
+   "mehrere_gruppen",
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Offener Sonntagslauf mit Aufwärmen und Tempogruppen über 3, 5 oder 7 km am Rhein, danach optional Kaffee.",
+  "beschreibung_en": "Open Sunday run with warm-up and pace groups over 3, 5 or 7 km along the Rhine, optional coffee afterwards.",
+  "quelle": [
+   "https://caffeinerunningclub.com/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "mannheim-caffeine-track-tuesday",
+  "name": "CaffeineRunningClub – Track Tuesday",
+  "art": "Laufen",
+  "stadt": "Mannheim",
+  "land": "Deutschland",
+  "treffpunkt": "Sportplatz unterer Luisenpark",
+  "lat": 49.48337,
+  "lon": 8.4961,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://caffeinerunningclub.com/",
+  "instagram": "https://www.instagram.com/caffeinerunningclub/",
+  "strava": "https://www.strava.com/clubs/CaffeineRunningClub",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "beschreibung_de": "Angeleitetes Intervalltraining über 400 bis 2000 m für alle Niveaus.",
+  "beschreibung_en": "Guided interval session with repeats from 400 to 2000 m for all levels.",
+  "quelle": [
+   "https://caffeinerunningclub.com/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Koordinate nur auf den Luisenpark gesetzt, genaue Lage des Sportplatzes prüfen"
+ },
+ {
+  "id": "mannheim-kraft-runners",
+  "name": "KRAFT Runners Mannheim",
+  "art": "Laufen",
+  "stadt": "Mannheim",
+  "land": "Deutschland",
+  "treffpunkt": "L'UVA, Seckenheimer Straße 58",
+  "lat": 49.47944,
+  "lon": 8.48105,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/mannheim",
+  "instagram": "https://www.instagram.com/kraftrunners/",
+  "merkmale": [
+   "gepaeck"
+  ],
+  "beschreibung_de": "Wöchentliches Lauftraining ohne Anmeldung, jedes Tempo willkommen, Taschen können vor Ort abgegeben werden.",
+  "beschreibung_en": "Weekly running session without registration, every pace welcome, bag drop on site.",
+  "quelle": [
+   "https://kraftrunners.de/mannheim"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "mannheim-tuesday-run-club",
+  "name": "Tuesday Run Club Mannheim",
+  "art": "Laufen",
+  "stadt": "Mannheim",
+  "land": "Deutschland",
+  "treffpunkt": "Damm an der Speyerer Straße / Ecke Schwarzwaldstraße (Waldpark)",
+  "lat": 49.46491,
+  "lon": 8.46466,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   7.5,
+   7.5
+  ],
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/tuesdayrunclub.mannheim/",
+  "strava": "https://www.strava.com/clubs/1099674",
+  "merkmale": [
+   "mehrere_gruppen",
+   "no_drop"
+  ],
+  "beschreibung_de": "Dienstagslauf über 7,5 km in mehreren Tempogruppen für Hobbyläufer, niemand läuft allein; ohne Anmeldung.",
+  "beschreibung_en": "Tuesday 7.5 km run in several pace groups for recreational runners, nobody runs alone; no registration.",
+  "quelle": [
+   "https://www.strava.com/clubs/1099674",
+   "https://socialrunclubs.de/mannheim/tuesday-run-club/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "mannheim-ryzon-cycling-unit",
+  "name": "RYZON Cycling Unit Mannheim",
+  "art": "Fahrrad",
+  "stadt": "Mannheim",
+  "land": "Deutschland",
+  "treffpunkt": "SNOCKS Coffee, Lameystraße 15",
+  "lat": 49.48687,
+  "lon": 8.47845,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   60,
+   80
+  ],
+  "pace": {
+   "von": 23,
+   "bis": 29
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "grouprides.cc",
+  "webseite": "https://ryzon.net/pages/ryzon-community",
+  "merkmale": [
+   "mehrere_gruppen",
+   "kaffee"
+  ],
+  "rad_typ": "Rennrad",
+  "beschreibung_de": "Samstagsausfahrt über 60–80 km in zwei Tempogruppen (23–26 und 26–29 km/h), Start und Ziel am SNOCKS Coffee; Plätze begrenzt.",
+  "beschreibung_en": "Saturday ride of 60–80 km in two pace groups (23–26 and 26–29 km/h), starting and ending at SNOCKS Coffee; limited places.",
+  "quelle": [
+   "https://www.grouprides.cc/rides/mannheim-or-ryzon-cycling-unit-2026-10-24"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "mannheim-ouw-monnem",
+  "name": "OUW Monnem",
+  "art": "Laufen",
+  "stadt": "Mannheim",
+  "land": "Deutschland",
+  "treffpunkt": "SNOCKS Coffee, Lameystraße 15",
+  "lat": 49.48687,
+  "lon": 8.47845,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "17:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/ouw.monnem/",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Lauftreff am Dienstag ab dem SNOCKS Coffee.",
+  "beschreibung_en": "Tuesday run from SNOCKS Coffee.",
+  "quelle": [
+   "https://socialrunclubs.de/mannheim/ouw-monnem/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "mannheim-franklin-runners",
+  "name": "Franklin Runners",
+  "art": "Laufen",
+  "stadt": "Mannheim",
+  "land": "Deutschland",
+  "treffpunkt": "Franklin Laufbahn",
+  "lat": 49.51832,
+  "lon": 8.53305,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/franklinrunners/",
+  "beschreibung_de": "Dienstagstreff an der Laufbahn im Stadtteil Franklin.",
+  "beschreibung_en": "Tuesday meet-up at the running track in the Franklin district.",
+  "quelle": [
+   "https://socialrunclubs.de/mannheim/franklinrunners/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "mannheim-lauftreff-karlstern",
+  "name": "Lauftreff Karlstern",
+  "art": "Laufen",
+  "stadt": "Mannheim",
+  "land": "Deutschland",
+  "treffpunkt": "Karlstern, Käfertaler Wald",
+  "lat": 49.5368,
+  "lon": 8.51395,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   12.5,
+   12.5
+  ],
+  "instagram": "https://www.instagram.com/lauftreff_karlstern/",
+  "beschreibung_de": "Offener Sonntagslauf über eine 12,5-km-Runde im Käfertaler Wald.",
+  "beschreibung_en": "Open Sunday run on a 12.5 km loop in the Käfertal forest.",
+  "quelle": [
+   "https://socialrunclubs.de/mannheim/lauftreff-karlstern/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "mannheim-undr-running-club",
+  "name": "UNDR Running Club",
+  "art": "Laufen",
+  "stadt": "Mannheim",
+  "land": "Deutschland",
+  "treffpunkt": "salute.mannheim, Berliner Straße 19",
+  "lat": 49.48716,
+  "lon": 8.47821,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   15
+  ],
+  "instagram": "https://www.instagram.com/undr.running/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Samstagslauf mit Strecken über 5, 10 oder 15 km.",
+  "beschreibung_en": "Saturday run with 5, 10 or 15 km options.",
+  "quelle": [
+   "https://socialrunclubs.de/mannheim/undr-running-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "heidelberg-rennwerk-lauftreff",
+  "name": "Lauftreff rennwerk Heidelberg",
+  "art": "Laufen",
+  "stadt": "Heidelberg",
+  "land": "Deutschland",
+  "treffpunkt": "rennwerk Heidelberg, Langer Anger 60c (Bahnstadt)",
+  "lat": 49.40301,
+  "lon": 8.66531,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:45",
+    "bezeichnung": "Treffen 18:45, Start 19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://rennwerk.info/lauftreff-heidelberg/",
+  "instagram": "https://www.instagram.com/rennwerk.heidelberg/",
+  "merkmale": [
+   "no_drop"
+  ],
+  "beschreibung_de": "Wöchentlicher Lauftreff des Laufladens rennwerk rund um die Bahnstadt in moderatem Tempo, die Gruppe bleibt zusammen.",
+  "beschreibung_en": "Weekly group run from the rennwerk running store around the Bahnstadt at a moderate pace, the group stays together.",
+  "quelle": [
+   "https://rennwerk.info/lauftreff-heidelberg/",
+   "https://socialrunclubs.de/heidelberg/lauftreff-vom-rennwerk-heidelberg/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Eigene Seite zuletzt 2024 aktualisiert – Termin 2026 bestätigen"
+ },
+ {
+  "id": "heidelberg-velociraptors-gravel",
+  "name": "VELOciraptors Heidelberg – Gravel Ride (mit Ruprecht Rides)",
+  "art": "Fahrrad",
+  "stadt": "Heidelberg",
+  "land": "Deutschland",
+  "treffpunkt": "Ruprecht Rides, Langer Anger 42 (Bahnstadt)",
+  "lat": 49.40076,
+  "lon": 8.66939,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "webseite": "https://velociraptors-heidelberg.com/de/community/weekly-rides/",
+  "rad_typ": "Gravel",
+  "beschreibung_de": "Ganzjährige Gravel-Runde am Donnerstagabend ab dem Laden Ruprecht Rides.",
+  "beschreibung_en": "Year-round Thursday evening gravel ride from the Ruprecht Rides shop.",
+  "quelle": [
+   "https://velociraptors-heidelberg.com/de/community/weekly-rides/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "heidelberg-velociraptors-social-ride",
+  "name": "VELOciraptors Heidelberg – Social Ride",
+  "art": "Fahrrad",
+  "stadt": "Heidelberg",
+  "land": "Deutschland",
+  "treffpunkt": "Uferstraße 4",
+  "lat": 49.41354,
+  "lon": 8.69171,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "webseite": "https://velociraptors-heidelberg.com/de/community/weekly-rides/",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "no_drop"
+  ],
+  "rad_typ": "gemischt",
+  "beschreibung_de": "Ganzjährige Samstagsausfahrt in entspanntem Tempo, ausdrücklich auch für Neulinge und Gravelbikes.",
+  "beschreibung_en": "Year-round Saturday ride at a relaxed pace, explicitly welcoming newcomers and gravel bikes.",
+  "quelle": [
+   "https://velociraptors-heidelberg.com/de/community/weekly-rides/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Uhrzeit nur „samstags morgens“, genaue Zeit steht in der WhatsApp-Community; 10:00 ist angenommen"
+ },
+ {
+  "id": "heidelberg-social-run-club",
+  "name": "Social Run Club Heidelberg",
+  "art": "Laufen",
+  "stadt": "Heidelberg",
+  "land": "Deutschland",
+  "treffpunkt": "unter der Ernst-Walz-Brücke",
+  "lat": 49.41138,
+  "lon": 8.67671,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "20:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "instagram": "https://www.instagram.com/socialrunclub_hd/",
+  "strava": "https://www.strava.com/clubs/2267076",
+  "beschreibung_de": "Kostenloser Lauftreff am Mittwochabend für alle.",
+  "beschreibung_en": "Free Wednesday evening run open to everyone.",
+  "quelle": [
+   "https://socialrunclubs.de/heidelberg/social-run-club-heidelberg/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "heidelberg-bergheimer-social-run",
+  "name": "Bergheimer Social Run",
+  "art": "Laufen",
+  "stadt": "Heidelberg",
+  "land": "Deutschland",
+  "treffpunkt": "Penta-Park, Bergheim",
+  "lat": 49.40924,
+  "lon": 8.67136,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "17:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/hdbergheim/",
+  "strava": "https://www.strava.com/clubs/bergheimer-social-run",
+  "beschreibung_de": "Nachbarschafts-Lauftreff am Donnerstag im Penta-Park.",
+  "beschreibung_en": "Neighbourhood Thursday run in Penta-Park.",
+  "quelle": [
+   "https://socialrunclubs.de/heidelberg/bergheimer-social-run/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; Uhrzeit laut Quelle wechselnd, meist 17:30"
+ },
+ {
+  "id": "freiburg-ryzon-running-unit",
+  "name": "RYZON Running Unit Freiburg",
+  "art": "Laufen",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "Sandfangbrücke an der Dreisam",
+  "lat": 47.9918,
+  "lon": 7.87991,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "distanz_km": [
+   6,
+   8
+  ],
+  "dauer_min": 60,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "grouprides.cc",
+  "webseite": "https://www.fitmitkim.com/events",
+  "strava": "https://www.strava.com/clubs/fitmitkim",
+  "beschreibung_de": "Montagslauf mit Lauf-ABC und gemütlichem Social Run über 6–8 km an der Dreisam, jede Pace willkommen, kostenlos.",
+  "beschreibung_en": "Monday session with running drills and a relaxed 6–8 km social run along the Dreisam, every pace welcome, free.",
+  "quelle": [
+   "https://www.grouprides.cc/rides/freiburg-or-ryzon-running-unit-2026-10-19",
+   "https://www.fitmitkim.com/events?tag=ryzon+running+unit"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "freiburg-ryzon-cycling-unit",
+  "name": "RYZON Cycling Unit Freiburg",
+  "art": "Fahrrad",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "RYZON-Brücke an der Gaskugel, Dietenbachstraße 46",
+  "lat": 48.00817,
+  "lon": 7.80537,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "distanz_km": [
+   60,
+   60
+  ],
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "grouprides.cc",
+  "webseite": "https://ryzon.net/pages/ryzon-community",
+  "merkmale": [
+   "no_drop"
+  ],
+  "rad_typ": "Rennrad",
+  "beschreibung_de": "Feierabendrunde am Donnerstag vorwiegend auf Asphalt in locker-sportlichem Tempo, an Anstiegen wird gewartet.",
+  "beschreibung_en": "Thursday after-work ride mostly on tarmac at an easy-sporty pace, the group regroups after climbs.",
+  "quelle": [
+   "https://www.grouprides.cc/rides/freiburg-or-ryzon-cycling-unit-2026-10-22"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "freiburg-bfcs-wednesday-weekly",
+  "name": "Black Forest Cycling Squad – Wednesday Weekly",
+  "art": "Fahrrad",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "BFCS Community Space, Hansjakobstraße 58",
+  "lat": 47.98686,
+  "lon": 7.87909,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "17:00"
+   }
+  ],
+  "distanz_km": [
+   30,
+   30
+  ],
+  "pace": {
+   "von": 25,
+   "bis": 25
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "grouprides.cc",
+  "webseite": "https://www.grouprides.cc/brand/black-forest-cycling-squad",
+  "rad_typ": "Rennrad",
+  "beschreibung_de": "Kurze Rennrad-Runde am Mittwochabend über rund 30 km im flachen Gelände.",
+  "beschreibung_en": "Short Wednesday evening road ride of about 30 km on flat terrain.",
+  "quelle": [
+   "https://www.grouprides.cc/rides/bfcs-community-week-oror-wednesday-weekly-2026-10-21"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur ein Termin (Community Week 21.10.2026) belegt; ob der Wednesday Weekly ganzjährig und offen stattfindet, unklar"
+ },
+ {
+  "id": "freiburg-run-club",
+  "name": "Freiburg Run Club",
+  "art": "Laufen",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "Sandfangbrücke an der Dreisam",
+  "lat": 47.9918,
+  "lon": 7.87991,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/freiburg-run",
+  "beschreibung_de": "Community-Run am Donnerstag ab der Sandfangbrücke, im Sommer später am Abend.",
+  "beschreibung_en": "Thursday community run from the Sandfang bridge, later in the evening in summer.",
+  "quelle": [
+   "https://socialrunclubs.de/freiburg-im-breisgau/freiburg-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; im Sommer laut Quelle 20:30 statt 18:30"
+ },
+ {
+  "id": "freiburg-community-trailrun",
+  "name": "Freiburg Community Trailrun",
+  "art": "Laufen",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "Schwabentorsteg",
+  "lat": 47.99303,
+  "lon": 7.85466,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/freiburgcommunitytrailrun/",
+  "strava": "https://www.strava.com/clubs/CommunityTrailrunFreiburg",
+  "beschreibung_de": "Trailrun-Treff am Mittwochabend ab dem Schwabentorsteg.",
+  "beschreibung_en": "Wednesday evening trail run from the Schwabentorsteg bridge.",
+  "quelle": [
+   "https://socialrunclubs.de/freiburg-im-breisgau/freiburg-community-trailrun/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "freiburg-lavender-run-club",
+  "name": "Lavender Run Club",
+  "art": "Laufen",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "Johanneskirche",
+  "lat": 47.98896,
+  "lon": 7.84697,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "11:30",
+    "distanz_km": [
+     5,
+     8
+    ]
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Women Run",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "webseite": "https://lavender-club.com/",
+  "instagram": "https://www.instagram.com/lavenderrunning/",
+  "strava": "https://www.strava.com/clubs/LAVENDERRUNCLUB",
+  "beschreibung_de": "Sonntagslauf über 5 oder 8 km und mittwochs ein 5-km-Lauf für Frauen, jeweils ab der Johanneskirche.",
+  "beschreibung_en": "Sunday run over 5 or 8 km and a 5 km women-only run on Wednesdays, both from the Johanneskirche.",
+  "quelle": [
+   "https://socialrunclubs.de/freiburg-im-breisgau/lavender-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; eigene Webseite nur per JavaScript, nicht lesbar"
+ },
+ {
+  "id": "freiburg-unrushed",
+  "name": "Unrushed Run Club",
+  "art": "Laufen",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "Im Wolfswinkel",
+  "lat": 48.02043,
+  "lon": 7.8234,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "stufen": [
+   "anfaenger"
+  ],
+  "instagram": "https://www.instagram.com/unrushed.runclub/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lauftreff am Dienstag für Menschen, die bisher dachten, Laufen sei nichts für sie.",
+  "beschreibung_en": "Tuesday run for people who think running is not for them.",
+  "quelle": [
+   "https://socialrunclubs.de/freiburg-im-breisgau/unrushed/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "freiburg-running-for-every-body",
+  "name": "Running for Every Body",
+  "art": "Laufen",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "Im Wolfswinkel",
+  "lat": 48.02043,
+  "lon": 7.8234,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:45"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "stufen": [
+   "anfaenger"
+  ],
+  "instagram": "https://www.instagram.com/running.for.every.body/",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Überwiegend queerer Lauftreff am Montag über 5 km, einsteigerfreundlich.",
+  "beschreibung_en": "Mostly queer Monday run over 5 km, beginner-friendly.",
+  "quelle": [
+   "https://socialrunclubs.de/freiburg-im-breisgau/running-for-every-body/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "freiburg-myhm-longrun",
+  "name": "FR MYHM Longrun-Lauftreff",
+  "art": "Laufen",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "Johanneskirche",
+  "lat": 47.98896,
+  "lon": 7.84697,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "instagram": "https://www.instagram.com/fr_myhm/",
+  "strava": "https://www.strava.com/clubs/1821889",
+  "beschreibung_de": "Dienstags-Longrun zur Vorbereitung auf einen Halbmarathon.",
+  "beschreibung_en": "Tuesday long run for half-marathon preparation.",
+  "quelle": [
+   "https://socialrunclubs.de/freiburg-im-breisgau/fr-myhm/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; ggf. nur saisonal vor einem bestimmten Halbmarathon"
+ },
+ {
+  "id": "freiburg-athletikollektiv",
+  "name": "Athletikollektiv „Road2K“",
+  "art": "Laufen",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "Seepark",
+  "lat": 48.01144,
+  "lon": 7.81885,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/athletikollektiv/",
+  "beschreibung_de": "Samstagstreff im Seepark.",
+  "beschreibung_en": "Saturday meet-up in Seepark.",
+  "quelle": [
+   "https://socialrunclubs.de/freiburg-im-breisgau/athletikollektiv/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; Format „Road2K“ unklar"
+ },
+ {
+  "id": "heilbronn-absolute-run-community-run",
+  "name": "ABSOLUTE RUN Kaufmann Community Run",
+  "art": "Laufen",
+  "stadt": "Heilbronn",
+  "land": "Deutschland",
+  "treffpunkt": "ABSOLUTE RUN Kaufmann, Fleiner Straße 20",
+  "lat": 49.14031,
+  "lon": 9.21901,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "pace": {
+   "von": "5:00",
+   "bis": "7:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://absolute-run-kaufmann.de/community-run/",
+  "instagram": "https://www.instagram.com/absolute_run_kaufmann/",
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf des Laufladens in drei Tempogruppen (5:00, 6:00, 7:00 min/km), Neue bitte fünf Minuten früher.",
+  "beschreibung_en": "Free 5 km run from the running store in three pace groups (5:00, 6:00, 7:00 min/km); newcomers please arrive five minutes early.",
+  "quelle": [
+   "https://absolute-run-kaufmann.de/community-run/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "heilbronn-rsg-rennrad-ausfahrt",
+  "name": "RSG Heilbronn Sonntagsausfahrt",
+  "art": "Fahrrad",
+  "stadt": "Heilbronn",
+  "land": "Deutschland",
+  "treffpunkt": "Bollwerksturm",
+  "lat": 49.14581,
+  "lon": 9.21786,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   60,
+   90
+  ],
+  "webseite": "https://www.heilbronnerland.de/radfahren-im-heilbronnerland/urlaubsplanung/radtreffs-ausfahrten",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "rad_typ": "Rennrad",
+  "saison": {
+   "von": "04-16",
+   "bis": "10-15"
+  },
+  "beschreibung_de": "Sonntägliche Rennrad-Ausfahrt des Vereins in mehreren Leistungsgruppen über 60–90 km; laut HeilbronnerLand sind Gäste willkommen.",
+  "beschreibung_en": "Sunday road ride of the local club in several ability groups over 60–90 km; according to the regional tourism office guests are welcome.",
+  "quelle": [
+   "http://www.rsg-heilbronn.de/radsport-pages/start.php",
+   "https://www.heilbronnerland.de/radfahren-im-heilbronnerland/urlaubsplanung/radtreffs-ausfahrten"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Vereinsseite rsg-heilbronn.de nur über http erreichbar (als Link die Tourismusseite); Saison laut Tourismusseite 16.04.–15.10., Saison 2027 bestätigen"
+ },
+ {
+  "id": "heilbronn-mova-run-club",
+  "name": "MOVA Run Club Heilbronn",
+  "art": "Laufen",
+  "stadt": "Heilbronn",
+  "land": "Deutschland",
+  "treffpunkt": "Experimenta-Platz 1",
+  "lat": 49.14451,
+  "lon": 9.21491,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00",
+    "bezeichnung": "After Work Run"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Coffee & Run"
+   }
+  ],
+  "instagram": "https://www.instagram.com/mova.runclub.heilbronn/",
+  "strava": "https://www.strava.com/clubs/2283220",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Run Club mit After-Work-Lauf am Donnerstag und Coffee-Run am Sonntag, Treffpunkt an der experimenta.",
+  "beschreibung_en": "Run club with a Thursday after-work run and a Sunday coffee run, meeting at the experimenta.",
+  "quelle": [
+   "https://socialrunclubs.de/heilbronn/mova/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "ulm-beer-run",
+  "name": "Beer Run Ulm",
+  "art": "Laufen",
+  "stadt": "Ulm",
+  "land": "Deutschland",
+  "treffpunkt": "DonauLounge (ehem. Bistro Ulmerufer), Stadionstraße 17 am SSV-Freibad",
+  "lat": 48.40317,
+  "lon": 10.01079,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   7.5,
+   7.5
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://beer-run-ulm.de/",
+  "instagram": "https://www.instagram.com/beerrunulm/",
+  "strava": "https://www.strava.com/clubs/1055965",
+  "merkmale": [
+   "mehrere_gruppen",
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Jeden Donnerstag 7,5 km an der Donau in Gruppen nach Tempo, danach ein Bier; auch an Feiertagen und bei Regen.",
+  "beschreibung_en": "Every Thursday 7.5 km along the Danube in pace groups, followed by a beer; also on holidays and in the rain.",
+  "quelle": [
+   "https://beer-run-ulm.de/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "ulm-6am-club",
+  "name": "6AM Club Ulm",
+  "art": "Laufen",
+  "stadt": "Ulm",
+  "land": "Deutschland",
+  "treffpunkt": "Donauwiese am Metzgerturm",
+  "lat": 48.39604,
+  "lon": 9.99337,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "06:15"
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "dauer_min": 60,
+  "webseite": "https://www.sixamclub.de/",
+  "instagram": "https://www.instagram.com/6amclub.ulm/",
+  "strava": "https://www.strava.com/clubs/6amrunclubulm",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Früher Community-Run am Dienstag über etwa 6 km in den Sonnenaufgang.",
+  "beschreibung_en": "Early Tuesday community run of about 6 km into the sunrise.",
+  "quelle": [
+   "https://socialrunclubs.de/ulm/6am-club-ulm/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; eigene Webseite ohne lesbaren Termintext"
+ },
+ {
+  "id": "ulm-run-club",
+  "name": "Run Club Ulm",
+  "art": "Laufen",
+  "stadt": "Ulm",
+  "land": "Deutschland",
+  "treffpunkt": "Metzgerturm / Donauwiese",
+  "lat": 48.39604,
+  "lon": 9.99337,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/runclub.ulm/",
+  "beschreibung_de": "Lauftreff am Mittwochabend an der Donauwiese.",
+  "beschreibung_en": "Wednesday evening run from the Danube meadow.",
+  "quelle": [
+   "https://socialrunclubs.de/ulm/run-club-ulm/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "tuebingen-rv-pfeil-radtreff",
+  "name": "RV Pfeil Tübingen Samstags-Radtreff",
+  "art": "Fahrrad",
+  "stadt": "Tübingen",
+  "land": "Deutschland",
+  "treffpunkt": "Uhlanddenkmal, Uhlandstraße",
+  "lat": 48.51789,
+  "lon": 9.05538,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "13:00"
+   }
+  ],
+  "webseite": "https://www.rvpfeil-tuebingen.de/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "rad_typ": "Rennrad",
+  "beschreibung_de": "Rennrad-Radtreff des RV Pfeil mit verschiedenen Geschwindigkeiten und Streckenlängen; Nicht-Mitglieder sind willkommen.",
+  "beschreibung_en": "Road cycling meet-up of RV Pfeil with different speeds and distances; non-members are welcome.",
+  "quelle": [
+   "https://www.radundtattuebingen.de/radsport/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "tuebingen-rad-und-tat-mtb",
+  "name": "Rad & Tat MTB-Treff",
+  "art": "Fahrrad",
+  "stadt": "Tübingen",
+  "land": "Deutschland",
+  "treffpunkt": "Uhlanddenkmal, Uhlandstraße",
+  "lat": 48.51789,
+  "lon": 9.05538,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "webseite": "https://www.radundtattuebingen.de/radsport/",
+  "instagram": "https://www.instagram.com/radundtattuebingen/",
+  "rad_typ": "MTB",
+  "beschreibung_de": "Sportliche Mountainbike-Touren in Schönbuch und Rammert, mittwochs abends und sonntags vormittags.",
+  "beschreibung_en": "Sporty mountain bike rides in the Schönbuch and Rammert forests, Wednesday evenings and Sunday mornings.",
+  "quelle": [
+   "https://www.radundtattuebingen.de/radsport/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Seite undatiert; unklar, ob Nicht-Mitglieder auch beim MTB-Treff mitfahren und ob er im Winter stattfindet"
+ },
+ {
+  "id": "tuebingen-run-club-tipsy-tuesday",
+  "name": "Tübingen Run Club – Tipsy Tuesday",
+  "art": "Laufen",
+  "stadt": "Tübingen",
+  "land": "Deutschland",
+  "treffpunkt": "Marktplatz",
+  "lat": 48.52026,
+  "lon": 9.05355,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   6.5,
+   6.5
+  ],
+  "instagram": "https://www.instagram.com/tuebingenrunclub/",
+  "strava": "https://www.strava.com/clubs/tuebingenrunclub",
+  "beschreibung_de": "Dienstagslauf über 6,5 km ab dem Marktplatz; donnerstags gibt es laut Quelle zusätzlich einen Morgenlauf um 7 Uhr.",
+  "beschreibung_en": "Tuesday 6.5 km run from the market square; according to the source there is also a 7 am morning run on Thursdays.",
+  "quelle": [
+   "https://socialrunclubs.de/tuebingen/tuebingen-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; Stand 2025, möglicherweise identisch mit OneMoreMile (ähnliche Termine)"
+ },
+ {
+  "id": "tuebingen-onemoremile",
+  "name": "OneMoreMile Club – Monday Miles",
+  "art": "Laufen",
+  "stadt": "Tübingen",
+  "land": "Deutschland",
+  "treffpunkt": "Schwarzes Schaf",
+  "lat": 48.52127,
+  "lon": 9.05741,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/onemoremile.club/",
+  "strava": "https://www.strava.com/clubs/onemoremileCLUB",
+  "beschreibung_de": "Montagslauf ab dem Schwarzen Schaf; laut Quelle gibt es dienstags und donnerstags weitere Läufe.",
+  "beschreibung_en": "Monday run from Schwarzes Schaf; the source lists further runs on Tuesdays and Thursdays.",
+  "quelle": [
+   "https://socialrunclubs.de/tuebingen/onemoremile/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; Koordinate von der Sammelseite, Lage des Schwarzen Schafs prüfen"
+ },
+ {
+  "id": "konstanz-drescher-running-lauftreff",
+  "name": "Drescher Running & Outdoor Lauftreff",
+  "art": "Laufen",
+  "stadt": "Konstanz",
+  "land": "Deutschland",
+  "treffpunkt": "Drescher Running & Outdoor, Augustinerplatz 5",
+  "lat": 47.65981,
+  "lon": 9.17359,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:10"
+   }
+  ],
+  "instagram": "https://www.instagram.com/drescherrunningoutdoorkonstanz/",
+  "beschreibung_de": "Lauftreff des Laufladens am Donnerstagabend.",
+  "beschreibung_en": "Thursday evening group run from the running store.",
+  "quelle": [
+   "https://socialrunclubs.de/konstanz/drescher-running-lauftreff/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+ },
+ {
+  "id": "konstanz-kalonmoves-club",
+  "name": "Kalonmoves Club",
+  "art": "Laufen",
+  "stadt": "Konstanz",
+  "land": "Deutschland",
+  "treffpunkt": "Otto Konstanz, Hüetlinstraße 13",
+  "lat": 47.65703,
+  "lon": 9.17416,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "webseite": "https://app.kalonmoves.com/de",
+  "instagram": "https://www.instagram.com/kalonmovesclub/",
+  "strava": "https://www.strava.com/clubs/1453038",
+  "beschreibung_de": "Social Sports Club mit Lauf am Mittwochabend; sonntags um 9 Uhr gibt es laut Quelle einen weiteren Treff am Studio Rose.",
+  "beschreibung_en": "Social sports club with a Wednesday evening run; according to the source there is another meet-up on Sundays at 9 am at Studio Rose.",
+  "quelle": [
+   "https://socialrunclubs.de/konstanz/kalonmoves-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; unklar, ob jeder Termin ein Lauf ist"
+ },
+ {
+  "id": "konstanz-social-sports-club",
+  "name": "Social Sports Club Konstanz",
+  "art": "Laufen",
+  "stadt": "Konstanz",
+  "land": "Deutschland",
+  "treffpunkt": "Vauna & Vlora",
+  "lat": 47.67111,
+  "lon": 9.1645,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/socialsportsclub.kn/",
+  "beschreibung_de": "Social Run am Dienstagabend; samstags um 10 Uhr läuft laut Quelle eine zweite Gruppe an der Seestraße.",
+  "beschreibung_en": "Tuesday evening social run; according to the source a second run starts on Saturdays at 10 am on Seestraße.",
+  "quelle": [
+   "https://socialrunclubs.de/konstanz/social-sports-club-konstanz/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; Stand 2025"
+ },
+ {
+  "id": "pforzheim-rennwerk-lauftreff",
+  "name": "Lauftreff rennwerk Pforzheim",
+  "art": "Laufen",
+  "stadt": "Pforzheim",
+  "land": "Deutschland",
+  "treffpunkt": "rennwerk Pforzheim, Dillsteiner Straße 13",
+  "lat": 48.88816,
+  "lon": 8.69697,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "E-Mail an rennwerk Pforzheim",
+  "webseite": "https://rennwerk.info/rennwerk-pforzheim-woechentlicher-lauftreff/",
+  "instagram": "https://www.instagram.com/rennwerk_pf_ka/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Wöchentlicher Lauftreff des Laufladens mit Aufwärmen und mehreren Gruppen nach Tempo und Distanz.",
+  "beschreibung_en": "Weekly group run from the running store with a warm-up and several groups by pace and distance.",
+  "quelle": [
+   "https://rennwerk.info/rennwerk-pforzheim-woechentlicher-lauftreff/",
+   "https://socialrunclubs.de/pforzheim/lauftreff-vom-rennwerk-pforzheim/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Eigene Seite zuletzt 2024 aktualisiert – Termin 2026 bestätigen"
+ },
+ {
+  "id": "reutlingen-run-club",
+  "name": "Reutlingen Run Club",
+  "art": "Laufen",
+  "stadt": "Reutlingen",
+  "land": "Deutschland",
+  "treffpunkt": "Stadion an der Kreuzeiche",
+  "lat": 48.47869,
+  "lon": 9.18978,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/reutlingenrunclub/",
+  "beschreibung_de": "Lauftreff am Donnerstagabend ab dem Stadion Kreuzeiche.",
+  "beschreibung_en": "Thursday evening run from the Kreuzeiche stadium.",
+  "quelle": [
+   "https://socialrunclubs.de/reutlingen/reutlingen-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen; Stand 2025"
+ },
+ {
+  "id": "stuttgart-parkrun-rosensteinpark",
+  "name": "Rosensteinpark parkrun",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Rosensteinpark, Stuttgart",
+  "lat": 48.80519,
+  "lon": 9.19244,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/rosensteinpark/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/rosensteinpark/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "stuttgart-parkrun-kraeherwald",
+  "name": "Kräherwald parkrun",
+  "art": "Laufen",
+  "stadt": "Stuttgart",
+  "land": "Deutschland",
+  "treffpunkt": "Kräherwald, Stuttgart",
+  "lat": 48.78352,
+  "lon": 9.14325,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/kraeherwald/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/kraeherwald/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "karlsruhe-parkrun-oberwald",
+  "name": "Oberwald parkrun",
+  "art": "Laufen",
+  "stadt": "Karlsruhe",
+  "land": "Deutschland",
+  "treffpunkt": "Oberwald, Karlsruhe",
+  "lat": 48.98406,
+  "lon": 8.40788,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/oberwald/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/oberwald/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "mannheim-parkrun-neckarau",
+  "name": "Neckarau parkrun",
+  "art": "Laufen",
+  "stadt": "Mannheim",
+  "land": "Deutschland",
+  "treffpunkt": "Neckarau, Mannheim",
+  "lat": 49.4485,
+  "lon": 8.4538,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/neckarau/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/neckarau/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "heidelberg-parkrun-bahnstadtpromenade",
+  "name": "Bahnstadt Promenade parkrun",
+  "art": "Laufen",
+  "stadt": "Heidelberg",
+  "land": "Deutschland",
+  "treffpunkt": "Bahnstadt Promenade, Heidelberg",
+  "lat": 49.40145,
+  "lon": 8.66484,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/bahnstadtpromenade/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/bahnstadtpromenade/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "freiburg-parkrun-dietenbach",
+  "name": "Dietenbach parkrun",
+  "art": "Laufen",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "Dietenbachpark, Freiburg im Breisgau",
+  "lat": 47.99972,
+  "lon": 7.80591,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/dietenbach/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/dietenbach/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "ulm-parkrun-friedrichsau",
+  "name": "Friedrichsau parkrun",
+  "art": "Laufen",
+  "stadt": "Ulm",
+  "land": "Deutschland",
+  "treffpunkt": "Friedrichsau Park, Ulm",
+  "lat": 48.41114,
+  "lon": 10.0127,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/friedrichsau/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/friedrichsau/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "heilbronn-parkrun-wertwiesen",
+  "name": "Wertwiesen parkrun",
+  "art": "Laufen",
+  "stadt": "Heilbronn",
+  "land": "Deutschland",
+  "treffpunkt": "Wertwiesen, Heilbronn",
+  "lat": 49.13134,
+  "lon": 9.20122,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/wertwiesen/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/wertwiesen/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "tuebingen-parkrun-kastanienallee",
+  "name": "Kastanienallee parkrun",
+  "art": "Laufen",
+  "stadt": "Tübingen",
+  "land": "Deutschland",
+  "treffpunkt": "Kastanienallee, Tübingen",
+  "lat": 48.51546,
+  "lon": 9.04669,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/kastanienallee/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/kastanienallee/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "konstanz-parkrun-hockgraben",
+  "name": "Hockgraben parkrun",
+  "art": "Laufen",
+  "stadt": "Konstanz",
+  "land": "Deutschland",
+  "treffpunkt": "Friedrichstrasse, Konstanz",
+  "lat": 47.68284,
+  "lon": 9.18425,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/hockgraben/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/hockgraben/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "esslingen-parkrun-neckaruferesslingen",
+  "name": "Neckarufer parkrun, Esslingen",
+  "art": "Laufen",
+  "stadt": "Esslingen am Neckar",
+  "land": "Deutschland",
+  "treffpunkt": "Skatepark Adenauerbrücke, Esslingen",
+  "lat": 48.72825,
+  "lon": 9.32445,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/neckaruferesslingen/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/neckaruferesslingen/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "ludwigsburg-parkrun-monrepos",
+  "name": "Monrepos parkrun",
+  "art": "Laufen",
+  "stadt": "Ludwigsburg",
+  "land": "Deutschland",
+  "treffpunkt": "Domäne Monrepos, Ludwigsburg",
+  "lat": 48.9184,
+  "lon": 9.17207,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/monrepos/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/monrepos/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "schwaebisch-parkrun-globe",
+  "name": "Globe parkrun",
+  "art": "Laufen",
+  "stadt": "Schwäbisch Hall",
+  "land": "Deutschland",
+  "treffpunkt": "Neues Globe, Schwäbisch Hall",
+  "lat": 49.1108,
+  "lon": 9.73502,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/globe/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/globe/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "schorndorf-parkrun-sportparkrems",
+  "name": "Sportpark Rems parkrun",
+  "art": "Laufen",
+  "stadt": "Schorndorf",
+  "land": "Deutschland",
+  "treffpunkt": "Sportpark Rems, Schorndorf",
+  "lat": 48.81471,
+  "lon": 9.54047,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/sportparkrems/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/sportparkrems/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "weil-parkrun-dreilaendergarten",
+  "name": "Dreiländergarten parkrun",
+  "art": "Laufen",
+  "stadt": "Weil am Rhein",
+  "land": "Deutschland",
+  "treffpunkt": "Dreiländergarten Park, Weil am Rhein",
+  "lat": 47.58661,
+  "lon": 7.61058,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/dreilaendergarten/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/dreilaendergarten/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "grabenneudorf-parkrun-prestelsee",
+  "name": "Prestelsee parkrun",
+  "art": "Laufen",
+  "stadt": "Graben-Neudorf",
+  "land": "Deutschland",
+  "treffpunkt": "Prestelsee, Graben-Neudorf",
+  "lat": 49.17406,
+  "lon": 8.49073,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/prestelsee/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/prestelsee/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "oehringen-parkrun-hofgarten",
+  "name": "Hofgarten parkrun",
+  "art": "Laufen",
+  "stadt": "Öhringen",
+  "land": "Deutschland",
+  "treffpunkt": "Hofgarten",
+  "lat": 49.19799,
+  "lon": 9.50662,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/hofgarten/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/hofgarten/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "waiblingen-parkrun-talaue",
+  "name": "Talaue parkrun",
+  "art": "Laufen",
+  "stadt": "Waiblingen",
+  "land": "Deutschland",
+  "treffpunkt": "Talaue",
+  "lat": 48.83145,
+  "lon": 9.32045,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "einmalige kostenlose Registrierung bei parkrun (Barcode für die Zeitnahme)",
+  "webseite": "https://www.parkrun.com.de/talaue/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf mit Zeitnahme jeden Samstag um 9 Uhr, Laufen, Joggen und Gehen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free timed 5 km event every Saturday at 9 am; running, jogging and walking are all welcome.",
+  "quelle": [
+   "https://www.parkrun.com.de/talaue/",
+   "https://images.parkrun.com/events.json",
+   "https://www.stuttgarter-zeitung.de/lokales/esslingen/laufen-in-gemeinschaft-man-muss-es-selbst-erleben-parkrun-in-esslingen-am-neckarufer-78978573.html"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "freiburg-late-night-run-club",
+  "name": "Freiburg Late Night Run Club",
+  "art": "Laufen",
+  "stadt": "Freiburg im Breisgau",
+  "land": "Deutschland",
+  "treffpunkt": "Sandfangbrücke an der Dreisam",
+  "lat": 47.9918,
+  "lon": 7.87991,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "20:30"
+   }
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "6:30"
+  },
+  "instagram": "https://www.instagram.com/freiburglatenightrunclub/",
+  "merkmale": [
+   "no_drop"
+  ],
+  "beschreibung_de": "Später Montagslauf im Tempo von etwa 6:30 min/km, jeder kommt mit.",
+  "beschreibung_en": "Late Monday run at about 6:30 min/km, everyone keeps up.",
+  "quelle": [
+   "https://socialrunclubs.de/freiburg-im-breisgau/freiburg-late-night-run-club/"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
  }
 ]
