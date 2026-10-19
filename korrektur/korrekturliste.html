@@ -44,7 +44,7 @@
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
-  margin: 0; background: var(--bg); color: var(--text); font: 15px/1.4 var(--font-text);
+  margin: 0; background: var(--bg); color: var(--text); font: 14px/1.35 var(--font-text);
   display: flex; flex-direction: column;
 }
 
@@ -52,14 +52,14 @@ body {
   flex: 1 1 auto; min-height: 0; overflow: auto;
   background: var(--flaeche); -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
 }
-table { border-collapse: separate; border-spacing: 0; table-layout: fixed; font-size: .86rem; }
+table { border-collapse: separate; border-spacing: 0; table-layout: fixed; font-size: .8rem; }
 th, td {
   border-right: 1px solid var(--linie); border-bottom: 1px solid var(--linie);
-  padding: 6px 8px; vertical-align: top; text-align: left; overflow: hidden;
+  padding: 4px 6px; vertical-align: top; text-align: left; overflow: hidden;
 }
 thead th {
   position: sticky; top: 0; z-index: 3; background: var(--nacht); color: var(--auf-nacht);
-  font: 600 .78rem/1.2 var(--font-text); letter-spacing: .02em; padding-block: 8px;
+  font: 600 .72rem/1.2 var(--font-text); letter-spacing: .02em; padding-block: 6px;
 }
 th.fix, td.fix { position: sticky; z-index: 2; }
 thead th.fix { z-index: 4; }
@@ -69,7 +69,7 @@ td.fix.c-fehlt { background: var(--fehlt); }
 td.fix.c-fraglich { background: var(--fraglich); }
 td.fix.c-geaendert { background: var(--geaendert); }
 th.fix-letzte, td.fix-letzte { box-shadow: 2px 0 0 var(--linie-stark); }
-.inhalt { white-space: pre-wrap; word-break: break-word; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.inhalt { white-space: pre-wrap; word-break: break-word; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 td.c-fest { background: var(--fest); color: var(--grau); }
 td.c-fest.name { color: var(--text); font-weight: 500; }
 td.c-fehlt { background: var(--fehlt); }
@@ -82,20 +82,20 @@ td.offen-editor { padding: 0; overflow: visible; }
 td .leer { color: var(--grau); opacity: .55; }
 td a { color: var(--tiefe); word-break: break-all; }
 td .stift {
-  float: right; margin: -4px -6px 0 4px; width: 28px; height: 28px; border: 0; border-radius: 6px;
+  float: right; margin: -3px -5px 0 4px; width: 26px; height: 26px; border: 0; border-radius: 6px;
   background: transparent; color: var(--grau); cursor: pointer; font-size: .95rem;
 }
 td .stift:hover { background: var(--ton); color: var(--text); }
-td .alt { display: block; margin-top: 3px; font-size: .74rem; color: var(--grau); text-decoration: line-through; word-break: break-word; }
+td .alt { display: block; margin-top: 2px; font-size: .7rem; color: var(--grau); text-decoration: line-through; word-break: break-word; }
 .editor {
   width: 100%; min-height: 100%; font: inherit; color: var(--text); background: var(--flaeche);
   border: 2px solid var(--signal); border-radius: 4px; padding: 5px 7px; outline: none; display: block;
 }
 textarea.editor { min-height: 96px; resize: vertical; }
 .editor-tipp { font-size: .72rem; color: var(--grau); padding: 3px 6px 5px; background: var(--flaeche); border: 2px solid var(--signal); border-top: 0; border-radius: 0 0 4px 4px; margin-top: -2px; }
-td.status { padding: 4px 6px; }
+td.status { padding: 3px 4px; }
 td.status select {
-  width: 100%; font: 600 .84rem var(--font-text); min-height: 34px; border-radius: 8px;
+  width: 100%; font: 600 .78rem var(--font-text); min-height: 28px; border-radius: 6px;
   border: 1px solid var(--linie-stark); background: var(--flaeche); color: var(--text); padding: 0 6px;
 }
 /* Der Stand einer Zeile steht am Status-Feld: blau = bereit, grün = von
@@ -115,32 +115,34 @@ tr.s-uebernommen td:not(.status) { opacity: .62; }
 
 /* Unten wie in Excel: links die Blattreiter, rechts die Statuszeile. */
 .blattleiste {
-  flex: none; display: flex; flex-wrap: wrap; align-items: stretch; gap: 0 16px;
+  flex: none; display: flex; align-items: stretch; gap: 0 12px;
   border-top: 1px solid var(--linie-stark); background: var(--bg);
   padding: 0 max(12px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px) max(12px, env(safe-area-inset-left, 0px));
 }
 .blaetter { display: flex; gap: 2px; }
 .blaetter button {
-  font: 600 .92rem var(--font-text); min-height: 44px; padding: 0 16px; margin-top: -1px;
+  font: 600 .8rem var(--font-text); min-height: 36px; padding: 0 12px; margin-top: -1px;
   border: 1px solid transparent; border-top-color: var(--linie-stark); border-radius: 0 0 8px 8px;
-  background: transparent; color: var(--grau); cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--grau); cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
 }
 .blaetter button[aria-selected="true"] {
   background: var(--flaeche); color: var(--text); border-color: var(--linie-stark); border-top-color: var(--flaeche);
   box-shadow: inset 0 -3px 0 var(--signal);
 }
 .blaetter button:disabled { opacity: .4; cursor: default; }
-.blaetter .zahl { font: 700 1rem var(--font-display); font-variant-numeric: tabular-nums; }
+.blaetter .zahl { font: 600 .74rem var(--font-text); font-variant-numeric: tabular-nums; opacity: .7; }
 .statuszeile {
-  margin-left: auto; align-self: center; padding: 8px 0; font-size: .86rem; color: var(--grau);
-  min-width: 0; text-align: right;
+  margin: 0 0 0 auto; align-self: center; font-size: .74rem; color: var(--grau);
+  min-width: 0; flex: 0 1 auto; text-align: right;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .statuszeile.bereit { color: var(--bereit); font-weight: 600; }
 .statuszeile.fehler { color: var(--fehler); font-weight: 600; }
 button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible, td:focus-visible { outline: 2px solid var(--signal); outline-offset: 1px; }
-@media (max-width: 900px) {
-  th.fix, td.fix { position: static; box-shadow: none; }
-  .statuszeile { margin-left: 0; text-align: left; padding-top: 0; flex: 1 1 100%; }
+/* Auf dem Handy und im Tablet hochkant: Eingabefelder mit 16 px, sonst
+   zoomt iOS beim Antippen in die Seite hinein. */
+@media (pointer: coarse) {
+  .editor, td.status select { font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -254,50 +256,74 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     const st = $('statuszeile');
     let text = '', art = '';
     if (S.fehler.size) {
-      text = S.fehler.size === 1 ? 'Eine Änderung ist nicht gespeichert – die rot umrandete Zeile noch einmal ändern.'
-        : S.fehler.size + ' Änderungen sind nicht gespeichert – die rot umrandeten Zeilen noch einmal ändern.';
+      text = (S.fehler.size === 1 ? '1 Änderung' : S.fehler.size + ' Änderungen') + ' nicht gespeichert – rot umrandete Zeile noch einmal ändern';
       art = 'fehler';
     } else if (S.meldung) {
       text = S.meldung; art = 'fehler';
     } else if (S.lokal.size) {
-      text = 'Wird gespeichert …';
+      text = 'speichert …';
     } else if (bereit) {
-      text = `${zahl(bereit)} ${bereit === 1 ? 'Zeile ist' : 'Zeilen sind'} bereit – schreib im Chat „Korrekturen übernehmen“.`;
+      text = `${zahl(bereit)} bereit zur Übernahme`;
       art = 'bereit';
     } else {
       const d = S.daten[S.liste], erzeugt = d && d.erzeugt ? new Date(d.erzeugt) : null;
-      text = erzeugt ? 'Liste vom ' + erzeugt.toLocaleDateString('de-DE') + ', ' + erzeugt.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) + ' · jede Eingabe wird sofort gespeichert' : '';
+      text = erzeugt ? 'Stand ' + erzeugt.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' }) + ', ' + erzeugt.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) : '';
     }
     st.textContent = text;
+    st.title = text;
     st.className = 'statuszeile' + (art ? ' ' + art : '');
   }
 
-  function breitePx(s) { return Math.round(Math.min(Math.max(s.breite, 6), 60) * 7.4 + 18); }
+  function breitePx(s) { return Math.round(Math.min(Math.max(s.breite, 6), 60) * 6.6 + 14); }
+
+  // Feste Spalten: am Rechner die fixierten der Excel; auf dem Handy und im
+  // Tablet hochkant nur der Name, schmal und am linken Rand – die Spalten
+  // davor scrollen weg, alle dahinter laufen unter ihm durch, und man sieht
+  // beim Wischen nach rechts immer, welches Event die Zeile ist.
+  const SCHMAL = window.matchMedia('(max-width: 900px)');
+  function feste(d) {
+    const m = new Map();
+    if (SCHMAL.matches) {
+      const i = d.spalten.findIndex((s) => s.kopf === d.rollen.name);
+      if (i >= 0) m.set(i, { links: 0, letzte: true });
+      return m;
+    }
+    let links = 0;
+    const fix = d.fixiert || 0;
+    d.spalten.slice(0, fix).forEach((s, i) => { m.set(i, { links, letzte: i === fix - 1 }); links += S.breiten[i]; });
+    return m;
+  }
+  function fixAttr(i) {
+    const f = S.fest.get(i);
+    return f ? { kl: ['fix'].concat(f.letzte ? ['fix-letzte'] : []), stil: ` style="left:${f.links}px"` } : { kl: [], stil: '' };
+  }
 
   function zeichneKopf() {
     const d = S.daten[S.liste];
-    const breiten = d.spalten.map(breitePx);
-    $('spalten').innerHTML = breiten.map((b) => `<col style="width:${b}px">`).join('');
-    $('tabelle').style.width = breiten.reduce((a, b) => a + b, 0) + 'px';
-    const fix = d.fixiert || 0;
-    let links = 0;
-    S.fixLinks = [];
+    const iName = d.spalten.findIndex((s) => s.kopf === d.rollen.name);
+    S.breiten = d.spalten.map((s, i) => {
+      const b = breitePx(s);
+      return SCHMAL.matches ? (i === iName ? Math.min(b, 140) : Math.round(b * 0.9)) : b;
+    });
+    S.fest = feste(d);
+    $('spalten').innerHTML = S.breiten.map((b) => `<col style="width:${b}px">`).join('');
+    $('tabelle').style.width = S.breiten.reduce((a, b) => a + b, 0) + 'px';
     $('kopfzeile').innerHTML = d.spalten.map((s, i) => {
-      S.fixLinks.push(links);
-      const istFix = i < fix;
-      const th = `<th scope="col"${istFix ? ` class="fix${i === fix - 1 ? ' fix-letzte' : ''}" style="left:${links}px"` : ''}>${esc(s.kopf)}</th>`;
-      links += breiten[i];
-      return th;
+      const f = fixAttr(i);
+      return `<th scope="col"${f.kl.length ? ` class="${f.kl.join(' ')}"${f.stil}` : ''}>${esc(s.kopf)}</th>`;
     }).join('');
   }
+  SCHMAL.addEventListener('change', () => {
+    if (!S.daten[S.liste] || S.editor) return;
+    const r = $('rahmen'), oben = r.scrollTop;
+    zeichneTabelle();
+    r.scrollTop = oben;
+  });
 
   function zelleHtml(liste, z, a, i) {
     const d = S.daten[liste], s = d.spalten[i];
     const istStatus = s.kopf === d.rollen.status, istAnm = s.kopf === d.rollen.anmerkung;
-    const fix = i < (d.fixiert || 0);
-    const kl = [];
-    let stil = '';
-    if (fix) { kl.push('fix'); if (i === d.fixiert - 1) kl.push('fix-letzte'); stil = ` style="left:${S.fixLinks[i]}px"`; }
+    const f = fixAttr(i), kl = f.kl.slice(), stil = f.stil;
     if (istStatus) {
       kl.push('status');
       const k = schluessel(liste, z.id), fehler = S.fehler.get(k);

@@ -5748,10 +5748,17 @@ Spalten. **Nur das Tabellenblatt** (vom Nutzer am 19.10.2026: „die
 Kopfteile wie bei admin brauchen wir auch nicht. Es kann wirklich nur eine
 Excel-Liste sein, wo ich umschalten kann von Events zu Clubs“): unten
 Blattreiter Events/Clubs wie in Excel (Zahl = Zeilen ohne Status), rechts
-daneben eine Statuszeile (nicht gespeichert → laufendes Speichern → „N
-Zeilen bereit – schreib im Chat …“ → Stand der Liste); KEIN Kopf, keine
-Zähler, keine Suche, keine Hilfe – nicht wieder einbauen, ohne zu fragen
-(`test_korrektur_seite` prüft es). Alle Zeilen stehen da, beim Scrollen
+daneben eine einzeilige Statuszeile (nicht gespeichert → speichert → „N
+bereit zur Übernahme“ → Stand der Liste); KEIN Kopf, keine Zähler, keine
+Suche, keine Hilfe – nicht wieder einbauen, ohne zu fragen
+(`test_korrektur_seite` prüft es). **Klein und fürs Handy** (vom Nutzer am
+selben Abend mit Bildschirmfoto: „Ich müsste das mit dem Handy machen,
+weil ich das viel unterwegs anschauen werde … Ich hab auch sehr gute
+Augen, also kann man alles auch bisschen kleiner machen, da die Liste nur
+intern ist“): Tabelle 0,8rem, Fußleiste 36 px; bis 900 px ist nur die
+Namensspalte fest (140 px, am linken Rand, die übrigen Spalten 0,9-fach),
+darüber die fixierten Spalten der Excel; auf Touch-Geräten haben Editor
+und Status-Feld 16 px Schrift, sonst zoomt iOS beim Antippen hinein. Alle Zeilen stehen da, beim Scrollen
 kommen je 100 nach; der Stand einer Zeile steht am Status-Feld (blau =
 bereit, grün = übernommen, rot umrandet = nicht gespeichert), ein neuer
 Datenbank-Stand zeichnet nur die geänderten Zeilen neu. Eine Zelle antippen = Editor
