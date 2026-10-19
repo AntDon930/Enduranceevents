@@ -5581,8 +5581,12 @@ def test_korrektur_seite() -> None:
     for teil in ("'antworten_' + l", "'quittung_' + l", "'daten/' + l + '.json'", "q.has(a.geaendert)"):
         check(f"Seite: {teil}", teil in seite, True)
     check("Seite: kein Feld `stand` mehr (Quittungen entscheiden)", "a.stand" in seite, False)
-    check("Seite: die Hilfe nennt jeden Status der Brücke",
-          sorted(w for w in ks.STATUS_WERTE if f"<b>{w}</b>" in seite), sorted(ks.STATUS_WERTE))
+    # Vom Nutzer am 19.10.2026: „nur eine Excel-Liste, wo ich umschalten kann
+    # von Events zu Clubs“ – Blattreiter, Tabelle, Statuszeile, sonst nichts.
+    check("Seite: Blattreiter für Events und Clubs",
+          all(f'data-liste="{l}"' in seite for l in ("events", "clubs")), True)
+    check("Seite: kein Kopf, keine Zähler, keine Suche, keine Hilfe",
+          [t for t in ('<header', 'id="zaehler"', 'id="suche"', 'id="hilfe"') if t in seite], [])
 
 
 def main() -> int:

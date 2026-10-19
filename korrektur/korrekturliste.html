@@ -3,8 +3,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap">
 <style>
-/* Aufbau: eine Arbeitsfläche wie die Excel – Kopf mit Fortschritt, darunter
-   Werkzeugleiste und die Tabelle mit festem Kopf und fixierten Spalten.
+/* Aufbau: nur das Tabellenblatt wie in der Excel (vom Nutzer am 19.10.2026:
+   „Es kann wirklich nur eine Excel-Liste sein, wo ich umschalten kann von
+   Events zu Clubs“) – die Tabelle füllt die Seite, unten die Blattreiter
+   Events/Clubs und rechts daneben eine Statuszeile. Kein Kopf, keine
+   Zähler, keine Suche.
    Farben: der Style Guide von endurance-events.de (Nacht, Kreide, Signal),
    Zellfarben wie in der Excel (rot = fehlt, orange = fraglich, grau = fest). */
 :root {
@@ -41,61 +44,12 @@
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
-  background: var(--bg); color: var(--text); font: 15px/1.4 var(--font-text);
+  margin: 0; background: var(--bg); color: var(--text); font: 15px/1.4 var(--font-text);
   display: flex; flex-direction: column;
 }
-.huelle {
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-}
-header.kopf { padding-block: 14px 10px; display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
-.marke { display: flex; align-items: center; gap: 10px; min-width: 0; }
-.marke svg { flex: none; }
-.marke h1 { margin: 0; font: 700 1.55rem/1.05 var(--font-display); letter-spacing: .01em; text-wrap: balance; }
-.marke small { display: block; font: 500 .8rem var(--font-text); color: var(--grau); letter-spacing: .02em; }
-.reiter { display: flex; gap: 6px; margin-left: auto; }
-.reiter button {
-  font: 600 .95rem var(--font-text); min-height: 40px; padding: 0 14px; border-radius: var(--radius);
-  border: 1px solid var(--linie-stark); background: var(--flaeche); color: var(--text); cursor: pointer;
-  display: inline-flex; align-items: center; gap: 8px;
-}
-.reiter button[aria-selected="true"] { background: var(--nacht); color: var(--auf-nacht); border-color: var(--nacht); }
-.reiter .zahl { font: 700 1rem var(--font-display); font-variant-numeric: tabular-nums; opacity: .85; }
-
-.stand { padding-block: 0 10px; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
-.balken { flex: 1 1 260px; min-width: 0; height: 8px; border-radius: 4px; background: var(--linie); display: flex; overflow: hidden; }
-.balken span { display: block; height: 100%; }
-.zaehler { display: flex; flex-wrap: wrap; gap: 6px; }
-.zaehler button {
-  font: 500 .85rem var(--font-text); border: 1px solid transparent; border-radius: 999px; padding: 4px 11px;
-  min-height: 32px; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; background: var(--ton); color: var(--text);
-}
-.zaehler button b { font: 700 .98rem var(--font-display); font-variant-numeric: tabular-nums; }
-.zaehler button[aria-pressed="true"] { border-color: var(--text); }
-.z-offen { background: var(--ton) !important; }
-.z-arbeit { background: var(--arbeit-bg) !important; color: var(--arbeit) !important; }
-.z-bereit { background: var(--bereit-bg) !important; color: var(--bereit) !important; }
-.z-uebernommen { background: var(--ok-bg) !important; color: var(--ok) !important; }
-
-.werkzeug { padding-block: 0 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.werkzeug input[type="search"], .werkzeug select {
-  font: 500 .92rem var(--font-text); min-height: 40px; border-radius: var(--radius); border: 1px solid var(--linie-stark);
-  background: var(--flaeche); color: var(--text); padding: 0 12px; min-width: 0;
-}
-.werkzeug input[type="search"] { flex: 1 1 240px; }
-.werkzeug select { flex: 0 1 300px; }
-.hinweis-uebernahme {
-  margin-left: auto; font-size: .88rem; color: var(--bereit); background: var(--bereit-bg);
-  border-radius: var(--radius); padding: 7px 12px; max-width: 100%;
-}
-details.hilfe { padding-block: 0 10px; font-size: .9rem; color: var(--grau); }
-details.hilfe summary { cursor: pointer; font-weight: 600; color: var(--text); min-height: 28px; }
-details.hilfe ul { margin: 6px 0 0; padding-left: 18px; max-width: 80ch; }
-details.hilfe li { margin: 3px 0; }
-.meldung { margin: 0 0 10px; padding: 9px 12px; border-radius: var(--radius); background: var(--arbeit-bg); color: var(--arbeit); font-size: .9rem; }
 
 .tabelle-rahmen {
-  flex: 1 1 auto; min-height: 0; overflow: auto; border-top: 1px solid var(--linie-stark);
+  flex: 1 1 auto; min-height: 0; overflow: auto;
   background: var(--flaeche); -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
 }
 table { border-collapse: separate; border-spacing: 0; table-layout: fixed; font-size: .86rem; }
@@ -144,111 +98,97 @@ td.status select {
   width: 100%; font: 600 .84rem var(--font-text); min-height: 34px; border-radius: 8px;
   border: 1px solid var(--linie-stark); background: var(--flaeche); color: var(--text); padding: 0 6px;
 }
+/* Der Stand einer Zeile steht am Status-Feld: blau = bereit, grün = von
+   Claude übernommen, rot umrandet = nicht gespeichert. */
 tr.s-bereit td.status select { background: var(--bereit-bg); color: var(--bereit); border-color: var(--bereit); }
 tr.s-uebernommen td.status select { background: var(--ok-bg); color: var(--ok); border-color: var(--ok); }
-td.zustand { padding: 6px 4px; text-align: center; }
-.punkt { display: inline-block; font: 600 .68rem/1 var(--font-text); padding: 4px 6px; border-radius: 999px; white-space: nowrap; }
-.p-offen { background: var(--ton); color: var(--grau); }
-.p-arbeit { background: var(--arbeit-bg); color: var(--arbeit); }
-.p-bereit { background: var(--bereit-bg); color: var(--bereit); }
-.p-uebernommen { background: var(--ok-bg); color: var(--ok); }
-.p-fehler { background: var(--fehlt); color: var(--fehler); }
-tr.s-uebernommen td:not(.status):not(.zustand) { opacity: .62; }
-tbody tr:focus-within td.zustand { box-shadow: inset 3px 0 0 var(--signal); }
+tr.speichert td.status select { opacity: .65; }
+tr.s-fehler td.status select { background: var(--fehlt); color: var(--fehler); border: 2px solid var(--fehler); }
+tr.s-uebernommen td:not(.status) { opacity: .62; }
 .mehr { padding: 14px 16px 20px; display: flex; gap: 12px; align-items: center; color: var(--grau); font-size: .9rem; }
-.mehr button, .knopf {
+.mehr button {
   font: 600 .92rem var(--font-text); min-height: 40px; padding: 0 16px; border-radius: var(--radius);
   border: 0; background: var(--nacht); color: var(--auf-nacht); cursor: pointer;
 }
 .leerzustand { padding: 40px 16px; color: var(--grau); max-width: 60ch; }
 .leerzustand strong { color: var(--text); display: block; font: 700 1.2rem var(--font-display); margin-bottom: 4px; }
+
+/* Unten wie in Excel: links die Blattreiter, rechts die Statuszeile. */
+.blattleiste {
+  flex: none; display: flex; flex-wrap: wrap; align-items: stretch; gap: 0 16px;
+  border-top: 1px solid var(--linie-stark); background: var(--bg);
+  padding: 0 max(12px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px) max(12px, env(safe-area-inset-left, 0px));
+}
+.blaetter { display: flex; gap: 2px; }
+.blaetter button {
+  font: 600 .92rem var(--font-text); min-height: 44px; padding: 0 16px; margin-top: -1px;
+  border: 1px solid transparent; border-top-color: var(--linie-stark); border-radius: 0 0 8px 8px;
+  background: transparent; color: var(--grau); cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+}
+.blaetter button[aria-selected="true"] {
+  background: var(--flaeche); color: var(--text); border-color: var(--linie-stark); border-top-color: var(--flaeche);
+  box-shadow: inset 0 -3px 0 var(--signal);
+}
+.blaetter button:disabled { opacity: .4; cursor: default; }
+.blaetter .zahl { font: 700 1rem var(--font-display); font-variant-numeric: tabular-nums; }
+.statuszeile {
+  margin-left: auto; align-self: center; padding: 8px 0; font-size: .86rem; color: var(--grau);
+  min-width: 0; text-align: right;
+}
+.statuszeile.bereit { color: var(--bereit); font-weight: 600; }
+.statuszeile.fehler { color: var(--fehler); font-weight: 600; }
 button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible, td:focus-visible { outline: 2px solid var(--signal); outline-offset: 1px; }
 @media (max-width: 900px) {
   th.fix, td.fix { position: static; box-shadow: none; }
-  .reiter { margin-left: 0; }
-  .hinweis-uebernahme { margin-left: 0; }
+  .statuszeile { margin-left: 0; text-align: left; padding-top: 0; flex: 1 1 100%; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
-<header class="kopf huelle">
-  <div class="marke">
-    <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="var(--nacht)"/><path d="M14 46 C 24 46, 22 22, 34 22 S 42 38, 50 34" fill="none" stroke="var(--auf-nacht)" stroke-width="5" stroke-linecap="round"/><circle cx="50" cy="20" r="5" fill="#E8590C"/></svg>
-    <div><h1>Korrekturliste</h1><small id="liste-stand">Endurance Events</small></div>
-  </div>
-  <div class="reiter" role="tablist" aria-label="Liste">
+<div class="tabelle-rahmen" id="rahmen">
+  <div class="leerzustand" id="laden"><strong>Liste wird geladen</strong>Die Zeilen zur Prüfung erscheinen gleich hier.</div>
+  <table id="tabelle" hidden><colgroup id="spalten"></colgroup><thead><tr id="kopfzeile"></tr></thead><tbody id="zeilen"></tbody></table>
+  <div class="mehr" id="mehr" hidden></div>
+</div>
+
+<nav class="blattleiste" aria-label="Blätter">
+  <div class="blaetter" role="tablist" aria-label="Liste">
     <button type="button" role="tab" id="tab-events" aria-selected="true" data-liste="events">Events <span class="zahl" id="zahl-events">–</span></button>
     <button type="button" role="tab" id="tab-clubs" aria-selected="false" data-liste="clubs">Clubs <span class="zahl" id="zahl-clubs">–</span></button>
   </div>
-</header>
-
-<div class="stand huelle">
-  <div class="balken" id="balken" aria-hidden="true"></div>
-  <div class="zaehler" id="zaehler" role="group" aria-label="Zeilen zeigen"></div>
-</div>
-
-<div class="werkzeug huelle">
-  <input type="search" id="suche" placeholder="Name, Ort oder Hinweis suchen" aria-label="Suchen">
-  <select id="hinweis-filter" aria-label="Nach Hinweis filtern"><option value="">Alle Hinweise</option></select>
-  <div class="hinweis-uebernahme" id="uebernahme" hidden></div>
-</div>
-
-<details class="hilfe huelle" id="hilfe">
-  <summary>So funktioniert die Liste</summary>
-  <ul>
-    <li>Jede Zeile ist auf endurance-events.de ausgeblendet (Clubs: noch nicht live), bis du sie geprüft hast. Rot heißt „fehlt“, orange „fraglich“, grau „nicht änderbar“.</li>
-    <li>Zelle antippen zum Ändern, Enter oder Tippen daneben übernimmt, Esc verwirft. Links öffnen sich in einem neuen Tab; ändern über den Stift.</li>
-    <li>Jede Eingabe wird sofort gespeichert. Übernommen wird eine Zeile, sobald sie einen <b>Status</b> hat – ohne Status gilt sie als „in Arbeit“.</li>
-    <li><b>Stimmt so</b> und <b>Korrigiert</b> geben die Zeile frei, <b>Löschen</b> entfernt sie, <b>Unklar</b> (nur Events) lässt sie ausgeblendet.</li>
-    <li>Wenn du fertig bist, schreib im Chat „Korrekturen übernehmen“. Übernommene Zeilen werden hier grün und fallen bei der nächsten Liste heraus.</li>
-    <li id="hilfe-clubs" hidden>Clubs, Termine: eine Einheit je Zeile – „wöchentlich Di 19:00“, „alle 2 Wochen Sa 09:00 ab 2026-10-03“, „monatlich 1. So 10:00“, „monatlich letzter Fr 18:30“, „einmalig 2026-10-28 17:30“, Zusatz in Klammern. Tempo: Laufen „5:30–6:30“, Rad „25–30“, Schwimmen „1:50–2:15“. Kosten: „kostenlos“, „5 €“ oder freier Text.</li>
-  </ul>
-</details>
-
-<div class="huelle"><p class="meldung" id="meldung" hidden></p></div>
-
-<div class="tabelle-rahmen" id="rahmen">
-  <div class="leerzustand huelle" id="laden"><strong>Liste wird geladen</strong>Die Zeilen zur Prüfung erscheinen gleich hier – Events und Clubs, jede mit dem, was fehlt oder fraglich ist.</div>
-  <table id="tabelle" hidden><colgroup id="spalten"></colgroup><thead><tr id="kopfzeile"></tr></thead><tbody id="zeilen"></tbody></table>
-  <div class="mehr huelle" id="mehr" hidden></div>
-</div>
+  <p class="statuszeile" id="statuszeile" role="status"></p>
+</nav>
 
 <script>
 (function () {
   'use strict';
   const SCHRITT = 100;
-  const ZUSTAND_TEXT = { offen: 'offen', arbeit: 'in Arbeit', bereit: 'bereit', uebernommen: 'übernommen' };
-  const FILTER = [
-    { key: 'offen', text: 'Offen', zustaende: ['offen', 'arbeit'] },
-    { key: 'arbeit', text: 'In Arbeit', zustaende: ['arbeit'] },
-    { key: 'bereit', text: 'Bereit zur Übernahme', zustaende: ['bereit'] },
-    { key: 'uebernommen', text: 'Übernommen', zustaende: ['uebernommen'] },
-    { key: 'alle', text: 'Alle', zustaende: ['offen', 'arbeit', 'bereit', 'uebernommen'] },
-  ];
   const TIPPS = {
     'Datum Start': 'TT.MM.JJJJ', 'Datum Ende': 'TT.MM.JJJJ', 'Distanz (km)': 'Zahl, z. B. 10,5 – beim Triathlon auch „Sprint“',
     'Dauer (h)': 'Stunden, z. B. 6 oder 0,5', 'Breite': 'z. B. 48,1372', 'Länge': 'z. B. 11,5756',
-    'Ort': 'Ort ohne PLZ – die Kartenposition ziehe ich nach', 'Termine': 'eine Einheit je Zeile, z. B. wöchentlich Di 19:00',
+    'Ort': 'Ort ohne PLZ – die Kartenposition ziehe ich nach',
+    'Termine': 'eine Einheit je Zeile: wöchentlich Di 19:00 · alle 2 Wochen Sa 09:00 ab 2026-10-03 · monatlich 1. So 10:00 · einmalig 2026-10-28 17:30',
     'Tempo (von–bis)': 'Laufen 5:30–6:30 · Rad 25–30 · Schwimmen 1:50–2:15', 'Kosten': 'kostenlos, 5 € oder freier Text',
     'Distanz km (von–bis)': 'z. B. 8–12', 'Webseite': 'mit https://', 'Instagram': 'mit https://', 'Strava': 'mit https://',
   };
   const LINK_SPALTEN = /link|webseite|instagram|strava|quelle/i;
 
   const S = {
-    liste: 'events', daten: { events: null, clubs: null },
+    liste: 'events', daten: { events: null, clubs: null }, index: { events: new Map(), clubs: new Map() },
     antworten: { events: new Map(), clubs: new Map() },
     quittungen: { events: new Map(), clubs: new Map() },   // id -> Set der übernommenen `geaendert`-Stände
     lokal: new Map(),          // liste|id -> Antwort, die noch gespeichert wird
     ketten: new Map(),         // liste|id -> Promise (eine Schreibung je Dokument zur Zeit)
     fehler: new Map(),         // liste|id -> Fehlertext
-    filter: 'offen', suche: '', hinweis: '', anzahl: SCHRITT,
+    anzahl: SCHRITT, meldung: '',
     db: null, schreiben: false, editor: null,
   };
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const schluessel = (liste, id) => liste + '|' + id;
+  const zahl = (n) => n.toLocaleString('de-DE');
 
-  function meldung(text) { const m = $('meldung'); m.textContent = text || ''; m.hidden = !text; }
+  function meldung(text) { S.meldung = text || ''; zeichneLeiste(); }
 
   // ---------- Antworten ----------
   function antwort(liste, id) { return S.lokal.get(schluessel(liste, id)) || S.antworten[liste].get(id) || null; }
@@ -276,7 +216,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     S.lokal.set(k, a);
     S.fehler.delete(k);
     zeichneZeile(liste, zeile);
-    zeichneZaehler();
+    zeichneLeiste();
     if (!S.db || !S.schreiben) return;
     const vorher = S.ketten.get(k) || Promise.resolve();
     const lauf = vorher.then(async () => {
@@ -290,31 +230,8 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
       }
     }).catch((e) => {
       S.fehler.set(k, (e && e.code) === 'quota_exceeded' ? 'Speicher voll – bitte Bescheid geben' : 'nicht gespeichert – noch einmal ändern');
-      meldung('Eine Änderung wurde nicht gespeichert. Prüfe die rot markierte Zeile und ändere sie noch einmal.');
-    }).finally(() => { zeichneZeile(liste, zeile); zeichneZaehler(); });
+    }).finally(() => { zeichneZeile(liste, zeile); zeichneLeiste(); });
     S.ketten.set(k, lauf);
-  }
-
-  // ---------- Filtern ----------
-  function hinweisZeilen(liste, z) {
-    const d = S.daten[liste]; const i = d.spalten.findIndex((s) => s.kopf === d.rollen.hinweis);
-    return i < 0 ? [] : (z.z[i] || '').split('\n').map((t) => t.trim()).filter(Boolean);
-  }
-  function sichtbareZeilen() {
-    const d = S.daten[S.liste]; if (!d) return [];
-    const f = FILTER.find((x) => x.key === S.filter);
-    const q = S.suche.trim().toLowerCase();
-    const r = d.rollen, kopf = d.spalten.map((s) => s.kopf);
-    const iName = kopf.indexOf(r.name), iOrt = kopf.indexOf(r.ort), iH = kopf.indexOf(r.hinweis);
-    return d.zeilen.filter((z) => {
-      if (!f.zustaende.includes(zustand(antwort(S.liste, z.id)))) return false;
-      if (S.hinweis && !hinweisZeilen(S.liste, z).includes(S.hinweis)) return false;
-      if (q) {
-        const t = [z.z[iName], z.z[iOrt], z.z[iH]].join(' ').toLowerCase();
-        if (!t.includes(q)) return false;
-      }
-      return true;
-    });
   }
 
   // ---------- Zeichnen ----------
@@ -324,42 +241,54 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     for (const z of d.zeilen) n[zustand(antwort(liste, z.id))]++;
     return n;
   }
-  function zeichneZaehler() {
+  // Blattreiter (Zahl = noch ohne Status) und Statuszeile, wichtigstes zuerst:
+  // Fehler, Hinweis von außen, laufendes Speichern, bereit zur Übernahme, Stand.
+  function zeichneLeiste() {
+    let bereit = 0;
     for (const l of ['events', 'clubs']) {
-      const n = zaehle(l); const el = $('zahl-' + l);
-      el.textContent = S.daten[l] ? String(n.offen + n.arbeit) : '–';
-      el.title = S.daten[l] ? (n.offen + n.arbeit) + ' noch offen' : '';
+      const n = zaehle(l), el = $('zahl-' + l);
+      bereit += n.bereit;
+      el.textContent = S.daten[l] ? zahl(n.offen + n.arbeit) : '–';
+      el.parentElement.title = S.daten[l] ? zahl(n.offen + n.arbeit) + ' noch ohne Status' : '';
     }
-    const n = zaehle(S.liste), gesamt = Object.values(n).reduce((a, b) => a + b, 0) || 1;
-    $('balken').innerHTML = ['uebernommen', 'bereit', 'arbeit'].map((k) =>
-      `<span style="width:${(100 * n[k] / gesamt).toFixed(2)}%;background:var(--${k === 'uebernommen' ? 'ok' : k})"></span>`).join('');
-    $('zaehler').innerHTML = FILTER.map((f) => {
-      const z = f.zustaende.reduce((a, k) => a + n[k], 0);
-      const kl = f.key === 'alle' || f.key === 'offen' ? 'z-offen' : 'z-' + f.key;
-      return `<button type="button" class="${kl}" data-filter="${f.key}" aria-pressed="${S.filter === f.key}">${esc(f.text)} <b>${z}</b></button>`;
-    }).join('');
-    const ue = $('uebernahme');
-    ue.hidden = !n.bereit;
-    ue.textContent = n.bereit ? `${n.bereit} ${n.bereit === 1 ? 'Zeile ist' : 'Zeilen sind'} bereit – schreib im Chat „Korrekturen übernehmen“.` : '';
+    const st = $('statuszeile');
+    let text = '', art = '';
+    if (S.fehler.size) {
+      text = S.fehler.size === 1 ? 'Eine Änderung ist nicht gespeichert – die rot umrandete Zeile noch einmal ändern.'
+        : S.fehler.size + ' Änderungen sind nicht gespeichert – die rot umrandeten Zeilen noch einmal ändern.';
+      art = 'fehler';
+    } else if (S.meldung) {
+      text = S.meldung; art = 'fehler';
+    } else if (S.lokal.size) {
+      text = 'Wird gespeichert …';
+    } else if (bereit) {
+      text = `${zahl(bereit)} ${bereit === 1 ? 'Zeile ist' : 'Zeilen sind'} bereit – schreib im Chat „Korrekturen übernehmen“.`;
+      art = 'bereit';
+    } else {
+      const d = S.daten[S.liste], erzeugt = d && d.erzeugt ? new Date(d.erzeugt) : null;
+      text = erzeugt ? 'Liste vom ' + erzeugt.toLocaleDateString('de-DE') + ', ' + erzeugt.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) + ' · jede Eingabe wird sofort gespeichert' : '';
+    }
+    st.textContent = text;
+    st.className = 'statuszeile' + (art ? ' ' + art : '');
   }
 
   function breitePx(s) { return Math.round(Math.min(Math.max(s.breite, 6), 60) * 7.4 + 18); }
 
   function zeichneKopf() {
     const d = S.daten[S.liste];
-    const breiten = [64].concat(d.spalten.map(breitePx));
+    const breiten = d.spalten.map(breitePx);
     $('spalten').innerHTML = breiten.map((b) => `<col style="width:${b}px">`).join('');
     $('tabelle').style.width = breiten.reduce((a, b) => a + b, 0) + 'px';
-    let links = 0;
     const fix = d.fixiert || 0;
-    S.fixLinks = [0];
-    $('kopfzeile').innerHTML = `<th class="fix${fix ? '' : ' fix-letzte'}" style="left:0" scope="col">Stand</th>` +
-      d.spalten.map((s, i) => {
-        links += breiten[i];
-        S.fixLinks.push(links);
-        const istFix = i < fix;
-        return `<th scope="col"${istFix ? ` class="fix${i === fix - 1 ? ' fix-letzte' : ''}" style="left:${links}px"` : ''}>${esc(s.kopf)}</th>`;
-      }).join('');
+    let links = 0;
+    S.fixLinks = [];
+    $('kopfzeile').innerHTML = d.spalten.map((s, i) => {
+      S.fixLinks.push(links);
+      const istFix = i < fix;
+      const th = `<th scope="col"${istFix ? ` class="fix${i === fix - 1 ? ' fix-letzte' : ''}" style="left:${links}px"` : ''}>${esc(s.kopf)}</th>`;
+      links += breiten[i];
+      return th;
+    }).join('');
   }
 
   function zelleHtml(liste, z, a, i) {
@@ -368,11 +297,13 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     const fix = i < (d.fixiert || 0);
     const kl = [];
     let stil = '';
-    if (fix) { kl.push('fix'); if (i === d.fixiert - 1) kl.push('fix-letzte'); stil = ` style="left:${S.fixLinks[i + 1]}px"`; }
+    if (fix) { kl.push('fix'); if (i === d.fixiert - 1) kl.push('fix-letzte'); stil = ` style="left:${S.fixLinks[i]}px"`; }
     if (istStatus) {
       kl.push('status');
+      const k = schluessel(liste, z.id), fehler = S.fehler.get(k);
+      const titel = fehler || (S.lokal.has(k) ? 'wird gespeichert' : ({ bereit: 'bereit zur Übernahme', uebernommen: 'übernommen' })[zustand(a)] || '');
       const opts = [''].concat(s.auswahl || []);
-      return `<td class="${kl.join(' ')}"${stil} data-i="${i}"><select data-status aria-label="Status für ${esc(a ? a.name : z.z[d.spalten.findIndex((x) => x.kopf === d.rollen.name)] || '')}"${S.schreiben ? '' : ' disabled'}>` +
+      return `<td class="${kl.join(' ')}"${stil} data-i="${i}"${titel ? ` title="${esc(titel)}"` : ''}><select data-status aria-label="Status für ${esc(a ? a.name : z.z[d.spalten.findIndex((x) => x.kopf === d.rollen.name)] || '')}"${S.schreiben ? '' : ' disabled'}>` +
         opts.map((o) => `<option value="${esc(o)}"${(a && a.status) === o ? ' selected' : ''}>${o ? esc(o) : '— offen —'}</option>`).join('') + '</select></td>';
     }
     const orig = z.z[i];
@@ -400,67 +331,61 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   }
 
   function zeileHtml(liste, z) {
-    const a = antwort(liste, z.id), zs = zustand(a), k = schluessel(liste, z.id);
-    const fehler = S.fehler.get(k);
-    const laeuft = S.lokal.has(k);
-    const punkt = fehler ? `<span class="punkt p-fehler" title="${esc(fehler)}">Fehler</span>`
-      : `<span class="punkt p-${zs}"${laeuft ? ' title="wird gespeichert"' : ''}>${ZUSTAND_TEXT[zs]}${laeuft ? ' …' : ''}</span>`;
-    const d = S.daten[liste];
-    return `<tr data-id="${esc(z.id)}" class="s-${zs}"><td class="zustand fix${d.fixiert ? '' : ' fix-letzte'}" style="left:0">${punkt}</td>` +
-      d.spalten.map((_, i) => zelleHtml(liste, z, a, i)).join('') + '</tr>';
+    const a = antwort(liste, z.id), k = schluessel(liste, z.id);
+    const kl = ['s-' + (S.fehler.has(k) ? 'fehler' : zustand(a))];
+    if (S.lokal.has(k)) kl.push('speichert');
+    return `<tr data-id="${esc(z.id)}" class="${kl.join(' ')}">` +
+      S.daten[liste].spalten.map((_, i) => zelleHtml(liste, z, a, i)).join('') + '</tr>';
   }
 
   function zeichneZeile(liste, z) {
-    if (liste !== S.liste) return;
+    if (liste !== S.liste || !z) return;
     const tr = $('zeilen').querySelector(`tr[data-id="${CSS.escape(z.id)}"]`);
     if (!tr || (S.editor && S.editor.tr === tr)) return;
     tr.outerHTML = zeileHtml(liste, z);
+  }
+
+  function zeichneMehr() {
+    const rows = S.daten[S.liste].zeilen, mehr = $('mehr');
+    mehr.hidden = !rows.length;
+    mehr.innerHTML = rows.length > S.anzahl
+      ? `<button type="button" id="mehr-knopf">Weitere ${Math.min(SCHRITT, rows.length - S.anzahl)} zeigen</button><span>${zahl(S.anzahl)} von ${zahl(rows.length)} Zeilen</span>`
+      : `<span>${zahl(rows.length)} ${rows.length === 1 ? 'Zeile' : 'Zeilen'}</span>`;
   }
 
   function zeichneTabelle() {
     const d = S.daten[S.liste];
     if (!d) return;
     schliesseEditor(false);
-    const rows = sichtbareZeilen();
-    $('laden').hidden = true;
+    const rows = d.zeilen;
+    $('laden').hidden = rows.length > 0;
     $('tabelle').hidden = rows.length === 0;
+    if (!rows.length) $('laden').innerHTML = '<strong>Alles geprüft</strong>In dieser Liste ist keine Zeile offen. Neue Zeilen kommen mit dem nächsten Datenlauf.';
     zeichneKopf();
     $('zeilen').innerHTML = rows.slice(0, S.anzahl).map((z) => zeileHtml(S.liste, z)).join('');
-    const mehr = $('mehr');
-    if (!rows.length) {
-      $('laden').hidden = false;
-      $('laden').innerHTML = S.filter === 'offen' && !S.suche && !S.hinweis
-        ? '<strong>Alles geprüft</strong>In dieser Liste ist keine Zeile mehr offen. Neue Zeilen kommen mit dem nächsten Datenlauf.'
-        : '<strong>Keine Zeile passt</strong>Ändere die Suche oder wähle oben einen anderen Stand.';
-      mehr.hidden = true;
-    } else if (rows.length > S.anzahl) {
-      mehr.hidden = false;
-      mehr.innerHTML = `<button type="button" id="mehr-knopf">Weitere ${Math.min(SCHRITT, rows.length - S.anzahl)} zeigen</button><span>${S.anzahl} von ${rows.length} Zeilen</span>`;
-    } else {
-      mehr.hidden = false;
-      mehr.innerHTML = `<span>${rows.length} ${rows.length === 1 ? 'Zeile' : 'Zeilen'}</span>`;
-    }
-    $('hilfe-clubs').hidden = S.liste !== 'clubs';
-    const st = $('liste-stand');
-    const erzeugt = d.erzeugt ? new Date(d.erzeugt) : null;
-    st.textContent = 'Endurance Events · Liste vom ' + (erzeugt ? erzeugt.toLocaleDateString('de-DE') + ', ' + erzeugt.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) : '–');
+    zeichneMehr();
   }
 
-  function zeichneHinweisFilter() {
-    const sel = $('hinweis-filter'), d = S.daten[S.liste];
-    const zaehler = new Map();
-    if (d) for (const z of d.zeilen) for (const h of hinweisZeilen(S.liste, z)) zaehler.set(h, (zaehler.get(h) || 0) + 1);
-    const liste = [...zaehler.entries()].sort((a, b) => b[1] - a[1]);
-    sel.hidden = liste.length === 0 || liste.length > 60;
-    if (S.hinweis && !zaehler.has(S.hinweis)) S.hinweis = '';
-    sel.innerHTML = '<option value="">Alle Hinweise</option>' +
-      liste.map(([h, n]) => `<option value="${esc(h)}"${h === S.hinweis ? ' selected' : ''}>${esc(h)} (${n})</option>`).join('');
+  // Wie ein Tabellenblatt: beim Scrollen kommen die nächsten Zeilen von selbst
+  // dazu, angehängt statt neu gezeichnet. Der Knopf bleibt für die Tastatur.
+  function zeigeMehr() {
+    const d = S.daten[S.liste];
+    if (!d || S.anzahl >= d.zeilen.length) return;
+    const neu = d.zeilen.slice(S.anzahl, S.anzahl + SCHRITT);
+    S.anzahl += neu.length;
+    $('zeilen').insertAdjacentHTML('beforeend', neu.map((z) => zeileHtml(S.liste, z)).join(''));
+    zeichneMehr();
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((eintraege) => {
+      if (eintraege.some((e) => e.isIntersecting)) zeigeMehr();
+    }, { root: $('rahmen'), rootMargin: '0px 0px 800px 0px' }).observe($('mehr'));
   }
 
-  function alles() { zeichneHinweisFilter(); zeichneZaehler(); zeichneTabelle(); }
+  function alles() { zeichneLeiste(); zeichneTabelle(); }
 
   // ---------- Bearbeiten ----------
-  function zeileZu(tr) { return S.daten[S.liste].zeilen.find((z) => z.id === tr.dataset.id); }
+  function zeileZu(tr) { return S.index[S.liste].get(tr.dataset.id); }
 
   function oeffneEditor(td) {
     if (!S.schreiben) return;
@@ -519,13 +444,12 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     } else {
       ed.tr.outerHTML = zeileHtml(liste, ed.z);
     }
+    const tr = $('zeilen').querySelector(`tr[data-id="${CSS.escape(ed.z.id)}"]`);
     if (weiter) {
-      const tr = $('zeilen').querySelector(`tr[data-id="${CSS.escape(ed.z.id)}"]`);
       const zellen = tr ? [...tr.querySelectorAll('td.edit')] : [];
       const naechste = zellen.find((c) => Number(c.dataset.i) > ed.i);
       if (naechste) oeffneEditor(naechste);
     } else {
-      const tr = $('zeilen').querySelector(`tr[data-id="${CSS.escape(ed.z.id)}"]`);
       const td = tr && tr.querySelector(`td[data-i="${ed.i}"]`);
       if (td && td.tabIndex >= 0) td.focus({ preventScroll: true });
     }
@@ -542,15 +466,14 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   document.addEventListener('click', (ev) => {
     const tab = ev.target.closest('[data-liste]');
     if (tab) {
-      S.liste = tab.dataset.liste; S.anzahl = SCHRITT; S.hinweis = '';
-      document.querySelectorAll('.reiter button').forEach((b) => b.setAttribute('aria-selected', String(b === tab)));
+      if (tab.dataset.liste === S.liste) return;
+      S.liste = tab.dataset.liste; S.anzahl = SCHRITT;
+      document.querySelectorAll('.blaetter button').forEach((b) => b.setAttribute('aria-selected', String(b === tab)));
       $('rahmen').scrollTo(0, 0);
       alles();
       return;
     }
-    const f = ev.target.closest('[data-filter]');
-    if (f) { S.filter = f.dataset.filter; S.anzahl = SCHRITT; zeichneZaehler(); zeichneTabelle(); return; }
-    if (ev.target.id === 'mehr-knopf') { S.anzahl += SCHRITT; zeichneTabelle(); return; }
+    if (ev.target.id === 'mehr-knopf') { zeigeMehr(); return; }
     const stift = ev.target.closest('[data-stift]');
     if (stift) { ev.preventDefault(); oeffneEditor(stift.closest('td')); return; }
     if (ev.target.closest('a, select, .editor, .editor-tipp')) return;
@@ -579,14 +502,6 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
       setTimeout(() => { if (S.editor === ed) schliesseEditor(true); }, 0);
     }
   });
-  let sucheTimer = null;
-  $('suche').addEventListener('input', (ev) => {
-    clearTimeout(sucheTimer);
-    sucheTimer = setTimeout(() => { S.suche = ev.target.value; S.anzahl = SCHRITT; zeichneTabelle(); }, 200);
-  });
-  $('hinweis-filter').addEventListener('change', (ev) => { S.hinweis = ev.target.value; S.anzahl = SCHRITT; zeichneTabelle(); });
-  try { if (localStorage.getItem('korrektur-hilfe') === 'zu') $('hilfe').open = false; else $('hilfe').open = true; } catch (e) { $('hilfe').open = true; }
-  $('hilfe').addEventListener('toggle', () => { try { localStorage.setItem('korrektur-hilfe', $('hilfe').open ? 'auf' : 'zu'); } catch (e) { /* egal */ } });
 
   // ---------- Laden ----------
   async function ladeDaten() {
@@ -595,6 +510,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
         const r = await fetch('daten/' + l + '.json', { cache: 'no-store' });
         if (!r.ok) throw new Error(r.status);
         S.daten[l] = await r.json();
+        S.index[l] = new Map(S.daten[l].zeilen.map((z) => [z.id, z]));
       } catch (e) {
         S.daten[l] = null;
       }
@@ -604,11 +520,21 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
       $('laden').innerHTML = '<strong>Liste nicht geladen</strong>Die Zeilen ließen sich nicht laden. Lade die Seite neu – hilft das nicht, sag mir im Chat Bescheid.';
       return;
     }
-    document.querySelectorAll('.reiter button').forEach((b) => {
+    document.querySelectorAll('.blaetter button').forEach((b) => {
       b.disabled = !S.daten[b.dataset.liste];
       b.setAttribute('aria-selected', String(b.dataset.liste === S.liste));
     });
     alles();
+  }
+
+  // Ein neuer Stand aus der Datenbank zeichnet nur die Zeilen neu, die sich
+  // geändert haben – die Liste zeigt immer alle Zeilen, ein Stand verschiebt
+  // also nichts, und die Stelle, an der du gerade arbeitest, bleibt stehen.
+  function geaenderteIds(alt, neu, gleich) {
+    const ids = new Set();
+    for (const [id, v] of neu) if (!alt.has(id) || !gleich(alt.get(id), v)) ids.add(id);
+    for (const id of alt.keys()) if (!neu.has(id)) ids.add(id);
+    return ids;
   }
 
   function verbinde() {
@@ -617,7 +543,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
       return;
     }
     Promise.all([window.claude.use('db'), window.claude.use('user')]).then(async ([db, user]) => {
-      if (!db) { meldung('Speichern ist gerade nicht möglich – bist du bei claude.ai angemeldet? Die Liste kannst du trotzdem ansehen.'); return; }
+      if (!db) { meldung('Speichern ist gerade nicht möglich – bist du bei claude.ai angemeldet? Ansehen geht trotzdem.'); return; }
       S.db = db;
       let darf = true;
       if (user) {
@@ -626,17 +552,18 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
       S.schreiben = darf;
       if (!darf) meldung('Du kannst die Liste ansehen, aber nichts ändern.');
       const abgerissen = () => meldung('Die Verbindung zur Datenbank ist abgerissen. Lade die Seite neu, bevor du weiterarbeitest.');
-      const neuZeichnen = (l) => {
+      const neuZeichnen = (l, ids) => {
         if (!S.daten[l]) return;
-        if (l === S.liste && !S.editor) { zeichneZaehler(); zeichneTabelle(); }
-        else zeichneZaehler();
+        if (l === S.liste) for (const id of ids) zeichneZeile(l, S.index[l].get(id));
+        zeichneLeiste();
       };
       for (const l of ['events', 'clubs']) {
         db.collection('antworten_' + l).onSnapshot((snap) => {
           const m = new Map();
           snap.docs.forEach((doc) => { const v = doc.data(); if (v) m.set(doc.id, v); });
+          const ids = geaenderteIds(S.antworten[l], m, (x, y) => JSON.stringify(x) === JSON.stringify(y));
           S.antworten[l] = m;
-          neuZeichnen(l);
+          neuZeichnen(l, ids);
         }, abgerissen);
         db.collection('quittung_' + l).onSnapshot((snap) => {
           const m = new Map();
@@ -648,11 +575,17 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
               m.get(id).add(stand);
             }
           });
+          const ids = geaenderteIds(S.quittungen[l], m, (x, y) => x.size === y.size && [...x].every((v) => y.has(v)));
           S.quittungen[l] = m;
-          neuZeichnen(l);
+          neuZeichnen(l, ids);
         }, abgerissen);
       }
-      if (S.daten[S.liste] && !S.editor) zeichneTabelle();
+      // Einmal ganz neu, damit die Status-Felder freigeschaltet sind.
+      if (S.daten[S.liste] && !S.editor) {
+        const oben = $('rahmen').scrollTop;
+        zeichneTabelle();
+        $('rahmen').scrollTop = oben;
+      }
     });
   }
 

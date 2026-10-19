@@ -5744,8 +5744,17 @@ veröffentlichte Dateien `daten/events.json` und `daten/clubs.json`
 Clubs-Branch, `--clubs-repo <Checkout>`): dieselben Spalten, Farben (rot
 `F8C9C4` = fehlt, orange `FCE2B0` = fraglich, grau = nicht änderbar – aus
 `SPALTEN` der Skripte), Auswahllisten (Datenprüfung der Excel), fixierten
-Spalten. Reiter Events/Clubs, Zähler Offen/In Arbeit/Bereit/Übernommen,
-Suche, Hinweis-Filter, 100 Zeilen je Schub. Eine Zelle antippen = Editor
+Spalten. **Nur das Tabellenblatt** (vom Nutzer am 19.10.2026: „die
+Kopfteile wie bei admin brauchen wir auch nicht. Es kann wirklich nur eine
+Excel-Liste sein, wo ich umschalten kann von Events zu Clubs“): unten
+Blattreiter Events/Clubs wie in Excel (Zahl = Zeilen ohne Status), rechts
+daneben eine Statuszeile (nicht gespeichert → laufendes Speichern → „N
+Zeilen bereit – schreib im Chat …“ → Stand der Liste); KEIN Kopf, keine
+Zähler, keine Suche, keine Hilfe – nicht wieder einbauen, ohne zu fragen
+(`test_korrektur_seite` prüft es). Alle Zeilen stehen da, beim Scrollen
+kommen je 100 nach; der Stand einer Zeile steht am Status-Feld (blau =
+bereit, grün = übernommen, rot umrandet = nicht gespeichert), ein neuer
+Datenbank-Stand zeichnet nur die geänderten Zeilen neu. Eine Zelle antippen = Editor
 (Enter/Tippen daneben übernimmt, Esc verwirft, Tab springt weiter);
 Status als Auswahl in der Zeile; Links öffnen in neuem Tab, geändert über
 ✎. Jede Eingabe schreibt sofort `antworten_<liste>/<Zeilen-Id>` (Status,
