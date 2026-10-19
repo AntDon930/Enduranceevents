@@ -580,6 +580,12 @@
      5,
      7.5
     ]
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Track Tuesday"
    }
   ],
   "distanz_km": [
@@ -596,14 +602,20 @@
   "merkmale": [
    "kaffee"
   ],
-  "beschreibung_de": "Monatlicher Lauf am ersten Samstag im Monat um 12 Uhr ab der Mikkeller Bar, 5 bis 7,5 km auf festen Routen, danach gemeinsames Bier – einfach vorbeikommen.",
-  "beschreibung_en": "Monthly run on the first Saturday of the month at noon from the Mikkeller Bar, 5 to 7.5 km on set routes, followed by a beer together – just turn up.",
+  "beschreibung_de": "Dienstags um 18:30 Uhr „Track Tuesday“: Treffen an der Mikkeller Bar, 3 km zur Bahn und Training dort; dazu am ersten Samstag im Monat um 12 Uhr ein Lauf über 5 bis 7,5 km mit anschließendem Bier.",
+  "beschreibung_en": "Tuesdays at 6:30 pm “Track Tuesday”: meet at the Mikkeller Bar, 3 km to the track and a session there; plus a 5 to 7.5 km run on the first Saturday of the month at noon, followed by a beer.",
   "quelle": [
    "https://www.strava.com/clubs/MRC-BLN",
-   "https://www.mikkeller.com/mrc/chapters"
+   "https://www.mikkeller.com/mrc/chapters",
+   "https://www.instagram.com/mrc_berlin/"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-10-19",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  }
  },
  {
   "id": "berlin-coffee-run-union",
@@ -14343,13 +14355,12 @@
    }
   ],
   "instagram": "https://www.instagram.com/rununityclub/",
-  "beschreibung_de": "Sonntagslauf um 10 Uhr ab dem Eingang des Kurparks.",
-  "beschreibung_en": "Sunday run at 10 am from the Kurpark entrance.",
+  "beschreibung_de": "Jeden Sonntag um 10 Uhr ab dem Eingang des Kurparks, für jedes Tempo.",
+  "beschreibung_en": "Every Sunday at 10 am from the Kurpark entrance, every pace welcome.",
   "quelle": [
-   "https://socialrunclubs.de/wiesbaden/rununityclub/"
+   "https://socialrunclubs.de/wiesbaden/rununityclub/",
+   "https://www.instagram.com/rununityclub/"
   ],
-  "pruefung_offen": true,
-  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Eintrag von 2025, Koordinate Kurhaus",
   "land": "Deutschland",
   "art": "Laufen",
   "geprueft": "2026-10-19",
@@ -18729,5 +18740,87 @@
   ],
   "pruefung_offen": true,
   "pruefung_grund": "Oktoberplan nennt nur Tage – Uhrzeiten (hier geschätzt) und Treffpunkte stehen nur in Stories/Linktree"
+ },
+ {
+  "id": "berlin-paws-and-pace",
+  "name": "PAWS & Pace",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "Krumme Lanke, Waldspielplatz am Fischerhüttenweg",
+  "lat": 52.45308,
+  "lon": 13.21824,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-25",
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Instagram-Nachricht",
+  "instagram": "https://www.instagram.com/pawsandpace.run/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Gemeinsamer Lauf über etwa 5 km an der Krummen Lanke, mit oder ohne Hund; Termine werden einzeln angekündigt.",
+  "beschreibung_en": "Group run of about 5 km at Krumme Lanke, with or without a dog; dates are announced one by one.",
+  "quelle": [
+   "https://www.instagram.com/pawsandpace.run/"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "offenbach-069-runclub",
+  "name": "069 Runclub",
+  "art": "Laufen",
+  "stadt": "Offenbach am Main",
+  "land": "Deutschland",
+  "treffpunkt": "Etappe Roasters, Hafenallee 57",
+  "lat": 50.11259,
+  "lon": 8.74625,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "11:00",
+    "bezeichnung": "Social Community Run"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/069runclub/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Sonntags um 11 Uhr ein Social Run über 5 km ab der Rösterei Etappe Roasters am Offenbacher Hafen.",
+  "beschreibung_en": "Sundays at 11 am a 5 km social run from Etappe Roasters at Offenbach harbour.",
+  "quelle": [
+   "https://www.instagram.com/069runclub/"
+  ],
+  "geprueft": "2026-10-19"
  }
 ]
