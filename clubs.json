@@ -5382,5 +5382,1296 @@
   "geprueft": "2026-10-19",
   "pruefung_offen": true,
   "pruefung_grund": "Probetraining für künftige Mitglieder, nicht ausdrücklich für Durchreisende; Badeintritt/Kosten unbekannt"
+ },
+ {
+  "id": "salzburg-parkrun-hellbrunn",
+  "name": "Hellbrunn parkrun",
+  "art": "Laufen",
+  "stadt": "Salzburg",
+  "land": "Österreich",
+  "treffpunkt": "Schloßpark Hellbrunn, Fürstenweg 37, 5020 Salzburg",
+  "lat": 47.76107,
+  "lon": 13.06546,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "parkrun (einmalige Registrierung, Barcode)",
+  "webseite": "https://www.parkrun.co.at/hellbrunn/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser, zeitgemessener 5-km-Lauf jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free, timed 5 km event every Saturday; walking, jogging and running are all welcome.",
+  "quelle": [
+   "https://www.parkrun.co.at/hellbrunn/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-parkrun-donaupark",
+  "name": "Donaupark parkrun",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "land": "Österreich",
+  "treffpunkt": "Donaupark, Arbeiterstrandbadstraße 122, 1220 Wien",
+  "lat": 48.24004,
+  "lon": 16.41967,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "parkrun (einmalige Registrierung, Barcode)",
+  "webseite": "https://www.parkrun.co.at/donaupark/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser, zeitgemessener 5-km-Lauf jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free, timed 5 km event every Saturday; walking, jogging and running are all welcome.",
+  "quelle": [
+   "https://www.parkrun.co.at/donaupark/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "linz-parkrun-donauradweg",
+  "name": "Donauradweg parkrun",
+  "art": "Laufen",
+  "stadt": "Linz",
+  "land": "Österreich",
+  "treffpunkt": "Donauradweg, Heilhamer Weg, 4040 Linz",
+  "lat": 48.31813,
+  "lon": 14.29332,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "parkrun (einmalige Registrierung, Barcode)",
+  "webseite": "https://www.parkrun.co.at/donauradweg/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser, zeitgemessener 5-km-Lauf jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free, timed 5 km event every Saturday; walking, jogging and running are all welcome.",
+  "quelle": [
+   "https://www.parkrun.co.at/donauradweg/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "graz-parkrun-stadtparkgraz",
+  "name": "Stadtpark parkrun, Graz",
+  "art": "Laufen",
+  "stadt": "Graz",
+  "land": "Österreich",
+  "treffpunkt": "Ehemaliger Verkehrsgarten im Stadtpark neben dem Kinderspielplatz, 8010 Graz",
+  "lat": 47.07512,
+  "lon": 15.44292,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "parkrun (einmalige Registrierung, Barcode)",
+  "webseite": "https://www.parkrun.co.at/stadtparkgraz/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser, zeitgemessener 5-km-Lauf jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free, timed 5 km event every Saturday; walking, jogging and running are all welcome.",
+  "quelle": [
+   "https://www.parkrun.co.at/stadtparkgraz/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "klagenfurt-parkrun-europapark",
+  "name": "Europapark parkrun",
+  "art": "Laufen",
+  "stadt": "Klagenfurt",
+  "land": "Österreich",
+  "treffpunkt": "Europapark bei der Wörthersee-Ostbucht, 9020 Klagenfurt am Wörthersee",
+  "lat": 46.62171,
+  "lon": 14.25685,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "parkrun (einmalige Registrierung, Barcode)",
+  "webseite": "https://www.parkrun.co.at/europapark/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser, zeitgemessener 5-km-Lauf jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free, timed 5 km event every Saturday; walking, jogging and running are all welcome.",
+  "quelle": [
+   "https://www.parkrun.co.at/europapark/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "innsbruck-parkrun-innpromenade",
+  "name": "Innpromenade parkrun",
+  "art": "Laufen",
+  "stadt": "Innsbruck",
+  "land": "Österreich",
+  "treffpunkt": "Innpromenade, Sieglangersteg (Nordseite), Ecke Doktor-Stumpf-Straße/Rehgasse, 6020 Innsbruck",
+  "lat": 47.25472,
+  "lon": 11.36175,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "parkrun (einmalige Registrierung, Barcode)",
+  "webseite": "https://www.parkrun.co.at/innpromenade/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser, zeitgemessener 5-km-Lauf jeden Samstag; Gehen, Joggen und Laufen sind gleichermaßen willkommen.",
+  "beschreibung_en": "Free, timed 5 km event every Saturday; walking, jogging and running are all welcome.",
+  "quelle": [
+   "https://www.parkrun.co.at/innpromenade/",
+   "https://images.parkrun.com/events.json"
+  ],
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-wemove-mittwochslauf",
+  "name": "WEMOVE Mittwochslauf",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "treffpunkt": "WEMOVE Runningstore Wien Mitte – The Mall, Landstraßer Hauptstraße 1b (2. OG), 1030 Wien",
+  "lat": 48.20621,
+  "lon": 16.38497,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "dauer_min": 60,
+  "stufen": [
+   "anfaenger",
+   "mittel",
+   "fortgeschritten"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.wemove.at/mittwochs-lauf/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich",
+   "gepaeck"
+  ],
+  "beschreibung_de": "Ganzjähriger Lauftreff des Laufgeschäfts WEMOVE mit mehreren Leistungsgruppen und eigener Walking-Gruppe, rund eine Stunde ab Wien Mitte.",
+  "beschreibung_en": "Year-round weekly run from the WEMOVE running store with several pace groups and a walking group, about one hour from Wien Mitte.",
+  "quelle": [
+   "https://www.wemove.at/mittwochs-lauf/",
+   "https://www.wemove.at/kontakt/"
+  ],
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-wemove-weekly-long-run",
+  "name": "WEMOVE Weekly Long Run",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "treffpunkt": "WEMOVE Runningstore Wien Mitte – The Mall, Landstraßer Hauptstraße 1b (2. OG), 1030 Wien",
+  "lat": 48.20621,
+  "lon": 16.38497,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "08:30"
+   }
+  ],
+  "distanz_km": [
+   15,
+   30
+  ],
+  "pace": {
+   "von": "5:40",
+   "bis": "7:30"
+  },
+  "stufen": [
+   "mittel",
+   "fortgeschritten"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.wemove.at/weekly-long-run",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "mehrere_gruppen",
+   "gepaeck"
+  ],
+  "beschreibung_de": "Sonntäglicher langer Lauf in mehreren Pace-Gruppen ab dem WEMOVE-Store; man sollte mindestens 100 Minuten am Stück laufen können, das Programm erscheint jeweils ab Mittwoch.",
+  "beschreibung_en": "Sunday long run in several pace groups from the WEMOVE store; you should be able to run at least 100 minutes, the route plan is published from Wednesday.",
+  "quelle": [
+   "https://www.wemove.at/weekly-long-run",
+   "https://www.wemove.at/kontakt/"
+  ],
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-on-run-club",
+  "name": "On Run Club Wien",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "treffpunkt": "On Store Wien, Neubaugasse 20, 1070 Wien",
+  "lat": 48.19976,
+  "lon": 16.34949,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "stufen": [
+   "anfaenger",
+   "mittel",
+   "fortgeschritten"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.vienna.at/on-eroeffnet-ersten-oesterreich-store-in-wien/10493696",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser 5-km-Lauf jeden Mittwoch ab dem On Store in der Neubaugasse, für alle Leistungsstufen; Schuhanprobe ab 18 Uhr.",
+  "beschreibung_en": "Free 5 km run every Wednesday from the On store in Neubaugasse, for all levels; shoe testing from 6 pm.",
+  "quelle": [
+   "https://www.vienna.at/on-eroeffnet-ersten-oesterreich-store-in-wien/10493696"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur Presseartikel zur Store-Eröffnung (25.09.2026); keine eigene Seite/Instagram des Run Clubs gefunden, Anmeldung unklar",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-social-run-club",
+  "name": "Social Run Club Vienna",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "treffpunkt": "Lobby des 25hours Hotel Wien, Lerchenfelder Straße 1–3, 1070 Wien",
+  "lat": 48.20648,
+  "lon": 16.35462,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "nter": 2,
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://socialrunclub.at",
+  "instagram": "https://www.instagram.com/socialrunclub.vienna/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lockere 5-km-Ringrunde zum Laufen oder Gehen am zweiten Montag im Monat, danach geselliges Beisammensein im 25hours Hotel.",
+  "beschreibung_en": "Relaxed 5 km loop around the Ring, run or walk, on the second Monday of the month, followed by drinks at the 25hours Hotel.",
+  "quelle": [
+   "https://socialrunclub.at",
+   "https://www.1000thingsmagazine.com/de/a/2188617/run-clubs-wien/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Seite nennt Check-in 17:45 bzw. 18:00, Start 18:30; „jeden 2ten Montag im Monat“ – ob 2. Montag oder jeder zweite Montag ist nicht eindeutig (nächster Termin laut Seite 16.11.2026 = 3. Montag); Kosten nicht angegeben",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-vrc-long-sunday",
+  "name": "Vienna Running Collective – Long Sunday",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "treffpunkt": "Superfood Deli, Maria-Theresien-Straße 5, 1090 Wien",
+  "lat": 48.21509,
+  "lon": 16.36269,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "08:00",
+    "bezeichnung": "Long Sunday",
+    "distanz_km": [
+     16,
+     30
+    ]
+   }
+  ],
+  "distanz_km": [
+   16,
+   30
+  ],
+  "pace": {
+   "von": "4:00",
+   "bis": "5:30"
+  },
+  "stufen": [
+   "fortgeschritten"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.viennarunningco.com",
+  "instagram": "https://www.instagram.com/viennarunningco/",
+  "strava": "https://www.strava.com/clubs/1025419",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "beschreibung_de": "Wöchentlicher langer Sonntagslauf der Wiener Laufcommunity, kostenlos und ohne Anmeldung.",
+  "beschreibung_en": "Weekly Sunday long run of the Vienna running community, free and without registration.",
+  "quelle": [
+   "https://viennarunningco.com/social-run",
+   "https://runningcrews.com/blog/vienna-running-collective-vienna",
+   "https://www.run-clubs.eu/clubs/vienna-running-collective"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Uhrzeit widersprüchlich: runningcrews.com (04/2026) 8:00, Instagram-Bio laut run-clubs.eu 7:30; eigene Seite nennt nur Superfood Deli oder La Plume als Start ohne Zeit",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-vrc-tempo-tuesday",
+  "name": "Vienna Running Collective – Tempo Tuesday",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "treffpunkt": "Prater Hauptallee, Stadion-Parkplatz (teils WLV-Bahn, Meiereistraße), 1020 Wien",
+  "lat": 48.20719,
+  "lon": 16.42092,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:45",
+    "bezeichnung": "Tempo Tuesday"
+   }
+  ],
+  "stufen": [
+   "fortgeschritten"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Auf der WLV-Bahn 5 € Bahngebühr für Nichtmitglieder"
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.viennarunningco.com",
+  "instagram": "https://www.instagram.com/viennarunningco/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "beschreibung_de": "Tempo- und Intervalltraining am Dienstagabend in der Prater Hauptallee oder auf der WLV-Bahn.",
+  "beschreibung_en": "Tuesday evening tempo and interval session on the Prater Hauptallee or the WLV track.",
+  "quelle": [
+   "https://runningcrews.com/blog/vienna-running-collective-vienna",
+   "https://www.run-clubs.eu/clubs/vienna-running-collective"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur Sammelseiten; Uhrzeit 18:45 (runningcrews) vs. 19:00 (Instagram-Bio laut run-clubs.eu); Ort wechselt zwischen Hauptallee und Bahn",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-kraft-runners",
+  "name": "KRAFT Runners Wien",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "treffpunkt": "basz bar, Hollandstraße 7, 1020 Wien",
+  "lat": 48.21556,
+  "lon": 16.37645,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/wien",
+  "instagram": "https://www.instagram.com/kraftrunners",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "gepaeck"
+  ],
+  "beschreibung_de": "Wöchentliches Intervalltraining der KRAFT-Runners-Community am Donnerstagabend, jede Pace willkommen, Gepäckabgabe vor Ort.",
+  "beschreibung_en": "Weekly Thursday evening interval session of the KRAFT Runners community, every pace welcome, bag drop available.",
+  "quelle": [
+   "https://kraftrunners.de/wien",
+   "https://kraftrunners.de/"
+  ],
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-frontrunners",
+  "name": "Frontrunners Vienna (Pride Run Vienna)",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "treffpunkt": "Prater Hauptallee, Höhe Oswald-Thomas-Platz/Planetarium, 1020 Wien",
+  "lat": 48.2162,
+  "lon": 16.39449,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://priderunvienna.com",
+  "instagram": "https://www.instagram.com/priderunvienna/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Queerer Laufverein, offen für alle vom Einsteiger bis zum Marathonläufer, Start im Prater beim Planetarium.",
+  "beschreibung_en": "Queer running club open to everyone from beginners to marathoners, starting in the Prater near the Planetarium.",
+  "quelle": [
+   "https://priderunvienna.com",
+   "https://www.run-clubs.eu/clubs/frontrunners-vienna"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Webseite: Di/Do/So 18:00; Instagram-Bio laut run-clubs.eu: Do & So 18:30 – Tage und Uhrzeit prüfen; Kosten nicht angegeben",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-vrc-community-social-run",
+  "name": "Vienna Running Collective – Community Social Run",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "treffpunkt": "La Plume, Hainburger Straße 56, 1030 Wien (wechselnd)",
+  "lat": 48.19813,
+  "lon": 16.39866,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "nter": 3,
+    "wochentag": 7,
+    "uhrzeit": "08:00"
+   }
+  ],
+  "distanz_km": [
+   9,
+   10
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "6:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://viennarunningco.com/social-run",
+  "instagram": "https://www.instagram.com/viennarunningco/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Monatlicher Social Run über 9–10 km bei rund 6:00 min/km ab einem Café, kostenlos und ohne Anmeldung.",
+  "beschreibung_en": "Monthly social run of 9–10 km at about 6:00 min/km from a café, free and without registration.",
+  "quelle": [
+   "https://viennarunningco.com/social-run",
+   "https://viennarunningco.com/events"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Event-Seite zeigt nur Termine bis 08/2025 (meist 3. Sonntag, Start 8:00/8:30, Café wechselnd); ob die Reihe 2026 weiterläuft, unklar",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-radbar-toast-und-rad",
+  "name": "Radbar Toast & Rad",
+  "art": "Fahrrad",
+  "stadt": "Wien",
+  "treffpunkt": "boulderbar Hannovergasse, Hannovergasse 21, 1200 Wien",
+  "lat": 48.23149,
+  "lon": 16.36791,
+  "termine": [
+   {
+    "rhythmus": "zweiwoechentlich",
+    "ab": "2026-04-15",
+    "wochentag": 3,
+    "uhrzeit": "17:30"
+   }
+  ],
+  "rad_typ": "Rennrad",
+  "saison": {
+   "von": "04-15",
+   "bis": "10-14"
+  },
+  "webseite": "https://www.radbar.wien/toast-rad-2026/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Community-Rennradausfahrt der Radbar jeden zweiten Mittwoch in den Gruppen „Gruppetto“ (gemütlich) und „Tempo“ (schnell).",
+  "beschreibung_en": "Radbar community road ride every other Wednesday in two groups, 'Gruppetto' (easy) and 'Tempo' (fast).",
+  "quelle": [
+   "https://www.radbar.wien/toast-rad-2026/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Startzeit wechselt saisonal (17:00 im Frühjahr/Herbst, 17:30, 18:00 im Sommer); Saison 2026 endete 14.10.; Tempo, Kosten und Anmeldung nicht angegeben",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-road-relations-espresso",
+  "name": "Road Relations Espresso Ausfahrt",
+  "art": "Fahrrad",
+  "stadt": "Wien",
+  "treffpunkt": "Road Relations, Margaretenstraße 59, 1050 Wien",
+  "lat": 48.19296,
+  "lon": 16.36106,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "rad_typ": "Rennrad",
+  "strava": "https://www.strava.com/clubs/roadrelations",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Wöchentliche Rennradausfahrt ab dem Radgeschäft Road Relations in moderatem Tempo.",
+  "beschreibung_en": "Weekly road ride from the Road Relations bike shop at a moderate pace.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/wien"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur Sammelseite rundedrehen.de (Termine Mo 19./26.10.2026, 18 Uhr); Strava-Beschreibung von 2022 nennt Samstag 14:00 (Espresso 29–32 km/h, Cappuccino 25–28 km/h); eigene Seite roadrelations.at nicht erreichbar",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-puppyton-wednesday-ride",
+  "name": "Puppyton Wednesday Ride",
+  "art": "Fahrrad",
+  "stadt": "Wien",
+  "treffpunkt": "Steinitzsteg (Yellow Bridge), 1200 Wien",
+  "lat": 48.25355,
+  "lon": 16.37792,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "16:30"
+   }
+  ],
+  "rad_typ": "Rennrad",
+  "strava": "https://www.strava.com/clubs/puppytonride",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Wöchentliche Mittwochsausfahrt ab dem Steinitzsteg an der Donauinsel.",
+  "beschreibung_en": "Weekly Wednesday ride starting at the Steinitzsteg (Yellow Bridge) on the Danube Island.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/wien"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur Sammelseite rundedrehen.de (Termine 21./28.10.2026); Radtyp, Tempo, Offenheit und Veranstalter nicht bestätigt",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "wien-early-birds-cycling-sunday",
+  "name": "Early Birds Cycling Club – Sunday Social Coffee Ride",
+  "art": "Fahrrad",
+  "stadt": "Wien",
+  "treffpunkt": "Steinitzsteg (Yellow Bridge), 1200 Wien",
+  "lat": 48.25355,
+  "lon": 16.37792,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "distanz_km": [
+   90,
+   110
+  ],
+  "rad_typ": "Rennrad",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Heylo",
+  "webseite": "https://www.heylo.com/event/74bfef99-5e34-442e-ad55-596a8a3f190c",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "merkmale": [
+   "mehrere_gruppen",
+   "kaffee"
+  ],
+  "beschreibung_de": "Wöchentlicher Social Coffee Ride am Sonntag über 90–110 km in drei Gruppen, davon zwei, die auf alle warten.",
+  "beschreibung_en": "Weekly Sunday social coffee ride of 90–110 km in three groups, two of which wait for everyone.",
+  "quelle": [
+   "https://www.heylo.com/event/74bfef99-5e34-442e-ad55-596a8a3f190c"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur eine (vergangene) Heylo-Eventseite vom 05.07.2026; Saison/Winterpause und Kosten unklar",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "graz-runningraz-dienstag",
+  "name": "runninGraz – Dienstagslauf an der Mur",
+  "art": "Laufen",
+  "stadt": "Graz",
+  "treffpunkt": "Augartensteg, 8010 Graz",
+  "lat": 47.06079,
+  "lon": 15.43442,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Schneller Dauerlauf an der Mur"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.runningraz.at/",
+  "instagram": "https://www.instagram.com/werungrz/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Schneller Dauerlauf des Grazer Laufvereins runninGraz entlang der Mur; der Lauftreff ist kostenlos und für alle offen.",
+  "beschreibung_en": "Steady tempo run along the Mur river by the Graz running club runninGraz; free and open to everyone.",
+  "quelle": [
+   "https://www.runningraz.at/",
+   "https://www.sportaktiv.com/runningraz-die-laufcommunity-der-zweitgroessten-stadt-oesterreichs"
+  ],
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "graz-runningraz-sunset-rave-run",
+  "name": "runninGraz – Sunset Rave Run",
+  "art": "Laufen",
+  "stadt": "Graz",
+  "treffpunkt": "Gigasport Graz, Kaiser-Franz-Josef-Kai",
+  "lat": 47.07145,
+  "lon": 15.43571,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.runningraz.at/",
+  "instagram": "https://www.instagram.com/werungrz/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Donnerstagslauf von runninGraz für Hobbyläufer aller Niveaus.",
+  "beschreibung_en": "Thursday run by runninGraz for recreational runners of all levels.",
+  "quelle": [
+   "https://www.runningraz.at/",
+   "https://www.sportaktiv.com/runningraz-die-laufcommunity-der-zweitgroessten-stadt-oesterreichs"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Vereinsseite nennt Do 18:00 bei Gigasport; welcher Gigasport-Standort gemeint ist und ob kostenlos (Artikel 2021: Do 18:00 Augartensteg, gratis) nicht bestätigt",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "graz-socialrunclub",
+  "name": "SocialRunClub Graz",
+  "art": "Laufen",
+  "stadt": "Graz",
+  "treffpunkt": "Südtiroler Platz, 8020 Graz",
+  "lat": 47.07106,
+  "lon": 15.43362,
+  "termine": [
+   {
+    "rhythmus": "zweiwoechentlich",
+    "ab": "2026-06-18",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   4,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/socialrunclub.graz/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Geselliger Lauf über 4–5 km entlang der Mur, jeder in seinem Tempo, alle zwei Wochen am Donnerstag.",
+  "beschreibung_en": "Social 4–5 km run along the Mur, everyone at their own pace, every other Thursday.",
+  "quelle": [
+   "https://www.run-clubs.eu/clubs/socialrunclub-graz",
+   "https://www.1000thingsmagazine.com/de/a/2188663/run-clubs-oesterreich/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur Sammelseiten/Instagram-Bio (Stand ~06/2026, „jeden 2. Donnerstag“, nächster Run 18.06.); Uhrzeit und Treffpunkt nicht auf eigener Quelle bestätigt, 2-Wochen-Takt unklar",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "graz-running-buddys",
+  "name": "Running Buddys Graz – Community Run",
+  "art": "Laufen",
+  "stadt": "Graz",
+  "treffpunkt": "Stadtstrand – Puchsteg, 8010 Graz",
+  "lat": 47.04673,
+  "lon": 15.44166,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.runningbuddys.at/",
+  "instagram": "https://www.instagram.com/running4buddys/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Community Run des Grazer Laufvereins Running Buddys, offen für Einsteiger bis Marathonläufer, mit Drink und Gesprächen danach.",
+  "beschreibung_en": "Community run by Graz club Running Buddys, open to beginners and marathoners alike, with drinks and chat afterwards.",
+  "quelle": [
+   "https://www.runningbuddys.at/",
+   "https://www.run-clubs.eu/clubs/running-buddys-graz"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Rhythmus unklar (Sammelseite: Sonntag 10 Uhr; Instagram zuletzt vor ~11 Monaten aktiv); Treffpunkte wechseln laut Suchtreffer (Stadtstrand, Augarten)",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "linz-oberbank-lauftreff",
+  "name": "Oberbank Lauftreff (Linz Donau Marathon)",
+  "art": "Laufen",
+  "stadt": "Linz",
+  "treffpunkt": "Fitnessoase Parkbad, Untere Donaulände 11, 4020 Linz (Arcotel-Parkplatz)",
+  "lat": 48.31154,
+  "lon": 14.2953,
+  "termine": [
+   {
+    "rhythmus": "zweiwoechentlich",
+    "ab": "2026-11-21",
+    "wochentag": 6,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "dauer_min": 120,
+  "saison": {
+   "von": "11-21",
+   "bis": "03-27"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.linzmarathon.at/en/events/details/event.oberbank-running-club-2027",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Kostenlose Vorbereitungsläufe für den Linz Donau Marathon am Samstagvormittag entlang der Donau, ohne Anmeldung.",
+  "beschreibung_en": "Free Saturday morning preparation runs for the Linz Danube Marathon along the Danube, no registration needed.",
+  "quelle": [
+   "https://www.linzmarathon.at/en/events/details/event.oberbank-running-club-2027"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Termine 21.11., 05.12.2026, dann ab 02.01.2027 alle 14 Tage bis 27.03.2027 – Pause 05.12.–02.01. passt nicht in den 14-Tage-Takt",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "salzburg-ruperti-runners",
+  "name": "Ruperti Runners",
+  "art": "Laufen",
+  "stadt": "Salzburg",
+  "treffpunkt": "Vor dem Health Lab, Alpenstraße, 5020 Salzburg (Aufwärmen im Park vor Schloss Frohnburg)",
+  "lat": 47.77732,
+  "lon": 13.0611,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/rupertirunners/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Montagabend-Lauftreff mit Intervallen, ohne Anmeldung.",
+  "beschreibung_en": "Monday evening run club with interval sessions, no registration needed.",
+  "quelle": [
+   "https://www.salzburg24.at/news/salzburg/stadt/man-lernt-sich-am-tiefpunkt-kennen-so-mischen-community-runs-salzburgs-laufszene-auf-art-323389",
+   "https://www.1000thingsmagazine.com/de/a/2188663/run-clubs-oesterreich/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur Presseartikel (21.04.2026); Hausnummer Health Lab unbekannt, Koordinaten = Schloss Frohnburg (Aufwärmort); Kosten nicht genannt",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "salzburg-trail-community",
+  "name": "Trail Community Salzburg – Community Run",
+  "art": "Laufen",
+  "stadt": "Salzburg",
+  "treffpunkt": "Wechselnd (z. B. Hundewiese bei Schloss Aigen, Kapitelplatz, Park Hellbrunn) – laut Kalender",
+  "lat": 47.78605,
+  "lon": 13.08815,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "dauer_min": 90,
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Kalender auf trail.community",
+  "webseite": "https://www.trail.community/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "no_drop"
+  ],
+  "beschreibung_de": "Wöchentlicher Trail-Community-Run für alle Niveaus, 60–90 Minuten, die Gruppe bleibt zusammen und macht Pausen.",
+  "beschreibung_en": "Weekly trail community run for all levels, 60–90 minutes, the group stays together and takes breaks.",
+  "quelle": [
+   "https://www.trail.community/run-with-us",
+   "https://www.trail.community/calendar"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Wochentag wechselt (Mi/Do) und Treffpunkt wechselt je Termin; Kosten nicht angegeben",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "salzburg-radteam-montagsrunde",
+  "name": "Radteam Salzburg – Montagsausfahrt",
+  "art": "Fahrrad",
+  "stadt": "Salzburg",
+  "treffpunkt": "MyGym Prime Süd, Alpenstraße 95–97, 5020 Salzburg",
+  "lat": 47.77603,
+  "lon": 13.06932,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "17:30"
+   }
+  ],
+  "dauer_min": 120,
+  "rad_typ": "Rennrad",
+  "saison": {
+   "von": "04-01",
+   "bis": "09-30"
+  },
+  "webseite": "https://www.radteamsalzburg.at/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "no_drop"
+  ],
+  "beschreibung_de": "Feierabendausfahrt des Radteams Salzburg für Hobby-Rennradfahrer, ca. zwei Stunden, das Tempo richtet sich nach den Langsamsten.",
+  "beschreibung_en": "After-work road ride of Radteam Salzburg for hobby riders, about two hours, pace set by the slowest rider.",
+  "quelle": [
+   "https://www.radteamsalzburg.at/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Derzeit Pause, Neustart Frühjahr 2027; evtl. Umstellung auf Dienstag; Saisonzeitraum geschätzt; Gäste nicht ausdrücklich erwähnt",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "innsbruck-dna-trails",
+  "name": "DNA Trails – Thursday Community Run",
+  "art": "Laufen",
+  "stadt": "Innsbruck",
+  "treffpunkt": "Bierstindl, Klostergasse 6, 6020 Innsbruck",
+  "lat": 47.25183,
+  "lon": 11.40109,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "distanz_km": [
+   9.5,
+   13
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.trailrunninginnsbruck.com/",
+  "instagram": "https://www.instagram.com/dna.trails/",
+  "sprachen": [
+   "en"
+  ],
+  "merkmale": [
+   "mehrere_gruppen",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentlicher Trail-Community-Run auf Englisch in zwei Gruppen (ca. 9,5 km/250 Hm und 13 km/400 Hm), kostenlos und ohne Anmeldung.",
+  "beschreibung_en": "Weekly English-language trail community run in two groups (about 9.5 km/250 m and 13 km/400 m gain), free, no sign-up.",
+  "quelle": [
+   "https://www.trailrunninginnsbruck.com/"
+  ],
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "innsbruck-kraft-runners",
+  "name": "KRAFT Runners Innsbruck",
+  "art": "Laufen",
+  "stadt": "Innsbruck",
+  "treffpunkt": "SixtyTwenty, Universitätsstraße 15a, 6020 Innsbruck",
+  "lat": 47.26921,
+  "lon": 11.3984,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://kraftrunners.de/innsbruck",
+  "instagram": "https://www.instagram.com/kraftrunners",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "gepaeck"
+  ],
+  "beschreibung_de": "Wöchentliches Intervalltraining der KRAFT-Runners-Community am Donnerstagabend, ohne Anmeldung, Gepäckabgabe vor Ort.",
+  "beschreibung_en": "Weekly Thursday evening interval session of the KRAFT Runners community, no sign-up, bag drop available.",
+  "quelle": [
+   "https://kraftrunners.de/innsbruck",
+   "https://kraftrunners.de/"
+  ],
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "innsbruck-base-five",
+  "name": "Base Five Run Club",
+  "art": "Laufen",
+  "stadt": "Innsbruck",
+  "treffpunkt": "Base Five, Universitätsstraße 5, 6020 Innsbruck",
+  "lat": 47.26906,
+  "lon": 11.39713,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "09:00"
+   }
+  ],
+  "webseite": "https://www.basefive.at/sportsactivities/",
+  "instagram": "https://www.instagram.com/basefive_/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Lauftreffs der Innsbrucker Sport-Community Base Five am Mittwochabend und Sonntagmorgen.",
+  "beschreibung_en": "Run club sessions of the Innsbruck sports community Base Five on Wednesday evenings and Sunday mornings.",
+  "quelle": [
+   "https://www.run-clubs.eu/clubs/base-five-innsbruck",
+   "https://www.1000thingsmagazine.com/de/a/2188663/run-clubs-oesterreich/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur Sammelseiten (run-clubs.eu: So 9:00, Mi 18:30, Fr 18:30 Bahn; 1000things: Mi-Abend, Frauenlauftreff alle zwei Dienstage); basefive.at war nicht erreichbar (503); Kosten/Anmeldung offen",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "innsbruck-esn-running-club",
+  "name": "ESN Running Club Innsbruck",
+  "art": "Laufen",
+  "stadt": "Innsbruck",
+  "treffpunkt": "Tiroler Landestheater, Rennweg 2, 6020 Innsbruck",
+  "lat": 47.26966,
+  "lon": 11.39666,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "16:00"
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "6:30"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "webseite": "https://innsbruck.esnaustria.org/",
+  "sprachen": [
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lockerer 6-km-Lauf des Erasmus Student Network ab dem Landestheater, offen für alle.",
+  "beschreibung_en": "Easy 6 km run by the Erasmus Student Network from the Landestheater, open to all.",
+  "quelle": [
+   "https://www.run-clubs.eu/clubs/esn-running-club-innsbruck"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur Sammelseite; die verlinkte ESN-Eventseite liefert 404; semesterabhängig, Uhrzeit 16:00 ungewöhnlich",
+  "land": "Österreich",
+  "geprueft": "2026-10-19"
  }
 ]
