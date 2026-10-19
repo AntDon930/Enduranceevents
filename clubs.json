@@ -7839,5 +7839,1661 @@
   ],
   "land": "Deutschland",
   "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-cityrunning-nord",
+  "name": "CityRunning Nord",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "Marktplatz Oerlikon, Edisonstrasse 26",
+  "lat": 47.41059,
+  "lon": 8.54488,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "6:00",
+   "bis": "6:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.cityrunning.ch/",
+  "instagram": "https://www.instagram.com/cityrunningch/",
+  "strava": "https://www.strava.com/clubs/18915",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Geführter Gratis-Lauftreff von CityRunning, seit über 20 Jahren ganzjährig unterwegs, rund eine Stunde, ohne Anmeldung und ohne Mitgliedschaft.",
+  "beschreibung_en": "Free guided group run by CityRunning, running year-round for over 20 years, about one hour, no sign-up or membership.",
+  "quelle": [
+   "https://www.meetup.com/cityrunning/",
+   "https://www.run-clubs.eu/blog/run-clubs-zurich"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-cityrunning-enge",
+  "name": "CityRunning Enge",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "Hafen Enge, Mythenquai 21",
+  "lat": 47.36123,
+  "lon": 8.53569,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "6:00",
+   "bis": "7:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.cityrunning.ch/",
+  "instagram": "https://www.instagram.com/cityrunningch/",
+  "strava": "https://www.strava.com/clubs/18915",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Geführter Gratis-Lauftreff von CityRunning, seit über 20 Jahren ganzjährig unterwegs, rund eine Stunde, ohne Anmeldung und ohne Mitgliedschaft. Zwei Tempogruppen (6 und 7 min/km).",
+  "beschreibung_en": "Free guided group run by CityRunning, running year-round for over 20 years, about one hour, no sign-up or membership. Two pace groups (6 and 7 min/km).",
+  "quelle": [
+   "https://www.meetup.com/cityrunning/",
+   "https://www.run-clubs.eu/blog/run-clubs-zurich"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-cityrunning-west",
+  "name": "CityRunning West",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "Lindenplatz, Zürich-Altstetten",
+  "lat": 47.38752,
+  "lon": 8.48591,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "6:00",
+   "bis": "6:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.cityrunning.ch/",
+  "instagram": "https://www.instagram.com/cityrunningch/",
+  "strava": "https://www.strava.com/clubs/18915",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Geführter Gratis-Lauftreff von CityRunning, seit über 20 Jahren ganzjährig unterwegs, rund eine Stunde, ohne Anmeldung und ohne Mitgliedschaft.",
+  "beschreibung_en": "Free guided group run by CityRunning, running year-round for over 20 years, about one hour, no sign-up or membership.",
+  "quelle": [
+   "https://www.meetup.com/cityrunning/",
+   "https://www.run-clubs.eu/blog/run-clubs-zurich"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-the-6zh-club",
+  "name": "THE 6:ZH CLUB",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "Bürkliplatz",
+  "lat": 47.36638,
+  "lon": 8.54119,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "06:15"
+   }
+  ],
+  "distanz_km": [
+   6,
+   6
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "6:30"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://the6zhclub.com/",
+  "instagram": "https://www.instagram.com/the6zhclub/",
+  "strava": "https://www.strava.com/clubs/1153380",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Früher Dienstagslauf bei jedem Wetter über rund 6 km, danach Kaffee und Gipfeli bei JUNG am Schanzengraben; Einsteiger willkommen, wenn sie etwa 6:30 min/km halten.",
+  "beschreibung_en": "Early Tuesday run in any weather, about 6 km, followed by coffee and a croissant at JUNG Schanzengraben; beginners welcome if they can hold roughly 6:30 min/km.",
+  "quelle": [
+   "https://the6zhclub.com/",
+   "https://img1.wsimg.com/blobby/go/5844c0cf-a8c6-41e2-8150-db0c2c524167/WHAT%20WHERE%20%26%20WHEN.pdf"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-district-runners",
+  "name": "District Runners Zürich",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "Grand Café Lochergut, Badenerstrasse 230",
+  "lat": 47.37578,
+  "lon": 8.51696,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "distanz_km": [
+   7,
+   7
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://www.meetup.com/district-runners-zurich/",
+  "instagram": "https://www.instagram.com/district_runners_zurich/",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentlicher Community-Lauf über etwa 7 km, das Tempo richtet sich nach der Gruppe; Einsteiger und Erfahrene willkommen.",
+  "beschreibung_en": "Weekly community run of about 7 km with the pace set by the group; beginners and experienced runners welcome.",
+  "quelle": [
+   "https://www.meetup.com/district-runners-zurich/",
+   "https://www.run-clubs.eu/blog/run-clubs-zurich"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-founders-running-club",
+  "name": "Founders Running Club Zürich",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "Seebad Utoquai, Utoquai 50",
+  "lat": 47.36176,
+  "lon": 8.54701,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://foundersrc.com/",
+  "instagram": "https://www.instagram.com/foundersrc/",
+  "sprachen": [
+   "en"
+  ],
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Samstäglicher Lauf mit Networking für Gründer, Tech- und Kreativleute, eigenes Tempo oder mit Pacer, danach Kaffee und Gespräche; alle Fitnessstufen willkommen.",
+  "beschreibung_en": "Saturday run and networking for founders, tech and creative people, own pace or with a pacer, followed by coffee and conversation; all fitness levels welcome.",
+  "quelle": [
+   "https://www.meetup.com/founders-running-club-zurich/",
+   "https://www.run-clubs.eu/blog/run-clubs-zurich"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-lazy-sports",
+  "name": "Lazy Sports Zurich – Easy 10K",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "Opernhaus Zürich, Falkenstrasse 1",
+  "lat": 47.36475,
+  "lon": 8.54639,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   10,
+   10
+  ],
+  "dauer_min": 70,
+  "pace": {
+   "von": "6:30",
+   "bis": "6:30"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Meetup / WhatsApp",
+  "webseite": "https://www.meetup.com/lazy-sports-zurich/",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "beschreibung_de": "Gemütlicher Sonntagslauf entlang des Wehrenbachs zur Trichtenhausermühle und zurück, rund 10 km mit knapp 200 Höhenmetern; nur bei trockenem Wetter.",
+  "beschreibung_en": "Relaxed Sunday run along the Wehrenbach to Trichtenhausermühle and back, about 10 km with just under 200 m of climbing; only when it isn't raining.",
+  "quelle": [
+   "https://www.meetup.com/lazy-sports-zurich/"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-we-trst-run-club",
+  "name": "WE•TRST Run Club Zürich",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "Wild Bowls, Bleicherweg 50",
+  "lat": 47.3679,
+  "lon": 8.53432,
+  "termine": [
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 7,
+    "uhrzeit": "11:00",
+    "ab": "2026-10-25"
+   }
+  ],
+  "distanz_km": [
+   5,
+   10
+  ],
+  "pace": {
+   "von": "5:00",
+   "bis": "7:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://we-trst.com/en/pages/run-club-zuerich",
+  "instagram": "https://www.instagram.com/we.trst/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "mehrere_gruppen",
+   "gepaeck",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Social Run jeden zweiten Sonntag (im Wechsel mit St. Gallen): gemeinsames Aufwärmen, dann Einsteigergruppe rund 7 km mit 6–7 min/km und Fortgeschrittene 10 km mit 5–6 min/km; Taschen können im Café bleiben.",
+  "beschreibung_en": "Social run every other Sunday (alternating with St. Gallen): joint warm-up, then a beginner group of about 7 km at 6–7 min/km and an advanced group of 10 km at 5–6 min/km; bags can be left at the café.",
+  "quelle": [
+   "https://we-trst.com/en/pages/run-club-zuerich"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Welche Sonntage in Zürich sind, steht nur im Terminbild/WhatsApp; das ab-Datum 2026-10-25 ist geschätzt, nicht belegt",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-on-run-club",
+  "name": "On Run Club Zürich",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "On Flagship Store, Limmatquai 28",
+  "lat": 47.36989,
+  "lon": 8.54354,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "webseite": "https://onrunclub-zurichlimmatquai.events.on.com",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lockerer 5-km-Lauf am Mittwochabend ab dem On Flagship Store am Limmatquai.",
+  "beschreibung_en": "Easy 5 km Wednesday evening run from the On flagship store on Limmatquai.",
+  "quelle": [
+   "https://onrunclub-zurichlimmatquai.events.on.com"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Eventseite von On am 19.10.2026 nicht erreichbar (DNS); Angaben nur aus Suchergebnis mit Terminen Jan./Feb. 2026; früher Treffpunkt Hardturmstrasse 183 – aktuellen Ort und Kosten prüfen",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-werun-europaallee",
+  "name": "WERUN Run Club Europaallee",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "WERUN Store, Europaallee 26",
+  "lat": 47.37882,
+  "lon": 8.53327,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "17:45"
+   }
+  ],
+  "dauer_min": 60,
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "WhatsApp-Gruppe",
+  "webseite": "https://www.werun.ch/runday-monday/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Laufladen-Run-Club von WERUN, rund 60 Minuten mit Coaches in verschiedenen Tempogruppen, danach Austausch im Laden.",
+  "beschreibung_en": "Running store club by WERUN, about 60 minutes with coaches in several pace groups, followed by a chat at the store.",
+  "quelle": [
+   "https://www.werun.ch/runday-monday/",
+   "https://www.werun.ch/en/runday-monday-2/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Wochentag Montag nur aus dem Seitennamen „Runday Monday“ geschlossen; Kosten nicht genannt",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-werun-sihlcity",
+  "name": "WERUN Run Club Sihlcity",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "WERUN Store Sihlcity, Kalanderplatz 1",
+  "lat": 47.35791,
+  "lon": 8.52309,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:15"
+   }
+  ],
+  "dauer_min": 60,
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "WhatsApp-Gruppe",
+  "webseite": "https://www.werun.ch/runday-monday/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Laufladen-Run-Club von WERUN, rund 60 Minuten mit Coaches in verschiedenen Tempogruppen, danach Austausch im Laden.",
+  "beschreibung_en": "Running store club by WERUN, about 60 minutes with coaches in several pace groups, followed by a chat at the store.",
+  "quelle": [
+   "https://www.werun.ch/runday-monday/",
+   "https://www.werun.ch/en/runday-monday-2/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Wochentag Montag nur aus dem Seitennamen „Runday Monday“ geschlossen; Kosten nicht genannt",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-trail-maniacs-track",
+  "name": "trail-maniacs Crew Zürich Track",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "Stadion Utogrund, Albisriederstrasse",
+  "lat": 47.3791,
+  "lon": 8.49621,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Intervalltraining"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Schnuppern gratis, für dauerhafte Teilnahme Mitgliedschaft"
+  },
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "trail-maniacs.ch / WhatsApp-Chat",
+  "webseite": "https://trail-maniacs.ch/crew/zuerich-track/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Wöchentliches Intervall- und Hügeltraining der Trailrunning-Community trail-maniacs am Stadion Utogrund; das Programm kommt vorab im WhatsApp-Chat.",
+  "beschreibung_en": "Weekly interval and hill session of the trail-maniacs trail running community at Utogrund stadium; the workout is announced in the WhatsApp chat.",
+  "quelle": [
+   "https://trail-maniacs.ch/crew/zuerich-track/",
+   "https://www.sport.stadt.sg.ch/home/sport-im-freien/laufen.html/"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "luzern-the-runners-club",
+  "name": "The Runners Club Lucerne – Community Run",
+  "art": "Laufen",
+  "stadt": "Luzern",
+  "treffpunkt": "SIP Café, Weinmarkt 14",
+  "lat": 47.05211,
+  "lon": 8.30466,
+  "termine": [
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00",
+    "ab": "2026-06-11"
+   }
+  ],
+  "distanz_km": [
+   5,
+   7
+  ],
+  "anmeldung": "nein",
+  "webseite": "https://www.runnersclub.ch/",
+  "instagram": "https://www.instagram.com/the.runnersclub/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Community-Lauf jeden zweiten Donnerstag über 5–7 km für jedes Tempo, ohne Anmeldung; Winterpause etwa Mitte Dezember bis Anfang Februar.",
+  "beschreibung_en": "Community run every second Thursday over 5–7 km for every pace, no sign-up; winter break roughly mid-December to early February.",
+  "quelle": [
+   "https://www.runnersclub.ch/"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "luzern-werun",
+  "name": "WERUN Run Club Luzern",
+  "art": "Laufen",
+  "stadt": "Luzern",
+  "treffpunkt": "WERUN Store, Kornmarkt 10",
+  "lat": 47.05222,
+  "lon": 8.30573,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "dauer_min": 60,
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "WhatsApp-Gruppe",
+  "webseite": "https://www.werun.ch/runday-monday/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Laufladen-Run-Club von WERUN, rund 60 Minuten mit Coaches in verschiedenen Tempogruppen, danach Austausch im Laden.",
+  "beschreibung_en": "Running store club by WERUN, about 60 minutes with coaches in several pace groups, followed by a chat at the store.",
+  "quelle": [
+   "https://www.werun.ch/runday-monday/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Wochentag Montag nur aus dem Seitennamen „Runday Monday“ geschlossen; Kosten nicht genannt",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "basel-renntiere-dienstag",
+  "name": "Renntiere Basel (Dienstag)",
+  "art": "Laufen",
+  "stadt": "Basel",
+  "treffpunkt": "Stadion Schützenmatte, Haupteingang",
+  "lat": 47.55165,
+  "lon": 7.57139,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://renntiere.ch/",
+  "instagram": "https://www.instagram.com/renntiere/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lauftreff ohne Mitgliedsbeitrag und ohne Verpflichtung, auch Läuferinnen und Läufer anderer Vereine willkommen; dienstags ab dem Stadion Schützenmatte.",
+  "beschreibung_en": "Running group with no membership fee or obligations, runners from other clubs welcome; Tuesdays from Schützenmatte stadium.",
+  "quelle": [
+   "https://renntiere.ch/trainingsort/",
+   "https://renntiere.ch/"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "basel-renntiere-donnerstag",
+  "name": "Renntiere Basel (Donnerstag)",
+  "art": "Laufen",
+  "stadt": "Basel",
+  "treffpunkt": "Froburgstrasse 5, beim Rheinbad Breite",
+  "lat": 47.55603,
+  "lon": 7.61174,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://renntiere.ch/",
+  "instagram": "https://www.instagram.com/renntiere/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lauftreff ohne Mitgliedsbeitrag und ohne Verpflichtung, auch Läuferinnen und Läufer anderer Vereine willkommen; donnerstags beim Rheinbad Breite.",
+  "beschreibung_en": "Running group with no membership fee or obligations, runners from other clubs welcome; Thursdays near the Rheinbad Breite.",
+  "quelle": [
+   "https://renntiere.ch/trainingsort/",
+   "https://renntiere.ch/"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "basel-social-run",
+  "name": "Social Run Basel",
+  "art": "Laufen",
+  "stadt": "Basel",
+  "treffpunkt": "St. Johanns-Park",
+  "lat": 47.56773,
+  "lon": 7.58208,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "pace": {
+   "von": "5:45",
+   "bis": "6:45"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://socialrunbasel.ch/",
+  "instagram": "https://www.instagram.com/socialrunbasel/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "beschreibung_de": "Lockerer 5-km-Social-Run am Dienstagabend im St. Johanns-Park.",
+  "beschreibung_en": "Easy 5 km social run on Tuesday evenings in St. Johanns-Park.",
+  "quelle": [
+   "https://www.run-clubs.eu/blog/run-clubs-basel",
+   "https://socialrunbasel.ch/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Angaben nur aus run-clubs.eu; eigene Seite lädt nur per JavaScript, Instagram gesperrt",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bern-socialrun",
+  "name": "SocialRun Bern",
+  "art": "Laufen",
+  "stadt": "Bern",
+  "treffpunkt": "Dalmazimätteli (Aare, Marzili)",
+  "lat": 46.94509,
+  "lon": 7.44551,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "7:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/socialrunbern/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lockerer 5-km-Lauf am Dienstagabend ab dem Dalmazimätteli an der Aare.",
+  "beschreibung_en": "Easy 5 km Tuesday evening run from Dalmazimätteli by the Aare.",
+  "quelle": [
+   "https://www.run-clubs.eu/blog/run-clubs-bern"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über run-clubs.eu belegt; Instagram nicht lesbar",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bern-trail-maniacs",
+  "name": "trail-maniacs Crew Bern Trail",
+  "art": "Laufen",
+  "stadt": "Bern",
+  "treffpunkt": "Talstation Gurtenbahn, Wabern",
+  "lat": 46.92225,
+  "lon": 7.44155,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   10,
+   12
+  ],
+  "dauer_min": 90,
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Schnuppern gratis, für dauerhafte Teilnahme Mitgliedschaft"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Klubraum-App / WhatsApp",
+  "webseite": "https://trail-maniacs.ch/crew/bern-trail/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Trailrunde am Gurten (manchmal Ulmiz) mit 400–600 Höhenmetern in rund 1,5 Stunden; abweichende Treffpunkte stehen im WhatsApp-Chat und in Klubraum.",
+  "beschreibung_en": "Trail run on the Gurten (sometimes Ulmiz) with 400–600 m of climbing in about 1.5 hours; changes to the meeting point are posted in WhatsApp and Klubraum.",
+  "quelle": [
+   "https://trail-maniacs.ch/crew/bern-trail/"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "st-gallen-runday-monday",
+  "name": "Runday Monday (Ochsner Sport)",
+  "art": "Laufen",
+  "stadt": "St. Gallen",
+  "treffpunkt": "Grosse Treppe der Shopping Arena",
+  "lat": 47.4083,
+  "lon": 9.30548,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Offener Gratis-Lauftreff, den die Stadt St. Gallen in ihrer Liste der Lauftreffs führt.",
+  "beschreibung_en": "Free open running group listed by the City of St. Gallen in its overview of running groups.",
+  "quelle": [
+   "https://www.sport.stadt.sg.ch/home/sport-im-freien/laufen.html/"
+  ],
+  "webseite": "https://www.ochsnersport.ch/",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "st-gallen-raus-sg",
+  "name": "Raus SG",
+  "art": "Laufen",
+  "stadt": "St. Gallen",
+  "treffpunkt": "Stadtbistro St.Gallen, Webergasse",
+  "lat": 47.42275,
+  "lon": 9.3752,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Offener Gratis-Lauftreff, den die Stadt St. Gallen in ihrer Liste der Lauftreffs führt.",
+  "beschreibung_en": "Free open running group listed by the City of St. Gallen in its overview of running groups.",
+  "quelle": [
+   "https://www.sport.stadt.sg.ch/home/sport-im-freien/laufen.html/"
+  ],
+  "instagram": "https://www.instagram.com/raus.sg/",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "st-gallen-rungallen",
+  "name": "RunGallen",
+  "art": "Laufen",
+  "stadt": "St. Gallen",
+  "treffpunkt": "Café HOY, Marktplatz",
+  "lat": 47.42611,
+  "lon": 9.37482,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Offener Gratis-Lauftreff, den die Stadt St. Gallen in ihrer Liste der Lauftreffs führt.",
+  "beschreibung_en": "Free open running group listed by the City of St. Gallen in its overview of running groups.",
+  "quelle": [
+   "https://www.sport.stadt.sg.ch/home/sport-im-freien/laufen.html/"
+  ],
+  "instagram": "https://www.instagram.com/rungallen/",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "st-gallen-612run",
+  "name": "612run",
+  "art": "Laufen",
+  "stadt": "St. Gallen",
+  "treffpunkt": "Athletik Zentrum St.Gallen (AZSG), Blarerweg",
+  "lat": 47.42932,
+  "lon": 9.38455,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Instagram",
+  "saison": {
+   "von": "10-01",
+   "bis": "03-31"
+  },
+  "instagram": "https://www.instagram.com/612run/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Freitagabend-Lauftreff im Winterhalbjahr ab dem Athletik Zentrum; Infos und Anmeldung über Instagram.",
+  "beschreibung_en": "Friday evening run during the winter half-year from the Athletik Zentrum; info and sign-up via Instagram.",
+  "quelle": [
+   "https://www.sport.stadt.sg.ch/home/sport-im-freien/laufen.html/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "„Winterhalbjahr“ ohne genaue Daten (Saison geschätzt Okt.–März); Seite der Stadt ohne Aktualisierungsdatum",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "st-gallen-trail-maniacs",
+  "name": "trail-maniacs Crew St. Gallen Trail",
+  "art": "Laufen",
+  "stadt": "St. Gallen",
+  "treffpunkt": "Bushaltestelle Riethüsli (Endstation)",
+  "lat": 47.41247,
+  "lon": 9.36727,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   10,
+   15
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Schnuppern gratis, für dauerhafte Teilnahme Mitgliedschaft"
+  },
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "Klubraum-App",
+  "webseite": "https://trail-maniacs.ch/crew/st-gallen-trail/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Gemütliche Trailrunde rund um Riethüsli und St. Georgen, 10–15 km mit 200–500 Höhenmetern; mitlaufen ohne Mitgliedschaft, aber mit Anmeldung in der Klubraum-App.",
+  "beschreibung_en": "Easygoing trail run around Riethüsli and St. Georgen, 10–15 km with 200–500 m of climbing; join without membership but sign up in the Klubraum app.",
+  "quelle": [
+   "https://trail-maniacs.ch/crew/st-gallen-trail/",
+   "https://www.sport.stadt.sg.ch/home/sport-im-freien/laufen.html/"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "winterthur-trail-maniacs",
+  "name": "trail-maniacs Crew Winterthur Trail",
+  "art": "Laufen",
+  "stadt": "Winterthur",
+  "treffpunkt": "Quartier Breite (Eschenberg)",
+  "lat": 47.49056,
+  "lon": 8.72711,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   10,
+   15
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Schnuppern gratis, für dauerhafte Teilnahme Mitgliedschaft"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "trail-maniacs.ch / WhatsApp",
+  "webseite": "https://trail-maniacs.ch/crew/winterthur-trail/",
+  "sprachen": [
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Donnerstägliche Trailrunde über den Eschenberg, 10–15 km mit bis zu 500 Höhenmetern; Tempo nebensächlich, die Runde kommt jede Woche per WhatsApp.",
+  "beschreibung_en": "Thursday trail run over the Eschenberg, 10–15 km with up to 500 m of climbing; pace is secondary, the route is shared weekly via WhatsApp.",
+  "quelle": [
+   "https://trail-maniacs.ch/crew/winterthur-trail/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Uhrzeit nicht genannt (18:30 wie bei den anderen Crews angenommen); Treffpunkt nur „in der Breite“",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zug-trail-maniacs",
+  "name": "trail-maniacs Crew Zug Trail",
+  "art": "Laufen",
+  "stadt": "Zug",
+  "treffpunkt": "Talstation Zugerbergbahn, Schönegg",
+  "lat": 47.15128,
+  "lon": 8.5209,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   10,
+   15
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Schnuppern gratis, für dauerhafte Teilnahme Mitgliedschaft"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "trail-maniacs.ch",
+  "webseite": "https://trail-maniacs.ch/crew/zug-trail/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "„Monday Funday“: Trailrunde am Zugerberg ab der Talstation der Zugerbergbahn, meist 10–15 km.",
+  "beschreibung_en": "“Monday Funday”: trail run on the Zugerberg from the Zugerbergbahn valley station, usually 10–15 km.",
+  "quelle": [
+   "https://trail-maniacs.ch/crew/zug-trail/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur „montags abends“, Uhrzeit nicht genannt (18:30 angenommen); Koordinaten = Quartier Schönegg, nicht exakt die Talstation",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "geneve-not-so-fast-run-club",
+  "name": "Not-So-Fast Run Club Geneva – Social Sat",
+  "art": "Laufen",
+  "stadt": "Genf",
+  "treffpunkt": "Vibe Coffee",
+  "lat": 46.2017,
+  "lon": 6.1417,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/notsofastgeneva/",
+  "strava": "https://www.strava.com/clubs/1246802",
+  "webseite": "https://linktr.ee/notsofastrunclub",
+  "sprachen": [
+   "en",
+   "fr"
+  ],
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lockerer Samstagslauf für alle Tempi ab einem Café in Genf.",
+  "beschreibung_en": "Easy-paced Saturday social run for all paces from a café in Geneva.",
+  "quelle": [
+   "https://www.run-clubs.eu/clubs/not-so-fast-run-club-geneva",
+   "https://linktr.ee/notsofastrunclub"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Zeit und Ort nur auf run-clubs.eu; Linktree nennt „Social Sat“ ohne Zeit/Adresse; Koordinaten von run-clubs.eu, Adresse von Vibe Coffee unbekannt",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "geneve-runners-clan",
+  "name": "Geneva Runners Clan",
+  "art": "Laufen",
+  "stadt": "Genf",
+  "treffpunkt": "Bains des Pâquis, Quai du Mont-Blanc",
+  "lat": 46.21036,
+  "lon": 6.15419,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://www.glocals.com/groups/geneva-running-group.htm",
+  "sprachen": [
+   "en",
+   "fr"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Ganzjähriger Lauftreff für Expats und Einheimische aller Niveaus, 45–90 Minuten je nach Tag.",
+  "beschreibung_en": "Year-round running group for expats and locals of all levels, 45–90 minutes depending on the day.",
+  "quelle": [
+   "https://www.run-clubs.eu/clubs/geneva-runners-clan"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über run-clubs.eu; glocals-Seite antwortet 403, Aktualität 2026 unbelegt",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "lausanne-frontrunners",
+  "name": "Frontrunners Lausanne",
+  "art": "Laufen",
+  "stadt": "Lausanne",
+  "treffpunkt": "Ouchy, beim Kiosk gegenüber der Metro (Winter)",
+  "lat": 46.50685,
+  "lon": 6.62522,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/frontrunners.lausanne/",
+  "webseite": "https://voqueer.ch/rencontres-activites/evasion/",
+  "sprachen": [
+   "fr"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentlicher Lauftreff der LGBTIQ+-Gruppe Voqueer für alle Hobbyläufer:innen; im Winter in Ouchy, im Sommer am Parkplatz des Stade Pierre-de-Coubertin in Vidy.",
+  "beschreibung_en": "Weekly run of the LGBTIQ+ group Voqueer for recreational runners of all levels; in winter at Ouchy, in summer at the Stade Pierre-de-Coubertin car park in Vidy.",
+  "quelle": [
+   "https://360.ch/lieu/frontrunners-lausanne/"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "lausanne-dnh-hill-runners",
+  "name": "DNH Hill Runners Lausanne – Tuesday Run",
+  "art": "Laufen",
+  "stadt": "Lausanne",
+  "treffpunkt": "Bar Le XIIIe Siècle, Rue Cité-Devant (Sept.–Mai)",
+  "lat": 46.52341,
+  "lon": 6.6353,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:50"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://dnhlausanne.ch/",
+  "sprachen": [
+   "fr",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Social Run für alle Niveaus, gratis und ohne Anmeldung; von Juni bis August Treffpunkt an der Buvette Côté Lac. Donnerstags zusätzlich Bahntraining im Stade Coubertin.",
+  "beschreibung_en": "Social run for all levels, free and no sign-up; June to August the meeting point is the Buvette Côté Lac. Track session on Thursdays at Stade Coubertin.",
+  "quelle": [
+   "http://dnhlausanne.ch/"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Webseite zeigt nur Beiträge von 2024; ob Dienstag 18:50 2026 noch gilt, unbelegt; Webseite nur per http geprüft",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "lausanne-run-club",
+  "name": "Lausanne Run Club",
+  "art": "Laufen",
+  "stadt": "Lausanne",
+  "treffpunkt": "Le Lacustre, Quai Jean-Pascal-Delamuraz 1, Ouchy",
+  "lat": 46.50495,
+  "lon": 6.6276,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "15:30"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "instagram": "https://www.instagram.com/lausannerunclub/",
+  "strava": "https://www.strava.com/clubs/1221823",
+  "sprachen": [
+   "fr",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Großer Gratis-Run-Club ohne Anmeldung, lockeres Tempo (Zone 2) ab Ouchy; samstags zusätzlich ein Lauf ab einem Café an der Sallaz.",
+  "beschreibung_en": "Large free run club with no sign-up, easy zone-2 pace from Ouchy; on Saturdays also a run from a café at La Sallaz.",
+  "quelle": [
+   "https://www.strava.com/clubs/1221823"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Zeiten nur aus der Strava-Beschreibung im Suchergebnis (Strava-Seite 403, Instagram gesperrt); Aktualität unbelegt",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-velo67-cc-rideout",
+  "name": "Velo67 CC Rideout",
+  "art": "Fahrrad",
+  "stadt": "Zürich",
+  "treffpunkt": "Velo67, Kronenstrasse 38",
+  "lat": 47.38756,
+  "lon": 8.53845,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/184258",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Wöchentliche Feierabendausfahrt des Velo67 Cycling Club ab dem Rennvelo-Laden in Zürich-Unterstrass, moderates Tempo.",
+  "beschreibung_en": "Weekly after-work ride of the Velo67 Cycling Club from the road bike shop in Zürich-Unterstrass, moderate pace.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/zuerich",
+   "https://www.strava.com/clubs/184258"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-velo67-gravel-tuesday",
+  "name": "Velo67 CC Gravel Tuesday",
+  "art": "Fahrrad",
+  "stadt": "Zürich",
+  "treffpunkt": "Velo67, Kronenstrasse 38",
+  "lat": 47.38756,
+  "lon": 8.53845,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "17:00"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/184258",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Gravel-Ausfahrt am Dienstag ab dem Laden Velo67.",
+  "beschreibung_en": "Tuesday gravel ride from the Velo67 shop.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/zuerich",
+   "https://www.strava.com/clubs/184258"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen",
+  "rad_typ": "Gravel",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-nolimits-social-ride",
+  "name": "NoLimits Gravel Adventures – Social Ride",
+  "art": "Fahrrad",
+  "stadt": "Zürich",
+  "treffpunkt": "Café Thiwa, Triemlistrasse 210",
+  "lat": 47.36788,
+  "lon": 8.49449,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/729465",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Moderater Social Ride der Gravel-Gruppe NoLimits ab dem Café Thiwa beim Triemli.",
+  "beschreibung_en": "Moderate social ride of the NoLimits gravel group from Café Thiwa at Triemli.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/zuerich",
+   "https://www.strava.com/clubs/729465"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen",
+  "rad_typ": "Gravel",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-cyclophile-wednesday-ride",
+  "name": "Cyclophile Zurich – Wednesday Ride",
+  "art": "Fahrrad",
+  "stadt": "Zürich",
+  "treffpunkt": "Brupbacherplatz",
+  "lat": 47.37472,
+  "lon": 8.51706,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "20:00"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/191896",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Moderate Mittwochabendausfahrt ab dem Brupbacherplatz.",
+  "beschreibung_en": "Moderate Wednesday evening ride from Brupbacherplatz.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/zuerich",
+   "https://www.strava.com/clubs/191896"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-vc-wiedikon-afterwork",
+  "name": "VC Wiedikon – Afterwork Social Ride",
+  "art": "Fahrrad",
+  "stadt": "Zürich",
+  "treffpunkt": "Treffpunkt laut Strava in Zürich-Wiedikon",
+  "lat": 47.3702,
+  "lon": 8.5188,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/930978",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Wöchentlicher Afterwork- und Social Ride des VC Wiedikon in moderatem Tempo.",
+  "beschreibung_en": "Weekly after-work social ride of VC Wiedikon at a moderate pace.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/zuerich",
+   "https://www.strava.com/clubs/930978"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen; Treffpunkt nur als Koordinaten angegeben",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "zuerich-cyclingup-lake-loop",
+  "name": "CyclingUp – Zürich Lake Loop",
+  "art": "Fahrrad",
+  "stadt": "Zürich",
+  "treffpunkt": "Schillerstrasse 5 (beim Opernhaus)",
+  "lat": 47.36559,
+  "lon": 8.54648,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "05:50"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/1775547",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Frühmorgendliche Seerunde vor der Arbeit ab der Schillerstrasse beim Opernhaus.",
+  "beschreibung_en": "Early-morning lake loop before work from Schillerstrasse near the opera house.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/zuerich",
+   "https://www.strava.com/clubs/1775547"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "basel-vcc-thursday-ride",
+  "name": "Voyage Cycling Club – Thursday Ride",
+  "art": "Fahrrad",
+  "stadt": "Basel",
+  "treffpunkt": "Grenzacherstrasse 10",
+  "lat": 47.55884,
+  "lon": 7.59978,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/248185",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Moderate Donnerstagsausfahrt des Voyage Cycling Club (mit BMC) ab der Grenzacherstrasse in Kleinbasel.",
+  "beschreibung_en": "Moderate Thursday ride of the Voyage Cycling Club (with BMC) from Grenzacherstrasse in Kleinbasel.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/basel",
+   "https://www.strava.com/clubs/248185"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "basel-chezvelo-donnerstag",
+  "name": "ChezVelo en Route – Donnerstagabend-Ausfahrt",
+  "art": "Fahrrad",
+  "stadt": "Basel",
+  "treffpunkt": "ChezVelo, Vogesenstrasse 86",
+  "lat": 47.56765,
+  "lon": 7.57691,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:15"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/8341",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Donnerstagabend-Ausfahrt ab dem Veloladen ChezVelo im St. Johann.",
+  "beschreibung_en": "Thursday evening ride from the ChezVelo bike shop in St. Johann.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/basel",
+   "https://www.strava.com/clubs/8341"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "basel-obst-gemuese-firestarter",
+  "name": "OBST&GEMÜSE Firestarter",
+  "art": "Fahrrad",
+  "stadt": "Basel",
+  "treffpunkt": "OBST&GEMÜSE, Kasernenstrasse 32",
+  "lat": 47.56278,
+  "lon": 7.59155,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "05:15"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "05:15"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/8561",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Sehr frühe Ausfahrt am Dienstag und Freitag ab dem Velo-Café OBST&GEMÜSE in Kleinbasel.",
+  "beschreibung_en": "Very early Tuesday and Friday ride from the OBST&GEMÜSE bike café in Kleinbasel.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/basel",
+   "https://www.strava.com/clubs/8561"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen",
+  "merkmale": [
+   "kaffee"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "bern-tactac-womens-ride",
+  "name": "TacTac Women's FLINTA* Ride",
+  "art": "Fahrrad",
+  "stadt": "Bern",
+  "treffpunkt": "Gotthelfstrasse 31",
+  "lat": 46.95488,
+  "lon": 7.45271,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/259058",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Mittwochabend-Ausfahrt für Frauen und FLINTA* ab der Gotthelfstrasse im Spitalacker.",
+  "beschreibung_en": "Wednesday evening ride for women and FLINTA* riders from Gotthelfstrasse in Spitalacker.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/bern",
+   "https://www.strava.com/clubs/259058"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen; Termin am 21.10.2026 als „one last time“ angekündigt – vermutlich Saisonende, Saison unbekannt",
+  "merkmale": [
+   "frauen"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "ostermundigen-veloplus-dirtymonday",
+  "name": "Veloplus DirtyMonday Bern Ost",
+  "art": "Fahrrad",
+  "stadt": "Ostermundigen",
+  "treffpunkt": "Veloplus Ostermundigen, Forelstrasse",
+  "lat": 46.96234,
+  "lon": 7.48388,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/1832327",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Gravel-Ausfahrt am Montagabend ab der Veloplus-Filiale in Ostermundigen, am Stadtrand von Bern.",
+  "beschreibung_en": "Monday evening gravel ride from the Veloplus store in Ostermundigen on the edge of Bern.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/bern",
+   "https://www.strava.com/clubs/1832327"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen",
+  "rad_typ": "Gravel",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "luzern-bikelokal-social-ride",
+  "name": "BikeLokal Social Ride",
+  "art": "Fahrrad",
+  "stadt": "Luzern",
+  "treffpunkt": "BikeLokal, Bürgenstrasse 4",
+  "lat": 47.04663,
+  "lon": 8.31332,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:15"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/1514481",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Moderater Social Ride am Donnerstag ab dem Veloladen BikeLokal in Tribschen.",
+  "beschreibung_en": "Moderate Thursday social ride from the BikeLokal bike shop in Tribschen.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/luzern",
+   "https://www.strava.com/clubs/1514481"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen",
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
+ },
+ {
+  "id": "st-gallen-saint-city-group-ride",
+  "name": "SCGR – Saint City Group Ride",
+  "art": "Fahrrad",
+  "stadt": "St. Gallen",
+  "treffpunkt": "Gallusplatz, bei der Linde",
+  "lat": 47.4226,
+  "lon": 9.37602,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/1035544",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "beschreibung_de": "Dienstagabend-Ausfahrt ab dem Gallusplatz mit Rennrad- und Gravelgruppe, teils mit eigener Women's-Ride-Gruppe.",
+  "beschreibung_en": "Tuesday evening ride from Gallusplatz with a road and a gravel group, sometimes with a separate women's ride.",
+  "quelle": [
+   "https://rundedrehen.de/grouprides/st-gallen",
+   "https://www.strava.com/clubs/1035544"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Nur über rundedrehen.de (Strava-Termin des Clubs) gefunden; Strava-Seite und Club-Seite nicht direkt lesbar – Rhythmus, Tempo und Offenheit von Hand prüfen",
+  "rad_typ": "gemischt",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "land": "Schweiz",
+  "geprueft": "2026-10-19"
  }
 ]
