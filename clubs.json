@@ -2551,11 +2551,10 @@
   "beschreibung_de": "Samstagslauf in Stuttgart-Süd mit Treffpunkt am Café Lang.",
   "beschreibung_en": "Saturday run in Stuttgart-Süd meeting at Café Lang.",
   "quelle": [
-   "https://socialrunclubs.de/stuttgart/run-n-rolls/"
+   "https://socialrunclubs.de/stuttgart/run-n-rolls/",
+   "Instagram-Profil @runsnrolls (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
   ],
-  "geprueft": "2026-10-19",
-  "pruefung_offen": true,
-  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (Instagram/Strava nicht lesbar), Termin und Treffpunkt auf den Kanälen des Clubs bestätigen"
+  "geprueft": "2026-10-19"
  },
  {
   "id": "stuttgart-soft-pace-club",
@@ -7994,7 +7993,7 @@
   ],
   "pace": {
    "von": "6:00",
-   "bis": "6:30"
+   "bis": "6:00"
   },
   "kosten": {
    "gratis": true,
@@ -8016,7 +8015,8 @@
   "beschreibung_en": "Early Tuesday run in any weather, about 6 km, followed by coffee and a croissant at JUNG Schanzengraben; beginners welcome if they can hold roughly 6:30 min/km.",
   "quelle": [
    "https://the6zhclub.com/",
-   "https://img1.wsimg.com/blobby/go/5844c0cf-a8c6-41e2-8150-db0c2c524167/WHAT%20WHERE%20%26%20WHEN.pdf"
+   "https://img1.wsimg.com/blobby/go/5844c0cf-a8c6-41e2-8150-db0c2c524167/WHAT%20WHERE%20%26%20WHEN.pdf",
+   "Instagram-Profil @the6zhclub (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
   ],
   "land": "Schweiz",
   "geprueft": "2026-10-19"
@@ -13559,6 +13559,12 @@
     "rhythmus": "woechentlich",
     "wochentag": 4,
     "uhrzeit": "19:00"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-24",
+    "uhrzeit": "10:00",
+    "bezeichnung": "Frankfurt Marathon Shake Out Run mit adidas"
    }
   ],
   "webseite": "https://www.asphaltgold.com/pages/badhabits-run-club",
@@ -13570,10 +13576,11 @@
   "beschreibung_en": "Run club of the Asphaltgold sneaker store on Thursdays at 7 pm with several pace groups and drinks afterwards; alternates between Frankfurt and Darmstadt.",
   "quelle": [
    "https://socialrunclubs.de/frankfurt-am-main/bad-habits-run-club/",
-   "https://www.journal-frankfurt.de/journal_news/freizeit-163/Lauftreffs-in-Frankfurt-Run-Clubs-Laufen-Kaffee-trinken-neue-Leute-kennenlernen-45460.html"
+   "https://www.journal-frankfurt.de/journal_news/freizeit-163/Lauftreffs-in-Frankfurt-Run-Clubs-Laufen-Kaffee-trinken-neue-Leute-kennenlernen-45460.html",
+   "Instagram-Profil @badhabitsrunclub (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
   ],
   "pruefung_offen": true,
-  "pruefung_grund": "wechselt zwischen Frankfurt und Darmstadt – welche Donnerstage in Frankfurt, unklar; Asphaltgold-Seite antwortete 429",
+  "pruefung_grund": "Laut Instagram „every other Thursday 7pm in Darmstadt & Frankfurt“ – welche Donnerstage in welcher Stadt, steht nur auf Strava",
   "land": "Deutschland",
   "art": "Laufen",
   "geprueft": "2026-10-19",
@@ -14007,10 +14014,11 @@
   "beschreibung_en": "Run club of the Asphaltgold sneaker store on Thursdays at 7 pm with pace groups and drinks afterwards; alternates between Darmstadt and Frankfurt.",
   "quelle": [
    "https://socialrunclubs.de/darmstadt/bad-habits-run-club/",
-   "https://www.journal-frankfurt.de/journal_news/freizeit-163/Lauftreffs-in-Frankfurt-Run-Clubs-Laufen-Kaffee-trinken-neue-Leute-kennenlernen-45460.html"
+   "https://www.journal-frankfurt.de/journal_news/freizeit-163/Lauftreffs-in-Frankfurt-Run-Clubs-Laufen-Kaffee-trinken-neue-Leute-kennenlernen-45460.html",
+   "Instagram-Profil @badhabitsrunclub (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
   ],
   "pruefung_offen": true,
-  "pruefung_grund": "wechselt zwischen Darmstadt und Frankfurt – welche Donnerstage in Darmstadt, unklar; Asphaltgold-Seite antwortete 429",
+  "pruefung_grund": "Laut Instagram „every other Thursday 7pm in Darmstadt & Frankfurt“ – welche Donnerstage in welcher Stadt, steht nur auf Strava",
   "land": "Deutschland",
   "art": "Laufen",
   "geprueft": "2026-10-19",
@@ -18195,7 +18203,7 @@
   "art": "Laufen",
   "stadt": "München",
   "land": "Deutschland",
-  "treffpunkt": "Wechselnd: Sonntag Brienner Straße 50a (Convivio), Mittwoch TUM Campus im Olympiapark",
+  "treffpunkt": "Sonntag Convivio, Brienner Straße 50a; Mittwoch SAP Garden / TUM Campus im Olympiapark",
   "lat": 48.1477,
   "lon": 11.56044,
   "termine": [
@@ -18223,14 +18231,16 @@
   "beschreibung_en": "Munich community with Wednesday intervals and a Sunday social run with coffee.",
   "quelle": [
    "https://www.strava.com/clubs/1313031",
-   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers",
+   "Instagram-Profil @runandchill.club (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
   ],
   "geprueft": "2026-10-19",
   "merkmale": [
    "kaffee"
   ],
-  "pruefung_offen": true,
-  "pruefung_grund": "Zwei Einheiten an zwei Orten – Kartenpunkt am Sonntags-Treffpunkt; Kosten und Anmeldung nicht angegeben"
+  "instagram": "https://www.instagram.com/runandchill.club/",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava"
  },
  {
   "id": "muenchen-run-and-chill-mermaid-swim",
@@ -18253,11 +18263,12 @@
   "beschreibung_en": "Weekly Monday evening swim of the Run and Chill community.",
   "quelle": [
    "https://www.strava.com/clubs/1313031",
-   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers",
+   "Instagram-Profil @runandchill.club (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
   ],
   "geprueft": "2026-10-19",
   "pruefung_offen": true,
-  "pruefung_grund": "Schwimmbad bzw. Gewässer nicht genannt (nur Adresse Ernst-Curtius-Weg), Eintritt und Saison unklar"
+  "pruefung_grund": "Instagram-Kalender nennt montags „swim hangout“, Highlight „eisbach dips“ – Ort (Eisbach oder Bad am Olympiapark) und Saison klären"
  },
  {
   "id": "muenchen-bold-coffee-run",
@@ -18445,5 +18456,278 @@
    "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
   ],
   "geprueft": "2026-10-19"
+ },
+ {
+  "land": "Schweiz",
+  "geprueft": "2026-10-19",
+  "id": "zuerich-coffee-run-club",
+  "name": "Coffee Run Club Zürich",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "treffpunkt": "Polyterrasse ETH",
+  "lat": 47.37683,
+  "lon": 8.54632,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "07:15"
+   }
+  ],
+  "distanz_km": [
+   5,
+   7
+  ],
+  "pace": {
+   "von": "5:45",
+   "bis": "6:30"
+  },
+  "instagram": "https://www.instagram.com/coffeerun.zh/",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Run Club mit Kaffee danach – dienstagabends und freitagmorgens ab der Polyterrasse.",
+  "beschreibung_en": "Run club with coffee afterwards – Tuesday evenings and Friday mornings from the Polyterrasse.",
+  "quelle": [
+   "https://www.instagram.com/coffeerun.zh/",
+   "Instagram-Profil @coffeerun.zh (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
+  ]
+ },
+ {
+  "land": "Österreich",
+  "geprueft": "2026-10-19",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "id": "telfs-loop-runclub",
+  "name": "LOOP Runclub Tirol",
+  "art": "Laufen",
+  "stadt": "Telfs",
+  "treffpunkt": "Weissenbach Bar, Telfs",
+  "lat": 47.30541,
+  "lon": 11.06638,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "6:30"
+  },
+  "instagram": "https://www.instagram.com/loop.sports/",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Runclub in Telfs mit wöchentlichem Sonntagslauf, Start und Ziel an der Weissenbach Bar.",
+  "beschreibung_en": "Running club in Telfs with a weekly Sunday run starting at Weissenbach Bar.",
+  "quelle": [
+   "https://www.instagram.com/loop.sports/",
+   "Instagram-Profil @loop.sports (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Kartenpunkt nur Weißenbachgasse (Schule) – genaue Lage der Weissenbach Bar prüfen"
+ },
+ {
+  "land": "Deutschland",
+  "geprueft": "2026-10-19",
+  "id": "muenchen-revive-running-club",
+  "name": "Revive Running Club",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "LMU, Ludwigstraße 18",
+  "lat": 48.14845,
+  "lon": 11.58056,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "07:00"
+   }
+  ],
+  "instagram": "https://www.instagram.com/revive.runclub/",
+  "anmeldung": "nein",
+  "beschreibung_de": "Christlicher Run Club in München: freitags um 7 Uhr ab der LMU.",
+  "beschreibung_en": "Christian run club in Munich: Fridays at 7am from LMU.",
+  "quelle": [
+   "https://www.instagram.com/revive.runclub/",
+   "Instagram-Profil @revive.runclub (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
+  ]
+ },
+ {
+  "land": "Deutschland",
+  "geprueft": "2026-10-19",
+  "id": "ludwigsburg-kyub-runclub",
+  "name": "kyub runclub",
+  "art": "Laufen",
+  "stadt": "Ludwigsburg",
+  "treffpunkt": "kyub / UNU, Kirchstraße 17",
+  "lat": 48.89783,
+  "lon": 9.1901,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "12:00",
+    "bezeichnung": "Treffpunkt 11:45 · 6 km (6:30/km) oder 11 km (5:30/km)"
+   }
+  ],
+  "distanz_km": [
+   6,
+   11
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:30"
+  },
+  "instagram": "https://www.instagram.com/kyub_runclub/",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Sonntags-Lauftreff in Ludwigsburg (früher squarerunners) mit zwei Gruppen: 6 km und 11 km.",
+  "beschreibung_en": "Sunday run club in Ludwigsburg (formerly squarerunners) with a 6 km and an 11 km group.",
+  "quelle": [
+   "https://www.instagram.com/kyub_runclub/",
+   "Instagram-Profil @kyub_runclub (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
+  ]
+ },
+ {
+  "land": "Deutschland",
+  "geprueft": "2026-10-19",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "id": "muenchen-occasional-runners",
+  "name": "Occasional Runners – Women's Run Club Munich",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "Café Lozzi, Pestalozzistraße 8 (bis 14.10. Gärtnerplatz)",
+  "lat": 48.13163,
+  "lon": 11.56724,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "pace": {
+   "von": "7:00",
+   "bis": "7:00"
+  },
+  "instagram": "https://www.instagram.com/occasionalrunners/",
+  "merkmale": [
+   "frauen",
+   "anfaengerfreundlich",
+   "gepaeck"
+  ],
+  "beschreibung_de": "Kostenloser Lauftreff für Frauen: mittwochs 19 Uhr, gemütliches Tempo, Taschen können abgegeben werden.",
+  "beschreibung_en": "Free women's community run: Wednesdays 7pm, easy pace, bag drop available.",
+  "quelle": [
+   "https://www.instagram.com/occasionalrunners/",
+   "Instagram-Profil @occasionalrunners (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
+  ]
+ },
+ {
+  "land": "Deutschland",
+  "geprueft": "2026-10-19",
+  "id": "muenchen-campus-runners",
+  "name": "Campus Runners",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "Mi Prof.-Huber-Platz, Do TUM-Laufbahn (Olympiapark), So Plex, Fraunhoferstraße",
+  "lat": 48.15017,
+  "lon": 11.58169,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Social Run, Prof.-Huber-Platz"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Intervalle, TUM-Laufbahn"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Coffee Run, Plex Fraunhoferstraße"
+   }
+  ],
+  "instagram": "https://www.instagram.com/campus.runners/",
+  "merkmale": [
+   "kaffee",
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Münchner Run Community mit Social Run, Intervalltraining und Coffee Run.",
+  "beschreibung_en": "Munich running community with a social run, interval session and coffee run.",
+  "quelle": [
+   "https://www.instagram.com/campus.runners/",
+   "Instagram-Profil @campus.runners (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
+  ]
+ },
+ {
+  "land": "Österreich",
+  "geprueft": "2026-10-19",
+  "id": "klagenfurt-oats-run-club",
+  "name": "oats. Run Club",
+  "art": "Laufen",
+  "stadt": "Klagenfurt",
+  "treffpunkt": "Klagenfurt (Treffpunkt je Termin auf Instagram)",
+  "lat": 46.62472,
+  "lon": 14.30528,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-23",
+    "bezeichnung": "Afterwork Run x Tchibo",
+    "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-25",
+    "uhrzeit": "10:00",
+    "bezeichnung": "Sunday Social Run"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-31",
+    "uhrzeit": "18:00",
+    "bezeichnung": "Halloween Special"
+   }
+  ],
+  "instagram": "https://www.instagram.com/oats.runclub/",
+  "beschreibung_de": "Run Club in Klagenfurt mit Social, Trail und Training Runs nach Monatsplan.",
+  "beschreibung_en": "Run club in Klagenfurt with social, trail and training runs on a monthly schedule.",
+  "quelle": [
+   "https://www.instagram.com/oats.runclub/",
+   "Instagram-Profil @oats.runclub (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Oktoberplan nennt nur Tage – Uhrzeiten (hier geschätzt) und Treffpunkte stehen nur in Stories/Linktree"
  }
 ]

@@ -102,7 +102,7 @@ def termine_aus_text(text: str, alte: list[dict]) -> list[dict]:
     """Liest die Termin-Zellen zurück; Felder der alten Einheit gleicher
     Stelle (distanz_km, pace) bleiben erhalten. Wirft ValueError."""
     neue = []
-    for i, zeile in enumerate(z.strip() for z in re.split(r"[\n;]+", text or "") if z.strip()):
+    for i, zeile in enumerate(z.strip() for z in re.split(r"\n+", text or "") if z.strip()):
         e = _EINMALIG_RE.match(zeile)
         if e:
             datetime.date.fromisoformat(e["datum"])
