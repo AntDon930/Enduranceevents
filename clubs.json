@@ -18188,5 +18188,203 @@
   "geprueft": "2026-10-19",
   "pruefung_offen": true,
   "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar"
+ },
+ {
+  "id": "muenchen-run-and-chill",
+  "name": "Run and Chill",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Wechselnd: Sonntag Brienner Straße 50a (Convivio), Mittwoch TUM Campus im Olympiapark",
+  "lat": 48.1477,
+  "lon": 11.56044,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Intervalle, TUM Campus im Olympiapark"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "09:30",
+    "bezeichnung": "Sunday Social Run, Brienner Straße 50a"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/1313031",
+  "beschreibung_de": "Münchner Community mit Intervall-Training am Mittwoch und Social Run mit Kaffee am Sonntag.",
+  "beschreibung_en": "Munich community with Wednesday intervals and a Sunday social run with coffee.",
+  "quelle": [
+   "https://www.strava.com/clubs/1313031",
+   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-19",
+  "merkmale": [
+   "kaffee"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Zwei Einheiten an zwei Orten – Kartenpunkt am Sonntags-Treffpunkt; Kosten und Anmeldung nicht angegeben"
+ },
+ {
+  "id": "muenchen-run-and-chill-mermaid-swim",
+  "name": "Run and Chill – Mermaid Monday Swim",
+  "art": "Schwimmen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Ernst-Curtius-Weg, 80809 München (Olympiapark)",
+  "lat": 48.17517,
+  "lon": 11.54857,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:30"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/1313031",
+  "beschreibung_de": "Wöchentliches Schwimmen der Run-and-Chill-Community am Montagabend.",
+  "beschreibung_en": "Weekly Monday evening swim of the Run and Chill community.",
+  "quelle": [
+   "https://www.strava.com/clubs/1313031",
+   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Schwimmbad bzw. Gewässer nicht genannt (nur Adresse Ernst-Curtius-Weg), Eintritt und Saison unklar"
+ },
+ {
+  "id": "muenchen-bold-coffee-run",
+  "name": "bold. running club – coffee run",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "München-Haidhausen (81667)",
+  "lat": 48.13421,
+  "lon": 11.59594,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "06:45"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/1203782",
+  "beschreibung_de": "Früher Lauf am Montagmorgen mit Kaffee danach.",
+  "beschreibung_en": "Early Monday morning run followed by coffee.",
+  "quelle": [
+   "https://www.strava.com/clubs/1203782",
+   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-19",
+  "merkmale": [
+   "kaffee"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Treffpunkt im Strava-Termin nur als Postleitzahl 81667 angegeben"
+ },
+ {
+  "id": "muenchen-pas-normal-studios",
+  "name": "Pas Normal Studios Munich",
+  "art": "Fahrrad",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Pas Normal Studios, Fraunhoferstraße 10, München",
+  "lat": 48.13057,
+  "lon": 11.57236,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "17:30",
+    "bezeichnung": "Training Ride"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Social Road Ride"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/1149891",
+  "beschreibung_de": "Rennrad-Ausfahrten des Pas Normal Studios Stores: Training Ride am Donnerstag, Social Road Ride am Samstag.",
+  "beschreibung_en": "Road rides from the Pas Normal Studios store: Thursday training ride and Saturday social road ride.",
+  "quelle": [
+   "https://www.strava.com/clubs/1149891",
+   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-19",
+  "rad_typ": "Rennrad",
+  "sprachen": [
+   "de",
+   "en"
+  ]
+ },
+ {
+  "id": "muenchen-cato-interval-session",
+  "name": "CATO – Munich Interval Session",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Altstadt-Lehel, 80539 München",
+  "lat": 48.14238,
+  "lon": 11.5789,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/1074516",
+  "beschreibung_de": "Wöchentliches Intervalltraining am Dienstagabend.",
+  "beschreibung_en": "Weekly Tuesday evening interval session.",
+  "quelle": [
+   "https://www.strava.com/clubs/1074516",
+   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Treffpunkt im Strava-Termin nur als Postleitzahl 80539 angegeben"
+ },
+ {
+  "id": "muenchen-runningsociety",
+  "name": "runningsociety München",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Montag Oberanger 6, Freitag Sachsenstraße 2, Sonntag Leopoldstraße 67",
+  "lat": 48.13541,
+  "lon": 11.57221,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Monday Fight, Oberanger 6"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Friday Power, Sachsenstraße 2"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Weekend Fight, Leopoldstraße 67"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/334611",
+  "beschreibung_de": "Laufgruppe mit drei festen Einheiten pro Woche an verschiedenen Orten in München.",
+  "beschreibung_en": "Running group with three weekly sessions at different spots in Munich.",
+  "quelle": [
+   "https://www.strava.com/clubs/334611",
+   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-19",
+  "pruefung_offen": true,
+  "pruefung_grund": "Laut Recherche kostenpflichtig (Abo) – können Gäste einfach mitlaufen? Drei Orte, Kartenpunkt am Montags-Treffpunkt"
  }
 ]
