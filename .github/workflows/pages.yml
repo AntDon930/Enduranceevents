@@ -99,12 +99,19 @@ jobs:
         if: steps.vorschau.outcome == 'success'
         continue-on-error: true
         run: |
-          rm -rf vorschau/.git vorschau/.github vorschau/scripts vorschau/functions vorschau/marketing vorschau/kalender
+          rm -rf vorschau/.git vorschau/.github vorschau/scripts vorschau/functions vorschau/marketing vorschau/kalender vorschau/korrektur
           cp events.json events.web.json vorschau/
           cp -r kalender vorschau/kalender
           for f in vorschau/*.html; do
             sed -i 's#<head>#<head>\n<meta name="robots" content="noindex, nofollow">#' "$f"
           done
+
+      # Die Korrekturseite ist ein privates claude.ai-Artifact (CLAUDE.md,
+      # „Korrekturseite“): Ihr Quelltext lädt Google-Schriften und ohne das
+      # Artifact keine Daten – auf endurance-events.de hat er nichts verloren
+      # (nichts von fremden Servern).
+      - name: Nur-Artifact-Dateien weglassen
+        run: rm -rf korrektur
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

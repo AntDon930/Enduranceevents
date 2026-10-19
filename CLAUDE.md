@@ -78,6 +78,7 @@ und die Zeile `Disallow: /vorschau/` in `robots.txt` entfernen.
 | `scripts/veranstalter_seiten.json` | **~2 MB, 4.371 Veranstaltungen (4.151 mit Seite) – nie komplett lesen**; eine Zeile je Eintrag, nach Schlüssel sortiert; geschrieben von `clean_events.py`, vom Datenlauf mitcommittet. Nachschlagen: `python3 scripts/veranstalter_seiten.py zeigen <Suchwort>` |
 | `scripts/veranstalter_seiten_pruefung.json` | Bericht von `pruefen` (je Veranstaltung Flag NEU/NEU?/LEER/NICHTS/FEHLER, gefundene Termine); entsteht im Datenlauf, wird mitcommittet |
 | `scripts/korrekturliste.py` | **Excel-Korrekturliste für den Nutzer** (seit 05.10.2026): `export` schreibt alle Strecken mit fehlender/fraglicher Angabe (Audit-Meldungen ohne Eintrag in `geprueft.json`, vorläufige Termine, „unklar“-Fälle) als `.xlsx`, Zellen rot = fehlt, orange = fraglich; `import datei.xlsx [--dry-run]` liest die korrigierte Fassung zurück (Vergleich gegen das ausgeblendete Blatt `_original`), schreibt `manual_overrides.json` + `geprueft.json` und lässt `clean_events.py --no-geocoding` und `build_ics.py` laufen. Braucht `openpyxl`. Die `.xlsx` wird nicht committet. **Seit dem Livegang (13.10.2026) ist die Liste der Schalter: Jede Zeile, die in ihr steht, trägt in `events.json` `pruefung_offen: true` und ist auf der Seite ausgeblendet** (siehe „Livegang") |
+| `korrektur/korrekturliste.html`, `scripts/korrektur_seite.py` | **Die Korrekturseite** (seit 19.10.2026, statt die zwei Excel-Listen hin- und herzuschicken): privates claude.ai-Artifact mit Datenbank, gleiche Spalten, Farben und Auswahllisten wie die Excel; `korrektur_seite.py daten events\|clubs` baut die Zeilen aus dem Excel-Export (`korrektur/daten/*.json`, nicht committet), `einlesen` schickt die Antworten durch den VORHANDENEN Import – siehe „Korrekturseite“ |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
@@ -2750,6 +2751,20 @@ Halbmarathon wurde") – Tabelle im README („Was das Gedächtnis aushält"):
   steht („King of the Lake" 2027 neben „Asvö King of the Lake" 2026);
   solche Doppel-Einträge aus der Zeit vor der unscharfen Suche bleiben
   im Gedächtnis stehen, `finde()` nimmt weiter nur den genauen.
+
+**Zwei Gedächtnis-Einträge, EINE Ausgabe (19.10.2026)**: Der Wochenlauf
+übernahm den Citylauf Schwabach zweimal – unter „Citylauf Schwabach“
+(5/10/21,1 km) und unter dem Sponsornamen „RIBE Citylauf Schwabach“
+(21 km), zwei Schlüssel aus der Zeit vor der unscharfen Suche.
+`add_manual_events()` überging die zweite 21-km-Zeile richtig, aber
+`test_manuelle_events` verlangt, dass jeder Eintrag der Datei in eine
+leere Liste passt – rot, und damit blieb der ganze Datenlauf hinter dem
+Deploy-Gate. Seitdem lässt `uebernehmen()` jede Strecke weg, für die
+`is_same_event()` in `manual_events.json` am selben Tag schon eine Zeile
+findet (Bericht: „… stehen schon unter einem anderen Namen“); der
+RIBE-Eintrag ist aus der Datei entfernt, `test_gedaechtnis` hält den Fall
+fest. Die beiden Gedächtnis-Einträge bleiben stehen (siehe oben,
+`finde()` nimmt den genauen).
 
 **Einträge von Hand – die PDF-Liste des Nutzers (13.10.2026, „Ja, bitte
 die 45 ins Gedächtnis aufnehmen")**: Von den 72 „existiert, Termin
@@ -5430,9 +5445,15 @@ Tests noch Deploy): GitHub unterdrückt Workflow-Läufe aus Pushes mit dem
 von Hand live. `update-events.yml` stößt `pages.yml` deshalb nach dem
 Push per `gh workflow run pages.yml --ref …` an (`actions: write`,
 workflow_dispatch ist die erlaubte Ausnahme) – **seit dem 13.10.2026
-auch auf `main`** (Commit `c7344d8`, vom Nutzer freigegeben). Beim
-ersten Montagslauf danach (19.10.2026) nachsehen, ob der
-`workflow_dispatch`-Lauf von „Deploy GitHub Pages" dasteht.
+auch auf `main`** (Commit `c7344d8`, vom Nutzer freigegeben). **Am
+19.10.2026 nachgesehen: Der Anstoß wirkt** (Lauf 39274388261,
+`workflow_dispatch`, zum Bot-Commit `4c82d702`) – **und der Lauf war rot**:
+`test_manuelle_events` fand eine Strecke doppelt in `manual_events.json`
+(zwei Gedächtnis-Einträge für eine Ausgabe, siehe „Gedächtnis je
+Veranstaltung“), das Deploy-Gate hielt den Datenlauf auf, live blieb der
+Stand vom Vormittag. **Nach jedem Montagslauf den Deploy-Lauf ansehen** –
+ein roter heißt: die neuen Daten warten, bis jemand den Fehler behebt und
+pusht.
 **Workflow-Läufe zu einem Commit immer mit dem VOLLEN SHA abfragen**
 (`actions/runs?head_sha=<40 Zeichen>`): Mit sieben Zeichen liefert die
 API still null Treffer – so entstand am 13.10. erst eine falsche
@@ -5595,10 +5616,13 @@ Liste); „Löschen" entfernt sie; „Stimmt so"/„Korrigiert" geben sie frei.
 
 **Der Rhythmus seit dem Livegang** (vom Nutzer am 13.10.2026 erbeten:
 „Was mach ich, was machst du genau?"):
-- *Täglich, Nutzer*: ~50 Zeilen der Excel-Korrekturliste prüfen
-  (Veranstalterseite ansehen, Zelle korrigieren, Status setzen), Datei
-  speichern und hier schicken.
-- *Täglich, Claude*: `korrekturliste.py import --dry-run`, dann `import`;
+- *Täglich, Nutzer*: ~50 Zeilen auf der **Korrekturseite** prüfen
+  (Veranstalterseite ansehen, Zelle korrigieren, Status setzen – jede
+  Eingabe ist sofort gespeichert) und im Chat „Korrekturen übernehmen“
+  schreiben. (Bis zum 19.10.2026 ging die Excel-Datei hin und her; der
+  Weg bleibt möglich.)
+- *Täglich, Claude*: Antworten holen und `korrektur_seite.py einlesen`
+  (Ablauf in „Korrekturseite“), das ruft `korrekturliste.py import`;
   Zellen, die keine Zahl sind, von Hand (mehrere Distanzen, Runden,
   Minuten, Höhenmeter); aus Korrekturen Klassen zählen und Regeln bauen
   (Dreizehnter Durchgang); `clean_events` idempotent, `build_ics`,
@@ -5612,9 +5636,10 @@ Liste); „Löschen" entfernt sie; „Stimmt so"/„Korrigiert" geben sie frei.
   die Liste; Abo-Mails über den Webhook.
 - *Wöchentlich, Claude (Montag/Dienstag)*: Lauf und CI prüfen,
   `⚠`-Berichte und `audit_events.py` durchsehen,
-  `veranstalter_seiten.py handpruefung` (NEU?/TOT), **frische
-  Korrekturliste exportieren und schicken** (neue Zeilen aus dem Lauf
-  stehen nur dort; der Nutzer arbeitet dann in der neuen Datei weiter).
+  `veranstalter_seiten.py handpruefung` (NEU?/TOT), **die Zeilen der
+  Korrekturseite neu bauen und die Seite neu veröffentlichen** (neue
+  Zeilen aus dem Lauf stehen nur dort; Antworten und Quittungen bleiben
+  erhalten).
 - *Wöchentlich, Nutzer*: in der Firebase-Konsole nachsehen, ob in
   `errorReports` oder `eventSuggestions` etwas Neues liegt (Claude kann
   die Sammlungen nicht lesen – die Regeln sperren das), und es hier
@@ -5673,6 +5698,94 @@ zwei Schritten (http://www → http://apex → https). **Wer das nächste
 Mal eine Umleitung vermisst, schaut zuerst in Settings → Pages, ob
 dort ein DNS-Check läuft** – solange der läuft, greift „Enforce HTTPS"
 nicht, und es gibt nichts zu tun außer warten.
+
+## Korrekturseite (seit 19.10.2026)
+
+Vom Nutzer gewünscht: „Wir haben jetzt 2 Korrekturlisten … Beide sind in
+Excel, die wir uns immer hin und herschicken müssen. Können wir hier nicht
+einfach eine /korrektur.html Seite bauen die den gleichen Aufbau hat wie
+die Excel … Sobald ein Event dann von mir erledigt ist, dann siehst du
+sofort meinen Output.“
+
+**Adresse: https://claude.ai/artifact/MPZsMjzXMUT6x9tSuRS85T** – ein privates claude.ai-Artifact (nur der Nutzer
+öffnet es; Datenbank-Regel `read`/`write` = `admin` an der Wurzel, mit
+`as_level: "interact"` nachgeprüft: liest nichts). **Bewusst NICHT
+`/korrektur.html` auf endurance-events.de**: Dort speicherte die Seite in
+Firestore, und das kann Claude nicht lesen (Regeln, kein
+Dienstkonto-Schlüssel); außerdem wäre jede ungeprüfte Zeile öffentlich
+abrufbar – genau die, die der Livegang ausblendet.
+
+**Aufbau**: Quelltext `korrektur/korrekturliste.html` (ohne
+`<html>`/`<body>`, das ergänzt das Artifact-Werkzeug), Zeilen als
+veröffentlichte Dateien `daten/events.json` und `daten/clubs.json`
+(lokal `korrektur/daten/`, gitignored, ~1,2 MB), gebaut von
+`scripts/korrektur_seite.py daten events|clubs` aus dem Excel-Export
+(`korrekturliste.py export` bzw. `clubs_korrekturliste.py export` vom
+Clubs-Branch, `--clubs-repo <Checkout>`): dieselben Spalten, Farben (rot
+`F8C9C4` = fehlt, orange `FCE2B0` = fraglich, grau = nicht änderbar – aus
+`SPALTEN` der Skripte), Auswahllisten (Datenprüfung der Excel), fixierten
+Spalten. Reiter Events/Clubs, Zähler Offen/In Arbeit/Bereit/Übernommen,
+Suche, Hinweis-Filter, 100 Zeilen je Schub. Eine Zelle antippen = Editor
+(Enter/Tippen daneben übernimmt, Esc verwirft, Tab springt weiter);
+Status als Auswahl in der Zeile; Links öffnen in neuem Tab, geändert über
+✎. Jede Eingabe schreibt sofort `antworten_<liste>/<Zeilen-Id>` (Status,
+geänderte Werte, Anmerkung, `geaendert`, dazu die ganze Zeile
+`zeile`/`kopf` und bei Events `orig` = das `_original` der Excel – der
+Import vergleicht gegen genau das, was der Nutzer gesehen hat).
+**Zeilen-Id**: Clubs die Club-`id`, Events `e` + SHA-1 über `_original`
+(die Felder beim Export, nicht die Nr) – sie bleibt über einen neuen
+Export gleich, solange der Datenlauf die Zeile nicht ändert. Ändert er
+sie, liegt die Antwort verwaist in der Datenbank; `einlesen` übernimmt
+sie trotzdem (sie trägt ihre eigene Zeile mit).
+
+**Übernommen** zeigt die Seite über **Quittungen**, nicht über ein Feld
+an der Antwort: `ArtifactData` schreibt ein vorhandenes Dokument nur mit
+seiner Versionsnummer, und die steht nicht in den Dateien von
+`list … out_dir`. Eine Quittung ist jedes Mal ein NEUES Dokument
+`quittung_<liste>/<JJJJMMTT-hhmmss>` mit `ids`: Zeilen-Id → `geaendert`
+der übernommenen Antwort. Ändert der Nutzer die Zeile danach noch einmal,
+ist sie wieder „bereit“. Die Antworten fasst Claude nie an.
+
+**Ablauf bei „Korrekturen übernehmen“** (Events; Clubs genauso mit
+`clubs`):
+
+1. `ArtifactData list` mit `url` = die Adresse oben, `collection`
+   `antworten_events` und dann `quittung_events`, beide mit demselben
+   `out_dir` (Scratchpad, z. B. `…/korrektur-antworten`) und
+   `query.limit` 1000 (bei mehr: `cursor`).
+2. `python3 scripts/korrektur_seite.py einlesen events <out_dir>
+   --dry-run` – zeigt, was der Import täte (übernommen wird nur, was einen
+   Status und noch keine Quittung hat); Zellen, die keine Zahl sind, wie
+   bisher von Hand.
+3. Ohne `--dry-run`: schreibt Overrides, `geprueft.json`, räumt auf
+   (`clean_events.py --no-geocoding`, `build_ics.py`) und legt
+   `<out_dir>/quittung.json` an. Bei Fehlern im Import KEINE Quittung.
+4. `ArtifactData set` mit `collection` `quittung_events`, `doc_id` wie
+   ausgegeben, `file_path` = die `quittung.json` – die Zeilen werden auf
+   der Seite grün.
+5. Tests, Commit, Push auf beide Branches (der Pages-Deploy macht die
+   Zeilen sichtbar).
+6. `korrektur_seite.py daten events` (und `clubs`) neu, dann die Seite
+   neu veröffentlichen: in DERSELBEN Sitzung `Artifact publish` mit
+   `file_path` `korrektur/korrekturliste.html` und `files`
+   `{"daten/events.json": "korrektur/daten/events.json", "daten/clubs.json":
+   "korrektur/daten/clubs.json"}`; aus einer ANDEREN Sitzung zuerst
+   `Artifact read` mit der `url`, dann publish mit `url` (sonst entsteht
+   ein zweites Artifact). `capabilities` weglassen – die gespeicherte
+   Erklärung (db-Regel + user) bleibt.
+
+**Clubs**: `einlesen clubs … --clubs-repo <Checkout von
+claude/clubs-feature-map-kycnmi>` ruft `clubs_korrekturliste.importiere()`
+im Checkout des Clubs-Branches; committet wird dort nur, was der Import
+schreibt, nach `git pull --rebase` (eine parallele Sitzung arbeitet auf
+dem Branch).
+
+**Grenzen**: 25.000 Dokumente je Artifact, 256 KiB je Dokument – eine
+Antwort hat ~2–3 KB, eine Quittung je Lauf. Die Excel-Wege
+(`korrekturliste.py export|import`) bleiben unverändert und laufen
+weiter, falls die Seite einmal nicht geht. `test_korrektur_seite` hält
+Auswahl, Quittung, Excel-Rückweg und die Sammlungsnamen der Seite fest
+(ohne `openpyxl` übersprungen – die CI hat es nicht).
 
 ## Wo das Projekt gerade steht
 
@@ -5856,9 +5969,9 @@ clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
   Tagen Daten prüfen**, ob ein Scanner-Muster bleibt (gleiche
   Browser/OS-Kombination, kein Referrer, nur Startseite) – dann in
   `stats.js`/`collect` filtern, nicht vorher.
-- **Montag 19.10.2026**: Nach dem Datenlauf muss ein Lauf „Deploy GitHub
-  Pages" mit Ereignis `workflow_dispatch` dastehen (Abfrage mit VOLLEM
-  SHA). Fehlt er, den Anstoß in `update-events.yml` auf `main` prüfen.
+- ~~**Montag 19.10.2026**: Deploy-Lauf nach dem Datenlauf prüfen~~
+  **erledigt** (19.10.2026): Der `workflow_dispatch`-Lauf steht da, war
+  aber rot (doppelte Gedächtnis-Ausgabe) – behoben, siehe „Automatik“.
 - **Nächste Schritte in Reihenfolge** (Stand 14.10.2026, 16:00: Probe
   des Wartungsmodus und Functions-Deploy sind durch): Punkt 1
   (Korrekturliste – die nächste Excel des Nutzers einlesen), Punkt 2
@@ -5905,10 +6018,12 @@ bleiben Begründungen und Entscheidungen stehen, die Nummern dort sind
 die ALTEN). Wird ein Punkt erledigt, die Liste hier neu durchnummerieren;
 Verweise auf alte Nummern stehen in Klammern.
 
-1. **Korrekturliste** (alt 32): täglich ~50 Zeilen in der Excel prüfen
-   und die Datei zurückschicken → `korrekturliste.py import` → Push.
-   Jede geprüfte Zeile wird damit auf endurance-events.de sichtbar
-   (`pruefung_offen`, siehe „Livegang"); 1.256 Zeilen warten.
+1. **Korrekturliste** (alt 32): täglich ~50 Zeilen prüfen – seit dem
+   19.10.2026 auf der **Korrekturseite** (https://claude.ai/artifact/MPZsMjzXMUT6x9tSuRS85T) statt in der Excel,
+   dann im Chat „Korrekturen übernehmen“ → `korrektur_seite.py einlesen`
+   → Push. Jede geprüfte Zeile wird damit auf endurance-events.de sichtbar
+   (`pruefung_offen`, siehe „Livegang“); am 19.10.2026 nach dem Datenlauf
+   1.606 Event- und 273 Club-Zeilen.
 2. **GitHub-Domain-Verifizierung** (alt 33, kostenlos, freiwillig):
    (1) github.com → Profilbild → **Settings** (persönlich) → **Pages** →
    „Add a domain" → `endurance-events.de` → GitHub zeigt einen

@@ -33,3 +33,6 @@ ausgabe/
 # Der Freigabe-Plan (insta_inhalte.py --plan): entsteht im Pages-Workflow
 # und im Rauchtest, wie events.web.json.
 marketing/instagram/plan.json
+
+# Korrekturseite (claude.ai-Artifact): Zeilen erzeugt von scripts/korrektur_seite.py daten
+korrektur/daten/

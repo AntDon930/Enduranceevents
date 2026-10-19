@@ -4346,6 +4346,14 @@ def test_gedaechtnis() -> None:
         b2 = vs.uebernehmen([("k", eintrag, "2027-07-25", "2027-07-25")], "2026-10-05", pfad)
         roh = _json.loads(pfad.read_text(encoding="utf-8"))
         check("uebernehmen: einmal angelegt, beim zweiten Mal übersprungen", (len(b1), len(b2), len(roh["events"]), roh["_readme"]), (1, 0, 2, "x"))
+        # Dieselbe Ausgabe unter einem zweiten Gedächtnis-Eintrag mit Sponsornamen
+        # (19.10.2026, RIBE Citylauf Schwabach): keine zweite Zeile für dieselbe
+        # Strecke – sonst stünde sie doppelt in manual_events.json.
+        sponsor = dict(eintrag, name="Allianz Munich Triathlon")
+        b3 = vs.uebernehmen([("k2", sponsor, "2027-07-25", "2027-07-25")], "2026-10-05", pfad)
+        roh = _json.loads(pfad.read_text(encoding="utf-8"))
+        check("uebernehmen: Sponsorname derselben Ausgabe legt nichts doppelt an",
+              (len(roh["events"]), "anderen Namen" in " ".join(b3)), (2, True))
         g = Path(tmp) / "ged.json"
         ged2.speichern(g)
         check("speichern/laden: gültiges JSON, Eintrag unverändert", vs.Gedaechtnis.laden(g).finde(alt[0]), eintrag)
@@ -5453,6 +5461,93 @@ def test_instagram() -> None:
           [True, True, True])
 
 
+def test_korrektur_seite() -> None:
+    """Korrekturseite (19.10.2026): Die Antworten der Seite gehen über eine
+    Excel-Datei im Exportformat in den VORHANDENEN Import; übernommen wird
+    nur, was einen Status und noch keine Quittung hat; die Quittung ist ein
+    neues Dokument, das die Seite auf „übernommen“ schaltet."""
+    print("\nKorrekturseite (Antworten -> Import, Quittungen):")
+    try:
+        import openpyxl  # noqa: F401
+    except ImportError:
+        print("  (übersprungen: openpyxl fehlt)")
+        return
+    import argparse
+    import json
+    import tempfile
+    import korrektur_seite as ks
+    from openpyxl import load_workbook
+    wurzel = Path(__file__).resolve().parent.parent
+    kopf = ["Nr", "Name (nicht änderbar)", "Distanz (km)", "Status", "Deine Anmerkung"]
+    def antwort(zid, status, werte=None, geaendert="2026-10-19T10:00:00.000Z"):
+        return {"liste": "events", "id": zid, "status": status, "werte": werte or {}, "anmerkung": "",
+                "kopf": kopf, "zeile": ["7", "Testlauf", "21,1", "", ""], "geaendert": geaendert,
+                "orig": '{"name": "Testlauf", "laenge_km": 21.1}'}
+    with tempfile.TemporaryDirectory() as tmp:
+        ordner = Path(tmp)
+        (ordner / "antworten_events").mkdir()
+        (ordner / "quittung_events").mkdir()
+        docs = {"e1": antwort("e1", "Korrigiert", {"Distanz (km)": "10,5"}),
+                "e2": antwort("e2", "Stimmt so"),
+                "e3": antwort("e3", "", {"Distanz (km)": "5"}),            # in Arbeit: bleibt liegen
+                "e4": antwort("e4", "Stimmt so", geaendert="2026-10-19T09:00:00.000Z"),
+                "e5": antwort("e5", "Unklar", geaendert="2026-10-19T11:00:00.000Z")}
+        for zid, d in docs.items():
+            (ordner / "antworten_events" / f"{zid}.json").write_text(json.dumps(d), encoding="utf-8")
+        # e4 ist mit genau diesem Stand übernommen, e5 nur mit einem ÄLTEREN
+        (ordner / "quittung_events" / "20261019-090500.json").write_text(json.dumps(
+            {"liste": "events", "ids": {"e4": "2026-10-19T09:00:00.000Z", "e5": "2026-10-19T08:00:00.000Z"}}),
+            encoding="utf-8")
+        check("Antworten gelesen", sorted(a["id"] for a in ks.lade_antworten(ordner, "events")),
+              ["e1", "e2", "e3", "e4", "e5"])
+        check("Clubs-Ordner leer", ks.lade_antworten(ordner, "clubs"), [])
+        aufrufe = []
+        class FakeImport:
+            @staticmethod
+            def importiere(xlsx, dry_run, aufraeumen=True):
+                wb = load_workbook(xlsx)
+                ws, orig = wb["Events prüfen"], wb["_original"]
+                aufrufe.append({"zeilen": [[c for c in r] for r in ws.iter_rows(min_row=2, values_only=True)],
+                                "orig": [list(r) for r in orig.iter_rows(min_row=2, values_only=True)],
+                                "kopf": [c.value for c in ws[1]], "dry_run": dry_run})
+                return 0
+        alt_modul = ks.modul
+        ks.modul = lambda liste, clubs_repo=None: FakeImport
+        try:
+            args = argparse.Namespace(liste="events", ordner=ordner, dry_run=True, ohne_aufraeumen=True, clubs_repo=None)
+            ks.cmd_einlesen(args)
+            check("Probelauf schreibt keine Quittung", (ordner / "quittung.json").exists(), False)
+            args.dry_run = False
+            ks.cmd_einlesen(args)
+        finally:
+            ks.modul = alt_modul
+        lauf = aufrufe[-1]
+        check("Kopfzeile wie im Export", lauf["kopf"], kopf)
+        check("übernommen: e1, e2 und e5 (neuer Stand) – nicht e3 (ohne Status), nicht e4 (quittiert)",
+              [(z[0], z[2], z[3]) for z in lauf["zeilen"]],
+              [(1, "10,5", "Korrigiert"), (2, "21,1", "Stimmt so"), (3, "21,1", "Unklar")])
+        check("_original trägt die Werte beim Export", lauf["orig"][0], [1, docs["e1"]["orig"]])
+        quittung = json.loads((ordner / "quittung.json").read_text(encoding="utf-8"))
+        check("Quittung nennt genau die übernommenen Stände",
+              quittung["ids"], {z: docs[z]["geaendert"] for z in ("e1", "e2", "e5")})
+        # Ein zweiter Lauf mit der neuen Quittung übernimmt nichts mehr
+        (ordner / "quittung_events" / "20261019-120000.json").write_text(json.dumps(quittung), encoding="utf-8")
+        aufrufe.clear()
+        ks.modul = lambda liste, clubs_repo=None: FakeImport
+        try:
+            ks.cmd_einlesen(argparse.Namespace(liste="events", ordner=ordner, dry_run=False,
+                                               ohne_aufraeumen=True, clubs_repo=None))
+        finally:
+            ks.modul = alt_modul
+        check("zweiter Lauf: nichts mehr zu übernehmen", aufrufe, [])
+    seite = (wurzel / "korrektur" / "korrekturliste.html").read_text(encoding="utf-8")
+    for teil in ("'antworten_' + l", "'quittung_' + l", "'daten/' + l + '.json'", "q.has(a.geaendert)"):
+        check(f"Seite: {teil}", teil in seite, True)
+    check("Seite: kein Feld `stand` mehr (Quittungen entscheiden)", "a.stand" in seite, False)
+    check("Seite: die Hilfe nennt jeden Status der Brücke",
+          sorted(w for w in ks.STATUS_WERTE if f"<b>{w}</b>" in seite), sorted(ks.STATUS_WERTE))
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_insta_freigabe,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -5463,7 +5558,7 @@ def main() -> int:
                  test_override_schluessel, test_suche_uebersetzungen,
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
-                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_dauer_minuten, test_pruefung_offen, test_kopierschutz,
+                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_dauer_minuten, test_pruefung_offen, test_korrektur_seite, test_kopierschutz,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
