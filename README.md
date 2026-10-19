@@ -3727,6 +3727,88 @@ Eingriff.
 Kleinigkeit am Rande: Ein `favicon.ico` gibt es nicht, jeder
 Seitenaufruf holt sich dafür eine 404.
 
+## Clubs: Run Clubs, Social Rides, Schwimm-Treffs (seit 19.10.2026, noch in der Vorschau)
+
+Vom Nutzer gewünscht: „Falls der User mal an einem Wochenende in Hamburg
+ist, sieht er auf meiner Karte, wo am Wochenende überall Run Clubs oder
+Cycling oder Swim Clubs starten." Navigation überall: **Events – Clubs –
+Karte**.
+
+| Datei | Zweck |
+|---|---|
+| `clubs.json` | die Clubs, von Hand recherchiert, jede Angabe mit Beleg (`quelle`) |
+| `clubs.js` | Termine aus der Regel, Stufe aus dem Tempo, Detail-Box, Kalender (.ics mit RRULE) – geteilt von `clubs.html` und `karte.html` |
+| `clubs.css` | Club-Box, Kacheln der Liste, Schalter und Marker der Karte |
+| `clubs.html` | die Liste: Suche, Sportart, Wann (Heute/Morgen/Wochenende/7 Tage), Stadt, Stufe, nur kostenlos – alles in der Adresse (`?art=Laufen&wann=wochenende&club=<id>`) |
+| `karte.html` | Schalter **Events / Clubs / Beide** (`?ebene=`), bei Clubs dazu „Wann" (`?wann=`); Clubs sind Quadrate in der Sportfarbe, je Stadt gebündelt bis Zoom 11 |
+
+**Der nächste Termin wird ausgerechnet, nie eingetragen.** `clubs.json`
+trägt nur die Regel; so ist der Termin nie veraltet. Ein Club folgt auf
+der Karte den Event-Filtern, die für einen Treff etwas bedeuten
+(Sportart – Triathlon zeigt alle drei –, Land, Ort, Suche, Umkreis,
+Datum/Zeitraum).
+
+**Stufe aus dem Tempo** (wenn die Quelle keine nennt, `STUFEN_GRENZEN`
+in `clubs.js`):
+
+| Sportart | Anfänger | Mittel | Fortgeschritten |
+|---|---|---|---|
+| Laufen (min/km) | langsamer als 6:00 | 5:00–6:00 | schneller als 5:00 |
+| Rad (km/h) | unter 25 | 25–30 | über 30 |
+| Schwimmen (min/100 m) | langsamer als 2:15 | 1:45–2:15 | schneller als 1:45 |
+
+### Format eines Eintrags
+
+```json
+{
+  "id": "hamburg-beispiel-run-club",          // a-z, 0-9, -
+  "name": "…", "art": "Laufen",              // Laufen | Fahrrad | Schwimmen
+  "stadt": "Hamburg", "land": "Deutschland",
+  "treffpunkt": "…", "lat": 53.55, "lon": 9.99,   // Koordinaten des TREFFPUNKTS
+  "termine": [
+    {"rhythmus": "woechentlich", "wochentag": 2, "uhrzeit": "19:00"},          // 1 = Mo … 7 = So
+    {"rhythmus": "zweiwoechentlich", "wochentag": 6, "uhrzeit": "09:00", "ab": "2026-10-03"},  // ab: ein bekannter Termin
+    {"rhythmus": "monatlich", "wochentag": 7, "uhrzeit": "10:00", "nter": 1}  // 1.–4., -1 = letzter
+  ],                                          // je Einheit optional: bezeichnung, distanz_km, pace
+  "distanz_km": [8, 10], "dauer_min": 60,
+  "pace": {"von": "5:30", "bis": "6:30"},     // Rad: Zahlen in km/h; Schwimmen: min/100 m
+  "stufen": ["anfaenger", "mittel"],          // nur wenn die Quelle es sagt
+  "kosten": {"gratis": true, "betrag_eur": null, "text": null},
+  "anmeldung": "nein",                        // nein | empfohlen | pflicht; dazu anmeldung_ueber
+  "webseite": "https://…", "instagram": "https://…", "strava": "https://…",
+  "sprachen": ["de", "en"],
+  "merkmale": ["kaffee"],                     // anfaengerfreundlich, mehrere_gruppen, no_drop, kaffee, gepaeck, dusche, frauen
+  "rad_typ": "Rennrad", "schwimm_ort": "Freiwasser",
+  "saison": {"von": "05-01", "bis": "09-30"}, "ausfaelle": ["2026-12-24"],
+  "beschreibung_de": "…", "beschreibung_en": "…",
+  "quelle": ["https://…"], "geprueft": "2026-10-19"
+}
+```
+
+`test_clubs` (in `test_scraper_lib.py`) prüft jeden Eintrag (Pflichtfelder,
+Wochentag des `ab`-Datums, Uhrzeit, Tempo-Format, Koordinaten in D/A/CH,
+Beleg) und rechnet `clubs.js` an festen Daten nach; der Rauchtest
+(`pruefe_clubs`) öffnet Liste und Karte.
+
+### Vorschau und Launch
+
+Die Clubs entstehen auf dem Branch `claude/clubs-feature-map-kycnmi`,
+die Live-Seite bleibt auf `claude/endurance-events-website-v1wruf` und
+nimmt weiter jede schnelle Korrektur an. Der Clubs-Branch holt sie per
+Merge nach.
+
+- **Vorschau**: `pages.yml` checkt bei jedem Deploy den Clubs-Branch nach
+  `vorschau/` aus (Daten vom Live-Stand, `noindex`, `robots.txt` sperrt
+  `/vorschau/`, `stats.js` zählt dort nicht). Ein Push auf den
+  Clubs-Branch stößt den Deploy über `vorschau.yml` an. Adresse:
+  `https://endurance-events.de/vorschau/clubs.html`.
+- **Launch**: Clubs-Branch in den Entwicklungs-Branch mergen; danach die
+  beiden Vorschau-Schritte in `pages.yml`, `.github/workflows/vorschau.yml`
+  und `Disallow: /vorschau/` in `robots.txt` entfernen; die Cloud Function
+  neu deployen (`firebase deploy --only functions` – `STATS_SEITEN`
+  kennt `clubs` erst damit, vorher verwirft sie die Aufrufe der
+  Clubs-Seite still).
+
 ## Lokal testen
 
 Da `events.html` die Datei `events.json` per `fetch` lädt, funktioniert

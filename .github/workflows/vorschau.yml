@@ -1,0 +1,46 @@
+name: Vorschau (Clubs)
+
+# Die Vorschau unter /vorschau/ (seit dem 19.10.2026, vom Nutzer
+# gewünscht: „erst einmal alles bauen und dann in einem launchen"):
+# Ein Push auf den Clubs-Branch prüft ihn mit denselben Tests wie die
+# Live-Seite und stößt danach den Pages-Deploy des Entwicklungs-Branches
+# an. pages.yml legt den Clubs-Stand dabei unter /vorschau/ - die
+# Live-Seite selbst bleibt, wie sie ist (gleicher Commit, neu gebaut).
+#
+# Warum der Umweg über workflow_dispatch: Die Umgebung github-pages nimmt
+# Deploys nur von freigegebenen Branches an, und ein Push mit dem
+# GITHUB_TOKEN löst keinen anderen Workflow aus - workflow_dispatch ist
+# die erlaubte Ausnahme (wie in update-events.yml).
+#
+# Nach dem Launch (Clubs-Branch im Entwicklungs-Branch): diese Datei und
+# die Vorschau-Schritte in pages.yml löschen.
+
+on:
+  push:
+    branches:
+      - claude/clubs-feature-map-kycnmi
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: vorschau
+  cancel-in-progress: true
+
+jobs:
+  pruefung:
+    name: Tests der Vorschau
+    uses: ./.github/workflows/ci.yml
+
+  anstossen:
+    needs: pruefung
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pages-Deploy mit Vorschau anstoßen
+        run: |
+          gh workflow run pages.yml --repo "$GITHUB_REPOSITORY" --ref claude/endurance-events-website-v1wruf \
+            || echo "::warning::Pages-Deploy konnte nicht angestoßen werden - die Vorschau kommt mit dem nächsten Deploy."
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -80,6 +80,8 @@
     var host = (global.location && global.location.hostname) || '';
     if (!host || host === 'localhost' || host === '127.0.0.1' || host === '[::1]') return true;
     if (global.location.protocol === 'file:') return true;
+    // Die Vorschau des Clubs-Branches (pages.yml, /vorschau/) zählt nicht mit.
+    if (/^\/vorschau\//.test(global.location.pathname || '')) return true;
     if (navigator.webdriver) return true;
     if (/bot|crawl|spider|slurp|headless|lighthouse|preview|facebookexternalhit|pingdom/i.test(navigator.userAgent || '')) return true;
     if (navigator.globalPrivacyControl === true) return true;

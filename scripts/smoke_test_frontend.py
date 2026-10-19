@@ -27,6 +27,7 @@ from __future__ import annotations
 import datetime
 import functools
 import glob
+import json
 import http.server
 import subprocess
 import re
@@ -2971,6 +2972,81 @@ def pruefe_datenrueckfall(ctx, basis, web_daten):
         os.rename(web_daten + ".weg", web_daten)
 
 
+def pruefe_clubs(ctx, basis):
+    """Clubs (19.10.2026): clubs.html und der Schalter auf der Karte.
+
+    Die Liste zeigt ohne Filter jeden Club aus clubs.json, ein Tippen
+    öffnet die Box als Blatt (Escape schließt), der Sportart-Knopf
+    filtert; die Karte zeigt mit ?ebene=clubs nur Club-Marker (Summe der
+    Quadrate und Club-Bündel = Zahl der Clubs), „Events" schaltet sie
+    wieder aus, ?club= öffnet die Box.
+    """
+    print("\nClubs (clubs.html, Schalter auf der Karte):")
+    with open(os.path.join(WURZEL, "clubs.json"), encoding="utf-8") as f:
+        clubs = json.load(f)
+    if not clubs:
+        ueberspringe("clubs.json ist leer")
+        return
+    seite, probleme = seite_oeffnen(ctx, basis + "/clubs.html", warten=".club-karte")
+    pruefe_kopf(seite, "clubs.html")
+    pruefe(not probleme, "clubs.html: lädt ohne Fehler (%s)" % ("; ".join(probleme[:3]) or "keine"))
+    karten = seite.locator(".club-karte").count()
+    pruefe(karten == len(clubs), "clubs.html: jeder Club eine Kachel (%d von %d)" % (karten, len(clubs)))
+    nav = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link')).map(a => a.textContent.trim())")
+    pruefe(nav == ["Events", "Clubs", "Karte"], "clubs.html: Navigation Events – Clubs – Karte (%s)" % " – ".join(nav))
+    erster = seite.locator(".club-karte").first
+    name = erster.locator(".ck-name").inner_text().strip()
+    erster.click()
+    seite.wait_for_selector(".club-seite-box .detail-panel h2", timeout=5000)
+    box = seite.evaluate("() => ({ offen: document.body.classList.contains('club-offen'),"
+                         " titel: (document.querySelector('.club-seite-box h2') || {}).textContent || '',"
+                         " fakten: document.querySelectorAll('.club-seite-box dt').length })")
+    pruefe(box["offen"] and box["titel"].strip() == name and box["fakten"] == 6,
+           "clubs.html: Tippen öffnet die Box als Blatt mit sechs Fakten (%s)" % box)
+    pruefe("club=" in seite.url, "clubs.html: der offene Club steht in der Adresse")
+    seite.keyboard.press("Escape")
+    seite.wait_for_timeout(200)
+    pruefe(not seite.evaluate("() => document.body.classList.contains('club-offen')"), "clubs.html: Escape schließt das Blatt")
+    art = clubs[0]["art"]
+    seite.click("#seg-art .seg-btn[data-w='%s']" % art)
+    seite.wait_for_timeout(200)
+    arten = seite.evaluate("() => Array.from(document.querySelectorAll('.club-karte')).map(k => k.dataset.id)")
+    soll = sorted(c["id"] for c in clubs if c["art"] == art)
+    pruefe(sorted(arten) == soll, "clubs.html: Filter %s zeigt genau diese Clubs (%d)" % (art, len(soll)))
+    pruefe("art=" in seite.url, "clubs.html: der Filter steht in der Adresse")
+    seite.close()
+
+    seite, probleme = seite_oeffnen(ctx, basis + "/karte.html?ebene=clubs", warten="#map")
+    seite.wait_for_function("() => document.querySelectorAll('.club-pin, .club-bundle').length > 0", timeout=20000)
+    seite.wait_for_timeout(1500)
+    zahl = seite.evaluate("""() => {
+        let n = document.querySelectorAll('.club-pin').length;
+        document.querySelectorAll('.club-bundle').forEach(b => { n += parseInt(b.textContent, 10) || 0; });
+        return { n, events: document.querySelectorAll('.cluster-badge, .marker-pin').length,
+                 hinweis: document.getElementById('map-hint').textContent };
+    }""")
+    mit_ort = sum(1 for c in clubs if c.get("lat") is not None)
+    pruefe(zahl["n"] == mit_ort and zahl["events"] == 0,
+           "karte.html?ebene=clubs: nur Clubs, alle %d (%s)" % (mit_ort, zahl))
+    pruefe(str(mit_ort) in zahl["hinweis"], "karte.html: die Legende zählt die Clubs (%s)" % zahl["hinweis"])
+    pruefe(seite.locator("#wann-switch").is_visible(), "karte.html: „Wann“ für die Clubs sichtbar")
+    seite.click("#ebene-switch .seg-btn[data-ebene='events']")
+    seite.wait_for_timeout(600)
+    danach = seite.evaluate("() => ({ clubs: document.querySelectorAll('.club-pin, .club-bundle').length,"
+                            " events: document.querySelectorAll('.cluster-badge, .marker-pin').length })")
+    pruefe(danach["clubs"] == 0 and danach["events"] > 0, "karte.html: „Events“ blendet die Clubs aus (%s)" % danach)
+    pruefe(not seite.locator("#wann-switch").is_visible(), "karte.html: „Wann“ nur bei Clubs")
+    pruefe(not probleme, "karte.html mit Clubs: lädt ohne Fehler (%s)" % ("; ".join(probleme[:3]) or "keine"))
+    seite.close()
+
+    c = next(x for x in clubs if x.get("lat") is not None)
+    seite, probleme = seite_oeffnen(ctx, basis + "/karte.html?ebene=clubs&club=" + c["id"], warten="#map")
+    seite.wait_for_selector("#map-details .detail-panel h2", timeout=20000)
+    titel = seite.locator("#map-details .detail-panel h2").inner_text().strip()
+    pruefe(titel == c["name"], "karte.html?club=: die Box zeigt den Club (%s)" % titel)
+    seite.close()
+
+
 def main() -> int:
     sichtbar = "--sichtbar" in sys.argv
     try:
@@ -3035,6 +3111,7 @@ def main() -> int:
                 pruefe_karte_und_rundweg(ctx, basis)
                 pruefe_farbschema(ctx, basis)
                 pruefe_wartung(ctx, basis)
+                pruefe_clubs(ctx, basis)
                 pruefe_datenrueckfall(ctx, basis, web_daten)
             finally:
                 browser.close()

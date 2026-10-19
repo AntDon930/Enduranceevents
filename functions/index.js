@@ -752,7 +752,7 @@ const STATS_ORIGINS = defineString("STATS_ORIGINS", {
 const STATS_EREIGNISSE = new Set(['pv', 'detail', 'veranstalter', 'kalender', 'teilen', 'abo', 'melden', 'fehlt', 'suche', 'filter', 'standort', 'anzeige_sicht', 'anzeige_klick']);
 // Jede Seite, die stats.js lädt (test_statistik prüft die Liste gegen
 // die HTML-Dateien).
-const STATS_SEITEN = new Set(["index", "events", "karte", "impressum", "datenschutz", "admin"]);
+const STATS_SEITEN = new Set(["index", "events", "karte", "impressum", "datenschutz", "admin", "clubs"]);
 // Zusatzangaben je Aktion: Feld -> Höchstlänge. Alles andere fliegt.
 // Kalender und Teilen tragen seit dem 14.10.2026 auch Event und Sportart
 // (für den Bericht je Veranstaltung) - dieselbe Angabe, die „Event

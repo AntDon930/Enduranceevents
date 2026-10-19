@@ -93,6 +93,7 @@ und die Zeile `Disallow: /vorschau/` in `robots.txt` entfernen.
 | `scripts/insta_freigabe.py`, `marketing/instagram/plan.json` | **Freigabe mit einem Klick** (14.10.2026): `plan.json` (im Pages-Workflow erzeugt, nie committet) nennt die Beiträge der nächsten 14 Tage mit Kennung des Inhalts; das Dashboard (`admin.html`, Karte „Instagram-Freigabe") schreibt `insta_freigaben/<Datum>` in Firestore; der Abendlauf fragt `insta_freigabe.darf_posten()` – siehe „Instagram" |
 | `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `humor.json` (eigene Läuferwitze für das Format „humor"), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` (dort auch `instagram_namen.json`) nicht im Repo |
 | `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort seit dem 16.10.2026 auf diesem Stand (Commit `ae5751ef`, Anmeldung über Instagram, Google-Zugang per Workload Identity) |
+| `clubs.json`, `clubs.js`, `clubs.css`, `clubs.html` | **Clubs** (seit 19.10.2026, Vorschau-Branch): wiederkehrende Treffs, Termine aus der Regel gerechnet (nie eingetragen), Stufe aus dem Tempo; Liste `clubs.html`, auf der Karte der Schalter Events / Clubs / Beide (`?ebene=`, `?wann=`) – Format und Launch in README „Clubs“; `test_clubs` + Rauchtest `pruefe_clubs` |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
@@ -116,7 +117,7 @@ python3 scripts/build_ics.py            # und die Dateien mitcommitten
 ```
 
 Wurde `site.css`, `filters.js`, `filter-ui.js`, `filter-ui.css`,
-`event-detail.js`, `event-detail.css` oder `stats.js` angefasst, **vorher** stempeln
+`event-detail.js`, `event-detail.css`, `stats.js`, `clubs.js` oder `clubs.css` angefasst, **vorher** stempeln
 (der Test schlägt sonst fehl und sagt es auch):
 
 ```bash

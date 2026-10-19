@@ -1,0 +1,285 @@
+/* Clubs (seit dem 19.10.2026): was die Club-Box zusätzlich zur
+   Event-Box (event-detail.css) braucht, die Kacheln der Clubs-Liste
+   (clubs.html) und die Club-Marker der Karte (karte.html). Farben nur aus
+   den Variablen in site.css - beide Farbschemata. */
+
+/* ---------- Die Detail-Box ---------- */
+.detail-overline {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.detail-badge--club { background: var(--accent-bg); color: var(--text); }
+.detail-badge--club svg { flex-shrink: 0; }
+.club-beschreibung { margin: -6px 0 14px; color: var(--text-muted); font-size: 0.92rem; line-height: 1.45; }
+.club-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+.club-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel-2, var(--panel));
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.club-grid { grid-template-columns: 1fr 1fr; }
+.club-grid dd { overflow-wrap: anywhere; }
+.club-bez { color: var(--text-muted); }
+.stufe-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 2px 2px 0 0;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--accent-bg);
+  color: var(--text);
+}
+.club-weitere { list-style: none; margin: 0 0 16px; padding: 0; font-size: 0.9rem; }
+.club-weitere li { padding: 5px 0; border-bottom: 1px solid var(--border); }
+.club-weitere li:last-child { border-bottom: 0; }
+.club-geprueft { margin: 14px 0 0; font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+.detail-actions .club-social { text-decoration: none; }
+
+/* ---------- Die Clubs-Liste (clubs.html) ---------- */
+.club-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  padding: 14px var(--seite-rand);
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+.club-filter .master-search { flex: 0 1 280px; }
+.club-suche {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: var(--radius-ctl, 10px);
+  border: 1px solid var(--border);
+  background: var(--panel-2, var(--panel));
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+}
+.club-suche:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 3px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel-2, var(--panel));
+}
+.seg-btn {
+  min-height: 38px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.seg-btn:hover { color: var(--text); }
+.seg-btn[aria-pressed="true"] { background: var(--pill-active-bg); color: var(--pill-active-fg); }
+.seg-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.club-select {
+  height: 44px;
+  padding: 0 12px;
+  border-radius: var(--radius-ctl, 10px);
+  border: 1px solid var(--border);
+  background: var(--panel-2, var(--panel));
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9rem;
+}
+.club-check { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; min-height: 44px; cursor: pointer; }
+.club-check input { width: 18px; height: 18px; accent-color: var(--accent); }
+
+.club-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  gap: 24px;
+  align-items: start;
+  padding: 18px var(--seite-rand) 32px;
+}
+.club-kopf { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+.club-kopf .result-count { margin: 0; }
+.club-hinweis { color: var(--text-muted); font-size: 0.86rem; }
+.club-liste { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.club-karte {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+.club-karte:hover { border-color: var(--border-strong); background: var(--row-hover); }
+.club-karte:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.club-karte[aria-current="true"] { border-color: var(--frame); box-shadow: 0 0 0 1px var(--frame); }
+.ck-oben { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); }
+.ck-sport { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 999px;
+  background: var(--sport-laufen-bg); color: var(--sport-laufen-fg); }
+.ck-sport.sport-fahrrad { background: var(--sport-fahrrad-bg); color: var(--sport-fahrrad-fg); }
+.ck-sport.sport-schwimmen { background: var(--sport-schwimmen-bg); color: var(--sport-schwimmen-fg); }
+.ck-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; line-height: 1.2; }
+.ck-ort { color: var(--text-muted); font-size: 0.88rem; }
+.ck-termin { font-weight: 600; font-size: 0.95rem; }
+.ck-termin span { color: var(--text-muted); font-weight: 500; }
+.ck-fuss { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+.ck-fuss .club-tag { font-size: 0.74rem; padding: 3px 8px; }
+.club-tag--gratis { border-color: var(--sport-fahrrad); color: var(--sport-fahrrad-fg); background: var(--sport-fahrrad-bg); }
+.club-leer {
+  padding: 28px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 14px;
+  color: var(--text-muted);
+  text-align: center;
+}
+.club-seite-box { position: sticky; top: 16px; }
+.club-seite-box .detail-panel { max-height: calc(100vh - 32px); overflow-y: auto; }
+.club-vorschlag { margin-top: 22px; font-size: 0.88rem; color: var(--text-muted); }
+.club-vorschlag a { color: var(--link); }
+
+@media (max-width: 1100px) {
+  .club-main { grid-template-columns: minmax(0, 1fr) 340px; }
+}
+@media (max-width: 900px) {
+  .club-filter { padding: 10px var(--seite-rand); gap: 8px; }
+  .club-filter .master-search { flex: 1 1 100%; }
+  /* Die Knopfreihen wischen statt umzubrechen (eine Zeile je Reihe). */
+  .club-filter .seg { flex: 1 1 100%; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .club-filter .seg::-webkit-scrollbar { display: none; }
+  .club-filter .seg-btn { flex: 1 0 auto; justify-content: center; padding: 6px 10px; white-space: nowrap; }
+  .club-filter .club-select { flex: 1 1 calc(50% - 4px); min-width: 0; }
+  .club-filter .filter-bar-actions { margin-left: auto; }
+  .club-main { grid-template-columns: minmax(0, 1fr); padding-top: 12px; }
+  .club-liste { grid-template-columns: minmax(0, 1fr); }
+  /* Die Box als Blatt von unten, wie die Event-Box in der Liste
+     (events.html, body.detail-offen): unsichtbar ohne Auswahl, Schleier
+     dahinter, ✕ / Schleier / Escape schließen. */
+  .club-seite-box {
+    display: none;
+    position: fixed; left: 0; right: 0; bottom: 0; top: auto;
+    z-index: 1500;
+    max-height: 88vh; max-height: 88dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-shadow: var(--shadow);
+  }
+  body.club-offen .club-seite-box { display: block; }
+  body.club-offen { overflow: hidden; }
+  body.club-offen::after { content: ""; position: fixed; inset: 0; z-index: 1400; background: rgba(11, 27, 51, 0.55); }
+  .club-seite-box .detail-panel {
+    max-height: none;
+    border-radius: 16px 16px 0 0;
+    border-bottom: 0;
+    padding-bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  }
+  .club-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Karte: Schalter Events / Clubs / Beide ---------- */
+.ebene-switch {
+  position: absolute;
+  /* Oben links neben den Zoom-Knöpfen, nicht in der Mitte: dort liegt
+     bei der Übersicht Norddeutschland (Hamburg, Bremen). */
+  top: 10px;
+  left: 54px;
+  z-index: 800;
+  box-shadow: var(--shadow);
+  background: var(--panel);
+}
+.ebene-switch .seg-btn { min-height: 36px; padding: 6px 14px; }
+@media (max-width: 900px) {
+  .ebene-switch { top: 10px; left: 50px; }
+  .ebene-switch .seg-btn { padding: 6px 11px; font-size: 0.84rem; }
+}
+.wann-switch {
+  position: absolute;
+  /* Am Rechner in derselben Reihe rechts neben dem Ebenen-Schalter
+     (darunter liegt „Mein Standort"), auf dem Handy unten (siehe dort). */
+  top: 10px;
+  left: 276px;
+  z-index: 800;
+  box-shadow: var(--shadow);
+  background: var(--panel);
+  flex-wrap: nowrap;
+  max-width: calc(100% - 290px);
+  overflow-x: auto;
+}
+.wann-switch[hidden] { display: none; }
+.wann-switch .seg-btn { min-height: 32px; padding: 4px 11px; font-size: 0.82rem; white-space: nowrap; }
+/* Auf dem Handy unten über der Quellenangabe: oben stößt die Reihe an
+   die Zoom-Knöpfe, und sie ist breiter als der Bildschirm (wischen). */
+@media (max-width: 900px) {
+  .wann-switch { top: auto; bottom: 26px; left: 8px; right: 8px; transform: none; max-width: none; }
+}
+
+/* Club-Marker: ein abgerundetes QUADRAT in der Sportfarbe (Events sind
+   Nadeln) - so sieht man auf einen Blick, was regelmäßig stattfindet. */
+.club-pin {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sport-laufen);
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+.club-pin.sport-fahrrad { background: var(--sport-fahrrad); }
+.club-pin.sport-schwimmen { background: var(--sport-schwimmen); }
+.club-pin .sport-icon { color: #fff; }
+.club-bundle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text);
+  border: 2px solid var(--frame);
+  font-weight: 700;
+  font-size: 0.86rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.club-bundle-mark { position: relative; }
+.club-bundle-mark .club-bundle { cursor: pointer; }
+.club-bundle-label {
+  position: absolute;
+  left: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text);
+  text-shadow: 0 0 3px var(--map-halo, #fff), 0 0 3px var(--map-halo, #fff);
+  pointer-events: none;
+}
+.legend-square { width: 10px; height: 10px; border-radius: 3px; border: 1.5px solid var(--text-muted); flex-shrink: 0; }
+.club-popup-titel { font-weight: 700; margin-bottom: 6px; }

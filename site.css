@@ -558,6 +558,10 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
      lag damit 54 px tiefer als auf dem iPhone (393 px). Engere Lücken und
      schmalere DE/EN-Knöpfe: 316 px, eine Reihe (14.10.2026). */
   @media (max-width: 400px) {
+    /* Drei Menüpunkte (Events – Clubs – Karte, seit 19.10.2026) passen
+       auf 360 px nur mit engeren Lücken neben die Marke. */
+    .site-header { column-gap: 10px; }
+    .site-nav { gap: 12px; }
     .top-actions { gap: 6px; }
     .lang-btn { padding: 7px 10px; }
   }

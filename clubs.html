@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<title>Clubs – Endurance Events</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0b1220">
+<!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
+})();
+</script>
+<!-- Farbschema hell/dunkel: wortgleich wie in den anderen Seiten (test_farbschema_skript). -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<meta name="description" content="Run Clubs, Rad-Treffs und Schwimmgruppen in Deutschland, Österreich und der Schweiz: wann sie sich treffen, wo, wie schnell und ob es etwas kostet.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Endurance Events – Clubs">
+<meta property="og:description" content="Run Clubs, Rad-Treffs und Schwimmgruppen: wann sie sich treffen, wo, wie schnell und ob es etwas kostet.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://endurance-events.de/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="clubs.json" as="fetch" type="application/json" crossorigin="anonymous">
+<link rel="stylesheet" href="vendor/fonts/barlow.css">
+<link rel="stylesheet" href="site.css?v=fdec6406">
+<link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
+<link rel="stylesheet" href="event-detail.css?v=92628441">
+<link rel="stylesheet" href="clubs.css?v=c115c32a">
+</head>
+<body>
+
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). -->
+<header class="site-header top-bar">
+  <a class="brand" href="index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Seiten">
+    <a class="nav-link" href="events.html" id="nav-events">Events</a>
+    <a class="nav-link active" href="clubs.html" id="nav-clubs" aria-current="page">Clubs</a>
+    <a class="nav-link" href="karte.html?ebene=clubs" id="nav-map">Karte</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+<p class="page-note" id="subtitle"></p>
+
+<!-- Die Filter der Clubs: Suche, Sportart, Wann, Stadt, Stufe, nur
+     kostenlos. Alles steht in der Adresse (?art=…&wann=…), damit ein
+     Link teilbar ist und die Karte dieselbe Auswahl zeigt. -->
+<div class="club-filter" id="club-filter">
+  <div class="master-search">
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input type="search" id="club-suche" autocomplete="off" aria-label="Suche">
+  </div>
+  <div class="seg" id="seg-art" role="group"></div>
+  <div class="seg" id="seg-wann" role="group"></div>
+  <select class="club-select" id="sel-stadt" aria-label="Stadt"></select>
+  <select class="club-select" id="sel-stufe" aria-label="Stufe"></select>
+  <label class="club-check"><input type="checkbox" id="chk-gratis"><span id="chk-gratis-text">Nur kostenlos</span></label>
+  <div class="filter-bar-actions">
+    <a class="bar-btn" href="karte.html?ebene=clubs" id="karte-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>
+      <span id="karte-btn-text">Auf der Karte</span>
+    </a>
+  </div>
+</div>
+
+<main class="club-main">
+  <section>
+    <div class="club-kopf">
+      <div class="result-count" id="result-count"></div>
+      <button type="button" class="reset-btn" id="reset-btn" hidden></button>
+    </div>
+    <ul class="club-liste" id="club-liste" aria-live="polite"></ul>
+    <p class="club-vorschlag" id="club-vorschlag"></p>
+  </section>
+  <aside class="club-seite-box" id="club-box"></aside>
+</main>
+
+<footer class="site-footer">
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="impressum.html">Impressum</a>
+    <a id="footer-datenschutz" href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script defer src="vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="firebase-config.js"></script>
+<script defer src="auth.js"></script>
+<script defer src="stats.js?v=f51ef65a"></script>
+<script src="filters.js?v=52e85793"></script>
+<script src="event-detail.js?v=b3846820"></script>
+<script src="clubs.js?v=8c0242eb"></script>
+
+<script>
+(async function () {
+  const EF = window.EnduranceFilters;
+  const EED = window.EnduranceDetail;
+  const EC = window.EnduranceClubs;
+  // Notbremse gegen einen halb alten Cache-Stand (wie Liste und Karte).
+  if (!EF || !EED || !EC || !EC.renderDetail || !EF.formatDateLong) {
+    let de = true;
+    try { de = localStorage.getItem('endurance-lang') !== 'en'; } catch (e) { /* ignorieren */ }
+    document.getElementById('subtitle').textContent = de
+      ? 'Der Browser hat eine veraltete Programmdatei gespeichert. Einmal neu laden genügt.'
+      : 'Your browser kept an outdated script file. Just reload the page.';
+    return;
+  }
+
+  const I18N = {
+    de: {
+      title: 'Clubs',
+      nav_events: 'Events', nav_clubs: 'Clubs', nav_map: 'Karte',
+      suche: 'Club, Stadt oder Treffpunkt',
+      alle: 'Alle',
+      wann_alle: 'Jederzeit', wann_heute: 'Heute', wann_morgen: 'Morgen', wann_wochenende: 'Wochenende', wann_woche: '7 Tage',
+      alle_staedte: 'Alle Städte',
+      alle_stufen: 'Alle Stufen',
+      gratis: 'Nur kostenlos',
+      karte: 'Auf der Karte',
+      treffer: (n) => `${n} Club${n === 1 ? '' : 's'}`,
+      leer: 'Kein Club passt zu diesen Filtern.',
+      reset: 'Filter löschen',
+      laden: 'Lade Clubs…',
+      fehler: (m) => `Konnte clubs.json nicht laden: ${m}`,
+      box_leer: 'Wähle einen Club, um Treffpunkt, Termine und Tempo zu sehen.',
+      vorschlag: 'Dein Club fehlt? Schreib uns an',
+      kein_termin: 'Saisonpause',
+      footer_imprint: 'Impressum', footer_privacy: 'Datenschutz'
+    },
+    en: {
+      title: 'Clubs',
+      nav_events: 'Events', nav_clubs: 'Clubs', nav_map: 'Map',
+      suche: 'Club, city or meeting point',
+      alle: 'All',
+      wann_alle: 'Any time', wann_heute: 'Today', wann_morgen: 'Tomorrow', wann_wochenende: 'Weekend', wann_woche: '7 days',
+      alle_staedte: 'All cities',
+      alle_stufen: 'All levels',
+      gratis: 'Free only',
+      karte: 'On the map',
+      treffer: (n) => `${n} club${n === 1 ? '' : 's'}`,
+      leer: 'No club matches these filters.',
+      reset: 'Clear filters',
+      laden: 'Loading clubs…',
+      fehler: (m) => `Could not load clubs.json: ${m}`,
+      box_leer: 'Pick a club to see its meeting point, sessions and pace.',
+      vorschlag: 'Missing your club? Write to',
+      kein_termin: 'Off-season',
+      footer_imprint: 'Legal notice', footer_privacy: 'Privacy'
+    }
+  };
+  let lang = 'de';
+  try { const s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  const t = (k, ...a) => { const v = I18N[lang][k]; return typeof v === 'function' ? v(...a) : v; };
+  const esc = EF.escapeHtml;
+
+  const f = { art: new Set(), stufe: new Set(), stadt: new Set(), gratis: false, wann: null, suche: '' };
+  let clubs = [];
+  let gewaehlt = null;
+
+  const el = (id) => document.getElementById(id);
+  const listeEl = el('club-liste');
+  const boxEl = el('club-box');
+  const sucheEl = el('club-suche');
+  const stadtEl = el('sel-stadt');
+  const stufeEl = el('sel-stufe');
+  const gratisEl = el('chk-gratis');
+  const handy = () => window.matchMedia('(max-width: 900px)').matches;
+
+  // ---------- Adresse ----------
+  function leseAdresse() {
+    const p = new URLSearchParams(location.search);
+    (p.get('art') || '').split(',').filter(a => EC.ARTEN.includes(a)).forEach(a => f.art.add(a));
+    (p.get('stufe') || '').split(',').filter(s => EC.STUFEN.includes(s)).forEach(s => f.stufe.add(s));
+    (p.get('stadt') || '').split(',').filter(Boolean).forEach(s => f.stadt.add(s));
+    f.gratis = p.get('gratis') === '1';
+    const w = p.get('wann'); f.wann = EC.WANN.includes(w) ? w : null;
+    f.suche = p.get('s') || '';
+    const c = p.get('club'); if (c) gewaehlt = clubs.find(x => x.id === c) || null;
+  }
+  function params() {
+    const p = new URLSearchParams();
+    if (f.suche.trim()) p.set('s', f.suche.trim());
+    if (f.art.size) p.set('art', Array.from(f.art).join(','));
+    if (f.wann) p.set('wann', f.wann);
+    if (f.stadt.size) p.set('stadt', Array.from(f.stadt).join(','));
+    if (f.stufe.size) p.set('stufe', Array.from(f.stufe).join(','));
+    if (f.gratis) p.set('gratis', '1');
+    return p;
+  }
+  function schreibeAdresse() {
+    const p = params();
+    if (gewaehlt) p.set('club', gewaehlt.id);
+    const s = p.toString();
+    history.replaceState(null, '', location.pathname + (s ? '?' + s : ''));
+  }
+  // Die Karte versteht die Sportart als ?sportart= (filters.js) und
+  // ?wann= für die Clubs (karte.html).
+  function kartenLink() {
+    const p = new URLSearchParams();
+    p.set('ebene', 'clubs');
+    if (f.art.size) p.set('sportart', Array.from(f.art).join(','));
+    if (f.wann) p.set('wann', f.wann);
+    if (f.suche.trim()) p.set('s', f.suche.trim());
+    return 'karte.html?' + p.toString();
+  }
+
+  // ---------- Filterknöpfe ----------
+  function seg(container, werte, aktiv, beschriftung, klick) {
+    container.innerHTML = werte.map(w =>
+      `<button type="button" class="seg-btn" data-w="${esc(w.key)}" aria-pressed="${aktiv(w.key) ? 'true' : 'false'}">${w.icon || ''}${esc(beschriftung(w.key))}</button>`
+    ).join('');
+    container.querySelectorAll('.seg-btn').forEach(b => b.addEventListener('click', () => klick(b.dataset.w)));
+  }
+  function baueFilter() {
+    seg(el('seg-art'), [{ key: '' }].concat(EC.ARTEN.map(a => ({ key: a, icon: EC.sportIcon(a, 15) }))),
+      k => (k === '' ? f.art.size === 0 : f.art.has(k)),
+      k => (k === '' ? t('alle') : EC.tx(lang, 'art_' + k)),
+      k => { if (k === '') f.art.clear(); else if (f.art.has(k)) f.art.delete(k); else f.art.add(k); render(); });
+    seg(el('seg-wann'), [{ key: '' }].concat(EC.WANN.map(w => ({ key: w }))),
+      k => (k === '' ? !f.wann : f.wann === k),
+      k => t('wann_' + (k || 'alle')),
+      k => { f.wann = k || null; render(); });
+    const staedte = Array.from(new Set(clubs.map(c => c.stadt))).sort((a, b) => a.localeCompare(b, 'de'));
+    stadtEl.innerHTML = `<option value="">${esc(t('alle_staedte'))}</option>`
+      + staedte.map(s => `<option value="${esc(s)}"${f.stadt.has(s) ? ' selected' : ''}>${esc(EF.VALUE_TRANSLATIONS.standort && EF.VALUE_TRANSLATIONS.standort[s] ? EF.VALUE_TRANSLATIONS.standort[s][lang] : s)}</option>`).join('');
+    stufeEl.innerHTML = `<option value="">${esc(t('alle_stufen'))}</option>`
+      + EC.STUFEN.map(s => `<option value="${s}"${f.stufe.has(s) ? ' selected' : ''}>${esc(EC.tx(lang, 'stufe_' + s))}</option>`).join('');
+    gratisEl.checked = f.gratis;
+    sucheEl.value = f.suche;
+  }
+  stadtEl.addEventListener('change', () => { f.stadt.clear(); if (stadtEl.value) f.stadt.add(stadtEl.value); render(); });
+  stufeEl.addEventListener('change', () => { f.stufe.clear(); if (stufeEl.value) f.stufe.add(stufeEl.value); render(); });
+  gratisEl.addEventListener('change', () => { f.gratis = gratisEl.checked; render(); });
+  sucheEl.addEventListener('input', () => { f.suche = sucheEl.value; render(true); });
+  el('reset-btn').addEventListener('click', () => {
+    f.art.clear(); f.stufe.clear(); f.stadt.clear(); f.gratis = false; f.wann = null; f.suche = '';
+    render();
+  });
+
+  // ---------- Liste ----------
+  function hatFilter() {
+    return f.art.size || f.stufe.size || f.stadt.size || f.gratis || f.wann || f.suche.trim();
+  }
+  // Der angezeigte Termin: der erste im gewählten Zeitraum, sonst der nächste.
+  function terminFuer(c, jetzt) {
+    const z = f.wann ? EC.wannZeitraum(f.wann, jetzt) : null;
+    if (z) return EC.termineImZeitraum(c, z[0], z[1], { jetzt })[0] || null;
+    return EC.naechsterTermin(c, jetzt);
+  }
+  function kachel(c, termin) {
+    const s = EC.stufen(c);
+    const tags = [];
+    tags.push(`<span class="club-tag${EC.istGratis(c) ? ' club-tag--gratis' : ''}">${esc(EC.formatKosten(c, lang))}</span>`);
+    s.forEach(x => tags.push(`<span class="club-tag">${esc(EC.tx(lang, 'stufe_' + x))}</span>`));
+    const d = EC.formatDistanz(c.distanz_km, lang);
+    if (d) tags.push(`<span class="club-tag">${esc(d)}</span>`);
+    const rel = termin ? EF.relativeDays(termin.datum, lang) : '';
+    const stadt = EF.VALUE_TRANSLATIONS.standort && EF.VALUE_TRANSLATIONS.standort[c.stadt] ? EF.VALUE_TRANSLATIONS.standort[c.stadt][lang] : c.stadt;
+    return `<li><button type="button" class="club-karte" data-id="${esc(c.id)}"${gewaehlt === c ? ' aria-current="true"' : ''}>
+      <span class="ck-oben"><span class="ck-sport ${EC.sportClass(c.art)}">${EC.sportIcon(c.art, 14)}${esc(EC.tx(lang, 'art_' + c.art))}</span>${esc(EC.tx(lang, 'rh_' + EC.rhythmusVon(c)))}</span>
+      <span class="ck-name">${esc(c.name)}</span>
+      <span class="ck-ort">${esc(stadt)}${c.treffpunkt ? ' · ' + esc(c.treffpunkt) : ''}</span>
+      <span class="ck-termin">${termin ? esc(EC.formatTerminKurz(termin, lang)) + (rel && !/^(heute|morgen|today|tomorrow)$/.test(rel) ? ` <span>· ${esc(rel)}</span>` : '') : esc(t('kein_termin'))}</span>
+      <span class="ck-fuss">${tags.join('')}</span>
+    </button></li>`;
+  }
+
+  function zeichneBox() {
+    if (!gewaehlt) {
+      document.body.classList.remove('club-offen');
+      boxEl.innerHTML = handy() ? '' : `<div class="detail-panel"><div class="detail-empty">${esc(t('box_leer'))}</div></div>`;
+      return;
+    }
+    const panel = document.createElement('div');
+    panel.className = 'detail-panel';
+    EC.renderDetail(panel, gewaehlt, {
+      lang, mapLink: true,
+      onClose: handy() ? () => { gewaehlt = null; render(); } : null
+    });
+    boxEl.innerHTML = '';
+    boxEl.appendChild(panel);
+    document.body.classList.toggle('club-offen', handy());
+  }
+
+  function render(nurListe) {
+    const jetzt = new Date();
+    if (!nurListe) baueFilter();
+    const treffer = clubs.filter(c => EC.passt(c, f, jetzt))
+      .map(c => ({ c, termin: terminFuer(c, jetzt) }))
+      .sort((a, b) => {
+        if (!a.termin !== !b.termin) return a.termin ? -1 : 1;
+        if (a.termin && b.termin) {
+          const ka = a.termin.datum + a.termin.uhrzeit, kb = b.termin.datum + b.termin.uhrzeit;
+          if (ka !== kb) return ka < kb ? -1 : 1;
+        }
+        return a.c.name.localeCompare(b.c.name, 'de');
+      });
+    el('result-count').textContent = t('treffer', treffer.length);
+    el('reset-btn').hidden = !hatFilter();
+    listeEl.innerHTML = treffer.length
+      ? treffer.map(x => kachel(x.c, x.termin)).join('')
+      : `<li class="club-leer">${esc(t('leer'))}</li>`;
+    listeEl.querySelectorAll('.club-karte').forEach(b => b.addEventListener('click', () => {
+      gewaehlt = clubs.find(c => c.id === b.dataset.id) || null;
+      render(true);
+    }));
+    el('karte-btn').href = kartenLink();
+    zeichneBox();
+    schreibeAdresse();
+  }
+
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' && gewaehlt && handy()) { gewaehlt = null; render(true); }
+  });
+  // Ein Tippen auf den Schleier (body::after) schließt das Blatt.
+  document.addEventListener('click', (ev) => {
+    if (!document.body.classList.contains('club-offen')) return;
+    if (ev.target === document.body || ev.target === document.documentElement) { gewaehlt = null; render(true); }
+  });
+
+  function setLanguage(neu) {
+    lang = neu;
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    document.documentElement.lang = lang;
+    document.title = t('title') + ' – Endurance Events';
+    el('nav-events').textContent = t('nav_events');
+    el('nav-clubs').textContent = t('nav_clubs');
+    el('nav-map').textContent = t('nav_map');
+    sucheEl.placeholder = t('suche');
+    sucheEl.setAttribute('aria-label', t('suche'));
+    el('chk-gratis-text').textContent = t('gratis');
+    el('karte-btn-text').textContent = t('karte');
+    el('reset-btn').textContent = t('reset');
+    el('club-vorschlag').innerHTML = `${esc(t('vorschlag'))} <a href="mailto:impressum@endurance-events.de?subject=Club">impressum@endurance-events.de</a>`;
+    el('footer-impressum').textContent = t('footer_imprint');
+    el('footer-datenschutz').textContent = t('footer_privacy');
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    if (clubs.length) render();
+  }
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLanguage(b.dataset.lang)));
+
+  setLanguage(lang);
+  el('result-count').textContent = t('laden');
+  try {
+    clubs = await EC.loadClubs();
+  } catch (err) {
+    el('result-count').textContent = t('fehler', err.message);
+    return;
+  }
+  leseAdresse();
+  render();
+  if (gewaehlt) {
+    const k = listeEl.querySelector(`.club-karte[data-id="${CSS.escape(gewaehlt.id)}"]`);
+    if (k) k.scrollIntoView({ block: 'center' });
+  }
+})();
+</script>
+
+</body>
+</html>
