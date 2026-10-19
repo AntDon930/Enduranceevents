@@ -22,6 +22,7 @@ Disallow: /wartung.html
 Disallow: /scripts/
 Disallow: /functions/
 Disallow: /marketing/
+Disallow: /vorschau/
 
 # Crawler für KI-Training und Datensammler: gar nichts.
 User-agent: GPTBot
@@ -53,3 +54,4 @@ Disallow: /wartung.html
 Disallow: /scripts/
 Disallow: /functions/
 Disallow: /marketing/
+Disallow: /vorschau/

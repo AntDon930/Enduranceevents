@@ -78,6 +78,34 @@ jobs:
       - name: Instagram-Plan erzeugen
         run: python3 scripts/insta_inhalte.py --plan 14 --json marketing/instagram/plan.json
 
+      # Die VORSCHAU (seit dem 19.10.2026, vom Nutzer gewünscht: „erst
+      # alles bauen und dann in einem launchen"): Der Stand des
+      # Clubs-Branches liegt unter /vorschau/ – nirgends verlinkt, noindex,
+      # robots.txt sperrt den Ordner, stats.js schweigt dort. Die Daten
+      # (events.json, kalender/) kommen vom Live-Stand, damit die Vorschau
+      # nicht hinter dem täglichen Datenlauf herhinkt. Schlägt hier etwas
+      # fehl, geht die Live-Seite trotzdem raus (continue-on-error).
+      # Nach dem Launch: diese zwei Schritte und vorschau.yml löschen.
+      - name: Vorschau holen (Clubs-Branch)
+        id: vorschau
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: claude/clubs-feature-map-kycnmi
+          path: vorschau
+          fetch-depth: 1
+
+      - name: Vorschau vorbereiten
+        if: steps.vorschau.outcome == 'success'
+        continue-on-error: true
+        run: |
+          rm -rf vorschau/.git vorschau/.github vorschau/scripts vorschau/functions vorschau/marketing vorschau/kalender
+          cp events.json events.web.json vorschau/
+          cp -r kalender vorschau/kalender
+          for f in vorschau/*.html; do
+            sed -i 's#<head>#<head>\n<meta name="robots" content="noindex, nofollow">#' "$f"
+          done
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
