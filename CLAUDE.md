@@ -23,6 +23,19 @@ demselben Commit gehalten** (vom Nutzer am 21.09.2026 so entschieden:
 „die beiden Branches zusammenführen") – jeder Push geht auf beide. Wer
 nur einen sieht, sieht trotzdem alles.
 
+**Vorschau-Branch für die Clubs** (seit dem 19.10.2026, vom Nutzer
+gewünscht: „erst einmal alles bauen und dann in einem launchen"): Die
+Clubs (Run-/Rad-/Schwimm-Treffs, Seite `clubs.html`, Schalter auf der
+Karte) entstehen auf **`claude/clubs-feature-map-kycnmi`**. Schnelle
+Korrekturen an der Live-Seite gehen weiter direkt auf den
+Entwicklungs-Branch oben; der Clubs-Branch holt sie per **Merge** nach
+(nie umgekehrt vor dem Launch). `pages.yml` legt bei jedem Deploy den
+Clubs-Stand unter **`/vorschau/`** (noindex, robots.txt gesperrt, Daten
+vom Live-Stand); ein Push auf den Clubs-Branch stößt den Deploy über
+`vorschau.yml` an. **Launch**: Clubs-Branch in den Entwicklungs-Branch
+mergen, dann die beiden Vorschau-Schritte in `pages.yml`, `vorschau.yml`
+und die Zeile `Disallow: /vorschau/` in `robots.txt` entfernen.
+
 ## Dateien
 
 | Datei | Zweck |
