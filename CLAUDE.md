@@ -5727,8 +5727,13 @@ sofort meinen Output.“
 `as_level: "interact"` nachgeprüft: liest nichts). **Bewusst NICHT
 `/korrektur.html` auf endurance-events.de**: Dort speicherte die Seite in
 Firestore, und das kann Claude nicht lesen (Regeln, kein
-Dienstkonto-Schlüssel); außerdem wäre jede ungeprüfte Zeile öffentlich
-abrufbar – genau die, die der Livegang ausblendet.
+Dienstkonto-Schlüssel), und anmelden kann sich Claude dort auch nicht.
+Die Zeilen selbst wären KEIN neues Geheimnis – die ausgeblendeten stehen
+mit `pruefung_offen` ohnehin in der öffentlichen `events.json` (am
+19.10.2026: 1.565 von 7.604); neu öffentlich wären nur die Prüfhinweise
+der Liste. Der Nutzer hat am 19.10.2026 gefragt, warum die Seite nicht
+wie `admin.html` gebaut ist – Antwort: wegen des Lesens, nicht wegen der
+Zeilen.
 
 **Aufbau**: Quelltext `korrektur/korrekturliste.html` (ohne
 `<html>`/`<body>`, das ergänzt das Artifact-Werkzeug), Zeilen als
