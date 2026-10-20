@@ -6321,6 +6321,18 @@ Verweise auf alte Nummern stehen in Klammern.
     `storage.googleapis.com/endurance-5177a-instagram/ig.html` eintippen,
     Zulassen, Adresse zurück) – erst dann zeigt die Auswertung
     Reichweite, Gespeichert und Geteilt.
+10. **Functions deployen für die neue Abo-Mail – BIS MONTAG 26.10.2026**
+    (eingetragen am 20.10.2026, vom Nutzer: „Bitte deploy auf die to-do
+    liste setzen. Mach ich morgen."; nur der Nutzer, Cloud Shell):
+    `cd ~/Enduranceevents && git pull && firebase deploy --only functions`
+    (Erwartung: vier Funktionen „Successful update operation", „Deploy
+    complete!"; `STATS_ORIGINS` fragt die CLI nicht, der Wert steht in
+    `functions/.env.endurance-5177a` im Klon dort). Bis dahin verschickt
+    `checkNewEvents` die ALTE Vorlage. Danach erledigt, sobald die erste
+    Montagsmail im neuen Aussehen kommt (Job `abo` in `pages.yml` nach dem
+    Datenlauf-Deploy: Log nennt „E-Mails verschickt: N"); dabei gehen die
+    34 seit dem 19.10. freigegebenen Zeilen mit raus. Siehe „Abos sind
+    Filter + Rhythmus“ (Die Mail selbst).
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
