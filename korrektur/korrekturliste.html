@@ -7,7 +7,7 @@
    „Es kann wirklich nur eine Excel-Liste sein, wo ich umschalten kann von
    Events zu Clubs“) – die Tabelle füllt die Seite, unten die Blattreiter
    Events/Clubs und rechts daneben eine Statuszeile. Kein Kopf, keine
-   Zähler, keine Suche.
+   Zähler, keine Suche. Erledigte Zeilen sind ausgeblendet (Knopf unten).
    Farben: der Style Guide von endurance-events.de (Nacht, Kreide, Signal),
    Zellfarben wie in der Excel (rot = fehlt, orange = fraglich, grau = fest). */
 :root {
@@ -132,6 +132,18 @@ tr.s-uebernommen td:not(.status):not(.c-notiz) { opacity: .62; }
 }
 .blaetter button:disabled { opacity: .4; cursor: default; }
 .blaetter .zahl { font: 600 .74rem var(--font-text); font-variant-numeric: tabular-nums; opacity: .7; }
+/* Erledigte Zeilen (vom Nutzer am 20.10.2026: „Kann man die korrigierten
+   und die ‚stimmt so' dann ausblenden … Sonst muss ich immer runterscrollen“):
+   ausgeblendet beim Laden und beim Blattwechsel, nicht sofort beim Setzen
+   des Status – eine eben bearbeitete Zeile bleibt stehen, bis die Liste
+   neu aufgebaut wird. Der Knopf blendet sie wieder ein. */
+.erledigt-knopf {
+  font: 600 .8rem var(--font-text); min-height: 36px; padding: 0 10px; margin-top: -1px;
+  border: 1px solid transparent; border-radius: 0 0 8px 8px; background: transparent;
+  color: var(--grau); cursor: pointer; white-space: nowrap;
+}
+.erledigt-knopf[aria-pressed="true"] { color: var(--text); }
+.erledigt-knopf:hover { color: var(--text); }
 .statuszeile {
   margin: 0 0 0 auto; align-self: center; font-size: .74rem; color: var(--grau);
   min-width: 0; flex: 0 1 auto; text-align: right;
@@ -160,6 +172,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     <button type="button" role="tab" id="tab-events" aria-selected="true" data-liste="events">Events <span class="zahl" id="zahl-events">–</span></button>
     <button type="button" role="tab" id="tab-clubs" aria-selected="false" data-liste="clubs">Clubs <span class="zahl" id="zahl-clubs">–</span></button>
   </div>
+  <button type="button" class="erledigt-knopf" id="erledigt-knopf" aria-pressed="false" hidden></button>
   <p class="statuszeile" id="statuszeile" role="status"></p>
 </nav>
 
@@ -199,6 +212,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   };
 
   const S = {
+    zeigeErledigte: false, rows: null,
     liste: 'events', daten: { events: null, clubs: null }, index: { events: new Map(), clubs: new Map() },
     antworten: { events: new Map(), clubs: new Map() },
     quittungen: { events: new Map(), clubs: new Map() },   // id -> Set der übernommenen `geaendert`-Stände
@@ -424,8 +438,28 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     tr.outerHTML = zeileHtml(liste, z);
   }
 
+  // Erledigt = Status gesetzt und kein „Check again“ (bereit oder schon
+  // übernommen). „Check again“ bleibt stehen, bis Claude geantwortet hat.
+  function erledigt(liste, z) {
+    const st = zustand(antwort(liste, z.id));
+    return st === 'bereit' || st === 'uebernommen';
+  }
+  function gezeigteZeilen() {
+    const d = S.daten[S.liste];
+    S.rows = S.zeigeErledigte ? d.zeilen : d.zeilen.filter((z) => !erledigt(S.liste, z));
+    return S.rows;
+  }
+  function zeichneErledigtKnopf() {
+    const k = $('erledigt-knopf'), d = S.daten[S.liste];
+    if (!d) { k.hidden = true; return; }
+    const n = d.zeilen.reduce((a, z) => a + (erledigt(S.liste, z) ? 1 : 0), 0);
+    k.hidden = n === 0 && !S.zeigeErledigte;
+    k.setAttribute('aria-pressed', String(S.zeigeErledigte));
+    k.textContent = S.zeigeErledigte ? 'Erledigte ausblenden' : `Erledigte einblenden (${zahl(n)})`;
+  }
+
   function zeichneMehr() {
-    const rows = S.daten[S.liste].zeilen, mehr = $('mehr');
+    const rows = S.rows || S.daten[S.liste].zeilen, mehr = $('mehr');
     mehr.hidden = !rows.length;
     mehr.innerHTML = rows.length > S.anzahl
       ? `<button type="button" id="mehr-knopf">Weitere ${Math.min(SCHRITT, rows.length - S.anzahl)} zeigen</button><span>${zahl(S.anzahl)} von ${zahl(rows.length)} Zeilen</span>`
@@ -436,10 +470,13 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     const d = S.daten[S.liste];
     if (!d) return;
     schliesseEditor(false);
-    const rows = d.zeilen;
+    const rows = gezeigteZeilen();
+    zeichneErledigtKnopf();
     $('laden').hidden = rows.length > 0;
     $('tabelle').hidden = rows.length === 0;
-    if (!rows.length) $('laden').innerHTML = '<strong>Alles geprüft</strong>In dieser Liste ist keine Zeile offen. Neue Zeilen kommen mit dem nächsten Datenlauf.';
+    if (!rows.length) $('laden').innerHTML = d.zeilen.length
+      ? '<strong>Alles erledigt</strong>Alle Zeilen haben einen Status. Mit „Erledigte einblenden“ unten siehst du sie wieder.'
+      : '<strong>Alles geprüft</strong>In dieser Liste ist keine Zeile offen. Neue Zeilen kommen mit dem nächsten Datenlauf.';
     zeichneKopf();
     $('zeilen').innerHTML = rows.slice(0, S.anzahl).map((z) => zeileHtml(S.liste, z)).join('');
     zeichneMehr();
@@ -449,8 +486,9 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   // dazu, angehängt statt neu gezeichnet. Der Knopf bleibt für die Tastatur.
   function zeigeMehr() {
     const d = S.daten[S.liste];
-    if (!d || S.anzahl >= d.zeilen.length) return;
-    const neu = d.zeilen.slice(S.anzahl, S.anzahl + SCHRITT);
+    const rows = S.rows || (d && d.zeilen);
+    if (!d || S.anzahl >= rows.length) return;
+    const neu = rows.slice(S.anzahl, S.anzahl + SCHRITT);
     S.anzahl += neu.length;
     $('zeilen').insertAdjacentHTML('beforeend', neu.map((z) => zeileHtml(S.liste, z)).join(''));
     zeichneMehr();
@@ -568,6 +606,12 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
       return;
     }
     if (ev.target.id === 'mehr-knopf') { zeigeMehr(); return; }
+    if (ev.target.id === 'erledigt-knopf') {
+      S.zeigeErledigte = !S.zeigeErledigte; S.anzahl = SCHRITT;
+      $('rahmen').scrollTo(0, 0);
+      zeichneTabelle();
+      return;
+    }
     const stift = ev.target.closest('[data-stift]');
     if (stift) { ev.preventDefault(); oeffneEditor(stift.closest('td')); return; }
     if (ev.target.closest('a, select, .editor, .editor-tipp')) return;
@@ -650,6 +694,16 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
         if (!S.daten[l]) return;
         if (l === S.liste) for (const id of ids) zeichneZeile(l, S.index[l].get(id));
         zeichneLeiste();
+        if (l === S.liste) zeichneErledigtKnopf();
+      };
+      // Erst wenn Antworten UND Quittungen beider Listen einmal da sind, weiß
+      // die Seite, was erledigt ist – dann einmal ganz neu aufbauen.
+      let ersteStaende = 4;
+      const erst = new Set();
+      const ersterStand = () => {
+        if (--ersteStaende !== 0 || !S.daten[S.liste] || S.editor) return;
+        zeichneTabelle();
+        $('rahmen').scrollTop = 0;
       };
       for (const l of ['events', 'clubs']) {
         db.collection('antworten_' + l).onSnapshot((snap) => {
@@ -658,6 +712,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
           const ids = geaenderteIds(S.antworten[l], m, (x, y) => JSON.stringify(x) === JSON.stringify(y));
           S.antworten[l] = m;
           neuZeichnen(l, ids);
+          if (!erst.has('a' + l)) { erst.add('a' + l); ersterStand(); }
         }, abgerissen);
         db.collection('quittung_' + l).onSnapshot((snap) => {
           const m = new Map(), nz = new Map();
@@ -677,6 +732,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
           S.quittungen[l] = m;
           S.notizen[l] = nz;
           neuZeichnen(l, ids);
+          if (!erst.has('q' + l)) { erst.add('q' + l); ersterStand(); }
         }, abgerissen);
       }
       // Einmal ganz neu, damit die Status-Felder freigeschaltet sind.
