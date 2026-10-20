@@ -698,15 +698,17 @@
   "merkmale": [
    "kaffee"
   ],
-  "beschreibung_de": "Wöchentliche Dienstagsausfahrt ab dem 8bar Showroom: von April bis September Rennradrunden auf vier Routen (East/South/West/North), im Herbst 45 Minuten Gravel Night Crit auf dem Tempelhofer Feld (Helm- und Lichtpflicht), danach optional Kaltgetränk.",
-  "beschreibung_en": "Weekly Tuesday ride from the 8bar showroom: road rides on four routes from April to September, in autumn a 45-minute gravel night crit on Tempelhofer Feld (helmet and lights required), optional drink afterwards.",
+  "beschreibung_de": "Dienstagsausfahrt ab dem 8bar Showroom: von April bis September (2026: 21.04.–22.09.) Rennradrunden auf vier Routen (North, East, South, West); im Oktober 2026 kündigt der Strava-Club stattdessen ein „Gravel Night Crit Training“ auf dem Tempelhofer Feld an (45 Minuten Gravelrunde, Helmpflicht, danach optional Kaltgetränk).",
+  "beschreibung_en": "Tuesday ride from the 8bar showroom: road rides on four routes from April to September (2026: 21 Apr–22 Sep); in October 2026 the Strava club announces a “Gravel Night Crit Training” on Tempelhofer Feld instead (45-minute gravel loop, helmet required, optional drink afterwards).",
   "quelle": [
-   "https://www.strava.com/clubs/8barcommunity",
+   "https://8bar-bikes.com/comm-rides/",
    "https://www.strava.com/clubs/126466/group_events/3546087226225493178"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-19",
-  "anmeldung": "nein"
+  "geprueft": "2026-10-20",
+  "anmeldung": "nein",
+  "pruefung_offen": true,
+  "pruefung_grund": "Webseite: Road Rides nur 21.04.–22.09.2026 (Di 18:00, Abfahrt 18:15). Strava-Termin „Gravel Night Crit Training – Tempelhofer Feld“ am Di 20.10.2026 18:00 – ob das den Herbst/Winter über wöchentlich läuft, steht nirgends. Klären: wöchentlich lassen, als Einzeltermin, oder ab 23.09. pausiert bis April 2027?"
  },
  {
   "id": "berlin-roter-stern-gravel-nord",
@@ -8792,7 +8794,11 @@
    "https://www.runnersclub.ch/"
   ],
   "land": "Schweiz",
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-10-19",
+  "saison": {
+   "von": "02-05",
+   "bis": "12-11"
+  }
  },
  {
   "id": "luzern-werun",

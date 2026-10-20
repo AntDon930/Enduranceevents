@@ -61,6 +61,11 @@
       sprache_en: 'Englisch ok',
       d_naechster: 'Nächster Termin',
       d_kein_termin: 'Gerade kein Termin (Saisonpause)',
+      pausiert: 'Pausiert',
+      pausiert_ab: (d) => `Pausiert · wieder ab ${d}`,
+      pausiert_offen: 'Pausiert · Neustart noch offen',
+      d_wieder_ab: (d) => `Wieder ab ${d}`,
+      d_neustart_offen: 'Neustart noch nicht angekündigt',
       d_treffpunkt: 'Treffpunkt',
       d_wann: 'Wann',
       d_strecke: 'Strecke & Tempo',
@@ -110,6 +115,11 @@
       sprache_en: 'English ok',
       d_naechster: 'Next session',
       d_kein_termin: 'No session right now (off-season)',
+      pausiert: 'Paused',
+      pausiert_ab: (d) => `Paused · back from ${d}`,
+      pausiert_offen: 'Paused · restart not announced yet',
+      d_wieder_ab: (d) => `Back from ${d}`,
+      d_neustart_offen: 'Restart not announced yet',
       d_treffpunkt: 'Meeting point',
       d_wann: 'When',
       d_strecke: 'Distance & pace',
@@ -181,6 +191,31 @@
     return s.von <= s.bis ? (md >= s.von && md <= s.bis) : (md >= s.von || md <= s.bis);
   }
 
+  // Pausiert der Club an diesem Tag? `pause` (seit dem 20.10.2026, vom
+  // Nutzer: „Clubs, die pausieren, grau hinterlegen und mit Pausiert
+  // markieren, damit die Leute sehen, dass sie im Frühjahr wieder starten"):
+  // { von?, bis?, hinweis_de?, hinweis_en? } – ohne `bis` ist der Neustart
+  // offen, ab `bis` (einschließlich) läuft der Club wieder.
+  function inPause(club, iso) {
+    const p = club.pause;
+    if (!p) return false;
+    return (!p.von || iso >= p.von) && (!p.bis || iso < p.bis);
+  }
+
+  // Ist der Club HEUTE pausiert – ausdrücklich (`pause`) oder weil die
+  // Saison gerade nicht läuft? Dann { ab: nächster Termin oder null,
+  // hinweis }, sonst null.
+  function pausiert(club, jetzt) {
+    const heute = heuteIso(jetzt);
+    if (!inPause(club, heute) && inSaison(club, heute)) return null;
+    const p = club.pause || {};
+    return {
+      ab: naechsterTermin(club, jetzt),
+      hinweis_de: p.hinweis_de || null,
+      hinweis_en: p.hinweis_en || p.hinweis_de || null
+    };
+  }
+
   // Findet die Regel an diesem Tag statt?
   function terminAmTag(termin, nr) {
     // Einzeltermin (seit dem 19.10.2026, vom Nutzer: „wir können schon auch
@@ -219,7 +254,7 @@
     const minute = opts && opts.jetzt ? minutenJetzt(opts.jetzt) : null;
     for (let nr = von; nr <= bis; nr++) {
       const iso = isoVonTag(nr);
-      if (ausfaelle.has(iso) || !inSaison(club, iso)) continue;
+      if (ausfaelle.has(iso) || !inSaison(club, iso) || inPause(club, iso)) continue;
       club.termine.forEach(termin => {
         if (!terminAmTag(termin, nr)) return;
         if (heute === nr && minute != null) {
@@ -550,10 +585,13 @@
     const jetzt = new Date();
     const kommende = naechsteTermine(club, 4, jetzt);
     const naechster = kommende[0] || null;
+    const pause = pausiert(club, jetzt);
     const s = stufen(club);
     const kat = `${tx(lang, 'art_' + club.art)} · ${tx(lang, 'club')}`;
     let datumGross, relativ = '';
-    if (naechster) {
+    if (pause) {
+      datumGross = escapeHtml(naechster ? tx(lang, 'd_wieder_ab', EF.formatDateLong(naechster.datum, lang)) : tx(lang, 'd_neustart_offen'));
+    } else if (naechster) {
       datumGross = escapeHtml(EF.formatDateLong(naechster.datum, lang)) + (naechster.uhrzeit ? `<br>${escapeHtml(tx(lang, 'uhr', naechster.uhrzeit))}` : '');
       relativ = EF.relativeDays(naechster.datum, lang);
     } else {
@@ -577,7 +615,7 @@
     container.innerHTML = `
       <div class="detail-head">
         <div class="detail-head-text">
-          <div class="detail-overline">${escapeHtml(tx(lang, 'd_naechster'))}</div>
+          <div class="detail-overline">${escapeHtml(tx(lang, pause ? 'pausiert' : 'd_naechster'))}</div>
           <div class="detail-date">${datumGross}</div>
           ${relativ ? `<div class="detail-relative">${escapeHtml(relativ)}</div>` : ''}
         </div>
@@ -587,8 +625,10 @@
       <div class="detail-badges">
         <div class="detail-badge ${sportClass(club.art)}">${sportIcon(club.art, 15)}<span>${escapeHtml(kat)}</span></div>
         <div class="detail-badge detail-badge--club">${gruppenIcon(15)}<span>${escapeHtml(tx(lang, 'rh_' + rhythmusVon(club)))}</span></div>
+        ${pause ? `<div class="detail-badge club-badge-pausiert"><span>${escapeHtml(tx(lang, 'pausiert'))}</span></div>` : ''}
       </div>
       <h2>${escapeHtml(club.name)}</h2>
+      ${pause && (lang === 'en' ? pause.hinweis_en : pause.hinweis_de) ? `<p class="club-pause-hinweis">${escapeHtml(lang === 'en' ? pause.hinweis_en : pause.hinweis_de)}</p>` : ''}
       ${beschreibung ? `<p class="club-beschreibung">${escapeHtml(beschreibung)}</p>` : ''}
       ${tags.length ? `<div class="club-tags">${tags.map(x => `<span class="club-tag">${escapeHtml(x)}</span>`).join('')}</div>` : ''}
       <dl class="detail-grid club-grid">
@@ -611,6 +651,7 @@
       </div>
       ${club.geprueft ? `<p class="club-geprueft">${escapeHtml(tx(lang, 'd_geprueft', formatGeprueft(club.geprueft, lang)))}</p>` : ''}
     `;
+    container.classList.toggle('club-pausiert', !!pause);
     container.querySelector('.club-share-btn').addEventListener('click', () => teile(club, lang));
     if (ctx.onClose) container.querySelector('.detail-close').addEventListener('click', () => ctx.onClose(club));
     const cal = container.querySelector('.club-cal-btn');
@@ -655,7 +696,7 @@
 
   global.EnduranceClubs = {
     I18N, ARTEN, RHYTHMEN, STUFEN, MERKMALE, WANN, STUFEN_GRENZEN,
-    tx, loadClubs, termineImZeitraum, naechsteTermine, naechsterTermin, wannZeitraum,
+    tx, loadClubs, termineImZeitraum, pausiert, inPause, naechsteTermine, naechsterTermin, wannZeitraum,
     stufen, stufenAusPace, formatPace, formatDistanz, formatKosten, formatRegel, formatTerminKurz,
     rhythmusVon, istGratis, passt, clubLink, kartenLink, icsText, rrule, renderDetail,
     sportClass, sportIcon, gruppenIcon, streckeText, merkmalTags

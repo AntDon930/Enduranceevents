@@ -3780,10 +3780,21 @@ in `clubs.js`):
   "merkmale": ["kaffee"],                     // anfaengerfreundlich, mehrere_gruppen, no_drop, kaffee, gepaeck, dusche, frauen
   "rad_typ": "Rennrad", "schwimm_ort": "Freiwasser",
   "saison": {"von": "05-01", "bis": "09-30"}, "ausfaelle": ["2026-12-24"],
+  "pause": {"bis": "2027-04-01", "hinweis_de": "Winterpause"},   // optional, ohne bis = Neustart offen
   "beschreibung_de": "…", "beschreibung_en": "…",
   "quelle": ["https://…"], "geprueft": "2026-10-19"
 }
 ```
+
+**Pausierte Clubs** (seit dem 20.10.2026, vom Nutzer: „grau hinterlegen
+und mit Pausiert markieren, damit die Leute sehen, dass die im Frühjahr
+wieder starten"): Ein Club ist pausiert, wenn heute außerhalb seiner
+`saison` liegt oder eine `pause` läuft (`EC.pausiert()`); bis zum Neustart
+(`pause.bis`, einschließlich ab da) gibt es keine Termine. Die Liste zeigt
+ihn grau am Ende mit „Pausiert · wieder ab …“ (ohne `bis`: „Neustart noch
+offen“), die Box „Pausiert / Wieder ab …“, die Karte ein graues Quadrat.
+In der Korrekturliste steht die Spalte „Pause“ („pausiert“, „pausiert bis
+2027-04-01 (Winterpause)“).
 
 `test_clubs` (in `test_scraper_lib.py`) prüft jeden Eintrag (Pflichtfelder,
 Wochentag des `ab`-Datums, Uhrzeit, Tempo-Format, Koordinaten in D/A/CH,

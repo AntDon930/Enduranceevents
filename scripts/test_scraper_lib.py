@@ -1855,6 +1855,17 @@ def test_clubs() -> None:
             fehler.append(f"{n}: kein Link (Webseite, Instagram oder Strava)")
         if not c.get("quelle"):
             fehler.append(f"{n}: quelle fehlt (jede Angabe braucht einen Beleg)")
+        p = c.get("pause")
+        if p is not None:
+            if not isinstance(p, dict) or set(p) - {"von", "bis", "hinweis_de", "hinweis_en"}:
+                fehler.append(f"{n}: pause nur von/bis/hinweis_de/hinweis_en")
+            else:
+                for k in ("von", "bis"):
+                    if p.get(k):
+                        try:
+                            _dt.date.fromisoformat(p[k])
+                        except ValueError:
+                            fehler.append(f"{n}: pause.{k} kein Datum")
         if c.get("pruefung_offen") and not c.get("pruefung_grund"):
             fehler.append(f"{n}: pruefung_offen ohne pruefung_grund")
         try:
@@ -1862,6 +1873,10 @@ def test_clubs() -> None:
         except ValueError:
             fehler.append(f"{n}: geprueft kein Datum")
     check("jeder Club hält sich an das Format", fehler, [])
+    import clubs_korrekturliste as _ckp
+    ck_pause = lambda t: _ckp.pause_text(_ckp.pause_aus_text(t))  # noqa: E731
+    for text in ("pausiert", "pausiert bis 2027-04-01", "pausiert bis 2027-04-01 (Winterpause)", "pausiert ab 2026-12-14 bis 2027-02-05"):
+        check(f"Korrekturliste: Pause {text!r} hin und zurück", ck_pause(text), text)
 
     # Die Korrekturliste liest ihre eigenen Texte verlustfrei zurück.
     import clubs_korrekturliste as ck
@@ -1918,6 +1933,14 @@ def test_clubs() -> None:
       r.regel = EC.formatRegel({ rhythmus: 'monatlich', wochentag: 7, nter: 1, uhrzeit: '10:00' }, 'de');
       r.einmalig = tage(club([{ rhythmus: 'einmalig', datum: '2026-10-28', uhrzeit: '17:30' }, { rhythmus: 'woechentlich', wochentag: 1, uhrzeit: '19:00' }]), '2026-10-25', '2026-11-03');
       r.einmalig_rrule = EC.rrule({ rhythmus: 'einmalig', datum: '2026-10-28' });
+      // Pause (20.10.2026): bis zum Neustart keine Termine, der Club gilt als pausiert.
+      const di = [{ rhythmus: 'woechentlich', wochentag: 2, uhrzeit: '18:00' }];
+      r.pause_bis = tage(club(di, { pause: { bis: '2026-11-03' } }), '2026-10-19', '2026-11-10');
+      r.pause_info = EC.pausiert(club(di, { pause: { bis: '2026-11-03', hinweis_de: 'Herbstpause' } }), jetzt);
+      r.pause_offen = EC.pausiert(club(di, { pause: {} }), jetzt);
+      r.pause_saison = EC.pausiert(club(di, { saison: { von: '04-01', bis: '09-30' } }), jetzt);
+      r.pause_nein = EC.pausiert(club(di), jetzt);
+      r.pause_vorbei = EC.pausiert(club(di, { pause: { bis: '2026-10-01' } }), jetzt);
       console.log(JSON.stringify(r));
     """
     erg = subprocess.run([node, "-e", skript, str(wurzel)], capture_output=True, text=True)
@@ -1942,6 +1965,12 @@ def test_clubs() -> None:
     check("Regel in Worten", r["regel"], "Jeden 1. Sonntag im Monat, 10:00 Uhr")
     check("Einzeltermin neben wöchentlichem Termin", r["einmalig"], ["2026-10-26 19:00", "2026-10-28 17:30", "2026-11-02 19:00"])
     check("Einzeltermin hat keine RRULE", r["einmalig_rrule"], None)
+    check("Pause bis 03.11.: erster Termin am Neustart", r["pause_bis"], ["2026-11-03 18:00", "2026-11-10 18:00"])
+    check("pausiert(): wieder ab dem Neustart, mit Hinweis", (r["pause_info"]["ab"]["datum"], r["pause_info"]["hinweis_de"]), ("2026-11-03", "Herbstpause"))
+    check("pausiert(): ohne bis = Neustart offen", r["pause_offen"]["ab"], None)
+    check("pausiert(): außerhalb der Saison, wieder ab April", r["pause_saison"]["ab"]["datum"], "2027-04-06")
+    check("pausiert(): normaler Club ist nicht pausiert", r["pause_nein"], None)
+    check("pausiert(): vergangene Pause zählt nicht", r["pause_vorbei"], None)
 
 
 def test_farbschema_skript() -> None:

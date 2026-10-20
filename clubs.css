@@ -151,6 +151,18 @@
 .ck-termin span { color: var(--text-muted); font-weight: 500; }
 .ck-fuss { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
 .ck-fuss .club-tag { font-size: 0.74rem; padding: 3px 8px; }
+/* Pausierte Clubs (seit dem 20.10.2026): grau hinterlegt und am Ende der
+   Liste – sichtbar, damit niemand denkt, sie gäbe es nicht mehr. */
+.club-karte--pausiert { background: var(--bg); border-style: dashed; }
+.club-karte--pausiert .ck-sport,
+.club-karte--pausiert .ck-fuss .club-tag { filter: grayscale(1); opacity: 0.7; }
+.club-karte--pausiert .ck-name,
+.club-karte--pausiert .ck-ort { color: var(--text-muted); }
+.ck-termin .ck-pausiert { display: inline-block; padding: 2px 9px; border-radius: 999px;
+  background: var(--border); color: var(--text); font-weight: 600; font-size: 0.84rem; }
+.club-badge-pausiert { background: var(--border); color: var(--text); }
+.club-pause-hinweis { margin: 0 0 10px; font-weight: 600; color: var(--text-muted); }
+.detail-panel.club-pausiert .detail-date { color: var(--text-muted); }
 .club-tag--gratis { border-color: var(--sport-fahrrad); color: var(--sport-fahrrad-fg); background: var(--sport-fahrrad-bg); }
 .club-leer {
   padding: 28px;
@@ -257,6 +269,7 @@
 .club-pin.sport-fahrrad { background: var(--sport-fahrrad); }
 .club-pin.sport-schwimmen { background: var(--sport-schwimmen); }
 .club-pin .sport-icon { color: #fff; }
+.club-pin.club-pin--pausiert { background: var(--text-muted); opacity: 0.85; }
 .club-bundle {
   display: flex;
   align-items: center;

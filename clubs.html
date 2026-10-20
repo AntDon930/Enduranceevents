@@ -61,7 +61,7 @@
 <link rel="stylesheet" href="site.css?v=fdec6406">
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=92628441">
-<link rel="stylesheet" href="clubs.css?v=b8482093">
+<link rel="stylesheet" href="clubs.css?v=e312c272">
 </head>
 <body>
 
@@ -142,7 +142,7 @@
 <script defer src="stats.js?v=f51ef65a"></script>
 <script src="filters.js?v=52e85793"></script>
 <script src="event-detail.js?v=b3846820"></script>
-<script src="clubs.js?v=6497ec54"></script>
+<script src="clubs.js?v=8b210fb7"></script>
 
 <script>
 (async function () {
@@ -300,7 +300,7 @@
     if (z) return EC.termineImZeitraum(c, z[0], z[1], { jetzt })[0] || null;
     return EC.naechsterTermin(c, jetzt);
   }
-  function kachel(c, termin) {
+  function kachel(c, termin, pause) {
     const s = EC.stufen(c);
     const tags = [];
     // Kosten nur, wenn die Quelle etwas sagt - ein „–" als Tag sähe kaputt aus.
@@ -311,11 +311,14 @@
     if (d) tags.push(`<span class="club-tag">${esc(d)}</span>`);
     const rel = termin ? EF.relativeDays(termin.datum, lang) : '';
     const stadt = EF.VALUE_TRANSLATIONS.standort && EF.VALUE_TRANSLATIONS.standort[c.stadt] ? EF.VALUE_TRANSLATIONS.standort[c.stadt][lang] : c.stadt;
-    return `<li><button type="button" class="club-karte" data-id="${esc(c.id)}"${gewaehlt === c ? ' aria-current="true"' : ''}>
+    const terminText = pause
+      ? (pause.ab ? EC.tx(lang, 'pausiert_ab', EF.formatDateLong(pause.ab.datum, lang)) : EC.tx(lang, 'pausiert_offen'))
+      : termin ? esc(EC.formatTerminKurz(termin, lang)) + (rel && !/^(heute|morgen|today|tomorrow)$/.test(rel) ? ` <span>· ${esc(rel)}</span>` : '') : esc(t('kein_termin'));
+    return `<li><button type="button" class="club-karte${pause ? ' club-karte--pausiert' : ''}" data-id="${esc(c.id)}"${gewaehlt === c ? ' aria-current="true"' : ''}>
       <span class="ck-oben"><span class="ck-sport ${EC.sportClass(c.art)}">${EC.sportIcon(c.art, 14)}${esc(EC.tx(lang, 'art_' + c.art))}</span>${esc(EC.tx(lang, 'rh_' + EC.rhythmusVon(c)))}</span>
       <span class="ck-name">${esc(c.name)}</span>
       <span class="ck-ort">${esc(stadt)}${c.treffpunkt ? ' · ' + esc(c.treffpunkt) : ''}</span>
-      <span class="ck-termin">${termin ? esc(EC.formatTerminKurz(termin, lang)) + (rel && !/^(heute|morgen|today|tomorrow)$/.test(rel) ? ` <span>· ${esc(rel)}</span>` : '') : esc(t('kein_termin'))}</span>
+      <span class="ck-termin">${pause ? `<span class="ck-pausiert">${esc(terminText)}</span>` : terminText}</span>
       <span class="ck-fuss">${tags.join('')}</span>
     </button></li>`;
   }
@@ -341,8 +344,10 @@
     const jetzt = new Date();
     if (!nurListe) baueFilter();
     const treffer = clubs.filter(c => EC.passt(c, f, jetzt))
-      .map(c => ({ c, termin: terminFuer(c, jetzt) }))
+      .map(c => ({ c, termin: terminFuer(c, jetzt), pause: EC.pausiert(c, jetzt) }))
       .sort((a, b) => {
+        // Pausierte Clubs ans Ende – sie bleiben sichtbar, aber nach allem, was gerade läuft.
+        if (!a.pause !== !b.pause) return a.pause ? 1 : -1;
         if (!a.termin !== !b.termin) return a.termin ? -1 : 1;
         if (a.termin && b.termin) {
           const ka = a.termin.datum + a.termin.uhrzeit, kb = b.termin.datum + b.termin.uhrzeit;
@@ -353,7 +358,7 @@
     el('result-count').textContent = t('treffer', treffer.length);
     el('reset-btn').hidden = !hatFilter();
     listeEl.innerHTML = treffer.length
-      ? treffer.map(x => kachel(x.c, x.termin)).join('')
+      ? treffer.map(x => kachel(x.c, x.termin, x.pause)).join('')
       : `<li class="club-leer">${esc(t('leer'))}</li>`;
     listeEl.querySelectorAll('.club-karte').forEach(b => b.addEventListener('click', () => {
       gewaehlt = clubs.find(c => c.id === b.dataset.id) || null;

@@ -60,6 +60,7 @@ SPALTEN = [
     ("Land", "land", True),
     ("Treffpunkt", "treffpunkt", True),
     ("Termine", "termine", True),
+    ("Pause (leer / pausiert / pausiert bis JJJJ-MM-TT)", "pause", True),
     ("Distanz km (von–bis)", "distanz_km", True),
     ("Tempo (von–bis)", "pace", True),
     ("Kosten", "kosten", True),
@@ -174,6 +175,34 @@ def spanne_aus_text(text: str, art: str | None, als_pace: bool):
     return {"von": von, "bis": bis} if als_pace else [von, bis]
 
 
+def pause_text(p) -> str:
+    """`pause` als Text: "pausiert", "pausiert bis 2027-04-01",
+    dahinter in Klammern der Hinweis ("(Winterpause)")."""
+    if p is None:
+        return ""
+    s = "pausiert" + (f" bis {p['bis']}" if p.get("bis") else "")
+    if p.get("von"):
+        s = f"pausiert ab {p['von']}" + (f" bis {p['bis']}" if p.get("bis") else "")
+    return s + (f" ({p['hinweis_de']})" if p.get("hinweis_de") else "")
+
+
+def pause_aus_text(text: str):
+    text = (text or "").strip()
+    if not text or text.lower() in ("nein", "-", "–"):
+        return None
+    m = re.fullmatch(r"pausiert(?:\s+ab\s+(\d{4}-\d{2}-\d{2}))?(?:\s+bis\s+(\d{4}-\d{2}-\d{2}))?\s*(?:\((.+)\))?", text, re.I)
+    if not m:
+        raise ValueError(f"Pause {text!r} – erwartet „pausiert“ oder „pausiert bis JJJJ-MM-TT (Hinweis)“")
+    p = {}
+    if m[1]:
+        p["von"] = m[1]
+    if m[2]:
+        p["bis"] = m[2]
+    if m[3]:
+        p["hinweis_de"] = m[3].strip()
+    return p
+
+
 def kosten_text(k) -> str:
     if not k:
         return ""
@@ -205,6 +234,8 @@ def zelle(club: dict, feld: str | None) -> str:
         return spanne_text(v)
     if feld == "kosten":
         return kosten_text(v)
+    if feld == "pause":
+        return pause_text(v)
     if feld == "quelle":
         return "\n".join(v or [])
     return "" if v is None else str(v)
@@ -258,6 +289,7 @@ def export(ziel: Path) -> int:
         "Termine: eine Einheit je Zeile, z. B. „wöchentlich Di 19:00“, „alle 2 Wochen Sa 09:00 ab 2026-10-03“, „monatlich 1. So 10:00“, „monatlich letzter Fr 18:30“, „einmalig 2026-10-28 17:30“ (Einzeltermin), Zusatz in Klammern: „wöchentlich Sa 09:30 (Long Run)“.",
         "Tempo: Laufen „5:30–6:30“ (min/km), Rad „25–30“ (km/h), Schwimmen „1:50–2:15“ (min/100 m).",
         "Kosten: „kostenlos“, „5 €“ oder freier Text („CHF 10, Gäste frei“).",
+        "Pause: leer = läuft; „pausiert“ = Neustart offen; „pausiert bis 2027-04-01 (Winterpause)“ = ab dem Tag wieder. Pausierte Clubs stehen grau mit „Pausiert“ in der Liste. Außerhalb der Saison gilt das automatisch.",
         "Graue Spalten nicht ändern. Was nicht in eine Zelle passt, in „Anmerkung“ schreiben.",
     ]:
         hilfe.append([zeile])
@@ -314,6 +346,8 @@ def importiere(datei: Path, dry_run: bool) -> int:
                     neu[feld] = spanne_aus_text(wert, neu.get("art"), True)
                 elif feld == "kosten":
                     neu[feld] = kosten_aus_text(wert)
+                elif feld == "pause":
+                    neu[feld] = pause_aus_text(wert)
                 elif feld == "anmeldung" and wert and wert not in ("nein", "empfohlen", "pflicht"):
                     raise ValueError(f"Anmeldung {wert!r}")
                 elif feld == "art" and wert not in ("Laufen", "Fahrrad", "Schwimmen"):

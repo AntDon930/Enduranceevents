@@ -118,7 +118,7 @@
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=92628441">
 <!-- Clubs (seit dem 19.10.2026): Box, Schalter und Marker. -->
-<link rel="stylesheet" href="clubs.css?v=b8482093">
+<link rel="stylesheet" href="clubs.css?v=e312c272">
 <style>
   /* Farben, Kopfzeile, Filterleiste, Werkzeugleiste und Fußzeile stehen
      in site.css (geteilt mit Liste und Startseite); hier nur, was allein
@@ -590,7 +590,7 @@
 <script src="filters.js?v=52e85793"></script>
 <script src="filter-ui.js?v=7a80838a"></script>
 <script src="event-detail.js?v=b3846820"></script>
-<script src="clubs.js?v=6497ec54"></script>
+<script src="clubs.js?v=8b210fb7"></script>
 
 <script>
 (async function () {
@@ -1831,7 +1831,7 @@
   function clubIcon(c) {
     return L.divIcon({
       className: '',
-      html: `<div class="club-pin ${EC.sportClass(c.art)}" title="${escapeHtml(c.name)}">${EC.sportIcon(c.art, 15)}</div>`,
+      html: `<div class="club-pin ${EC.sportClass(c.art)}${EC.pausiert(c) ? ' club-pin--pausiert' : ''}" title="${escapeHtml(c.name)}${EC.pausiert(c) ? ' · ' + escapeHtml(EC.tx(currentLang, 'pausiert')) : ''}">${EC.sportIcon(c.art, 15)}</div>`,
       iconSize: [28, 28],
       iconAnchor: [14, 14]
     });
