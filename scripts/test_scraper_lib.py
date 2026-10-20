@@ -5622,6 +5622,115 @@ def test_namensrand() -> None:
     check("fix_namensrand idempotent", clean_events.fix_namensrand(ev), [])
 
 
+def test_faellt_aus() -> None:
+    """Status „Fällt aus" (vom Nutzer am 20.10.2026 am 25h Handorf
+    gewünscht: „einen Status der das Event rausnimmt aus der Liste aber
+    auch für nächstes Jahr merkt, weil löschen will ich es nicht"): Der
+    Import schreibt `exclude` + `abgesagt`, das Gedächtnis behält die
+    Veranstaltung mit Seite und Strecken und gibt sie an `pruefen`, die
+    Markierung fällt mit der nächsten Ausgabe weg; schwimmkalender.de
+    liest eine Absage im Namen nicht als Ort."""
+    print("\nStatus „Fällt aus“ (Ausgabe abgesagt, Veranstaltung gemerkt):")
+    import json as _json
+    import tempfile
+    import clean_events
+    import schwimmkalender_scraper as sk
+    import veranstalter_seiten as vs
+    wurzel = Path(__file__).resolve().parent.parent
+
+    # Beide Statuslisten kennen den Wert (die Seite übernimmt ihn aus der
+    # Datenprüfung der Excel, korrektur_seite.py lässt ihn durch).
+    for datei in ("korrekturliste.py", "korrektur_seite.py"):
+        text = (wurzel / "scripts" / datei).read_text(encoding="utf-8")
+        zeile = next(z for z in text.splitlines() if z.startswith("STATUS_WERTE"))
+        check(f"{datei}: „Fällt aus“ in STATUS_WERTE", "\"Fällt aus\"" in zeile, True)
+
+    def z(name, datum, standort="Handorf", lat=51.99, lon=7.70, url="https://bad-handorf.example/"):
+        return dict(name=name, standort=standort, land="Deutschland", lat=lat, lon=lon, art1="Schwimmen",
+                    art2="Becken", datum_start=datum, datum_ende=datum, laenge_km=None, dauer_h=25.0,
+                    wettbewerb=None, veranstalter_url=url)
+    ged = vs.Gedaechtnis({})
+    vs.lernen([z("25h Handorf", "2026-10-24")], ged, overrides={})
+    k = vs.schluessel_von(z("25h Handorf", "2026-10-24"))
+    zeile = z("25h Handorf", "2026-10-24")
+    bericht = vs.merke_abgesagt([zeile], ged)
+    check("abgesagte Ausgabe gemerkt", (ged.daten[k].get("abgesagt"), len(bericht)), ("2026-10-24", 1))
+    check("Eintrag behält Seite und Strecken", (ged.daten[k]["url"], [s["dauer_h"] for s in ged.daten[k]["strecken"]]),
+          ("https://bad-handorf.example/", [25.0]))
+    check("zweimal gemerkt = einmal", vs.merke_abgesagt([zeile], ged), [])
+    # Ohne Zeile in events.json gehört der Eintrag zu denen, die `pruefen`
+    # nach der nächsten Ausgabe fragt.
+    check("pruefen fragt die abgesagte Veranstaltung ab", k in vs.aktuelle_schluessel(ged, []), False)
+    check("nächster Termin im Fenster nach der abgesagten Ausgabe",
+          vs.kandidaten_termine({"2027-10-23", "2026-10-24"}, ged.daten[k]["datum"], "2026-10-25"), ["2027-10-23"])
+    # Die nächste Ausgabe ist da: die Markierung ist Geschichte.
+    vs.lernen([z("25h Handorf", "2027-10-23")], ged, overrides={})
+    check("nächste Ausgabe nimmt die Markierung weg", "abgesagt" in ged.daten[k], False)
+    # Eine verdorbene Zeile (die Absage im Namen, als Ort gelesen) legt
+    # keinen neuen Eintrag an - der Bericht meldet sie.
+    vorher = len(ged)
+    kaputt = z("25h Handorf FÄLLT AUS!!!", "2026-10-24", standort="FÄLLT AUS!!!", lat=None, lon=None)
+    bericht = vs.merke_abgesagt([kaputt], ged)
+    check("ohne Eintrag: Warnung, nichts angelegt", (len(ged), bericht[0].startswith("⚠")), (vorher, True))
+
+    # clean_events findet die Zeilen über den Override.
+    alt_laden = clean_events.load_manual_overrides
+    clean_events.load_manual_overrides = lambda: {
+        "25h Handorf|2026-10-24": {"exclude": True, "abgesagt": True},
+        "Anderer Lauf|2026-10-24": {"exclude": True}}
+    try:
+        treffer = clean_events.abgesagte_zeilen([zeile, z("Anderer Lauf", "2026-10-24")])
+    finally:
+        clean_events.load_manual_overrides = alt_laden
+    check("abgesagte_zeilen: nur abgesagt, nicht gelöscht", [e["name"] for e in treffer], ["25h Handorf"])
+
+    # schwimmkalender.de schreibt die Absage in den Namen.
+    detail = {"name": "25h Handorf FÄLLT AUS!!!", "datum_start": "2026-10-24", "datum_ende": "2026-10-25",
+              "land": "Nordrhein-Westfalen", "links": ["https://bad-handorf.example/"]}
+    check("schwimmkalender: abgesagt im Namen = keine Zeile", sk.build_events(detail, 64, sk.CONFIG), [])
+    check("schwimmkalender: Absage-Wörter", [bool(sk.ABGESAGT.search(n)) for n in (
+        "25h Handorf FÄLLT AUS!!!", "Seeschwimmen abgesagt", "Fällt 2026 aus", "Entfällt", "Kaltwasser-Ausfallschwimmen")],
+          [True, True, True, True, False])
+
+    # Der Import schreibt den Override und das Protokoll (braucht openpyxl).
+    try:
+        import openpyxl  # noqa: F401
+    except ImportError:
+        print("  (Import übersprungen: openpyxl fehlt)")
+        return
+    import korrektur_seite as ks
+    import korrekturliste as kl
+    kopf = [k for _, k, _ in kl.SPALTEN]
+    werte = {k: "" for k in kopf}
+    werte.update({"Nr": 1, "Datum Start": "24.10.2026", "Datum Ende": "25.10.2026", "Name (nicht änderbar)": "25h Handorf",
+                  "Sportart": "Schwimmen", "Kategorie": "Becken", "Dauer (h)": "25", "Ort": "Handorf",
+                  "Land": "Deutschland", "Veranstalter-Link": "https://bad-handorf.example/"})
+    orig = {"datum_start": "2026-10-24", "datum_ende": "2026-10-25", "datum_vorlaeufig": None, "name": "25h Handorf",
+            "wettbewerb": None, "art1": "Schwimmen", "art2": "Becken", "laenge_km": None, "dauer_h": 25.0,
+            "standort": "Handorf", "land": "Deutschland", "veranstalter_url": "https://bad-handorf.example/",
+            "lat": 51.99, "lon": 7.70}
+    antwort = {"liste": "events", "id": "e1", "status": "Fällt aus", "werte": {}, "anmerkung": "",
+               "kopf": kopf, "zeile": [werte[k] for k in kopf], "orig": _json.dumps(orig, ensure_ascii=False)}
+    pfade = ("MANUAL_OVERRIDES_PATH", "GEPRUEFT_PATH", "EVENTS_JSON_PATH")
+    alt = {n: getattr(kl, n) for n in pfade}
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        for n, inhalt in zip(pfade, ({}, {}, [dict(orig)])):
+            (tmp / f"{n}.json").write_text(_json.dumps(inhalt), encoding="utf-8")
+            setattr(kl, n, tmp / f"{n}.json")
+        try:
+            ks.baue_excel("events", [antwort], tmp / "a.xlsx")
+            rc = kl.importiere(tmp / "a.xlsx", False, False)
+            ov = _json.loads((tmp / "MANUAL_OVERRIDES_PATH.json").read_text(encoding="utf-8"))
+            prot = _json.loads((tmp / "GEPRUEFT_PATH.json").read_text(encoding="utf-8"))
+        finally:
+            for n, v in alt.items():
+                setattr(kl, n, v)
+    eintrag = ov.get("25h Handorf|2026-10-24", {})
+    check("Import: exclude + abgesagt", (rc, eintrag.get("exclude"), eintrag.get("abgesagt")), (0, True, True))
+    check("Import: Protokoll „abgesagt“", prot.get("25h Handorf|2026-10-24", {}).get("ergebnis"), "abgesagt")
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_insta_freigabe,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -5635,7 +5744,7 @@ def main() -> int:
                  test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_dauer_minuten, test_pruefung_offen, test_korrektur_seite, test_kopierschutz,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
-                 test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
+                 test_schwimmen_regeln, test_schwimmkalender, test_faellt_aus, test_turbosport, test_radsportevents,
                  test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_dealgrid, test_marsch_quellen, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis, test_serien,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,

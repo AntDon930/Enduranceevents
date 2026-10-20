@@ -8310,5 +8310,17 @@
     "ergebnis": "quelle_ok",
     "quelle": "rad-race.com/onetwenty-2027",
     "notiz": "Auf Hinweis des Nutzers (rad-race.com) geprüft: Road Race So 13.06.2027, 126 km / 2.230 hm, Oberallgäu ab Sonthofen; Anmeldung auch einzeln (jeder fährt die ganze Strecke). Großbuchstaben im Namen sind der Eigenname. Veranstalter 808 Events (808project.de, Sonthofen) mit RAD RACE GmbH."
+  },
+  "25h Handorf FÄLLT AUS!!!|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "abgesagt",
+    "quelle": "https://brgerbad-handorf---bba.chayns.site/",
+    "notiz": "Korrekturliste des Nutzers: Ausgabe fällt aus, nächste Ausgabe sucht das Gedächtnis: fällt dieses Jahr aus"
+  },
+  "25h Handorf|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "abgesagt",
+    "quelle": "https://brgerbad-handorf---bba.chayns.site/",
+    "notiz": "Nutzer: fällt dieses Jahr aus (schwimmkalender.de nennt es im Namen) - nächste Ausgabe sucht das Gedächtnis"
   }
 }

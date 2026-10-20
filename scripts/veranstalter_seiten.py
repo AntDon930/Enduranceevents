@@ -28,6 +28,10 @@ Was die Datei `scripts/veranstalter_seiten.json` enthält:
       "art1": "Laufen", "land": "Deutschland",
       "strecken": [ {"laenge_km": 10, "dauer_h": null, "wettbewerb": "10 km", "art2": "Straße"}, … ],
       "strecken_datum": "2026-12-06",  die Strecken der jüngsten Ausgabe und ihr Starttag (05.10.2026)
+      "abgesagt": "2026-10-24",      diese Ausgabe fällt aus (Status „Fällt aus" der Korrekturliste,
+                                     Override `abgesagt`, siehe merke_abgesagt) - der Eintrag bleibt
+                                     samt Seite und Strecken, `pruefen` sucht die nächste Ausgabe;
+                                     fällt weg, sobald eine jüngere Ausgabe gelernt ist (20.10.2026)
       "geprueft_am": "2027-03-02",   wann `pruefen` die Seite zuletzt abgerufen hat
       "uebernommen": "2027-06-13",   welche Ausgabe `pruefen --uebernehmen` angelegt hat
       "strecken_uebernommen": true,  die Strecken sind die eigene Vorjahreskopie (keine Quelle)
@@ -162,6 +166,7 @@ README = ("Gedächtnis je Veranstaltung OHNE Datum (scripts/veranstalter_seiten.
           "zwei Seiten, keine entscheidbar, nichts wird angewendet; 'fest': true = von Hand gesetzt, lernen() lässt den Eintrag in Ruhe. "
           "'strecken'/'art1'/'land' = die jüngste Ausgabe ('strecken_datum' ihr Starttag), gelernt auch ohne Seite; "
           "'geprueft_am'/'uebernommen' setzt `pruefen` (Suche nach der nächsten Ausgabe auf der Veranstalterseite). "
+          "'abgesagt' = diese Ausgabe fällt aus (Status 'Fällt aus' der Korrekturliste), der Eintrag bleibt für die nächste. "
           "Die Einträge sind nach Schlüssel sortiert, damit der Diff je Lauf klein bleibt.")
 
 # Monatsnamen für Datumsangaben im Seitentext (auch von seitenabgleich.py
@@ -575,6 +580,10 @@ class Gedaechtnis:
                 gesammelt.setdefault(strecken_key(st), st)
         strecken = _strecken_sortiert(gesammelt.values())
         geaendert = neu or alt.get("strecken") != strecken or alt.get("art1") != zeilen[0].get("art1")
+        if alt.get("abgesagt") and datum > alt["abgesagt"]:
+            # Die nächste Ausgabe ist da - die abgesagte ist Geschichte.
+            alt.pop("abgesagt")
+            geaendert = True
         alt["strecken_datum"] = datum
         if uebernommen:
             alt["strecken_uebernommen"] = True
@@ -742,6 +751,41 @@ def lernen(events: list[dict], ged: Gedaechtnis, overrides: dict | None = None) 
         z = ged.lerne_ausgabe(k, zeilen)
         if z:
             bericht.append(z)
+    return bericht
+
+
+def merke_abgesagt(zeilen: list[dict], ged: Gedaechtnis) -> list[str]:
+    """Zeilen, die ein Override mit `abgesagt` herausnimmt (Status „Fällt
+    aus" der Korrekturliste, vom Nutzer am 20.10.2026 am 25h Handorf
+    gewünscht: „rausnimmt aus der Liste aber auch für nächstes Jahr merkt,
+    weil löschen will ich es nicht"). Die AUSGABE fällt aus, nicht die
+    Veranstaltung: Der Eintrag bleibt mit Seite und Strecken stehen und
+    trägt `abgesagt` = der Starttag. Weil die Zeile danach in events.json
+    fehlt, fragt `pruefen` die Seite nach der nächsten Ausgabe (10 bis 14
+    Monate nach der abgesagten) - wie bei jeder vergangenen Veranstaltung.
+
+    Angelegt wird hier NICHTS: Eine Zeile kommt nur über die
+    Korrekturliste zu ihrem Status, stand also vorher in events.json und
+    ist längst gelernt. Fehlt der Eintrag trotzdem (der Name der Zeile ist
+    verdorben, z. B. „25h Handorf FÄLLT AUS!!!" mit dem Ort „FÄLLT AUS!!!"),
+    sagt es der Bericht - ein neuer Eintrag unter dem verdorbenen Namen
+    hülfe niemandem."""
+    bericht: list[str] = []
+    for z in zeilen:
+        kand = [schluessel_von(z)] if schluessel_von(z) in ged.daten else ged._kandidaten(z, auch_unscharf=True)
+        if len(kand) != 1:
+            bericht.append(f"⚠ {z.get('name')} ({z.get('standort')}, {z.get('datum_start')}): fällt aus, "
+                           f"aber {'kein' if not kand else 'mehr als ein'} Eintrag im Gedächtnis - bitte von Hand merken")
+            continue
+        eintrag = ged.daten[kand[0]]
+        datum = z.get("datum_start") or ""
+        if eintrag.get("abgesagt") == datum or datum < (eintrag.get("datum") or ""):
+            continue  # schon gemerkt - oder das Gedächtnis kennt schon eine jüngere Ausgabe
+        eintrag["abgesagt"] = datum
+        seite = host_von(eintrag["url"]) if eintrag.get("url") else None
+        bericht.append(f"{z.get('name')} ({z.get('standort')}): Ausgabe {datum} fällt aus, bleibt gemerkt - "
+                       + (f"die nächste Ausgabe sucht `pruefen` auf {seite}" if seite
+                          else "OHNE Seite, die nächste Ausgabe muss eine Quelle liefern"))
     return bericht
 
 

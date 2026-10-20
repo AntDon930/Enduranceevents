@@ -351,31 +351,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "25h Handorf",
-    "standort": "Handorf",
-    "lat": 51.9882099,
-    "lon": 7.6998213,
-    "art1": "Schwimmen",
-    "art2": "Becken",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-25",
-    "dauer_h": 25.0,
-    "veranstalter_url": "https://brgerbad-handorf---bba.chayns.site/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "25h Handorf FÄLLT AUS!!!",
-    "standort": "FÄLLT AUS!!!",
-    "art1": "Schwimmen",
-    "art2": "Becken",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-25",
-    "dauer_h": 25.0,
-    "veranstalter_url": "https://brgerbad-handorf---bba.chayns.site/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
     "name": "25h Schwarzenbach a. Wald",
     "standort": "Schwarzenbach a. Wald",
     "lat": 50.292541,

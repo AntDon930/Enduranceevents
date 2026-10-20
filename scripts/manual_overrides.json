@@ -8698,5 +8698,15 @@
   "CYCLO CROSS Mittelkärnten|2026-10-31|@Cyclocross 60 min": {
     "dauer_h": 1.0,
     "_note": "Gegenschlüssel zu „@Cyclocross 59 min\" (das Label ändert sich mit dem Override). ÖRV-Rennseite (cyclingaustria.at, id 1D2CFF96…), geprüft 18.10.2026: U17/Jugend 30 min, U15/U17w 20 min, U13/U15w 15 min, Frauen/Junioren/Masters II–VI 45 min, Elite/U23/Masters I/Amateure 60 min."
+  },
+  "25h Handorf FÄLLT AUS!!!|2026-10-24": {
+    "exclude": true,
+    "abgesagt": true,
+    "_note": "Korrekturliste des Nutzers: Ausgabe 2026-10-24 fällt aus - die Veranstaltung bleibt im Gedächtnis: fällt dieses Jahr aus"
+  },
+  "25h Handorf|2026-10-24": {
+    "exclude": true,
+    "abgesagt": true,
+    "_note": "Ausgabe 2026-10-24 fällt aus (Nutzer am 20.10.2026; schwimmkalender.de: „25h Handorf FÄLLT AUS!!!“) - die Veranstaltung bleibt im Gedächtnis"
   }
 }

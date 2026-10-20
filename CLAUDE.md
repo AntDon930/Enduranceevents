@@ -889,6 +889,40 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    der Absage weiter mit „Melde dich jetzt an". Der Neunkirchner
    Sommerlauf ist KEIN Absage-Fall mehr: Die Seite dankt inzwischen für
    die Teilnahme 2026.
+   **Abgesagt heißt: DIESE Ausgabe, nicht die Veranstaltung** (vom Nutzer
+   am 20.10.2026 am 25h Handorf: „einen Status der das Event rausnimmt
+   aus der Liste aber auch für nächstes Jahr merkt, weil löschen will ich
+   es nicht"). Dafür gibt es den Status **„Fällt aus"** in Korrekturseite
+   und Excel (`korrekturliste.STATUS_WERTE`, `korrektur_seite.STATUS_WERTE`):
+   Der Import schreibt `exclude: true` UND `abgesagt: true` in den
+   Override (`_note` „Ausgabe … fällt aus – die Veranstaltung bleibt im
+   Gedächtnis") und `ergebnis` **`abgesagt`** in `geprueft.json`;
+   `clean_events.abgesagte_zeilen()` reicht die Zeilen an
+   `veranstalter_seiten.merke_abgesagt()`, das am Gedächtnis-Eintrag
+   `abgesagt: <Starttag>` setzt – Seite und Strecken bleiben, und weil die
+   Zeile in `events.json` fehlt, fragt `pruefen` die Seite nach der
+   nächsten Ausgabe (10–14 Monate später), wie bei jeder vergangenen
+   Veranstaltung. Die Markierung fällt weg, sobald eine jüngere Ausgabe
+   gelernt ist. `merke_abgesagt()` legt nichts an (eine Zeile mit Status
+   kam über die Korrekturliste, ist also längst gelernt) und meldet ⚠,
+   wenn es keinen Eintrag findet – dann von Hand merken. **„Löschen"
+   ist dagegen nur „diese Zeile raus"** (`exclude` ohne `abgesagt`); das
+   Gedächtnis vergisst auch dabei nichts – bringt eine Quelle oder
+   `pruefen` die nächste Ausgabe, steht sie wieder da. Wer das ändern
+   will (Löschen = für immer), fragt den Nutzer: Eine gelöschte Strecke
+   ist oft nur EINE von mehreren der Veranstaltung. **Quellen, die die
+   Absage in den Namen schreiben**, fallen beim Einsammeln weg wie bei
+   boe/dsergebnis/kilometerliebe – seit dem Tag auch schwimmkalender.de
+   (`ABGESAGT` im Scraper). Der Anlass: „25h Handorf FÄLLT AUS!!!"
+   kam am 19.10.2026 als NEUE Zeile mit dem Ort „FÄLLT AUS!!!" (und einem
+   verdorbenen Gedächtnis-Eintrag, entfernt) – die saubere Zeile „25h
+   Handorf" vom September blieb daneben sichtbar, denn das Einsammeln
+   fügt hinzu, es löscht nicht. Beide stehen mit „Fällt aus" im Override.
+   **Lehre**: Ändert eine Quelle den Namen einer Ausgabe, steht die alte
+   Zeile weiter da – bei einer Absage immer nach der Schwesterzeile
+   suchen (`aktuelle_schluessel()` zeigt, welche Zeile einen Eintrag als
+   „aktuell" hält). `test_faellt_aus` hält Import,
+   Gedächtnis, `pruefen`-Auswahl und Scraper fest.
 
 19. **Vorläufige Termine tragen `datum_vorlaeufig`** (vom Nutzer am
    21.09.2026 entschieden: „kein konkretes Datum auf jeden Fall, wenn
@@ -2766,6 +2800,12 @@ Halbmarathon wurde") – Tabelle im README („Was das Gedächtnis aushält"):
   steht („King of the Lake" 2027 neben „Asvö King of the Lake" 2026);
   solche Doppel-Einträge aus der Zeit vor der unscharfen Suche bleiben
   im Gedächtnis stehen, `finde()` nimmt weiter nur den genauen.
+
+**Abgesagte Ausgaben (20.10.2026)**: Status „Fällt aus" → Override
+`exclude` + `abgesagt` → `merke_abgesagt()` setzt `abgesagt: <Tag>` am
+Eintrag; Seite und Strecken bleiben, `pruefen` sucht die nächste Ausgabe,
+die nächste gelernte Ausgabe nimmt die Markierung weg (Einzelheiten bei
+Datenregel 18).
 
 **Zwei Gedächtnis-Einträge, EINE Ausgabe (19.10.2026)**: Der Wochenlauf
 übernahm den Citylauf Schwabach zweimal – unter „Citylauf Schwabach“
@@ -5655,7 +5695,9 @@ zurückschicken → `korrekturliste.py import` (schreibt `geprueft.json`
 und Overrides, räumt auf) → Commit und Push → Pages-Deploy. Mit dem
 Aufräumen fällt das Feld an den geprüften Zeilen, sie sind live.
 Status „Unklar" lässt die Zeile ausgeblendet (sie steht weiter in der
-Liste); „Löschen" entfernt sie; „Stimmt so"/„Korrigiert" geben sie frei.
+Liste); „Löschen" entfernt sie; „Fällt aus" entfernt diese Ausgabe und
+lässt die Veranstaltung im Gedächtnis (Datenregel 18); „Stimmt
+so"/„Korrigiert" geben sie frei.
 
 **Der Rhythmus seit dem Livegang** (vom Nutzer am 13.10.2026 erbeten:
 „Was mach ich, was machst du genau?"):
@@ -5819,6 +5861,13 @@ Import vergleicht gegen genau das, was der Nutzer gesehen hat).
 Export gleich, solange der Datenlauf die Zeile nicht ändert. Ändert er
 sie, liegt die Antwort verwaist in der Datenbank; `einlesen` übernimmt
 sie trotzdem (sie trägt ihre eigene Zeile mit).
+
+**Status**: Stimmt so / Korrigiert / Löschen / **Fällt aus** (seit dem
+20.10.2026: diese Ausgabe ist abgesagt, die Veranstaltung bleibt im
+Gedächtnis und kommt mit der nächsten Ausgabe wieder – Datenregel 18) /
+Unklar; die Auswahl kommt aus der Datenprüfung der Excel, neue Werte also
+in `korrekturliste.STATUS_WERTE` UND `korrektur_seite.STATUS_WERTE`, dann
+`daten events` neu und die Seite neu veröffentlichen.
 
 **Übernommen** zeigt die Seite über **Quittungen**, nicht über ein Feld
 an der Antwort: `ArtifactData` schreibt ein vorhandenes Dokument nur mit

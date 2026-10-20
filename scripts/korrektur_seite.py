@@ -29,7 +29,7 @@ Dieses Skript erfindet keine eigene Regel – es übersetzt nur:
                                übernommenen Antworten nennt.
 
 Übernommen wird nur eine Antwort mit Status (Stimmt so / Korrigiert /
-Löschen / Unklar), zu der es noch keine Quittung gibt – eine Zeile, in der
+Löschen / Fällt aus / Unklar), zu der es noch keine Quittung gibt – eine Zeile, in der
 der Nutzer noch tippt, bleibt liegen.
 
 **Warum Quittungen statt eines Felds an der Antwort**: Ein Dokument, das es
@@ -64,7 +64,7 @@ REPO = Path(__file__).resolve().parent.parent
 ZIEL_DATEN = REPO / "korrektur" / "daten"
 
 FARBE_ART = {"F8C9C4": "f", "FCE2B0": "q"}   # rot = fehlt, orange = fraglich
-STATUS_WERTE = {"Stimmt so", "Korrigiert", "Löschen", "Unklar"}
+STATUS_WERTE = {"Stimmt so", "Korrigiert", "Löschen", "Fällt aus", "Unklar"}
 # Spalten, die über mehrere Zeilen gehen (Textfeld statt Eingabezeile).
 MEHRZEILIG = {"Was fehlt / was ist fraglich", "Deine Anmerkung", "Name (nicht änderbar)",
               "Grund der Prüfung", "Termine", "Quelle", "Anmerkung", "Treffpunkt"}

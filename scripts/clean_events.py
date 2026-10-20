@@ -348,6 +348,20 @@ def _hat_distanzgenauen_schluessel(overrides: dict, event: dict) -> bool:
     return len(keys) > 1 and hat_override_schluessel(overrides, keys[0])
 
 
+def abgesagte_zeilen(events: list[dict]) -> list[dict]:
+    """Die Zeilen, die ein Override als ABGESAGTE Ausgabe herausnimmt
+    (`exclude` + `abgesagt`, Status „Fällt aus" der Korrekturliste) - sie
+    gehen an veranstalter_seiten.merke_abgesagt(), damit das Gedächtnis
+    die Veranstaltung für die nächste Ausgabe behält."""
+    overrides = load_manual_overrides()
+    treffer = []
+    for e in events:
+        ov = find_override(overrides, e.get("name"), e.get("datum_start"), e.get("laenge_km"), e.get("wettbewerb"))
+        if ov and ov.get("exclude") and ov.get("abgesagt"):
+            treffer.append(e)
+    return treffer
+
+
 def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str]]:
     overrides = load_manual_overrides()
     kept: list[dict] = []
@@ -2232,6 +2246,7 @@ def main() -> None:
 
     geocoder = None if args.no_geocoding else Geocoder(GEOCODE_CACHE_PATH)
 
+    abgesagte = abgesagte_zeilen(events)
     events, excluded, override_changes = apply_overrides(events)
     # NACH apply_overrides: Ein Override mit dem Schlüssel "<Name>|<Datum>"
     # trifft JEDE Strecke dieser Veranstaltung an diesem Tag - auch eine
@@ -2258,6 +2273,10 @@ def main() -> None:
     # neue Ausgabe mit Portallink bekommt sie gleich hier. Ein zweites
     # lernen() steht nach dem Vereinheitlichen der Namen (unten).
     gedaechtnis = veranstalter_seiten.Gedaechtnis.laden()
+    # Abgesagte Ausgaben (Status „Fällt aus"): Die Zeile ist schon heraus,
+    # die Veranstaltung bleibt gemerkt - VOR lernen(), das die Zeile nicht
+    # mehr sieht.
+    abgesagt = veranstalter_seiten.merke_abgesagt(abgesagte, gedaechtnis)
     # Erst der Abgleich mit der vorigen Ausgabe (welche Strecken fehlen
     # der neuen?), DANN lernen - sonst kennt das Gedächtnis die neue
     # Ausgabe schon und hat nichts mehr zu vergleichen.
@@ -2346,6 +2365,7 @@ def main() -> None:
         # läuft die Schleife weiter (Zusammenführen mit neuen Koordinaten).
         umbenannt = [e for e in events if e.get("name") != namen_vorher.get(id(e))]
         if umbenannt:
+            abgesagt += veranstalter_seiten.merke_abgesagt(abgesagte_zeilen(umbenannt), gedaechtnis)
             behalten, spaet_excluded, spaet_changes = apply_overrides(umbenannt)
             if spaet_excluded:
                 behalten_ids = {id(e) for e in behalten}
@@ -2376,6 +2396,7 @@ def main() -> None:
     section("Manuelle Korrekturen angewendet", override_changes)
     section("Einzeln recherchiert nachgetragen (manual_events.json)", manuell_ergaenzt)
     section("Per Override ausgeschlossen", excluded)
+    section("Ausgabe fällt aus, Veranstaltung bleibt im Gedächtnis (Status „Fällt aus“)", abgesagt)
     section("Veranstalterseite/Koordinaten aus dem Gedächtnis (vorige Ausgabe)", aus_gedaechtnis)
     section("⚠ Gedächtnis: Strecken der vorigen Ausgabe, die der neuen fehlen", vorjahr)
     section("Gedächtnis je Veranstaltung: Seiten gemerkt/aktualisiert", gemerkt)
