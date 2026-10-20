@@ -906,11 +906,30 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    gelernt ist. `merke_abgesagt()` legt nichts an (eine Zeile mit Status
    kam über die Korrekturliste, ist also längst gelernt) und meldet ⚠,
    wenn es keinen Eintrag findet – dann von Hand merken. **„Löschen"
-   ist dagegen nur „diese Zeile raus"** (`exclude` ohne `abgesagt`); das
-   Gedächtnis vergisst auch dabei nichts – bringt eine Quelle oder
-   `pruefen` die nächste Ausgabe, steht sie wieder da. Wer das ändern
-   will (Löschen = für immer), fragt den Nutzer: Eine gelöschte Strecke
-   ist oft nur EINE von mehreren der Veranstaltung. **Quellen, die die
+   ist dagegen nur „diese Zeile raus" – und nächstes Jahr wird
+   nachgesehen** (vom Nutzer am 20.10.2026 entschieden: „löschen soll nur
+   die eine Zeile herausnehmen und schauen ob das Event nächstes Jahr
+   passend ist"; NICHT „für immer" – eine gelöschte Strecke ist oft nur
+   EINE von mehreren). Der Import schreibt `exclude` + **`geloescht`**,
+   `clean_events.geloeschte_zeilen()` reicht die Zeile an
+   `veranstalter_seiten.merke_geloescht()`: Die Strecke fliegt aus den
+   gemerkten `strecken` dieser Ausgabe (sonst legte `pruefen` sie
+   nächstes Jahr als Vorjahreskopie wieder an) und steht unter
+   `geloescht` (Tag + Strecke; `ganz`, wenn von der Ausgabe nichts
+   übrig bleibt). `Gedaechtnis.geloescht_fuer()` findet die passende
+   Zeile der NÄCHSTEN Ausgabe (300–430 Tage später wie `FENSTER_TAGE`,
+   gleiche Länge ± 0,5 km bzw. Dauer bzw. Label; bei `ganz` jede), und
+   `audit_events.offene_pruefungen(…, gedaechtnis=)` gibt ihr den Grund
+   **„geloescht"** – sie ist ausgeblendet und steht wieder in der
+   Korrekturliste, bis der Nutzer sie geprüft hat (egal ob Quelle oder
+   Gedächtnis sie bringt). Gleiche Saison einer Serie und spätere Jahre
+   zählen nicht; Markierungen älter als 430 Tage räumt `merke_geloescht`
+   weg. `mark_pruefung_offen()` und `korrekturliste.export` übergeben
+   das Gedächtnis. Die neun Löschungen vor dem 20.10.2026 sind von Hand
+   nachgezogen (Zeilen aus der Git-Geschichte von `events.json`). **Wer
+   von Hand löscht, was der NUTZER löschen wollte** (etwa ein
+   „Check again" mit Ergebnis `entfernt`), setzt `"geloescht": true` mit
+   ins Override. `test_geloescht` hält alles fest. **Quellen, die die
    Absage in den Namen schreiben**, fallen beim Einsammeln weg wie bei
    boe/dsergebnis/kilometerliebe – seit dem Tag auch schwimmkalender.de
    (`ABGESAGT` im Scraper). Der Anlass: „25h Handorf FÄLLT AUS!!!"
@@ -5695,7 +5714,8 @@ zurückschicken → `korrekturliste.py import` (schreibt `geprueft.json`
 und Overrides, räumt auf) → Commit und Push → Pages-Deploy. Mit dem
 Aufräumen fällt das Feld an den geprüften Zeilen, sie sind live.
 Status „Unklar" lässt die Zeile ausgeblendet (sie steht weiter in der
-Liste); „Löschen" entfernt sie; „Fällt aus" entfernt diese Ausgabe und
+Liste); „Löschen" entfernt sie, ihre nächste Ausgabe kommt wieder in die
+Liste (Datenregel 18); „Fällt aus" entfernt diese Ausgabe und
 lässt die Veranstaltung im Gedächtnis (Datenregel 18); „Check again"
 lässt sie ausgeblendet, bis Claude sie an der Quelle geprüft hat
 (Korrekturseite, `nochmal.json`); „Stimmt so"/„Korrigiert" geben sie frei.
@@ -5887,7 +5907,8 @@ Claude sie geprüft hat. Claude liest den Kommentar, prüft das Event an
 der Veranstalterseite (wie jede Einzelprüfung: an der Quelle, Klasse
 zählen, Regel oder Override), trägt Korrekturen VON HAND ein (Override mit
 `_note`, `manual_events.json`; bei `entfernt`/`abgesagt` auch das
-`exclude`) und schreibt je Eintrag in `nochmal.json` `antwort` (ein bis
+`exclude`, bei `entfernt` dazu `geloescht: true` wie beim Status
+„Löschen") und schreibt je Eintrag in `nochmal.json` `antwort` (ein bis
 zwei Sätze für den Nutzer: was stimmt, was geändert ist, woher) und
 `ergebnis` (quelle_ok / korrigiert / unklar / entfernt / abgesagt; leer =
 kein Protokoll, die Zeile bleibt ausgeblendet). Dann

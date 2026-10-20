@@ -8089,11 +8089,13 @@
   },
   "2 Pfälzer Weinsteig UTPW 170|2026-10-09|173": {
     "exclude": true,
-    "_note": "Korrekturliste des Nutzers (05.10.2026): Link auf ultratrail-pfaelzer-weinsteig.de gesetzt - damit ist die Kilometerliebe-Zeile ein Duplikat von 'Ultratrail Pfälzer Weinsteig' 173 km (Veranstalterseite: 'Anmeldeschluss für die 173km', Überschrift gerundet '170 Kilometer'). Ausgeschlossen, Start und Ort beim Original korrigiert."
+    "_note": "Korrekturliste des Nutzers (05.10.2026): Link auf ultratrail-pfaelzer-weinsteig.de gesetzt - damit ist die Kilometerliebe-Zeile ein Duplikat von 'Ultratrail Pfälzer Weinsteig' 173 km (Veranstalterseite: 'Anmeldeschluss für die 173km', Überschrift gerundet '170 Kilometer'). Ausgeschlossen, Start und Ort beim Original korrigiert.",
+    "geloescht": true
   },
   "Lake.Bike Enduro Festival - Cycling 4 All|2026-10-09|@Cycling 4 All": {
     "exclude": true,
-    "_note": "Korrekturliste des Nutzers"
+    "_note": "Korrekturliste des Nutzers",
+    "geloescht": true
   },
   "14. NV Citylauf|2026-10-10": {
     "laenge_km": 10.0,
@@ -8101,11 +8103,13 @@
   },
   "22. BKK Walking am Baldeneysee mit Mini-Marathon|2026-10-10|7": {
     "exclude": true,
-    "_note": "Korrekturliste des Nutzers"
+    "_note": "Korrekturliste des Nutzers",
+    "geloescht": true
   },
   "25. Volkslauf mit Walking um den AWB See|2026-10-10|10.8": {
     "exclude": true,
-    "_note": "Korrekturliste des Nutzers"
+    "_note": "Korrekturliste des Nutzers",
+    "geloescht": true
   },
   "43. Poysdorfer Winzerlauf (Weinviertler Raiffeisen Laufcup)|2026-10-10": {
     "laenge_km": 10.0,
@@ -8571,7 +8575,8 @@
   },
   "FEM Teichwiesen Marathon|2026-10-14|42.2": {
     "exclude": true,
-    "_note": "Korrekturliste des Nutzers"
+    "_note": "Korrekturliste des Nutzers",
+    "geloescht": true
   },
   "Ladbergen Ultramarathon|2026-10-14|8.7": {
     "wettbewerb": "Halbmarathon",
@@ -8585,11 +8590,13 @@
   },
   "Ladbergen Ultramarathon|2026-10-14|42.8": {
     "exclude": true,
-    "_note": "Korrekturliste des Nutzers: es gibt nur Halbmarathon und Marathon"
+    "_note": "Korrekturliste des Nutzers: es gibt nur Halbmarathon und Marathon",
+    "geloescht": true
   },
   "Ladbergen Ultramarathon|2026-10-14|44": {
     "exclude": true,
-    "_note": "Korrekturliste des Nutzers: es gibt nur Halbmarathon und Marathon"
+    "_note": "Korrekturliste des Nutzers: es gibt nur Halbmarathon und Marathon",
+    "geloescht": true
   },
   "Backyard Ultra Valais Autumn Edition|2026-10-17|47": {
     "laenge_km": null,
@@ -8603,7 +8610,8 @@
   },
   "Hartberg bewegt sich|2026-10-17": {
     "exclude": true,
-    "_note": "Korrekturliste des Nutzers"
+    "_note": "Korrekturliste des Nutzers",
+    "geloescht": true
   },
   "King of Pirates|2026-10-17|@Cyclocross, Stevens Cyclo-Cross Cup #04": {
     "veranstalter_url": "https://www.pirate-hamburg.de/events/scc/",
@@ -8613,7 +8621,8 @@
   },
   "ORC 2 - Ride for Life|2026-10-17|@Cyclocross": {
     "exclude": true,
-    "_note": "Korrekturliste des Nutzers"
+    "_note": "Korrekturliste des Nutzers",
+    "geloescht": true
   },
   "ALTIMATE Treppenlauf Berlin|2026-10-17": {
     "datum_start": "2027-04-15",

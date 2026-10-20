@@ -5848,6 +5848,117 @@ def test_check_again() -> None:
         check(f"Seite: {teil}", teil in seite, True)
 
 
+def test_geloescht() -> None:
+    """Status „Löschen" (vom Nutzer am 20.10.2026: „löschen soll nur die
+    eine Zeile herausnehmen und schauen ob das Event nächstes Jahr passend
+    ist"): Der Import setzt `geloescht`, das Gedächtnis nimmt die Strecke aus
+    der Vorjahreskopie und merkt sie; die passende Zeile der NÄCHSTEN
+    Ausgabe steht wieder in der Korrekturliste - die übrigen Termine einer
+    Serie und spätere Jahre nicht, und nach der Prüfung auch nicht mehr."""
+    print("\nStatus „Löschen“ (Zeile raus, nächste Ausgabe wird geprüft):")
+    import json as _json
+    import tempfile
+    import clean_events
+    import veranstalter_seiten as vs
+    from audit_events import offene_pruefungen
+
+    def z(name, datum, km=None, wettbewerb=None, dauer=None, standort="Ladbergen"):
+        return dict(name=name, standort=standort, land="Deutschland", lat=52.13, lon=7.74, art1="Laufen",
+                    art2="Straße", datum_start=datum, datum_ende=datum, laenge_km=km, dauer_h=dauer,
+                    wettbewerb=wettbewerb, veranstalter_url="https://ladbergen-ultra.example/")
+    ged = vs.Gedaechtnis({})
+    zeilen = [z("Ladbergen Ultramarathon", "2026-10-14", 21.1, "Halbmarathon"),
+              z("Ladbergen Ultramarathon", "2026-10-14", 42.2, "Marathon"),
+              z("Ladbergen Ultramarathon", "2026-10-14", 44.0, "Ultra 44 km")]
+    vs.lernen(zeilen, ged, overrides={})
+    k = vs.schluessel_von(zeilen[0])
+    bericht = vs.merke_geloescht([zeilen[2]], ged, "2026-10-20")
+    eintrag = ged.daten[k]
+    check("gelöscht gemerkt, Strecke aus der Vorjahreskopie",
+          (len(bericht), [st["laenge_km"] for st in eintrag["strecken"]], len(eintrag["geloescht"]),
+           eintrag["geloescht"][0].get("ganz")), (1, [21.1, 42.2], 1, None))
+    check("zweimal gemerkt = einmal", vs.merke_geloescht([zeilen[2]], ged, "2026-10-20"), [])
+    check("Vorjahreskopie ohne die gelöschte Strecke",
+          [r["laenge_km"] for r in vs.manual_events_aus(eintrag, "2027-10-13", "2027-10-13", "2027-09-01")],
+          [21.1, 42.2])
+    naechste = z("Ladbergen Ultramarathon", "2027-10-13", 44.0, "Ultra 44 km")
+    check("nächste Ausgabe derselben Strecke: wieder eine Frage",
+          [len(ged.geloescht_fuer(r)) for r in (
+              naechste, z("Ladbergen Ultramarathon", "2027-10-13", 43.8),        # neu vermessen
+              z("Ladbergen Ultramarathon", "2027-10-13", 42.2),                  # andere Strecke
+              z("Ladbergen Ultramarathon", "2026-11-20", 44.0),                  # gleiche Saison
+              z("Ladbergen Ultramarathon", "2028-10-11", 44.0))],                # zwei Jahre später
+          [1, 1, 0, 0, 0])
+    arten = lambda r, prot: [a for e, g in offene_pruefungen([r], "2027-01-01", prot, gedaechtnis=ged)  # noqa: E731
+                             for a, _ in g]
+    check("Korrekturliste: Grund „geloescht“", "geloescht" in arten(naechste, {}), True)
+    check("nach der Prüfung nicht mehr", "geloescht" in arten(naechste, {
+        "ladbergen ultramarathon|2027-10-13": {"ergebnis": "quelle_ok"}}), False)
+    check("ohne Gedächtnis kein Grund", "geloescht" in [a for e, g in offene_pruefungen([naechste], "2027-01-01", {})
+                                                         for a, _ in g], False)
+    # Die ganze Veranstaltung gelöscht: nächstes Jahr passt jede Strecke.
+    h = z("Hartberg bewegt sich", "2026-10-17", 6.0, standort="Hartberg")
+    vs.lernen([h], ged, overrides={})
+    vs.merke_geloescht([h], ged, "2026-10-20")
+    check("ganze Veranstaltung: ganz, jede Strecke passt",
+          (ged.daten[vs.schluessel_von(h)]["geloescht"][0].get("ganz"),
+           len(ged.geloescht_fuer(z("Hartberg bewegt sich", "2027-10-16", 10.0, standort="Hartberg")))), (True, 1))
+    check("ganz bleibt beim zweiten Aufruf einmal", (vs.merke_geloescht([h], ged, "2026-10-20"),
+                                                     len(ged.daten[vs.schluessel_von(h)]["geloescht"])), ([], 1))
+    vs.merke_geloescht([], ged, "2028-06-01")
+    check("alte Markierungen räumt der Aufruf weg", ("geloescht" in ged.daten[k],
+                                                     "geloescht" in ged.daten[vs.schluessel_von(h)]), (False, False))
+    check("ohne Eintrag: Warnung, nichts angelegt",
+          (vs.merke_geloescht([z("Gibt es nicht", "2026-10-14", 5.0, standort="Nirgendwo")], ged)[0][:1],
+           len(ged.daten)), ("⚠", 2))
+
+    alt_laden = clean_events.load_manual_overrides
+    clean_events.load_manual_overrides = lambda: {
+        "Ladbergen Ultramarathon|2026-10-14|44": {"exclude": True, "geloescht": True},
+        "Ladbergen Ultramarathon|2026-10-14|42.2": {"exclude": True},
+        "Ladbergen Ultramarathon|2026-10-14|21.1": {"exclude": True, "geloescht": True, "abgesagt": True}}
+    try:
+        treffer = clean_events.geloeschte_zeilen(zeilen)
+    finally:
+        clean_events.load_manual_overrides = alt_laden
+    check("geloeschte_zeilen: nur Löschen der Korrekturliste", [e["laenge_km"] for e in treffer], [44.0])
+
+    # Der Import setzt die Markierung (braucht openpyxl).
+    try:
+        import openpyxl  # noqa: F401
+    except ImportError:
+        print("  (Import übersprungen: openpyxl fehlt)")
+        return
+    import korrektur_seite as ks
+    import korrekturliste as kl
+    kopf = [k for _, k, _ in kl.SPALTEN]
+    werte = {k: "" for k in kopf}
+    werte.update({"Nr": 1, "Datum Start": "14.10.2026", "Datum Ende": "14.10.2026",
+                  "Name (nicht änderbar)": "Ladbergen Ultramarathon", "Wettbewerb / Strecke": "Ultra 44 km",
+                  "Sportart": "Laufen", "Kategorie": "Straße", "Distanz (km)": "44", "Ort": "Ladbergen",
+                  "Land": "Deutschland", "Veranstalter-Link": "https://ladbergen-ultra.example/"})
+    orig = dict(zeilen[2], datum_vorlaeufig=None)
+    antwort = {"liste": "events", "id": "e1", "status": "Löschen", "werte": {}, "anmerkung": "",
+               "kopf": kopf, "zeile": [werte[k] for k in kopf], "orig": _json.dumps(orig, ensure_ascii=False)}
+    pfade = ("MANUAL_OVERRIDES_PATH", "GEPRUEFT_PATH", "EVENTS_JSON_PATH")
+    alt = {n: getattr(kl, n) for n in pfade}
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        for n, inhalt in zip(pfade, ({}, {}, [dict(orig)])):
+            (tmp / f"{n}.json").write_text(_json.dumps(inhalt), encoding="utf-8")
+            setattr(kl, n, tmp / f"{n}.json")
+        try:
+            ks.baue_excel("events", [antwort], tmp / "a.xlsx")
+            rc = kl.importiere(tmp / "a.xlsx", False, False)
+            ov = _json.loads((tmp / "MANUAL_OVERRIDES_PATH.json").read_text(encoding="utf-8"))
+        finally:
+            for n, v in alt.items():
+                setattr(kl, n, v)
+    eintrag = ov.get("Ladbergen Ultramarathon|2026-10-14|44", {})
+    check("Import: exclude + geloescht, nicht abgesagt",
+          (rc, eintrag.get("exclude"), eintrag.get("geloescht"), eintrag.get("abgesagt")), (0, True, True, None))
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_insta_freigabe,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -5861,7 +5972,7 @@ def main() -> int:
                  test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_dauer_minuten, test_pruefung_offen, test_korrektur_seite, test_kopierschutz,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
-                 test_schwimmen_regeln, test_schwimmkalender, test_faellt_aus, test_check_again, test_turbosport, test_radsportevents,
+                 test_schwimmen_regeln, test_schwimmkalender, test_faellt_aus, test_check_again, test_geloescht, test_turbosport, test_radsportevents,
                  test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_dealgrid, test_marsch_quellen, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis, test_serien,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,

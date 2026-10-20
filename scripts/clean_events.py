@@ -362,6 +362,22 @@ def abgesagte_zeilen(events: list[dict]) -> list[dict]:
     return treffer
 
 
+def geloeschte_zeilen(events: list[dict]) -> list[dict]:
+    """Die Zeilen, die der Nutzer in der Korrekturliste GELÖSCHT hat
+    (`exclude` + `geloescht`, Status „Löschen") - sie gehen an
+    veranstalter_seiten.merke_geloescht(): Das Gedächtnis vergisst die
+    Strecke für die Vorjahreskopie, und die nächste Ausgabe kommt wieder in
+    die Korrekturliste („löschen soll nur die eine Zeile herausnehmen und
+    schauen ob das Event nächstes Jahr passend ist", 20.10.2026)."""
+    overrides = load_manual_overrides()
+    treffer = []
+    for e in events:
+        ov = find_override(overrides, e.get("name"), e.get("datum_start"), e.get("laenge_km"), e.get("wettbewerb"))
+        if ov and ov.get("exclude") and ov.get("geloescht") and not ov.get("abgesagt"):
+            treffer.append(e)
+    return treffer
+
+
 def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str]]:
     overrides = load_manual_overrides()
     kept: list[dict] = []
@@ -2186,7 +2202,8 @@ def merge_duplicates(events: list[dict]) -> tuple[list[dict], list[str]]:
     return result, report
 
 
-def mark_pruefung_offen(events: list[dict], today: str | None = None) -> tuple[list[str], list[str]]:
+def mark_pruefung_offen(events: list[dict], today: str | None = None,
+                        gedaechtnis=None) -> tuple[list[str], list[str]]:
     """Setzt `pruefung_offen: true` an jede Zeile, die in der Korrekturliste
     des Nutzers stünde (`audit_events.offene_pruefungen`: Audit-Meldung
     ohne Eintrag in geprueft.json, vorläufiger Termin, frühere Prüfung
@@ -2204,7 +2221,8 @@ def mark_pruefung_offen(events: list[dict], today: str | None = None) -> tuple[l
     LETZTER Schritt, nach allen Korrekturen, Umbenennungen und
     Zusammenführungen - vorher könnte eine Zeile markiert werden, die das
     Aufräumen gleich darauf repariert. Gibt (neu markiert, freigegeben)."""
-    offen = {id(e) for e, gruende in offene_pruefungen(events, today) if verbirgt(gruende)}
+    offen = {id(e) for e, gruende in offene_pruefungen(events, today, gedaechtnis=gedaechtnis)
+             if verbirgt(gruende)}
     markiert: list[str] = []
     freigegeben: list[str] = []
     for e in events:
@@ -2247,6 +2265,7 @@ def main() -> None:
     geocoder = None if args.no_geocoding else Geocoder(GEOCODE_CACHE_PATH)
 
     abgesagte = abgesagte_zeilen(events)
+    geloeschte = geloeschte_zeilen(events)
     events, excluded, override_changes = apply_overrides(events)
     # NACH apply_overrides: Ein Override mit dem Schlüssel "<Name>|<Datum>"
     # trifft JEDE Strecke dieser Veranstaltung an diesem Tag - auch eine
@@ -2277,6 +2296,10 @@ def main() -> None:
     # die Veranstaltung bleibt gemerkt - VOR lernen(), das die Zeile nicht
     # mehr sieht.
     abgesagt = veranstalter_seiten.merke_abgesagt(abgesagte, gedaechtnis)
+    # Gelöschte Strecken (Status „Löschen"): aus der Vorjahreskopie heraus,
+    # die nächste Ausgabe kommt wieder in die Korrekturliste - ebenfalls
+    # VOR lernen().
+    geloescht = veranstalter_seiten.merke_geloescht(geloeschte, gedaechtnis, args.today or date.today().isoformat())
     # Erst der Abgleich mit der vorigen Ausgabe (welche Strecken fehlen
     # der neuen?), DANN lernen - sonst kennt das Gedächtnis die neue
     # Ausgabe schon und hat nichts mehr zu vergleichen.
@@ -2366,6 +2389,7 @@ def main() -> None:
         umbenannt = [e for e in events if e.get("name") != namen_vorher.get(id(e))]
         if umbenannt:
             abgesagt += veranstalter_seiten.merke_abgesagt(abgesagte_zeilen(umbenannt), gedaechtnis)
+            geloescht += veranstalter_seiten.merke_geloescht(geloeschte_zeilen(umbenannt), gedaechtnis)
             behalten, spaet_excluded, spaet_changes = apply_overrides(umbenannt)
             if spaet_excluded:
                 behalten_ids = {id(e) for e in behalten}
@@ -2397,6 +2421,7 @@ def main() -> None:
     section("Einzeln recherchiert nachgetragen (manual_events.json)", manuell_ergaenzt)
     section("Per Override ausgeschlossen", excluded)
     section("Ausgabe fällt aus, Veranstaltung bleibt im Gedächtnis (Status „Fällt aus“)", abgesagt)
+    section("Gelöscht (Status „Löschen“) - die nächste Ausgabe kommt wieder in die Korrekturliste", geloescht)
     section("Veranstalterseite/Koordinaten aus dem Gedächtnis (vorige Ausgabe)", aus_gedaechtnis)
     section("⚠ Gedächtnis: Strecken der vorigen Ausgabe, die der neuen fehlen", vorjahr)
     section("Gedächtnis je Veranstaltung: Seiten gemerkt/aktualisiert", gemerkt)
@@ -2450,7 +2475,7 @@ def main() -> None:
     # Ganz zum Schluss: Was noch in der Korrekturliste steht, bleibt auf
     # der Seite ausgeblendet (pruefung_offen) - erst nach allen
     # Korrekturen, sonst würde markiert, was gerade repariert wurde.
-    neu_offen, freigegeben = mark_pruefung_offen(events, args.today)
+    neu_offen, freigegeben = mark_pruefung_offen(events, args.today, gedaechtnis)
     anzahl_offen = sum(1 for e in events if e.get("pruefung_offen"))
     section("Auf der Seite ausgeblendet, bis geprüft (pruefung_offen) - neu markiert", neu_offen)
     section("Prüfung erledigt - wieder sichtbar", freigegeben)

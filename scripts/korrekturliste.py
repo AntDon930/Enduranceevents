@@ -172,13 +172,14 @@ KATEGORIE_FELDER: dict[str, tuple[tuple[str, ...], str, str]] = {
 # Export
 # ---------------------------------------------------------------------------
 
-def sammle(events: list[dict], heute: str) -> list[tuple[dict, list[tuple[tuple[str, ...], str, str]]]]:
+def sammle(events: list[dict], heute: str,
+           gedaechtnis=None) -> list[tuple[dict, list[tuple[tuple[str, ...], str, str]]]]:
     """Die Zeilen der Liste: (Event, [(Felder, Art, Text), …]) - genau die
     Zeilen, die `audit_events.offene_pruefungen()` nennt und die die Seite
     seit dem Livegang (13.10.2026) als `pruefung_offen` ausblendet. Hier
     wird nur übersetzt: Audit-Kategorie -> Felder, "fehlt"/"fraglich", Text."""
     zeilen = []
-    for e, gruende in offene_pruefungen(events, heute):
+    for e, gruende in offene_pruefungen(events, heute, gedaechtnis=gedaechtnis):
         funde: list[tuple[tuple[str, ...], str, str]] = []
         for art, text in gruende:
             if art == "audit":
@@ -211,7 +212,10 @@ def als_zelle(feld: str, wert):
 def export(ziel: Path) -> None:
     events = json.loads(EVENTS_JSON_PATH.read_text(encoding="utf-8"))
     heute = datetime.date.today().isoformat()
-    zeilen = sammle(events, heute)
+    # Mit dem Gedächtnis: Strecken, die der Nutzer im Vorjahr gelöscht hat,
+    # stehen wieder in der Liste (dieselbe Auswahl wie mark_pruefung_offen).
+    import veranstalter_seiten  # noqa: PLC0415 - nur hier gebraucht
+    zeilen = sammle(events, heute, veranstalter_seiten.Gedaechtnis.laden())
 
     wb = Workbook()
     ws = wb.active
@@ -330,6 +334,7 @@ def _anleitung(wb: Workbook, anzahl: int, letzte: int) -> None:
         ("2.", "Falsches direkt in der Zelle überschreiben, Fehlendes eintragen. Formate: Datum "
                "TT.MM.JJJJ, Distanz in km mit Komma (z. B. 21,1), Dauer in Stunden (z. B. 6).", None),
         ("3.", "In „Status“ wählen: Stimmt so / Korrigiert / Löschen / Fällt aus / Unklar / Check again. "
+               "„Löschen“ = nur diese Zeile, nächstes Jahr kommt die Strecke wieder zur Prüfung. "
                "„Fällt aus“ = diese Ausgabe ist abgesagt, nächstes Jahr wieder. „Check again“ = ich sehe mir "
                "das Event noch einmal genau an, dein Kommentar in „Deine Anmerkung“. Leer = nicht angesehen "
                "(Änderungen in der Zeile übernehme ich trotzdem).", None),
@@ -676,6 +681,12 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
             neue_overrides.setdefault(schluessel, {})["exclude"] = True
             if abgesagt:
                 neue_overrides[schluessel]["abgesagt"] = True
+            else:
+                # „Löschen" nimmt nur DIESE Zeile heraus; die nächste Ausgabe
+                # kommt wieder in die Liste (vom Nutzer am 20.10.2026: „löschen
+                # soll nur die eine Zeile herausnehmen und schauen ob das Event
+                # nächstes Jahr passend ist", veranstalter_seiten.merke_geloescht).
+                neue_overrides[schluessel]["geloescht"] = True
             geloescht.append(bez + (" (fällt aus, bleibt im Gedächtnis)" if abgesagt else ""))
         elif neu:
             neue_overrides.setdefault(schluessel, {}).update(neu)

@@ -32,6 +32,11 @@ Was die Datei `scripts/veranstalter_seiten.json` enthält:
                                      Override `abgesagt`, siehe merke_abgesagt) - der Eintrag bleibt
                                      samt Seite und Strecken, `pruefen` sucht die nächste Ausgabe;
                                      fällt weg, sobald eine jüngere Ausgabe gelernt ist (20.10.2026)
+      "geloescht": [ {"datum": "2026-10-14", "laenge_km": 44, …}, … ],
+                                     Strecken, die der Nutzer in der Korrekturliste gelöscht hat
+                                     (Status „Löschen", Override `geloescht`, siehe merke_geloescht):
+                                     nicht mehr in `strecken`, und die NÄCHSTE Ausgabe derselben
+                                     Strecke kommt wieder in die Korrekturliste (geloescht_fuer)
       "geprueft_am": "2027-03-02",   wann `pruefen` die Seite zuletzt abgerufen hat
       "uebernommen": "2027-06-13",   welche Ausgabe `pruefen --uebernehmen` angelegt hat
       "strecken_uebernommen": true,  die Strecken sind die eigene Vorjahreskopie (keine Quelle)
@@ -131,6 +136,7 @@ fort; `update_events.py` legt sie in GitHub Actions mit in den Commit.
 from __future__ import annotations
 
 import argparse
+import datetime
 import json
 import re
 import sys
@@ -167,6 +173,7 @@ README = ("Gedächtnis je Veranstaltung OHNE Datum (scripts/veranstalter_seiten.
           "'strecken'/'art1'/'land' = die jüngste Ausgabe ('strecken_datum' ihr Starttag), gelernt auch ohne Seite; "
           "'geprueft_am'/'uebernommen' setzt `pruefen` (Suche nach der nächsten Ausgabe auf der Veranstalterseite). "
           "'abgesagt' = diese Ausgabe fällt aus (Status 'Fällt aus' der Korrekturliste), der Eintrag bleibt für die nächste. "
+          "'geloescht' = Strecken, die der Nutzer gelöscht hat (Status 'Löschen'): die nächste Ausgabe kommt wieder in die Korrekturliste. "
           "Die Einträge sind nach Schlüssel sortiert, damit der Diff je Lauf klein bleibt.")
 
 # Monatsnamen für Datumsangaben im Seitentext (auch von seitenabgleich.py
@@ -524,6 +531,37 @@ class Gedaechtnis:
             return k
         return alt
 
+    def geloescht_fuer(self, event: dict) -> list[dict]:
+        """Die Strecken, die der Nutzer bei der VORIGEN Ausgabe dieser
+        Veranstaltung gelöscht hat und die zu dieser Zeile passen (Status
+        „Löschen" der Korrekturliste, siehe merke_geloescht). Vom Nutzer am
+        20.10.2026 so entschieden: „löschen soll nur die eine Zeile
+        herausnehmen und schauen ob das Event nächstes Jahr passend ist" -
+        die Zeile der nächsten Ausgabe ist deshalb wieder eine Frage an ihn
+        (`audit_events.offene_pruefungen`, Art „geloescht"), keine Antwort.
+
+        „Vorige Ausgabe" heißt: 300 bis 430 Tage vor dieser Zeile
+        (FENSTER_TAGE, dasselbe Fenster, in dem `pruefen` die nächste
+        Ausgabe sucht) - die übrigen Termine einer Laufserie in derselben
+        Saison zählen nicht, eine Ausgabe zwei Jahre später auch nicht.
+        Passend: dieselbe Länge (± 0,5 km), dieselbe Dauer, ohne Maßzahl
+        dasselbe Label oder ebenfalls keine Maßzahl; „ganz" = die ganze
+        Veranstaltung war gelöscht, dann passt jede Strecke."""
+        try:
+            start = datetime.date.fromisoformat((event.get("datum_start") or "")[:10])
+        except ValueError:
+            return []
+        treffer = []
+        for k in self._kandidaten(event, auch_unscharf=True):
+            for m in self.daten[k].get("geloescht") or []:
+                try:
+                    abstand = (start - datetime.date.fromisoformat(m.get("datum") or "")).days
+                except ValueError:
+                    continue
+                if FENSTER_TAGE[0] <= abstand <= FENSTER_TAGE[1] and (m.get("ganz") or _strecke_passt(m, event)):
+                    treffer.append(m)
+        return treffer
+
     def finde(self, event: dict) -> dict | None:
         """Der Eintrag zu dieser Zeile - oder None, wenn keiner passt oder
         mehr als einer passt. Ob er eine Seite kennt, sagt `url`."""
@@ -786,6 +824,75 @@ def merke_abgesagt(zeilen: list[dict], ged: Gedaechtnis) -> list[str]:
         bericht.append(f"{z.get('name')} ({z.get('standort')}): Ausgabe {datum} fällt aus, bleibt gemerkt - "
                        + (f"die nächste Ausgabe sucht `pruefen` auf {seite}" if seite
                           else "OHNE Seite, die nächste Ausgabe muss eine Quelle liefern"))
+    return bericht
+
+
+def _strecke_passt(strecke: dict, event: dict) -> bool:
+    """Gleiche Strecke über zwei Ausgaben: gleiche Länge (± 0,5 km - die
+    Vermessung ändert sich), gleiche Dauer, ohne Maßzahl gleiches Label oder
+    auf beiden Seiten keine Maßzahl."""
+    km_a, km_b = strecke.get("laenge_km"), event.get("laenge_km")
+    h_a, h_b = strecke.get("dauer_h"), event.get("dauer_h")
+    zahl = lambda v: isinstance(v, (int, float))  # noqa: E731
+    if zahl(km_a) or zahl(km_b):
+        return zahl(km_a) and zahl(km_b) and abs(km_a - km_b) <= 0.5
+    if zahl(h_a) or zahl(h_b):
+        return zahl(h_a) and zahl(h_b) and abs(h_a - h_b) < 0.01
+    label_a, label_b = (strecke.get("wettbewerb") or "").casefold(), (event.get("wettbewerb") or "").casefold()
+    return label_a == label_b or not (label_a and label_b)
+
+
+def merke_geloescht(zeilen: list[dict], ged: Gedaechtnis, heute: str | None = None) -> list[str]:
+    """Zeilen, die der Nutzer in der Korrekturliste GELÖSCHT hat (Status
+    „Löschen", Override `exclude` + `geloescht`). Vom Nutzer am 20.10.2026
+    entschieden: „löschen soll nur die eine Zeile herausnehmen und schauen
+    ob das Event nächstes Jahr passend ist." Also, anders als bei „Fällt
+    aus" (merke_abgesagt): Die Veranstaltung bleibt gemerkt, aber
+
+    - die gelöschte Strecke fliegt aus `strecken`, wenn sie zu dieser
+      Ausgabe gehört - sonst legte `pruefen --uebernehmen` sie nächstes Jahr
+      als Vorjahreskopie wieder an (ein Fehler, den der Nutzer schon einmal
+      entfernt hat, mit Sternchen zurück auf der Seite);
+    - sie steht unter `geloescht` (Tag + Strecke), und die passende Zeile
+      der NÄCHSTEN Ausgabe kommt wieder in die Korrekturliste
+      (`geloescht_fuer`) - egal, ob eine Quelle oder das Gedächtnis sie
+      bringt, und auch, wenn sie sonst keine Prüfmeldung hätte.
+
+    Stand die ganze Veranstaltung in der Löschung (es bleibt keine Strecke
+    dieser Ausgabe), trägt die Markierung `ganz`: Dann passt nächstes Jahr
+    jede Strecke. Angelegt wird nichts (wie bei merke_abgesagt); Markierungen,
+    deren nächste Ausgabe vorbei ist, räumt der Aufruf mit `heute` weg."""
+    bericht: list[str] = []
+    for z in zeilen:
+        kand = [schluessel_von(z)] if schluessel_von(z) in ged.daten else ged._kandidaten(z, auch_unscharf=True)
+        if len(kand) != 1:
+            bericht.append(f"⚠ {z.get('name')} ({z.get('standort')}, {z.get('datum_start')}): gelöscht, "
+                           f"aber {'kein' if not kand else 'mehr als ein'} Eintrag im Gedächtnis - die nächste "
+                           f"Ausgabe kommt nicht von selbst in die Korrekturliste")
+            continue
+        eintrag = ged.daten[kand[0]]
+        datum = z.get("datum_start") or ""
+        marke = OrderedDict([("datum", datum)] + list(strecke_von(z).items()))
+        if any({f: v for f, v in m.items() if f != "ganz"} == marke for m in eintrag.get("geloescht") or []):
+            continue  # schon gemerkt (die Quelle liefert die Zeile jede Woche, der Override nimmt sie jede Woche)
+        eintrag.setdefault("geloescht", []).append(marke)
+        if eintrag.get("strecken_datum") == datum:
+            gleich = ("laenge_km", "dauer_h", "wettbewerb")
+            eintrag["strecken"] = [st for st in eintrag.get("strecken") or []
+                                   if [st.get(f) for f in gleich] != [z.get(f) for f in gleich]]
+            if not eintrag["strecken"]:
+                for m in eintrag["geloescht"]:
+                    if m.get("datum") == datum:
+                        m["ganz"] = True
+        bericht.append(f"{z.get('name')} ({z.get('standort')}, {datum}, {masszahl(z)}): gelöscht - "
+                       f"die nächste Ausgabe dieser Strecke kommt wieder in die Korrekturliste")
+    if heute:
+        grenze = (datetime.date.fromisoformat(heute) - datetime.timedelta(days=FENSTER_TAGE[1])).isoformat()
+        for eintrag in ged.daten.values():
+            if eintrag.get("geloescht"):
+                eintrag["geloescht"] = [m for m in eintrag["geloescht"] if (m.get("datum") or "") >= grenze]
+                if not eintrag["geloescht"]:
+                    eintrag.pop("geloescht")
     return bericht
 
 
