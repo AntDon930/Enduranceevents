@@ -1,47 +1,6 @@
 [
   {
     "land": "Österreich",
-    "name": "Austria Backyard Ultra - Seekirchen",
-    "standort": "Seekirchen am Wallersee",
-    "lat": 47.8947529,
-    "lon": 13.1237929,
-    "art1": "Laufen",
-    "art2": "Backyard Ultra",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-19",
-    "laenge_km": null,
-    "wettbewerb": "7 km",
-    "veranstalter_url": "https://austriabackyardultra.com/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Backyard Ultra Valais Autumn Edition",
-    "standort": "Saillon",
-    "lat": 46.1707092,
-    "lon": 7.1858418,
-    "art1": "Laufen",
-    "art2": "Backyard Ultra",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-19",
-    "laenge_km": null,
-    "veranstalter_url": "https://backyardultravalais.ch",
-    "dauer_h": 38.0
-  },
-  {
-    "land": "Schweiz",
-    "name": "Verticale Espacité",
-    "standort": "La Chaux-de-Fonds",
-    "lat": 47.1034892,
-    "lon": 6.8327838,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-19",
-    "datum_ende": "2026-10-19",
-    "veranstalter_url": "https://sportchrono.ch/events.php?id=955",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Österreich",
     "name": "Business2Run Weberzeile",
     "standort": "Ried im Innkreis",
     "lat": 48.21272,
@@ -141,7 +100,7 @@
   },
   {
     "land": "Schweiz",
-    "name": "-25. Laufwochenende Brugg",
+    "name": "25. Laufwochenende Brugg",
     "standort": "Brugg",
     "lat": 47.4824633,
     "lon": 8.2085662,
@@ -51254,7 +51213,7 @@
   },
   {
     "land": "Deutschland",
-    "name": "23. Lauf um den Allendorfer Bahnhof - Volksbank Sauerland Lauf Cup -",
+    "name": "23. Lauf um den Allendorfer Bahnhof - Volksbank Sauerland Lauf Cup",
     "standort": "Sundern-Allendorf",
     "lat": 51.2812042,
     "lon": 7.9510553,

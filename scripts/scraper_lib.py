@@ -611,6 +611,7 @@ class Event:
 
     def to_dict(self) -> dict:
         d = {f.name: getattr(self, f.name) for f in fields(self)}
+        d["name"] = bereinige_name(d.get("name"))
         # Einheitlich eine Nachkommastelle, egal woher der Wert kommt
         # (Regex, JSON-LD, manuelles Override) - siehe round_km().
         if d.get("laenge_km") is not None:
@@ -1889,6 +1890,20 @@ _NAME_STOPWORDS = {
     "lauf", "laufen", "run", "der", "die", "das", "am", "im", "in",
     "und", "mit", "von", "zum", "zur", "e", "v",
 }
+
+
+# Satzzeichen, die ein Name nicht am Anfang oder Ende trägt: Reste einer
+# Aufzählung oder eines Trenners der Quelle ("-25. Laufwochenende Brugg",
+# "… - Volksbank Sauerland Lauf Cup -"; Fehlerscan 19.10.2026). Klammern
+# und Anführungszeichen bleiben - die gehören zum Namen.
+_NAMENSRAND = " \t\u00a0-\u2010\u2011\u2012\u2013\u2014_\u00b7\u2022*,;:/|"
+
+
+def bereinige_name(name: str | None) -> str | None:
+    """Nimmt Trenn- und Aufzählungszeichen vom Rand eines Namens."""
+    if not name:
+        return name
+    return name.strip(_NAMENSRAND) or name
 
 
 def normalize_event_name(name: str | None) -> str:

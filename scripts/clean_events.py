@@ -105,6 +105,7 @@ from scraper_lib import (  # noqa: E402
     parse_duration_h,
     load_manual_overrides,
     round_km,
+    bereinige_name,
 )
 import veranstalter_seiten  # noqa: E402  (Gedächtnis je Veranstaltung, ohne Datum)
 import fangzeile  # noqa: E402  (erfundene Zeile, an der sich eine Kopie erkennen lässt)
@@ -1244,6 +1245,18 @@ def fix_halbmarathon_distance(events: list[dict]) -> list[str]:
     return changed
 
 
+def fix_namensrand(events: list[dict]) -> list[str]:
+    """Rückwirkend: Trenn- und Aufzählungszeichen vom Rand der Namen
+    (scraper_lib.bereinige_name). Idempotent."""
+    meldungen = []
+    for e in events:
+        neu = bereinige_name(e.get("name"))
+        if neu != e.get("name"):
+            meldungen.append(f"{e.get('name')!r} -> {neu!r}")
+            e["name"] = neu
+    return meldungen
+
+
 def fix_meter_labels(events: list[dict]) -> list[str]:
     """Nennt das Wettbewerbs-Label die Strecke nur in METERN ("Mini
     Marathon mit 150 m, 300 m, 550 m und 900 m", "Hauptlauf 7.900 m"),
@@ -2213,6 +2226,9 @@ def main() -> None:
     # heraus beim Laden, wieder hinein als allerletzter Schritt.
     events = fangzeile.entfernen(events)
     before = len(events)
+    # VOR den Overrides: Ihr Schlüssel ist der bereinigte Name, so wie ihn
+    # der Scraper inzwischen selbst liefert (Event.to_dict).
+    namens_raender = fix_namensrand(events)
 
     geocoder = None if args.no_geocoding else Geocoder(GEOCODE_CACHE_PATH)
 
@@ -2376,6 +2392,7 @@ def main() -> None:
     section("Charity-Merkmal gesetzt", charity_changes)
     section("Kategorie (art2) korrigiert", art2_changes)
     section("Distanz korrigiert (Halbmarathon-Bugfix)", distance_fixes)
+    section("Satzzeichen am Rand des Namens entfernt", namens_raender)
     section("Distanz aus dem Meter-Label (Kinderläufe, Meterangaben)", meter_fixes)
     section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)
     section("Widersprüchliches Wettbewerbs-Label entfernt", label_fixes)

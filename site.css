@@ -344,6 +344,18 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   border-bottom: 1px solid var(--border);
 }
 .filter-bar-actions { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; }
+/* iPad quer und kleine Laptops: Suchfeld, sieben Pillen, „Karte“ und
+   „E-Mail-Abo“ brauchten eine Zeile mehr, das Abo stand allein in der
+   zweiten (Fehlerscan 19.10.2026). Etwas enger passt alles in eine. */
+@media (min-width: 901px) and (max-width: 1276px) {
+  .filter-bar { gap: 8px; }
+  .filter-bar > .master-search { flex: 1 1 180px; max-width: 280px; min-width: 140px; }
+  .filter-bar .filter-btn-bar { gap: 5px; }
+  .filter-bar .filter-btn-bar .col-filter-btn { padding: 0 9px; gap: 4px; }
+  .filter-bar .filter-btn-bar .col-filter-btn.open:not(.has-filter) { padding: 0 8px; }
+  .filter-bar-actions { gap: 8px; }
+  .filter-bar .bar-btn { padding: 0 12px; }
+}
 .bar-btn {
   display: inline-flex;
   align-items: center;

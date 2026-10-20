@@ -262,7 +262,7 @@
       background: var(--panel, #fff); color: var(--text, #1c1f24);
       border-radius: 14px; padding: 28px 26px; width: 100%; max-width: 380px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.35); position: relative;
-      max-height: 90vh; overflow-y: auto;
+      max-height: 90vh; max-height: 90dvh; overflow-y: auto;
     }
     .ee-modal h2 { margin: 0 0 18px; font-size: 1.3rem; text-align: center; }
     .ee-modal-close {

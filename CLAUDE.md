@@ -4403,6 +4403,34 @@ sagt es).
   solchen Stelle **alle Klicks aller Prüfungen** durchsehen
   (`grep 'tbody tr[^"]*")\.\(first\|nth\)'` findet sie).
 
+- **Fehlerscan vom 19.10.2026 (neun Befunde, vom Nutzer: „Bitte alle 9
+  Fehler korrigieren")** – was daran nicht zurückgedreht werden soll:
+  - **Das Kalender-Menü liegt im Fluss**, nicht absolut: `.cal-box` ist
+    `display: contents`, das Menü eine volle Rasterzeile UNTER den Knöpfen
+    (`event-detail.css`). Schwebend ragte es auf dem Handy aus dem Blatt,
+    lag am Rechner über der Melde-Box und war auf dem iPad quer
+    abgeschnitten.
+  - **Spaltenbreiten**: Datum 14,5 % (EN „Sat 24 Oct 2026 –" war
+    abgeschnitten), Ort 13 % („Schwarzenbach" brach mitten im Wort), Name
+    20,5 %. **Von 901 bis 1276 px entfällt die Spalte „Land"** (Tabelle
+    792 statt 900 px), sonst lag „Länge" neben der 300-px-Box hinter dem
+    Scrollbalken. `.cell-clamp` trägt `hyphens: auto` (Chromium unter
+    Linux hat keine Wörterbücher – im Rauchtest wirkt es nicht, auf den
+    Geräten schon). Der Rauchtest klickt deshalb `td.col-art2` statt
+    `td.col-land`.
+  - **Filterleiste 901–1276 px enger** (`site.css`), damit „E-Mail-Abo"
+    nicht allein in die zweite Zeile rutscht; das große Datum der Box ist
+    dort 1,35rem.
+  - **Ein neues Event aus der Liste beginnt oben in der Box**
+    (`waehleZeile`, `scrollTop = 0`); die Strecken-Pillen übergeben
+    `behalteScroll`.
+  - **Abo-Dialog**: Die Pillenleiste trägt `filter-btn-bar` (Abstand des
+    Pfeils), `.abo-hint` gilt überall (der Satz unter „Anmelden" war
+    größer als der Rest), `.ee-modal` hat `max-height: 90dvh`.
+  - **Namen ohne Trennzeichen am Rand**: `scraper_lib.bereinige_name()`
+    in `Event.to_dict()` und `clean_events.fix_namensrand()` (VOR den
+    Overrides) – „-25. Laufwochenende Brugg", „… Lauf Cup -";
+    `test_namensrand`.
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 
 ## Tempo (gemessen, nicht geraten)

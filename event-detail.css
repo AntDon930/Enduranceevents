@@ -188,7 +188,13 @@
   gap: 10px;
 }
 .detail-actions > :only-child { grid-column: 1 / -1; }
-.cal-box { position: relative; margin: 0; min-width: 0; }
+/* Die Hülle des Kalenderknopfs ist für das Raster unsichtbar: Knopf und
+   Menü sind selbst Rasterzellen. So klappt das Menü als eigene, volle
+   Zeile UNTER beiden Knöpfen auf und schiebt "Fehler melden" nach unten -
+   als schwebendes Menü ragte es auf dem Handy aus dem Blatt und lag am
+   Rechner über der Melde-Box (Fehlerscan 19.10.2026). */
+.cal-box { display: contents; }
+.detail-actions > .cal-box:only-child > .cal-btn { grid-column: 1 / -1; }
 .cal-btn {
   display: flex;
   align-items: center;
@@ -210,21 +216,16 @@
 }
 .cal-btn:hover { border-color: var(--border-strong, var(--accent)); }
 .cal-btn svg { flex-shrink: 0; }
-/* Das Kalender-Menü klappt UNTER dem Knopf auf, über die ganze Breite
-   der Box - es liegt absolut, damit die zwei Knöpfe daneben nicht
-   verrutschen. */
+/* Das Kalender-Menü klappt UNTER den Knöpfen auf, über die ganze Breite
+   der Box, im Fluss (siehe .cal-box) - nichts liegt darüber, nichts
+   ragt hinaus. */
 .cal-menu {
-  position: absolute;
-  left: 0;
-  top: calc(100% + 6px);
-  z-index: 5;
-  min-width: 100%;
-  width: max-content;
-  max-width: 320px;
+  grid-column: 1 / -1;
+  order: 1;
+  min-width: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-ctl, 10px);
   background: var(--panel);
-  box-shadow: var(--shadow, 0 12px 36px rgba(0,0,0,0.45));
   overflow: hidden;
 }
 .cal-menu[hidden] { display: none; }

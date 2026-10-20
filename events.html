@@ -91,10 +91,10 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=e94c11b6">
+<link rel="stylesheet" href="site.css?v=a5ec03ff">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
-<link rel="stylesheet" href="event-detail.css?v=92628441">
+<link rel="stylesheet" href="event-detail.css?v=cc858fa6">
 <style>
   /* Farben, Kopfzeile, Filterleiste, Werkzeugleiste und Fußzeile stehen
      in site.css (geteilt mit Karte und Startseite); hier nur, was allein
@@ -183,6 +183,10 @@
   @media (min-width: 901px) and (max-width: 1330px) {
     .side-panel .detail-grid { grid-template-columns: 1fr; }
     .side-panel .detail-actions { grid-template-columns: 1fr; }
+    /* Das große Datum stand in der schmalen Spalte über vier Zeilen
+       ("Sa, 17. Okt. / 2026 – / Mo, 19. Okt. / 2026", Fehlerscan
+       19.10.2026) - etwas kleiner passt ein Zeitraum in zwei. */
+    .side-panel .detail-date { font-size: 1.35rem; }
   }
   @media (max-width: 900px) {
     /* minmax(0, 1fr) wie am Rechner: Mit 1fr allein wächst die Spalte auf
@@ -299,10 +303,14 @@
   /* Spaltenbreiten über KLASSEN, nicht über nth-child: die
      Entfernungs-Spalte kommt und geht. Reihenfolge (Vorlage): Datum,
      Name, Sportart, Ort, Land, Kategorie, Länge. */
-  .col-datum { width: 13%; }
-  .col-name { width: 23%; }
+  /* Datum 14,5 % (vorher 13): Englisch "Sat 24 Oct 2026 –" ist breiter
+     als "Sa 24.10.2026 –" und war abgeschnitten. Ort 13 % (vorher 12):
+     "Schwarzenbach" brach mitten im Wort um. Beides geht vom Namen ab
+     (23 -> 20,5 %), der ohnehin mit "…" kürzt (Fehlerscan 19.10.2026). */
+  .col-datum { width: 14.5%; }
+  .col-name { width: 20.5%; }
   .col-art1 { width: 11%; }
-  .col-standort { width: 12%; }
+  .col-standort { width: 13%; }
   .col-entfernung { width: 10%; }
   .col-land { width: 12%; }
   .col-art2 { width: 13%; }
@@ -319,6 +327,21 @@
      (.format, "Mitteldistanz (70.3)") darf umbrechen. */
   td.col-datum .cell-clamp, td.col-laenge_km .cell-clamp { white-space: nowrap; }
   td.col-laenge_km .cell-clamp.format { white-space: normal; }
+  /* iPad quer und kleine Laptops (901-1276 px): Neben der 300 px breiten
+     Box bleiben der Tabelle ~820 px, sie braucht 900 - "Länge" lag
+     abgeschnitten hinter dem Scrollbalken (Fehlerscan 19.10.2026). Hier
+     entfällt die Spalte "Land" (steht in der Box unter dem Ort, der
+     Filter bleibt), die anderen teilen sich ihre 12 %. */
+  @media (min-width: 901px) and (max-width: 1276px) {
+    table { min-width: 792px; }
+    .col-land { display: none; }
+    .col-datum { width: 16.5%; }
+    .col-name { width: 22%; }
+    .col-art1 { width: 12.5%; }
+    .col-standort { width: 16%; }
+    .col-art2 { width: 14.8%; }
+    .col-laenge_km { width: 18.2%; }
+  }
   /* Der Browser überspringt Layout und Zeichnen für Zeilen außerhalb
      des Bildes - möglich nur wegen table-layout: fixed. Jede Zeile ist
      gleich hoch (52 px, wie eine Mindesthöhe), kein Text geht über zwei
@@ -394,6 +417,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-word;
+    /* Lange Ortsnamen trennt der Browser nach den Regeln der Sprache
+       ("Schwarzen-/bach an der Saale") statt mitten im Wort
+       ("Schwarzenbac/h", Fehlerscan 19.10.2026); <html lang> folgt DE/EN. */
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
   /* Sportart mit Symbol in der Farbe der Sportart (event-detail.js,
      sportIcon/sportClass; die Farben stehen in site.css) - dieselben
@@ -583,7 +611,10 @@
     font-size: 0.86rem;
   }
   .abo-summary strong { display: block; margin-bottom: 2px; }
-  .abo-summary .abo-hint { display: block; margin-top: 5px; color: var(--text-muted); font-size: 0.82rem; }
+  /* Auch der Hinweis unter dem Knopf ("Für ein Abo brauchen wir eine
+     E-Mail-Adresse …") ist klein und leise - vorher erbte er die Schrift
+     der Seite und war größer als alles darüber (Fehlerscan 19.10.2026). */
+  .abo-hint { display: block; margin-top: 5px; color: var(--text-muted); font-size: 0.82rem; line-height: 1.45; }
   .abo-filter { margin: 0 0 12px; }
   .abo-filter-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
   .abo-abschnitt { display: block; margin: 0 0 6px; }
@@ -2807,9 +2838,17 @@
   // bekommt. `selectedIndex` steht in keinem Link (siehe currentParams),
   // also ist auch writeUrlState() hier nichts zu tun.
   function waehleZeile(idx, opts) {
+    const anderesEvent = idx !== selectedIndex;
     selectedIndex = idx;
     markiereAuswahl();
     renderDetail();
+    // Ein neues Event aus der Liste beginnt oben in der Box - vorher blieb
+    // sie an der Stelle stehen, bis zu der man beim letzten gescrollt hatte
+    // (Fehlerscan 19.10.2026). Ein Wechsel über die Strecken-Pillen
+    // (behalteScroll) bleibt, wo er ist: Man sieht die Pillen ja gerade.
+    if (anderesEvent && !(opts && opts.behalteScroll)) {
+      document.querySelectorAll('.side-panel, #detail-panel').forEach(el => { el.scrollTop = 0; });
+    }
     if (opts && opts.zeigeDetail) oeffneDetail();
   }
 
@@ -3227,7 +3266,7 @@
       <p class="report-intro">${escapeHtml(t('abo_intro'))}</p>
       <div class="abo-filter">
         <strong>${escapeHtml(t('abo_welche'))}</strong>
-        <div class="abo-filter-bar" id="abo-filter-bar"></div>
+        <div class="filter-btn-bar abo-filter-bar" id="abo-filter-bar"></div>
       </div>
       <div class="abo-summary">
         <strong>${escapeHtml(t('abo_summary_titel'))}</strong>
@@ -3417,7 +3456,7 @@
       siblings: geschwisterVon(e),
       // Eine andere Strecke in der Box wählen: nur die Auswahl wechselt,
       // die Tabelle bleibt, wo sie ist.
-      onSelect: (idx) => waehleZeile(idx, { zeigeDetail: false }),
+      onSelect: (idx) => waehleZeile(idx, { zeigeDetail: false, behalteScroll: true }),
       // Die Karte mit genau dieser Veranstaltung (Mastersuche auf den Namen).
       mapLink: 'karte.html?s=' + encodeURIComponent(e.name || ''),
       // Mit Ausgangspunkt zeigt der vierte Fakt die Entfernung statt des

@@ -5599,10 +5599,33 @@ def test_korrektur_seite() -> None:
           ("2026-10-13", "2026-10-13"))
 
 
+def test_namensrand() -> None:
+    """Trenn- und Aufzählungszeichen am Rand eines Namens fliegen
+    (Fehlerscan 19.10.2026: "-25. Laufwochenende Brugg"), Klammern,
+    Anführungszeichen und Bindestriche IM Namen bleiben."""
+    print("\nSatzzeichen am Rand des Namens:")
+    import scraper_lib
+    import clean_events
+    b = scraper_lib.bereinige_name
+    check("führender Bindestrich", b("-25. Laufwochenende Brugg"), "25. Laufwochenende Brugg")
+    check("Gedankenstrich am Ende", b("23. Lauf um den Allendorfer Bahnhof - Volksbank Sauerland Lauf Cup -"),
+          "23. Lauf um den Allendorfer Bahnhof - Volksbank Sauerland Lauf Cup")
+    check("Bindestrich im Namen bleibt", b("Run-Bike-Run Ostfildern-Nellingen"), "Run-Bike-Run Ostfildern-Nellingen")
+    check("Klammer bleibt", b("(L)auf zur Venus"), "(L)auf zur Venus")
+    check("Anführungszeichen bleiben", b("„Rund um“"), "„Rund um“")
+    check("nur Satzzeichen: unverändert", b("--"), "--")
+    check("None", b(None), None)
+    check("Event.to_dict", scraper_lib.Event(name=" • Stadtlauf, ", datum_start="2027-05-01",
+                                               standort="Ulm").to_dict()["name"], "Stadtlauf")
+    ev = [{"name": "-Testlauf"}, {"name": "Testlauf"}]
+    check("fix_namensrand meldet einen", len(clean_events.fix_namensrand(ev)), 1)
+    check("fix_namensrand idempotent", clean_events.fix_namensrand(ev), [])
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_insta_freigabe,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
-                 test_duplikate, test_namensvereinheitlichung,
+                 test_duplikate, test_namensvereinheitlichung, test_namensrand,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien, test_web_data,
                  test_meldungen,
                  test_ortsverzeichnis, test_js_syntax, test_abo_rhythmen,

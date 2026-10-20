@@ -1208,7 +1208,7 @@ def pruefe_gruppierung(ctx, basis):
            % ", ".join("%d px" % h for h in sorted(set(hoehen_offen))))
     # Ein Klick auf die Zeile (nicht den Pfeil) klappt NICHT zu, er wählt
     # die erste Strecke (18.10.2026).
-    seite.locator("tr.group-row:not(.single) td.col-land").first.click()
+    seite.locator("tr.group-row:not(.single) td.col-art2").first.click()
     seite.wait_for_timeout(300)
     pruefe(seite.evaluate("() => document.querySelector('tr.group-row:not(.single)').classList.contains('open')"),
            "ein Klick auf die Zeile neben dem Pfeil klappt nicht zu")
