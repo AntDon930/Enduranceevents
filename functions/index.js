@@ -418,15 +418,37 @@ function istFaellig(sub) {
   return tageSeit(sub.zuletztGesendet) >= grenze;
 }
 
+// ==== Abo-Mail: Anfang ====
+// (test_abo_mail schneidet diesen Abschnitt heraus und rendert ihn in
+// node - Marken nicht entfernen.)
+//
+// Die Abo-Mail im Stil der Seite (seit dem 20.10.2026, vom Nutzer: „Ja,
+// bitte die schönere Mail-Vorlage bauen"). Vorher: ISO-Datum, "6.6 km",
+// jede Strecke einzeln, und ohne Filter hieß der Betreff „542 neue Events
+// für Alle neuen Events". Jetzt:
+//
+//   - EINE Karte je Veranstaltung (Name + Tag + Ort), darin alle Längen,
+//     geschrieben wie in der Liste ("21,1km", "40min", "Sprint").
+//   - Datum mit Wochentag, ein vorläufiger Termin nur als Monat mit *.
+//   - Farben des Style Guides (Navy, Kreide, Sportfarben) - nur als
+//     Inline-Stile in Tabellen: Mail-Programme kennen kein Stylesheet,
+//     kein Flexbox, keine Webschrift. KEINE Bilder: Ein Bild vom eigenen
+//     Server verriete beim Öffnen, wer die Mail gelesen hat.
+//   - Eine Textfassung daneben (`text`), für Programme ohne HTML und
+//     gegen den Spam-Filter.
+//   - Alles aus den Daten wird maskiert - Namen kommen aus Kalendern.
+//
 // Ein Event auf das, was in die E-Mail gehört. Bewusst KEIN Link auf die
 // Detailseite (?event=<slug>): Der Slug entsteht aus Datum, Name, Maßzahl
 // und Ort, und diese Regel steht schon zweimal im Projekt (events.html
 // und build_ics.py, gegeneinander geprüft). Eine dritte Kopie hier würde
 // irgendwann abweichen und tote Links verschicken - die E-Mail verlinkt
-// deshalb die Veranstalter-Seite und die Liste.
+// deshalb die Liste mit der Suche nach dem Namen (`?s=`) und die
+// Veranstalter-Seite.
 function eventKurz(event) {
   return {
     name: String(event.name || "").slice(0, 200),
+    wettbewerb: event.wettbewerb ? String(event.wettbewerb).slice(0, 200) : null,
     datum_start: event.datum_start || null,
     datum_ende: event.datum_ende || null,
     datum_vorlaeufig: event.datum_vorlaeufig ? true : null,
@@ -438,6 +460,7 @@ function eventKurz(event) {
     laenge_km: event.laenge_km != null ? event.laenge_km : null,
     gedaechtnis: event.gedaechtnis === true,
     dauer_h: event.dauer_h != null ? event.dauer_h : null,
+    hoehenmeter: event.hoehenmeter != null ? event.hoehenmeter : null,
     veranstalter_url: event.veranstalter_url || null,
   };
 }
@@ -463,57 +486,197 @@ function abmeldeLink(subId, token) {
   return `${seitenBasis()}/events.html?abos=1`;
 }
 
-// Ein vorläufiger Termin (datum_vorlaeufig, Kalenderprognose) steht wie
-// auf der Seite nur als Monat: "Juni 2027 (Termin noch nicht
-// veröffentlicht)".
-const MONATE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
-  "August", "September", "Oktober", "November", "Dezember"];
-function datumText(event) {
-  const iso = event.datum_start || "";
-  if (!event.datum_vorlaeufig || !/^\d{4}-\d{2}/.test(iso)) return iso;
-  return `${MONATE[Number(iso.slice(5, 7)) - 1]} ${iso.slice(0, 4)} (Termin noch zu bestätigen – to be confirmed)`;
+function esc(text) {
+  return String(text == null ? "" : text)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 }
 
-function eventEmailHtml(event) {
-  const link = event.veranstalter_url
-    ? `<p><a href="${event.veranstalter_url}">Zur Veranstalter-Website</a></p>`
+// Nur http(s) wird verlinkt - eine Adresse aus einem Kalender ist Text,
+// kein Vertrauen.
+function sichereUrl(url) {
+  return /^https?:\/\/[^\s"'<>]+$/i.test(String(url || "")) ? String(url) : null;
+}
+
+// Zahlen wie auf der Seite (EF.formatNumber, Deutsch): eine Stelle,
+// Komma, ganze Zahlen ohne ",0".
+function zahl(wert, stellen) {
+  const n = Math.round(Number(wert) * Math.pow(10, stellen)) / Math.pow(10, stellen);
+  return (Number.isInteger(n) ? String(n) : n.toFixed(stellen)).replace(".", ",");
+}
+
+const TRIATHLON_FORMAT_NAME = {
+  supersprint: "Super-Sprint", sprint: "Sprint", olympisch: "Olympisch",
+  mittel: "Mitteldistanz (70.3)", lang: "Langstrecke (140.6)", ultra: "Ultra-Triathlon",
+};
+
+// Die Länge einer Strecke wie in der Länge-Spalte der Liste
+// (EED.formatLength): Triathlon-Format, sonst km, sonst Dauer (unter
+// einer Stunde in Minuten), sonst Höhenmeter, beim Backyard "Open End".
+function laengeText(e) {
+  const format = triathlonFormat(e);
+  if (format) {
+    const name = TRIATHLON_FORMAT_NAME[format];
+    return e.art2 === "Duathlon" ? name.replace(/ \((70\.3|140\.6)\)$/, "") : name;
+  }
+  if (e.laenge_km != null && Number(e.laenge_km) > 0) return `${zahl(e.laenge_km, 1)}km`;
+  if (e.dauer_h != null && Number(e.dauer_h) > 0) {
+    const h = Number(e.dauer_h);
+    return h < 1 ? `${Math.round(h * 60)}min` : `${zahl(h, 1)}h`;
+  }
+  if (e.hoehenmeter != null && Number(e.hoehenmeter) > 0) {
+    return `${Number(e.hoehenmeter).toLocaleString("de-DE")}hm`;
+  }
+  if (e.art2 === "Backyard Ultra") return "Open End";
+  return null;
+}
+
+const WOCHENTAGE = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
+const MONATE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"];
+
+function isoTeile(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso || ""));
+  if (!m) return null;
+  const d = new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])));
+  return { j: m[1], m: m[2], t: m[3], wt: WOCHENTAGE[d.getUTCDay()] };
+}
+
+// "Sa, 25.10.2026", mehrtägig "Sa, 24.10. – So, 25.10.2026"; ein
+// vorläufiger Termin (datum_vorlaeufig) wie auf der Seite nur als Monat
+// mit Sternchen: "Juni 2027*".
+function datumText(e) {
+  const a = isoTeile(e.datum_start);
+  if (!a) return "";
+  if (e.datum_vorlaeufig) return `${MONATE[Number(a.m) - 1]} ${a.j}*`;
+  const b = isoTeile(e.datum_ende);
+  if (!b || e.datum_ende === e.datum_start) return `${a.wt}, ${a.t}.${a.m}.${a.j}`;
+  const links = a.j === b.j ? `${a.wt}, ${a.t}.${a.m}.` : `${a.wt}, ${a.t}.${a.m}.${a.j}`;
+  return `${links} – ${b.wt}, ${b.t}.${b.m}.${b.j}`;
+}
+
+// Farben des Style Guides: Linie, Tonfläche, Schrift auf der Tonfläche.
+const SPORT_FARBE = {
+  Laufen: ["#E8590C", "#FFF1E8", "#9A3B05"],
+  Fahrrad: ["#2B8A3E", "#E9F7EC", "#1B5E2B"],
+  Schwimmen: ["#1971C2", "#E7F1FC", "#0F4C86"],
+  Triathlon: ["#7048E8", "#F1ECFF", "#482FA6"],
+};
+const NAVY = "#0B1B33";
+const KREIDE = "#F4F2ED";
+const LINIE = "#E2DED5";
+const TINTE = "#0F1B20";
+const GRAU = "#66707F";
+const SCHRIFT = "Arial, Helvetica, sans-serif";
+const SCHRIFT_GROSS = "'Barlow Condensed', 'Arial Narrow', Arial, sans-serif";
+
+// Die Strecken eines Abos zu Veranstaltungen: Name + Tag + Ort, wie das
+// Zusammenfassen der Liste. Längen ohne Doppel, kürzeste zuerst.
+function veranstaltungen(wartend) {
+  const gruppen = new Map();
+  for (const e of wartend) {
+    const key = `${String(e.name || "").toLowerCase()}|${e.datum_start}|${String(e.standort || "").toLowerCase()}`;
+    if (!gruppen.has(key)) gruppen.set(key, { e, zeilen: [] });
+    gruppen.get(key).zeilen.push(e);
+  }
+  const rang = (z) => (z.laenge_km != null ? Number(z.laenge_km) : z.dauer_h != null ? 10000 + Number(z.dauer_h) : 99999);
+  return [...gruppen.values()]
+    .map((g) => {
+      const zeilen = g.zeilen.slice().sort((x, y) => rang(x) - rang(y));
+      const laengen = [...new Set(zeilen.map(laengeText).filter(Boolean))];
+      return {
+        e: g.e,
+        laengen,
+        vorlaeufig: zeilen.some((z) => z.datum_vorlaeufig),
+        gedaechtnis: zeilen.some((z) => z.gedaechtnis),
+        charity: zeilen.some((z) => z.charity),
+        url: sichereUrl(zeilen.map((z) => z.veranstalter_url).find(Boolean)),
+      };
+    })
+    .sort((x, y) => String(x.e.datum_start).localeCompare(String(y.e.datum_start)));
+}
+
+function listenLink(name) {
+  return `${seitenBasis()}/events.html?s=${encodeURIComponent(String(name || "").slice(0, 80))}`;
+}
+
+function knopf(href, text, hell) {
+  const farbe = hell ? `background:#ffffff;color:${NAVY};border:1px solid ${LINIE};` : `background:${NAVY};color:#ffffff;border:1px solid ${NAVY};`;
+  return `<a href="${esc(href)}" style="${farbe}display:inline-block;margin:0 6px 6px 0;padding:9px 14px;border-radius:10px;` +
+    `font-family:${SCHRIFT};font-size:14px;font-weight:bold;text-decoration:none;">${esc(text)}</a>`;
+}
+
+function karteHtml(g) {
+  const [linie, ton, tonSchrift] = SPORT_FARBE[g.e.art1] || [NAVY, "#EDF1F7", NAVY];
+  const ort = [g.e.standort, g.e.land].filter(Boolean).join(" · ");
+  const abzeichen = [g.e.art1, g.e.art2].filter(Boolean).join(" · ");
+  const marken =
+    (abzeichen ? `<span style="display:inline-block;background:${ton};color:${tonSchrift};border-radius:999px;padding:3px 10px;` +
+      `font-family:${SCHRIFT};font-size:12px;font-weight:bold;">${esc(abzeichen)}</span>` : "") +
+    (g.charity ? ` <span style="display:inline-block;background:#FDECEF;color:#A3123A;border-radius:999px;padding:3px 10px;` +
+      `font-family:${SCHRIFT};font-size:12px;font-weight:bold;">&#9829; Charity</span>` : "");
+  const strecken = g.laengen.length
+    ? `<p style="margin:10px 0 0;font-family:${SCHRIFT};font-size:14px;color:${TINTE};">` +
+      `<span style="color:${GRAU};">${g.laengen.length > 1 ? "Strecken" : "Strecke"}:</span> ` +
+      `<strong>${g.laengen.map(esc).join(" &middot; ")}</strong>${g.gedaechtnis ? "*" : ""}</p>`
     : "";
+  const hinweise = [];
+  if (g.vorlaeufig) hinweise.push("* Termin noch zu bestätigen");
+  if (g.gedaechtnis) hinweise.push("* Strecke aus dem Vorjahr, noch zu bestätigen");
+  const knoepfe = knopf(listenLink(g.e.name), "Zum Event", false) +
+    (g.url ? knopf(g.url, "Veranstalter-Seite", true) : "");
   return (
-    `<h2>${event.name}</h2>` +
-    `<p>${event.standort || ""}, ${event.land || ""}<br>` +
-    `${datumText(event)}${event.laenge_km ? " · " + event.laenge_km + " km" : ""}` +
-    `${event.gedaechtnis ? " (Strecke noch zu bestätigen – Angabe aus dem Vorjahr)" : ""}</p>` +
-    link
+    `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" ` +
+    `style="background:#ffffff;border:1px solid ${LINIE};border-left:4px solid ${linie};border-radius:12px;margin:0 0 14px;">` +
+    `<tr><td style="padding:16px 18px;">` +
+    `<p style="margin:0 0 4px;font-family:${SCHRIFT};font-size:13px;font-weight:bold;color:${tonSchrift};text-transform:uppercase;letter-spacing:.04em;">${esc(datumText(g.e))}</p>` +
+    `<p style="margin:0 0 6px;font-family:${SCHRIFT_GROSS};font-size:22px;line-height:1.2;font-weight:bold;color:${TINTE};">${esc(g.e.name)}</p>` +
+    (ort ? `<p style="margin:0 0 10px;font-family:${SCHRIFT};font-size:14px;color:${GRAU};">${esc(ort)}</p>` : "") +
+    marken + strecken +
+    (hinweise.length ? `<p style="margin:6px 0 0;font-family:${SCHRIFT};font-size:12px;color:${GRAU};">${esc(hinweise.join(" · "))}</p>` : "") +
+    `<p style="margin:14px 0 -6px;">${knoepfe}</p>` +
+    `</td></tr></table>`
   );
 }
 
-// Die eigentliche Nachricht eines Abos: eine Liste der neuen Events,
-// ein Link in die Liste und der Abmelde-Weg. Bewusst schlicht gehalten
-// (keine Bilder, keine Schriften) - so kommt sie überall an und wird
-// nicht als Werbung einsortiert.
-function aboMail(subId, sub, wartend, uebersprungen) {
-  const titel = sub.name ? sub.name : "deinem Abo";
-  const anzahl = wartend.length + (uebersprungen || 0);
-  const betreff = anzahl === 1
-    ? `1 neues Event: ${wartend[0].name}`
-    : `${anzahl} neue Events für ${titel}`;
-  const rest = uebersprungen > 0
-    ? `<p>… und ${uebersprungen} weitere.</p>`
-    : "";
-  const abmelden = abmeldeLink(subId, sub.token);
-  return {
-    subject: betreff,
-    html:
-      `<p>Hallo,</p>` +
-      `<p>diese Events sind neu dazugekommen und passen zu <strong>${titel}</strong>:</p>` +
-      wartend.map(eventEmailHtml).join("") +
-      rest +
-      `<p><a href="${seitenBasis()}/events.html">Alle Events ansehen</a></p>` +
-      `<p style="color:#888;font-size:0.85em;">Du bekommst diese E-Mail, weil du auf der ` +
-      `Ausdauersport-Events-Seite ein Abo für neue Events angelegt hast ` +
-      `(${rhythmusText(sub.rhythmus)}). ` +
-      `<a href="${abmelden}">Abo beenden</a>.</p>`,
-  };
+function karteText(g) {
+  const zeilen = [`${datumText(g.e)}  ${g.e.name}`];
+  const ort = [g.e.standort, g.e.land].filter(Boolean).join(", ");
+  const art = [g.e.art1, g.e.art2].filter(Boolean).join(" · ");
+  if (ort || art) zeilen.push([ort, art].filter(Boolean).join(" – "));
+  if (g.laengen.length) zeilen.push(`${g.laengen.length > 1 ? "Strecken" : "Strecke"}: ${g.laengen.join(", ")}${g.gedaechtnis ? "*" : ""}`);
+  if (g.vorlaeufig) zeilen.push("* Termin noch zu bestätigen");
+  if (g.gedaechtnis) zeilen.push("* Strecke aus dem Vorjahr, noch zu bestätigen");
+  zeilen.push(listenLink(g.e.name));
+  if (g.url) zeilen.push(`Veranstalter: ${g.url}`);
+  return zeilen.join("\n");
+}
+
+// Das Gerüst: Navy-Kopf mit der Marke, Kreide-Fläche, Fußzeile. Breite
+// höchstens 600 px - die übliche Breite, die jedes Mail-Programm zeigt.
+function mailGeruest({ titel, vorschau, kopf, inhalt, fuss }) {
+  return (
+    `<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">` +
+    `<meta name="viewport" content="width=device-width, initial-scale=1">` +
+    `<meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light">` +
+    `<title>${esc(titel)}</title></head>` +
+    `<body style="margin:0;padding:0;background:${KREIDE};">` +
+    `<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${esc(vorschau)}</div>` +
+    `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${KREIDE};">` +
+    `<tr><td align="center" style="padding:24px 12px;">` +
+    `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;">` +
+    `<tr><td style="background:${NAVY};border-radius:14px 14px 0 0;padding:18px 24px;">` +
+    `<a href="${esc(seitenBasis())}/" style="text-decoration:none;font-family:${SCHRIFT_GROSS};font-size:22px;font-weight:bold;color:#ffffff;">` +
+    `Endurance Events<span style="color:#E8590C;">&#9679;</span></a>` +
+    `<div style="font-family:${SCHRIFT};font-size:12px;color:#B8C2D3;margin-top:2px;">Ausdauersport im deutschsprachigen Raum</div>` +
+    `</td></tr>` +
+    `<tr><td style="background:#ffffff;padding:22px 24px 18px;border:1px solid ${LINIE};border-top:0;border-radius:0 0 14px 14px;">` +
+    kopf + `</td></tr>` +
+    `<tr><td style="background:${KREIDE};padding:18px 0 4px;">` + inhalt + `</td></tr>` +
+    `<tr><td style="padding:10px 4px 0;font-family:${SCHRIFT};font-size:12px;line-height:1.6;color:${GRAU};">` +
+    fuss + `</td></tr>` +
+    `</table></td></tr></table></body></html>`
+  );
 }
 
 function rhythmusText(rhythmus) {
@@ -521,6 +684,92 @@ function rhythmusText(rhythmus) {
   if (rhythmus === "monatlich") return "monatlich";
   return "sofort bei neuen Events";
 }
+
+const OHNE_FILTER = ["alle neuen events", "all new events"];
+
+// Höchstens so viele Karten je Mail: eine Karte sind gut 2 KB, und Gmail
+// kürzt eine Nachricht ab etwa 100 KB („Nachricht gekürzt"). Der Rest
+// steht als Zahl darunter, mit dem Weg in die Liste.
+const MAX_KARTEN = 30;
+
+function restText(weitere, uebersprungen) {
+  const teile = [];
+  if (weitere > 0) teile.push(`${weitere} weitere Events`);
+  if (uebersprungen > 0) teile.push(`${teile.length ? "dazu " : ""}${uebersprungen} weitere Strecken`);
+  return teile.length ? `… und ${teile.join(", ")} – alle in der Liste.` : "";
+}
+
+// Die Nachricht eines Abos: eine Karte je Veranstaltung, ein Knopf in
+// die Liste, der Abmelde-Weg. `wartend` sind eventKurz()-Zeilen.
+function aboMail(subId, sub, wartend, uebersprungen) {
+  const gruppen = veranstaltungen(wartend);
+  const name = String(sub.name || "").trim();
+  const mitFilter = name && !OHNE_FILTER.includes(name.toLowerCase());
+  const mehr = uebersprungen > 0 ? "+" : "";
+  const betreff = gruppen.length === 1 && !mehr
+    ? `Neues Event: ${gruppen[0].e.name}`
+    : `${gruppen.length}${mehr} neue Events${mitFilter ? `: ${name}` : " auf Endurance Events"}`;
+  const ueberschrift = gruppen.length === 1 && !mehr ? "1 neues Event für dich" : `${gruppen.length}${mehr} neue Events für dich`;
+  const passend = mitFilter
+    ? `Neu auf endurance-events.de und passend zu deinem Abo <strong>${esc(name)}</strong>:`
+    : "Neu auf endurance-events.de:";
+  const karten = gruppen.slice(0, MAX_KARTEN);
+  const rest = restText(gruppen.length - karten.length, uebersprungen);
+  const abmelden = abmeldeLink(subId, sub.token);
+  const liste = `${seitenBasis()}/events.html`;
+  const html = mailGeruest({
+    titel: betreff,
+    vorschau: karten.slice(0, 3).map((g) => g.e.name).join(" · "),
+    kopf:
+      `<p style="margin:0 0 6px;font-family:${SCHRIFT_GROSS};font-size:28px;line-height:1.15;font-weight:bold;color:${TINTE};">${esc(ueberschrift)}</p>` +
+      `<p style="margin:0;font-family:${SCHRIFT};font-size:15px;line-height:1.5;color:${TINTE};">${passend}</p>`,
+    inhalt: karten.map(karteHtml).join("") +
+      (rest ? `<p style="margin:0 0 14px;font-family:${SCHRIFT};font-size:14px;color:${GRAU};">${esc(rest)}</p>` : "") +
+      `<p style="margin:6px 0 0;text-align:center;">${knopf(liste, "Alle Events ansehen", false)}</p>`,
+    fuss:
+      `Du bekommst diese E-Mail, weil du auf endurance-events.de ein Abo für neue Events angelegt hast ` +
+      `(${esc(rhythmusText(sub.rhythmus))}).<br>` +
+      `<a href="${esc(abmelden)}" style="color:${GRAU};">Abo beenden</a> &middot; ` +
+      `<a href="${esc(liste)}?abos=1" style="color:${GRAU};">Abos verwalten</a> &middot; ` +
+      `<a href="${esc(seitenBasis())}/impressum.html" style="color:${GRAU};">Impressum</a>`,
+  });
+  const text = [
+    `${ueberschrift}${mitFilter ? ` – passend zu deinem Abo „${name}“` : ""}`,
+    "",
+    karten.map(karteText).join("\n\n"),
+    rest ? `\n${rest}` : "",
+    "",
+    `Alle Events: ${liste}`,
+    "",
+    `Du bekommst diese E-Mail, weil du auf endurance-events.de ein Abo für neue Events angelegt hast (${rhythmusText(sub.rhythmus)}).`,
+    `Abo beenden: ${abmelden}`,
+  ].join("\n");
+  return { subject: betreff, html, text };
+}
+
+// Die alten Einmal-Abos (vor den Rhythmen, ohne `rhythmus`): EIN Event,
+// danach Ruhe - im selben Gewand.
+function einmalMail(event) {
+  const gruppe = veranstaltungen([eventKurz(event)])[0];
+  const liste = `${seitenBasis()}/events.html`;
+  return {
+    subject: `Neues Event gefunden: ${gruppe.e.name}`,
+    html: mailGeruest({
+      titel: `Neues Event gefunden: ${gruppe.e.name}`,
+      vorschau: gruppe.e.name,
+      kopf:
+        `<p style="margin:0 0 6px;font-family:${SCHRIFT_GROSS};font-size:28px;line-height:1.15;font-weight:bold;color:${TINTE};">Dein Event ist da</p>` +
+        `<p style="margin:0;font-family:${SCHRIFT};font-size:15px;line-height:1.5;color:${TINTE};">Ein neues Event passt zu deinem gespeicherten Filter:</p>`,
+      inhalt: karteHtml(gruppe),
+      fuss:
+        `Du bekommst diese E-Mail einmal, weil du dich auf endurance-events.de für eine Benachrichtigung angemeldet hast.<br>` +
+        `<a href="${esc(liste)}?abos=1" style="color:${GRAU};">Abos verwalten</a> &middot; ` +
+        `<a href="${esc(seitenBasis())}/impressum.html" style="color:${GRAU};">Impressum</a>`,
+    }),
+    text: `Dein Event ist da – es passt zu deinem gespeicherten Filter:\n\n${karteText(gruppe)}\n\nAbos verwalten: ${liste}?abos=1`,
+  };
+}
+// ==== Abo-Mail: Ende ====
 
 // Abmelden mit einem Klick, OHNE Anmeldung: Abo-Kennung und Token stehen
 // im Link der E-Mail. Der Token ist das einzige Geheimnis - deshalb wird
@@ -636,15 +885,7 @@ exports.checkNewEvents = onRequest(
         gesendet++;
         batch.set(db.collection("mail").doc(), {
           to: sub.email,
-          message: {
-            subject: `Neues Event gefunden: ${treffer[0].name}`,
-            html:
-              `<p>Hallo,</p>` +
-              `<p>ein neues Event passend zu deinem gespeicherten Filter wurde gefunden:</p>` +
-              eventEmailHtml(treffer[0]) +
-              `<p style="color:#888;font-size:0.85em;">Du erhältst diese E-Mail, weil du dich auf ` +
-              `der Ausdauersport-Events-Seite für eine Benachrichtigung angemeldet hast.</p>`,
-          },
+          message: einmalMail(treffer[0]),
           createdAt: FieldValue.serverTimestamp(),
         });
         batch.update(subDoc.ref, { notified: true, notifiedAt: FieldValue.serverTimestamp() });

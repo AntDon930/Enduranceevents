@@ -4104,6 +4104,25 @@ sagt es).
     Grenze: Kam die letzte Mail an einem Dienstag (Gate-Reparatur), ist
     „wöchentlich" am Montag danach noch nicht fällig (sechs Tage) und
     kommt eine Woche später mit allem. `test_abo_meldung`.
+  - **Die Mail selbst (seit dem 20.10.2026, „Ja, bitte die schönere
+    Mail-Vorlage bauen")**: `aboMail()`/`einmalMail()` zwischen den Marken
+    `// ==== Abo-Mail: Anfang/Ende ====` in `functions/index.js` – Navy-Kopf
+    mit Marke, EINE Karte je Veranstaltung (Name + Tag + Ort) mit Rand in
+    der Sportfarbe, Datum mit Wochentag (vorläufig „Juni 2027*"), alle
+    Längen wie in der Länge-Spalte (`laengeText` = `EED.formatLength`,
+    `test_abo_mail` vergleicht es am ganzen Bestand), Abzeichen Sportart ·
+    Kategorie, Charity-Herz, Knöpfe „Zum Event" (`events.html?s=<Name>` –
+    bewusst kein `?event=`-Slug, das wäre die dritte Kopie der Regel) und
+    „Veranstalter-Seite", Fuß mit Abo beenden / verwalten / Impressum, dazu
+    eine Textfassung (`message.text`). Nur Tabellen und Inline-Stile, keine
+    Bilder (ein Bild vom eigenen Server wäre ein Lesebeleg), alles maskiert,
+    nur http(s) verlinkt, höchstens `MAX_KARTEN` = 30 Karten (Gmail kürzt ab
+    ~100 KB). Betreff „4 neue Events: <Abo-Name>", ohne Filter „… auf
+    Endurance Events" (vorher „… für Alle neuen Events"). `eventKurz` trägt
+    dafür `wettbewerb` und `hoehenmeter` – ältere `wartend`-Einträge ohne
+    die Felder gehen trotzdem (dann km statt Triathlon-Format). Wirkt erst
+    nach `firebase deploy --only functions` aus der Cloud Shell (Nutzer).
+    Vorschau bauen: Abschnitt wie im Test in node rendern.
   - **`?abos=1` öffnet die Verwaltung** (darauf zeigt der Abmelde-Link
     der E-Mails, solange `UNSUBSCRIBE_URL` fehlt). Gelesen wird der
     Parameter in `readUrlState()`, **nicht** im Ladeteil: Dazwischen

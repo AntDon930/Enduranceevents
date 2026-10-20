@@ -2097,6 +2097,16 @@ rausgeht, sind zwei weitere, **optionale** Schritte nötig (siehe
    hinterlegen - sie übernimmt den eigentlichen Versand für die
    `mail`-Dokumente, die `functions/index.js` anlegt.
 
+**Wie die Mail aussieht** (seit dem 20.10.2026): `aboMail()` in
+`functions/index.js` baut sie im Stil der Seite – Navy-Kopf mit der
+Marke, eine Karte je Veranstaltung mit Datum samt Wochentag, Ort,
+Sportart, allen Längen in der Schreibweise der Länge-Spalte, den Knöpfen
+„Zum Event" (Liste mit der Suche nach dem Namen) und „Veranstalter-Seite",
+darunter Abo beenden / verwalten / Impressum, dazu eine Textfassung.
+Tabellen und Inline-Stile (Mail-Programme kennen kein Stylesheet),
+keine Bilder, höchstens 30 Karten (Gmail kürzt lange Mails).
+`test_abo_mail` rendert sie in node.
+
 **Was die Function nicht tut**: Sie prüft ausschließlich die Events, die
 `abo_meldung.py` ihr als *neu* meldet. Bestehende Abos werden also
 **nicht** rückwirkend gegen die bereits vorhandenen Events geprüft – ein

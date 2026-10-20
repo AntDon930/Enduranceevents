@@ -6014,6 +6014,98 @@ def test_abo_meldung() -> None:
     check("Secrets nur im Job „abo“", pages.count("secrets.NOTIFY_WEBHOOK"), abo.count("secrets.NOTIFY_WEBHOOK"))
 
 
+def test_abo_mail() -> None:
+    """Die Abo-Mail im Stil der Seite (vom Nutzer am 20.10.2026: „Ja, bitte
+    die schönere Mail-Vorlage bauen"): rendert den echten Abschnitt aus
+    functions/index.js in node - eine Karte je Veranstaltung, Längen wie
+    in der Länge-Spalte (am ganzen Bestand gegen EED.formatLength),
+    Datum mit Wochentag, maskierte Daten, Betreff ohne „für Alle neuen
+    Events", höchstens MAX_KARTEN Karten."""
+    print("\nAbo-Mail (functions/index.js, aboMail):")
+    import json as _json
+    import shutil
+    import subprocess
+    node = shutil.which("node")
+    if not node:
+        print("  (übersprungen: node fehlt)")
+        return
+    wurzel = Path(__file__).resolve().parent.parent
+    quelle = (wurzel / "functions" / "index.js").read_text(encoding="utf-8")
+    check("Abschnitt mit Marken in functions/index.js",
+          "// ==== Abo-Mail: Anfang ====" in quelle and "// ==== Abo-Mail: Ende ====" in quelle, True)
+    check("Einmal-Abos nutzen dieselbe Vorlage", "message: einmalMail(treffer[0])" in quelle, True)
+
+    def lauf(name, tag, km=None, **mehr):
+        e = {"name": name, "datum_start": tag, "datum_ende": tag, "standort": "Ulm", "land": "Deutschland",
+             "art1": "Laufen", "art2": "Straße", "laenge_km": km, "veranstalter_url": "https://lauf.example/"}
+        e.update(mehr)
+        return e
+    beispiele = [
+        lauf("Stadtlauf", "2026-10-25", 21.1), lauf("Stadtlauf", "2026-10-25", 10.0), lauf("Stadtlauf", "2026-10-25", 5.0),
+        lauf("Cross <b>X</b>", "2026-11-07", None, art1="Fahrrad", art2="Cyclocross", dauer_h=0.5,
+             veranstalter_url="javascript:alert(1)"),
+        lauf("Seetriathlon", "2027-06-12", 25.75, art1="Triathlon", art2="Straße", datum_ende="2027-06-13"),
+        lauf("Herbstlauf", "2027-09-01", 10.0, datum_vorlaeufig=True, charity=True),
+    ]
+    wieviele = [lauf(f"Lauf {i}", "2026-12-01", 10.0) for i in range(40)]
+    skript = (
+        "const fs=require('fs');"
+        f"const src=fs.readFileSync({_json.dumps(str(wurzel / 'functions' / 'index.js'))},'utf8');"
+        "const tri=src.slice(src.indexOf('const TRIATHLON_FORMAT_IM_LABEL'),src.indexOf('const TRIATHLON_FORMAT_KATEGORIE'));"
+        "const teil=src.slice(src.indexOf('// ==== Abo-Mail: Anfang ===='),src.indexOf('// ==== Abo-Mail: Ende ===='));"
+        "const defineString=(n,o)=>({value:()=>o.default});"
+        "const m=new Function('defineString','SITE_URL',tri+teil+';return {eventKurz,aboMail,einmalMail,laengeText,MAX_KARTEN};')"
+        "(defineString,defineString('',{default:'https://endurance-events.de'}));"
+        "global.window=global;"
+        f"require({_json.dumps(str(wurzel / 'filters.js'))});"
+        "global.EnduranceFilters.relativeDays=()=>'';"
+        f"require({_json.dumps(str(wurzel / 'event-detail.js'))});"
+        "const EED=global.EnduranceDetail;"
+        f"const ev=JSON.parse(fs.readFileSync({_json.dumps(str(wurzel / 'events.json'))},'utf8')).filter(e=>!e.pruefung_offen);"
+        "const abw=ev.filter(e=>(m.laengeText(m.eventKurz(e))||'–')!==EED.formatLength(e,'de')).map(e=>e.name).slice(0,5);"
+        "const b=JSON.parse(process.argv[1]), w=JSON.parse(process.argv[2]);"
+        "const kurz=x=>x.map(m.eventKurz);"
+        "const mit=m.aboMail('id1',{name:'Laufen · 25 km um Ulm',rhythmus:'woechentlich',token:'t'},kurz(b),0);"
+        "const ohne=m.aboMail('id1',{name:'Alle neuen Events',rhythmus:'monatlich'},kurz(b),3);"
+        "const eins=m.aboMail('id1',{name:'',rhythmus:'sofort'},kurz(b.slice(0,1)),0);"
+        "const viel=m.aboMail('id1',{name:'X',rhythmus:'woechentlich'},kurz(w),0);"
+        "const einmal=m.einmalMail(b[0]);"
+        "console.log(JSON.stringify({abw,anzahl:ev.length,mit,ohne,eins,viel_karten:(viel.html.match(/Zum Event/g)||[]).length,"
+        "viel_html:viel.html.length,viel_text:viel.text.includes('… und 10 weitere Events'),einmal,max:m.MAX_KARTEN}));"
+    )
+    r = subprocess.run([node, "-e", skript, _json.dumps(beispiele), _json.dumps(wieviele)], capture_output=True, text=True)
+    if r.returncode != 0:
+        check("Abo-Mail läuft in node", r.stderr.strip()[:300], "")
+        return
+    d = _json.loads(r.stdout)
+    check(f"Längen wie in der Länge-Spalte ({d['anzahl']} sichtbare Zeilen)", d["abw"], [])
+    mit, ohne, eins = d["mit"], d["ohne"], d["eins"]
+    check("Betreff mit Filter", mit["subject"], "4 neue Events: Laufen · 25 km um Ulm")
+    check("Betreff ohne Filter (kein „für Alle neuen Events“)", ohne["subject"], "4+ neue Events auf Endurance Events")
+    check("Betreff bei einem Event", eins["subject"], "Neues Event: Stadtlauf")
+    html = mit["html"]
+    check("eine Karte je Veranstaltung", html.count("Zum Event"), 4)
+    check("Längen kürzeste zuerst, Dezimalkomma", "5km &middot; 10km &middot; 21,1km" in html, True)
+    check("unter einer Stunde in Minuten", "30min" in html, True)
+    check("Triathlon als Format", ">Sprint<" in html, True)
+    check("Datum mit Wochentag", "So, 25.10.2026" in html, True)
+    check("mehrtägig", "Sa, 12.06. – So, 13.06.2027" in html, True)
+    check("vorläufiger Termin nur als Monat mit *", "September 2027*" in html and "Termin noch zu bestätigen" in html, True)
+    check("Charity-Marke", "&#9829; Charity" in html, True)
+    check("Name maskiert", "Cross &lt;b&gt;X&lt;/b&gt;" in html and "<b>X</b>" not in html, True)
+    check("nur http(s) wird verlinkt", "javascript:" in html, False)
+    check("Link in die Liste mit Suche", "https://endurance-events.de/events.html?s=Stadtlauf" in html, True)
+    check("Abmelde-Link und Impressum", "Abo beenden" in html and "/impressum.html" in html, True)
+    check("keine Bilder (kein Lesebeleg)", "<img" in html.lower(), False)
+    check("Textfassung mit Link", "https://endurance-events.de/events.html?s=Stadtlauf" in mit["text"], True)
+    check("übersprungene Strecken genannt", "3 weitere Strecken" in ohne["html"], True)
+    check("höchstens MAX_KARTEN Karten", d["viel_karten"], d["max"])
+    check("Rest als Zahl (auch im Text)", d["viel_text"], True)
+    check("Mail bleibt unter der Gmail-Grenze (~100 KB)", d["viel_html"] < 90000, True)
+    check("Einmal-Abo im selben Gewand", d["einmal"]["subject"] == "Neues Event gefunden: Stadtlauf"
+          and "Zum Event" in d["einmal"]["html"], True)
+
+
 def test_geloescht() -> None:
     """Status „Löschen" (vom Nutzer am 20.10.2026: „löschen soll nur die
     eine Zeile herausnehmen und schauen ob das Event nächstes Jahr passend
@@ -6138,7 +6230,7 @@ def main() -> int:
                  test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_dauer_minuten, test_pruefung_offen, test_korrektur_seite, test_kopierschutz,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
-                 test_schwimmen_regeln, test_schwimmkalender, test_faellt_aus, test_check_again, test_geloescht, test_abo_meldung, test_turbosport, test_radsportevents,
+                 test_schwimmen_regeln, test_schwimmkalender, test_faellt_aus, test_check_again, test_geloescht, test_abo_meldung, test_abo_mail, test_turbosport, test_radsportevents,
                  test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_dealgrid, test_marsch_quellen, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis, test_serien,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
