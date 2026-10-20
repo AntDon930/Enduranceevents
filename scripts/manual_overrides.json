@@ -1852,8 +1852,8 @@
     "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.sc-ainring.de. Seite abgerufen, sie nennt den Lauf (ainringer). Linkprüfung 2026-09-19."
   },
   "Burgkirchner Raiffeisen-Crosslauf|2026-10-24": {
-    "veranstalter_url": "http://www.crosslauf-is.de",
-    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.crosslauf-is.de. Seite abgerufen, sie nennt den Lauf (raiffeisen). Linkprüfung 2026-09-19."
+    "veranstalter_url": "https://www.crosslauf-is.de/pages/archiv/ausschreibungen/2026/CRL05.php",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Ausschreibung 2026, 6,6 km (die übrigen Läufe unter 5 km)"
   },
   "39. Frankenwaldlauf um den Preis der Kulmbacher Brauerei|2026-10-31": {
     "veranstalter_url": "http://lg-ludwigschorgast.de",
@@ -2914,8 +2914,8 @@
     "_note": "Veranstalterseite statt laufen-os.de: https://www.leichtathletik.scmelle.de/veranstaltungen/meller-crosslauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (meller). Linkprüfung 2026-09-19."
   },
   "Baltic X Backyard Ultra|2026-10-24": {
-    "veranstalter_url": "https://www.binzer-bucht.de/",
-    "_note": "Veranstalterseite statt sportstiming.dk: https://www.binzer-bucht.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (baltic). Linkprüfung 2026-09-19."
+    "veranstalter_url": "https://www.auf-nach-mv.de/veranstaltungssuche/e-baltic-x-backyard-ultra",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Seite vom Nutzer, nennt Samstag 24.10.2026 Binz; Backyard = Open End"
   },
   "45. Eibsee-Herbstlauf 2026|2026-10-25": {
     "veranstalter_url": "http://www.eibseelauf.de/",
@@ -3142,8 +3142,8 @@
     "_note": "Veranstalterseite statt laufen.de: https://www.djk-loewe-hambach.de/waldlauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-20."
   },
   "Bietlauf für einen Wohltätigen Zweck|2026-10-25": {
-    "veranstalter_url": "https://www.lvbiet.de/",
-    "_note": "Veranstalterseite statt ladv.de: https://www.lvbiet.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (bietlauf). Linkprüfung 2026-09-20."
+    "veranstalter_url": "https://www.lvbiet.de/veranstaltungen/bl26/",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Unterseite der Ausgabe 2026"
   },
   "46. Winterlaufserie Rodgau Jügesheim (1)|2026-11-07": {
     "veranstalter_url": "https://skgrodgau.de/kategorie/laufen/",
@@ -5055,12 +5055,19 @@
     "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt den 9. Halbmarathon am 19.09.2026 (5 & 12 km, Halbmarathon); 2027 nicht ausgeschrieben). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
   },
   "Karpiner Herbstcross|2026-10-24": {
-    "datum_vorlaeufig": true,
-    "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Verlinkt ist die Ausschreibung 2025 (11.10.2025: 1,3 / 2,6 / 3 / 3,9 / 5,2 / 10,4 km); 2026 nicht belegt, die 6,3 km ste). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "datum_vorlaeufig": null,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: verlinkt war die Ausschreibung 2025; uer-laufcup.de nennt „Karpiner Crosslauf 24.10.2026 Eggesin-Karpin, Start 10:00“ (6,3 km Frauen, 10,4 km Männer) - Termin bestätigt",
+    "veranstalter_url": "http://uer-laufcup.de/"
   },
   "23. Bremer Zeitsprung-Marathon|2026-10-24": {
-    "datum_vorlaeufig": true,
-    "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Der hinterlegte raceresult-Link (315501) ist die Ausgabe 2025 („22. Bremer Zeitsprung-Marathon“, 25./26.10.2025); der Te). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "datum_vorlaeufig": null,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Nachtrennen 24./25.10.2026 in Bremen-Vegesack (raceresult 374167; wattzeit.de/data/veranstaltungen.json „Zeitsprung-Marathon 2026-10-24 bis 25“); Link vom Nutzer gewählt (Zeitnehmer, eine eigene Seite gibt es nicht)",
+    "veranstalter_url": "http://www.wattzeit.de/",
+    "datum_ende": "2026-10-25",
+    "standort": "Bremen",
+    "lat": 53.1716,
+    "lon": 8.623,
+    "portal_erlaubt": true
   },
   "3. Halener Bahnmarathon|2027-07-17": {
     "datum_vorlaeufig": true,
@@ -8052,8 +8059,10 @@
     "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Uwe Laig ist Veranstalter (raceresult-Kontaktseite); seine Terminseite wie bei den anderen Läufen der Serie. Linkprüfung 2026-10-05."
   },
   "9. Cloppenburger City Cross|2026-10-24": {
-    "veranstalter_url": "https://www.radsport-weser-ems.de/",
-    "_note": "Veranstalterseite statt dsergebnis.de: https://www.radsport-weser-ems.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Veranstalter ist der Radsport-Bezirk Weser-Ems (mit der Stadt Cloppenburg); dsergebnis.de ist der Zeitnehmer. Linkprüfung 2026-10-05."
+    "veranstalter_url": "https://www.cloppenburg.de/portal/seiten/9-cloppenburger-citycross-rennen-900000088-31040.html",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Zeitplan der Stadt: Frauen/U17/U15 50 min, Masters 3+4 40 min, Elite/Masters 2/U19 60 min, Hobby 30 min (U13/U11 15 min, Laufrad 10 min - Kinder, Datenregel 24); die drei anderen in manual_events.json",
+    "dauer_h": 1.0,
+    "wettbewerb": "Elite, Masters 2, U19 Männer 60 min"
   },
   "Inselmarathon auf Wilhelmstein|2027-04-24": {
     "veranstalter_url": "https://www.steinhuder-meer.de/",
@@ -8717,5 +8726,131 @@
     "exclude": true,
     "abgesagt": true,
     "_note": "Ausgabe 2026-10-24 fällt aus (Nutzer am 20.10.2026; schwimmkalender.de: „25h Handorf FÄLLT AUS!!!“) - die Veranstaltung bleibt im Gedächtnis"
+  },
+  "Spendenlauf Brustgesundheit - Wallbach|2026-10-24": {
+    "veranstalter_url": "https://www.brustgesundheit-klartext.ch/spendenlauf/",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Veranstalterseite (aus der Sandbox 403, vom Nutzer belegt)"
+  },
+  "1. Lauf der Crossserie des BLV-Kreises Ansbach|2026-10-24": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: derselbe Lauf wie der Ansbacher Crosslauf (TSV 1860 Ansbach, Termine: 24.10.2026 Crosslauf Meinhardswinden, 8,6 km) - laufen.de führt ihn als 1. Lauf der Kreis-Crossserie"
+  },
+  "Hüggel-Marathon|2026-10-21": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Veranstalterseite (Uwe Laig)"
+  },
+  "24-Stunden-Lauf Walsdorf|2026-10-24": {
+    "veranstalter_url": "https://sv-walsdorf.de/index.php?option=com_content&view=article&id=1526&Itemid=170",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: SV Walsdorf, „24-Stunden-Lauf am 24. und 25.10.26“"
+  },
+  "Kraichgauman Crossduathlon|2026-10-24|39": {
+    "wettbewerb": "Einzel 39 km (7 km Laufen / 28,5 km Rad / 3,5 km Laufen)",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Ausschreibung 2026 (KM_2026_Ausschreibung_final.pdf): Einzel 7/28,5/3,5 km"
+  },
+  "Kraichgauman Crossduathlon|2026-10-24|28.5": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Teilstrecke bzw. falsche Summe - laut Ausschreibung 2026 gibt es Einzel 39 km und Sprint & Jugend 16,5 km"
+  },
+  "Kraichgauman Crossduathlon|2026-10-24|9.5": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Teilstrecke bzw. falsche Summe - laut Ausschreibung 2026 gibt es Einzel 39 km und Sprint & Jugend 16,5 km"
+  },
+  "Kraichgauman Crossduathlon|2026-10-24|13": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Teilstrecke bzw. falsche Summe - laut Ausschreibung 2026 gibt es Einzel 39 km und Sprint & Jugend 16,5 km"
+  },
+  "Kraichgauman Crossduathlon|2026-10-24|@Cross-Duathlon": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Zeile ohne Länge neben den beiden Wettbewerben (Einzel 39 km, Sprint 16,5 km)"
+  },
+  "Kraichgauman Crossduathlon|2026-10-24|17": {
+    "laenge_km": 16.5,
+    "wettbewerb": "Sprint & Jugend 16,5 km (3,5 km Laufen / 9,5 km Rad / 3,5 km Laufen), ab 14 Jahren",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Ausschreibung 2026: Sprint & Jugend 3,5/9,5/3,5 km, alle ab 14 Jahren"
+  },
+  "Kraichgauman Crossduathlon|2026-10-24|16.5": {
+    "laenge_km": 16.5,
+    "wettbewerb": "Sprint & Jugend 16,5 km (3,5 km Laufen / 9,5 km Rad / 3,5 km Laufen), ab 14 Jahren",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Ausschreibung 2026: Sprint & Jugend 3,5/9,5/3,5 km, alle ab 14 Jahren"
+  },
+  "15. Salzburg Trailrunning Festival - Kidstrail, Festungs- und Panoramatrail|2026-10-24": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: ÖLV-Kalender zerlegt das Festival in Tage mit eigenem Namen; die Strecken stehen unter „Salzburg Trailrunning Festival“ (23.-25.10.2026, 5-24,6 km)"
+  },
+  "Crosslauf - Burgkirchen/Gendorf|2026-10-24": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: derselbe Lauf wie „Burgkirchner Raiffeisen-Crosslauf“ (6,6 km, crosslauf-is.de CRL05)"
+  },
+  "Weser-Ems-Cup Cloppenburg|2026-10-24": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: „WEC Cross Cloppenburg 24.10.2026“ (radsport-weser-ems.de/termine) ist der 9. Cloppenburger City Cross"
+  },
+  "Wienenergie Cyclocross|2026-10-24": {
+    "exclude": true,
+    "abgesagt": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026 (Check again): cyclingaustria.at führt „Wienenergie Cyclocross - ABGESAGT !!“ (24./25.10.2026); rc-awr.at zeigt nur 2024/2025 (22./23.11.2025 Pottendorf-Landegg)"
+  },
+  "Wienenergie Cyclocross|2026-10-25": {
+    "exclude": true,
+    "abgesagt": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026 (Check again): cyclingaustria.at führt „Wienenergie Cyclocross - ABGESAGT !!“ (24./25.10.2026); rc-awr.at zeigt nur 2024/2025 (22./23.11.2025 Pottendorf-Landegg)"
+  },
+  "Wuhlheider 12 Stundenlauf|2026-10-24": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026 (Check again): der verlinkte raceresult-Termin 365972 ist „SOBVL 10-2026 - 1. Johannisthaler 6-Stundenlauf“ am 24.10.2026 - derselbe Veranstalter (Südost Berliner Vielläufer) am selben Tag; der 12-Stunden-Lauf ist nur auf einem Aggregator belegt. Der 6-Stunden-Lauf steht in manual_events.json"
+  },
+  "Stevens Cyclo-Cross-Cup #6|2026-10-24|@Cyclocross 30 min": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: zweite Zeile desselben Laufs des Stevens Cyclo-Cross Cups (Plakat 2026/27 des RSC Kattenberg, stevenscup.de) - die Zeile mit dem Namen des Rennens bleibt; „30 km“ war die Renndauer"
+  },
+  "Stevens Cyclo-Cross-Cup #7|2026-10-25|30": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: zweite Zeile desselben Laufs des Stevens Cyclo-Cross Cups (Plakat 2026/27 des RSC Kattenberg, stevenscup.de) - die Zeile mit dem Namen des Rennens bleibt; „30 km“ war die Renndauer"
+  },
+  "Stevens-Cyclo-Cross-Cup|2026-11-01|30": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: zweite Zeile desselben Laufs des Stevens Cyclo-Cross Cups (Plakat 2026/27 des RSC Kattenberg, stevenscup.de) - die Zeile mit dem Namen des Rennens bleibt; „30 km“ war die Renndauer"
+  },
+  "Stevens Cyclo-Cross-Cup #14|2026-11-29|@Cyclocross 30 min": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: zweite Zeile desselben Laufs des Stevens Cyclo-Cross Cups (Plakat 2026/27 des RSC Kattenberg, stevenscup.de) - die Zeile mit dem Namen des Rennens bleibt; „30 km“ war die Renndauer"
+  },
+  "Stevens Cyclo-Cross-Cup #15|2026-12-13|@Cyclocross 30 min": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: zweite Zeile desselben Laufs des Stevens Cyclo-Cross Cups (Plakat 2026/27 des RSC Kattenberg, stevenscup.de) - die Zeile mit dem Namen des Rennens bleibt; „30 km“ war die Renndauer"
+  },
+  "Stevens Cyclo-Cross-Cup #11|2026-11-15|30": {
+    "laenge_km": null,
+    "dauer_h": null,
+    "wettbewerb": "Cyclocross",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: Cyclocross hat keine Renndistanz („30 km“ war die Dauer 30 min eines Rennens); Lauf #11 Rostock, PSV Rostock (Plakat 2026/27)"
+  },
+  "Stevens Cyclo-Cross-Cup #11|2026-11-15": {
+    "laenge_km": null,
+    "wettbewerb": "Cyclocross",
+    "_note": "Korrekturseite des Nutzers 20.10.2026: siehe |30"
+  },
+  "2. CycloCross-Rennen der IGAS Wendland|2026-11-01": {
+    "standort": "Lüchow (Wendland)",
+    "lat": 52.9397,
+    "lon": 11.1926,
+    "_note": "Korrekturseite des Nutzers 20.10.2026: IGAS Wendland, Lauf #08 „Bösel / Wendland“ - lag beim gleichnamigen Bösel im Kreis Cloppenburg (200 km daneben)"
+  },
+  "Windischgarstner Marktlauf|2026-10-24": {
+    "laenge_km": 6.0,
+    "_note": "Korrekturliste des Nutzers: https://sportunion-windischgarsten.at/4/images/2026/Marktlauf26/Flyer_Ortslauf_2026_Druck.pdf\n\nDas ist die Ausschreibung. Aber nicht als Webseite übernehmen"
+  },
+  "Wild Dog Austria|2026-10-23": {
+    "laenge_km": 5.0,
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "Ansbacher Crosslauf|2026-10-24": {
+    "laenge_km": 8.6,
+    "_note": "Korrekturliste des Nutzers: Es ist ein Lauf über 5km, der ist 8,6km. \n\nSieht man auch hier: https://my.raceresult.com/415098/info\n\nAber die Webseite von 1860ansbach ist richtig."
+  },
+  "15. Salzburg Trailrunning Festival - Gaisbergrace und Gaisbergtrail|2026-10-25": {
+    "exclude": true,
+    "_note": "Korrekturliste des Nutzers: Das ist das gleiche Event wie „ 15. Salzburg Trailrunning Festival - Kidstrail, Festungs- und Panoramatrail“.",
+    "geloescht": true
   }
 }

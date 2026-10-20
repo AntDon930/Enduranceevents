@@ -4,14 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-24-wuhlheider-12-stundenlauf-12h-berlin@antdon930.github.io
+UID:2026-10-24-1-johannisthaler-6-stundenlauf-6h-berlin@antdon930.github.i
+ o
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
-SUMMARY:Wuhlheider 12 Stundenlauf
+SUMMARY:1. Johannisthaler 6-Stundenlauf – 6-Stunden-Lauf
 LOCATION:Berlin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 h\nhttps://my.raceresult.
- com/365972/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://my.raceresult.c
+ om/365972/
 TRANSP:TRANSPARENT
 URL:https://my.raceresult.com/365972/
 END:VEVENT

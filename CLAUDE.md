@@ -5290,7 +5290,11 @@ Rennseite mit Start/Ziel, Datum, Sparte, „Rennen N"-Blöcken und
 Veranstalterlink; alle Klassen, auch Lizenz – dieselbe Entscheidung wie
 bei BRV Timing; **nicht** Kunstrad/Radball, Downhill/Enduro/E-MTB,
 Madison/Mannschaftszeitfahren, Nachwuchs; ein Cyclocross ohne Kilometer
-ist ein Zeitrennen „40 min"; 62 Events), **`swimsports_scraper.py`**
+ist ein Zeitrennen „40 min"; 62 Events). **Abgesagte Rennen bleiben im ÖRV-Kalender stehen**, nur der
+Kartentitel trägt „- ABGESAGT !!" (Wienenergie Cyclocross 24./25.10.2026,
+vom Nutzer am 20.10.2026 per „Check again" gefunden) – `parse_liste()` setzt
+seitdem `abgesagt`, der Scraper überspringt die Karte (`ABGESAGT`, Test in
+`test_cyclingaustria`), **`swimsports_scraper.py`**
 (Schwimmkalender Schweiz, Drupal; **Adresse ohne `/de/`**, mit Präfix
 „Zugriff verweigert"; Distanzen ohne SUP-Teile; Absagen fallen, außer
 der Name nennt den nächsten Termin; im September nur 2 künftige

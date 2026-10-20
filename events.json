@@ -11,8 +11,7 @@
     "datum_ende": "2026-10-21",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.business2run.at/events/weberzeile",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.business2run.at/events/weberzeile"
   },
   {
     "land": "Deutschland",
@@ -54,8 +53,7 @@
     "datum_ende": "2026-10-21",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/427841/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/"
   },
   {
     "land": "Deutschland",
@@ -69,8 +67,7 @@
     "datum_ende": "2026-10-21",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/427841/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/"
   },
   {
     "land": "Deutschland",
@@ -83,8 +80,7 @@
     "datum_start": "2026-10-22",
     "datum_ende": "2026-10-22",
     "laenge_km": 42.2,
-    "veranstalter_url": "https://triathlonsteckelcologne.de/veranstaltungen",
-    "pruefung_offen": true
+    "veranstalter_url": "https://triathlonsteckelcologne.de/veranstaltungen"
   },
   {
     "land": "Deutschland",
@@ -206,7 +202,7 @@
     "datum_start": "2026-10-23",
     "datum_ende": "2026-10-25",
     "veranstalter_url": "https://wild-dog.at/",
-    "pruefung_offen": true
+    "laenge_km": 5.0
   },
   {
     "land": "Deutschland",
@@ -223,17 +219,17 @@
   },
   {
     "land": "Deutschland",
-    "name": "1. Lauf der Crossserie des BLV-Kreises Ansbach",
-    "standort": "Ansbach",
-    "lat": 49.2888745,
-    "lon": 10.5597693,
+    "name": "1. Johannisthaler 6-Stundenlauf",
+    "standort": "Berlin",
+    "lat": 52.4445,
+    "lon": 13.5068,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "laenge_km": 8.6,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/1-lauf-der-crossserie-des-blv-kreises-ansbach",
-    "pruefung_offen": true
+    "dauer_h": 6.0,
+    "wettbewerb": "6-Stunden-Lauf",
+    "veranstalter_url": "https://my.raceresult.com/365972/"
   },
   {
     "land": "Deutschland",
@@ -248,19 +244,6 @@
     "laenge_km": 7.0,
     "veranstalter_url": "https://lg-bernkastel-wittlich.de/",
     "wettbewerb": "Hauptlauf"
-  },
-  {
-    "land": "Österreich",
-    "name": "15. Salzburg Trailrunning Festival - Kidstrail, Festungs- und Panoramatrail",
-    "standort": "Salzburg",
-    "lat": 47.7981346,
-    "lon": 13.0464806,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "veranstalter_url": "http://www.trailrunning-festival.at",
-    "pruefung_offen": true
   },
   {
     "land": "Deutschland",
@@ -280,33 +263,31 @@
     "land": "Deutschland",
     "name": "23. Bremer Zeitsprung-Marathon",
     "standort": "Bremen",
-    "lat": 53.0758196,
-    "lon": 8.8071646,
+    "lat": 53.1716,
+    "lon": 8.623,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
+    "datum_ende": "2026-10-25",
     "laenge_km": 42.2,
-    "veranstalter_url": "https://my.raceresult.com/315501",
+    "veranstalter_url": "http://www.wattzeit.de/",
     "wettbewerb": "Marathon",
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
+    "datum_vorlaeufig": null
   },
   {
     "land": "Deutschland",
     "name": "23. Bremer Zeitsprung-Marathon",
-    "standort": "Lemwerder",
-    "lat": 53.1623017,
-    "lon": 8.6152319,
+    "standort": "Bremen",
+    "lat": 53.1716,
+    "lon": 8.623,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-25",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/374167/",
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
+    "veranstalter_url": "http://www.wattzeit.de/",
+    "datum_vorlaeufig": null
   },
   {
     "land": "Deutschland",
@@ -319,8 +300,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-25",
     "dauer_h": 24.0,
-    "veranstalter_url": "https://my.raceresult.com/427191/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://sv-walsdorf.de/index.php?option=com_content&view=article&id=1526&Itemid=170"
   },
   {
     "land": "Deutschland",
@@ -411,8 +391,51 @@
     "art2": "Cyclecross",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "veranstalter_url": "https://www.radsport-weser-ems.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.cloppenburg.de/portal/seiten/9-cloppenburger-citycross-rennen-900000088-31040.html",
+    "dauer_h": 1.0,
+    "wettbewerb": "Elite, Masters 2, U19 Männer 60 min"
+  },
+  {
+    "land": "Deutschland",
+    "name": "9. Cloppenburger City Cross",
+    "standort": "Cloppenburg",
+    "lat": 52.847,
+    "lon": 8.045,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "veranstalter_url": "https://www.cloppenburg.de/portal/seiten/9-cloppenburger-citycross-rennen-900000088-31040.html",
+    "dauer_h": 0.83,
+    "wettbewerb": "Frauen, Frauen Master, U17, U15 50 min"
+  },
+  {
+    "land": "Deutschland",
+    "name": "9. Cloppenburger City Cross",
+    "standort": "Cloppenburg",
+    "lat": 52.847,
+    "lon": 8.045,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "veranstalter_url": "https://www.cloppenburg.de/portal/seiten/9-cloppenburger-citycross-rennen-900000088-31040.html",
+    "dauer_h": 0.67,
+    "wettbewerb": "Masters 3 + 4 40 min"
+  },
+  {
+    "land": "Deutschland",
+    "name": "9. Cloppenburger City Cross",
+    "standort": "Cloppenburg",
+    "lat": 52.847,
+    "lon": 8.045,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "veranstalter_url": "https://www.cloppenburg.de/portal/seiten/9-cloppenburger-citycross-rennen-900000088-31040.html",
+    "dauer_h": 0.5,
+    "wettbewerb": "Hobbyrennen 30 min"
   },
   {
     "land": "Österreich",
@@ -510,7 +533,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "veranstalter_url": "https://tsv1860ansbach.de/leichtathletik/ansbacher-crosslauf/",
-    "pruefung_offen": true
+    "laenge_km": 8.6
   },
   {
     "land": "Österreich",
@@ -524,8 +547,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": null,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://www.austriabackyardultra.com/thueringen",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.austriabackyardultra.com/thueringen"
   },
   {
     "land": "Deutschland",
@@ -567,8 +589,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": null,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://www.binzer-bucht.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.auf-nach-mv.de/veranstaltungssuche/e-baltic-x-backyard-ultra"
   },
   {
     "land": "Österreich",
@@ -637,8 +658,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 6.6,
-    "veranstalter_url": "http://www.crosslauf-is.de",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.crosslauf-is.de/pages/archiv/ausschreibungen/2026/CRL05.php"
   },
   {
     "land": "Österreich",
@@ -680,22 +700,7 @@
     "datum_ende": "2026-10-24",
     "anmeldeschluss": "2026-10-17",
     "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #06",
-    "veranstalter_url": "https://rundumdenpfaffenteich.de/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "Crosslauf - Burgkirchen/Gendorf",
-    "standort": "Burgkirchen an der Alz",
-    "lat": 48.1670264,
-    "lon": 12.7307583,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "laenge_km": 6.6,
-    "wettbewerb": "ca. 6.600 m (Männer)",
-    "veranstalter_url": "https://www.crosslauf-is.de/pages/archiv/ausschreibungen/2026/CRL05.php"
+    "veranstalter_url": "https://rundumdenpfaffenteich.de/"
   },
   {
     "land": "Deutschland",
@@ -973,9 +978,8 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 6.3,
     "wettbewerb": "6,3 km",
-    "veranstalter_url": "http://uer-laufcup.de/wp-content/uploads/2025/10/Ausschreibungen-Karpiner-Herbstcross.pdf",
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
+    "veranstalter_url": "http://uer-laufcup.de/",
+    "datum_vorlaeufig": null
   },
   {
     "land": "Deutschland",
@@ -989,65 +993,8 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 10.4,
     "wettbewerb": "10,4 km",
-    "veranstalter_url": "http://uer-laufcup.de/wp-content/uploads/2025/10/Ausschreibungen-Karpiner-Herbstcross.pdf",
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "Kraichgauman Crossduathlon",
-    "standort": "Östringen",
-    "lat": 49.2176652,
-    "lon": 8.7068968,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "laenge_km": 28.5,
-    "wettbewerb": "Hauptwettkampf",
-    "veranstalter_url": "https://www.kraichgauman.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Kraichgauman Crossduathlon",
-    "standort": "Östringen",
-    "lat": 49.2176652,
-    "lon": 8.7068968,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "laenge_km": 9.5,
-    "wettbewerb": "Sprint und Jugend",
-    "veranstalter_url": "https://www.kraichgauman.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Kraichgauman Crossduathlon",
-    "standort": "Östringen",
-    "lat": 49.2176652,
-    "lon": 8.7068968,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "laenge_km": 13.0,
-    "wettbewerb": "Sprint und Jugend",
-    "veranstalter_url": "https://www.kraichgauman.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Kraichgauman Crossduathlon",
-    "standort": "Östringen",
-    "lat": 49.2231403,
-    "lon": 8.7079632,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "wettbewerb": "Cross-Duathlon",
-    "veranstalter_url": "http://www.kraichgauman.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "http://uer-laufcup.de/",
+    "datum_vorlaeufig": null
   },
   {
     "land": "Deutschland",
@@ -1060,7 +1007,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 39.0,
-    "wettbewerb": "39 km",
+    "wettbewerb": "Einzel 39 km (7 km Laufen / 28,5 km Rad / 3,5 km Laufen)",
     "veranstalter_url": "https://www.kraichgauman.de/"
   },
   {
@@ -1073,8 +1020,8 @@
     "art2": "Duathlon",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "laenge_km": 17.0,
-    "wettbewerb": "17 km",
+    "laenge_km": 16.5,
+    "wettbewerb": "Sprint & Jugend 16,5 km (3,5 km Laufen / 9,5 km Rad / 3,5 km Laufen), ab 14 Jahren",
     "veranstalter_url": "https://www.kraichgauman.de/"
   },
   {
@@ -1217,8 +1164,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 21.1,
     "veranstalter_url": "https://www.northwoodrunners.de/laufspektakel",
-    "wettbewerb": "Halbmarathon",
-    "pruefung_offen": true
+    "wettbewerb": "Halbmarathon"
   },
   {
     "land": "Deutschland",
@@ -1232,8 +1178,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.northwoodrunners.de/laufspektakel",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.northwoodrunners.de/laufspektakel"
   },
   {
     "land": "Deutschland",
@@ -1247,8 +1192,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.northwoodrunners.de/laufspektakel",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.northwoodrunners.de/laufspektakel"
   },
   {
     "land": "Schweiz",
@@ -1289,8 +1233,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "veranstalter_url": "http://herbstlauf.wetzstopp.de/",
-    "dauer_h": 1.0,
-    "pruefung_offen": true
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -1566,9 +1509,8 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/427842/",
-    "charity": true,
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.brustgesundheit-klartext.ch/spendenlauf/",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -1583,20 +1525,6 @@
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
     "veranstalter_url": "https://lg-lottehalen.jimdofree.com/spitzen-ultra-24-10/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stevens Cyclo-Cross-Cup #6",
-    "standort": "Plate",
-    "lat": 53.5571631,
-    "lon": 11.4955621,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "dauer_h": 0.5,
-    "wettbewerb": "Cyclocross 30 min",
-    "veranstalter_url": "https://www.athletico-buedelsdorf.de/"
   },
   {
     "land": "Schweiz",
@@ -1780,34 +1708,6 @@
     "veranstalter_url": "https://www.trophee-de-la-suze.ch"
   },
   {
-    "land": "Deutschland",
-    "name": "Weser-Ems-Cup Cloppenburg",
-    "standort": "Cloppenburg",
-    "lat": 52.847,
-    "lon": 8.045,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Österreich",
-    "name": "Wienenergie Cyclocross",
-    "standort": "Landegg",
-    "lat": 47.8993676,
-    "lon": 16.3976248,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://www.rc-awr.at",
-    "pruefung_offen": true
-  },
-  {
     "land": "Österreich",
     "name": "Windischgarstner Marktlauf",
     "standort": "Windischgarsten",
@@ -1818,22 +1718,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "veranstalter_url": "https://sportunion-windischgarsten.at/4/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "Wuhlheider 12 Stundenlauf",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "laenge_km": null,
-    "dauer_h": 12.0,
-    "veranstalter_url": "https://my.raceresult.com/365972/",
-    "pruefung_offen": true
+    "laenge_km": 6.0
   },
   {
     "land": "Deutschland",
@@ -1920,19 +1805,6 @@
     "wettbewerb": "Halbmarathon"
   },
   {
-    "land": "Österreich",
-    "name": "15. Salzburg Trailrunning Festival - Gaisbergrace und Gaisbergtrail",
-    "standort": "Salzburg",
-    "lat": 47.7981346,
-    "lon": 13.0464806,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "veranstalter_url": "http://www.trailrunning-festival.at",
-    "pruefung_offen": true
-  },
-  {
     "land": "Deutschland",
     "name": "19. Cross im Park des RSC Kattenberg",
     "standort": "Kaltenkirchen",
@@ -1944,8 +1816,7 @@
     "datum_ende": "2026-10-25",
     "anmeldeschluss": "2026-10-18",
     "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #07",
-    "veranstalter_url": "https://www.rsc-kattenberg.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.rsc-kattenberg.de/"
   },
   {
     "land": "Deutschland",
@@ -2306,8 +2177,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 13.0,
     "veranstalter_url": "https://www.sv1910-kahla.de/",
-    "wettbewerb": "13 km Hauptlauf, ab 14 Jahre (Jg. 2012 und älter)",
-    "pruefung_offen": true
+    "wettbewerb": "13 km Hauptlauf, ab 14 Jahre (Jg. 2012 und älter)"
   },
   {
     "land": "Deutschland",
@@ -2321,8 +2191,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 5.5,
     "wettbewerb": "5,5 km Einsteigerlauf, ab 10 Jahre (Jg. 2016 und älter)",
-    "veranstalter_url": "https://www.sv1910-kahla.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.sv1910-kahla.de/"
   },
   {
     "land": "Deutschland",
@@ -2419,9 +2288,8 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 9.2,
     "wettbewerb": "9,2 km Crosslauf (Hauptlauf)",
-    "veranstalter_url": "https://www.lvbiet.de/",
-    "charity": true,
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.lvbiet.de/veranstaltungen/bl26/",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -2435,9 +2303,8 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Crosslauf (Freizeitlauf)",
-    "veranstalter_url": "https://www.lvbiet.de/",
-    "charity": true,
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.lvbiet.de/veranstaltungen/bl26/",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -3671,20 +3538,6 @@
     "veranstalter_url": "https://www.sportscheck.com/erlebnisse/run"
   },
   {
-    "land": "Deutschland",
-    "name": "Stevens Cyclo-Cross-Cup #7",
-    "standort": "Kaltenkirchen",
-    "lat": 53.841603,
-    "lon": 9.9543017,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 30.0,
-    "wettbewerb": "Cyclocross 30 km",
-    "veranstalter_url": "https://www.rsc-kattenberg.de/"
-  },
-  {
     "land": "Schweiz",
     "name": "SwissCityMarathon - Lucerne",
     "standort": "Luzern",
@@ -3863,20 +3716,6 @@
     "dauer_h": 0.5,
     "wettbewerb": "Cyclocross 30 min",
     "veranstalter_url": "https://www.radrenngemeinschaft-osnabrueck.de/rennsport/querfeldein/cross-os-bornheide/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Wienenergie Cyclocross",
-    "standort": "Landegg",
-    "lat": 47.8993676,
-    "lon": 16.3976248,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://www.rc-awr.at",
-    "pruefung_offen": true
   },
   {
     "land": "Deutschland",
@@ -6090,17 +5929,16 @@
   {
     "land": "Deutschland",
     "name": "2. CycloCross-Rennen der IGAS Wendland",
-    "standort": "Bösel",
-    "lat": 53.0,
-    "lon": 7.95,
+    "standort": "Lüchow (Wendland)",
+    "lat": 52.9397,
+    "lon": 11.1926,
     "art1": "Fahrrad",
     "art2": "Cyclecross",
     "datum_start": "2026-11-01",
     "datum_ende": "2026-11-01",
     "anmeldeschluss": "2026-10-25",
     "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #08",
-    "veranstalter_url": "https://www.igaswendland.de",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.igaswendland.de"
   },
   {
     "land": "Deutschland",
@@ -6614,20 +6452,6 @@
     "wettbewerb": "Cyclocross",
     "veranstalter_url": "http://www.white-rock.de/Veranstaltung/19-granschuetzer-radquerfeldein-rund-um-den-auensee/?instance_id=279",
     "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stevens-Cyclo-Cross-Cup",
-    "standort": "Lüchow",
-    "lat": 52.9397003,
-    "lon": 11.1926495,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-11-01",
-    "datum_ende": "2026-11-01",
-    "laenge_km": 30.0,
-    "wettbewerb": "Cyclocross 30 km",
-    "veranstalter_url": "http://www.igaswendland.de"
   },
   {
     "land": "Deutschland",
@@ -12950,10 +12774,11 @@
     "art2": "Cyclecross",
     "datum_start": "2026-11-15",
     "datum_ende": "2026-11-15",
-    "laenge_km": 30.0,
-    "wettbewerb": "Cyclocross 30 km",
+    "laenge_km": null,
+    "wettbewerb": "Cyclocross",
     "veranstalter_url": "https://radsportbaddoberan.de/",
-    "anmeldeschluss": "2026-11-08"
+    "anmeldeschluss": "2026-11-08",
+    "pruefung_offen": true
   },
   {
     "land": "Deutschland",
@@ -15020,7 +14845,6 @@
     "datum_ende": "2026-11-22",
     "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #12",
     "veranstalter_url": "https://kieler-rv.de/index.php",
-    "pruefung_offen": true,
     "anmeldeschluss": "2026-11-15"
   },
   {
@@ -16020,8 +15844,7 @@
     "datum_ende": "2026-11-29",
     "anmeldeschluss": "2026-11-22",
     "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #14",
-    "veranstalter_url": "http://www.radgemeinschaft-wedel.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "http://www.radgemeinschaft-wedel.de/"
   },
   {
     "land": "Deutschland",
@@ -16641,20 +16464,6 @@
     "laenge_km": 10.5,
     "wettbewerb": "10.5 km",
     "veranstalter_url": "https://www.steinhoelzlilauf.ch/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stevens Cyclo-Cross-Cup #14",
-    "standort": "Wedel",
-    "lat": 53.5886174,
-    "lon": 9.7023912,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2026-11-29",
-    "dauer_h": 0.5,
-    "wettbewerb": "Cyclocross 30 min",
-    "veranstalter_url": "http://www.radgemeinschaft-wedel.de/"
   },
   {
     "land": "Deutschland",
@@ -19896,8 +19705,7 @@
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #15",
-    "veranstalter_url": "https://harburger-rg.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://harburger-rg.de/"
   },
   {
     "land": "Deutschland",
@@ -20483,20 +20291,6 @@
     "wettbewerb": "Cyclocross 30 min",
     "veranstalter_url": "https://www.radsport-weser-ems.de/",
     "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stevens Cyclo-Cross-Cup #15",
-    "standort": "Hamburg-Harburg",
-    "lat": 53.438183,
-    "lon": 10.0023014,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-12-13",
-    "datum_ende": "2026-12-13",
-    "dauer_h": 0.5,
-    "wettbewerb": "Cyclocross 30 min",
-    "veranstalter_url": "https://harburger-rg.de/"
   },
   {
     "land": "Deutschland",

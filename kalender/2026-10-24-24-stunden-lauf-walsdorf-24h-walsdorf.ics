@@ -10,9 +10,10 @@ DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261026
 SUMMARY:24-Stunden-Lauf Walsdorf
 LOCATION:Walsdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 24 h\nhttps://my.raceresult.co
- m/427191/
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 24 h\nhttps://sv-walsdorf.de/i
+ ndex.php?option=com_content&view=article&id=1526&Itemid=170
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/427191/
+URL:https://sv-walsdorf.de/index.php?option=com_content&view=article&id=15
+ 26&Itemid=170
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-9-cloppenburger-city-cross-1h-cloppenburg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:9. Cloppenburger City Cross – Elite\, Masters 2\, U19 Männer 60 mi
+ n
+LOCATION:Cloppenburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 1 h\nhttps://www.cloppe
+ nburg.de/portal/seiten/9-cloppenburger-citycross-rennen-900000088-31040.h
+ tml
+TRANSP:TRANSPARENT
+URL:https://www.cloppenburg.de/portal/seiten/9-cloppenburger-citycross-ren
+ nen-900000088-31040.html
+END:VEVENT
+END:VCALENDAR

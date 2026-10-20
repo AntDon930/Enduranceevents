@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-15-stevens-cyclo-cross-cup-11-30km-rostock@antdon930.github.io
+UID:2026-11-15-stevens-cyclo-cross-cup-11-x-rostock@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
-SUMMARY:Stevens Cyclo-Cross-Cup #11 – Cyclocross 30 km
+SUMMARY:Stevens Cyclo-Cross-Cup #11 – Cyclocross
 LOCATION:Rostock\, Deutschland
-DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 30 km\nhttps://radsport
- baddoberan.de/
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://radsportbadd
+ oberan.de/
 TRANSP:TRANSPARENT
 URL:https://radsportbaddoberan.de/
 END:VEVENT

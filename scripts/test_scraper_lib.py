@@ -3524,6 +3524,11 @@ def test_cyclingaustria() -> None:
     karten = ca.parse_liste(liste)
     assert [k["id"] for k in karten] == ["66A5150B9B5D4BABB3DD1C836E78761B", "1DB0BEFF77C644F09483583293A91C56"], karten
     assert karten[0]["url"].endswith("view=event&id=66A5150B9B5D4BABB3DD1C836E78761B") and karten[0]["datum"] == "2026-09-26"
+    assert not karten[0]["abgesagt"]
+    abgesagt = ca.parse_liste('<div data-disziplin="Cyclocross" data-date="2026-10-24"><a href="/index.php?option=com_events&amp;view=event&amp;'
+                              'id=3A142E458E9042568C7C8459D4B77EC1"><h3>Wienenergie Cyclocross - ABGESAGT !!</h3></a>'
+                              '<p>Ausschreibung abgesagt</p></div>')
+    assert abgesagt[0]["abgesagt"], abgesagt
 
     def block(nr, klassen, disziplin, distanz=None, dauer=None):
         felder = f'<h3 class="uk-h5">Disziplin</h3><div class="uk-panel">{disziplin}</div>'

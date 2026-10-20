@@ -8,13 +8,12 @@ UID:2026-10-24-23-bremer-zeitsprung-marathon-42-2km-bremen@antdon930.githu
  b.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261024
-DTEND;VALUE=DATE:20261025
-SUMMARY:23. Bremer Zeitsprung-Marathon – Marathon (Termin vorläufig)
+DTEND;VALUE=DATE:20261026
+SUMMARY:23. Bremer Zeitsprung-Marathon – Marathon
 LOCATION:Bremen\, Deutschland
-DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
- aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Laufen / Str
- aße\nLänge: 42.2 km\nhttps://my.raceresult.com/315501
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.wattzeit
+ .de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/315501
+URL:http://www.wattzeit.de/
 END:VEVENT
 END:VCALENDAR

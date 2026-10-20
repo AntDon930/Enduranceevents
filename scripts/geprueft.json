@@ -1896,16 +1896,16 @@
     "notiz": "18.10.2026 bestätigt: Hauptlauf 11:00, Jedermann/Walking 11:00, Schülerläufe über 550-m-Runden; die Längen stehen nur in Polar-Flow-Links."
   },
   "Ansbacher Crosslauf|2026-10-24": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "tsv1860ansbach.de",
-    "notiz": "'Samstag, den 24. Oktober 2026', 'sieben verschiedene Läufe' - ohne Kilometer."
+    "am": "2026-10-20",
+    "ergebnis": "korrigiert",
+    "quelle": "https://tsv1860ansbach.de/leichtathletik/ansbacher-crosslauf/",
+    "notiz": "Korrekturliste des Nutzers: Es ist ein Lauf über 5km, der ist 8,6km. \n\nSieht man auch hier: https://my.raceresult.com/415098/info\n\nAber die Webseite von 1860ansbach ist richtig."
   },
   "Rellinger Herbstlauf|2026-10-24": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "herbstlauf.wetzstopp.de",
-    "notiz": "Seite antwortet 503."
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://herbstlauf.wetzstopp.de/",
+    "notiz": "Korrekturliste des Nutzers"
   },
   "Gymrace Airport Weeze|2026-10-10": {
     "am": "2026-09-19",
@@ -2696,16 +2696,16 @@
     "notiz": "'Sägerserie: 10. + 24. Okt. + 07. Nov. 2026' bestätigt; Distanzen (7/11 km) nicht auf der Seite."
   },
   "Nordwalder Laufspektakel|2026-10-24": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "northwoodrunners.de",
-    "notiz": "Anmeldung 2026 offen, Strecken 5 km/10 km/HM bestätigt; Termin auf der Seite nicht genannt (2025 war der 25.10.)."
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.northwoodrunners.de/laufspektakel",
+    "notiz": "Korrekturliste des Nutzers: „6. Norwalder Laufspektakel“ das ist der richtige Name. Der Rest stimmt"
   },
   "Burgkirchner Raiffeisen-Crosslauf|2026-10-24": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "crosslauf-is.de",
-    "notiz": "Serienseite nennt weder Termin noch Distanz im Text; 6,6 km nicht prüfbar."
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://www.crosslauf-is.de",
+    "notiz": "Korrekturliste des Nutzers: https://www.crosslauf-is.de/pages/archiv/ausschreibungen/2026/CRL05.php\n\nDas ist die Webseite. 6,6km ist richtig, die anderen Läufe sind unter 5km"
   },
   "39. Starzachlauf|2026-10-25": {
     "am": "2026-09-21",
@@ -2714,16 +2714,16 @@
     "notiz": "Hauptlauf 10,7 km und Hobbylauf 5,2 km bestätigt; Termin 2026 auf der Seite nicht genannt."
   },
   "54. Porzellinerlauf|2026-10-25": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "sv1910-kahla.de",
-    "notiz": "Seite nennt nur den 53. Lauf (02.11.2025, 13 / 5,5 km); 25.10.2026 nicht belegbar."
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.sv1910-kahla.de/",
+    "notiz": "Korrekturliste des Nutzers"
   },
   "Bietlauf für einen Wohltätigen Zweck|2026-10-25": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "lvbiet.de",
-    "notiz": "Vereinsseite nennt nur den Anmeldelink; Termin und Distanzen (5 / 9,2 km) nicht prüfbar."
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.lvbiet.de/",
+    "notiz": "Korrekturliste des Nutzers: Bitte die Webseite nutzen: https://www.lvbiet.de/veranstaltungen/bl26/"
   },
   "Bocksbeutel-Lauf Thüngersheim|2026-10-25": {
     "am": "2026-09-21",
@@ -4808,10 +4808,10 @@
     "notiz": "„jedes Jahr am 3. Oktober“; 5 und 10 km"
   },
   "Karpiner Herbstcross|2026-10-24": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
     "quelle": "http://uer-laufcup.de/wp-content/uploads/2025/10/Ausschreibungen-Karpiner-Herbstcross.pdf",
-    "notiz": "Verlinkt ist die Ausschreibung 2025 (11.10.2025: 1,3 / 2,6 / 3 / 3,9 / 5,2 / 10,4 km); 2026 nicht belegt, die 6,3 km stehen dort nicht | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
+    "notiz": "Korrekturliste des Nutzers: In dem Link steht groß „ Am 11.10.2025 10:00 Uhr “"
   },
   "Bahnabend Bremenstadion Ennepetal|2026-09-23": {
     "am": "2026-09-21",
@@ -5504,10 +5504,10 @@
     "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar („Carrie Fisher Marathon“, Hamburg-Volksdorf)"
   },
   "23. Bremer Zeitsprung-Marathon|2026-10-24": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "https://my.raceresult.com/315501",
-    "notiz": "Der hinterlegte raceresult-Link (315501) ist die Ausgabe 2025 („22. Bremer Zeitsprung-Marathon“, 25./26.10.2025); der Termin 24.10.2026 ist damit nicht belegt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/374167/",
+    "notiz": "Korrekturliste des Nutzers: Das ist die Webseite. http://www.wattzeit.de/\nEs ist ein Nachtrennen und geht vom 24 bis 25 Oktober."
   },
   "Albiger Doppelzwölfer|2026-10-24": {
     "am": "2026-09-22",
@@ -6326,10 +6326,10 @@
     "notiz": "Gehen (Race Walking); Nutzer 21.09.2026: Gehen nicht aufnehmen - fällt über NICHT_AUSDAUER"
   },
   "1. Pumpkin run|2026-10-25": {
-    "am": "2026-09-21",
+    "am": "2026-10-20",
     "ergebnis": "unklar",
-    "quelle": "https://laufen.de/laufkalender/details/26V14000019260001",
-    "notiz": "Link leitet auf lauf-club-urexweiler.de, dort keine Angaben"
+    "quelle": "https://lcfru.de/",
+    "notiz": "Korrekturliste des Nutzers, Check again: Finde ich nicht. – Ich finde ihn auch nicht: Nur ein Aggregator (trainerday) nennt 25.10.2026, 1 und 5 km; der Verein (lcfru.de) erwähnt ihn nirgends. Bleibt ausgeblendet."
   },
   "22. Flutlicht-Crosslauf|2026-11-06": {
     "am": "2026-09-21",
@@ -8322,5 +8322,155 @@
     "ergebnis": "abgesagt",
     "quelle": "https://brgerbad-handorf---bba.chayns.site/",
     "notiz": "Nutzer: fällt dieses Jahr aus (schwimmkalender.de nennt es im Namen) - nächste Ausgabe sucht das Gedächtnis"
+  },
+  "Austria Backyard Ultra - Thüringen|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.austriabackyardultra.com/thueringen",
+    "notiz": "Korrekturseite des Nutzers 20.10.2026: Backyard Ultra = Open End, Runde 6,7 km ist keine Distanz"
+  },
+  "Baltic X Backyard Ultra|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.auf-nach-mv.de/veranstaltungssuche/e-baltic-x-backyard-ultra",
+    "notiz": "Korrekturseite des Nutzers 20.10.2026: Open End, Seite vom Nutzer, Samstag 24.10.2026 Binz"
+  },
+  "Cross the Pfaff|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://rundumdenpfaffenteich.de/",
+    "notiz": "Korrekturseite des Nutzers 20.10.2026: Länge nicht genannt (Cyclocross auf Zeit); Lauf #06 des Stevens Cyclo-Cross Cups 2026/27 (Plakat RSC Kattenberg)"
+  },
+  "9. Cloppenburger City Cross|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.cloppenburg.de/portal/seiten/9-cloppenburger-citycross-rennen-900000088-31040.html",
+    "notiz": "Korrekturseite des Nutzers 20.10.2026: Rennen 30/40/50/60 min laut Zeitplan der Stadt; Kinder- und Laufradrennen nicht aufgenommen"
+  },
+  "1. Johannisthaler 6-Stundenlauf|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/365972/",
+    "notiz": "Korrekturseite des Nutzers 20.10.2026: raceresult-Seite des Veranstalters (SOBVL, ohne eigene Seite)"
+  },
+  "19. Cross im Park des RSC Kattenberg|2026-10-25": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.rsc-kattenberg.de/wp-content/uploads/2026/08/SCC-Plakat_2026_2027_A3-1.pdf",
+    "notiz": "Korrekturseite des Nutzers 20.10.2026: Termin und Ort gegen das Cup-Plakat 2026/27 geprüft; Cyclocross ohne Renndistanz"
+  },
+  "2. CycloCross-Rennen der IGAS Wendland|2026-11-01": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.rsc-kattenberg.de/wp-content/uploads/2026/08/SCC-Plakat_2026_2027_A3-1.pdf",
+    "notiz": "Korrekturseite des Nutzers 20.10.2026: Termin und Ort gegen das Cup-Plakat 2026/27 geprüft; Cyclocross ohne Renndistanz"
+  },
+  "Stevens Cyclo-Cross Cup Kiel|2026-11-22": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.rsc-kattenberg.de/wp-content/uploads/2026/08/SCC-Plakat_2026_2027_A3-1.pdf",
+    "notiz": "Korrekturseite des Nutzers 20.10.2026: Termin und Ort gegen das Cup-Plakat 2026/27 geprüft; Cyclocross ohne Renndistanz"
+  },
+  "5. Ulli Langbehn Radcross der RG Wedel|2026-11-29": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.rsc-kattenberg.de/wp-content/uploads/2026/08/SCC-Plakat_2026_2027_A3-1.pdf",
+    "notiz": "Korrekturseite des Nutzers 20.10.2026: Termin und Ort gegen das Cup-Plakat 2026/27 geprüft; Cyclocross ohne Renndistanz"
+  },
+  "47. Harburger Weihnachtscross|2026-12-13": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.rsc-kattenberg.de/wp-content/uploads/2026/08/SCC-Plakat_2026_2027_A3-1.pdf",
+    "notiz": "Korrekturseite des Nutzers 20.10.2026: Termin und Ort gegen das Cup-Plakat 2026/27 geprüft; Cyclocross ohne Renndistanz"
+  },
+  "Kraichgauman Crossduathlon|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://www.kraichgauman.de/",
+    "notiz": "Korrekturliste des Nutzers: Das Event ist 7 km Run | 28,5 km Bike"
+  },
+  "Wienenergie Cyclocross|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "abgesagt",
+    "quelle": "https://www.rc-awr.at",
+    "notiz": "Korrekturliste des Nutzers, Check again: Wo hattest du denn gesehen das der Termin im Jahr 2026 stattfindet? Ich hab nur 2025 und 2024 gesehen – Du hast recht: Der Termin kam aus dem ÖRV-Kalender (cyclingaustria.at) – dort steht er inzwischen als „ABGESAGT“. Beide Tage sind raus, und der Scraper überspringt abgesagte ÖRV-Rennen jetzt selbst."
+  },
+  "Wienenergie Cyclocross|2026-10-25": {
+    "am": "2026-10-20",
+    "ergebnis": "abgesagt",
+    "quelle": "https://www.cyclingaustria.at/kalender?view=events",
+    "notiz": "Korrekturseite des Nutzers 20.10.2026: ÖRV-Kalender: ABGESAGT"
+  },
+  "Windischgarstner Marktlauf|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "korrigiert",
+    "quelle": "https://sportunion-windischgarsten.at/4/",
+    "notiz": "Korrekturliste des Nutzers: https://sportunion-windischgarsten.at/4/images/2026/Marktlauf26/Flyer_Ortslauf_2026_Druck.pdf\n\nDas ist die Ausschreibung. Aber nicht als Webseite übernehmen"
+  },
+  "Wild Dog Austria|2026-10-23": {
+    "am": "2026-10-20",
+    "ergebnis": "korrigiert",
+    "quelle": "https://wild-dog.at/",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "9. Stadtlauf Feldkirchen ( Österr. Volkslaufcup )|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "unklar",
+    "quelle": "http://www.internationaler-kaernten-marathon.at",
+    "notiz": "Korrekturliste des Nutzers: Was ist das für ein Lauf? Finde ich nicht, ist das nicht der Kärnten Marathon, den wir schon Live haben"
+  },
+  "Spendenlauf Brustgesundheit - Wallbach|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/427842/",
+    "notiz": "Korrekturliste des Nutzers: https://www.brustgesundheit-klartext.ch/spendenlauf/\n\nDas ist die Webseite"
+  },
+  "1. Lauf der Crossserie des BLV-Kreises Ansbach|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/1-lauf-der-crossserie-des-blv-kreises-ansbach",
+    "notiz": "Korrekturliste des Nutzers: https://tsv1860ansbach.de/leichtathletik/termine/\n\nDas ist die Webseite"
+  },
+  "Hüggel-Marathon|2026-10-21": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/427841/",
+    "notiz": "Korrekturliste des Nutzers: https://ultra-uwe-unterwegs.de/\n\nDas ist die WebseitE"
+  },
+  "24-Stunden-Lauf Walsdorf|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/427191/",
+    "notiz": "Korrekturliste des Nutzers: https://sv-walsdorf.de/index.php?option=com_content&view=article&id=1526&Itemid=170\n\nDas ist die Webseite"
+  },
+  "Kölner TSC Marathons|2026-10-22": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://triathlonsteckelcologne.de/veranstaltungen",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "15. Salzburg Trailrunning Festival - Gaisbergrace und Gaisbergtrail|2026-10-25": {
+    "am": "2026-10-20",
+    "ergebnis": "entfernt",
+    "quelle": "http://www.trailrunning-festival.at",
+    "notiz": "Korrekturliste des Nutzers: Das ist das gleiche Event wie „ 15. Salzburg Trailrunning Festival - Kidstrail, Festungs- und Panoramatrail“."
+  },
+  "Business2Run Weberzeile|2026-10-21": {
+    "am": "2026-10-20",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.business2run.at/events/weberzeile",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "Wuhlheider 12 Stundenlauf|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "korrigiert",
+    "quelle": "https://my.raceresult.com/365972/",
+    "notiz": "Korrekturliste des Nutzers, Check again: Der Link führt zu einem anderen Event. Anderer Name und ist ein 6h Lauf. \n\nSOBVL 10-2026 - 1. Johannisthaler 6-Stundenlauf – Stimmt: Der Link ist der „1. Johannisthaler 6-Stundenlauf“ am selben Tag vom selben Veranstalter (SOBVL). Den 12-Stunden-Lauf habe ich gelöscht und den 6-Stunden-Lauf eingetragen."
+  },
+  "Weser-Ems-Cup Cloppenburg|2026-10-24": {
+    "am": "2026-10-20",
+    "ergebnis": "entfernt",
+    "quelle": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Korrekturliste des Nutzers, Check again: Finde ich nicht – Das ist derselbe Lauf wie der 9. Cloppenburger City Cross („WEC Cross Cloppenburg 24.10.2026“ auf radsport-weser-ems.de) – doppelt, gelöscht."
   }
 }
