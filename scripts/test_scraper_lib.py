@@ -4628,8 +4628,9 @@ def test_pruefung_offen() -> None:
     quelle = (wurzel / "filters.js").read_text(encoding="utf-8")
     check("EF.loadEvents() wirft pruefung_offen weg (beide Wege)",
           quelle.count("dropUnchecked(") >= 3 and "!e.pruefung_offen" in quelle, True)
-    check("update_events.py meldet ausgeblendete Zeilen nicht",
-          'not e.get("pruefung_offen")' in (wurzel / "scripts" / "update_events.py").read_text(encoding="utf-8"), True)
+    import abo_meldung as _abo
+    check("die Abo-Meldung zählt ausgeblendete Zeilen nicht als sichtbar",
+          _abo.sichtbar({"name": "X", "datum_start": "2099-01-01", "pruefung_offen": True}, "2026-10-20"), False)
 
 
 def test_kopierschutz() -> None:
@@ -5853,6 +5854,166 @@ def test_check_again() -> None:
         check(f"Seite: {teil}", teil in seite, True)
 
 
+def test_abo_meldung() -> None:
+    """E-Mail-Abos erst nach dem Deploy und mit freigegebenen Zeilen (vom
+    Nutzer am 20.10.2026: „Ja, bitte beide Punkte ändern"): Neu ist, was
+    jetzt SICHTBAR ist und beim letzten Melden nicht. Gemeldet wird einmal
+    je Datenlauf (sonst wanderte die Wochen-Mail mit jedem Korrektur-
+    Deploy), erst im Job nach dem Deploy; ein Rückfall meldet nichts."""
+    print("\nE-Mail-Abos (abo_meldung.py):")
+    import argparse
+    import datetime as _dt
+    import json as _json
+    import os
+    import socket as _socket
+    import tempfile
+    import urllib.error
+    import abo_meldung as a
+    import fangzeile
+    heute = "2026-10-20"
+
+    def z(name, tag="2026-11-07", km=10.0, **mehr):
+        e = {"name": name, "datum_start": tag, "datum_ende": tag, "laenge_km": km, "standort": "Ulm"}
+        e.update(mehr)
+        return e
+
+    vorher = [z("Bleibt"), z("Ausgeblendet", pruefung_offen=True), z("Bleibt versteckt", pruefung_offen=True),
+              z("Gestrichen")]
+    nachher = [z("Bleibt"), z("Ausgeblendet"), z("Bleibt versteckt", pruefung_offen=True), z("Ganz neu"),
+               z("Ganz neu"), z("Neu, aber vorbei", tag="2026-10-01"), z("Neu und versteckt", pruefung_offen=True),
+               z("Bleibt", km=21.1), fangzeile.zeile(_dt.date(2026, 10, 20)) | {"pruefung_offen": False}]
+    namen = [e["name"] for e in a.neue_sichtbare(vorher, nachher, heute)]
+    check("neue Zeile aus dem Datenlauf wird gemeldet", "Ganz neu" in namen, True)
+    check("je Kennung nur einmal", namen.count("Ganz neu"), 1)
+    check("freigegebene Zeile (vorher pruefung_offen) wird gemeldet", "Ausgeblendet" in namen, True)
+    check("weiter ausgeblendete Zeile nicht", "Bleibt versteckt" in namen or "Neu und versteckt" in namen, False)
+    check("schon sichtbare Zeile nicht", namen.count("Bleibt"), 1)  # nur die neue 21,1-km-Strecke
+    check("vergangene Zeile nicht", "Neu, aber vorbei" in namen, False)
+    check("Fangzeile nie", fangzeile.NAME in namen, False)
+    check("Kennung wie dedupe_key (Distanz gerundet)", a.kennung(z("X", km=42.195)), ("x", "2026-11-07", 42.2))
+
+    gross = [z(f"Lauf {i}") for i in range(a.MIN_VORHER)]
+    A, B, C = "a" * 40, "b" * 40, "c" * 40   # gemeldet, live, dieser Deploy
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        (tmp / "events.json").write_text(_json.dumps(gross + [z("Ganz neu")]), encoding="utf-8")
+        aus = tmp / "abo" / "abo-neu.json"
+        dj = tmp / "deploy.json"
+        alt_stand, alt_git = a.live_stand, a.git
+
+        def lauf(stand, vorfahr=True, datenlauf=True, inhalt=gross, bot=A):
+            a.live_stand = lambda seite, cache: stand
+            def git(*g):
+                if g[0] == "cat-file":
+                    return ""
+                if g[0] == "merge-base":
+                    return "" if vorfahr else None
+                if g[0] == "show":
+                    return _json.dumps(inhalt)
+                if g[0] == "log":
+                    if g[1] == "-1":
+                        return bot + "\n" if bot else ""
+                    return "d" * 40 + "\n" if datenlauf else ""
+                return None
+            a.git = git
+            if dj.exists():
+                dj.unlink()
+            a.cmd_vergleichen(argparse.Namespace(seite="https://x.example", cache="1", commit=C, deploy_json=str(dj),
+                                                 nachher=str(tmp / "events.json"), aus=str(aus), heute=heute))
+            d = _json.loads(aus.read_text(encoding="utf-8"))
+            meldestand = _json.loads(dj.read_text(encoding="utf-8")) if dj.exists() else None
+            return [e["name"] for e in d["events"]], d.get("grund"), meldestand
+
+        try:
+            namen, grund, ds = lauf(("ok", {"commit": B, "gemeldet": A}))
+            check("neuer Datenlauf: alles seit der letzten Meldung", (namen, grund), (["Ganz neu"], None))
+            check("… und dieser Stand gilt danach als gemeldet", ds, {"commit": C, "gemeldet": C})
+            namen, grund, ds = lauf(("ok", {"commit": B, "gemeldet": A}), datenlauf=False)
+            check("Korrektur-Deploy ohne Datenlauf: nichts melden, Meldestand bleibt",
+                  (namen, grund, ds), ([], None, {"commit": C, "gemeldet": A}))
+            namen, grund, ds = lauf(("ok", {"commit": B, "gemeldet": A}), vorfahr=False)
+            check("Rückfall (Live-Commit kein Vorfahr): nichts melden, kein Fehler",
+                  (namen, grund, ds), ([], None, {"commit": C, "gemeldet": A}))
+            namen, grund, ds = lauf(("ok", {"commit": B, "gemeldet": A}), inhalt=gross[:10])
+            check("kaputter gemeldeter Stand: nichts melden, mit Grund", (namen, grund is not None), ([], True))
+            namen, grund, ds = lauf(("fehlt", {}), datenlauf=False)
+            check("ohne deploy.json: der letzte Datenlauf gilt als gemeldet",
+                  (namen, grund, ds), ([], None, {"commit": C, "gemeldet": A}))
+            namen, grund, ds = lauf(("fehler", {}))
+            check("deploy.json nicht lesbar: nichts melden, mit Grund, ohne Meldestand",
+                  (namen, grund is not None, ds), ([], True, {"commit": C}))
+        finally:
+            a.live_stand, a.git = alt_stand, alt_git
+
+        # senden: ohne Datei / mit Grund rot, leer grün, ohne Adresse grün.
+        alt_env = {k: os.environ.pop(k, None) for k in ("NOTIFY_WEBHOOK_URL", "NOTIFY_WEBHOOK_SECRET")}
+        try:
+            check("senden ohne Liste: rot", a.main(["senden", "--datei", str(tmp / "fehlt.json")]), 1)
+            a.schreibe(aus, [], "kaputt")
+            check("senden mit Grund: rot", a.main(["senden", "--datei", str(aus)]), 1)
+            a.schreibe(aus, [])
+            check("senden ohne neue Events: grün, kein Aufruf", a.main(["senden", "--datei", str(aus)]), 0)
+            a.schreibe(aus, [z("Ganz neu")])
+            check("senden ohne NOTIFY_WEBHOOK_URL: grün", a.main(["senden", "--datei", str(aus)]), 0)
+        finally:
+            for k, v in alt_env.items():
+                if v is not None:
+                    os.environ[k] = v
+
+    # melde: 503 wird wiederholt, eine Zeitüberschreitung nie (die Mails
+    # könnten schon in der Warteschlange liegen).
+    import urllib.request as _ur
+    alt_open, alt_sleep = _ur.urlopen, a.time.sleep
+    aufrufe = []
+
+    class Antwort:
+        def __enter__(self):
+            return self
+        def __exit__(self, *x):
+            return False
+        def read(self):
+            return b'{"checkedSubscriptions": 2, "mailsQueued": 2, "collectedForLater": 0}'
+
+    try:
+        a.time.sleep = lambda s: None
+        def offen_503(req, timeout=0):
+            aufrufe.append(req.get_header("X-notify-secret"))
+            if len(aufrufe) < 2:
+                raise urllib.error.HTTPError(req.full_url, 503, "busy", {}, None)
+            return Antwort()
+        _ur.urlopen = offen_503
+        antwort = a.melde("https://x.example/hook", "geheim", [z("Ganz neu")])
+        check("503 einmal wiederholt, dann Antwort gelesen", (len(aufrufe), antwort["mailsQueued"]), (2, 2))
+        check("Secret im Kopf", aufrufe[0], "geheim")
+        aufrufe.clear()
+        def zu_langsam(req, timeout=0):
+            aufrufe.append(1)
+            raise _socket.timeout("timed out")
+        _ur.urlopen = zu_langsam
+        try:
+            a.melde("https://x.example/hook", None, [z("Ganz neu")])
+            fehler = None
+        except RuntimeError as exc:
+            fehler = str(exc)
+        check("Zeitüberschreitung: kein zweiter Aufruf", (len(aufrufe), fehler is not None), (1, True))
+    finally:
+        _ur.urlopen, a.time.sleep = alt_open, alt_sleep
+
+    wurzel = Path(__file__).resolve().parent.parent
+    update = (wurzel / "scripts" / "update_events.py").read_text(encoding="utf-8")
+    check("der Datenlauf meldet nicht mehr selbst", "os.environ.get(\"NOTIFY_WEBHOOK_URL\")" in update, False)
+    pages = (wurzel / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+    abo = pages[pages.index("\n  abo:"):] if "\n  abo:" in pages else ""
+    check("pages.yml: Job „abo“ läuft erst nach dem Deploy", "needs: deploy" in abo, True)
+    check("pages.yml: der Job meldet mit den Secrets",
+          "abo_meldung.py senden" in abo and "secrets.NOTIFY_WEBHOOK_URL" in abo, True)
+    upload = pages.index("upload-pages-artifact")
+    check("pages.yml: Vergleich samt deploy.json VOR dem Upload",
+          0 < pages.index("abo_meldung.py vergleichen") < upload and "--deploy-json deploy.json" in pages, True)
+    check("pages.yml: die Liste liegt nicht in der hochgeladenen Seite", "$RUNNER_TEMP/abo/abo-neu.json" in pages, True)
+    check("Secrets nur im Job „abo“", pages.count("secrets.NOTIFY_WEBHOOK"), abo.count("secrets.NOTIFY_WEBHOOK"))
+
+
 def test_geloescht() -> None:
     """Status „Löschen" (vom Nutzer am 20.10.2026: „löschen soll nur die
     eine Zeile herausnehmen und schauen ob das Event nächstes Jahr passend
@@ -5977,7 +6138,7 @@ def main() -> int:
                  test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_dauer_minuten, test_pruefung_offen, test_korrektur_seite, test_kopierschutz,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
-                 test_schwimmen_regeln, test_schwimmkalender, test_faellt_aus, test_check_again, test_geloescht, test_turbosport, test_radsportevents,
+                 test_schwimmen_regeln, test_schwimmkalender, test_faellt_aus, test_check_again, test_geloescht, test_abo_meldung, test_turbosport, test_radsportevents,
                  test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_dealgrid, test_marsch_quellen, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis, test_serien,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,

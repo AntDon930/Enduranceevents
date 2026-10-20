@@ -12,7 +12,7 @@ denn außer in unseren Datendateien gibt es sie nirgends.
 
 - **Auf der Seite nie sichtbar**: Die Zeile trägt `pruefung_offen`, und
   `EF.loadEvents()` lädt solche Zeilen nicht (Liste, Karte, Startseite).
-  Abo-Mails (`update_events.py`) und Instagram (`insta_inhalte.py`)
+  Abo-Mails (`abo_meldung.py`) und Instagram (`insta_inhalte.py`)
   übergehen sie aus demselben Grund. In `events.json`,
   `events.web.json` und `kalender/` steht sie – genau dort, wo jemand
   abschreibt.

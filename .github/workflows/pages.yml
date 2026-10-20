@@ -4,7 +4,7 @@ name: Deploy GitHub Pages
 # dem 13.10.2026 aber erst, wenn die Tests grün sind (Deploy-Gate, vom
 # Nutzer gewünscht: „die sicherste Methode, ohne dass die Webseite down
 # gehen kann"). Vorher liefen Tests (ci.yml) und Deploy nebeneinander:
-# Eine kaputte Seite ging live, bevor die CI rot wurde. Zwei Jobs:
+# Eine kaputte Seite ging live, bevor die CI rot wurde. Drei Jobs:
 #
 #   pruefung  - ci.yml als wiederverwendbarer Workflow: Regressionstests
 #               und Rauchtest in Chromium, zusammen etwa fünf Minuten.
@@ -13,6 +13,9 @@ name: Deploy GitHub Pages
 #               Job fehlschlug. Rollback: unter Actions einen älteren
 #               grünen Lauf dieses Workflows öffnen und „Re-run all jobs"
 #               - der alte Stand ist in zwei Minuten wieder da.
+#
+#   abo       - nach einem grünen Deploy: meldet die neu sichtbaren Events
+#               an die E-Mail-Abos (scripts/abo_meldung.py).
 #
 # Der Wartungsmodus braucht keinen Deploy: Sein Schalter liegt in
 # Firestore (config/wartung) und wird im Dashboard umgelegt.
@@ -135,7 +138,34 @@ jobs:
           fi
 
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v5
+
+      # E-Mail-Abos (seit dem 20.10.2026): Welche Zeilen stehen seit der
+      # letzten Meldung NEU auf der Seite? Gemeldet wird einmal je Datenlauf,
+      # beim ersten grünen Deploy mit einem neuen Commit des Datenlaufs –
+      # dann mit allem, was seitdem sichtbar wurde, auch den über die
+      # Korrekturseite freigegebenen Zeilen. Den Meldestand trägt die Seite
+      # selbst (deploy.json: Commit des Deploys + bis wohin gemeldet ist);
+      # ein Rückfall auf einen älteren Lauf meldet nichts. Die Liste liegt
+      # außerhalb der hochgeladenen Seite (runner.temp) und geht als
+      # Artefakt an den Job „abo“, der erst nach einem grünen Deploy läuft.
+      # Schlägt der Vergleich fehl, geht die Seite trotzdem raus.
+      - name: Abo – neue sichtbare Events bestimmen
+        continue-on-error: true
+        run: >-
+          python3 scripts/abo_meldung.py vergleichen
+          --seite "${{ steps.pages.outputs.base_url }}" --cache "${{ github.run_id }}"
+          --commit "$GITHUB_SHA" --nachher events.json --deploy-json deploy.json
+          --aus "$RUNNER_TEMP/abo/abo-neu.json"
+
+      - name: Abo – Liste aufheben
+        uses: actions/upload-artifact@v4
+        with:
+          name: abo-meldung
+          path: ${{ runner.temp }}/abo/abo-neu.json
+          if-no-files-found: ignore
+          retention-days: 7
 
       - name: Upload site as Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -145,3 +175,35 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # Erst wenn die Seite live ist, bekommen die Abos ihre Mail (vorher kam
+  # sie aus dem Datenlauf, auch wenn das Gate danach rot war). Rot heißt
+  # hier: die Seite ist live, aber die Meldung ging nicht raus – das Log
+  # sagt, warum. Die Antwort der Function (geprüfte Abos, verschickte
+  # Mails) steht im Log.
+  abo:
+    name: E-Mail-Abos über neue Events informieren
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Liste holen
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: abo-meldung
+          path: ${{ runner.temp }}/abo
+
+      - name: An die Abo-Funktion melden
+        env:
+          NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
+          NOTIFY_WEBHOOK_SECRET: ${{ secrets.NOTIFY_WEBHOOK_SECRET }}
+        run: python3 scripts/abo_meldung.py senden --datei "$RUNNER_TEMP/abo/abo-neu.json"

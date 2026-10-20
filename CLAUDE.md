@@ -84,6 +84,7 @@ in `robots.txt` entfernen.
 | `scripts/links_geprueft.json` | **Protokoll der Linkprüfung** (nur `veranstalter_url`, 500 Veranstaltungen am 19.09.2026) – bewusst getrennt von `geprueft.json`, damit die Datenprüfung diese Events nicht für „erledigt" hält |
 | `scripts/eventliste_pdf_geprueft.json` | **Prüfprotokoll der PDF-Eventliste des Nutzers** (24.09.2026, 247 Rad- und Schwimm-Einträge DE/AT je Bundesland): je Eintrag Ergebnis und Notiz – 34 nachgetragen, 19 im Bestand, 67 „existiert, Termin offen" (53 davon mit Seite – im Gedächtnis, der Wochenlauf fragt sie ab –, 14 ohne auffindbare Seite), 98 nicht gefunden; Stand 13.10.2026 nach der Websuche zu den letzten 28 ohne Seite; siehe README („Die Eventliste des Nutzers") |
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
+| `scripts/abo_meldung.py` | **E-Mail-Abos** (seit 20.10.2026): `vergleichen` (in `pages.yml` vor dem Upload: was ist seit der letzten Meldung sichtbar geworden? Meldestand in `deploy.json` auf der Seite), `senden` (Job `abo` NACH dem Deploy, an `checkNewEvents`); gemeldet wird einmal je Datenlauf – siehe „Abos sind Filter + Rhythmus“ |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
 | `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** – `sammeln` (raceresult-Kontaktseite, externe Links der Portalseite), `verifizieren` (Adressen aus einer Websuche), `pruefen` (eigene Seiten: tot? nennt den Lauf?), `anwenden` (Overrides + Protokoll); jede Kandidatenseite muss den Lauf am Namen nennen (bei `verifizieren` zählt auch der Ort im Hostnamen), siehe „Neunter/Zehnter Durchgang"; `sammeln --ohne-host`, `veranstalter_name` aus der raceresult-Kontaktseite und die Berichtsfelder `begruendung`/`protokoll` für Handbelege seit dem „Achtzehnten Durchgang" |
@@ -4084,6 +4085,25 @@ sagt es).
   - „Sofort" ist ehrlich beschriftet: Die Daten werden **wöchentlich**
     erneuert, schneller als der Datenlauf kann kein Abo sein. Der Text
     sagt das (`abo_r_sofort_note`).
+  - **Wann die Mails rausgehen (seit dem 20.10.2026)**: einmal je
+    Datenlauf, im Job `abo` von `pages.yml` NACH dem ersten grünen Deploy,
+    der einen neuen Datenlauf-Commit (github-actions[bot]) enthält – also
+    montags, nach einem roten Gate am Tag der Reparatur. Gemeldet wird
+    alles, was seit der letzten Meldung SICHTBAR geworden ist, auch die
+    über die Korrekturseite freigegebenen Zeilen (`scripts/abo_meldung.py`,
+    Meldestand in `deploy.json` auf der Seite: `commit` + `gemeldet`).
+    Vorher meldete `update_events.py` im Datenlauf – vor dem Deploy
+    (am 19.10.2026 kamen die Mails um 17:02, das Gate war rot) und ohne
+    freigegebene Zeilen. **Nicht jeden Deploy melden lassen**: Die Function
+    verschickt „wöchentlich", sobald sechs Tage um sind – die Mail wanderte
+    sonst mit jedem Korrektur-Deploy einen Tag früher. Ein Rückfall auf
+    einen älteren Lauf („Re-run all jobs") meldet nichts. Das Log des Jobs
+    nennt geprüfte Abos und verschickte Mails (`mailsQueued`).
+    `NOTIFY_WEBHOOK_URL` in `update-events.yml` (auf `main`) ist seitdem
+    ungenutzt – harmlos, die Datei muss deshalb nicht nach `main`.
+    Grenze: Kam die letzte Mail an einem Dienstag (Gate-Reparatur), ist
+    „wöchentlich" am Montag danach noch nicht fällig (sechs Tage) und
+    kommt eine Woche später mit allem. `test_abo_meldung`.
   - **`?abos=1` öffnet die Verwaltung** (darauf zeigt der Abmelde-Link
     der E-Mails, solange `UNSUBSCRIBE_URL` fehlt). Gelesen wird der
     Parameter in `readUrlState()`, **nicht** im Ladeteil: Dazwischen
@@ -5708,8 +5728,8 @@ Tage dann hinzu" – er prüft täglich ~50 Zeilen.
   markiert; `kalender/` enthält die Dateien weiter (nicht verlinkt).
 - `EF.loadEvents()` (`dropUnchecked`, `filters.js`) lädt markierte Zeilen
   nicht – Liste, Karte und die Zähler der Startseite laufen alle darüber,
-  auch der Rückfall auf `events.json`. `update_events.py` meldet sie
-  nicht an die Abo-Function. Die Rauchtest-Helfer, die Zeilen aus
+  auch der Rückfall auf `events.json`. `abo_meldung.py` meldet sie
+  nicht an die Abo-Function – erst, wenn sie freigegeben sind. Die Rauchtest-Helfer, die Zeilen aus
   `events.json` auswählen (`anzahl_strecken`, `ort_mit_zwei_veranstaltungen`),
   übergehen sie ebenfalls. `test_pruefung_offen` hält alles fest.
 
@@ -5743,7 +5763,8 @@ lässt sie ausgeblendet, bis Claude sie an der Quelle geprüft hat
   alle Scraper, Gedächtnis-Prüfung, `clean_events` (setzt
   `pruefung_offen` an neue auffällige Zeilen), `build_ics`, Commit →
   Deploy; saubere neue Zeilen sind sofort live, auffällige warten auf
-  die Liste; Abo-Mails über den Webhook.
+  die Liste; nach dem grünen Deploy die Abo-Mails (Job `abo` in
+  `pages.yml`, mit den unter der Woche freigegebenen Zeilen).
 - *Wöchentlich, Claude (Montag/Dienstag)*: Lauf und CI prüfen,
   `⚠`-Berichte und `audit_events.py` durchsehen,
   `veranstalter_seiten.py handpruefung` (NEU?/TOT), **die Zeilen der

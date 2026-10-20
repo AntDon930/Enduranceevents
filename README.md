@@ -133,8 +133,8 @@ Schweiz.
   Marathon) - das sind unterschiedliche Einträge und erscheinen absichtlich
   einzeln in der Liste statt als ein zusammengefasster/verworfener
   Eintrag. Jeder Scraper prüft das selbst beim Schreiben in `events.json`;
-  `update_events.py` meldet zusätzlich, welche Events dabei neu
-  hinzukamen (für die optionale "Benachrichtige mich"-Anbindung, siehe
+  Welche Events neu auf der Seite stehen, meldet seit dem 20.10.2026
+  `scripts/abo_meldung.py` nach dem Deploy an die E-Mail-Abos (siehe
   unten).
 
 - `index.html` – Willkommensseite (Hero mit Slogan, Sportart-Kacheln,
@@ -2082,9 +2082,15 @@ rausgeht, sind zwei weitere, **optionale** Schritte nötig (siehe
    Danach die ausgegebene Function-URL als GitHub-Actions-Secret
    `NOTIFY_WEBHOOK_URL` hinterlegen (Repo → Settings → Secrets and
    variables → Actions) und **denselben** Geheimniswert als
-   `NOTIFY_WEBHOOK_SECRET`. `update_events.py` ruft die URL danach
-   automatisch nach jedem Lauf auf, in dem sich `events.json` geändert
-   hat, und weist sich per Header `X-Notify-Secret` aus.
+   `NOTIFY_WEBHOOK_SECRET`. Der Job `abo` in `pages.yml` ruft die URL
+   seit dem 20.10.2026 nach dem ersten grünen Deploy jedes Datenlaufs
+   auf (`scripts/abo_meldung.py senden`) und weist sich per Header
+   `X-Notify-Secret` aus. Gemeldet wird, was seit der letzten Meldung
+   sichtbar geworden ist – neue Zeilen des Datenlaufs UND über die
+   Korrekturseite freigegebene; den Meldestand trägt `deploy.json` auf
+   der Seite. Vorher rief `update_events.py` die URL noch im Datenlauf
+   auf, also vor dem Deploy-Gate. Das Log des Jobs nennt die Antwort der
+   Function (geprüfte Abos, verschickte Mails).
 2. In der Firebase-Konsole unter **Extensions** die offizielle Extension
    **"Trigger Email from Firestore"** installieren und dort SMTP-
    Zugangsdaten (z. B. von SendGrid, Mailgun oder einem eigenen Postfach)
@@ -2092,7 +2098,7 @@ rausgeht, sind zwei weitere, **optionale** Schritte nötig (siehe
    `mail`-Dokumente, die `functions/index.js` anlegt.
 
 **Was die Function nicht tut**: Sie prüft ausschließlich die Events, die
-`update_events.py` ihr als *neu* meldet. Bestehende Abos werden also
+`abo_meldung.py` ihr als *neu* meldet. Bestehende Abos werden also
 **nicht** rückwirkend gegen die bereits vorhandenen Events geprüft – ein
 gespeichertes Abo schlägt erst an, wenn nach dem Deployment ein passendes
 Event dazukommt. Die Abos bleiben mit `notified: false` gültig und gehen
@@ -3482,8 +3488,8 @@ Termin, frühere Prüfung „unklar", exakt doppelte Zeile), tragen in
 `events.json` das Feld `pruefung_offen: true`. `clean_events.py` setzt es
 als letzten Schritt (`mark_pruefung_offen`, Regel in
 `audit_events.offene_pruefungen`), die Seite lädt solche Zeilen nicht
-(`EF.loadEvents` → `dropUnchecked`), und `update_events.py` meldet sie
-nicht per E-Mail. Die Zeilen bleiben in `events.json` und in `kalender/`;
+(`EF.loadEvents` → `dropUnchecked`), und `abo_meldung.py` meldet sie
+erst per E-Mail, wenn sie freigegeben sind. Die Zeilen bleiben in `events.json` und in `kalender/`;
 sobald der Nutzer eine Zeile über `korrekturliste.py import` prüft, fällt
 das Feld beim nächsten Aufräumen, und sie ist sichtbar. Ein geschätzter
 Termin allein blendet nicht aus (Sternchen reicht,

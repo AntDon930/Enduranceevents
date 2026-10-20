@@ -26,19 +26,15 @@ NICHT ab – die übrigen Skripte laufen trotzdem, und die Ergebnisse der
 erfolgreichen Skripte werden übernommen. Am Ende steht eine Zusammen-
 fassung, welche Skripte erfolgreich waren.
 
-Optionale "Benachrichtige mich"-Anbindung (NOTIFY_WEBHOOK_URL)
-------------------------------------------------------------------
-Ist die Umgebungsvariable `NOTIFY_WEBHOOK_URL` gesetzt (z. B. als
-GitHub-Actions-Secret, siehe `.github/workflows/update-events.yml`),
-werden nach einem echten (nicht `--dry-run`) Lauf alle NEU hinzugekommenen
-Events (Vorher-/Nachher-Vergleich über dieselbe Name+Datum+Distanz-
-Identität wie beim Dedupe) per HTTPS-POST an diese URL gemeldet - gedacht
-für die Cloud Function in `functions/index.js`, die sie gegen gespeicherte
-Filterabos (siehe `auth.js`/events.html "Benachrichtige mich") prüft und
-bei einem Treffer eine E-Mail auslöst. Optional zusätzlich
-`NOTIFY_WEBHOOK_SECRET` (wird als Header `X-Notify-Secret` mitgeschickt).
-Ohne gesetztes `NOTIFY_WEBHOOK_URL` passiert hier schlicht nichts - kein
-Fehler, kein Effekt auf den restlichen Lauf.
+E-Mail-Abos ("Benachrichtige mich")
+------------------------------------
+Bis zum 20.10.2026 meldete dieses Skript die neuen Events am Ende des
+Laufs an die Cloud Function `checkNewEvents`. Das kam zu früh (vor dem
+Commit und vor dem Deploy-Gate) und übersah Zeilen, die über die
+Korrekturseite freigegeben werden. Die Meldung steht jetzt im
+Pages-Workflow NACH dem Deploy: `scripts/abo_meldung.py` vergleicht die
+Live-Seite mit dem neuen Stand. `NOTIFY_WEBHOOK_URL` in
+`update-events.yml` wird hier nicht mehr gelesen.
 
 Neue Scraper hinzufügen
 ------------------------
@@ -65,8 +61,6 @@ import json
 import os
 import subprocess
 import sys
-import urllib.error
-import urllib.request
 from pathlib import Path
 
 SCRIPTS_DIR = Path(__file__).resolve().parent
@@ -130,15 +124,6 @@ def load_events(path: Path) -> list[dict]:
         return json.loads(path.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError):
         return []
-
-
-def event_identity(event: dict) -> tuple:
-    """Identisch zu scraper_lib.dedupe_key(), aber ohne Import (dieses
-    Skript startet die Scraper als eigene Subprozesse statt sie zu
-    importieren) - Name + Startdatum + gerundete Distanz."""
-    laenge_km = event.get("laenge_km")
-    rounded_km = round(laenge_km, 1) if isinstance(laenge_km, (int, float)) else None
-    return (str(event.get("name", "")).strip().casefold(), event.get("datum_start"), rounded_km)
 
 
 def run_build_ics(events_json: Path) -> bool:
@@ -279,33 +264,6 @@ def run_cleanup(events_json: Path) -> bool:
     return True
 
 
-def notify_webhook_of_new_events(new_events: list[dict]) -> None:
-    """Meldet neu hinzugekommene Events (best-effort, siehe
-    functions/index.js) an eine optionale Cloud Function, die sie gegen
-    gespeicherte "Benachrichtige mich"-Filterabos prüft und passende
-    E-Mails auslöst. Ohne gesetztes NOTIFY_WEBHOOK_URL passiert nichts;
-    ein Fehler hier lässt den Gesamtlauf NICHT fehlschlagen - das
-    Scrapen/Aktualisieren von events.json ist die Kernaufgabe, die
-    Benachrichtigung ein optionales Extra."""
-    webhook_url = os.environ.get("NOTIFY_WEBHOOK_URL")
-    if not webhook_url or not new_events:
-        return
-
-    print(f"\n→ Melde {len(new_events)} neue(s) Event(s) an {webhook_url} ...")
-    headers = {"Content-Type": "application/json"}
-    secret = os.environ.get("NOTIFY_WEBHOOK_SECRET")
-    if secret:
-        headers["X-Notify-Secret"] = secret
-
-    body = json.dumps({"events": new_events}, ensure_ascii=False).encode("utf-8")
-    req = urllib.request.Request(webhook_url, data=body, headers=headers, method="POST")
-    try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            print(f"  ✓ Webhook antwortete mit HTTP {resp.status}.")
-    except (urllib.error.URLError, urllib.error.HTTPError) as exc:
-        print(f"  ⚠ Webhook-Aufruf fehlgeschlagen (ignoriert, events.json bleibt trotzdem gültig): {exc}")
-
-
 def run_script(script: Path, events_json: Path, dry_run: bool, extra_args: list[str]) -> bool:
     cmd = [sys.executable, str(script), "--events-json", str(events_json)]
     if dry_run:
@@ -385,14 +343,8 @@ def main():
 
     after_events = load_events(args.events_json)
     after = len(after_events)
-
-    if not args.dry_run:
-        before_identities = {event_identity(e) for e in before_events}
-        # Ausgeblendete Zeilen (pruefung_offen, siehe clean_events.py) sieht
-        # niemand auf der Seite - also auch keine E-Mail darüber.
-        new_events = [e for e in after_events
-                      if event_identity(e) not in before_identities and not e.get("pruefung_offen")]
-        notify_webhook_of_new_events(new_events)
+    # Die E-Mail-Abos meldet seit dem 20.10.2026 der Pages-Workflow nach
+    # dem Deploy (scripts/abo_meldung.py), nicht mehr dieser Lauf.
 
     print(f"\n{'=' * 70}\nZusammenfassung\n{'=' * 70}")
     for name, ok in results.items():
