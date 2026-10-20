@@ -5731,6 +5731,123 @@ def test_faellt_aus() -> None:
     check("Import: Protokoll „abgesagt“", prot.get("25h Handorf|2026-10-24", {}).get("ergebnis"), "abgesagt")
 
 
+def test_check_again() -> None:
+    """Status „Check again" (vom Nutzer am 20.10.2026: „Ich schreibe meine
+    Kommentare dann hinein, und du müsstest das Event noch einmal genau
+    anschauen"): Die Zeile geht NICHT in den Import - weder auf der Seite
+    noch in der Excel -, sie steht als Auftrag in `nochmal.json`; nach der
+    Prüfung quittiert `erledigt` sie mit einer Notiz, die die Seite zeigt."""
+    print("\nStatus „Check again“ (Auftrag an Claude statt Import):")
+    try:
+        import openpyxl  # noqa: F401
+    except ImportError:
+        print("  (übersprungen: openpyxl fehlt)")
+        return
+    import argparse
+    import json as _json
+    import tempfile
+    import korrekturliste as kl
+    import korrektur_seite as ks
+    from openpyxl import load_workbook
+    wurzel = Path(__file__).resolve().parent.parent
+    check("Excel-Auswahl kennt „Check again“", kl.NOCHMAL in kl.STATUS_WERTE, True)
+    check("Seite: „Check again“ geht nie in den Import", ks.NOCHMAL in ks.STATUS_WERTE, False)
+
+    kopf = [k for _, k, _ in kl.SPALTEN]
+    orig = {"datum_start": "2027-05-01", "datum_ende": "2027-05-01", "datum_vorlaeufig": None, "name": "Testlauf",
+            "wettbewerb": None, "art1": "Laufen", "art2": "Straße", "laenge_km": 10.0, "dauer_h": None,
+            "standort": "Ulm", "land": "Deutschland", "veranstalter_url": "https://testlauf.example/",
+            "lat": 48.4, "lon": 10.0}
+    werte = {k: "" for k in kopf}
+    werte.update({"Nr": 1, "Datum Start": "01.05.2027", "Datum Ende": "01.05.2027", "Name (nicht änderbar)": "Testlauf",
+                  "Sportart": "Laufen", "Kategorie": "Straße", "Distanz (km)": "10", "Ort": "Ulm", "Land": "Deutschland",
+                  "Veranstalter-Link": "https://testlauf.example/"})
+    def antwort(zid, status, anm="", w=None, geaendert="2026-10-20T10:00:00.000Z"):
+        return {"liste": "events", "id": zid, "status": status, "werte": w or {}, "anmerkung": anm,
+                "kopf": kopf, "zeile": [werte[k] for k in kopf], "geaendert": geaendert,
+                "orig": _json.dumps(orig, ensure_ascii=False)}
+    with tempfile.TemporaryDirectory() as tmp:
+        ordner = Path(tmp)
+        (ordner / "antworten_events").mkdir()
+        docs = {"e1": antwort("e1", "Stimmt so"),
+                "e2": antwort("e2", "Check again", "Ich glaube, es gibt auch 21 km", {"Distanz (km)": "21,1"})}
+        for zid, d in docs.items():
+            (ordner / "antworten_events" / f"{zid}.json").write_text(_json.dumps(d), encoding="utf-8")
+        aufrufe = []
+        class FakeImport:
+            GEPRUEFT_PATH = ordner / "geprueft.json"
+            @staticmethod
+            def importiere(xlsx, dry_run, aufraeumen=True):
+                ws = load_workbook(xlsx)["Events prüfen"]
+                aufrufe.append([r[kopf.index("Status")] for r in ws.iter_rows(min_row=2, values_only=True)])
+                return 0
+        FakeImport.GEPRUEFT_PATH.write_text("{}", encoding="utf-8")
+        alt_modul = ks.modul
+        ks.modul = lambda liste, clubs_repo=None: FakeImport
+        try:
+            args = argparse.Namespace(liste="events", ordner=ordner, dry_run=False, ohne_aufraeumen=True, clubs_repo=None)
+            ks.cmd_einlesen(args)
+            auftrag = _json.loads((ordner / "nochmal.json").read_text(encoding="utf-8"))
+            quittung = _json.loads((ordner / "quittung.json").read_text(encoding="utf-8"))
+            check("Import sieht nur „Stimmt so“", aufrufe, [["Stimmt so"]])
+            check("Quittung nur für die übernommene Zeile", sorted(quittung["ids"]), ["e1"])
+            e = auftrag["eintraege"][0]
+            check("Auftrag: Name, Link, Kommentar, Zellen, Schlüssel",
+                  (len(auftrag["eintraege"]), e["id"], e["name"], e["link"], e["anmerkung"], e["werte"], e["schluessel"]),
+                  (1, "e2", "Testlauf", "https://testlauf.example/", "Ich glaube, es gibt auch 21 km",
+                   {"Distanz (km)": "21,1"}, "Testlauf|2027-05-01"))
+            # Claude beantwortet den Auftrag; ein zweites `einlesen` behält die Antwort.
+            e.update(antwort="21,1 km gibt es – nachgetragen.", ergebnis="korrigiert")
+            (ordner / "nochmal.json").write_text(_json.dumps(auftrag), encoding="utf-8")
+            ks.cmd_einlesen(args)
+            check("zweites einlesen behält die Antwort",
+                  _json.loads((ordner / "nochmal.json").read_text(encoding="utf-8"))["eintraege"][0]["antwort"],
+                  "21,1 km gibt es – nachgetragen.")
+            args.dry_run = True
+            ks.cmd_erledigt(args)
+            check("erledigt --dry-run schreibt nichts",
+                  ((ordner / "quittung-nochmal.json").exists(), _json.loads(FakeImport.GEPRUEFT_PATH.read_text())), (False, {}))
+            args.dry_run = False
+            rc = ks.cmd_erledigt(args)
+            q = _json.loads((ordner / "quittung-nochmal.json").read_text(encoding="utf-8"))
+            prot = _json.loads(FakeImport.GEPRUEFT_PATH.read_text(encoding="utf-8"))
+            check("Quittung mit Stand und Notiz",
+                  (rc, q["ids"], q["notizen"]), (0, {"e2": docs["e2"]["geaendert"]}, {"e2": "21,1 km gibt es – nachgetragen."}))
+            check("Protokoll: Ergebnis und Kommentar",
+                  (prot["Testlauf|2027-05-01"]["ergebnis"], "Check again" in prot["Testlauf|2027-05-01"]["notiz"]),
+                  ("korrigiert", True))
+            e.update(antwort="", ergebnis="korrigiert")
+            (ordner / "nochmal.json").write_text(_json.dumps(auftrag), encoding="utf-8")
+            check("Ergebnis ohne Antwort wird abgewiesen", ks.cmd_erledigt(args), 1)
+            e.update(antwort="x", ergebnis="passt")
+            (ordner / "nochmal.json").write_text(_json.dumps(auftrag), encoding="utf-8")
+            check("unbekanntes Ergebnis wird abgewiesen", ks.cmd_erledigt(args), 1)
+        finally:
+            ks.modul = alt_modul
+
+    # Der Excel-Weg: Die Zeile wird übersprungen, auch mit geänderter Zelle.
+    pfade = ("MANUAL_OVERRIDES_PATH", "GEPRUEFT_PATH", "EVENTS_JSON_PATH")
+    alt = {n: getattr(kl, n) for n in pfade}
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        for n, inhalt in zip(pfade, ({}, {}, [dict(orig)])):
+            (tmp / f"{n}.json").write_text(_json.dumps(inhalt), encoding="utf-8")
+            setattr(kl, n, tmp / f"{n}.json")
+        try:
+            ks.baue_excel("events", [antwort("e2", "Check again", "bitte prüfen", {"Distanz (km)": "21,1"})], tmp / "a.xlsx")
+            rc = kl.importiere(tmp / "a.xlsx", False, False)
+            ov = _json.loads((tmp / "MANUAL_OVERRIDES_PATH.json").read_text(encoding="utf-8"))
+            prot = _json.loads((tmp / "GEPRUEFT_PATH.json").read_text(encoding="utf-8"))
+        finally:
+            for n, v in alt.items():
+                setattr(kl, n, v)
+    check("Excel-Import: „Check again“ schreibt weder Override noch Protokoll", (rc, ov, prot), (0, {}, {}))
+
+    seite = (wurzel / "korrektur" / "korrekturliste.html").read_text(encoding="utf-8")
+    for teil in ("const NOCHMAL = 'Check again'", "tr.s-nochmal", "v.notizen", "claude-notiz"):
+        check(f"Seite: {teil}", teil in seite, True)
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_insta_freigabe,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -5744,7 +5861,7 @@ def main() -> int:
                  test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_dauer_minuten, test_pruefung_offen, test_korrektur_seite, test_kopierschutz,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
-                 test_schwimmen_regeln, test_schwimmkalender, test_faellt_aus, test_turbosport, test_radsportevents,
+                 test_schwimmen_regeln, test_schwimmkalender, test_faellt_aus, test_check_again, test_turbosport, test_radsportevents,
                  test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_dealgrid, test_marsch_quellen, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis, test_serien,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,

@@ -5696,8 +5696,9 @@ und Overrides, räumt auf) → Commit und Push → Pages-Deploy. Mit dem
 Aufräumen fällt das Feld an den geprüften Zeilen, sie sind live.
 Status „Unklar" lässt die Zeile ausgeblendet (sie steht weiter in der
 Liste); „Löschen" entfernt sie; „Fällt aus" entfernt diese Ausgabe und
-lässt die Veranstaltung im Gedächtnis (Datenregel 18); „Stimmt
-so"/„Korrigiert" geben sie frei.
+lässt die Veranstaltung im Gedächtnis (Datenregel 18); „Check again"
+lässt sie ausgeblendet, bis Claude sie an der Quelle geprüft hat
+(Korrekturseite, `nochmal.json`); „Stimmt so"/„Korrigiert" geben sie frei.
 
 **Der Rhythmus seit dem Livegang** (vom Nutzer am 13.10.2026 erbeten:
 „Was mach ich, was machst du genau?"):
@@ -5842,13 +5843,14 @@ Spalte gelten dort; der Editor nimmt „13.10.26 (vorläufig)“ (auch
 `Termin vorläufig` ja/nein – jeweils nur, wenn es vom Original abweicht.
 `korrekturliste.lies_wert()` liest seitdem auch das zweistellige Jahr.
 Breiten: Excel-Breite × 4,2 + 14 px, 52–180 px (Links höchstens 150),
-Datum 78/64, Status 104, Land 42 (als Ländercode DE/AT/CH/IT, gespeichert
+Datum 78/64, Status 128 („Check again“ mit 16 px auf dem Handy), Land 42 (als Ländercode DE/AT/CH/IT, gespeichert
 wird der volle Name), Koordinaten 54 (zwei Zeilen); kürzere Kopftexte
 (`KURZ`, voller Name im Tooltip), höchstens vier Zeilen je Zelle, der
 Editor ragt mit mindestens 190 px über die Nachbarzelle. Events 1.554 px
 breit statt ~2.700. Alle Zeilen stehen da, beim Scrollen
 kommen je 100 nach; der Stand einer Zeile steht am Status-Feld (blau =
-bereit, grün = übernommen, rot umrandet = nicht gespeichert), ein neuer
+bereit, gelb = Check again, grün = übernommen, rot umrandet = nicht
+gespeichert), ein neuer
 Datenbank-Stand zeichnet nur die geänderten Zeilen neu. Eine Zelle antippen = Editor
 (Enter/Tippen daneben übernimmt, Esc verwirft, Tab springt weiter);
 Status als Auswahl in der Zeile; Links öffnen in neuem Tab, geändert über
@@ -5865,9 +5867,40 @@ sie trotzdem (sie trägt ihre eigene Zeile mit).
 **Status**: Stimmt so / Korrigiert / Löschen / **Fällt aus** (seit dem
 20.10.2026: diese Ausgabe ist abgesagt, die Veranstaltung bleibt im
 Gedächtnis und kommt mit der nächsten Ausgabe wieder – Datenregel 18) /
-Unklar; die Auswahl kommt aus der Datenprüfung der Excel, neue Werte also
-in `korrekturliste.STATUS_WERTE` UND `korrektur_seite.STATUS_WERTE`, dann
-`daten events` neu und die Seite neu veröffentlichen.
+Unklar / **Check again** (seit dem 20.10.2026, vom Nutzer: „Ich schreibe
+meine Kommentare dann hinein, und du müsstest das Event noch einmal genau
+anschauen“ – siehe unten); die Auswahl kommt aus der Datenprüfung der
+Excel, neue Werte also in `korrekturliste.STATUS_WERTE` UND
+`korrektur_seite.STATUS_WERTE`, dann `daten events` neu und die Seite neu
+veröffentlichen. „Check again“ hängt `lies_export()` an BEIDE Listen an
+(der Clubs-Import auf dem Clubs-Branch kennt den Wert nicht und braucht
+ihn nicht – die Antwort erreicht ihn nie).
+
+**„Check again“ ist ein Auftrag, keine Antwort.** Weder die Seite noch die
+Excel übernehmen etwas aus der Zeile – auch keine geänderte Zelle
+(`korrekturliste.importiere()` überspringt sie und listet sie unter
+CHECK AGAIN; `korrektur_seite.cmd_einlesen()` nimmt sie vor dem Import
+heraus und schreibt sie nach `<out_dir>/nochmal.json`: Name, Termin, Ort,
+Link, Kommentar, geänderte Zellen, `schluessel` = „Name|Datum“ für
+`geprueft.json`). Die Zeile bleibt ausgeblendet (`pruefung_offen`), bis
+Claude sie geprüft hat. Claude liest den Kommentar, prüft das Event an
+der Veranstalterseite (wie jede Einzelprüfung: an der Quelle, Klasse
+zählen, Regel oder Override), trägt Korrekturen VON HAND ein (Override mit
+`_note`, `manual_events.json`; bei `entfernt`/`abgesagt` auch das
+`exclude`) und schreibt je Eintrag in `nochmal.json` `antwort` (ein bis
+zwei Sätze für den Nutzer: was stimmt, was geändert ist, woher) und
+`ergebnis` (quelle_ok / korrigiert / unklar / entfernt / abgesagt; leer =
+kein Protokoll, die Zeile bleibt ausgeblendet). Dann
+`korrektur_seite.py erledigt events <out_dir>` (`--dry-run` zeigt es
+nur): `geprueft.json`, Aufräumen, und `<out_dir>/quittung-nochmal.json`
+mit `ids` UND `notizen` → `ArtifactData set` wie bei der normalen
+Quittung. Die Seite zeigt die Zeile dann grün, die Antwort als „Claude: …“
+unter der Anmerkung (nicht ausgegraut). Ein zweites `einlesen` behält
+schon geschriebene Antworten (gleiche Zeile, gleicher Stand). Bei Clubs
+gibt es kein `ergebnis` (deren Protokoll liegt auf dem Clubs-Branch) –
+dort nur `antwort`, Korrekturen von Hand im Checkout. Auch im Chat sagen,
+was herauskam. `test_check_again` hält Import, Auftragsliste, `erledigt`
+und die Seite fest.
 
 **Übernommen** zeigt die Seite über **Quittungen**, nicht über ein Feld
 an der Antwort: `ArtifactData` schreibt ein vorhandenes Dokument nur mit
@@ -5894,6 +5927,11 @@ ist sie wieder „bereit“. Die Antworten fasst Claude nie an.
 4. `ArtifactData set` mit `collection` `quittung_events`, `doc_id` wie
    ausgegeben, `file_path` = die `quittung.json` – die Zeilen werden auf
    der Seite grün.
+4a. Stand „Check again“ in der Ausgabe: jeden Eintrag aus `nochmal.json`
+   an der Quelle prüfen, korrigieren, `antwort`/`ergebnis` eintragen, dann
+   `korrektur_seite.py erledigt events <out_dir>` und die Quittung
+   `quittung-nochmal.json` genauso mit `ArtifactData set` schreiben (siehe
+   oben).
 5. Tests, Commit, Push auf beide Branches (der Pages-Deploy macht die
    Zeilen sichtbar).
 6. `korrektur_seite.py daten events` (und `clubs`) neu, dann die Seite

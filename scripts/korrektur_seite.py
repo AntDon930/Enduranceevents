@@ -26,11 +26,29 @@ Dieses Skript erfindet keine eigene Regel – es übersetzt nur:
                                VORHANDENE Import (mit --dry-run nur anzeigen).
                                Schreibt danach `DIR/quittung.json`: EIN neues
                                Dokument für `quittung_<liste>`, das die
-                               übernommenen Antworten nennt.
+                               übernommenen Antworten nennt. Antworten mit
+                               „Check again“ gehen NICHT in den Import, sondern
+                               nach `DIR/nochmal.json` – ein Auftrag an Claude.
+    erledigt events|clubs DIR  Nach der Prüfung der „Check again“-Zeilen:
+                               Einträge in `DIR/nochmal.json` mit `antwort`
+                               bekommen eine Quittung (`DIR/quittung-nochmal.json`,
+                               die Antwort steht als Notiz auf der Seite);
+                               bei Events schreibt ein `ergebnis` den Eintrag
+                               in `geprueft.json` und räumt danach auf.
 
 Übernommen wird nur eine Antwort mit Status (Stimmt so / Korrigiert /
 Löschen / Fällt aus / Unklar), zu der es noch keine Quittung gibt – eine Zeile, in der
 der Nutzer noch tippt, bleibt liegen.
+
+**„Check again“** (vom Nutzer am 20.10.2026: „Ich schreibe meine Kommentare
+dann hinein, und du müsstest das Event noch einmal genau anschauen“): Die
+Zeile ist keine Antwort, sondern eine Frage. Claude liest den Kommentar,
+prüft das Event an der Veranstalterseite, trägt Korrekturen von Hand ein
+(Override, `manual_events.json`) und schreibt in `nochmal.json` je Eintrag
+`antwort` (ein Satz für den Nutzer) und `ergebnis` (quelle_ok, korrigiert,
+unklar, entfernt, abgesagt – wie in `geprueft.json`; leer = kein Eintrag,
+die Zeile bleibt ausgeblendet). `erledigt` quittiert sie; die Seite zeigt die
+Zeile dann grün mit „Claude: …“ unter der Anmerkung.
 
 **Warum Quittungen statt eines Felds an der Antwort**: Ein Dokument, das es
 schon gibt, schreibt `ArtifactData` nur mit seiner Versionsnummer, und die
@@ -53,6 +71,7 @@ import datetime
 import hashlib
 import importlib.util
 import json
+import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -65,6 +84,8 @@ ZIEL_DATEN = REPO / "korrektur" / "daten"
 
 FARBE_ART = {"F8C9C4": "f", "FCE2B0": "q"}   # rot = fehlt, orange = fraglich
 STATUS_WERTE = {"Stimmt so", "Korrigiert", "Löschen", "Fällt aus", "Unklar"}
+NOCHMAL = "Check again"    # nicht in STATUS_WERTE: geht nie in den Import
+ERGEBNISSE = {"quelle_ok", "korrigiert", "unklar", "entfernt", "abgesagt"}
 # Spalten, die über mehrere Zeilen gehen (Textfeld statt Eingabezeile).
 MEHRZEILIG = {"Was fehlt / was ist fraglich", "Deine Anmerkung", "Name (nicht änderbar)",
               "Grund der Prüfung", "Termine", "Quelle", "Anmerkung", "Treffpunkt"}
@@ -80,10 +101,11 @@ AUSWAHL_ZUSATZ = {
 LISTEN = {
     "events": {"titel": "Events", "blatt": "Events prüfen", "status": "Status",
                "anmerkung": "Deine Anmerkung", "name": "Name (nicht änderbar)",
-               "datum": "Datum Start", "ort": "Ort", "hinweis": "Was fehlt / was ist fraglich"},
+               "datum": "Datum Start", "ort": "Ort", "hinweis": "Was fehlt / was ist fraglich",
+               "link": "Veranstalter-Link"},
     "clubs": {"titel": "Clubs", "blatt": "Clubs prüfen", "status": "Status",
               "anmerkung": "Anmerkung", "name": "Name", "datum": None, "ort": "Stadt",
-              "hinweis": "Grund der Prüfung"},
+              "hinweis": "Grund der Prüfung", "link": "Webseite"},
 }
 
 
@@ -164,6 +186,12 @@ def lies_export(liste: str, xlsx: Path, m) -> dict:
     for i, k in enumerate(kopf):
         if i not in auswahl and k in AUSWAHL_ZUSATZ.get(liste, {}):
             auswahl[i] = AUSWAHL_ZUSATZ[liste][k]
+    # „Check again“ gibt es auf der Seite für BEIDE Listen: Die Antwort geht
+    # nie in den Import (cmd_einlesen nimmt sie vorher heraus), also braucht
+    # der Clubs-Import auf dem Clubs-Branch den Wert nicht zu kennen.
+    i_status = kopf.index(cfg["status"])
+    if NOCHMAL not in auswahl.get(i_status, []):
+        auswahl[i_status] = list(auswahl.get(i_status, [])) + [NOCHMAL]
     # Fixierte Spalten wie in der Excel (ws.freeze_panes "F2" = fünf Spalten).
     fixiert = 0
     if ws.freeze_panes:
@@ -282,13 +310,62 @@ def baue_excel(liste: str, antworten: list[dict], ziel: Path) -> None:
     wb.save(ziel)
 
 
+def nochmal_eintrag(liste: str, a: dict) -> dict:
+    """Ein „Check again“-Auftrag, so aufbereitet, dass man ihn ohne die
+    Tabelle lesen kann: Name, Termin, Ort, Link, Kommentar, geänderte Zellen."""
+    cfg, kopf, zeile = LISTEN[liste], a["kopf"], a["zeile"]
+    feld = lambda rolle: zeile[kopf.index(cfg[rolle])] if cfg.get(rolle) in kopf else ""  # noqa: E731
+    e = {"id": a["id"], "geaendert": a.get("geaendert"), "name": feld("name"),
+         "datum": feld("datum") if cfg["datum"] else "", "ort": feld("ort"), "link": feld("link"),
+         "hinweis": feld("hinweis"), "anmerkung": (a.get("anmerkung") or "").strip(),
+         "werte": a.get("werte") or {}, "antwort": "", "ergebnis": ""}
+    if a.get("orig"):
+        orig = json.loads(a["orig"])
+        e["schluessel"] = f"{orig['name'].strip()}|{orig['datum_start']}"
+        e["export"] = orig
+    return e
+
+
+def schreibe_nochmal(ordner: Path, liste: str, auftraege: list[dict]) -> Path:
+    """`nochmal.json` neu schreiben – was Claude dort schon beantwortet hat
+    (gleiche Zeile, gleicher Stand), bleibt stehen."""
+    ziel = ordner / "nochmal.json"
+    vorher = {}
+    if ziel.exists():
+        alt = json.loads(ziel.read_text(encoding="utf-8"))
+        if alt.get("liste") == liste:
+            vorher = {(e["id"], e.get("geaendert")): e for e in alt.get("eintraege", [])}
+    eintraege = []
+    for a in auftraege:
+        e = nochmal_eintrag(liste, a)
+        alt = vorher.get((e["id"], e["geaendert"]))
+        if alt:
+            e["antwort"], e["ergebnis"] = alt.get("antwort", ""), alt.get("ergebnis", "")
+        eintraege.append(e)
+    ziel.write_text(json.dumps({"liste": liste, "eintraege": eintraege}, ensure_ascii=False, indent=1) + "\n",
+                    encoding="utf-8")
+    return ziel
+
+
 def cmd_einlesen(args) -> int:
     alle = lade_antworten(args.ordner, args.liste)
     quittiert = lade_quittungen(args.ordner, args.liste)
     offen = [a for a in alle if a.get("geaendert") not in quittiert.get(a["id"], set())]
     neu = [a for a in offen if a.get("status") in STATUS_WERTE]
+    nochmal = [a for a in offen if a.get("status") == NOCHMAL]
     print(f"{len(alle)} Antworten, {len(alle) - len(offen)} schon übernommen, "
-          f"{len(neu)} mit Status zu übernehmen, {len(offen) - len(neu)} noch ohne Status (bleiben liegen)")
+          f"{len(neu)} mit Status zu übernehmen, {len(nochmal)} „{NOCHMAL}“, "
+          f"{len(offen) - len(neu) - len(nochmal)} noch ohne Status (bleiben liegen)")
+    if nochmal:
+        ziel = schreibe_nochmal(args.ordner, args.liste, nochmal)
+        print(f"\n{NOCHMAL.upper()} ({len(nochmal)}) – nicht übernommen, an der Quelle ansehen "
+              f"(Liste: {ziel}):")
+        for e in json.loads(ziel.read_text(encoding="utf-8"))["eintraege"]:
+            print(f"  ? {e['name']} {e['datum']} {e['ort']} – {e['link'] or 'kein Link'}")
+            if e["anmerkung"]:
+                print(f"      Kommentar: {e['anmerkung']}")
+            for k, v in e["werte"].items():
+                print(f"      {k}: {v}")
     if not neu:
         return 0
     m = modul(args.liste, args.clubs_repo)
@@ -315,6 +392,70 @@ def cmd_einlesen(args) -> int:
     return rc
 
 
+def cmd_erledigt(args) -> int:
+    quelle = args.ordner / "nochmal.json"
+    if not quelle.exists():
+        print(f"{quelle} fehlt – erst `einlesen {args.liste} {args.ordner}`")
+        return 1
+    daten = json.loads(quelle.read_text(encoding="utf-8"))
+    if daten.get("liste") != args.liste:
+        print(f"{quelle} gehört zur Liste {daten.get('liste')!r}, nicht {args.liste!r}")
+        return 1
+    fertig, fehler = [], []
+    for e in daten.get("eintraege", []):
+        antwort, ergebnis = (e.get("antwort") or "").strip(), (e.get("ergebnis") or "").strip()
+        if ergebnis and ergebnis not in ERGEBNISSE:
+            fehler.append(f"{e['name']}: Ergebnis {ergebnis!r} unbekannt ({', '.join(sorted(ERGEBNISSE))})")
+        elif ergebnis and args.liste != "events":
+            fehler.append(f"{e['name']}: ein Ergebnis gibt es nur bei Events – Clubs von Hand eintragen")
+        elif ergebnis and not antwort:
+            fehler.append(f"{e['name']}: Ergebnis ohne Antwort – der Nutzer soll lesen, was herauskam")
+        elif antwort:
+            fertig.append(e)
+    offen = len(daten.get("eintraege", [])) - len(fertig) - len(fehler)
+    print(f"{len(fertig)} beantwortet, {offen} noch ohne Antwort" + (f", {len(fehler)} mit Fehler" if fehler else ""))
+    for z in fehler:
+        print("  ! " + z)
+    if fehler or not fertig:
+        return 1 if fehler else 0
+    protokoll_neu = {}
+    heute = datetime.date.today().isoformat()
+    for e in fertig:
+        if e.get("ergebnis"):
+            protokoll_neu[e["schluessel"]] = {
+                "am": heute, "ergebnis": e["ergebnis"], "quelle": e.get("link") or "",
+                "notiz": "Korrekturliste des Nutzers, Check again"
+                         + (f": {e['anmerkung']}" if e.get("anmerkung") else "") + f" – {e['antwort']}",
+            }
+    for e in fertig:
+        print(f"  ✓ {e['name']} {e['datum']}" + (f" [{e['ergebnis']}]" if e.get("ergebnis") else "")
+              + f": {e['antwort']}")
+    if args.dry_run:
+        print("\n(--dry-run: nichts geschrieben)")
+        return 0
+    if protokoll_neu:
+        m = modul(args.liste, args.clubs_repo)
+        pfad = m.GEPRUEFT_PATH
+        protokoll = json.loads(pfad.read_text(encoding="utf-8"))
+        protokoll.update(protokoll_neu)
+        pfad.write_text(json.dumps(protokoll, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"\n{len(protokoll_neu)} Einträge in {pfad.name} geschrieben.")
+        if not args.ohne_aufraeumen:
+            for befehl in (["clean_events.py", "--quiet", "--no-geocoding"], ["build_ics.py"]):
+                print(f"\n$ python3 scripts/{' '.join(befehl)}")
+                subprocess.run([sys.executable, str(REPO / "scripts" / befehl[0]), *befehl[1:]], check=True)
+    jetzt = datetime.datetime.now(datetime.timezone.utc)
+    doc_id = jetzt.strftime("%Y%m%d-%H%M%S")
+    quittung = {"liste": args.liste, "am": jetzt.isoformat(timespec="seconds"),
+                "ids": {e["id"]: e["geaendert"] for e in fertig},
+                "notizen": {e["id"]: e["antwort"] for e in fertig}}
+    ziel = args.ordner / "quittung-nochmal.json"
+    ziel.write_text(json.dumps(quittung, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"\n{len(fertig)} „{NOCHMAL}“ erledigt – Quittung: ArtifactData set "
+          f"collection=quittung_{args.liste} doc_id={doc_id} file_path={ziel}")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -328,8 +469,14 @@ def main() -> int:
     e.add_argument("--dry-run", action="store_true")
     e.add_argument("--ohne-aufraeumen", action="store_true")
     e.add_argument("--clubs-repo", type=Path)
+    r = sub.add_parser("erledigt", help="geprüfte „Check again“-Zeilen quittieren")
+    r.add_argument("liste", choices=sorted(LISTEN))
+    r.add_argument("ordner", type=Path, help="Ordner mit nochmal.json")
+    r.add_argument("--dry-run", action="store_true")
+    r.add_argument("--ohne-aufraeumen", action="store_true")
+    r.add_argument("--clubs-repo", type=Path)
     a = ap.parse_args()
-    return cmd_daten(a) if a.cmd == "daten" else cmd_einlesen(a)
+    return {"daten": cmd_daten, "einlesen": cmd_einlesen, "erledigt": cmd_erledigt}[a.cmd](a)
 
 
 if __name__ == "__main__":

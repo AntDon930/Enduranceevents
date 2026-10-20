@@ -84,6 +84,8 @@ td .stift {
 }
 td .stift:hover { background: var(--ton); color: var(--text); }
 td .alt { display: block; margin-top: 2px; font-size: .7rem; color: var(--grau); text-decoration: line-through; word-break: break-word; }
+/* Die Antwort von Claude auf ein „Check again“, unter der Anmerkung. */
+td .claude-notiz { display: block; margin-top: 4px; padding-top: 3px; border-top: 1px dashed var(--linie-stark); font-size: .74rem; color: var(--ok); white-space: pre-wrap; word-break: break-word; }
 .editor {
   width: 100%; min-height: 100%; font: inherit; color: var(--text); background: var(--flaeche);
   border: 2px solid var(--signal); border-radius: 4px; padding: 5px 7px; outline: none; display: block;
@@ -95,13 +97,15 @@ td.status select {
   width: 100%; font: 600 .78rem var(--font-text); min-height: 28px; border-radius: 6px;
   border: 1px solid var(--linie-stark); background: var(--flaeche); color: var(--text); padding: 0 6px;
 }
-/* Der Stand einer Zeile steht am Status-Feld: blau = bereit, grün = von
-   Claude übernommen, rot umrandet = nicht gespeichert. */
+/* Der Stand einer Zeile steht am Status-Feld: blau = bereit, gelb = Check
+   again (Claude sieht noch einmal nach), grün = von Claude übernommen, rot
+   umrandet = nicht gespeichert. */
 tr.s-bereit td.status select { background: var(--bereit-bg); color: var(--bereit); border-color: var(--bereit); }
+tr.s-nochmal td.status select { background: var(--arbeit-bg); color: var(--arbeit); border-color: var(--arbeit); }
 tr.s-uebernommen td.status select { background: var(--ok-bg); color: var(--ok); border-color: var(--ok); }
 tr.speichert td.status select { opacity: .65; }
 tr.s-fehler td.status select { background: var(--fehlt); color: var(--fehler); border: 2px solid var(--fehler); }
-tr.s-uebernommen td:not(.status) { opacity: .62; }
+tr.s-uebernommen td:not(.status):not(.c-notiz) { opacity: .62; }
 .mehr { padding: 14px 16px 20px; display: flex; gap: 12px; align-items: center; color: var(--grau); font-size: .9rem; }
 .mehr button {
   font: 600 .92rem var(--font-text); min-height: 40px; padding: 0 16px; border-radius: var(--radius);
@@ -134,6 +138,7 @@ tr.s-uebernommen td:not(.status) { opacity: .62; }
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .statuszeile.bereit { color: var(--bereit); font-weight: 600; }
+.statuszeile.nochmal { color: var(--arbeit); font-weight: 600; }
 .statuszeile.fehler { color: var(--fehler); font-weight: 600; }
 button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible, td:focus-visible { outline: 2px solid var(--signal); outline-offset: 1px; }
 /* Auf dem Handy und im Tablet hochkant: Eingabefelder mit 16 px, sonst
@@ -175,6 +180,9 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   // der Import vergleicht gegen sie): die Nummer, „Termin vorläufig“ – steht
   // jetzt im Datum, „13.10.26 (vorläufig)“ – und die Kennung der Clubs.
   const VERSTECKT = new Set(['Nr', 'Termin vorläufig', 'id']);
+  // „Check again“: keine Antwort, sondern ein Auftrag – Claude sieht sich
+  // die Zeile noch einmal an und quittiert sie mit einer Notiz.
+  const NOCHMAL = 'Check again';
   const VORL = 'Termin vorläufig';
   const DATUM_SPALTEN = new Set(['Datum Start', 'Datum Ende']);
   const VORL_RE = /\(?\s*vorl(?:äufig|aeufig|aufig|\.)?\s*\)?/i;
@@ -194,6 +202,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     liste: 'events', daten: { events: null, clubs: null }, index: { events: new Map(), clubs: new Map() },
     antworten: { events: new Map(), clubs: new Map() },
     quittungen: { events: new Map(), clubs: new Map() },   // id -> Set der übernommenen `geaendert`-Stände
+    notizen: { events: new Map(), clubs: new Map() },      // id -> Map(`geaendert` -> Antwort von Claude)
     lokal: new Map(),          // liste|id -> Antwort, die noch gespeichert wird
     ketten: new Map(),         // liste|id -> Promise (eine Schreibung je Dokument zur Zeit)
     fehler: new Map(),         // liste|id -> Fehlertext
@@ -233,7 +242,13 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     if (!hatInhalt(a)) return 'offen';
     if (!a.status) return 'arbeit';
     const q = S.quittungen[a.liste] && S.quittungen[a.liste].get(a.id);
-    return q && q.has(a.geaendert) ? 'uebernommen' : 'bereit';
+    if (q && q.has(a.geaendert)) return 'uebernommen';
+    return a.status === NOCHMAL ? 'nochmal' : 'bereit';
+  }
+  // Die Antwort von Claude zu genau diesem Stand der Zeile (nur bei „Check again“).
+  function notiz(a) {
+    const m = a && S.notizen[a.liste] && S.notizen[a.liste].get(a.id);
+    return (m && m.get(a.geaendert)) || '';
   }
   function neueAntwort(liste, zeile) {
     const d = S.daten[liste], r = d.rollen, kopf = d.spalten.map((s) => s.kopf);
@@ -270,7 +285,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
 
   // ---------- Zeichnen ----------
   function zaehle(liste) {
-    const n = { offen: 0, arbeit: 0, bereit: 0, uebernommen: 0 };
+    const n = { offen: 0, arbeit: 0, bereit: 0, nochmal: 0, uebernommen: 0 };
     const d = S.daten[liste]; if (!d) return n;
     for (const z of d.zeilen) n[zustand(antwort(liste, z.id))]++;
     return n;
@@ -278,10 +293,11 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   // Blattreiter (Zahl = noch ohne Status) und Statuszeile, wichtigstes zuerst:
   // Fehler, Hinweis von außen, laufendes Speichern, bereit zur Übernahme, Stand.
   function zeichneLeiste() {
-    let bereit = 0;
+    let bereit = 0, nochmal = 0;
     for (const l of ['events', 'clubs']) {
       const n = zaehle(l), el = $('zahl-' + l);
       bereit += n.bereit;
+      nochmal += n.nochmal;
       el.textContent = S.daten[l] ? zahl(n.offen + n.arbeit) : '–';
       el.parentElement.title = S.daten[l] ? zahl(n.offen + n.arbeit) + ' noch ohne Status' : '';
     }
@@ -294,9 +310,10 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
       text = S.meldung; art = 'fehler';
     } else if (S.lokal.size) {
       text = 'speichert …';
-    } else if (bereit) {
-      text = `${zahl(bereit)} bereit zur Übernahme`;
-      art = 'bereit';
+    } else if (bereit || nochmal) {
+      text = [bereit ? `${zahl(bereit)} bereit zur Übernahme` : '', nochmal ? `${zahl(nochmal)} ${NOCHMAL}` : '']
+        .filter(Boolean).join(' · ');
+      art = bereit ? 'bereit' : 'nochmal';
     } else {
       const d = S.daten[S.liste], erzeugt = d && d.erzeugt ? new Date(d.erzeugt) : null;
       text = erzeugt ? 'Stand ' + erzeugt.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' }) + ', ' + erzeugt.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) : '';
@@ -312,7 +329,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   function breitePx(s, rollen) {
     if (s.kopf === 'Datum Start') return 78;
     if (s.kopf === 'Datum Ende') return 64;
-    if (s.kopf === rollen.status) return 104;
+    if (s.kopf === rollen.status) return 128;                        // „Check again“ passt auch mit 16 px (Handy)
     if (s.kopf === 'Land') return 42;                                // Ländercode: DE, AT, CH, IT
     if (s.kopf === 'Breite' || s.kopf === 'Länge') return 54;        // bricht in zwei Zeilen um
     return Math.min(Math.max(Math.round(s.breite * 4.2 + 14), 52), LINK_SPALTEN.test(s.kopf) ? 150 : 180);
@@ -336,7 +353,10 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     if (istStatus) {
       kl.push('status');
       const k = schluessel(liste, z.id), fehler = S.fehler.get(k);
-      const titel = fehler || (S.lokal.has(k) ? 'wird gespeichert' : ({ bereit: 'bereit zur Übernahme', uebernommen: 'übernommen' })[zustand(a)] || '');
+      const zu = zustand(a), nz = notiz(a);
+      const titel = fehler || (S.lokal.has(k) ? 'wird gespeichert' : ({
+        bereit: 'bereit zur Übernahme', nochmal: 'Check again – Claude sieht es sich noch einmal an',
+        uebernommen: nz ? 'erledigt – Claude: ' + nz : 'übernommen' })[zu] || '');
       const opts = [''].concat(s.auswahl || []);
       return `<td class="${kl.join(' ')}" data-i="${i}"${titel ? ` title="${esc(titel)}"` : ''}><select data-status aria-label="Status für ${esc(a ? a.name : z.z[d.spalten.findIndex((x) => x.kopf === d.rollen.name)] || '')}"${S.schreiben ? '' : ' disabled'}>` +
         opts.map((o) => `<option value="${esc(o)}"${(a && a.status) === o ? ' selected' : ''}>${o ? esc(o) : '— offen —'}</option>`).join('') + '</select></td>';
@@ -380,7 +400,11 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     let altText = orig;
     if (s.kopf === 'Land') altText = LAND_KURZ[orig] || orig;
     if (DATUM_SPALTEN.has(s.kopf)) altText = (orig ? datumKurz(orig) : '') + (vorlAlt ? ' (vorläufig)' : '');
-    const alt = geaendert && !istAnm ? `<span class="alt">${altText ? esc(altText) : 'leer'}</span>` : '';
+    let alt = geaendert && !istAnm ? `<span class="alt">${altText ? esc(altText) : 'leer'}</span>` : '';
+    if (istAnm && zustand(a) === 'uebernommen' && notiz(a)) {
+      alt = `<span class="claude-notiz">Claude: ${esc(notiz(a))}</span>`;
+      kl.push('c-notiz');
+    }
     const tab = s.edit && !istLink ? ' tabindex="0"' : '';
     return `<td class="${kl.join(' ')}" data-i="${i}"${tab}><div class="inhalt">${inhalt}</div>${alt}</td>`;
   }
@@ -636,17 +660,22 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
           neuZeichnen(l, ids);
         }, abgerissen);
         db.collection('quittung_' + l).onSnapshot((snap) => {
-          const m = new Map();
+          const m = new Map(), nz = new Map();
           snap.docs.forEach((doc) => {
-            const ids = (doc.data() || {}).ids;
+            const v = doc.data() || {}, ids = v.ids, notizen = v.notizen || {};
             if (!ids || typeof ids !== 'object') return;
             for (const [id, stand] of Object.entries(ids)) {
               if (!m.has(id)) m.set(id, new Set());
               m.get(id).add(stand);
+              if (typeof notizen[id] === 'string' && notizen[id]) {
+                if (!nz.has(id)) nz.set(id, new Map());
+                nz.get(id).set(stand, notizen[id]);
+              }
             }
           });
           const ids = geaenderteIds(S.quittungen[l], m, (x, y) => x.size === y.size && [...x].every((v) => y.has(v)));
           S.quittungen[l] = m;
+          S.notizen[l] = nz;
           neuZeichnen(l, ids);
         }, abgerissen);
       }
