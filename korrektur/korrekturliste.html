@@ -179,6 +179,9 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   const DATUM_SPALTEN = new Set(['Datum Start', 'Datum Ende']);
   const VORL_RE = /\(?\s*vorl(?:äufig|aeufig|aufig|\.)?\s*\)?/i;
   const DATUM_RE = /^(\d{1,2})\.(\d{1,2})\.(\d{2}|\d{4})$/;
+  // Land als Code (vom Nutzer am 20.10.2026: „mit 2 Ländercodes abkürzen“) –
+  // gespeichert wird weiter der volle Name, so kennt ihn der Import.
+  const LAND_KURZ = { 'Deutschland': 'DE', 'Österreich': 'AT', 'Schweiz': 'CH', 'Italien (Südtirol)': 'IT' };
   // Kürzere Beschriftungen, damit die Spalten schmal bleiben (der volle Name
   // steht im Tooltip).
   const KURZ = {
@@ -310,8 +313,8 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     if (s.kopf === 'Datum Start') return 78;
     if (s.kopf === 'Datum Ende') return 64;
     if (s.kopf === rollen.status) return 104;
-    if (s.kopf === 'Land') return 90;                                // „Deutschland“ in einer Zeile
-    if (s.kopf === 'Breite' || s.kopf === 'Länge') return 76;        // sieben Nachkommastellen
+    if (s.kopf === 'Land') return 42;                                // Ländercode: DE, AT, CH, IT
+    if (s.kopf === 'Breite' || s.kopf === 'Länge') return 54;        // bricht in zwei Zeilen um
     return Math.min(Math.max(Math.round(s.breite * 4.2 + 14), 52), LINK_SPALTEN.test(s.kopf) ? 150 : 180);
   }
 
@@ -369,10 +372,13 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
       if (s.edit) inhalt = `<button type="button" class="stift" data-stift aria-label="${esc(s.kopf)} ändern">✎</button>` + inhalt;
     } else if (DATUM_SPALTEN.has(s.kopf)) {
       inhalt = (wert ? esc(datumKurz(wert)) : '<span class="leer">–</span>') + (vorl ? '<br><span class="vorl">(vorläufig)</span>' : '');
+    } else if (s.kopf === 'Land') {
+      inhalt = wert ? esc(LAND_KURZ[wert] || wert) : '<span class="leer">–</span>';
     } else {
       inhalt = wert ? esc(wert) : (s.edit ? '<span class="leer">–</span>' : '');
     }
     let altText = orig;
+    if (s.kopf === 'Land') altText = LAND_KURZ[orig] || orig;
     if (DATUM_SPALTEN.has(s.kopf)) altText = (orig ? datumKurz(orig) : '') + (vorlAlt ? ' (vorläufig)' : '');
     const alt = geaendert && !istAnm ? `<span class="alt">${altText ? esc(altText) : 'leer'}</span>` : '';
     const tab = s.edit && !istLink ? ' tabindex="0"' : '';
@@ -455,7 +461,8 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
       feld = document.createElement('select');
       const opts = [''].concat(s.auswahl);
       if (wert && !opts.includes(wert)) opts.push(wert);
-      feld.innerHTML = opts.map((o) => `<option value="${esc(o)}"${o === wert ? ' selected' : ''}>${o ? esc(o) : '— leer —'}</option>`).join('');
+      const text = (o) => s.kopf === 'Land' && LAND_KURZ[o] ? LAND_KURZ[o] + ' – ' + o : o;
+      feld.innerHTML = opts.map((o) => `<option value="${esc(o)}"${o === wert ? ' selected' : ''}>${o ? esc(text(o)) : '— leer —'}</option>`).join('');
     } else if (s.mehrzeilig || /\n/.test(wert) || (wert || '').length > 60) {
       feld = document.createElement('textarea');
       feld.value = wert;

@@ -5800,9 +5800,10 @@ Spalte gelten dort; der Editor nimmt „13.10.26 (vorläufig)“ (auch
 `Termin vorläufig` ja/nein – jeweils nur, wenn es vom Original abweicht.
 `korrekturliste.lies_wert()` liest seitdem auch das zweistellige Jahr.
 Breiten: Excel-Breite × 4,2 + 14 px, 52–180 px (Links höchstens 150),
-Datum 78/64, Status 104, Land 90, Koordinaten 76; kürzere Kopftexte
+Datum 78/64, Status 104, Land 42 (als Ländercode DE/AT/CH/IT, gespeichert
+wird der volle Name), Koordinaten 54 (zwei Zeilen); kürzere Kopftexte
 (`KURZ`, voller Name im Tooltip), höchstens vier Zeilen je Zelle, der
-Editor ragt mit mindestens 190 px über die Nachbarzelle. Events 1.646 px
+Editor ragt mit mindestens 190 px über die Nachbarzelle. Events 1.554 px
 breit statt ~2.700. Alle Zeilen stehen da, beim Scrollen
 kommen je 100 nach; der Stand einer Zeile steht am Status-Feld (blau =
 bereit, grün = übernommen, rot umrandet = nicht gespeichert), ein neuer
