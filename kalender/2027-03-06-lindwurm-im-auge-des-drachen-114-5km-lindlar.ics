@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-lindwurm-im-auge-des-drachen-114-5km-lindlar@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270308
+SUMMARY:Lindwurm - Im Auge des Drachen – Lindwurm plus (114\,5 km\, 2.850 
+ hm)
+LOCATION:Lindlar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 114.5 km\nhttps://quaelixfak
+ tor.de/lindwurm-24
+TRANSP:TRANSPARENT
+URL:https://quaelixfaktor.de/lindwurm-24
+END:VEVENT
+END:VCALENDAR

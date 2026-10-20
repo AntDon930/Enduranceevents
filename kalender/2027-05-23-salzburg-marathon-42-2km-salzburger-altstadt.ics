@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-salzburg-marathon-42-2km-salzburger-altstadt@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Salzburg Marathon
+LOCATION:Salzburger Altstadt\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://salzburg-ma
+ rathon.at/de/
+TRANSP:TRANSPARENT
+URL:https://salzburg-marathon.at/de/
+END:VEVENT
+END:VCALENDAR

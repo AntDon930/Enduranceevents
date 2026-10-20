@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-25-mainova-halbmarathon-frankfurt-2027-5km-frankfurt-am-mai
+ n@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:25. Mainova Halbmarathon Frankfurt 2027
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.frankfurte
+ r-halbmarathon.de/ausschreibung
+TRANSP:TRANSPARENT
+URL:https://www.frankfurter-halbmarathon.de/ausschreibung
+END:VEVENT
+END:VCALENDAR

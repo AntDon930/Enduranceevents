@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-bike-the-lies-2027-22km-neukirchen-bei-lambach@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Bike The Lies 2027 – Zeitfahren 22 km
+LOCATION:Neukirchen bei Lambach\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 22 km\nhttps://rfv-weib
+ ern.at/bike-the-lies/
+TRANSP:TRANSPARENT
+URL:https://rfv-weibern.at/bike-the-lies/
+END:VEVENT
+END:VCALENDAR

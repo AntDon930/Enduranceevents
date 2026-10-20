@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-03-strausseelauf-in-strausberg-9-2km-strausberg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271003
+DTEND;VALUE=DATE:20271004
+SUMMARY:Strausseelauf in Strausberg – Strausseelauf
+LOCATION:Strausberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.2 km\nhttps://www.strausse
+ elauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.strausseelauf.de/
+END:VEVENT
+END:VCALENDAR

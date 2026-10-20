@@ -1,0 +1,209 @@
+name: Deploy GitHub Pages
+
+# Jeder Push auf den Entwicklungs-Branch wird hier veröffentlicht - seit
+# dem 13.10.2026 aber erst, wenn die Tests grün sind (Deploy-Gate, vom
+# Nutzer gewünscht: „die sicherste Methode, ohne dass die Webseite down
+# gehen kann"). Vorher liefen Tests (ci.yml) und Deploy nebeneinander:
+# Eine kaputte Seite ging live, bevor die CI rot wurde. Drei Jobs:
+#
+#   pruefung  - ci.yml als wiederverwendbarer Workflow: Regressionstests
+#               und Rauchtest in Chromium, zusammen etwa fünf Minuten.
+#   deploy    - nur, wenn pruefung grün ist. Rot heißt: nichts passiert,
+#               die alte Fassung bleibt live, die CI-Mail sagt, welcher
+#               Job fehlschlug. Rollback: unter Actions einen älteren
+#               grünen Lauf dieses Workflows öffnen und „Re-run all jobs"
+#               - der alte Stand ist in zwei Minuten wieder da.
+#
+#   abo       - nach einem grünen Deploy: meldet die neu sichtbaren Events
+#               an die E-Mail-Abos (scripts/abo_meldung.py).
+#
+# Der Wartungsmodus braucht keinen Deploy: Sein Schalter liegt in
+# Firestore (config/wartung) und wird im Dashboard umgelegt.
+#
+# Ein Push des Datenlaufs (update-events.yml) löst diesen Workflow NICHT
+# aus: GitHub unterdrückt Workflow-Läufe, die ein Push mit dem eigenen
+# GITHUB_TOKEN auslösen würde (der Lauf vom 12.10.2026 hatte keinen
+# einzigen Folge-Lauf). Die Ausnahme ist workflow_dispatch - deshalb soll
+# update-events.yml diesen Workflow nach seinem Push selbst anstoßen
+# (`gh workflow run pages.yml`); bis die Fassung auf main das tut, geht
+# ein Datenlauf erst mit dem nächsten Push von Hand live.
+
+on:
+  push:
+    branches:
+      - claude/endurance-events-website-v1wruf
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  pruefung:
+    name: Tests vor dem Deploy
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    needs: pruefung
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # fetch-depth 0: build_web_data.py liest den Tag des letzten
+      # Datencommits aus `git log -- events.json` (die Werkzeugleiste zeigt
+      # ihn als "Stand"); mit einem flachen Checkout stünde dort der
+      # Deploy-Tag.
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # Die kompakte Datenfassung entsteht hier, nicht im Repo (siehe
+      # scripts/build_web_data.py und CLAUDE.md). Die Seiten laden sie
+      # zuerst und fallen auf events.json zurück, wenn sie fehlt.
+      - name: events.web.json erzeugen
+        run: python3 scripts/build_web_data.py
+
+      # Der Freigabe-Plan für Instagram (die Beiträge der nächsten 14 Tage
+      # mit Kennung des Inhalts) - das Dashboard (admin.html, Karte
+      # „Instagram-Freigabe") liest ihn von hier; nie committet.
+      - name: Instagram-Plan erzeugen
+        run: python3 scripts/insta_inhalte.py --plan 14 --json marketing/instagram/plan.json
+
+      # Die VORSCHAU (seit dem 19.10.2026, vom Nutzer gewünscht: „erst
+      # alles bauen und dann in einem launchen"): Der Stand des
+      # Clubs-Branches liegt unter /vorschau/ – nirgends verlinkt, noindex,
+      # robots.txt sperrt den Ordner, stats.js schweigt dort. Die Daten
+      # (events.json, kalender/) kommen vom Live-Stand, damit die Vorschau
+      # nicht hinter dem täglichen Datenlauf herhinkt. Schlägt hier etwas
+      # fehl, geht die Live-Seite trotzdem raus (continue-on-error).
+      # Nach dem Launch: diese zwei Schritte und vorschau.yml löschen.
+      - name: Vorschau holen (Clubs-Branch)
+        id: vorschau
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: claude/clubs-feature-map-kycnmi
+          path: vorschau
+          fetch-depth: 1
+
+      - name: Vorschau vorbereiten
+        if: steps.vorschau.outcome == 'success'
+        continue-on-error: true
+        run: |
+          # Lieber keine Vorschau als eine ohne Anmeldesperre: Bricht hier
+          # ein Befehl ab, fliegt der ganze Ordner aus dem Upload.
+          trap 'rm -rf vorschau' ERR
+          rm -rf vorschau/.git vorschau/.github vorschau/scripts vorschau/functions vorschau/marketing vorschau/kalender vorschau/korrektur
+          cp events.json events.web.json vorschau/
+          cp -r kalender vorschau/kalender
+          # Die Anmeldesperre (seit 19.10.2026, vom Nutzer gewünscht): nur wer
+          # in Firestore unter admins/<uid> steht, sieht die Seiten – wie
+          # admin.html. Erstes Skript im <head>, Pfad absolut, damit er auch
+          # aus Unterordnern stimmt. Sichtschutz, kein Tresor (siehe Datei).
+          cp vorschau-sperre.js vorschau/
+          find vorschau -name '*.html' -print0 | while IFS= read -r -d '' f; do
+            sed -i 's#<head>#<head>\n<script src="/vorschau/vorschau-sperre.js"></script>\n<meta name="robots" content="noindex, nofollow">#' "$f"
+          done
+
+      # Die Korrekturseite ist ein privates claude.ai-Artifact (CLAUDE.md,
+      # „Korrekturseite“): Ihr Quelltext lädt Google-Schriften und ohne das
+      # Artifact keine Daten – auf endurance-events.de hat er nichts verloren
+      # (nichts von fremden Servern).
+      - name: Nur-Artifact-Dateien weglassen
+        run: rm -rf korrektur
+
+      # Letzte Sicherung vor dem Upload, auch wenn ein Vorschau-Schritt mit
+      # continue-on-error halb lief (z. B. nur der Checkout): Trägt EINE
+      # Seite unter vorschau/ die Anmeldesperre nicht, geht keine Vorschau raus.
+      - name: Vorschau nur mit Anmeldesperre
+        run: |
+          if [ -d vorschau ]; then
+            ohne=$(find vorschau -name '*.html' -exec grep -L 'src="/vorschau/vorschau-sperre.js"' {} + || true)
+            if [ -n "$ohne" ] || [ ! -f vorschau/vorschau-sperre.js ]; then
+              echo "::warning::Vorschau ohne Anmeldesperre – wird nicht ausgeliefert: $ohne"
+              rm -rf vorschau
+            fi
+          fi
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # E-Mail-Abos (seit dem 20.10.2026): Welche Zeilen stehen seit der
+      # letzten Meldung NEU auf der Seite? Gemeldet wird einmal je Datenlauf,
+      # beim ersten grünen Deploy mit einem neuen Commit des Datenlaufs –
+      # dann mit allem, was seitdem sichtbar wurde, auch den über die
+      # Korrekturseite freigegebenen Zeilen. Den Meldestand trägt die Seite
+      # selbst (deploy.json: Commit des Deploys + bis wohin gemeldet ist);
+      # ein Rückfall auf einen älteren Lauf meldet nichts. Die Liste liegt
+      # außerhalb der hochgeladenen Seite (runner.temp) und geht als
+      # Artefakt an den Job „abo“, der erst nach einem grünen Deploy läuft.
+      # Schlägt der Vergleich fehl, geht die Seite trotzdem raus.
+      - name: Abo – neue sichtbare Events bestimmen
+        continue-on-error: true
+        run: >-
+          python3 scripts/abo_meldung.py vergleichen
+          --seite "${{ steps.pages.outputs.base_url }}" --cache "${{ github.run_id }}"
+          --commit "$GITHUB_SHA" --nachher events.json --deploy-json deploy.json
+          --aus "$RUNNER_TEMP/abo/abo-neu.json"
+
+      - name: Abo – Liste aufheben
+        uses: actions/upload-artifact@v4
+        with:
+          name: abo-meldung
+          path: ${{ runner.temp }}/abo/abo-neu.json
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Upload site as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # Erst wenn die Seite live ist, bekommen die Abos ihre Mail (vorher kam
+  # sie aus dem Datenlauf, auch wenn das Gate danach rot war). Rot heißt
+  # hier: die Seite ist live, aber die Meldung ging nicht raus – das Log
+  # sagt, warum. Die Antwort der Function (geprüfte Abos, verschickte
+  # Mails) steht im Log.
+  abo:
+    name: E-Mail-Abos über neue Events informieren
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Liste holen
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: abo-meldung
+          path: ${{ runner.temp }}/abo
+
+      - name: An die Abo-Funktion melden
+        env:
+          NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
+          NOTIFY_WEBHOOK_SECRET: ${{ secrets.NOTIFY_WEBHOOK_SECRET }}
+        run: python3 scripts/abo_meldung.py senden --datei "$RUNNER_TEMP/abo/abo-neu.json"

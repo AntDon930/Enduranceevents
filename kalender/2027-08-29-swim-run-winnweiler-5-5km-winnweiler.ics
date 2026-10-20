@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-swim-run-winnweiler-5-5km-winnweiler@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Swim&Run Winnweiler – Langstrecke 5\,5 km (500 m Schwimmen / 5 km 
+ Laufen)
+LOCATION:Winnweiler\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 5.5 km\nhttps://www.winn
+ weiler-vg.de/tourismus-kultur/veranstaltungen-im-donnersberger-land/swim-
+ run/
+TRANSP:TRANSPARENT
+URL:https://www.winnweiler-vg.de/tourismus-kultur/veranstaltungen-im-donne
+ rsberger-land/swim-run/
+END:VEVENT
+END:VCALENDAR

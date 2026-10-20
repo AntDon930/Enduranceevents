@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-ebbser-koasamarsch-trailruns-55km-ebbs@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Ebbser Koasamarsch Trailruns
+LOCATION:Ebbs\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 55 km\nhttps://www.koasamarsc
+ h.at/
+TRANSP:TRANSPARENT
+URL:https://www.koasamarsch.at/
+END:VEVENT
+END:VCALENDAR

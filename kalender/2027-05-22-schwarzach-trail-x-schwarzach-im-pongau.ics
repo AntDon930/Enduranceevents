@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-schwarzach-trail-x-schwarzach-im-pongau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Schwarzach Trail
+LOCATION:Schwarzach im Pongau\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.triundrun.at/d
+ e/
+TRANSP:TRANSPARENT
+URL:https://www.triundrun.at/de/
+END:VEVENT
+END:VCALENDAR

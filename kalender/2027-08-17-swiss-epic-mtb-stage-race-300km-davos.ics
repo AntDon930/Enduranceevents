@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-17-swiss-epic-mtb-stage-race-300km-davos@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270817
+DTEND;VALUE=DATE:20270822
+SUMMARY:Swiss Epic MTB Stage Race – Etappenrennen 300 km
+LOCATION:Davos\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 300 km\nhttps://www.e
+ pic-series.com/races/swissepic
+TRANSP:TRANSPARENT
+URL:https://www.epic-series.com/races/swissepic
+END:VEVENT
+END:VCALENDAR

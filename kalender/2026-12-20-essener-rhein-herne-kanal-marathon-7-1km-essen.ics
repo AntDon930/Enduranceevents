@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-essener-rhein-herne-kanal-marathon-7-1km-essen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Essener Rhein-Herne-Kanal Marathon – 7\,1 km 1 Runde
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.1 km\nhttps://my.raceresul
+ t.com/395941/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/395941/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-30-int-laubacher-volkslauf-10km-laubach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:30. Int. LAUBACHER VOLKSLAUF
+LOCATION:Laubach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sv1874lau
+ bach.de/index.php/lauftreff/ramsberglauf
+TRANSP:TRANSPARENT
+URL:https://www.sv1874laubach.de/index.php/lauftreff/ramsberglauf
+END:VEVENT
+END:VCALENDAR

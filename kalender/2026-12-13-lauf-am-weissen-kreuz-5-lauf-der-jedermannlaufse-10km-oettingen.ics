@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-lauf-am-weissen-kreuz-5-lauf-der-jedermannlaufse-10km-oetti
+ ngen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Lauf am Weißen Kreuz - 5. Lauf der Jedermannlaufserie
+LOCATION:Oettingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.lg-donau-r
+ ies.de
+TRANSP:TRANSPARENT
+URL:http://www.lg-donau-ries.de
+END:VEVENT
+END:VCALENDAR

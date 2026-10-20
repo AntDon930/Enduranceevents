@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-17-parndorfer-speedworld-supersprint-duathlon-x-parndorf@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+SUMMARY:Parndorfer Speedworld Supersprint Duathlon – Sprint (Termin vorläu
+ fig)
+LOCATION:Parndorf\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Duathlon\nLänge: -\nhttps://www.burgenland-triathlon.at/termine/superspri
+ nt-duathlon
+TRANSP:TRANSPARENT
+URL:https://www.burgenland-triathlon.at/termine/supersprint-duathlon
+END:VEVENT
+END:VCALENDAR

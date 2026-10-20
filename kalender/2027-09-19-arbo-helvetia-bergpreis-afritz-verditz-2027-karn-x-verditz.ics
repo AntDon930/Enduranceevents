@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-arbo-helvetia-bergpreis-afritz-verditz-2027-karn-x-verditz@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:ARBÖ Helvetia Bergpreis Afritz - Verditz 2027 - Kärnten Sport Jede
+ rmannradcup 2027 – Bergrennen
+LOCATION:Verditz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.rc-feldamsee
+ .at
+TRANSP:TRANSPARENT
+URL:https://www.rc-feldamsee.at
+END:VEVENT
+END:VCALENDAR

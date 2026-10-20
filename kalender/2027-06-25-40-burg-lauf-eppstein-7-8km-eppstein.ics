@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-40-burg-lauf-eppstein-7-8km-eppstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:40. Burg-Lauf Eppstein
+LOCATION:Eppstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.8 km\nhttps://eppsteiner-b
+ urglauf.de/
+TRANSP:TRANSPARENT
+URL:https://eppsteiner-burglauf.de/
+END:VEVENT
+END:VCALENDAR

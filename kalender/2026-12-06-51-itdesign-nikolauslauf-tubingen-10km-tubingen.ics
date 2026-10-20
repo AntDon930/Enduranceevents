@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-51-itdesign-nikolauslauf-tubingen-10km-tubingen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:51. itdesign-Nikolauslauf Tübingen
+LOCATION:Tübingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://nikolauslauf-
+ tuebingen.de/
+TRANSP:TRANSPARENT
+URL:https://nikolauslauf-tuebingen.de/
+END:VEVENT
+END:VCALENDAR

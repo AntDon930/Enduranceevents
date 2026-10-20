@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-04-42-berglauf-zur-schuhbraualm-7-5km-raubling@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270804
+DTEND;VALUE=DATE:20270805
+SUMMARY:42. Berglauf zur Schuhbräualm
+LOCATION:Raubling\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.5 km\nhttp://www.ski.asv-gr
+ ossholzhausen.de
+TRANSP:TRANSPARENT
+URL:http://www.ski.asv-grossholzhausen.de
+END:VEVENT
+END:VCALENDAR

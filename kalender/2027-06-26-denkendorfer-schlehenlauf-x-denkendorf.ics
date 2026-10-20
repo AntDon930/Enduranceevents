@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-denkendorfer-schlehenlauf-x-denkendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Denkendorfer Schlehenlauf
+LOCATION:Denkendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ladv.de/ausschrei
+ bung/detail/48886/8.-Denkendorfer-Schlehenlauf-Denkendorf.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/48886/8.-Denkendorfer-Schlehenlau
+ f-Denkendorf.htm
+END:VEVENT
+END:VCALENDAR

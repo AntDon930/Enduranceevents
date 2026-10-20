@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-nikolaus-crosslauf-neuss-5km-neuss@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Nikolaus-Crosslauf - Neuss – Langstrecke
+LOCATION:Neuss\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://tg-neuss.de/ver
+ anstaltungen/nikolaus-crosslauf/
+TRANSP:TRANSPARENT
+URL:https://tg-neuss.de/veranstaltungen/nikolaus-crosslauf/
+END:VEVENT
+END:VCALENDAR

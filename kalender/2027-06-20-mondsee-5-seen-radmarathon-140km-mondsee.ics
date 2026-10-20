@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-mondsee-5-seen-radmarathon-140km-mondsee@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Mondsee 5 Seen Radmarathon – Tour B 140 km
+LOCATION:Mondsee\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 140 km\nhttps://mondsee-rad
+ marathon.com/
+TRANSP:TRANSPARENT
+URL:https://mondsee-radmarathon.com/
+END:VEVENT
+END:VCALENDAR

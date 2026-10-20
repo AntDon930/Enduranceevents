@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-6-weezer-sommerabendlauf-5km-weeze@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:6. Weezer Sommerabendlauf
+LOCATION:Weeze\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.tsv-weeze-l
+ eichtathletik.de
+TRANSP:TRANSPARENT
+URL:http://www.tsv-weeze-leichtathletik.de
+END:VEVENT
+END:VCALENDAR

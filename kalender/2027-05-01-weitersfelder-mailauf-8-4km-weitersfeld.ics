@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-weitersfelder-mailauf-8-4km-weitersfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Weitersfelder Mailauf
+LOCATION:Weitersfeld\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.4 km\nhttps://www.weitersf
+ eld.gv.at/Mailauf
+TRANSP:TRANSPARENT
+URL:https://www.weitersfeld.gv.at/Mailauf
+END:VEVENT
+END:VCALENDAR

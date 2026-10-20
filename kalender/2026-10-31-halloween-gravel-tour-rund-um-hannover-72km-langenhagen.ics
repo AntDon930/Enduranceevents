@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-halloween-gravel-tour-rund-um-hannover-72km-langenhagen@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Halloween Gravel Tour\, Rund um Hannover
+LOCATION:Langenhagen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 72 km\nhttps://blau-gelb-la
+ ngenhagen.de/langenhagener-ctf/
+TRANSP:TRANSPARENT
+URL:https://blau-gelb-langenhagen.de/langenhagener-ctf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-fichtelgebirgsmarathon-21km-bad-alexandersbad@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Fichtelgebirgsmarathon – Halbmarathon (21 km)
+LOCATION:Bad Alexandersbad\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21 km\nhttps://fichtelgebirgs
+ marathon.de/
+TRANSP:TRANSPARENT
+URL:https://fichtelgebirgsmarathon.de/
+END:VEVENT
+END:VCALENDAR

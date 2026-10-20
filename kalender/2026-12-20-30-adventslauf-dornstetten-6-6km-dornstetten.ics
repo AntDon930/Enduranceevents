@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-30-adventslauf-dornstetten-6-6km-dornstetten@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:30. Adventslauf Dornstetten
+LOCATION:Dornstetten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.6 km\nhttp://www.tv-dornst
+ etten.de/silvesterlauf
+TRANSP:TRANSPARENT
+URL:http://www.tv-dornstetten.de/silvesterlauf
+END:VEVENT
+END:VCALENDAR

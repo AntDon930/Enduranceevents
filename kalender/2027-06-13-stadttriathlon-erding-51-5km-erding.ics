@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-stadttriathlon-erding-51-5km-erding@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Stadttriathlon Erding – Olympische Distanz 51\,5 km (1\,5 km Schwi
+ mmen / 40 km Rad / 10 km Laufen)
+LOCATION:Erding\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://trisport
+ -erding.de/stadttriathlon/information-stadttriathlon/
+TRANSP:TRANSPARENT
+URL:https://trisport-erding.de/stadttriathlon/information-stadttriathlon/
+END:VEVENT
+END:VCALENDAR

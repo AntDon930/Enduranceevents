@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-18-vogelsberger-sudbahnlauf-5km-birstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:Vogelsberger Südbahnlauf – 5 km Volkslauf
+LOCATION:Birstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 5 km\nhttps://vogelsbergersued
+ bahnlauf.wordpress.com
+TRANSP:TRANSPARENT
+URL:https://vogelsbergersuedbahnlauf.wordpress.com
+END:VEVENT
+END:VCALENDAR

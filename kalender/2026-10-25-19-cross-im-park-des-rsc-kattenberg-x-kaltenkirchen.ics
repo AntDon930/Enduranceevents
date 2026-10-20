@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-19-cross-im-park-des-rsc-kattenberg-x-kaltenkirchen@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:19. Cross im Park des RSC Kattenberg – Cyclocross\, Stevens Cyclo-
+ Cross Cup #07
+LOCATION:Kaltenkirchen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.rsc-katt
+ enberg.de/
+TRANSP:TRANSPARENT
+URL:https://www.rsc-kattenberg.de/
+END:VEVENT
+END:VCALENDAR

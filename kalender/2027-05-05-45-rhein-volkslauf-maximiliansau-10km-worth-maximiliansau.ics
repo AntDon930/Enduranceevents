@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-45-rhein-volkslauf-maximiliansau-10km-worth-maximiliansau@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:45. RHEIN-VOLKSLAUF Maximiliansau
+LOCATION:Wörth-Maximiliansau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.vlg-maximi
+ liansau.de
+TRANSP:TRANSPARENT
+URL:http://www.vlg-maximiliansau.de
+END:VEVENT
+END:VCALENDAR

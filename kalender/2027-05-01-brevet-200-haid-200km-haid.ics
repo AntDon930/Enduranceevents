@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-brevet-200-haid-200km-haid@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Brevet 200 Haid – Brevet 200 km
+LOCATION:Haid\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 200 km\nhttps://randonneurs
+ -austria.at/
+TRANSP:TRANSPARENT
+URL:https://randonneurs-austria.at/
+END:VEVENT
+END:VCALENDAR

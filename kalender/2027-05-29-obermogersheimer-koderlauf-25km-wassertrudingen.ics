@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-obermogersheimer-koderlauf-25km-wassertrudingen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Obermögersheimer Koderlauf
+LOCATION:Wassertrüdingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25 km\nhttps://koderlauf.de/
+TRANSP:TRANSPARENT
+URL:https://koderlauf.de/
+END:VEVENT
+END:VCALENDAR

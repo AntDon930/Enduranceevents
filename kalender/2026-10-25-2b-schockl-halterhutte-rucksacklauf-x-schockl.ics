@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-2b-schockl-halterhutte-rucksacklauf-x-schockl@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261027
+SUMMARY:2B Schöckl-Halterhütte-Rucksacklauf
+LOCATION:Schöckl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sportpay24.com/ev
+ ents/1434
+TRANSP:TRANSPARENT
+URL:https://sportpay24.com/events/1434
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-triathlon-heilbronn-57km-heilbronn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Triathlon Heilbronn – Kurzdistanz 57 km (1\,5 km Schwimmen / 45 km
+  Rad / 10\,5 km Laufen)
+LOCATION:Heilbronn\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 57 km\nhttps://www.triath
+ lon-heilbronn.de/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-heilbronn.de/
+END:VEVENT
+END:VCALENDAR

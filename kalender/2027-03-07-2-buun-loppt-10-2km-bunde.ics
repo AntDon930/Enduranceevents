@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-2-buun-loppt-10-2km-bunde@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:2. Buun löppt – 10\,2 km Volkslauf
+LOCATION:Bunde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.2 km\nhttps://www.tv-bund
+ e.de/
+TRANSP:TRANSPARENT
+URL:https://www.tv-bunde.de/
+END:VEVENT
+END:VCALENDAR

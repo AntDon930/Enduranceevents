@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-donautrail-35km-linz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Donautrail – LINZ35
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 35 km\nhttps://donautrail.at/
+TRANSP:TRANSPARENT
+URL:https://donautrail.at/
+END:VEVENT
+END:VCALENDAR

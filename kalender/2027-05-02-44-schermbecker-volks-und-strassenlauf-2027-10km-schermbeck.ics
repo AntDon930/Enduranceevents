@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-44-schermbecker-volks-und-strassenlauf-2027-10km-schermbeck
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:44. Schermbecker Volks- und Straßenlauf 2027
+LOCATION:Schermbeck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.svs-leicht
+ athletik.de
+TRANSP:TRANSPARENT
+URL:http://www.svs-leichtathletik.de
+END:VEVENT
+END:VCALENDAR

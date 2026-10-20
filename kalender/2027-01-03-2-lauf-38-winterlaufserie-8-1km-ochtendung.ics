@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-2-lauf-38-winterlaufserie-8-1km-ochtendung@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:2. Lauf 38. Winterlaufserie
+LOCATION:Ochtendung\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.1 km\nhttp://www.djk-ochte
+ ndung.de
+TRANSP:TRANSPARENT
+URL:http://www.djk-ochtendung.de
+END:VEVENT
+END:VCALENDAR

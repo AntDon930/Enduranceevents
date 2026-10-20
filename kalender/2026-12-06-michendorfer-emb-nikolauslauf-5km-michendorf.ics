@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-michendorfer-emb-nikolauslauf-5km-michendorf@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Michendorfer EMB Nikolauslauf
+LOCATION:Michendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.lc-michendo
+ rf.de
+TRANSP:TRANSPARENT
+URL:http://www.lc-michendorf.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-sengbach-talsperrenlauf-30-9km-leichlingen-rheinland@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:Sengbach-Talsperrenlauf – 30\,9 km 3/4 Marathon (3 Runden)
+LOCATION:Leichlingen (Rheinland)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30.9 km\nhttps://sengbachlau
+ f.de/
+TRANSP:TRANSPARENT
+URL:https://sengbachlauf.de/
+END:VEVENT
+END:VCALENDAR

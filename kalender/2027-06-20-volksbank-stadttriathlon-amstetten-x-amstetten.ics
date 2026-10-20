@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-volksbank-stadttriathlon-amstetten-x-amstetten@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Volksbank Stadttriathlon Amstetten – Sprint (Termin vorläufig)
+LOCATION:Amstetten\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Straße\nLänge: -\nhttps://www.triateamnoewest.at/
+TRANSP:TRANSPARENT
+URL:https://www.triateamnoewest.at/
+END:VEVENT
+END:VCALENDAR

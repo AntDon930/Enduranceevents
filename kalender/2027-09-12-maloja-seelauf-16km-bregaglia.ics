@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-maloja-seelauf-16km-bregaglia@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Maloja Seelauf
+LOCATION:Bregaglia\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16 km\nhttps://www.bregaglia
+ .ch/de/aktuell/hauptveranstaltungen/maloja-seelauf
+TRANSP:TRANSPARENT
+URL:https://www.bregaglia.ch/de/aktuell/hauptveranstaltungen/maloja-seelau
+ f
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-tuttlingen-5km-tuttlingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Tuttlingen
+LOCATION:Tuttlingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://tsftut.de/inde
+ x.php/veranstaltungen/silvesterlauf-tuttlingen
+TRANSP:TRANSPARENT
+URL:https://tsftut.de/index.php/veranstaltungen/silvesterlauf-tuttlingen
+END:VEVENT
+END:VCALENDAR

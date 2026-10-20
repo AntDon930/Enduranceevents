@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-st-laurent-lauf-tattendorf-thermentrophy-x-tattendorf@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:St. Laurent-Lauf Tattendorf (Thermentrophy)
+LOCATION:Tattendorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.laurentlauf.at
+TRANSP:TRANSPARENT
+URL:http://www.laurentlauf.at
+END:VEVENT
+END:VCALENDAR

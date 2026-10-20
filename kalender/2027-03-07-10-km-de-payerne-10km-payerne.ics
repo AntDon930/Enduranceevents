@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-10-km-de-payerne-10km-payerne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:10 km de Payerne
+LOCATION:Payerne\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://10kmpayerne.c
+ h/
+TRANSP:TRANSPARENT
+URL:https://10kmpayerne.ch/
+END:VEVENT
+END:VCALENDAR

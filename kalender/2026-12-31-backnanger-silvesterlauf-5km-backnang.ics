@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-backnanger-silvesterlauf-5km-backnang@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Backnanger Silvesterlauf – 5 km Lauf 2 Runden à 2\,5 km
+LOCATION:Backnang\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.backnanger
+ -silvesterlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.backnanger-silvesterlauf.de/
+END:VEVENT
+END:VCALENDAR

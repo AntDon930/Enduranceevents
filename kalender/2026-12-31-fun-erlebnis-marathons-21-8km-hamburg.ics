@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-fun-erlebnis-marathons-21-8km-hamburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Fun & Erlebnis Marathons – Halbmarathon
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.8 km\nhttps://my.raceresu
+ lt.com/378406/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/378406/
+END:VEVENT
+END:VCALENDAR

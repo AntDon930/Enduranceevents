@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-erfurter-silvesterlauf-12km-erfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Erfurter Silvesterlauf
+LOCATION:Erfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.erfurters
+ ilvesterlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.erfurtersilvesterlauf.de/
+END:VEVENT
+END:VCALENDAR

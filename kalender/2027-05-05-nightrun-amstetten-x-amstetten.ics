@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-nightrun-amstetten-x-amstetten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:Nightrun Amstetten
+LOCATION:Amstetten\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.night-run.at/
+TRANSP:TRANSPARENT
+URL:https://www.night-run.at/
+END:VEVENT
+END:VCALENDAR

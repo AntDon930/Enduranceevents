@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-reiling-harsewinkel-triathlon-12km-harsewinkel@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Reiling - Harsewinkel Triathlon – Schnuppertriathlon 12 km (200 m 
+ Schwimmen / 10 km Rad / 1\,8 km Laufen)
+LOCATION:Harsewinkel\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 12 km\nhttp://trispeed.de
+ /triathlon/
+TRANSP:TRANSPARENT
+URL:http://trispeed.de/triathlon/
+END:VEVENT
+END:VCALENDAR

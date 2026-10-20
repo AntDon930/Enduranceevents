@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-duisburg-steel-classic-bike-tour-112km-duisburg@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Duisburg Steel Classic Bike Tour – RTF 112 km
+LOCATION:Duisburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 112 km\nhttps://www.duisbur
+ g-steel.de/
+TRANSP:TRANSPARENT
+URL:https://www.duisburg-steel.de/
+END:VEVENT
+END:VCALENDAR

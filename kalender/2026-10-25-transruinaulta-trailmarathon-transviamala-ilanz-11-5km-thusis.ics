@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-transruinaulta-trailmarathon-transviamala-ilanz-11-5km-thus
+ is@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Transruinaulta Trailmarathon / Transviamala Ilanz-Thusis-Donat – T
+ ransviamala curta 11.5 km
+LOCATION:Thusis\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11.5 km\nhttps://www.transvia
+ mala.ch
+TRANSP:TRANSPARENT
+URL:https://www.transviamala.ch
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-adac-cyclassics-hamburg-57km-buxtehude@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:ADAC Cyclassics Hamburg – Jedermannrennen 57 km
+LOCATION:Buxtehude\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 57 km\nhttps://www.cyclassi
+ cs-hamburg.de/de
+TRANSP:TRANSPARENT
+URL:https://www.cyclassics-hamburg.de/de
+END:VEVENT
+END:VCALENDAR

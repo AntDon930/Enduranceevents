@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-39-starzachlauf-10-7km-wachendorf-starzach@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:39. Starzachlauf – 10\,7 km Hauptlauf
+LOCATION:Wachendorf (Starzach)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.7 km\nhttps://ltstarzach.
+ de/starzachlauf
+TRANSP:TRANSPARENT
+URL:https://ltstarzach.de/starzachlauf
+END:VEVENT
+END:VCALENDAR

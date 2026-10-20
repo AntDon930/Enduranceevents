@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-21-sottrumer-abendlauf-5km-sottrum@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270522
+SUMMARY:Sottrumer Abendlauf
+LOCATION:Sottrum\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.tv-sottrum.
+ de/leichtathletik/abendlauf/2026
+TRANSP:TRANSPARENT
+URL:http://www.tv-sottrum.de/leichtathletik/abendlauf/2026
+END:VEVENT
+END:VCALENDAR

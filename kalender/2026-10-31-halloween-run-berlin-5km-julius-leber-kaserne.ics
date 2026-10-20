@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-halloween-run-berlin-5km-julius-leber-kaserne@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Halloween Run Berlin
+LOCATION:Julius-Leber-Kaserne\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://halloween-run-
+ berlin.de/
+TRANSP:TRANSPARENT
+URL:https://halloween-run-berlin.de/
+END:VEVENT
+END:VCALENDAR

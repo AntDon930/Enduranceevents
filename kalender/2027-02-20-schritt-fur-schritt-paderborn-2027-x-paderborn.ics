@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-schritt-fur-schritt-paderborn-2027-x-paderborn@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:Schritt für Schritt Paderborn 2027
+LOCATION:Paderborn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: -\nhttps://www.schrittfuersc
+ hritt.org/
+TRANSP:TRANSPARENT
+URL:https://www.schrittfuerschritt.org/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-triathlon-frauenfeld-42km-frauenfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Triathlon Frauenfeld – Long Distance 42 km (0.8 km Schwimmen / 34 
+ km Rad / 7.2 km Laufen)
+LOCATION:Frauenfeld\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 42 km\nhttp://www.triathl
+ on-frauenfeld.ch
+TRANSP:TRANSPARENT
+URL:http://www.triathlon-frauenfeld.ch
+END:VEVENT
+END:VCALENDAR

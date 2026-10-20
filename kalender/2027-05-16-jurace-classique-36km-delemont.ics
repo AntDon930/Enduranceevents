@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-jurace-classique-36km-delemont@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Jurace Classique – Radmarathon 36 km
+LOCATION:Delémont\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 36 km\nhttps://www.jurace.c
+ h/
+TRANSP:TRANSPARENT
+URL:https://www.jurace.ch/
+END:VEVENT
+END:VCALENDAR

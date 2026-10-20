@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-06-kandersteger-nordic-days-27km-kandersteg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270208
+SUMMARY:Kandersteger Nordic Days
+LOCATION:Kandersteg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 27 km\nhttps://www.kanderste
+ ger.ch/
+TRANSP:TRANSPARENT
+URL:https://www.kandersteger.ch/
+END:VEVENT
+END:VCALENDAR

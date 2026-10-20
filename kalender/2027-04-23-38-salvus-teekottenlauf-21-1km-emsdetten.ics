@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-23-38-salvus-teekottenlauf-21-1km-emsdetten@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270423
+DTEND;VALUE=DATE:20270424
+SUMMARY:38. Salvus-Teekottenlauf – Halbmarathon
+LOCATION:Emsdetten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.salvus-
+ teekottenlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.salvus-teekottenlauf.de/
+END:VEVENT
+END:VCALENDAR

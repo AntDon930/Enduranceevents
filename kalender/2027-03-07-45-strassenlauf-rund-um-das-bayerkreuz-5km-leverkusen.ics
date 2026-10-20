@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-45-strassenlauf-rund-um-das-bayerkreuz-5km-leverkusen@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:45. Straßenlauf "Rund um das Bayerkreuz"
+LOCATION:Leverkusen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tsvbayer04
+ -leichtathletik.de
+TRANSP:TRANSPARENT
+URL:https://www.tsvbayer04-leichtathletik.de
+END:VEVENT
+END:VCALENDAR

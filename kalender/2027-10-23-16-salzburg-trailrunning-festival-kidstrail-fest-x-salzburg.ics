@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-23-16-salzburg-trailrunning-festival-kidstrail-fest-x-salzburg
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271023
+DTEND;VALUE=DATE:20271024
+SUMMARY:16. Salzburg Trailrunning Festival - Kidstrail\, Festungs- und Pan
+ oramatrail
+LOCATION:Salzburg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.trailrunning-fe
+ stival.at
+TRANSP:TRANSPARENT
+URL:http://www.trailrunning-festival.at
+END:VEVENT
+END:VCALENDAR

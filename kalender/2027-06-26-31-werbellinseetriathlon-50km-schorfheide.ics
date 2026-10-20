@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-31-werbellinseetriathlon-50km-schorfheide@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:31. WerbellinseeTriathlon
+LOCATION:Schorfheide\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 50 km\nhttps://werbellins
+ eetriathlon.de/
+TRANSP:TRANSPARENT
+URL:https://werbellinseetriathlon.de/
+END:VEVENT
+END:VCALENDAR

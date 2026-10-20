@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-transviamala-und-transruinaulta-trailmarathon-5km-ilanz-gli
+ on@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261026
+SUMMARY:Transviamala und Transruinaulta Trailmarathon
+LOCATION:Ilanz/Glion\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://transviamala.ch
+ /
+TRANSP:TRANSPARENT
+URL:https://transviamala.ch/
+END:VEVENT
+END:VCALENDAR

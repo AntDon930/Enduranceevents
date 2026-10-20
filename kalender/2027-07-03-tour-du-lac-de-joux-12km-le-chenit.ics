@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-tour-du-lac-de-joux-12km-le-chenit@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Tour du Lac de Joux – 12 km Halb-Runde des Sees (CHF 35.-)
+LOCATION:Le Chenit\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://tourlacdejoux
+ .ch/
+TRANSP:TRANSPARENT
+URL:https://tourlacdejoux.ch/
+END:VEVENT
+END:VCALENDAR

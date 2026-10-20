@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-landesmeisterschaften-crosslauf-m-v-5km-laage@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Landesmeisterschaften Crosslauf M-V
+LOCATION:Laage\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://ladv.de/ausschr
+ eibung/detail/49395/Landesmeisterschaft-Cross-MV-Rostock.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49395/Landesmeisterschaft-Cross-M
+ V-Rostock.htm
+END:VEVENT
+END:VCALENDAR

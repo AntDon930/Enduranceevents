@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-10-3-lander-marathon-42-2km-bregenz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
+SUMMARY:3-Länder-Marathon
+LOCATION:Bregenz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.lv-oeld
+ e.de/de/veranstaltungen/3-laender_marathon-2027/
+TRANSP:TRANSPARENT
+URL:https://www.lv-oelde.de/de/veranstaltungen/3-laender_marathon-2027/
+END:VEVENT
+END:VCALENDAR

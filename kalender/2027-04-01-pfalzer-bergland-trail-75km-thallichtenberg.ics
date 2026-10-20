@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-01-pfalzer-bergland-trail-75km-thallichtenberg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270401
+DTEND;VALUE=DATE:20270405
+SUMMARY:Pfälzer Bergland Trail
+LOCATION:Thallichtenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 75 km\nhttps://pfaelzer-bergl
+ andtrail.de/
+TRANSP:TRANSPARENT
+URL:https://pfaelzer-berglandtrail.de/
+END:VEVENT
+END:VCALENDAR

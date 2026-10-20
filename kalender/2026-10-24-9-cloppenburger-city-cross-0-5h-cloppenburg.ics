@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-9-cloppenburger-city-cross-0-5h-cloppenburg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:9. Cloppenburger City Cross – Hobbyrennen 30 min
+LOCATION:Cloppenburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 30 min\nhttps://www.clo
+ ppenburg.de/portal/seiten/9-cloppenburger-citycross-rennen-900000088-3104
+ 0.html
+TRANSP:TRANSPARENT
+URL:https://www.cloppenburg.de/portal/seiten/9-cloppenburger-citycross-ren
+ nen-900000088-31040.html
+END:VEVENT
+END:VCALENDAR

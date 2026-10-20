@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-dm-10km-strasse-x-tubingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:DM 10km Straße
+LOCATION:Tübingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://laufen.de/laufkal
+ ender/details/dm-10km-straße
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/dm-10km-straße
+END:VEVENT
+END:VCALENDAR

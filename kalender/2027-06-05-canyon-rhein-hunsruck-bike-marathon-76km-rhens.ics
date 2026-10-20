@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-canyon-rhein-hunsruck-bike-marathon-76km-rhens@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:CANYON Rhein-Hunsrück Bike Marathon – Gravel 76 km
+LOCATION:Rhens\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 76 km\nhttps://www.mtb-rhen
+ s.de/
+TRANSP:TRANSPARENT
+URL:https://www.mtb-rhens.de/
+END:VEVENT
+END:VCALENDAR

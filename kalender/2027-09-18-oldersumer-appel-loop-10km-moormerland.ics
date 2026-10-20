@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-oldersumer-appel-loop-10km-moormerland@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Oldersumer Appel-Loop – 10 km Hauptlauf
+LOCATION:Moormerland\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://fc-oldersum.d
+ e/appel-loop/
+TRANSP:TRANSPARENT
+URL:https://fc-oldersum.de/appel-loop/
+END:VEVENT
+END:VCALENDAR

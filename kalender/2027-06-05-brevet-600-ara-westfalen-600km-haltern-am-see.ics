@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-brevet-600-ara-westfalen-600km-haltern-am-see@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Brevet 600 - ARA Westfalen – Brevet 600 km
+LOCATION:Haltern am See\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 600 km\nhttps://www.ara-wes
+ tfalen.de/die-brevetsaison-2027/
+TRANSP:TRANSPARENT
+URL:https://www.ara-westfalen.de/die-brevetsaison-2027/
+END:VEVENT
+END:VCALENDAR

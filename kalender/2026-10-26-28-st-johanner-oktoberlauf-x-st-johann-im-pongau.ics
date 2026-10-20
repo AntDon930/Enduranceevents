@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-28-st-johanner-oktoberlauf-x-st-johann-im-pongau@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:28. St.Johanner Oktoberlauf
+LOCATION:St. Johann im Pongau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.aufiowi.at
+TRANSP:TRANSPARENT
+URL:https://www.aufiowi.at
+END:VEVENT
+END:VCALENDAR

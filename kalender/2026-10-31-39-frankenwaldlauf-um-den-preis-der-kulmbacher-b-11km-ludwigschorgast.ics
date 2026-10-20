@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-39-frankenwaldlauf-um-den-preis-der-kulmbacher-b-11km-ludwi
+ gschorgast@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:39. Frankenwaldlauf um den Preis der Kulmbacher Brauerei
+LOCATION:Ludwigschorgast\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://lg-ludwigschor
+ gast.de
+TRANSP:TRANSPARENT
+URL:http://lg-ludwigschorgast.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-essener-rhein-herne-kanal-marathon-42-2km-essen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Essener Rhein-Herne-Kanal Marathon – Marathon
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://my.raceresu
+ lt.com/395941/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/395941/
+END:VEVENT
+END:VCALENDAR

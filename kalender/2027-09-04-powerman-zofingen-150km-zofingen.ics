@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-powerman-zofingen-150km-zofingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270906
+SUMMARY:Powerman Zofingen – Long Distance - OPEN
+LOCATION:Zofingen\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 150 km\nhttps://www.power
+ man.org/
+TRANSP:TRANSPARENT
+URL:https://www.powerman.org/
+END:VEVENT
+END:VCALENDAR

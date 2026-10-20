@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-borgberg-trail-marathon-43-2km-hagen-am-teutoburger-wald@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Borgberg Trail-Marathon – Ultramarathon
+LOCATION:Hagen am Teutoburger Wald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 43.2 km\nhttps://ultra-uwe-un
+ terwegs.de
+TRANSP:TRANSPARENT
+URL:https://ultra-uwe-unterwegs.de
+END:VEVENT
+END:VCALENDAR

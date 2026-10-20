@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-dwh-dachwelten-cross-powered-by-rco-boa-wels-1h-wels@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:DWH - dachwelten Cross powered by RCO BOA Wels – Cyclocross 60 min
+LOCATION:Wels\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 1 h\nhttps://www.rc-ovi
+ lava-wels.at
+TRANSP:TRANSPARENT
+URL:https://www.rc-ovilava-wels.at
+END:VEVENT
+END:VCALENDAR

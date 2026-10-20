@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-06-lakes-n-knodel-725km-fuschl-am-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270906
+DTEND;VALUE=DATE:20270913
+SUMMARY:Lakes 'n' Knödel – Gravel 725 km
+LOCATION:Fuschl am See\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 725 km\nhttps://lakesnknoed
+ el.com/
+TRANSP:TRANSPARENT
+URL:https://lakesnknoedel.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-14-go-in6weeks-dagmersellen-5km-dagmersellen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270414
+DTEND;VALUE=DATE:20270415
+SUMMARY:GO-IN6weeks - Dagmersellen
+LOCATION:Dagmersellen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.6weeks.ch/
+ fuer-teilnehmende/alle-etappen/
+TRANSP:TRANSPARENT
+URL:https://www.6weeks.ch/fuer-teilnehmende/alle-etappen/
+END:VEVENT
+END:VCALENDAR

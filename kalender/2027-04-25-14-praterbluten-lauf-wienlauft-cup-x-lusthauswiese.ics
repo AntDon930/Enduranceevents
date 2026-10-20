@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-14-praterbluten-lauf-wienlauft-cup-x-lusthauswiese@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:14. Praterblüten-Lauf ("WienLäuft"-Cup)
+LOCATION:Lusthauswiese\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.laufenimzweite
+ n.wien
+TRANSP:TRANSPARENT
+URL:http://www.laufenimzweiten.wien
+END:VEVENT
+END:VCALENDAR

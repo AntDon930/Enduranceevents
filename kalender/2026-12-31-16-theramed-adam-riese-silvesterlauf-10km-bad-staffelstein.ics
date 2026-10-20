@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-16-theramed-adam-riese-silvesterlauf-10km-bad-staffelstein@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:16. THERAmed-Adam-Riese-Silvesterlauf – 10 km Sparkassen - Hauptla
+ uf\, Startgebühr 17\,00 €
+LOCATION:Bad Staffelstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.obermain-
+ marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.obermain-marathon.de/
+END:VEVENT
+END:VCALENDAR

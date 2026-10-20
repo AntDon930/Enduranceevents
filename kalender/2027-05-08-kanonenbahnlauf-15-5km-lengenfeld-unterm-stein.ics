@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-kanonenbahnlauf-15-5km-lengenfeld-unterm-stein@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Kanonenbahnlauf
+LOCATION:Lengenfeld unterm Stein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 15.5 km\nhttps://www.kanonenba
+ hnlauf.org/
+TRANSP:TRANSPARENT
+URL:https://www.kanonenbahnlauf.org/
+END:VEVENT
+END:VCALENDAR

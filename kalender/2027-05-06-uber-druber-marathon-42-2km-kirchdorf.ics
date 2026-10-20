@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-06-uber-druber-marathon-42-2km-kirchdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+SUMMARY:Über Drüber Marathon
+LOCATION:Kirchdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.laufgeme
+ inschaft.at
+TRANSP:TRANSPARENT
+URL:http://www.laufgemeinschaft.at
+END:VEVENT
+END:VCALENDAR

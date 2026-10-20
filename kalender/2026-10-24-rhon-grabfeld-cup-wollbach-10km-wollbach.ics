@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-rhon-grabfeld-cup-wollbach-10km-wollbach@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Rhön-Grabfeld-Cup – Wollbach – 10\,0 km Hauptlauf
+LOCATION:Wollbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://rhoengrabfeld
+ cup.de/event/wollbach/
+TRANSP:TRANSPARENT
+URL:https://rhoengrabfeldcup.de/event/wollbach/
+END:VEVENT
+END:VCALENDAR

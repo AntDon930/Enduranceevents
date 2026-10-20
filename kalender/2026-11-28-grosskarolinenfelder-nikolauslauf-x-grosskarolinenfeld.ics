@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-grosskarolinenfelder-nikolauslauf-x-grosskarolinenfeld@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Großkarolinenfelder Nikolauslauf
+LOCATION:Großkarolinenfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.karolauf.de
+TRANSP:TRANSPARENT
+URL:http://www.karolauf.de
+END:VEVENT
+END:VCALENDAR

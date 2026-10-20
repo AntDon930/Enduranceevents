@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-bargloif-zaniglas-x-sankt-niklaus@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Bärglöif-Zaniglas
+LOCATION:Sankt Niklaus\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://xn--brglif-zanigla
+ s-0kb32a.ch/home/
+TRANSP:TRANSPARENT
+URL:https://xn--brglif-zaniglas-0kb32a.ch/home/
+END:VEVENT
+END:VCALENDAR

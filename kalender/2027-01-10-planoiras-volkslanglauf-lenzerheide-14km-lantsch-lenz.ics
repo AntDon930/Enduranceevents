@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-planoiras-volkslanglauf-lenzerheide-14km-lantsch-lenz@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Planoiras Volkslanglauf Lenzerheide
+LOCATION:Lantsch/Lenz\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://arosalenzerhe
+ ide.swiss/de/Lenzerheide/Top-Events/Sport/Planoiras-Volkslanglauf
+TRANSP:TRANSPARENT
+URL:https://arosalenzerheide.swiss/de/Lenzerheide/Top-Events/Sport/Planoir
+ as-Volkslanglauf
+END:VEVENT
+END:VCALENDAR

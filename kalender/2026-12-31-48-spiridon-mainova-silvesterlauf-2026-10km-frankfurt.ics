@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-48-spiridon-mainova-silvesterlauf-2026-10km-frankfurt@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:48. Spiridon Mainova Silvesterlauf 2026
+LOCATION:Frankfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.spiridon-
+ silvesterlauf.de
+TRANSP:TRANSPARENT
+URL:https://www.spiridon-silvesterlauf.de
+END:VEVENT
+END:VCALENDAR

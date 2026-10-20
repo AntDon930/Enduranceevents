@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-kananoher-fortyfive-ultramarathon-5km-langenhagen@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Kananoher FortyFive Ultramarathon
+LOCATION:Langenhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/425309/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/425309/
+END:VEVENT
+END:VCALENDAR

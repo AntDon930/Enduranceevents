@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-bhtc-mohnesee-triathlon-51-5km-mohnesee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:BHTC Möhnesee Triathlon – Olympische Distanz
+LOCATION:Möhnesee\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://www.moeh
+ nesee-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.moehnesee-triathlon.de/
+END:VEVENT
+END:VCALENDAR

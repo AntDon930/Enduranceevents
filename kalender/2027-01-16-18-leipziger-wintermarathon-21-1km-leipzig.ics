@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-18-leipziger-wintermarathon-21-1km-leipzig@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:18. Leipziger Wintermarathon – Halbmarathon
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://wintermarat
+ hon.de/
+TRANSP:TRANSPARENT
+URL:https://wintermarathon.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-obstacle-city-run-berlin-6km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Obstacle City Run Berlin – 6 km - 21 Hindernisse\, Verpflegung\, Z
+ eitnahme\, Runner-Shirt
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 6 km\nhttps://www.obstacl
+ e-city-run.de/obstacle-city-run-berlin
+TRANSP:TRANSPARENT
+URL:https://www.obstacle-city-run.de/obstacle-city-run-berlin
+END:VEVENT
+END:VCALENDAR

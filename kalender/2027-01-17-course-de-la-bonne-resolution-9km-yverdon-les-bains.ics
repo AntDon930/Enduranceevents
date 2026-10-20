@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-17-course-de-la-bonne-resolution-9km-yverdon-les-bains@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270117
+DTEND;VALUE=DATE:20270118
+SUMMARY:Course de la Bonne Résolution
+LOCATION:Yverdon-les-Bains\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttp://www.labr.ch/acc
+ ueil
+TRANSP:TRANSPARENT
+URL:http://www.labr.ch/accueil
+END:VEVENT
+END:VCALENDAR

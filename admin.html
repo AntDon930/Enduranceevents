@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<title>Statistik – Endurance Events</title>
+<!-- Nur für den Betreiber: Die Seite zeigt die Besucherstatistik aus
+     Firestore (stats_daily), geschrieben von der Cloud Function
+     aggregateStats (functions/index.js), gesammelt von stats.js. Lesen
+     darf, wer in der Sammlung admins/<uid> steht (firestore.rules) - ohne
+     den Eintrag zeigt die Seite die eigene uid und die Anleitung. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0b1220">
+<!-- Farbschema hell/dunkel (siehe site.css). WORTGLEICH mit den anderen
+     Seiten - test_scraper_lib.py (test_farbschema_skript) vergleicht. -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<link rel="stylesheet" href="vendor/fonts/barlow.css">
+<link rel="stylesheet" href="site.css?v=a5ec03ff">
+<style>
+  /* Diagrammfarben: zwei Reihen, in beiden Schemata gegen die Fläche
+     geprüft (dataviz-Validator: Helligkeit, Farbfehlsicht, Kontrast).
+     Dunkel: Blau #3d8fd9 + Signal; hell: Schwimmen-Blau #1971c2 + Signal. */
+  :root { --chart-1: #3d8fd9; --chart-2: #e8590c; --chart-grid: var(--border); }
+  :root[data-theme="light"] { --chart-1: #1971c2; }
+
+  body { display: flex; flex-direction: column; min-height: 100vh; }
+  .stat-main { width: 100%; max-width: 1180px; margin: 0 auto; padding: 22px 16px 48px; box-sizing: border-box; flex: 1; }
+  .stat-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin: 4px 0 18px; }
+  .stat-head h2 { font-family: var(--font-display); font-weight: 700; font-size: 2rem; margin: 0; letter-spacing: 0.01em; }
+  .stat-head p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
+
+  .stat-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 18px 20px; box-sizing: border-box; min-width: 0; }
+  .stat-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; margin: 0 0 12px; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .stat-card h3 small { font-family: var(--font-text); font-weight: 500; font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* Zugang */
+  /* Wartungsmodus-Karte (14.10.2026), ganz unten hinter einer Trennlinie */
+  .stat-trenner { border: 0; border-top: 2px solid var(--border-strong); margin: 36px 0 18px; }
+  /* Die fünf Bereiche der Seite (16.10.2026, vom Nutzer: „oben ein
+     Dashboard, dann die Graphen, dann die einzelnen Auswertungen, dann
+     alles mit Instagram, dann die Wartungsseite – immer mit einer Linie
+     und Überschrift trennen"). */
+  .stat-bereich { font-family: var(--font-display); font-weight: 700; font-size: 1.7rem; margin: 0 0 14px; }
+  #wartung-card h3 small.w-an { color: var(--brand); }
+  .w-felder { display: grid; gap: 8px; margin: 10px 0; }
+  .w-felder label { display: grid; gap: 4px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  .w-felder input { font: inherit; font-size: 0.95rem; text-transform: none; letter-spacing: 0; padding: 8px 10px; border-radius: var(--radius-ctl); border: 1px solid var(--border-strong); background: var(--panel); color: var(--text); width: 100%; box-sizing: border-box; }
+  .w-knoepfe { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 0; }
+  .w-knoepfe a.stat-btn { text-decoration: none; display: inline-flex; align-items: center; }
+  /* Instagram-Freigabe (14.10.2026): eine Zeile je Tag aus plan.json,
+     Status aus Firestore, drei Knöpfe. */
+  .frei-liste { display: grid; gap: 10px; margin: 10px 0 0; }
+  .frei-zeile { display: grid; grid-template-columns: 1fr auto; gap: 8px 14px; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-ctl); background: var(--bg); }
+  .frei-zeile.ist-frei { border-color: var(--sport-fahrrad); }
+  .frei-zeile.ist-gesperrt { opacity: 0.7; }
+  .frei-kopf { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; }
+  .frei-kopf b { font-family: var(--font-display); font-size: 1.05rem; }
+  .frei-format { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  .frei-status { font-size: 0.78rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--accent-bg); color: var(--text-muted); }
+  .frei-status.frei { background: var(--sport-fahrrad-bg); color: var(--sport-fahrrad-fg); }
+  .frei-status.gesperrt { background: var(--sport-laufen-bg); color: var(--sport-laufen-fg); }
+  .frei-status.veraltet { background: var(--sport-laufen-bg); color: var(--sport-laufen-fg); }
+  .frei-folien { margin: 4px 0 0; font-size: 0.92rem; line-height: 1.45; }
+  .frei-folien .fz { color: var(--text-muted); }
+  .frei-zeile details { grid-column: 1 / -1; font-size: 0.88rem; }
+  .frei-zeile details summary { cursor: pointer; color: var(--text-muted); }
+  .frei-zeile pre { white-space: pre-wrap; font: inherit; margin: 6px 0 0; padding: 8px 10px; border-radius: var(--radius-ctl); background: var(--panel); border: 1px solid var(--border); }
+  .frei-knoepfe { display: flex; flex-direction: column; gap: 6px; align-self: start; }
+  .frei-knoepfe .stat-btn { min-height: 36px; padding: 6px 12px; font-size: 0.85rem; white-space: nowrap; }
+  @media (max-width: 600px) { .frei-zeile { grid-template-columns: 1fr; } .frei-knoepfe { flex-direction: row; flex-wrap: wrap; } }
+  /* Zugeklappt nur Titel und eine Zeile mit den Zahlen (16.10.2026, vom
+     Nutzer: „Die Instagram Freigabe ist irgendwie zu groß"). */
+  .frei-ausklapp > summary { cursor: pointer; list-style: none; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; }
+  .frei-ausklapp > summary::-webkit-details-marker { display: none; }
+  .frei-ausklapp > summary::before { content: '▸'; color: var(--text-muted); }
+  .frei-ausklapp[open] > summary::before { content: '▾'; }
+  .frei-ausklapp > summary h3 { margin: 0; flex: 1 1 auto; }
+  .frei-zahlen { font-size: 0.85rem; color: var(--text-muted); }
+  /* „View": das Reel des Tages aus dem Speicher (vorschau/<Datum>-<Kennung>.mp4) */
+  .reel-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(5, 12, 24, 0.82); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; }
+  .reel-overlay[hidden] { display: none; }
+  .reel-box { background: var(--panel); border-radius: var(--radius-card); padding: 14px; max-width: min(420px, 100%); max-height: 100%; overflow: auto; box-sizing: border-box; display: grid; gap: 10px; }
+  .reel-box .reel-kopf { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .reel-box video { width: 100%; max-height: 70vh; border-radius: 10px; background: #000; aspect-ratio: 9 / 16; }
+  .reel-box .leer { margin: 0; }
+  .gate { max-width: 560px; }
+  .gate p { margin: 8px 0; line-height: 1.5; }
+  .gate .uid { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+  .gate code { background: var(--accent-bg); padding: 6px 10px; border-radius: 8px; font-size: 0.95rem; word-break: break-all; }
+  .stat-btn { font: inherit; font-weight: 600; font-size: 0.9rem; padding: 9px 16px; border-radius: var(--radius-ctl); border: 1px solid var(--border-strong); background: var(--panel); color: var(--text); cursor: pointer; min-height: 40px; }
+  .stat-btn:hover { background: var(--accent-bg); }
+  .stat-btn.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+
+  /* Zeitraum: EINE Reihe über allem, Voreinstellungen zuerst */
+  .stat-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 16px; }
+  .stat-range { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stat-range button { font: inherit; font-weight: 600; font-size: 0.88rem; padding: 8px 14px; min-height: 40px; border-radius: 999px; border: 1px solid var(--border-strong); background: var(--panel); color: var(--text); cursor: pointer; }
+  .stat-range button:hover { background: var(--accent-bg); }
+  .stat-range button.active { background: var(--pill-active-bg, var(--accent)); color: var(--pill-active-fg, var(--on-accent)); border-color: var(--pill-active-border, var(--accent)); }
+  .stat-meta { margin-left: auto; display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 0.85rem; }
+  /* Monatswahl neben den Zeitraum-Knöpfen (14.10.2026): ‹ Oktober 2026 › */
+  .stat-monat { display: inline-flex; align-items: center; gap: 4px; }
+  .stat-monat button { min-width: 40px; padding: 8px 10px; }
+  .stat-monat button:disabled { opacity: 0.4; cursor: default; }
+  .stat-monat b { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; min-width: 9ch; text-align: center; }
+
+  /* Kennzahlen */
+  .stat-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 14px; }  /* 150: sieben Kacheln passen in 1.180 px */
+  .kpi { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 14px 16px; min-width: 0; }
+  .kpi .label { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  .kpi .value { font-family: var(--font-display); font-weight: 700; font-size: 2rem; line-height: 1.1; margin-top: 4px; }
+  .kpi .delta { font-size: 0.82rem; margin-top: 4px; color: var(--text-muted); min-height: 1.2em; }
+  .kpi .delta.up { color: var(--sport-fahrrad-fg, #2b8a3e); }
+  .kpi .delta.down { color: var(--sport-laufen-fg, #9a3b05); }
+  .kpi .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+  .ig-card { margin-bottom: 14px; }
+  .ig-card .ig-kpis { margin: 10px 0 6px; }
+  .ig-card .kpi { background: var(--bg); }
+  .ig-hinweis { font-size: 0.8rem; color: var(--text-muted); margin: 8px 0 0; }
+  .ig-hinweis code { font-size: 0.78rem; word-break: break-all; }
+
+  .stat-section { display: grid; gap: 14px; margin-bottom: 14px; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-bottom: 14px; }
+  .stat-section-title { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin: 10px 0 0; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .stat-zwei { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+  .stat-card.breit { grid-column: 1 / -1; }
+  /* Tabellen in Karten (Monate, Sportart je Region, Werbeplätze, Bericht) */
+  table.matrix { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+  table.matrix th, table.matrix td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  table.matrix th:first-child, table.matrix td:first-child { text-align: left; white-space: normal; }
+  table.matrix thead th { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  table.matrix tfoot td { font-weight: 600; border-bottom: 0; }
+  .matrix-wrap { overflow-x: auto; }
+  /* Bericht je Veranstaltung */
+  .bericht-suche { font: inherit; font-size: 0.95rem; padding: 9px 12px; border-radius: var(--radius-ctl); border: 1px solid var(--border-strong); background: var(--panel); color: var(--text); width: 100%; box-sizing: border-box; margin-bottom: 12px; }
+  .bericht-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 10px; }
+  .bericht-kpis .kpi { padding: 10px 12px; }
+  .bericht-kpis .kpi .value { font-size: 1.6rem; }
+  .bericht-name { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; margin: 0 0 8px; }
+  .bericht-fuss { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 10px; }
+  .bericht-fuss .hinweis { color: var(--text-muted); font-size: 0.82rem; flex: 1 1 240px; }
+
+  /* Diagramme */
+  .chart-wrap { position: relative; }
+  .chart-wrap svg { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--font-text); }
+  .chart-wrap .grid line { stroke: var(--chart-grid); stroke-width: 1; }
+  .chart-wrap .axis text { fill: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+  .chart-wrap .reihe { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .chart-wrap .reihe-1 { stroke: var(--chart-1); }
+  .chart-wrap .reihe-2 { stroke: var(--chart-2); }
+  .chart-wrap .wash-1 { fill: var(--chart-1); opacity: 0.1; }
+  .chart-wrap .punkt-1 { fill: var(--chart-1); stroke: var(--panel); stroke-width: 2; }
+  .chart-wrap .punkt-2 { fill: var(--chart-2); stroke: var(--panel); stroke-width: 2; }
+  .chart-wrap .cursor { stroke: var(--text-muted); stroke-width: 1; opacity: 0; }
+  .chart-wrap .balken { fill: var(--chart-1); }
+  .chart-wrap .balken.balken-2 { fill: var(--chart-2); }
+  .chart-wrap .balken.aktiv { opacity: 0.75; }
+  .chart-wrap .fang { fill: transparent; }
+  .chart-tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--border-strong); border-radius: 10px; padding: 8px 10px; font-size: 0.82rem; box-shadow: var(--shadow); min-width: 140px; z-index: 2; display: none; }
+  .chart-tip .tip-datum { color: var(--text-muted); margin-bottom: 4px; }
+  .chart-tip .tip-zeile { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+  .chart-tip .tip-zeile b { font-variant-numeric: tabular-nums; }
+  .chart-tip .key { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 6px; border-radius: 1px; }
+  .chart-legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted); margin: 0 0 8px; }
+  .chart-legend .key { display: inline-block; width: 18px; height: 2px; vertical-align: middle; margin-right: 6px; border-radius: 1px; }
+  .key-1 { background: var(--chart-1); } .key-2 { background: var(--chart-2); }
+  details.tabelle { margin-top: 10px; font-size: 0.88rem; }
+  details.tabelle summary { cursor: pointer; color: var(--link); }
+  details.tabelle table { width: 100%; border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+  details.tabelle th, details.tabelle td { text-align: right; padding: 5px 8px; border-bottom: 1px solid var(--border); }
+  details.tabelle th:first-child, details.tabelle td:first-child { text-align: left; }
+
+  /* Listen mit Balken */
+  .liste { list-style: none; margin: 0; padding: 0; }
+  .liste li { padding: 7px 0; border-bottom: 1px solid var(--border); }
+  .liste li:last-child { border-bottom: 0; }
+  .liste .zeile { display: flex; align-items: baseline; gap: 10px; font-size: 0.92rem; }
+  .liste .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .liste .zahl { font-variant-numeric: tabular-nums; font-weight: 600; min-width: 3ch; text-align: right; }
+  .liste .anteil { font-variant-numeric: tabular-nums; color: var(--text-muted); min-width: 4ch; text-align: right; font-size: 0.82rem; }
+  .liste .spur { height: 6px; border-radius: 4px; background: var(--accent-bg); margin-top: 5px; overflow: hidden; }
+  .liste .spur i { display: block; height: 100%; background: var(--chart-1); border-radius: 4px; }
+  .mehr-btn { font: inherit; font-size: 0.85rem; color: var(--link); background: none; border: 0; padding: 8px 0 0; cursor: pointer; }
+  .leer { color: var(--text-muted); font-size: 0.9rem; }
+
+  @media (max-width: 700px) {
+    .stat-head h2 { font-size: 1.6rem; }
+    .stat-meta { margin-left: 0; }
+    .stat-card { padding: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header top-bar">
+  <a class="brand" href="index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Seiten">
+    <a class="nav-link" href="events.html" id="nav-events">Events</a>
+    <a class="nav-link" href="karte.html" id="nav-map">Karte</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+
+<main class="stat-main">
+  <div class="stat-head">
+    <h2 id="stat-title">Statistik</h2>
+    <p id="stat-sub"></p>
+  </div>
+
+  <section class="stat-card gate" id="stat-gate" aria-live="polite"></section>
+
+  <div id="stat-content" hidden>
+    <h2 class="stat-bereich" id="b-dashboard"></h2>
+    <div class="stat-filters">
+      <div class="stat-range" id="stat-range" role="group"></div>
+      <div class="stat-meta">
+        <span id="stat-stand"></span>
+        <button type="button" class="stat-btn" id="csv-btn"></button>
+      </div>
+    </div>
+
+    <div class="stat-kpis" id="stat-kpis"></div>
+
+    <hr class="stat-trenner">
+    <h2 class="stat-bereich" id="b-graphen"></h2>
+    <div class="stat-section">
+      <section class="stat-card">
+        <h3><span id="h-verlauf"></span></h3>
+        <div class="chart-legend" id="legend-verlauf"></div>
+        <div class="chart-wrap" id="wrap-verlauf">
+          <svg id="chart-verlauf" role="img"></svg>
+          <div class="chart-tip" id="tip-verlauf"></div>
+        </div>
+        <details class="tabelle">
+          <summary id="t-tabelle"></summary>
+          <table id="tabelle-verlauf"></table>
+        </details>
+      </section>
+      <!-- Monate (14.10.2026): Werbung wird je Monat verkauft - die zwölf
+           Monate als Balken (Besuche, Seitenaufrufe) und als Tabelle, die
+           zugleich das Mediadaten-Blatt ist (Besucher, Besuche, Aufrufe,
+           Seiten je Besuch, Dauer, Abos zum Monatsende). -->
+      <section class="stat-card">
+        <h3><span id="h-monate"></span><small id="h-monate-sub"></small></h3>
+        <div class="chart-legend" id="legend-monate"></div>
+        <div class="chart-wrap" id="wrap-monate">
+          <svg id="chart-monate" role="img"></svg>
+          <div class="chart-tip" id="tip-monate"></div>
+        </div>
+        <details class="tabelle" open>
+          <summary id="t-tabelle-monate"></summary>
+          <div class="matrix-wrap"><table class="matrix" id="tabelle-monate"></table></div>
+        </details>
+      </section>
+      <div class="stat-zwei">
+        <section class="stat-card">
+          <h3><span id="h-stunden"></span><small id="h-stunden-sub"></small></h3>
+          <div class="chart-wrap" id="wrap-stunden">
+            <svg id="chart-stunden" role="img"></svg>
+            <div class="chart-tip" id="tip-stunden"></div>
+          </div>
+        </section>
+        <!-- Wochentag (14.10.2026): aus den Tagesdokumenten gerechnet,
+             keine neue Zählung - Ø Seitenaufrufe je Wochentag. -->
+        <section class="stat-card">
+          <h3><span id="h-wochentage"></span><small id="h-wochentage-sub"></small></h3>
+          <div class="chart-wrap" id="wrap-wochentage">
+            <svg id="chart-wochentage" role="img"></svg>
+            <div class="chart-tip" id="tip-wochentage"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <hr class="stat-trenner">
+    <h2 class="stat-bereich" id="b-auswertungen"></h2>
+    <div id="stat-listen"></div>
+
+    <hr class="stat-trenner">
+    <h2 class="stat-bereich" id="b-instagram"></h2>
+    <!-- Instagram (14.10.2026, Account „AusdauerMaschine"): wie viele
+         Besucher über Instagram kommen - erkannt an utm_source=instagram
+         (Link in der Bio, Story-Links), am Referrer instagram.com und am
+         eingebauten Browser der App (stats_aggregate.js, kanal()). -->
+    <section class="stat-card ig-card" id="ig-card">
+      <h3><span id="h-ig"></span><small id="h-ig-sub"></small></h3>
+      <div class="stat-kpis ig-kpis" id="ig-kpis"></div>
+      <div class="chart-wrap" id="wrap-ig">
+        <svg id="chart-ig" role="img"></svg>
+        <div class="chart-tip" id="tip-ig"></div>
+      </div>
+      <p class="ig-hinweis" id="ig-hinweis"></p>
+    </section>
+
+    <!-- Instagram-Freigabe (14.10.2026, vom Nutzer: „die ersten Videos alle
+         gerne vorher mit einem Klick einfach freigeben"): die Beiträge der
+         nächsten Tage aus marketing/instagram/plan.json (Pages-Workflow),
+         je Tag ein Klick → Firestore insta_freigaben/<Datum>; der
+         Abendlauf des Instagram-Workflows postet nur Freigegebenes
+         (scripts/insta_freigabe.py). -->
+    <div id="stat-listen-ig"></div>
+
+    <section class="stat-card" id="insta-freigabe-card"></section>
+
+
+    <!-- Wartungsmodus: Schalter in Firestore (config/wartung), nur für
+         Admins schreibbar; die öffentlichen Seiten lesen ihn beim Laden.
+         Ganz unten, hinter einer Trennlinie (vom Nutzer am 14.10.2026 so
+         gewünscht: „Die Wartungsseite werde ich nicht oft brauchen und
+         die Analyse schon"). -->
+    <hr class="stat-trenner">
+    <h2 class="stat-bereich" id="b-wartung"></h2>
+    <section class="stat-card" id="wartung-card"></section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="impressum.html">Impressum</a>
+    <a id="footer-datenschutz" href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script defer src="vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<!-- Firestore gleich mit: diese Seite tut nichts anderes als lesen. -->
+<script defer src="vendor/firebase-10.14.1/firebase-firestore-compat.js"></script>
+<script defer src="firebase-config.js"></script>
+<script defer src="auth.js"></script>
+<script defer src="stats.js?v=b4dc168a"></script>
+<script>
+(function () {
+  'use strict';
+
+  const I18N = {
+    de: {
+      title: 'Statistik',
+      w_titel: 'Wartungsmodus',
+      w_status_an: 'AN – Besucher sehen die Pausenseite',
+      w_status_aus: 'aus',
+      w_erklaert_an: 'Startseite, Liste und Karte leiten gerade auf die Pausenseite um. Impressum, Datenschutz und dieses Dashboard bleiben erreichbar.',
+      w_erklaert_aus: 'Die Seite läuft normal. Einschalten leitet Startseite, Liste und Karte sofort auf die Pausenseite um; Impressum, Datenschutz und dieses Dashboard bleiben erreichbar.',
+      w_seit: 'Zuletzt geändert: ',
+      w_text_de: 'Text (Deutsch)',
+      w_text_en: 'Text (Englisch)',
+      w_an_btn: 'Wartungsmodus einschalten',
+      w_aus_btn: 'Wartungsmodus ausschalten',
+      w_speichern: 'Texte speichern',
+      w_vorschau: 'Pausenseite ansehen',
+      w_bestaetigen: 'Wartungsmodus wirklich einschalten? Besucher sehen dann nur noch die Pausenseite.',
+      w_fehler: 'Das hat nicht geklappt:',
+      w_regeln: 'Vermutlich sind die Firestore-Regeln noch nicht deployt (firebase deploy --only firestore:rules).',
+      f_titel: 'Instagram-Freigabe',
+      f_sub: 'die nächsten Tage',
+      f_erklaert: 'Jeden Abend um 17:47 Uhr postet der Instagram-Workflow den Beitrag des Tages – aber nur, wenn er hier freigegeben ist. Morgens um 08:47 Uhr liegen die Videos der nächsten sieben Tage als Vorschau bereit – „View“ spielt sie ab. Mit der Variable INSTAGRAM_AUTOPOST = ja geht alles raus, was nicht gesperrt ist.',
+      f_video: 'Videos ansehen (GitHub Actions)',
+      f_frei: 'Freigeben',
+      f_sperren: 'Sperren',
+      f_zurueck: 'Zurücknehmen',
+      f_s_frei: 'freigegeben',
+      f_s_gesperrt: 'gesperrt',
+      f_s_offen: 'offen',
+      f_s_veraltet: 'Inhalt geändert – bitte erneut freigeben',
+      f_caption: 'Caption',
+      f_view: 'View',
+      f_zahlen: (n, frei, offen) => `${n} Tage · ${frei} freigegeben · ${offen} offen`,
+      f_reel_titel: 'Reel',
+      f_reel_fehlt: 'Für diesen Tag liegt noch keine Vorschau vor. Der Morgenlauf (08:47 Uhr) legt die Reels der nächsten sieben Tage ab.',
+      f_reel_anderer_stand: 'Diese Vorschau stammt aus dem Morgenlauf und zeigt einen neueren Stand als dieser Plan.',
+      f_schliessen: 'Schließen',
+      f_kein_plan: 'Der Freigabe-Plan fehlt (marketing/instagram/plan.json). Er entsteht beim Deploy der Seite – nach dem nächsten Push ist er da.',
+      f_fehler: 'Das hat nicht geklappt:',
+      f_stand: 'Plan vom ',
+      f_mehr: 'Folien',
+      f_fmt_wochenvorschau: 'Wochenvorschau',
+      f_fmt_moment: 'Moment',
+      f_fmt_spotlight: 'Spotlight',
+      f_fmt_clip: 'Clip',
+      f_fmt_wochenende: 'Wochenende',
+      f_fmt_region: 'Region',
+      f_fmt_krass: 'Das Krasseste',
+      f_fmt_naehe: 'In deiner Nähe',
+      f_fmt_wuerdest: 'Würdest du?',
+      f_fmt_humor: 'Humor',
+      f_fmt_saison: 'Saison planen',
+      f_stories: 'Stories:',
+      sub: 'Besucher der Seite – ohne Cookies, ohne fremden Dienst. Tageswerte, stündlich neu gerechnet.',
+      nav_events: 'Events', nav_map: 'Karte',
+      gate_laden: 'Anmeldung wird geprüft …',
+      gate_login_titel: 'Nur für den Betreiber',
+      gate_login_text: 'Melde dich mit dem Konto an, das in Firestore als Administrator eingetragen ist.',
+      gate_login_btn: 'Anmelden',
+      gate_admin_titel: 'Dieses Konto ist noch nicht freigeschaltet',
+      gate_admin_text: 'Lege in der Firebase-Konsole (Firestore, Sammlung „admins“) ein Dokument an, dessen Dokument-ID genau diese Kennung ist. Der Inhalt ist beliebig, zum Beispiel ein Feld „name“. Danach diese Seite neu laden.',
+      gate_uid: 'Deine Kennung (uid):',
+      gate_kopieren: 'Kopieren', kopiert: 'Kopiert',
+      gate_fehler: 'Die Daten konnten nicht geladen werden.',
+      gate_nicht_konfiguriert: 'Firebase ist auf dieser Seite nicht eingerichtet.',
+      z7: '7 Tage', z30: '30 Tage', z90: '90 Tage', zmonat: 'Monat', zjahr: 'Dieses Jahr', zalles: 'Alles',
+      monat_zurueck: 'Vormonat', monat_vor: 'Folgemonat',
+      monate: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+      stand: 'Stand', csv: 'CSV herunterladen',
+      kpi_besucher: 'Besucher', kpi_besucher_hint: 'je Tag eindeutig, über den Zeitraum summiert',
+      kpi_besuche: 'Besuche', kpi_pv: 'Seitenaufrufe', kpi_je_besuch: 'Seiten je Besuch',
+      kpi_absprung: 'Absprungrate', kpi_dauer: 'Ø Besuchsdauer',
+      kpi_abos: 'Aktive E-Mail-Abos', abo_stand: (d) => `Stand ${d}`, abo_zuwachs: 'im Zeitraum',
+      abo_kein_stand: 'erscheint nach dem nächsten Deploy der Function (firebase deploy --only functions)',
+      vergleich: (n) => `gegenüber den ${n} Tagen davor`,
+      vergleich_monat: 'gegenüber dem Vormonat (gleiche Tage)',
+      punkte: 'Prozentpunkte',
+      verlauf: 'Verlauf', stunden: 'Tageszeit', stunden_sub: 'Seitenaufrufe je Stunde',
+      wochentage_titel: 'Wochentag', wochentage_sub: 'Ø Seitenaufrufe je Tag', tage_n: 'Tage',
+      monate_titel: 'Monate', monate_sub: 'die letzten zwölf Monate', th_monat: 'Monat', th_je_besuch: 'Seiten je Besuch', th_abos: 'Abos (Monatsende)',
+      tabelle: 'Als Tabelle anzeigen', tabelle_monate: 'Monatswerte (Mediadaten)',
+      th_tag: 'Tag', th_besucher: 'Besucher', th_besuche: 'Besuche', th_pv: 'Seitenaufrufe', th_absprung: 'Absprünge', th_dauer: 'Ø Dauer',
+      keine_daten: 'Noch keine Daten in diesem Zeitraum. Die Auswertung läuft stündlich (Minute 7) – bis dahin bleibt es leer.',
+      mehr: 'Mehr anzeigen', weniger: 'Weniger anzeigen', leer: 'Noch nichts',
+      s_zielgruppe: 'Zielgruppe', s_kunden: 'Für Veranstalter und Werbekunden',
+      s_seiten: 'Seiten', s_herkunft: 'Herkunft', s_technik: 'Geräte und Browser', s_aktionen: 'Was Besucher tun',
+      l_sport_events: 'Geöffnete Events je Sportart', l_sport_veranstalter: 'Veranstalter-Klicks je Sportart',
+      l_sport_region: 'Sportart je Region', sport_region_sub: 'geöffnete Events', th_sport: 'Sportart', th_gesamt: 'Gesamt', sonstige: 'Sonstige',
+      l_events_kalender: 'Kalendereinträge je Event', l_events_teilen: 'Geteilt je Event',
+      bericht_titel: 'Bericht je Veranstaltung', bericht_sub: 'für Veranstalter',
+      bericht_platzhalter: 'Veranstaltung suchen …', bericht_leer: 'In diesem Zeitraum wurde noch kein Event geöffnet.',
+      bericht_unbekannt: 'Zu dieser Veranstaltung gibt es im Zeitraum keine Zahlen.',
+      b_geoeffnet: 'Geöffnet', b_veranstalter: 'Klicks zur Veranstalterseite', b_klickrate: 'Klickrate', b_kalender: 'Kalendereinträge', b_teilen: 'Geteilt',
+      bericht_kopieren: 'Bericht kopieren',
+      bericht_hinweis: 'Geöffnet zählt, wie oft Besucher das Event in Liste oder Karte angesehen haben (je Seitenaufruf einmal); Klickrate = Klicks zur Veranstalterseite je Öffnen.',
+      bericht_text: (name, zeitraum, g, v, p, k, s) => `${name}\n${zeitraum}\nGeöffnet: ${g} · Klicks zur Veranstalterseite: ${v} (${p}) · Kalendereinträge: ${k} · Geteilt: ${s}\nQuelle: endurance-events.de`,
+      werbung_titel: 'Werbeplätze', werbung_sub: 'Einblendungen und Klicks',
+      th_platz: 'Platz', th_sicht: 'Einblendungen', th_klicks: 'Klicks', th_ctr: 'Klickrate',
+      werbung_leer: 'Noch keine Werbeplätze. Sobald eine Seite EnduranceStats.anzeige(element, platz) an einen Werbeplatz hängt, stehen hier Einblendungen, Klicks und Klickrate je Platz – vorher die Datenschutzerklärung ergänzen.',
+      l_seiten: 'Seiten', l_einstieg: 'Einstiegsseiten', l_ausstieg: 'Ausstiegsseiten',
+      l_referrer: 'Referrer', l_quellen: 'Kampagnen: Quelle', l_medien: 'Kampagnen: Medium', l_kampagnen: 'Kampagnen: Name',
+      l_laender: 'Region (nach Zeitzone)', l_sprachen: 'Browsersprache', l_seitensprache: 'Sprache der Seite', l_schema: 'Farbschema',
+      l_geraete: 'Geräte', l_browser: 'Browser', l_systeme: 'Betriebssysteme',
+      l_aktionen: 'Aktionen', l_events: 'Geöffnete Events', l_veranstalter: 'Klicks zur Veranstalterseite',
+      l_kalender: 'Kalender', l_teilen: 'Teilen', l_abo: 'E-Mail-Abos (Rhythmus)', l_melden: 'Fehlermeldungen (Kategorie)',
+      l_suche: 'Suchbegriffe', l_filter: 'Gesetzte Filter',
+      l_kanaele: 'Kanäle', l_instagram_medien: 'Instagram: über welchen Link', l_instagram_kampagnen: 'Instagram: Kampagne (Story, Reel)',
+      l_instagram_einstieg: 'Instagram: Einstiegsseiten', l_instagram_aktionen: 'Instagram: was die Besucher tun',
+      s_instagram: 'Instagram im Detail',
+      b_dashboard: 'Dashboard', b_graphen: 'Graphen', b_auswertungen: 'Auswertungen', b_instagram: 'Instagram', b_wartung: 'Wartung',
+      kn_instagram: 'Instagram', kn_suche: 'Suchmaschinen', kn_sozial: 'Andere soziale Netze', kn_kampagne: 'Sonstige Kampagnen',
+      kn_verweis: 'Andere Webseiten', kn_direkt: 'Direkt / unbekannt',
+      igm_bio: 'Link in der Bio', igm_story: 'Story-Link', igm_reel: 'Reel', igm_post: 'Beitrag', igm_dm: 'Direktnachricht', 'igm_(ohne)': 'ohne Kennzeichnung (App-Browser, Referrer)',
+      ig_titel: 'Instagram', ig_sub: '@ausdauermaschine',
+      ig_besucher: 'Besucher über Instagram', ig_besuche: 'Besuche über Instagram', ig_anteil: 'Anteil an allen Besuchen',
+      ig_je_besuch: 'Seiten je Besuch', ig_events: 'Events geöffnet', ig_veranstalter: 'Klicks zum Veranstalter',
+      ig_reihe: 'Besuche über Instagram',
+      ig_hinweis: 'Gezählt wird ein Besuch, wenn er über einen Link mit utm_source=instagram kam, von instagram.com weitergeleitet wurde oder im Browser der Instagram-App lief. Link für die Profilbeschreibung:',
+      ig_leer: 'Noch keine Besuche über Instagram in diesem Zeitraum. Tage vor dem Deploy der Function zählen hier nicht mit.',
+      direkt: 'Direkt / unbekannt',
+      p_index: 'Startseite', p_events: 'Events', p_karte: 'Karte', p_impressum: 'Impressum', p_datenschutz: 'Datenschutz', p_admin: 'Statistik',
+      dv_handy: 'Handy', dv_tablet: 'Tablet', dv_rechner: 'Rechner',
+      schema_dark: 'Dunkel', schema_light: 'Hell',
+      akt_detail: 'Event geöffnet', akt_veranstalter: 'Veranstalterseite besucht', akt_kalender: 'Kalender', akt_teilen: 'Geteilt',
+      akt_abo: 'Abo angelegt', akt_melden: 'Fehler gemeldet', akt_fehlt: 'Event vorgeschlagen', akt_suche: 'Gesucht',
+      akt_filter: 'Filter gesetzt', akt_standort: 'Standort gesetzt',
+      akt_anzeige_sicht: 'Werbung eingeblendet', akt_anzeige_klick: 'Werbung geklickt',
+      kal_ics: 'Kalenderdatei (.ics)', kal_google: 'Google Kalender', kal_outlook: 'Outlook',
+      teilen_dialog: 'Teilen-Dialog', teilen_kopie: 'Link kopiert',
+      sport: {},
+      ld: { DE: 'Deutschland', AT: 'Österreich', CH: 'Schweiz', IT: 'Italien', LI: 'Liechtenstein', LU: 'Luxemburg', BE: 'Belgien', NL: 'Niederlande', FR: 'Frankreich', CZ: 'Tschechien', PL: 'Polen', DK: 'Dänemark', SE: 'Schweden', NO: 'Norwegen', FI: 'Finnland', GB: 'Vereinigtes Königreich', IE: 'Irland', ES: 'Spanien', PT: 'Portugal', HU: 'Ungarn', SI: 'Slowenien', HR: 'Kroatien', SK: 'Slowakei', GR: 'Griechenland', EU: 'Europa (sonstige)', AM: 'Amerika', AS: 'Asien', OC: 'Ozeanien', AF: 'Afrika', '??': 'Unbekannt' },
+      wochentage: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+      uhr: 'Uhr'
+    },
+    en: {
+      title: 'Statistics',
+      w_titel: 'Maintenance mode',
+      w_status_an: 'ON – visitors see the pause page',
+      w_status_aus: 'off',
+      w_erklaert_an: 'Home, list and map currently redirect to the pause page. Legal notice, privacy policy and this dashboard stay reachable.',
+      w_erklaert_aus: 'The site runs normally. Switching on redirects home, list and map to the pause page immediately; legal notice, privacy policy and this dashboard stay reachable.',
+      w_seit: 'Last changed: ',
+      w_text_de: 'Text (German)',
+      w_text_en: 'Text (English)',
+      w_an_btn: 'Switch maintenance mode on',
+      w_aus_btn: 'Switch maintenance mode off',
+      w_speichern: 'Save texts',
+      w_vorschau: 'View pause page',
+      w_bestaetigen: 'Really switch maintenance mode on? Visitors will only see the pause page.',
+      w_fehler: 'That did not work:',
+      w_regeln: 'Probably the Firestore rules are not deployed yet (firebase deploy --only firestore:rules).',
+      f_titel: 'Instagram approval',
+      f_sub: 'the next days',
+      f_erklaert: 'Every evening at 17:47 the Instagram workflow posts the day\'s reel – but only if it is approved here. At 08:47 in the morning the videos of the next seven days are ready as a preview – “View” plays them. With the variable INSTAGRAM_AUTOPOST = ja everything that is not blocked goes out.',
+      f_video: 'Watch videos (GitHub Actions)',
+      f_frei: 'Approve',
+      f_sperren: 'Block',
+      f_zurueck: 'Undo',
+      f_s_frei: 'approved',
+      f_s_gesperrt: 'blocked',
+      f_s_offen: 'pending',
+      f_s_veraltet: 'content changed – please approve again',
+      f_caption: 'Caption',
+      f_view: 'View',
+      f_zahlen: (n, frei, offen) => `${n} days · ${frei} approved · ${offen} pending`,
+      f_reel_titel: 'Reel',
+      f_reel_fehlt: 'There is no preview for this day yet. The morning run (08:47) stores the reels of the next seven days.',
+      f_reel_anderer_stand: 'This preview comes from the morning run and shows a newer state than this plan.',
+      f_schliessen: 'Close',
+      f_kein_plan: 'The approval plan is missing (marketing/instagram/plan.json). It is built when the site is deployed – after the next push it will be there.',
+      f_fehler: 'That did not work:',
+      f_stand: 'Plan from ',
+      f_mehr: 'Slides',
+      f_fmt_wochenvorschau: 'Week preview',
+      f_fmt_moment: 'Moment',
+      f_fmt_spotlight: 'Spotlight',
+      f_fmt_clip: 'Clip',
+      f_fmt_wochenende: 'Weekend',
+      f_fmt_region: 'Region',
+      f_fmt_krass: 'The most extreme',
+      f_fmt_naehe: 'Near you',
+      f_fmt_wuerdest: 'Would you?',
+      f_fmt_humor: 'Humour',
+      f_fmt_saison: 'Plan your season',
+      f_stories: 'Stories:',
+      sub: 'Visitors to the site – no cookies, no third-party service. Daily figures, recomputed every hour.',
+      nav_events: 'Events', nav_map: 'Map',
+      gate_laden: 'Checking sign-in …',
+      gate_login_titel: 'Owner only',
+      gate_login_text: 'Sign in with the account that is registered as administrator in Firestore.',
+      gate_login_btn: 'Sign in',
+      gate_admin_titel: 'This account is not enabled yet',
+      gate_admin_text: 'In the Firebase console (Firestore, collection “admins”) create a document whose document ID is exactly this identifier. The content does not matter, e.g. a field “name”. Then reload this page.',
+      gate_uid: 'Your identifier (uid):',
+      gate_kopieren: 'Copy', kopiert: 'Copied',
+      gate_fehler: 'The data could not be loaded.',
+      gate_nicht_konfiguriert: 'Firebase is not configured on this page.',
+      z7: '7 days', z30: '30 days', z90: '90 days', zmonat: 'Month', zjahr: 'This year', zalles: 'All time',
+      monat_zurueck: 'Previous month', monat_vor: 'Next month',
+      monate: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      stand: 'Updated', csv: 'Download CSV',
+      kpi_besucher: 'Visitors', kpi_besucher_hint: 'unique per day, summed over the period',
+      kpi_besuche: 'Visits', kpi_pv: 'Page views', kpi_je_besuch: 'Pages per visit',
+      kpi_absprung: 'Bounce rate', kpi_dauer: 'Avg. visit duration',
+      kpi_abos: 'Active e-mail subscriptions', abo_stand: (d) => `as of ${d}`, abo_zuwachs: 'in this period',
+      abo_kein_stand: 'appears after the next deploy of the function (firebase deploy --only functions)',
+      vergleich: (n) => `vs. the previous ${n} days`,
+      vergleich_monat: 'vs. the previous month (same days)',
+      punkte: 'percentage points',
+      verlauf: 'Over time', stunden: 'Time of day', stunden_sub: 'page views per hour',
+      wochentage_titel: 'Weekday', wochentage_sub: 'avg. page views per day', tage_n: 'days',
+      monate_titel: 'Months', monate_sub: 'the last twelve months', th_monat: 'Month', th_je_besuch: 'Pages per visit', th_abos: 'Subscriptions (month end)',
+      tabelle: 'Show as table', tabelle_monate: 'Monthly figures (media kit)',
+      th_tag: 'Day', th_besucher: 'Visitors', th_besuche: 'Visits', th_pv: 'Page views', th_absprung: 'Bounces', th_dauer: 'Avg. duration',
+      keine_daten: 'No data in this period yet. Aggregation runs hourly (at minute 7) – until then this stays empty.',
+      mehr: 'Show more', weniger: 'Show less', leer: 'Nothing yet',
+      s_zielgruppe: 'Audience', s_kunden: 'For organisers and advertisers',
+      s_seiten: 'Pages', s_herkunft: 'Sources', s_technik: 'Devices and browsers', s_aktionen: 'What visitors do',
+      l_sport_events: 'Events opened by sport', l_sport_veranstalter: 'Organiser clicks by sport',
+      l_sport_region: 'Sport by region', sport_region_sub: 'events opened', th_sport: 'Sport', th_gesamt: 'Total', sonstige: 'Other',
+      l_events_kalender: 'Calendar entries by event', l_events_teilen: 'Shared by event',
+      bericht_titel: 'Report per event', bericht_sub: 'for organisers',
+      bericht_platzhalter: 'Search for an event …', bericht_leer: 'No event has been opened in this period yet.',
+      bericht_unbekannt: 'There are no figures for this event in the period.',
+      b_geoeffnet: 'Opened', b_veranstalter: 'Clicks to organiser site', b_klickrate: 'Click-through rate', b_kalender: 'Calendar entries', b_teilen: 'Shared',
+      bericht_kopieren: 'Copy report',
+      bericht_hinweis: 'Opened counts how often visitors viewed the event in the list or on the map (once per page view); click-through rate = organiser clicks per opening.',
+      bericht_text: (name, zeitraum, g, v, p, k, s) => `${name}\n${zeitraum}\nOpened: ${g} · Clicks to organiser site: ${v} (${p}) · Calendar entries: ${k} · Shared: ${s}\nSource: endurance-events.de`,
+      werbung_titel: 'Ad placements', werbung_sub: 'impressions and clicks',
+      th_platz: 'Placement', th_sicht: 'Impressions', th_klicks: 'Clicks', th_ctr: 'CTR',
+      werbung_leer: 'No ad placements yet. As soon as a page attaches EnduranceStats.anzeige(element, placement) to an ad slot, impressions, clicks and click-through rate per placement appear here – amend the privacy policy first.',
+      l_seiten: 'Pages', l_einstieg: 'Entry pages', l_ausstieg: 'Exit pages',
+      l_referrer: 'Referrers', l_quellen: 'Campaigns: source', l_medien: 'Campaigns: medium', l_kampagnen: 'Campaigns: name',
+      l_laender: 'Region (by time zone)', l_sprachen: 'Browser language', l_seitensprache: 'Site language', l_schema: 'Colour scheme',
+      l_geraete: 'Devices', l_browser: 'Browsers', l_systeme: 'Operating systems',
+      l_aktionen: 'Actions', l_events: 'Events opened', l_veranstalter: 'Clicks to organiser sites',
+      l_kalender: 'Calendar', l_teilen: 'Sharing', l_abo: 'E-mail subscriptions (frequency)', l_melden: 'Error reports (category)',
+      l_suche: 'Search terms', l_filter: 'Filters applied',
+      l_kanaele: 'Channels', l_instagram_medien: 'Instagram: which link', l_instagram_kampagnen: 'Instagram: campaign (story, reel)',
+      l_instagram_einstieg: 'Instagram: entry pages', l_instagram_aktionen: 'Instagram: what visitors do',
+      s_instagram: 'Instagram in detail',
+      b_dashboard: 'Dashboard', b_graphen: 'Charts', b_auswertungen: 'Analyses', b_instagram: 'Instagram', b_wartung: 'Maintenance',
+      kn_instagram: 'Instagram', kn_suche: 'Search engines', kn_sozial: 'Other social networks', kn_kampagne: 'Other campaigns',
+      kn_verweis: 'Other websites', kn_direkt: 'Direct / unknown',
+      igm_bio: 'Link in bio', igm_story: 'Story link', igm_reel: 'Reel', igm_post: 'Post', igm_dm: 'Direct message', 'igm_(ohne)': 'untagged (in-app browser, referrer)',
+      ig_titel: 'Instagram', ig_sub: '@ausdauermaschine',
+      ig_besucher: 'Visitors via Instagram', ig_besuche: 'Visits via Instagram', ig_anteil: 'Share of all visits',
+      ig_je_besuch: 'Pages per visit', ig_events: 'Events opened', ig_veranstalter: 'Organiser clicks',
+      ig_reihe: 'Visits via Instagram',
+      ig_hinweis: 'A visit counts if it came through a link with utm_source=instagram, was forwarded by instagram.com or ran in the Instagram app browser. Link for the profile bio:',
+      ig_leer: 'No visits via Instagram in this period yet. Days before the function deploy are not counted here.',
+      direkt: 'Direct / unknown',
+      p_index: 'Home', p_events: 'Events', p_karte: 'Map', p_impressum: 'Legal notice', p_datenschutz: 'Privacy', p_admin: 'Statistics',
+      dv_handy: 'Phone', dv_tablet: 'Tablet', dv_rechner: 'Desktop',
+      schema_dark: 'Dark', schema_light: 'Light',
+      akt_detail: 'Event opened', akt_veranstalter: 'Organiser site visited', akt_kalender: 'Calendar', akt_teilen: 'Shared',
+      akt_abo: 'Subscription created', akt_melden: 'Error reported', akt_fehlt: 'Event suggested', akt_suche: 'Searched',
+      akt_filter: 'Filter applied', akt_standort: 'Location set',
+      akt_anzeige_sicht: 'Ad shown', akt_anzeige_klick: 'Ad clicked',
+      kal_ics: 'Calendar file (.ics)', kal_google: 'Google Calendar', kal_outlook: 'Outlook',
+      teilen_dialog: 'Share dialog', teilen_kopie: 'Link copied',
+      // Sportarten heißen in den Daten deutsch (art1) - hier die Anzeige.
+      sport: { Laufen: 'Running', Fahrrad: 'Cycling', Schwimmen: 'Swimming', Triathlon: 'Triathlon' },
+      ld: { DE: 'Germany', AT: 'Austria', CH: 'Switzerland', IT: 'Italy', LI: 'Liechtenstein', LU: 'Luxembourg', BE: 'Belgium', NL: 'Netherlands', FR: 'France', CZ: 'Czechia', PL: 'Poland', DK: 'Denmark', SE: 'Sweden', NO: 'Norway', FI: 'Finland', GB: 'United Kingdom', IE: 'Ireland', ES: 'Spain', PT: 'Portugal', HU: 'Hungary', SI: 'Slovenia', HR: 'Croatia', SK: 'Slovakia', GR: 'Greece', EU: 'Europe (other)', AM: 'Americas', AS: 'Asia', OC: 'Oceania', AF: 'Africa', '??': 'Unknown' },
+      wochentage: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      uhr: 'h'
+    }
+  };
+
+  let lang = 'de';
+  try {
+    const g = localStorage.getItem('endurance-lang');
+    if (g === 'de' || g === 'en') lang = g;
+  } catch (e) { /* ignorieren */ }
+  function t(key, ...args) {
+    const v = I18N[lang][key];
+    return typeof v === 'function' ? v(...args) : (v == null ? key : v);
+  }
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+  function fmtInt(n) {
+    const s = String(Math.round(Number(n) || 0));
+    return s.replace(/\B(?=(\d{3})+(?!\d))/g, lang === 'de' ? '.' : ',');
+  }
+  function fmtDez(n, stellen) {
+    if (!Number.isFinite(n)) return '–';
+    const s = n.toFixed(stellen);
+    return lang === 'de' ? s.replace('.', ',') : s;
+  }
+  function fmtProzent(anteil) {
+    if (!Number.isFinite(anteil)) return '–';
+    return fmtDez(anteil * 100, anteil * 100 >= 10 ? 0 : 1) + ' %';
+  }
+  function fmtDauer(sek) {
+    if (!Number.isFinite(sek)) return '–';
+    const m = Math.floor(sek / 60), s = Math.round(sek % 60);
+    return `${m}:${s < 10 ? '0' : ''}${s} min`;
+  }
+  function isoHeute() {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  }
+  function isoPlus(iso, tage) {
+    const [j, m, d] = iso.split('-').map(Number);
+    const dt = new Date(Date.UTC(j, m - 1, d + tage));
+    return dt.toISOString().slice(0, 10);
+  }
+  function tageZwischen(von, bis) {
+    const a = Date.parse(von + 'T00:00:00Z'), b = Date.parse(bis + 'T00:00:00Z');
+    return Math.round((b - a) / 86400000) + 1;
+  }
+  function fmtTag(iso, kurz) {
+    const [j, m, d] = iso.split('-').map(Number);
+    const wt = I18N[lang].wochentage[new Date(Date.UTC(j, m - 1, d)).getUTCDay()];
+    if (lang === 'de') return kurz ? `${d}.${m}.` : `${wt} ${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.${j}`;
+    const mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][m - 1];
+    return kurz ? `${d} ${mon}` : `${wt} ${d} ${mon} ${j}`;
+  }
+
+  // ---------- Zugang ----------
+  const gateEl = document.getElementById('stat-gate');
+  const contentEl = document.getElementById('stat-content');
+  let db = null;
+  let geladenFuer = null;        // uid, für die die Daten stehen
+
+  function zeigeGate(html) {
+    gateEl.hidden = false;
+    gateEl.innerHTML = html;
+    contentEl.hidden = true;
+  }
+
+  function gateLogin() {
+    zeigeGate(`<h3>${escapeHtml(t('gate_login_titel'))}</h3><p>${escapeHtml(t('gate_login_text'))}</p>
+      <p><button type="button" class="stat-btn primary" id="gate-login-btn">${escapeHtml(t('gate_login_btn'))}</button></p>`);
+    gateEl.querySelector('#gate-login-btn').addEventListener('click', () => {
+      if (window.EndauranceAuth) window.EndauranceAuth.openModal('login');
+    });
+  }
+
+  function gateKeinAdmin(uid) {
+    zeigeGate(`<h3>${escapeHtml(t('gate_admin_titel'))}</h3><p>${escapeHtml(t('gate_admin_text'))}</p>
+      <p>${escapeHtml(t('gate_uid'))}</p>
+      <div class="uid"><code id="gate-uid">${escapeHtml(uid)}</code>
+      <button type="button" class="stat-btn" id="gate-copy">${escapeHtml(t('gate_kopieren'))}</button></div>`);
+    gateEl.querySelector('#gate-copy').addEventListener('click', () => {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(uid).then(() => { gateEl.querySelector('#gate-copy').textContent = t('kopiert'); }).catch(() => {});
+      }
+    });
+  }
+
+  function gateFehler(err) {
+    zeigeGate(`<h3>${escapeHtml(t('gate_fehler'))}</h3><p class="leer">${escapeHtml(err && err.message ? err.message : String(err))}</p>`);
+  }
+
+  async function nachAnmeldung(user) {
+    if (!user) { geladenFuer = null; gateLogin(); return; }
+    if (geladenFuer === user.uid) return;
+    zeigeGate(`<p class="leer">${escapeHtml(t('gate_laden'))}</p>`);
+    try {
+      db = firebase.firestore();
+      const admin = await db.collection('admins').doc(user.uid).get();
+      if (!admin.exists) { gateKeinAdmin(user.uid); return; }
+      geladenFuer = user.uid;
+      gateEl.hidden = true;
+      contentEl.hidden = false;
+      ladeWartung();
+      ladeFreigaben();
+      await ladeUndZeichne();
+    } catch (err) {
+      gateFehler(err);
+    }
+  }
+
+  // ---------- Instagram-Freigabe ----------
+  // plan.json (Pages-Workflow: insta_inhalte.py --plan 14) nennt je Tag
+  // Format, Folien, Caption und die Kennung des Inhalts; Firestore
+  // insta_freigaben/<Datum> trägt status/hash/format/geaendert. Ein Klick
+  // schreibt das Dokument, der Abendlauf liest es per REST
+  // (scripts/insta_freigabe.py). Stimmt die gespeicherte Kennung nicht
+  // mehr mit dem Plan überein, ist die Freigabe verfallen - die Zeile
+  // sagt es und bittet um einen neuen Klick.
+  const FREIGABE_PLAN_URL = 'marketing/instagram/plan.json';
+  const FREIGABE_ACTIONS_URL = 'https://github.com/AntDon930/Enduranceevents/actions/workflows/instagram.yml';
+  // Vorschauen des Morgenlaufs (scripts/insta_posten.py, vorschau_name):
+  // vorschau/<Datum>-<Kennung>.mp4 und vorschau/<Datum>-aktuell.mp4.
+  const VORSCHAU_BASIS = 'https://storage.googleapis.com/endurance-5177a-instagram/vorschau/';
+  let freigabeOffen = false;     // Karte ausgeklappt? (bleibt über das Neuzeichnen)
+  try { freigabeOffen = localStorage.getItem('endurance-freigabe-offen') === '1'; } catch (e) { /* ignorieren */ }
+  let freigabePlan = null;        // { erzeugt, beitraege: [...] } oder null
+  let freigabeDocs = {};          // datum -> { status, hash }
+  let freigabeFehler = null;
+  let freigabePlanFehlt = false;
+
+  async function ladeFreigaben() {
+    freigabeFehler = null;
+    try {
+      const r = await fetch(FREIGABE_PLAN_URL, { cache: 'no-store' });
+      if (r.ok) { freigabePlan = await r.json(); freigabePlanFehlt = false; }
+      else { freigabePlan = null; freigabePlanFehlt = true; }
+    } catch (err) { freigabePlan = null; freigabePlanFehlt = true; }
+    try {
+      const heute = new Date();
+      const iso = `${heute.getFullYear()}-${String(heute.getMonth() + 1).padStart(2, '0')}-${String(heute.getDate()).padStart(2, '0')}`;
+      const snap = await db.collection('insta_freigaben')
+        .where(firebase.firestore.FieldPath.documentId(), '>=', iso).get();
+      const docs = {};
+      snap.forEach(d => { const x = d.data() || {}; docs[d.id] = { status: x.status, hash: x.hash }; });
+      freigabeDocs = docs;
+    } catch (err) {
+      freigabeFehler = err;
+    }
+    zeichneFreigaben();
+  }
+
+  async function setzeFreigabe(datum, status, beitrag) {
+    const card = document.getElementById('insta-freigabe-card');
+    card.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    try {
+      const ref = db.collection('insta_freigaben').doc(datum);
+      if (!status) {
+        await ref.delete();
+      } else {
+        await ref.set({
+          status,
+          hash: beitrag.hash,
+          format: beitrag.format,
+          geaendert: firebase.firestore.FieldValue.serverTimestamp()
+        });
+      }
+      freigabeFehler = null;
+    } catch (err) {
+      freigabeFehler = err;
+    }
+    await ladeFreigaben();
+  }
+
+  function freigabeStatus(beitrag) {
+    const doc = freigabeDocs[beitrag.datum];
+    if (!doc) return 'offen';
+    if (doc.status === 'gesperrt') return 'gesperrt';
+    if (doc.status === 'freigegeben') return doc.hash === beitrag.hash ? 'frei' : 'veraltet';
+    return 'offen';
+  }
+
+  function folienText(folien) {
+    // Die erste Folie als Kurzfassung: Überschrift groß, dazu bis zu drei Zeilen.
+    const f = (folien || [])[0] || {};
+    const teile = [];
+    if (f.ueber) teile.push(`<span class="fz">${escapeHtml(f.ueber)}</span>`);
+    const kopf = [f.zahl, f.titel].filter(Boolean).join(' – ');
+    if (kopf) teile.push(`<b>${escapeHtml(kopf)}</b>`);
+    const zeilen = (f.zeilen || []).slice(0, 3).map(z => escapeHtml(typeof z === 'string' ? z : (z.text || z.name || '')));
+    if (f.text) zeilen.unshift(escapeHtml(f.text));
+    if (zeilen.length) teile.push(zeilen.join('<br>'));
+    return teile.join('<br>');
+  }
+
+  function storiesText(stories) {
+    // Die Stories des Tages in einer Zeile: je Story Überschrift und Titel/Name.
+    if (!Array.isArray(stories) || !stories.length) return '';
+    const teile = stories.map(st => {
+      const f = st.folie || {};
+      return escapeHtml([f.ueber, f.zahl, f.name || f.titel].filter(Boolean).join(' – '));
+    });
+    return `<p class="frei-folien"><span class="fz">${escapeHtml(t('f_stories'))}</span> ${teile.join(' · ')}</p>`;
+  }
+
+  function zeichneFreigaben() {
+    const card = document.getElementById('insta-freigabe-card');
+    if (!card) return;
+    const erklaerung = `<p>${escapeHtml(t('f_erklaert'))} <a href="${FREIGABE_ACTIONS_URL}" target="_blank" rel="noopener">${escapeHtml(t('f_video'))}</a></p>`;
+    const kopf = `<h3><span>${escapeHtml(t('f_titel'))}</span><small>${escapeHtml(t('f_sub'))}</small></h3>` + erklaerung;
+    const fehler = freigabeFehler
+      ? `<p class="leer">${escapeHtml(t('f_fehler'))} ${escapeHtml(freigabeFehler.message || String(freigabeFehler))} ${escapeHtml(t('w_regeln'))}</p>` : '';
+    if (!freigabePlan || !Array.isArray(freigabePlan.beitraege)) {
+      card.innerHTML = kopf + `<p class="leer">${escapeHtml(freigabePlanFehlt ? t('f_kein_plan') : t('gate_laden'))}</p>` + fehler;
+      return;
+    }
+    const heute = new Date(); heute.setHours(0, 0, 0, 0);
+    const kuenftig = freigabePlan.beitraege.filter(b => new Date(b.datum + 'T00:00:00') >= heute);
+    const zeilen = kuenftig.map(b => {
+      const st = freigabeStatus(b);
+      const label = { frei: 'f_s_frei', gesperrt: 'f_s_gesperrt', veraltet: 'f_s_veraltet', offen: 'f_s_offen' }[st];
+      const d = new Date(b.datum + 'T00:00:00');
+      const datum = d.toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-GB', { weekday: 'short', day: '2-digit', month: '2-digit' });
+      const fmt = t('f_fmt_' + b.format) || b.format;
+      const knoepfe = [];
+      if (st !== 'frei') knoepfe.push(`<button type="button" class="stat-btn primary" data-frei="${b.datum}">${escapeHtml(t('f_frei'))}</button>`);
+      knoepfe.push(`<button type="button" class="stat-btn" data-view="${b.datum}">${escapeHtml(t('f_view'))}</button>`);
+      if (st !== 'gesperrt') knoepfe.push(`<button type="button" class="stat-btn" data-sperren="${b.datum}">${escapeHtml(t('f_sperren'))}</button>`);
+      if (st !== 'offen') knoepfe.push(`<button type="button" class="stat-btn" data-zurueck="${b.datum}">${escapeHtml(t('f_zurueck'))}</button>`);
+      return `<div class="frei-zeile ist-${st}" data-datum="${b.datum}">
+        <div>
+          <div class="frei-kopf"><b>${escapeHtml(datum)}</b><span class="frei-format">${escapeHtml(fmt)}</span><span class="frei-status ${st}">${escapeHtml(t(label))}</span></div>
+          <p class="frei-folien">${folienText(b.folien)}</p>
+          ${storiesText(b.stories)}
+        </div>
+        <div class="frei-knoepfe">${knoepfe.join('')}</div>
+        <details><summary>${escapeHtml(t('f_caption'))}</summary><pre>${escapeHtml(b.caption || '')}</pre></details>
+      </div>`;
+    });
+    const stand = freigabePlan.erzeugt ? `<p class="leer">${escapeHtml(t('f_stand'))}${escapeHtml(String(freigabePlan.erzeugt).replace('T', ' ').slice(0, 16))}</p>` : '';
+    const zahl = (s) => kuenftig.filter(b => freigabeStatus(b) === s).length;
+    card.innerHTML = `<details class="frei-ausklapp"${freigabeOffen ? ' open' : ''}>
+        <summary><h3><span>${escapeHtml(t('f_titel'))}</span><small>${escapeHtml(t('f_sub'))}</small></h3>
+          <span class="frei-zahlen">${escapeHtml(t('f_zahlen', kuenftig.length, zahl('frei'), zahl('offen') + zahl('veraltet')))}</span></summary>
+        ${erklaerung}<div class="frei-liste">${zeilen.join('')}</div>${stand}
+      </details>` + fehler;
+    card.querySelector('.frei-ausklapp').addEventListener('toggle', (ev) => {
+      freigabeOffen = ev.target.open;
+      try { localStorage.setItem('endurance-freigabe-offen', freigabeOffen ? '1' : '0'); } catch (e) { /* ignorieren */ }
+    });
+    const beitragZu = (datum) => freigabePlan.beitraege.find(b => b.datum === datum);
+    card.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => zeigeReel(beitragZu(b.dataset.view), b)));
+    card.querySelectorAll('[data-frei]').forEach(b => b.addEventListener('click', () => setzeFreigabe(b.dataset.frei, 'freigegeben', beitragZu(b.dataset.frei))));
+    card.querySelectorAll('[data-sperren]').forEach(b => b.addEventListener('click', () => setzeFreigabe(b.dataset.sperren, 'gesperrt', beitragZu(b.dataset.sperren))));
+    card.querySelectorAll('[data-zurueck]').forEach(b => b.addEventListener('click', () => setzeFreigabe(b.dataset.zurueck, null, beitragZu(b.dataset.zurueck))));
+  }
+
+  // „View": das Reel eines Tages in einem Fenster abspielen. Erst die
+  // Vorschau genau dieses Inhalts (Kennung aus plan.json), sonst die
+  // jüngste des Tages (mit Hinweis), sonst ein Satz, wann sie kommt.
+  let reelZurueck = null;
+  function zeigeReel(beitrag, knopf) {
+    if (!beitrag) return;
+    let ov = document.getElementById('reel-overlay');
+    if (!ov) {
+      ov = document.createElement('div');
+      ov.id = 'reel-overlay';
+      ov.className = 'reel-overlay';
+      ov.setAttribute('role', 'dialog');
+      ov.setAttribute('aria-modal', 'true');
+      document.body.appendChild(ov);
+      ov.addEventListener('click', (ev) => { if (ev.target === ov || ev.target.closest('.reel-zu')) schliesseReel(); });
+      document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && !ov.hidden) schliesseReel(); });
+    }
+    reelZurueck = knopf || null;
+    const d = new Date(beitrag.datum + 'T00:00:00');
+    const datum = d.toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-GB', { weekday: 'short', day: '2-digit', month: '2-digit' });
+    ov.innerHTML = `<div class="reel-box">
+        <div class="reel-kopf"><b>${escapeHtml(t('f_reel_titel'))} · ${escapeHtml(datum)}</b>
+          <button type="button" class="stat-btn reel-zu">${escapeHtml(t('f_schliessen'))}</button></div>
+        <video controls playsinline preload="metadata"></video>
+        <p class="leer reel-hinweis" hidden></p>
+      </div>`;
+    ov.hidden = false;
+    const video = ov.querySelector('video');
+    const hinweis = ov.querySelector('.reel-hinweis');
+    const quellen = [beitrag.datum + '-' + beitrag.hash, beitrag.datum + '-aktuell'];
+    let i = 0;
+    const lade = () => {
+      video.poster = VORSCHAU_BASIS + quellen[i] + '.jpg';
+      video.src = VORSCHAU_BASIS + quellen[i] + '.mp4';
+    };
+    video.addEventListener('error', () => {
+      i += 1;
+      if (i < quellen.length) { lade(); return; }
+      video.hidden = true;
+      hinweis.textContent = t('f_reel_fehlt');
+      hinweis.hidden = false;
+    });
+    video.addEventListener('loadedmetadata', () => {
+      if (i > 0) { hinweis.textContent = t('f_reel_anderer_stand'); hinweis.hidden = false; }
+    });
+    lade();
+    ov.querySelector('.reel-zu').focus();
+  }
+  function schliesseReel() {
+    const ov = document.getElementById('reel-overlay');
+    if (!ov) return;
+    const v = ov.querySelector('video');
+    if (v) { v.pause(); v.removeAttribute('src'); v.load(); }
+    ov.hidden = true;
+    ov.innerHTML = '';
+    if (reelZurueck && reelZurueck.isConnected) reelZurueck.focus();
+  }
+
+  // ---------- Wartungsmodus ----------
+  // Das Dokument config/wartung: aktiv, text_de, text_en, geaendert, von.
+  // Lesen dürfen alle (die öffentlichen Seiten fragen es im Kopf ab),
+  // schreiben nur Admins - firestore.rules.
+  const WARTUNG_VORGABE = {
+    text_de: 'Wir arbeiten gerade an der Seite und sind in Kürze zurück.',
+    text_en: 'We are working on the site and will be back shortly.'
+  };
+  let wartung = null;
+  let wartungFehler = null;
+
+  async function ladeWartung() {
+    try {
+      const snap = await db.collection('config').doc('wartung').get();
+      const d = snap.exists ? snap.data() : {};
+      wartung = {
+        aktiv: d.aktiv === true,
+        text_de: typeof d.text_de === 'string' && d.text_de ? d.text_de : WARTUNG_VORGABE.text_de,
+        text_en: typeof d.text_en === 'string' && d.text_en ? d.text_en : WARTUNG_VORGABE.text_en,
+        geaendert: d.geaendert && typeof d.geaendert.toDate === 'function' ? d.geaendert.toDate() : null
+      };
+      wartungFehler = null;
+    } catch (err) {
+      wartung = null;
+      wartungFehler = err;
+    }
+    zeichneWartung();
+  }
+
+  async function speichereWartung(aktiv) {
+    const card = document.getElementById('wartung-card');
+    const lies = (id, vorgabe) => {
+      const el = card.querySelector('#' + id);
+      const v = el ? el.value.trim().slice(0, 300) : '';
+      return v || vorgabe;
+    };
+    const daten = {
+      aktiv,
+      text_de: lies('wartung-de', WARTUNG_VORGABE.text_de),
+      text_en: lies('wartung-en', WARTUNG_VORGABE.text_en),
+      geaendert: firebase.firestore.FieldValue.serverTimestamp(),
+      von: geladenFuer
+    };
+    card.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    try {
+      await db.collection('config').doc('wartung').set(daten);
+      wartungFehler = null;
+    } catch (err) {
+      wartungFehler = err;
+    }
+    await ladeWartung();
+  }
+
+  function zeichneWartung() {
+    const card = document.getElementById('wartung-card');
+    if (!card) return;
+    if (!wartung) {
+      card.innerHTML = `<h3><span>${escapeHtml(t('w_titel'))}</span></h3>
+        <p class="leer">${escapeHtml(wartungFehler ? t('w_fehler') + ' ' + (wartungFehler.message || wartungFehler) : t('gate_laden'))}</p>
+        ${wartungFehler ? `<p class="leer">${escapeHtml(t('w_regeln'))}</p>` : ''}`;
+      return;
+    }
+    const an = wartung.aktiv;
+    const seit = wartung.geaendert
+      ? ` ${escapeHtml(t('w_seit'))}${escapeHtml(wartung.geaendert.toLocaleString(lang === 'de' ? 'de-DE' : 'en-GB', { dateStyle: 'short', timeStyle: 'short' }))}.`
+      : '';
+    card.innerHTML = `<h3><span>${escapeHtml(t('w_titel'))}</span><small class="${an ? 'w-an' : 'w-aus'}">${escapeHtml(an ? t('w_status_an') : t('w_status_aus'))}</small></h3>
+      <p>${escapeHtml(an ? t('w_erklaert_an') : t('w_erklaert_aus'))}${seit}</p>
+      <div class="w-felder">
+        <label>${escapeHtml(t('w_text_de'))}<input id="wartung-de" maxlength="300" value="${escapeHtml(wartung.text_de)}"></label>
+        <label>${escapeHtml(t('w_text_en'))}<input id="wartung-en" maxlength="300" value="${escapeHtml(wartung.text_en)}"></label>
+      </div>
+      <p class="w-knoepfe">
+        <button type="button" class="stat-btn primary" id="wartung-toggle">${escapeHtml(an ? t('w_aus_btn') : t('w_an_btn'))}</button>
+        <button type="button" class="stat-btn" id="wartung-speichern">${escapeHtml(t('w_speichern'))}</button>
+        <a class="stat-btn" href="wartung.html?vorschau" target="_blank" rel="noopener">${escapeHtml(t('w_vorschau'))}</a>
+      </p>
+      ${wartungFehler ? `<p class="leer">${escapeHtml(t('w_fehler'))} ${escapeHtml(wartungFehler.message || String(wartungFehler))} ${escapeHtml(t('w_regeln'))}</p>` : ''}`;
+    card.querySelector('#wartung-toggle').addEventListener('click', () => {
+      if (!an && !window.confirm(t('w_bestaetigen'))) return;
+      speichereWartung(!an);
+    });
+    card.querySelector('#wartung-speichern').addEventListener('click', () => speichereWartung(an));
+  }
+
+  // ---------- Daten ----------
+  // „Monat" (14.10.2026): Werbung wird je Kalendermonat verkauft, deshalb
+  // neben den gleitenden Zeiträumen ein fester Monat mit ‹ › daneben.
+  // Vergleich ist der Vormonat über GLEICH VIELE Tage (der 14. Oktober
+  // gegen den 1.–14. September), sonst stünde ein halber Monat gegen
+  // einen ganzen.
+  const ZEITRAEUME = [
+    { id: '7', tage: 7 }, { id: '30', tage: 30 }, { id: '90', tage: 90 }, { id: 'monat' }, { id: 'jahr' }, { id: 'alles' }
+  ];
+  let zeitraum = '30';
+  try {
+    const g = localStorage.getItem('endurance-stat-zeitraum');
+    if (ZEITRAEUME.some(z => z.id === g)) zeitraum = g;
+  } catch (e) { /* ignorieren */ }
+  let monat = isoHeute().slice(0, 7);   // YYYY-MM, der gewählte Monat
+  const MONATE_IM_BILD = 12;
+  const tageCache = new Map();   // iso -> Tagesdokument
+  let allesGeladen = false;
+
+  function monatPlus(ym, n) {
+    const [j, m] = ym.split('-').map(Number);
+    return new Date(Date.UTC(j, m - 1 + n, 1)).toISOString().slice(0, 7);
+  }
+  function monatsEnde(ym) {
+    const [j, m] = ym.split('-').map(Number);
+    return new Date(Date.UTC(j, m, 0)).toISOString().slice(0, 10);
+  }
+  function fmtMonat(ym) {
+    const [j, m] = ym.split('-').map(Number);
+    return `${I18N[lang].monate[m - 1]} ${j}`;
+  }
+  function wochentagVon(iso) {
+    const [j, m, d] = iso.split('-').map(Number);
+    return new Date(Date.UTC(j, m - 1, d)).getUTCDay();
+  }
+
+  function grenzen() {
+    const heute = isoHeute();
+    const z = ZEITRAEUME.find(x => x.id === zeitraum);
+    if (z.tage) {
+      const von = isoPlus(heute, -(z.tage - 1));
+      return { von, bis: heute, vergleich: { von: isoPlus(von, -z.tage), bis: isoPlus(von, -1) }, vergleichArt: 'tage' };
+    }
+    if (z.id === 'monat') {
+      if (monat > heute.slice(0, 7)) monat = heute.slice(0, 7);
+      const von = monat + '-01';
+      const ende = monatsEnde(monat);
+      const bis = ende < heute ? ende : heute;
+      const vm = monatPlus(monat, -1);
+      const vBis = isoPlus(vm + '-01', tageZwischen(von, bis) - 1);
+      const vEnde = monatsEnde(vm);
+      return { von, bis, vergleich: { von: vm + '-01', bis: vBis < vEnde ? vBis : vEnde }, vergleichArt: 'monat' };
+    }
+    if (z.id === 'jahr') return { von: heute.slice(0, 4) + '-01-01', bis: heute, vergleich: null };
+    return { von: null, bis: heute, vergleich: null };
+  }
+
+  async function ladeTage(von, bis) {
+    const FieldPath = firebase.firestore.FieldPath;
+    let q = db.collection('stats_daily');
+    if (von) {
+      if (tageCache.has(von) && tageCache.has(bis) && alleImCache(von, bis)) return;
+      q = q.where(FieldPath.documentId(), '>=', von).where(FieldPath.documentId(), '<=', bis);
+    } else if (allesGeladen) {
+      return;
+    }
+    const snap = await q.get();
+    if (!von) allesGeladen = true;
+    if (von) {
+      // Auch leere Tage merken, sonst fragt jeder Wechsel neu nach.
+      for (let d = von; d <= bis; d = isoPlus(d, 1)) if (!tageCache.has(d)) tageCache.set(d, null);
+    }
+    snap.forEach(doc => tageCache.set(doc.id, doc.data()));
+  }
+  function alleImCache(von, bis) {
+    for (let d = von; d <= bis; d = isoPlus(d, 1)) if (!tageCache.has(d)) return false;
+    return true;
+  }
+  function tageIm(von, bis) {
+    const liste = [];
+    if (!von) {
+      const mitDaten = Array.from(tageCache.keys()).filter(d => tageCache.get(d) && d <= bis).sort();
+      if (!mitDaten.length) return liste;
+      von = mitDaten[0];
+    }
+    for (let d = von; d <= bis; d = isoPlus(d, 1)) liste.push({ d, doc: tageCache.get(d) || null });
+    return liste;
+  }
+
+  // Jede Liste eines Tagesdokuments (stats_aggregate.js: AKTIONS_DETAIL
+  // plus die festen Listen) - test_statistik vergleicht.
+  const LISTEN_FELDER = ['seiten', 'einstieg', 'ausstieg', 'referrer', 'quellen', 'medien', 'kampagnen', 'laender', 'sprachen',
+    'seitensprache', 'schema', 'geraete', 'browser', 'systeme', 'aktionen', 'events', 'veranstalter', 'kalender', 'teilen', 'abo', 'melden', 'suche', 'filter',
+    'sport_events', 'sport_veranstalter', 'sport_region', 'events_kalender', 'events_teilen', 'anzeige_sicht', 'anzeige_klick',
+    'kanaele', 'instagram_medien', 'instagram_kampagnen', 'instagram_einstieg', 'instagram_aktionen'];
+  // Die Zahlen des Objekts `instagram` im Tagesdokument (stats_aggregate.js).
+  const IG_FELDER = ['besucher', 'besuche', 'pv', 'absprung', 'dauer_sek', 'dauer_n'];
+  const IG_LINK = 'https://endurance-events.de/?utm_source=instagram&utm_medium=bio';
+
+  // Der jüngste Abo-Stand (abos_aktiv, von aggregateStats ins Dokument des
+  // Tages geschrieben) bis zum Tag `bis`, auf Wunsch frühestens ab `von`;
+  // `erster` liefert stattdessen den ÄLTESTEN Stand im Fenster.
+  function aboStand(bis, von, erster) {
+    let best = null;
+    tageCache.forEach((doc, d) => {
+      if (!doc || typeof doc.abos_aktiv !== 'number' || d > bis || (von && d < von)) return;
+      if (!best || (erster ? d < best.d : d > best.d)) best = { d, n: doc.abos_aktiv, rhythmus: doc.abos_rhythmus || [] };
+    });
+    return best;
+  }
+
+  function summiere(tage) {
+    const s = { pv: 0, besucher: 0, besuche: 0, absprung: 0, dauer_sek: 0, dauer_n: 0, stunden: new Array(24).fill(0), listen: {}, aktualisiert: null, tageMitDaten: 0, ig: {} };
+    IG_FELDER.forEach(f => { s.ig[f] = 0; });
+    LISTEN_FELDER.forEach(f => { s.listen[f] = new Map(); });
+    tage.forEach(({ doc }) => {
+      if (!doc) return;
+      s.tageMitDaten++;
+      s.pv += doc.pv || 0; s.besucher += doc.besucher || 0; s.besuche += doc.besuche || 0;
+      s.absprung += doc.absprung || 0; s.dauer_sek += doc.dauer_sek || 0; s.dauer_n += doc.dauer_n || 0;
+      (doc.stunden || []).forEach((n, i) => { if (i < 24) s.stunden[i] += n || 0; });
+      if (doc.instagram) IG_FELDER.forEach(f => { s.ig[f] += doc.instagram[f] || 0; });
+      LISTEN_FELDER.forEach(f => {
+        (doc[f] || []).forEach(({ k, n }) => { if (k != null) s.listen[f].set(k, (s.listen[f].get(k) || 0) + (n || 0)); });
+      });
+      const akt = doc.aktualisiert && typeof doc.aktualisiert.toMillis === 'function' ? doc.aktualisiert.toMillis() : 0;
+      if (akt > (s.aktualisiert || 0)) s.aktualisiert = akt;
+    });
+    return s;
+  }
+
+  // ---------- Zeichnen ----------
+  let aktuell = null;    // {tage, summe, vergleich}
+
+  async function ladeUndZeichne() {
+    const g = grenzen();
+    // Die letzten zwölf Monate zuerst (eine Abfrage): Daraus kommen das
+    // Monatsdiagramm und fast jeder Zeitraum samt Vergleich aus dem Cache.
+    const heute = isoHeute();
+    await ladeTage(monatPlus(heute.slice(0, 7), -(MONATE_IM_BILD - 1)) + '-01', heute);
+    const ladeVon = g.vergleich ? g.vergleich.von : g.von;
+    await ladeTage(ladeVon, g.bis);
+    const tage = tageIm(g.von, g.bis);
+    const summe = summiere(tage);
+    const vergleich = g.vergleich ? summiere(tageIm(g.vergleich.von, g.vergleich.bis)) : null;
+    aktuell = { tage, summe, vergleich, g };
+    zeichneAlles();
+  }
+
+  function zeichneAlles() {
+    if (!aktuell) return;
+    zeichneZeitraum();
+    zeichneKpis();
+    zeichneInstagram();
+    zeichneVerlauf();
+    zeichneMonate();
+    zeichneStunden();
+    zeichneWochentage();
+    zeichneListen();
+    const standEl = document.getElementById('stat-stand');
+    if (aktuell.summe.aktualisiert) {
+      const d = new Date(aktuell.summe.aktualisiert);
+      standEl.textContent = `${t('stand')}: ${d.toLocaleString(lang === 'de' ? 'de-DE' : 'en-GB', { dateStyle: 'short', timeStyle: 'short' })}`;
+    } else {
+      standEl.textContent = '';
+    }
+  }
+
+  function zeichneZeitraum() {
+    const el = document.getElementById('stat-range');
+    el.innerHTML = ZEITRAEUME.map(z =>
+      `<button type="button" data-z="${z.id}" class="${z.id === zeitraum ? 'active' : ''}" aria-pressed="${z.id === zeitraum}">${escapeHtml(t('z' + z.id))}</button>`
+    ).join('') + (zeitraum === 'monat'
+      ? `<span class="stat-monat"><button type="button" data-m="-1" aria-label="${escapeHtml(t('monat_zurueck'))}">‹</button><b>${escapeHtml(fmtMonat(monat))}</b><button type="button" data-m="1" aria-label="${escapeHtml(t('monat_vor'))}" ${monat >= isoHeute().slice(0, 7) ? 'disabled' : ''}>›</button></span>`
+      : '');
+  }
+  function neuLaden() {
+    // Beim Nachladen bleibt das alte Bild stehen, nur leicht gedämpft.
+    contentEl.style.opacity = '0.6';
+    ladeUndZeichne().catch(gateFehler).finally(() => { contentEl.style.opacity = ''; });
+  }
+  document.getElementById('stat-range').addEventListener('click', (ev) => {
+    const m = ev.target.closest('button[data-m]');
+    if (m) {
+      const neu = monatPlus(monat, Number(m.dataset.m));
+      if (neu > isoHeute().slice(0, 7)) return;
+      monat = neu;
+      neuLaden();
+      return;
+    }
+    const b = ev.target.closest('button[data-z]');
+    if (!b || b.dataset.z === zeitraum) return;
+    zeitraum = b.dataset.z;
+    try { localStorage.setItem('endurance-stat-zeitraum', zeitraum); } catch (e) { /* ignorieren */ }
+    neuLaden();
+  });
+
+  function delta(neu, alt, prozentpunkte) {
+    if (!aktuell.vergleich) return '';
+    if (!Number.isFinite(alt) || !Number.isFinite(neu)) return '';
+    if (prozentpunkte) {
+      const diff = (neu - alt) * 100;
+      if (Math.abs(diff) < 0.05) return `<div class="delta">± 0 ${escapeHtml(t('punkte'))}</div>`;
+      return `<div class="delta ${diff > 0 ? 'down' : 'up'}">${diff > 0 ? '+' : '−'}${fmtDez(Math.abs(diff), 1)} ${escapeHtml(t('punkte'))}</div>`;
+    }
+    const txt = vergleichText();
+    if (alt === 0) return neu > 0 ? `<div class="delta up">+ ${escapeHtml(txt)}</div>` : '<div class="delta"></div>';
+    const p = (neu - alt) / alt * 100;
+    if (Math.abs(p) < 0.5) return `<div class="delta">± 0 %</div>`;
+    return `<div class="delta ${p > 0 ? 'up' : 'down'}">${p > 0 ? '+' : '−'}${fmtDez(Math.abs(p), Math.abs(p) >= 10 ? 0 : 1)} % ${escapeHtml(txt)}</div>`;
+  }
+  function vergleichText() {
+    return aktuell.g.vergleichArt === 'monat' ? t('vergleich_monat') : t('vergleich', aktuell.tage.length);
+  }
+
+  function zeichneKpis() {
+    const s = aktuell.summe, v = aktuell.vergleich;
+    const jeBesuch = s.besuche ? s.pv / s.besuche : NaN;
+    const absprung = s.besuche ? s.absprung / s.besuche : NaN;
+    const dauer = s.dauer_n ? s.dauer_sek / s.dauer_n : NaN;
+    const vJe = v && v.besuche ? v.pv / v.besuche : NaN;
+    const vAb = v && v.besuche ? v.absprung / v.besuche : NaN;
+    const vDa = v && v.dauer_n ? v.dauer_sek / v.dauer_n : NaN;
+    // Absprungrate: hoch ist schlecht - deshalb dort die Farben vertauscht
+    // (siehe delta(…, true): plus = rot).
+    const kacheln = [
+      { label: t('kpi_besucher'), wert: fmtInt(s.besucher), d: delta(s.besucher, v ? v.besucher : NaN), hint: t('kpi_besucher_hint') },
+      { label: t('kpi_besuche'), wert: fmtInt(s.besuche), d: delta(s.besuche, v ? v.besuche : NaN) },
+      { label: t('kpi_pv'), wert: fmtInt(s.pv), d: delta(s.pv, v ? v.pv : NaN) },
+      { label: t('kpi_je_besuch'), wert: fmtDez(jeBesuch, 1), d: delta(jeBesuch, vJe) },
+      { label: t('kpi_absprung'), wert: fmtProzent(absprung), d: delta(absprung, vAb, true) },
+      { label: t('kpi_dauer'), wert: fmtDauer(dauer), d: delta(dauer, vDa) },
+      aboKachel()
+    ];
+    document.getElementById('stat-kpis').innerHTML = kacheln.map(k =>
+      `<div class="kpi"><div class="label">${escapeHtml(k.label)}</div><div class="value">${escapeHtml(k.wert)}</div>${k.d || '<div class="delta"></div>'}${k.hint ? `<div class="hint">${escapeHtml(k.hint)}</div>` : ''}</div>`
+    ).join('');
+  }
+
+  // Aktive E-Mail-Abos: der jüngste Tagesstand im Zeitraum, dazu der
+  // Zuwachs seit dem Stand vor dem Zeitraum (oder dem ältesten darin).
+  function aboKachel() {
+    const g = aktuell.g;
+    const stand = aboStand(g.bis);
+    if (!stand) return { label: t('kpi_abos'), wert: '–', hint: t('abo_kein_stand') };
+    const vorher = (g.von && aboStand(isoPlus(g.von, -1))) || aboStand(g.bis, g.von, true);
+    let d = '<div class="delta"></div>';
+    if (vorher && vorher.d !== stand.d && vorher.n !== stand.n) {
+      const diff = stand.n - vorher.n;
+      d = `<div class="delta ${diff > 0 ? 'up' : 'down'}">${diff > 0 ? '+' : '−'}${fmtInt(Math.abs(diff))} ${escapeHtml(t('abo_zuwachs'))}</div>`;
+    }
+    return { label: t('kpi_abos'), wert: fmtInt(stand.n), d, hint: t('abo_stand', fmtTag(stand.d)) };
+  }
+
+  // Instagram: Kennzahlen der Besuche aus Instagram und ihr Verlauf je Tag.
+  function zeichneInstagram() {
+    const s = aktuell.summe, v = aktuell.vergleich, ig = s.ig;
+    const akt = s.listen.instagram_aktionen || new Map();
+    const vAkt = v ? (v.listen.instagram_aktionen || new Map()) : null;
+    document.getElementById('h-ig').textContent = t('ig_titel');
+    document.getElementById('h-ig-sub').textContent = t('ig_sub');
+    const anteil = s.besuche ? ig.besuche / s.besuche : NaN;
+    const vAnteil = v && v.besuche ? v.ig.besuche / v.besuche : NaN;
+    const jeBesuch = ig.besuche ? ig.pv / ig.besuche : NaN;
+    const kacheln = [
+      { label: t('ig_besucher'), wert: fmtInt(ig.besucher), d: delta(ig.besucher, v ? v.ig.besucher : NaN), hint: t('kpi_besucher_hint') },
+      { label: t('ig_besuche'), wert: fmtInt(ig.besuche), d: delta(ig.besuche, v ? v.ig.besuche : NaN) },
+      { label: t('ig_anteil'), wert: fmtProzent(anteil), d: '' },
+      { label: t('ig_je_besuch'), wert: fmtDez(jeBesuch, 1), d: '' },
+      { label: t('ig_events'), wert: fmtInt(akt.get('detail') || 0), d: delta(akt.get('detail') || 0, vAkt ? (vAkt.get('detail') || 0) : NaN) },
+      { label: t('ig_veranstalter'), wert: fmtInt(akt.get('veranstalter') || 0), d: delta(akt.get('veranstalter') || 0, vAkt ? (vAkt.get('veranstalter') || 0) : NaN) }
+    ];
+    // Der Anteil vergleicht in Prozentpunkten - mehr ist hier gut, deshalb
+    // nicht delta(…, true) (das färbt ein Plus rot wie bei der Absprungrate).
+    if (Number.isFinite(anteil) && Number.isFinite(vAnteil)) {
+      const diff = (anteil - vAnteil) * 100;
+      kacheln[2].d = Math.abs(diff) < 0.05 ? `<div class="delta">± 0 ${escapeHtml(t('punkte'))}</div>`
+        : `<div class="delta ${diff > 0 ? 'up' : 'down'}">${diff > 0 ? '+' : '−'}${fmtDez(Math.abs(diff), 1)} ${escapeHtml(t('punkte'))}</div>`;
+    }
+    document.getElementById('ig-kpis').innerHTML = kacheln.map(k =>
+      `<div class="kpi"><div class="label">${escapeHtml(k.label)}</div><div class="value">${escapeHtml(k.wert)}</div>${k.d || '<div class="delta"></div>'}${k.hint ? `<div class="hint">${escapeHtml(k.hint)}</div>` : ''}</div>`
+    ).join('');
+    const hinweis = document.getElementById('ig-hinweis');
+    hinweis.innerHTML = `${ig.besuche ? '' : escapeHtml(t('ig_leer')) + ' '}${escapeHtml(t('ig_hinweis'))} <code>${escapeHtml(IG_LINK)}</code>`;
+    const tage = aktuell.tage;
+    const werte = tage.map(({ doc }) => (doc && doc.instagram && doc.instagram.besuche) || 0);
+    const schritt = Math.max(1, Math.ceil(tage.length / 8));
+    balkenDiagramm({
+      wrap: 'wrap-ig', svg: 'chart-ig', tip: 'tip-ig', hoehe: 160,
+      reihen: [{ werte, klasse: 'balken-2' }],
+      aria: `${t('ig_reihe')}: ${fmtInt(ig.besuche)}`,
+      achse: (i) => i % schritt === 0 ? fmtTag(tage[i].d, true) : null,
+      tipp: (i) => `<div class="tip-zeile"><span>${escapeHtml(fmtTag(tage[i].d))}</span><b>${fmtInt(werte[i])}</b></div>`
+    });
+  }
+
+  function svgEl(name, attrs) {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', name);
+    Object.keys(attrs || {}).forEach(k => el.setAttribute(k, attrs[k]));
+    return el;
+  }
+  function schoeneSkala(max) {
+    if (max <= 0) return { max: 4, schritt: 1 };
+    const roh = max / 4;
+    const zehner = Math.pow(10, Math.floor(Math.log10(roh)));
+    const schritt = [1, 2, 5, 10].map(f => f * zehner).find(s => s >= roh) || 10 * zehner;
+    return { max: schritt * 4, schritt };
+  }
+  function kompakt(n) {
+    if (n >= 1000000) return fmtDez(n / 1000000, 1) + 'M';
+    if (n >= 1000) return (n % 1000 === 0 ? String(n / 1000) : fmtDez(n / 1000, 1)) + 'K';
+    return String(n);
+  }
+
+  function zeichneVerlauf() {
+    const wrap = document.getElementById('wrap-verlauf');
+    const svg = document.getElementById('chart-verlauf');
+    const tip = document.getElementById('tip-verlauf');
+    const tage = aktuell.tage;
+    svg.innerHTML = '';
+    document.getElementById('legend-verlauf').innerHTML =
+      `<span><i class="key key-1"></i>${escapeHtml(t('kpi_besucher'))}</span>` +
+      `<span><i class="key key-2"></i>${escapeHtml(t('kpi_pv'))}</span>`;
+    const W = Math.max(320, wrap.clientWidth || 800), H = 260;
+    const padL = 44, padR = 16, padT = 12, padB = 30;
+    const iw = W - padL - padR, ih = H - padT - padB;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('width', W); svg.setAttribute('height', H);
+    svg.setAttribute('aria-label', `${t('verlauf')}: ${t('kpi_besucher')} ${fmtInt(aktuell.summe.besucher)}, ${t('kpi_pv')} ${fmtInt(aktuell.summe.pv)}`);
+    if (!tage.length || !aktuell.summe.tageMitDaten) {
+      const txt = svgEl('text', { x: W / 2, y: H / 2, 'text-anchor': 'middle', class: 'leer', fill: 'currentColor' });
+      txt.textContent = t('keine_daten');
+      txt.style.fontSize = '13px';
+      svg.appendChild(txt);
+      zeichneTabelle();
+      return;
+    }
+    const werte1 = tage.map(x => (x.doc && x.doc.besucher) || 0);
+    const werte2 = tage.map(x => (x.doc && x.doc.pv) || 0);
+    const skala = schoeneSkala(Math.max(...werte2, ...werte1));
+    const x = (i) => padL + (tage.length === 1 ? iw / 2 : i * iw / (tage.length - 1));
+    const y = (v) => padT + ih - (v / skala.max) * ih;
+
+    const grid = svgEl('g', { class: 'grid' });
+    const axis = svgEl('g', { class: 'axis' });
+    for (let v = 0; v <= skala.max; v += skala.schritt) {
+      grid.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: y(v), y2: y(v) }));
+      const tx = svgEl('text', { x: padL - 8, y: y(v) + 4, 'text-anchor': 'end' });
+      tx.textContent = kompakt(v);
+      axis.appendChild(tx);
+    }
+    const schrittX = Math.max(1, Math.ceil(tage.length / Math.max(2, Math.floor(iw / 70))));
+    tage.forEach((tg, i) => {
+      if (i % schrittX !== 0 && i !== tage.length - 1) return;
+      const tx = svgEl('text', { x: x(i), y: H - 8, 'text-anchor': i === 0 ? 'start' : i === tage.length - 1 ? 'end' : 'middle' });
+      tx.textContent = fmtTag(tg.d, true);
+      axis.appendChild(tx);
+    });
+    svg.appendChild(grid); svg.appendChild(axis);
+
+    const pfad = (werte) => werte.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+    if (tage.length > 1) {
+      svg.appendChild(svgEl('path', { class: 'wash-1', d: `${pfad(werte1)} L${x(tage.length - 1).toFixed(1)},${y(0)} L${x(0).toFixed(1)},${y(0)} Z` }));
+      svg.appendChild(svgEl('path', { class: 'reihe reihe-2', d: pfad(werte2) }));
+      svg.appendChild(svgEl('path', { class: 'reihe reihe-1', d: pfad(werte1) }));
+    }
+    // Endpunkte (Ring in Flächenfarbe) - und bei einem einzelnen Tag der Punkt selbst.
+    const letzte = tage.length - 1;
+    svg.appendChild(svgEl('circle', { class: 'punkt-2', cx: x(letzte), cy: y(werte2[letzte]), r: 4 }));
+    svg.appendChild(svgEl('circle', { class: 'punkt-1', cx: x(letzte), cy: y(werte1[letzte]), r: 4 }));
+    const cursor = svgEl('line', { class: 'cursor', x1: 0, x2: 0, y1: padT, y2: padT + ih });
+    svg.appendChild(cursor);
+    const p1 = svgEl('circle', { class: 'punkt-1', r: 4, style: 'display:none' });
+    const p2 = svgEl('circle', { class: 'punkt-2', r: 4, style: 'display:none' });
+    svg.appendChild(p2); svg.appendChild(p1);
+    const fang = svgEl('rect', { class: 'fang', x: padL, y: padT, width: iw, height: ih });
+    svg.appendChild(fang);
+
+    function zeige(i, clientX) {
+      const tg = tage[i];
+      cursor.setAttribute('x1', x(i)); cursor.setAttribute('x2', x(i)); cursor.style.opacity = '1';
+      p1.setAttribute('cx', x(i)); p1.setAttribute('cy', y(werte1[i])); p1.style.display = '';
+      p2.setAttribute('cx', x(i)); p2.setAttribute('cy', y(werte2[i])); p2.style.display = '';
+      tip.innerHTML = `<div class="tip-datum">${escapeHtml(fmtTag(tg.d))}</div>` +
+        `<div class="tip-zeile"><span><i class="key key-1"></i>${escapeHtml(t('kpi_besucher'))}</span><b>${fmtInt(werte1[i])}</b></div>` +
+        `<div class="tip-zeile"><span><i class="key key-2"></i>${escapeHtml(t('kpi_pv'))}</span><b>${fmtInt(werte2[i])}</b></div>` +
+        (tg.doc ? `<div class="tip-zeile"><span>${escapeHtml(t('kpi_besuche'))}</span><b>${fmtInt(tg.doc.besuche || 0)}</b></div>` : '');
+      tip.style.display = 'block';
+      const r = wrap.getBoundingClientRect();
+      const links = clientX - r.left;
+      const breite = tip.offsetWidth || 160;
+      tip.style.left = `${Math.min(Math.max(0, links - breite / 2), r.width - breite)}px`;
+      tip.style.top = '8px';
+    }
+    function verstecke() {
+      cursor.style.opacity = '0'; p1.style.display = 'none'; p2.style.display = 'none'; tip.style.display = 'none';
+    }
+    fang.addEventListener('pointermove', (ev) => {
+      const r = svg.getBoundingClientRect();
+      const px = (ev.clientX - r.left) * (W / r.width);
+      let i = tage.length === 1 ? 0 : Math.round((px - padL) / iw * (tage.length - 1));
+      i = Math.max(0, Math.min(tage.length - 1, i));
+      zeige(i, ev.clientX);
+    });
+    fang.addEventListener('pointerleave', verstecke);
+    zeichneTabelle();
+  }
+
+  function zeichneTabelle() {
+    document.getElementById('t-tabelle').textContent = t('tabelle');
+    const tbl = document.getElementById('tabelle-verlauf');
+    const zeilen = aktuell.tage.filter(x => x.doc);
+    tbl.innerHTML = `<thead><tr><th>${escapeHtml(t('th_tag'))}</th><th>${escapeHtml(t('th_besucher'))}</th><th>${escapeHtml(t('th_besuche'))}</th><th>${escapeHtml(t('th_pv'))}</th><th>${escapeHtml(t('th_absprung'))}</th><th>${escapeHtml(t('th_dauer'))}</th></tr></thead><tbody>` +
+      zeilen.slice().reverse().map(({ d, doc }) =>
+        `<tr><td>${escapeHtml(fmtTag(d))}</td><td>${fmtInt(doc.besucher)}</td><td>${fmtInt(doc.besuche)}</td><td>${fmtInt(doc.pv)}</td><td>${fmtInt(doc.absprung)}</td><td>${escapeHtml(doc.dauer_n ? fmtDauer(doc.dauer_sek / doc.dauer_n) : '–')}</td></tr>`
+      ).join('') + '</tbody>';
+  }
+
+  // EIN Balkendiagramm für Tageszeit, Wochentag und Monate: `reihen` =
+  // [{ werte, klasse }] mit gleich vielen Werten, die Balken einer Gruppe
+  // stehen nebeneinander. Oben gerundet (4 px), Hairline-Raster, Tooltip
+  // über der Gruppe; `achse(i)` liefert die Beschriftung oder null.
+  function balkenDiagramm(o) {
+    const wrap = document.getElementById(o.wrap);
+    const svg = document.getElementById(o.svg);
+    const tip = document.getElementById(o.tip);
+    svg.innerHTML = '';
+    const n = o.reihen[0].werte.length;
+    const W = Math.max(320, wrap.clientWidth || 800), H = o.hoehe || 200;
+    const padL = 36, padR = 10, padT = 10, padB = 26;
+    const iw = W - padL - padR, ih = H - padT - padB;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('width', W); svg.setAttribute('height', H);
+    svg.setAttribute('aria-label', o.aria || '');
+    const alle = o.reihen.reduce((a, r) => a.concat(r.werte), [0]);
+    const skala = schoeneSkala(Math.max(...alle));
+    const y = (v) => padT + ih - (v / skala.max) * ih;
+    const grid = svgEl('g', { class: 'grid' });
+    const axis = svgEl('g', { class: 'axis' });
+    for (let v = 0; v <= skala.max; v += skala.schritt) {
+      grid.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: y(v), y2: y(v) }));
+      const tx = svgEl('text', { x: padL - 8, y: y(v) + 4, 'text-anchor': 'end' });
+      tx.textContent = kompakt(v);
+      axis.appendChild(tx);
+    }
+    svg.appendChild(grid);
+    const slot = n ? iw / n : iw;
+    const k = o.reihen.length;
+    const luecke = k > 1 ? 2 : 0;
+    const breite = Math.min(24, Math.max(3, (slot - 2 - luecke * (k - 1)) / k));
+    const gruppe = breite * k + luecke * (k - 1);
+    for (let i = 0; i < n; i++) {
+      const g = svgEl('g', {});
+      const start = padL + i * slot + (slot - gruppe) / 2;
+      o.reihen.forEach((r, ri) => {
+        const v = r.werte[i] || 0;
+        const bx = start + ri * (breite + luecke);
+        const hoehe = Math.max(0, y(0) - y(v));
+        const rad = Math.min(4, breite / 2, hoehe);
+        // Balken: oben gerundet, an der Grundlinie eckig.
+        if (hoehe > 0) {
+          g.appendChild(svgEl('path', { class: 'balken ' + (r.klasse || ''),
+            d: `M${bx},${y(0)} V${y(v) + rad} Q${bx},${y(v)} ${bx + rad},${y(v)} H${bx + breite - rad} Q${bx + breite},${y(v)} ${bx + breite},${y(v) + rad} V${y(0)} Z` }));
+        }
+      });
+      const fang = svgEl('rect', { class: 'fang', x: padL + i * slot, y: padT, width: slot, height: ih });
+      fang.addEventListener('pointerenter', () => {
+        g.querySelectorAll('.balken').forEach(b => b.classList.add('aktiv'));
+        tip.innerHTML = o.tipp(i);
+        tip.style.display = 'block';
+        const wr = wrap.getBoundingClientRect();
+        const tb = tip.offsetWidth || 140;
+        const links = (start + gruppe / 2) * (wr.width / W);
+        tip.style.left = `${Math.min(Math.max(0, links - tb / 2), wr.width - tb)}px`;
+        tip.style.top = '0px';
+      });
+      fang.addEventListener('pointerleave', () => {
+        g.querySelectorAll('.balken').forEach(b => b.classList.remove('aktiv'));
+        tip.style.display = 'none';
+      });
+      g.appendChild(fang);
+      svg.appendChild(g);
+      const label = o.achse(i);
+      if (label != null) {
+        const tx = svgEl('text', { x: padL + i * slot + slot / 2, y: H - 8, 'text-anchor': 'middle' });
+        tx.textContent = label;
+        axis.appendChild(tx);
+      }
+    }
+    svg.appendChild(axis);
+  }
+
+  function zeichneStunden() {
+    document.getElementById('h-stunden').textContent = t('stunden');
+    document.getElementById('h-stunden-sub').textContent = t('stunden_sub');
+    const werte = aktuell.summe.stunden;
+    const spitze = werte.indexOf(Math.max(...werte));
+    balkenDiagramm({
+      wrap: 'wrap-stunden', svg: 'chart-stunden', tip: 'tip-stunden',
+      reihen: [{ werte }],
+      aria: `${t('stunden')}: ${t('stunden_sub')}${aktuell.summe.pv ? `, ${spitze}:00 ${t('uhr')}` : ''}`,
+      achse: (h) => h % 3 === 0 ? String(h) : null,
+      tipp: (h) => `<div class="tip-zeile"><span>${h}:00–${h + 1}:00 ${escapeHtml(t('uhr'))}</span><b>${fmtInt(werte[h])}</b></div>`
+    });
+  }
+
+  // Wochentag: Ø Seitenaufrufe je Tag, Montag zuerst - aus den
+  // Tagesdokumenten des Zeitraums, geteilt durch die Zahl der Tage mit
+  // Daten je Wochentag (ein Tag ohne Dokument hatte keinen Aufruf oder
+  // lag vor dem Start der Zählung - beides zählt nicht mit).
+  const WOCHE = [1, 2, 3, 4, 5, 6, 0];
+  function zeichneWochentage() {
+    document.getElementById('h-wochentage').textContent = t('wochentage_titel');
+    document.getElementById('h-wochentage-sub').textContent = t('wochentage_sub');
+    const summe = new Array(7).fill(0), tage = new Array(7).fill(0);
+    aktuell.tage.forEach(({ d, doc }) => {
+      if (!doc) return;
+      const wd = wochentagVon(d);
+      summe[wd] += doc.pv || 0;
+      tage[wd]++;
+    });
+    const werte = WOCHE.map(wd => tage[wd] ? Math.round(summe[wd] / tage[wd]) : 0);
+    const namen = I18N[lang].wochentage;
+    balkenDiagramm({
+      wrap: 'wrap-wochentage', svg: 'chart-wochentage', tip: 'tip-wochentage',
+      reihen: [{ werte }],
+      aria: `${t('wochentage_titel')}: ${t('wochentage_sub')}`,
+      achse: (i) => namen[WOCHE[i]],
+      tipp: (i) => `<div class="tip-zeile"><span>${escapeHtml(namen[WOCHE[i]])} · ${fmtInt(tage[WOCHE[i]])} ${escapeHtml(t('tage_n'))}</span><b>${fmtInt(werte[i])}</b></div>`
+    });
+  }
+
+  // Monate: die letzten zwölf, ab dem ersten Monat mit Daten (vorher gab
+  // es die Zählung nicht - leere Balken davor wären kein Befund). Jeder
+  // Monat ist die Summe seiner Tagesdokumente, unabhängig vom gewählten
+  // Zeitraum; die Tabelle darunter ist das Mediadaten-Blatt.
+  function monatsWerte() {
+    const heute = isoHeute();
+    const liste = [];
+    for (let i = MONATE_IM_BILD - 1; i >= 0; i--) {
+      const ym = monatPlus(heute.slice(0, 7), -i);
+      const bis = i === 0 ? heute : monatsEnde(ym);
+      const su = summiere(tageIm(ym + '-01', bis));
+      su.abos = aboStand(bis, ym + '-01');
+      liste.push({ ym, s: su });
+    }
+    const erster = liste.findIndex(x => x.s.tageMitDaten > 0);
+    return erster < 0 ? liste.slice(-1) : liste.slice(erster);
+  }
+  function zeichneMonate() {
+    document.getElementById('h-monate').textContent = t('monate_titel');
+    document.getElementById('h-monate-sub').textContent = t('monate_sub');
+    document.getElementById('t-tabelle-monate').textContent = t('tabelle_monate');
+    document.getElementById('legend-monate').innerHTML =
+      `<span><i class="key key-1"></i>${escapeHtml(t('kpi_besuche'))}</span>` +
+      `<span><i class="key key-2"></i>${escapeHtml(t('kpi_pv'))}</span>`;
+    const monate = monatsWerte();
+    const besuche = monate.map(m => m.s.besuche);
+    const pv = monate.map(m => m.s.pv);
+    balkenDiagramm({
+      wrap: 'wrap-monate', svg: 'chart-monate', tip: 'tip-monate',
+      reihen: [{ werte: besuche }, { werte: pv, klasse: 'balken-2' }],
+      aria: `${t('monate_titel')}: ${t('monate_sub')}`,
+      achse: (i) => {
+        const [j, m] = monate[i].ym.split('-').map(Number);
+        return lang === 'de' ? `${I18N.de.monate[m - 1].slice(0, 3)} ${String(j).slice(2)}` : `${I18N.en.monate[m - 1].slice(0, 3)} ${String(j).slice(2)}`;
+      },
+      tipp: (i) => `<div class="tip-datum">${escapeHtml(fmtMonat(monate[i].ym))}</div>` +
+        `<div class="tip-zeile"><span><i class="key key-1"></i>${escapeHtml(t('kpi_besuche'))}</span><b>${fmtInt(besuche[i])}</b></div>` +
+        `<div class="tip-zeile"><span><i class="key key-2"></i>${escapeHtml(t('kpi_pv'))}</span><b>${fmtInt(pv[i])}</b></div>`
+    });
+    const tbl = document.getElementById('tabelle-monate');
+    const kopf = ['th_monat', 'th_besucher', 'th_besuche', 'th_pv', 'th_je_besuch', 'th_dauer', 'th_abos'];
+    tbl.innerHTML = `<thead><tr>${kopf.map(k => `<th>${escapeHtml(t(k))}</th>`).join('')}</tr></thead><tbody>` +
+      monate.slice().reverse().filter(m => m.s.tageMitDaten > 0).map(({ ym, s: su }) =>
+        `<tr><td>${escapeHtml(fmtMonat(ym))}</td><td>${fmtInt(su.besucher)}</td><td>${fmtInt(su.besuche)}</td><td>${fmtInt(su.pv)}</td>` +
+        `<td>${escapeHtml(fmtDez(su.besuche ? su.pv / su.besuche : NaN, 1))}</td><td>${escapeHtml(su.dauer_n ? fmtDauer(su.dauer_sek / su.dauer_n) : '–')}</td>` +
+        `<td>${su.abos ? fmtInt(su.abos.n) : '–'}</td></tr>`
+      ).join('') + '</tbody>';
+  }
+
+  // ---------- Listen ----------
+  // Zielgruppe und die beiden Kundenkarten zuerst (14.10.2026) - das sind
+  // die Zahlen für Werbekunden und Veranstalter; `extra` liefert
+  // zusätzliche Karten als HTML (Sportart je Region, Bericht, Werbeplätze).
+  const ABSCHNITTE = [
+    { titel: 's_zielgruppe', listen: ['sport_events', 'sport_veranstalter'], extra: () => sportRegionHtml() },
+    { titel: 's_kunden', listen: [], extra: () => berichtHtml() + werbungHtml() },
+    { titel: 's_seiten', listen: ['seiten', 'einstieg', 'ausstieg'] },
+    { titel: 's_herkunft', listen: ['kanaele', 'referrer', 'laender', 'sprachen', 'quellen', 'medien', 'kampagnen'] },
+    { titel: 's_technik', listen: ['geraete', 'browser', 'systeme', 'seitensprache', 'schema'] },
+    { titel: 's_aktionen', listen: ['aktionen', 'events', 'veranstalter', 'events_kalender', 'events_teilen', 'suche', 'filter', 'kalender', 'teilen', 'abo', 'melden'] }
+  ];
+  function sportName(k) { return I18N[lang].sport[k] || k; }
+  const BESCHRIFTUNG = {
+    sport_events: (k) => sportName(k),
+    sport_veranstalter: (k) => sportName(k),
+    seiten: (k) => t('p_' + k) === 'p_' + k ? k : t('p_' + k),
+    einstieg: (k) => BESCHRIFTUNG.seiten(k),
+    ausstieg: (k) => BESCHRIFTUNG.seiten(k),
+    referrer: (k) => k === '(direkt)' ? t('direkt') : k,
+    kanaele: (k) => t('kn_' + k) === 'kn_' + k ? k : t('kn_' + k),
+    instagram_medien: (k) => t('igm_' + k) === 'igm_' + k ? k : t('igm_' + k),
+    instagram_einstieg: (k) => BESCHRIFTUNG.seiten(k),
+    instagram_aktionen: (k) => BESCHRIFTUNG.aktionen(k),
+    laender: (k) => I18N[lang].ld[k] || k,
+    seitensprache: (k) => k.toUpperCase(),
+    schema: (k) => t('schema_' + k) === 'schema_' + k ? k : t('schema_' + k),
+    geraete: (k) => t('dv_' + k) === 'dv_' + k ? k : t('dv_' + k),
+    aktionen: (k) => t('akt_' + k) === 'akt_' + k ? k : t('akt_' + k),
+    kalender: (k) => t('kal_' + k) === 'kal_' + k ? k : t('kal_' + k),
+    teilen: (k) => t('teilen_' + k) === 'teilen_' + k ? k : t('teilen_' + k),
+    filter: (k) => k.replace('=', ': ')
+  };
+  // Die Instagram-Auswertungen stehen im Bereich Instagram (16.10.2026).
+  const ABSCHNITTE_IG = [
+    { titel: 's_instagram', listen: ['instagram_medien', 'instagram_einstieg', 'instagram_aktionen', 'instagram_kampagnen'] }
+  ];
+  const ANFANG = 8;
+  const offen = new Set();   // Listen, die ganz gezeigt werden
+
+  function zeichneListen() {
+    const html = (abschnitte) => abschnitte.map(a =>
+      `<h3 class="stat-section-title">${escapeHtml(t(a.titel))}</h3><div class="stat-grid">` +
+      a.listen.map(f => listeHtml(f)).join('') + (a.extra ? a.extra() : '') + '</div>'
+    ).join('');
+    document.getElementById('stat-listen').innerHTML = html(ABSCHNITTE);
+    document.getElementById('stat-listen-ig').innerHTML = html(ABSCHNITTE_IG);
+  }
+
+  // Sportart je Region: eine Kreuztabelle aus `sport_region` ("Laufen|DE").
+  // Zeilen nach Größe, Spalten die vier größten Regionen plus „Sonstige".
+  function sportRegionHtml() {
+    const map = aktuell.summe.listen.sport_region || new Map();
+    const sport = new Map(), region = new Map(), zelle = new Map();
+    let gesamt = 0;
+    map.forEach((n, k) => {
+      const i = k.lastIndexOf('|');
+      const sp = i < 0 ? k : k.slice(0, i), ld = i < 0 ? '??' : k.slice(i + 1);
+      sport.set(sp, (sport.get(sp) || 0) + n);
+      region.set(ld, (region.get(ld) || 0) + n);
+      zelle.set(sp + '|' + ld, n);
+      gesamt += n;
+    });
+    let html = `<section class="stat-card breit" data-liste="sport_region"><h3><span>${escapeHtml(t('l_sport_region'))}</span><small>${escapeHtml(t('sport_region_sub'))} · ${fmtInt(gesamt)}</small></h3>`;
+    if (!gesamt) return html + `<p class="leer">${escapeHtml(t('leer'))}</p></section>`;
+    const sortiert = (m) => Array.from(m, ([k, n]) => ({ k, n })).sort((a, b) => b.n - a.n || (a.k < b.k ? -1 : 1));
+    const sportarten = sortiert(sport);
+    const regionen = sortiert(region);
+    const spalten = regionen.slice(0, 4).map(r => r.k);
+    const rest = regionen.slice(4).map(r => r.k);
+    const wert = (sp, ld) => zelle.get(sp + '|' + ld) || 0;
+    const restWert = (sp) => rest.reduce((a, ld) => a + wert(sp, ld), 0);
+    const ld = (k) => I18N[lang].ld[k] || k;
+    html += '<div class="matrix-wrap"><table class="matrix"><thead><tr>' +
+      `<th>${escapeHtml(t('th_sport'))}</th>` + spalten.map(k => `<th>${escapeHtml(ld(k))}</th>`).join('') +
+      (rest.length ? `<th>${escapeHtml(t('sonstige'))}</th>` : '') + `<th>${escapeHtml(t('th_gesamt'))}</th></tr></thead><tbody>` +
+      sportarten.map(({ k, n }) =>
+        `<tr><td>${escapeHtml(sportName(k))}</td>` + spalten.map(l => `<td>${fmtInt(wert(k, l))}</td>`).join('') +
+        (rest.length ? `<td>${fmtInt(restWert(k))}</td>` : '') + `<td>${fmtInt(n)} <span class="anteil">(${escapeHtml(fmtProzent(n / gesamt))})</span></td></tr>`
+      ).join('') + '</tbody><tfoot><tr>' +
+      `<td>${escapeHtml(t('th_gesamt'))}</td>` + spalten.map(l => `<td>${fmtInt(region.get(l) || 0)}</td>`).join('') +
+      (rest.length ? `<td>${fmtInt(rest.reduce((a, l) => a + (region.get(l) || 0), 0))}</td>` : '') + `<td>${fmtInt(gesamt)}</td></tr></tfoot></table></div>`;
+    return html + '</section>';
+  }
+
+  // Bericht je Veranstaltung: was ein Veranstalter wissen will - wie oft
+  // sein Event geöffnet wurde, wie viele zu seiner Seite weitergingen,
+  // Kalender, Teilen; dazu die Tage. Gerechnet aus den Tageslisten
+  // (events, veranstalter, events_kalender, events_teilen), die je Tag die
+  // 500 meistgenannten Events führen - ein sehr kleines Event an einem
+  // sehr großen Tag kann darin fehlen.
+  let berichtEvent = null;   // Wahl des Nutzers; null = das meistgeöffnete
+  function berichtHtml() {
+    const L = aktuell.summe.listen;
+    const ev = L.events || new Map();
+    const namen = Array.from(ev, ([k, n]) => ({ k, n })).sort((a, b) => b.n - a.n || (a.k < b.k ? -1 : 1));
+    const name = berichtEvent != null ? berichtEvent : (namen.length ? namen[0].k : '');
+    let html = `<section class="stat-card breit" id="bericht-card"><h3><span>${escapeHtml(t('bericht_titel'))}</span><small>${escapeHtml(t('bericht_sub'))}</small></h3>`;
+    html += `<input class="bericht-suche" id="bericht-suche" list="bericht-liste" placeholder="${escapeHtml(t('bericht_platzhalter'))}" value="${escapeHtml(name)}" autocomplete="off">` +
+      `<datalist id="bericht-liste">${namen.slice(0, 500).map(e => `<option value="${escapeHtml(e.k)}"></option>`).join('')}</datalist>`;
+    if (!namen.length) return html + `<p class="leer">${escapeHtml(t('bericht_leer'))}</p></section>`;
+    if (!ev.has(name)) return html + `<p class="leer">${escapeHtml(t('bericht_unbekannt'))}</p></section>`;
+    const g = ev.get(name) || 0;
+    const v = (L.veranstalter && L.veranstalter.get(name)) || 0;
+    const k = (L.events_kalender && L.events_kalender.get(name)) || 0;
+    const sh = (L.events_teilen && L.events_teilen.get(name)) || 0;
+    const rate = g ? v / g : NaN;
+    const vg = aktuell.vergleich ? (aktuell.vergleich.listen.events.get(name) || 0) : NaN;
+    const kacheln = [
+      { label: t('b_geoeffnet'), wert: fmtInt(g), d: delta(g, vg) },
+      { label: t('b_veranstalter'), wert: fmtInt(v) },
+      { label: t('b_klickrate'), wert: fmtProzent(rate) },
+      { label: t('b_kalender'), wert: fmtInt(k) },
+      { label: t('b_teilen'), wert: fmtInt(sh) }
+    ];
+    html += `<p class="bericht-name">${escapeHtml(name)}</p><div class="bericht-kpis">` + kacheln.map(x =>
+      `<div class="kpi"><div class="label">${escapeHtml(x.label)}</div><div class="value">${escapeHtml(x.wert)}</div>${x.d || ''}</div>`
+    ).join('') + '</div>';
+    const inListe = (liste, n) => { const e = (liste || []).find(x => x.k === n); return e ? e.n || 0 : 0; };
+    const zeilen = aktuell.tage.filter(x => x.doc).map(({ d, doc }) => ({
+      d, g: inListe(doc.events, name), v: inListe(doc.veranstalter, name), k: inListe(doc.events_kalender, name), s: inListe(doc.events_teilen, name)
+    })).filter(z => z.g || z.v || z.k || z.s).reverse();
+    html += `<details class="tabelle"><summary>${escapeHtml(t('tabelle'))}</summary><div class="matrix-wrap"><table class="matrix"><thead><tr>` +
+      ['th_tag', 'b_geoeffnet', 'b_veranstalter', 'b_kalender', 'b_teilen'].map(x => `<th>${escapeHtml(t(x))}</th>`).join('') + '</tr></thead><tbody>' +
+      zeilen.map(z => `<tr><td>${escapeHtml(fmtTag(z.d))}</td><td>${fmtInt(z.g)}</td><td>${fmtInt(z.v)}</td><td>${fmtInt(z.k)}</td><td>${fmtInt(z.s)}</td></tr>`).join('') +
+      '</tbody></table></div></details>';
+    html += `<div class="bericht-fuss"><button type="button" class="stat-btn" id="bericht-kopieren">${escapeHtml(t('bericht_kopieren'))}</button><span class="hinweis">${escapeHtml(t('bericht_hinweis'))}</span></div>`;
+    return html + '</section>';
+  }
+  function berichtText() {
+    const L = aktuell.summe.listen;
+    const ev = L.events || new Map();
+    const name = berichtEvent != null ? berichtEvent : (Array.from(ev.keys())[0] || '');
+    if (!ev.has(name)) return '';
+    const g = ev.get(name) || 0, v = (L.veranstalter && L.veranstalter.get(name)) || 0;
+    const zeitraum = aktuell.g.von ? `${fmtTag(aktuell.g.von)} – ${fmtTag(aktuell.g.bis)}` : `${lang === 'de' ? 'bis' : 'until'} ${fmtTag(aktuell.g.bis)}`;
+    return t('bericht_text', name, zeitraum, fmtInt(g), fmtInt(v), fmtProzent(g ? v / g : NaN),
+      fmtInt((L.events_kalender && L.events_kalender.get(name)) || 0), fmtInt((L.events_teilen && L.events_teilen.get(name)) || 0));
+  }
+
+  // Werbeplätze: Einblendungen und Klicks je Platz, daraus die Klickrate.
+  // Leer, bis eine Seite EnduranceStats.anzeige() aufruft (stats.js).
+  function werbungHtml() {
+    const sicht = aktuell.summe.listen.anzeige_sicht || new Map();
+    const klick = aktuell.summe.listen.anzeige_klick || new Map();
+    const plaetze = new Set([...sicht.keys(), ...klick.keys()]);
+    let html = `<section class="stat-card" data-liste="anzeige"><h3><span>${escapeHtml(t('werbung_titel'))}</span><small>${escapeHtml(t('werbung_sub'))}</small></h3>`;
+    if (!plaetze.size) return html + `<p class="leer">${escapeHtml(t('werbung_leer'))}</p></section>`;
+    const zeilen = Array.from(plaetze, (k) => ({ k, s: sicht.get(k) || 0, c: klick.get(k) || 0 })).sort((a, b) => b.s - a.s || (a.k < b.k ? -1 : 1));
+    const gs = zeilen.reduce((a, z) => a + z.s, 0), gc = zeilen.reduce((a, z) => a + z.c, 0);
+    html += `<div class="matrix-wrap"><table class="matrix"><thead><tr>${['th_platz', 'th_sicht', 'th_klicks', 'th_ctr'].map(x => `<th>${escapeHtml(t(x))}</th>`).join('')}</tr></thead><tbody>` +
+      zeilen.map(z => `<tr><td>${escapeHtml(z.k)}</td><td>${fmtInt(z.s)}</td><td>${fmtInt(z.c)}</td><td>${escapeHtml(fmtProzent(z.s ? z.c / z.s : NaN))}</td></tr>`).join('') +
+      `</tbody><tfoot><tr><td>${escapeHtml(t('th_gesamt'))}</td><td>${fmtInt(gs)}</td><td>${fmtInt(gc)}</td><td>${escapeHtml(fmtProzent(gs ? gc / gs : NaN))}</td></tr></tfoot></table></div>`;
+    return html + '</section>';
+  }
+  function zeichneBerichtNeu() {
+    const alt = document.getElementById('bericht-card');
+    // Beim Neuzeichnen der Listen (Sprachwechsel) verliert das Suchfeld
+    // den Fokus, Chrome feuert dabei `change`, und die alte Karte hängt
+    // schon nicht mehr im Dokument - dann gibt es nichts zu ersetzen.
+    if (!alt || !alt.isConnected) return;
+    const tmp = document.createElement('div');
+    tmp.innerHTML = berichtHtml();
+    alt.replaceWith(tmp.firstElementChild);
+  }
+  document.getElementById('stat-content').addEventListener('change', (ev) => {
+    if (ev.target.id !== 'bericht-suche' || !ev.target.isConnected) return;
+    const neu = ev.target.value.trim();
+    if (neu === berichtEvent) return;
+    berichtEvent = neu;
+    zeichneBerichtNeu();
+  });
+
+  function listeHtml(feld) {
+    const map = aktuell.summe.listen[feld] || new Map();
+    const eintraege = Array.from(map, ([k, n]) => ({ k, n })).sort((a, b) => b.n - a.n || (a.k < b.k ? -1 : 1));
+    const gesamt = eintraege.reduce((s, e) => s + e.n, 0);
+    const max = eintraege.length ? eintraege[0].n : 0;
+    const zeigeAlle = offen.has(feld);
+    const sichtbar = zeigeAlle ? eintraege : eintraege.slice(0, ANFANG);
+    const beschrifte = BESCHRIFTUNG[feld] || ((k) => k);
+    let html = `<section class="stat-card" data-liste="${feld}"><h3><span>${escapeHtml(t('l_' + feld))}</span><small>${fmtInt(gesamt)}</small></h3>`;
+    if (!eintraege.length) {
+      html += `<p class="leer">${escapeHtml(t('leer'))}</p></section>`;
+      return html;
+    }
+    html += '<ul class="liste">' + sichtbar.map(e =>
+      `<li><div class="zeile"><span class="name" title="${escapeHtml(e.k)}">${escapeHtml(beschrifte(String(e.k)))}</span><span class="zahl">${fmtInt(e.n)}</span><span class="anteil">${escapeHtml(fmtProzent(gesamt ? e.n / gesamt : 0))}</span></div><div class="spur"><i style="width:${max ? (e.n / max * 100).toFixed(1) : 0}%"></i></div></li>`
+    ).join('') + '</ul>';
+    if (eintraege.length > ANFANG) {
+      html += `<button type="button" class="mehr-btn" data-mehr="${feld}">${escapeHtml(zeigeAlle ? t('weniger') : `${t('mehr')} (${eintraege.length})`)}</button>`;
+    }
+    return html + '</section>';
+  }
+  document.getElementById('stat-content').addEventListener('click', (ev) => {
+    const kopie = ev.target.closest('#bericht-kopieren');
+    if (kopie) {
+      const text = berichtText();
+      if (text && navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => { kopie.textContent = t('kopiert'); }).catch(() => {});
+      }
+      return;
+    }
+    const b = ev.target.closest('button[data-mehr]');
+    if (!b) return;
+    const feld = b.dataset.mehr;
+    if (offen.has(feld)) offen.delete(feld); else offen.add(feld);
+    const alt = b.closest('section[data-liste]');
+    const tmp = document.createElement('div');
+    tmp.innerHTML = listeHtml(feld);
+    alt.replaceWith(tmp.firstElementChild);
+  });
+
+  // ---------- CSV ----------
+  document.getElementById('csv-btn').addEventListener('click', () => {
+    if (!aktuell) return;
+    const zeilen = [[t('th_tag'), t('th_besucher'), t('th_besuche'), t('th_pv'), t('th_absprung'), t('th_dauer') + ' (s)', t('kpi_abos'), t('ig_besuche')]];
+    aktuell.tage.filter(x => x.doc).forEach(({ d, doc }) => {
+      zeilen.push([d, doc.besucher || 0, doc.besuche || 0, doc.pv || 0, doc.absprung || 0, doc.dauer_n ? Math.round(doc.dauer_sek / doc.dauer_n) : '',
+        typeof doc.abos_aktiv === 'number' ? doc.abos_aktiv : '', (doc.instagram && doc.instagram.besuche) || 0]);
+    });
+    const csv = zeilen.map(z => z.map(v => `"${String(v).replace(/"/g, '""')}"`).join(';')).join('\r\n');
+    const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `endurance-events-statistik-${aktuell.g.von || 'alles'}-${aktuell.g.bis}.csv`;
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 0);
+  });
+
+  // ---------- Sprache ----------
+  function applyLang(l) {
+    lang = l;
+    try { localStorage.setItem('endurance-lang', l); } catch (e) { /* ignorieren */ }
+    document.documentElement.lang = l;
+    document.title = t('title') + ' – Endurance Events';
+    document.getElementById('stat-title').textContent = t('title');
+    document.getElementById('stat-sub').textContent = t('sub');
+    document.getElementById('nav-events').textContent = t('nav_events');
+    document.getElementById('nav-map').textContent = t('nav_map');
+    document.getElementById('h-verlauf').textContent = t('verlauf');
+    ['dashboard', 'graphen', 'auswertungen', 'instagram', 'wartung'].forEach(k => {
+      document.getElementById('b-' + k).textContent = t('b_' + k);
+    });
+    document.getElementById('csv-btn').textContent = t('csv');
+    document.getElementById('footer-impressum').textContent = l === 'de' ? 'Impressum' : 'Legal notice';
+    document.getElementById('footer-datenschutz').textContent = l === 'de' ? 'Datenschutz' : 'Privacy';
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+    if (aktuell) zeichneAlles();
+    else if (!gateEl.hidden) {
+      // Der Zugangshinweis trägt Text - neu zeichnen, je nach Zustand.
+      if (geladenFuer === null && window.EndauranceAuth && !window.EndauranceAuth.getUser()) gateLogin();
+    }
+    zeichneWartung();
+    zeichneFreigaben();
+  }
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+  applyLang(lang);
+
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    if (!aktuell) return;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { zeichneInstagram(); zeichneVerlauf(); zeichneMonate(); zeichneStunden(); zeichneWochentage(); }, 150);
+  });
+
+  // auth.js lädt mit defer und existiert hier noch nicht - deshalb über
+  // die Warteschlange (dieselbe wie in events.html).
+  zeigeGate(`<p class="leer">${escapeHtml(t('gate_laden'))}</p>`);
+  if (!window.FIREBASE_CONFIGURED && document.readyState === 'complete') {
+    zeigeGate(`<p class="leer">${escapeHtml(t('gate_nicht_konfiguriert'))}</p>`);
+  }
+  (window.EE_AUTH_QUEUE = window.EE_AUTH_QUEUE || []).push((user) => {
+    nachAnmeldung(user).catch(gateFehler);
+  });
+  window.addEventListener('load', () => {
+    if (!window.FIREBASE_CONFIGURED) zeigeGate(`<p class="leer">${escapeHtml(t('gate_nicht_konfiguriert'))}</p>`);
+  });
+})();
+</script>
+</body>
+</html>

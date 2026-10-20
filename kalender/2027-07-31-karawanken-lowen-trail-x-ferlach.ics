@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-karawanken-lowen-trail-x-ferlach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270802
+SUMMARY:Karawanken Löwen Trail
+LOCATION:Ferlach\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.lcsuetschach.a
+ t/karawanken-l%C3%B6wen-trail-hike/
+TRANSP:TRANSPARENT
+URL:https://www.lcsuetschach.at/karawanken-l%C3%B6wen-trail-hike/
+END:VEVENT
+END:VCALENDAR

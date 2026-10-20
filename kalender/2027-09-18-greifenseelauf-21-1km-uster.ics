@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-greifenseelauf-21-1km-uster@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Greifenseelauf – Halbmarathon
+LOCATION:Uster\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.greifens
+ eelauf.ch/
+TRANSP:TRANSPARENT
+URL:http://www.greifenseelauf.ch/
+END:VEVENT
+END:VCALENDAR

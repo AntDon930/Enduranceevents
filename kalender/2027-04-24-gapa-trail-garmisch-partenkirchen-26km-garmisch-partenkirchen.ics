@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-gapa-trail-garmisch-partenkirchen-26km-garmisch-partenkirch
+ en@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:GaPa Trail Garmisch-Partenkirchen – Sport Conrad Laufen – Langstre
+ cke
+LOCATION:Garmisch-Partenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 26 km\nhttps://www.gapatrail.
+ de/
+TRANSP:TRANSPARENT
+URL:https://www.gapatrail.de/
+END:VEVENT
+END:VCALENDAR

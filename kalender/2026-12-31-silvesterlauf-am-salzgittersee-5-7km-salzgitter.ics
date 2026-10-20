@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-am-salzgittersee-5-7km-salzgitter@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf am Salzgittersee – 5\,7 km Laufen\, Starterfeld begr
+ enzt auf 1.400 Teilnehmende.
+LOCATION:Salzgitter\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.7 km\nhttps://my.raceresul
+ t.com/380873/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/380873/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-florsheim-am-main-x-florsheim-am-main@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf - Flörsheim am Main
+LOCATION:Flörsheim am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.tg-weilbach.d
+ e/index.php?index=LASL
+TRANSP:TRANSPARENT
+URL:https://www.tg-weilbach.de/index.php?index=LASL
+END:VEVENT
+END:VCALENDAR

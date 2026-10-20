@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-21-business2run-weberzeile-5km-ried-im-innkreis@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261021
+DTEND;VALUE=DATE:20261022
+SUMMARY:Business2Run Weberzeile
+LOCATION:Ried im Innkreis\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.business2r
+ un.at/events/weberzeile
+TRANSP:TRANSPARENT
+URL:https://www.business2run.at/events/weberzeile
+END:VEVENT
+END:VCALENDAR

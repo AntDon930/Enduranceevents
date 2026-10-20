@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-imster-radmarathon-90km-imst@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Imster Radmarathon – Jedermannrennen 90 km
+LOCATION:Imst\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 90 km\nhttps://www.imster-r
+ admarathon.at/
+TRANSP:TRANSPARENT
+URL:https://www.imster-radmarathon.at/
+END:VEVENT
+END:VCALENDAR

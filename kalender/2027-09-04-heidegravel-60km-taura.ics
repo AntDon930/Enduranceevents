@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-heidegravel-60km-taura@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270906
+SUMMARY:HeideGravel – Gravel Race 60 km
+LOCATION:Taura\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 60 km\nhttps://heide-gravel
+ .de/
+TRANSP:TRANSPARENT
+URL:https://heide-gravel.de/
+END:VEVENT
+END:VCALENDAR

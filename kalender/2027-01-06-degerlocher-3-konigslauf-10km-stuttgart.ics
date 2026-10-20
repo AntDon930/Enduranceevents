@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-degerlocher-3-konigslauf-10km-stuttgart@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Degerlocher 3-Königslauf – 10 km Volkslauf
+LOCATION:Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lac-deger
+ loch.de/index.php/veranstaltungen/volkslauf-3-koenigslauf
+TRANSP:TRANSPARENT
+URL:https://www.lac-degerloch.de/index.php/veranstaltungen/volkslauf-3-koe
+ nigslauf
+END:VEVENT
+END:VCALENDAR

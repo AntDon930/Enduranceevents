@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-oggauer-rote-nasen-lauf-x-oggau-am-neusiedler-see@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Oggauer Rote Nasen Lauf
+LOCATION:Oggau am Neusiedler See\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.rotenasenlauf
+ .at/lauf/7-oggauer-rote-nasen-lauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.rotenasenlauf.at/lauf/7-oggauer-rote-nasen-lauf-2026
+END:VEVENT
+END:VCALENDAR

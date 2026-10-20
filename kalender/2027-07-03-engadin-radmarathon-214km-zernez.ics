@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-engadin-radmarathon-214km-zernez@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270705
+SUMMARY:Engadin Radmarathon – Kombi beide Rennen 214 km
+LOCATION:Zernez\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 214 km\nhttps://rad-maratho
+ n.ch/
+TRANSP:TRANSPARENT
+URL:https://rad-marathon.ch/
+END:VEVENT
+END:VCALENDAR

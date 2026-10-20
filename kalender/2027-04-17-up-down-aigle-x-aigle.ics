@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-up-down-aigle-x-aigle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Up & Down Aigle
+LOCATION:Aigle\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.upanddown-aigl
+ e.ch/
+TRANSP:TRANSPARENT
+URL:https://www.upanddown-aigle.ch/
+END:VEVENT
+END:VCALENDAR

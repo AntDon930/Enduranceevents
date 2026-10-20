@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-sportscheck-run-hamburg-15km-aussen-alster@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:SportScheck RUN Hamburg – 15 km RUN
+LOCATION:Aussen-Alster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.sportsche
+ ck.com/run-hamburg.html
+TRANSP:TRANSPARENT
+URL:https://www.sportscheck.com/run-hamburg.html
+END:VEVENT
+END:VCALENDAR

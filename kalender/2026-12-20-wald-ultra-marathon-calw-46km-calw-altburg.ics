@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-wald-ultra-marathon-calw-46km-calw-altburg@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Wald(Ultra)Marathon Calw
+LOCATION:Calw-Altburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://www.kilometer
+ liebe.de/events/wald-ultra-marathon-calw
+TRANSP:TRANSPARENT
+URL:https://www.kilometerliebe.de/events/wald-ultra-marathon-calw
+END:VEVENT
+END:VCALENDAR

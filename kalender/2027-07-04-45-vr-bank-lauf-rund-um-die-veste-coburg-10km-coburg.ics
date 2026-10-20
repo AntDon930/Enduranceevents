@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-45-vr-bank-lauf-rund-um-die-veste-coburg-10km-coburg@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:45. VR-Bank-Lauf - Rund um die Veste Coburg
+LOCATION:Coburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.vestelauf.
+ de
+TRANSP:TRANSPARENT
+URL:http://www.vestelauf.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-09-trail-verbier-st-bernard-by-utmb-43km-val-de-bagnes@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270709
+DTEND;VALUE=DATE:20270712
+SUMMARY:Trail Verbier St Bernard by UTMB
+LOCATION:Val de Bagnes\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 43 km\nhttps://verbier.utmb.w
+ orld
+TRANSP:TRANSPARENT
+URL:https://verbier.utmb.world
+END:VEVENT
+END:VCALENDAR

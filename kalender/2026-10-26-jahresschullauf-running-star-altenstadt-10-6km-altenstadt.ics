@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-jahresschullauf-running-star-altenstadt-10-6km-altenstadt@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Jahresschullauf Running Star - Altenstadt – 10\,6 km Lauf
+LOCATION:Altenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.6 km\nhttps://my.raceresu
+ lt.com/430121/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/430121/
+END:VEVENT
+END:VCALENDAR

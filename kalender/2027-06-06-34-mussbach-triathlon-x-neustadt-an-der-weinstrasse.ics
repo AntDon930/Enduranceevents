@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-34-mussbach-triathlon-x-neustadt-an-der-weinstrasse@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:34. Mußbach Triathlon – Sprint
+LOCATION:Neustadt an der Weinstraße\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://typo.tv-mussba
+ ch.de/sportangebote/triathlon/mussbach-triathlon
+TRANSP:TRANSPARENT
+URL:https://typo.tv-mussbach.de/sportangebote/triathlon/mussbach-triathlon
+END:VEVENT
+END:VCALENDAR

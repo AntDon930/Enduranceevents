@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-tangerpokallauf-demker-5-8km-demker@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Tangerpokallauf Demker – 5\,8 km Lauf für Altersklassen ab U16 sow
+ ie Walker
+LOCATION:Demker\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.8 km\nhttps://www.elbe-ohr
+ e-cup.de/veranstaltungen/tangerpokallauf/
+TRANSP:TRANSPARENT
+URL:https://www.elbe-ohre-cup.de/veranstaltungen/tangerpokallauf/
+END:VEVENT
+END:VCALENDAR

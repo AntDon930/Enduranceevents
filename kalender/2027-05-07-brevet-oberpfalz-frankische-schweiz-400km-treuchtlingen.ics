@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-brevet-oberpfalz-frankische-schweiz-400km-treuchtlingen@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:Brevet Oberpfalz + Fränkische Schweiz – Brevet 400 km
+LOCATION:Treuchtlingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 400 km\nhttp://www.randonne
+ ure.de/
+TRANSP:TRANSPARENT
+URL:http://www.randonneure.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-frondenberger-bahnmarathon-42-2km-frondenberg-ruhr@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Fröndenberger Bahnmarathon – Marathon
+LOCATION:Fröndenberg/Ruhr\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 42.2 km\nhttps://vfl-froendenb
+ erg.de/
+TRANSP:TRANSPARENT
+URL:https://vfl-froendenberg.de/
+END:VEVENT
+END:VCALENDAR

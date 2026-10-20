@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-montreux-les-rochers-de-naye-5-5km-montreux@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Montreux-Les Rochers-de-Naye – La Directissime 5.5 km
+LOCATION:Montreux\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.5 km\nhttps://www.montreuxl
+ esrochersdenaye.ch/
+TRANSP:TRANSPARENT
+URL:https://www.montreuxlesrochersdenaye.ch/
+END:VEVENT
+END:VCALENDAR

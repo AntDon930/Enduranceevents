@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-landesmeisterschaften-crosslauf-m-v-7-2km-rostock@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Landesmeisterschaften Crosslauf M-V – Männer / Senioren bis M45
+LOCATION:Rostock\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.2 km\nhttps://laufen.de/lau
+ fkalender/details/landesmeisterschaft-cross-m-v-2026
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/landesmeisterschaft-cross-m-v-2
+ 026
+END:VEVENT
+END:VCALENDAR

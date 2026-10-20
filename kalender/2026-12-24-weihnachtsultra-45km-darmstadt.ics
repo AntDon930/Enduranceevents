@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-24-weihnachtsultra-45km-darmstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261224
+DTEND;VALUE=DATE:20261225
+SUMMARY:Weihnachtsultra
+LOCATION:Darmstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45 km\nhttps://www.kilometer
+ liebe.de/events/weihnachtsultra
+TRANSP:TRANSPARENT
+URL:https://www.kilometerliebe.de/events/weihnachtsultra
+END:VEVENT
+END:VCALENDAR

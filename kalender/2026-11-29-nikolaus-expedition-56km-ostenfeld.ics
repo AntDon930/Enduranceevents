@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-nikolaus-expedition-56km-ostenfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Nikolaus Expedition – CTF 56 km
+LOCATION:Ostenfeld\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 56 km\nhttps://
+TRANSP:TRANSPARENT
+URL:https://
+END:VEVENT
+END:VCALENDAR

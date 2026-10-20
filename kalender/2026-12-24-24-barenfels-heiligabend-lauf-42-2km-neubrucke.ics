@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-24-24-barenfels-heiligabend-lauf-42-2km-neubrucke@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261224
+DTEND;VALUE=DATE:20261225
+SUMMARY:24. Bärenfels Heiligabend-Lauf
+LOCATION:Neubrücke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.baerenf
+ elslauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.baerenfelslauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-casinolauf-velden-7km-velden-am-worthersee@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Casinolauf Velden
+LOCATION:Velden am Wörthersee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.lfl-koeste
+ nberg.at/veranstaltungen/casinolauf/
+TRANSP:TRANSPARENT
+URL:https://www.lfl-koestenberg.at/veranstaltungen/casinolauf/
+END:VEVENT
+END:VCALENDAR

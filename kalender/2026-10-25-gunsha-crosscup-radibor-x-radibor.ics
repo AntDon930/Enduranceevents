@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-gunsha-crosscup-radibor-x-radibor@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:GUNSHA Crosscup Radibor – Cyclocross\, GUNSHA Crosscup
+LOCATION:Radibor\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.rsv-baut
+ zen.de
+TRANSP:TRANSPARENT
+URL:https://www.rsv-bautzen.de
+END:VEVENT
+END:VCALENDAR

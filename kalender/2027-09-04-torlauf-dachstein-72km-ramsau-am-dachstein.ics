@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-torlauf-dachstein-72km-ramsau-am-dachstein@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Torlauf Dachstein – 72 km 3.900 Hm
+LOCATION:Ramsau am Dachstein\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 72 km\nhttps://www.torlauf-da
+ chstein.info
+TRANSP:TRANSPARENT
+URL:https://www.torlauf-dachstein.info
+END:VEVENT
+END:VCALENDAR

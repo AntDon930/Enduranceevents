@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-12-florstadt-halbmarathon-2027-21-1km-florstadt@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:12. FlorSTADT Halbmarathon 2027
+LOCATION:Florstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://ltflorstadt
+ .de/halbmarathon
+TRANSP:TRANSPARENT
+URL:https://ltflorstadt.de/halbmarathon
+END:VEVENT
+END:VCALENDAR

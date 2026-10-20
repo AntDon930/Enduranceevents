@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-grossweiler-moosrunde-12-4km-grossweil@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Großweiler Moosrunde
+LOCATION:Großweil\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12.4 km\nhttps://endurance-ev
+ ents.de/
+TRANSP:TRANSPARENT
+URL:https://endurance-events.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-flugfeld-giro-40km-sindelfingen-boblingen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Flugfeld Giro – Radmarathon 40 km
+LOCATION:Sindelfingen/Böblingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 40 km\nhttps://flugfeld-gir
+ o.de
+TRANSP:TRANSPARENT
+URL:https://flugfeld-giro.de
+END:VEVENT
+END:VCALENDAR

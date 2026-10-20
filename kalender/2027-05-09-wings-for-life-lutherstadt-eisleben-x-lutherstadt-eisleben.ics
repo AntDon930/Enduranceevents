@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-lutherstadt-eisleben-x-lutherstadt-eisleben@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life - Lutherstadt Eisleben
+LOCATION:Lutherstadt Eisleben\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: -\nhttps://www.win
+ gsforlifeworldrun.com/en/locations/lutherstadt-eisleben
+TRANSP:TRANSPARENT
+URL:https://www.wingsforlifeworldrun.com/en/locations/lutherstadt-eisleben
+END:VEVENT
+END:VCALENDAR

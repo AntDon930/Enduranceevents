@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-sud-bayern-rundfahrt-600km-treuchtlingen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Süd - Bayern Rundfahrt – Brevet 600 km
+LOCATION:Treuchtlingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 600 km\nhttp://www.randonne
+ ure.de/
+TRANSP:TRANSPARENT
+URL:http://www.randonneure.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-feuerwehrlauf-riedrode-7-5km-burstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Feuerwehrlauf Riedrode – 7\,5 km Hauptlauf
+LOCATION:Bürstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.feuerweh
+ r-riedrode.de/wordpress/feuerwehrlauf-75-jahre-freiwillige-feuerwehr-ried
+ rode/
+TRANSP:TRANSPARENT
+URL:https://www.feuerwehr-riedrode.de/wordpress/feuerwehrlauf-75-jahre-fre
+ iwillige-feuerwehr-riedrode/
+END:VEVENT
+END:VCALENDAR

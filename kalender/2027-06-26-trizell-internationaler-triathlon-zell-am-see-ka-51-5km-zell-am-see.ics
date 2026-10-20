@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-trizell-internationaler-triathlon-zell-am-see-ka-51-5km-zel
+ l-am-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270628
+SUMMARY:TriZell: Internationaler Triathlon Zell am See-Kaprun – Olympische
+  Distanz
+LOCATION:Zell am See\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://www.zell
+ amsee-kaprun.com/de/events/trizell
+TRANSP:TRANSPARENT
+URL:https://www.zellamsee-kaprun.com/de/events/trizell
+END:VEVENT
+END:VCALENDAR

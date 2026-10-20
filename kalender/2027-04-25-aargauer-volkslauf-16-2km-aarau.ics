@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-aargauer-volkslauf-16-2km-aarau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Aargauer Volkslauf – 16.2 km als Hauptstrecke für die offenen Kate
+ gorien.
+LOCATION:Aarau\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16.2 km\nhttps://www.volksla
+ uf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.volkslauf.ch/
+END:VEVENT
+END:VCALENDAR

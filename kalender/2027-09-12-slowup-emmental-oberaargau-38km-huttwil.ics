@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-slowup-emmental-oberaargau-38km-huttwil@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:slowUp Emmental-Oberaargau – Volksradfahren 38 km
+LOCATION:Huttwil\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 38 km\nhttps://www.sl
+ owup.ch/emmental-oberaargau/de
+TRANSP:TRANSPARENT
+URL:https://www.slowup.ch/emmental-oberaargau/de
+END:VEVENT
+END:VCALENDAR

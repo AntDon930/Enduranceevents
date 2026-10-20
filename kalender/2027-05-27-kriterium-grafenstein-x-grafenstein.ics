@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-kriterium-grafenstein-x-grafenstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:Kriterium Grafenstein – Kriterium
+LOCATION:Grafenstein\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttp://lrv-kaernten.at
+TRANSP:TRANSPARENT
+URL:http://lrv-kaernten.at
+END:VEVENT
+END:VCALENDAR

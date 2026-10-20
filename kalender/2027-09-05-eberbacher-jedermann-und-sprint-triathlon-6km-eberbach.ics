@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-eberbacher-jedermann-und-sprint-triathlon-6km-eberbach@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Eberbacher Jedermann- und Sprint-Triathlon
+LOCATION:Eberbach\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 6 km\nhttp://www.triathlo
+ n-eberbach.de
+TRANSP:TRANSPARENT
+URL:http://www.triathlon-eberbach.de
+END:VEVENT
+END:VCALENDAR

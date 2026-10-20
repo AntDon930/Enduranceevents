@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-allgau-triathlon-immenstadt-106km-immenstadt-im-allgau@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:Allgäu Triathlon Immenstadt
+LOCATION:Immenstadt im Allgäu\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 106 km\nhttps://808projec
+ t.de/allgaeutriathlon
+TRANSP:TRANSPARENT
+URL:https://808project.de/allgaeutriathlon
+END:VEVENT
+END:VCALENDAR

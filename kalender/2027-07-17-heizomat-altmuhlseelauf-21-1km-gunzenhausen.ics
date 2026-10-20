@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-heizomat-altmuhlseelauf-21-1km-gunzenhausen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Heizomat Altmühlseelauf – Halbmarathon
+LOCATION:Gunzenhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.altmueh
+ lseelauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.altmuehlseelauf.de/
+END:VEVENT
+END:VCALENDAR

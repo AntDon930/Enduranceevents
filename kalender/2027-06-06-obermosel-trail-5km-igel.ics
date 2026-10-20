@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-obermosel-trail-5km-igel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Obermosel Trail – Weingut B. Frieden - Trail - ca. 5 km
+LOCATION:Igel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://obermosel-trail
+ .de/
+TRANSP:TRANSPARENT
+URL:https://obermosel-trail.de/
+END:VEVENT
+END:VCALENDAR

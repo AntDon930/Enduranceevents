@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-wichtelhauser-volkslauf-10km-lahntal-gossfelden@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Wichtelhäuser Volkslauf
+LOCATION:Lahntal Goßfelden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tv06-gossf
+ elden.de/
+TRANSP:TRANSPARENT
+URL:http://www.tv06-gossfelden.de/
+END:VEVENT
+END:VCALENDAR

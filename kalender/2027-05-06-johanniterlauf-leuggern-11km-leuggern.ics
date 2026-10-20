@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-06-johanniterlauf-leuggern-11km-leuggern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+SUMMARY:Johanniterlauf Leuggern
+LOCATION:Leuggern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://johanniterlau
+ f.ch/
+TRANSP:TRANSPARENT
+URL:https://johanniterlauf.ch/
+END:VEVENT
+END:VCALENDAR

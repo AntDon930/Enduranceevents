@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-20-internationale-inferno-skirennen-15km-lauterbrunnen@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270124
+SUMMARY:Internationale Inferno-Skirennen
+LOCATION:Lauterbrunnen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.inferno-m
+ uerren.ch/
+TRANSP:TRANSPARENT
+URL:https://www.inferno-muerren.ch/
+END:VEVENT
+END:VCALENDAR

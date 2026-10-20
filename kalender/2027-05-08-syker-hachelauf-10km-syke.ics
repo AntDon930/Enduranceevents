@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-syker-hachelauf-10km-syke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Syker Hachelauf
+LOCATION:Syke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.syker-hac
+ helauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.syker-hachelauf.de/
+END:VEVENT
+END:VCALENDAR

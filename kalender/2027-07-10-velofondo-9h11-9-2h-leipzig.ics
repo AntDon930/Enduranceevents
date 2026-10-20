@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-velofondo-9h11-9-2h-leipzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Velofondo 9h11 – Jedermannrennen 9.2 h
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 9.2 h\nhttps://www.velofond
+ o9h11.de/
+TRANSP:TRANSPARENT
+URL:https://www.velofondo9h11.de/
+END:VEVENT
+END:VCALENDAR

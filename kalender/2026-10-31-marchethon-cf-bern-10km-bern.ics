@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-marchethon-cf-bern-10km-bern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:marCHethon CF Bern
+LOCATION:Bern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.marchetho
+ n-bern.ch
+TRANSP:TRANSPARENT
+URL:https://www.marchethon-bern.ch
+END:VEVENT
+END:VCALENDAR

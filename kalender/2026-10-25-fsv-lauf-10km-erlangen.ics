@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-fsv-lauf-10km-erlangen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:FSV-Lauf – 10 km Lauf\, 2 Runden à 5 km
+LOCATION:Erlangen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://fsvlauf.de/
+TRANSP:TRANSPARENT
+URL:https://fsvlauf.de/
+END:VEVENT
+END:VCALENDAR

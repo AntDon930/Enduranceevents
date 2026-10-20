@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-ultratrail-oerlinghausen-46km-oerlinghausen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Ultratrail Oerlinghausen
+LOCATION:Oerlinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 46 km\nhttps://ultra-uwe-unte
+ rwegs.de/veranstaltungen/uwes-laufangebote/
+TRANSP:TRANSPARENT
+URL:https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/
+END:VEVENT
+END:VCALENDAR

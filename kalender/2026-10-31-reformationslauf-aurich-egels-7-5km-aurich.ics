@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-reformationslauf-aurich-egels-7-5km-aurich@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Reformationslauf Aurich-Egels – 7.500 m drei Runden
+LOCATION:Aurich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://my.raceresul
+ t.com/426953/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/426953/
+END:VEVENT
+END:VCALENDAR

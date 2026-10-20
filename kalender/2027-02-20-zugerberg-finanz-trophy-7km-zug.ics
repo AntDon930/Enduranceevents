@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-zugerberg-finanz-trophy-7km-zug@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20271002
+SUMMARY:Zugerberg Finanz Trophy
+LOCATION:Zug\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.zugerbergf
+ inanz-trophy.ch/
+TRANSP:TRANSPARENT
+URL:https://www.zugerbergfinanz-trophy.ch/
+END:VEVENT
+END:VCALENDAR

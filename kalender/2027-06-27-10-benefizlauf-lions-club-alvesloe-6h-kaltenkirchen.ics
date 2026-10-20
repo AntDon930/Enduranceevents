@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-10-benefizlauf-lions-club-alvesloe-6h-kaltenkirchen@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:10. Benefizlauf Lions Club Alvesloe – 6 Stundenlauf
+LOCATION:Kaltenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 6 h\nhttps://laufe
+ n.de/laufkalender/details/10-benefizlauf-lions-club-alvesloe
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/10-benefizlauf-lions-club-alves
+ loe
+END:VEVENT
+END:VCALENDAR

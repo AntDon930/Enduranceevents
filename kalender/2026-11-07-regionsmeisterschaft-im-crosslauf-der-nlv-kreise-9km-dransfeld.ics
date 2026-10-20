@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-regionsmeisterschaft-im-crosslauf-der-nlv-kreise-9km-dransf
+ eld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Regionsmeisterschaft im Crosslauf der NLV Kreise
+LOCATION:Dransfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://ladv.de/ausschr
+ eibung/detail/49360/Offene-Kreismeisterschaft-im-Crosslauf-des-NLV-Kreis-
+ G%C3%96-Dransfeld.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49360/Offene-Kreismeisterschaft-i
+ m-Crosslauf-des-NLV-Kreis-G%C3%96-Dransfeld.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-zuri-rannt-trails-15km-zurich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Züri rännt Trails
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 15 km\nhttps://zueriraennt.ch
+ /blog/zuri-rannt-trails
+TRANSP:TRANSPARENT
+URL:https://zueriraennt.ch/blog/zuri-rannt-trails
+END:VEVENT
+END:VCALENDAR

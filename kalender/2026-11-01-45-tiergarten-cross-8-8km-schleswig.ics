@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-45-tiergarten-cross-8-8km-schleswig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:45. Tiergarten-Cross
+LOCATION:Schleswig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.8 km\nhttps://www.spiridon-
+ schleswig.de
+TRANSP:TRANSPARENT
+URL:https://www.spiridon-schleswig.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-kreismeisterschaften-crosslauf-wesermarsch-x-butjadingen@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Kreismeisterschaften Crosslauf Wesermarsch
+LOCATION:Butjadingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://ladv.de/ausschreib
+ ung/detail/49508/Kreismeisterschaften-Crosslauf-Butjadingen.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49508/Kreismeisterschaften-Crossl
+ auf-Butjadingen.htm
+END:VEVENT
+END:VCALENDAR

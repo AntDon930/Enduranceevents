@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-17-6-volksbank-stadtlauf-selm-2027-10km-selm@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270617
+DTEND;VALUE=DATE:20270618
+SUMMARY:6. Volksbank Stadtlauf Selm 2027
+LOCATION:Selm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.stadtlauf-
+ Selm.de
+TRANSP:TRANSPARENT
+URL:http://www.stadtlauf-Selm.de
+END:VEVENT
+END:VCALENDAR

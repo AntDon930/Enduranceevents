@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-39-recklinghauser-silvesterlauf-10km-recklinghausen@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:39. Recklinghäuser Silvesterlauf – 10 km Lauf
+LOCATION:Recklinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.rlc1952.d
+ e/rlc.php?id=0-00020004-0
+TRANSP:TRANSPARENT
+URL:https://www.rlc1952.de/rlc.php?id=0-00020004-0
+END:VEVENT
+END:VCALENDAR

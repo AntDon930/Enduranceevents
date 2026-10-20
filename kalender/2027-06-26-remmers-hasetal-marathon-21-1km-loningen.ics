@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-remmers-hasetal-marathon-21-1km-loningen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Remmers-Hasetal-Marathon – Halbmarathon
+LOCATION:Löningen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://remmers-has
+ etal-marathon.de
+TRANSP:TRANSPARENT
+URL:https://remmers-hasetal-marathon.de
+END:VEVENT
+END:VCALENDAR

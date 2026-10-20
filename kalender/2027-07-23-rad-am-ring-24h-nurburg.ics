@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-rad-am-ring-24h-nurburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270726
+SUMMARY:Rad am Ring – 24h-Radrennen
+LOCATION:Nürburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 24 h\nhttps://radamring.de/
+TRANSP:TRANSPARENT
+URL:https://radamring.de/
+END:VEVENT
+END:VCALENDAR
