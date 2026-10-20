@@ -379,7 +379,9 @@ def _anleitung(wb: Workbook, anzahl: int, letzte: int) -> None:
 # Import
 # ---------------------------------------------------------------------------
 
-DATUM_RE = re.compile(r"^\s*(\d{1,2})\.(\d{1,2})\.(\d{4})\s*$")
+# Auch mit zweistelligem Jahr („13.10.26“) – so schreibt es der Nutzer auf
+# der Korrekturseite und gern auch in der Excel.
+DATUM_RE = re.compile(r"^\s*(\d{1,2})\.(\d{1,2})\.(\d{2}|\d{4})\s*$")
 
 
 def lies_wert(feld: str, wert):
@@ -397,7 +399,8 @@ def lies_wert(feld: str, wert):
             return wert.isoformat()
         m = DATUM_RE.match(str(wert))
         if m:
-            return datetime.date(int(m[3]), int(m[2]), int(m[1])).isoformat()
+            jahr = int(m[3]) + (2000 if len(m[3]) == 2 else 0)
+            return datetime.date(jahr, int(m[2]), int(m[1])).isoformat()
         return datetime.date.fromisoformat(str(wert)).isoformat()
     if feld == "datum_vorlaeufig":
         s = str(wert).strip().lower()

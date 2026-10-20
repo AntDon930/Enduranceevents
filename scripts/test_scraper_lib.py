@@ -5587,6 +5587,16 @@ def test_korrektur_seite() -> None:
           all(f'data-liste="{l}"' in seite for l in ("events", "clubs")), True)
     check("Seite: kein Kopf, keine Zähler, keine Suche, keine Hilfe",
           [t for t in ('<header', 'id="zaehler"', 'id="suche"', 'id="hilfe"') if t in seite], [])
+    # 20.10.2026: Nr und „Termin vorläufig“ ausgeblendet (vorläufig steht im
+    # Datum, „13.10.26 (vorläufig)“), keine festen Spalten mehr – nur die
+    # Kopfzeile bleibt oben; der Import liest das zweistellige Jahr.
+    check("Seite: Nr und Termin vorläufig ausgeblendet",
+          "new Set(['Nr', 'Termin vorläufig', 'id'])" in seite, True)
+    check("Seite: keine festen Spalten", ("th.fix" in seite, "position: sticky; top: 0" in seite), (False, True))
+    import korrekturliste as kl
+    check("Import: Datum mit zweistelligem Jahr",
+          (kl.lies_wert("datum_start", "13.10.26"), kl.lies_wert("datum_start", "13.10.2026")),
+          ("2026-10-13", "2026-10-13"))
 
 
 def main() -> int:

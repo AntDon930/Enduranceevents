@@ -61,15 +61,10 @@ thead th {
   position: sticky; top: 0; z-index: 3; background: var(--nacht); color: var(--auf-nacht);
   font: 600 .72rem/1.2 var(--font-text); letter-spacing: .02em; padding-block: 6px;
 }
-th.fix, td.fix { position: sticky; z-index: 2; }
-thead th.fix { z-index: 4; }
-td.fix { background: var(--flaeche); }
-td.fix.c-fest { background: var(--fest); }
-td.fix.c-fehlt { background: var(--fehlt); }
-td.fix.c-fraglich { background: var(--fraglich); }
-td.fix.c-geaendert { background: var(--geaendert); }
-th.fix-letzte, td.fix-letzte { box-shadow: 2px 0 0 var(--linie-stark); }
-.inhalt { white-space: pre-wrap; word-break: break-word; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+/* Fest steht nur die Kopfzeile mit den Beschriftungen – keine Spalte (vom
+   Nutzer am 20.10.2026: „das Fixieren der ersten Spalten auflösen“). */
+.inhalt { white-space: pre-wrap; word-break: break-word; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.inhalt .vorl { font-size: .72rem; font-weight: 600; }
 td.c-fest { background: var(--fest); color: var(--grau); }
 td.c-fest.name { color: var(--text); font-weight: 500; }
 td.c-fehlt { background: var(--fehlt); }
@@ -79,6 +74,8 @@ td.edit { cursor: text; }
 td.edit:hover:not(.offen-editor) { box-shadow: inset 0 0 0 1px var(--tiefe); }
 td.c-geaendert:hover { box-shadow: inset 0 0 0 2px var(--tiefe); }
 td.offen-editor { padding: 0; overflow: visible; }
+/* Die Spalten sind schmal – der Editor ragt über die Nachbarzelle hinaus. */
+.editor, .editor-tipp { min-width: 190px; position: relative; z-index: 5; }
 td .leer { color: var(--grau); opacity: .55; }
 td a { color: var(--tiefe); word-break: break-all; }
 td .stift {
@@ -166,7 +163,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   'use strict';
   const SCHRITT = 100;
   const TIPPS = {
-    'Datum Start': 'TT.MM.JJJJ', 'Datum Ende': 'TT.MM.JJJJ', 'Distanz (km)': 'Zahl, z. B. 10,5 – beim Triathlon auch „Sprint“',
+    'Datum Start': 'TT.MM.JJ, dahinter „(vorläufig)“, solange der Termin nicht feststeht', 'Datum Ende': 'TT.MM.JJ', 'Distanz (km)': 'Zahl, z. B. 10,5 – beim Triathlon auch „Sprint“',
     'Dauer (h)': 'Stunden, z. B. 6 oder 0,5', 'Breite': 'z. B. 48,1372', 'Länge': 'z. B. 11,5756',
     'Ort': 'Ort ohne PLZ – die Kartenposition ziehe ich nach',
     'Termine': 'eine Einheit je Zeile: wöchentlich Di 19:00 · alle 2 Wochen Sa 09:00 ab 2026-10-03 · monatlich 1. So 10:00 · einmalig 2026-10-28 17:30',
@@ -174,6 +171,21 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     'Distanz km (von–bis)': 'z. B. 8–12', 'Webseite': 'mit https://', 'Instagram': 'mit https://', 'Strava': 'mit https://',
   };
   const LINK_SPALTEN = /link|webseite|instagram|strava|quelle/i;
+  // Ausgeblendet, aber weiter in den Daten (die Antwort trägt die ganze Zeile,
+  // der Import vergleicht gegen sie): die Nummer, „Termin vorläufig“ – steht
+  // jetzt im Datum, „13.10.26 (vorläufig)“ – und die Kennung der Clubs.
+  const VERSTECKT = new Set(['Nr', 'Termin vorläufig', 'id']);
+  const VORL = 'Termin vorläufig';
+  const DATUM_SPALTEN = new Set(['Datum Start', 'Datum Ende']);
+  const VORL_RE = /\(?\s*vorl(?:äufig|aeufig|aufig|\.)?\s*\)?/i;
+  const DATUM_RE = /^(\d{1,2})\.(\d{1,2})\.(\d{2}|\d{4})$/;
+  // Kürzere Beschriftungen, damit die Spalten schmal bleiben (der volle Name
+  // steht im Tooltip).
+  const KURZ = {
+    'Name (nicht änderbar)': 'Name', 'Wettbewerb / Strecke': 'Strecke', 'Veranstalter-Link': 'Link',
+    'Was fehlt / was ist fraglich': 'Was fehlt / fraglich', 'Deine Anmerkung': 'Anmerkung',
+    'Anmeldung (nein/empfohlen/pflicht)': 'Anmeldung', 'Distanz km (von–bis)': 'km (von–bis)',
+  };
 
   const S = {
     liste: 'events', daten: { events: null, clubs: null }, index: { events: new Map(), clubs: new Map() },
@@ -191,6 +203,23 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   const zahl = (n) => n.toLocaleString('de-DE');
 
   function meldung(text) { S.meldung = text || ''; zeichneLeiste(); }
+  const hat = (a, kopf) => !!(a && a.werte && Object.prototype.hasOwnProperty.call(a.werte, kopf));
+  function spalte(d, kopf) { return d.spalten.findIndex((s) => s.kopf === kopf); }
+  // 13.10.2026 -> 13.10.26 (Anzeige); 13.10.26 -> 13.10.2026 (gespeichert,
+  // so liest es der Import). Was kein Datum ist, bleibt, wie es ist.
+  function datumKurz(v) {
+    const m = DATUM_RE.exec((v || '').trim());
+    return m ? `${m[1].padStart(2, '0')}.${m[2].padStart(2, '0')}.${m[3].slice(-2)}` : (v || '');
+  }
+  function datumLang(v) {
+    const m = DATUM_RE.exec((v || '').trim());
+    return m ? `${m[1].padStart(2, '0')}.${m[2].padStart(2, '0')}.${m[3].length === 2 ? '20' + m[3] : m[3]}` : (v || '').trim();
+  }
+  function sichtbar(liste) {
+    const d = S.daten[liste];
+    if (!d._sicht) d._sicht = d.spalten.map((_, i) => i).filter((i) => !VERSTECKT.has(d.spalten[i].kopf));
+    return d._sicht;
+  }
 
   // ---------- Antworten ----------
   function antwort(liste, id) { return S.lokal.get(schluessel(liste, id)) || S.antworten[liste].get(id) || null; }
@@ -274,71 +303,61 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     st.className = 'statuszeile' + (art ? ' ' + art : '');
   }
 
-  function breitePx(s) { return Math.round(Math.min(Math.max(s.breite, 6), 60) * 6.6 + 14); }
-
-  // Feste Spalten: am Rechner die fixierten der Excel; auf dem Handy und im
-  // Tablet hochkant nur der Name, schmal und am linken Rand – die Spalten
-  // davor scrollen weg, alle dahinter laufen unter ihm durch, und man sieht
-  // beim Wischen nach rechts immer, welches Event die Zeile ist.
-  const SCHMAL = window.matchMedia('(max-width: 900px)');
-  function feste(d) {
-    const m = new Map();
-    if (SCHMAL.matches) {
-      const i = d.spalten.findIndex((s) => s.kopf === d.rollen.name);
-      if (i >= 0) m.set(i, { links: 0, letzte: true });
-      return m;
-    }
-    let links = 0;
-    const fix = d.fixiert || 0;
-    d.spalten.slice(0, fix).forEach((s, i) => { m.set(i, { links, letzte: i === fix - 1 }); links += S.breiten[i]; });
-    return m;
-  }
-  function fixAttr(i) {
-    const f = S.fest.get(i);
-    return f ? { kl: ['fix'].concat(f.letzte ? ['fix-letzte'] : []), stil: ` style="left:${f.links}px"` } : { kl: [], stil: '' };
+  // Schmal gerechnet (vom Nutzer am 20.10.2026: „alles bisschen komprimieren,
+  // dass ich nicht immer nach links und rechts wischen muss“) – lange Texte
+  // brechen um, höchstens vier Zeilen je Zelle.
+  function breitePx(s, rollen) {
+    if (s.kopf === 'Datum Start') return 78;
+    if (s.kopf === 'Datum Ende') return 64;
+    if (s.kopf === rollen.status) return 104;
+    if (s.kopf === 'Land') return 90;                                // „Deutschland“ in einer Zeile
+    if (s.kopf === 'Breite' || s.kopf === 'Länge') return 76;        // sieben Nachkommastellen
+    return Math.min(Math.max(Math.round(s.breite * 4.2 + 14), 52), LINK_SPALTEN.test(s.kopf) ? 150 : 180);
   }
 
   function zeichneKopf() {
-    const d = S.daten[S.liste];
-    const iName = d.spalten.findIndex((s) => s.kopf === d.rollen.name);
-    S.breiten = d.spalten.map((s, i) => {
-      const b = breitePx(s);
-      return SCHMAL.matches ? (i === iName ? Math.min(b, 140) : Math.round(b * 0.9)) : b;
-    });
-    S.fest = feste(d);
-    $('spalten').innerHTML = S.breiten.map((b) => `<col style="width:${b}px">`).join('');
-    $('tabelle').style.width = S.breiten.reduce((a, b) => a + b, 0) + 'px';
-    $('kopfzeile').innerHTML = d.spalten.map((s, i) => {
-      const f = fixAttr(i);
-      return `<th scope="col"${f.kl.length ? ` class="${f.kl.join(' ')}"${f.stil}` : ''}>${esc(s.kopf)}</th>`;
+    const d = S.daten[S.liste], sicht = sichtbar(S.liste);
+    const breiten = sicht.map((i) => breitePx(d.spalten[i], d.rollen));
+    $('spalten').innerHTML = breiten.map((b) => `<col style="width:${b}px">`).join('');
+    $('tabelle').style.width = breiten.reduce((a, b) => a + b, 0) + 'px';
+    $('kopfzeile').innerHTML = sicht.map((i) => {
+      const k = d.spalten[i].kopf;
+      return KURZ[k] ? `<th scope="col" title="${esc(k)}">${esc(KURZ[k])}</th>` : `<th scope="col">${esc(k)}</th>`;
     }).join('');
   }
-  SCHMAL.addEventListener('change', () => {
-    if (!S.daten[S.liste] || S.editor) return;
-    const r = $('rahmen'), oben = r.scrollTop;
-    zeichneTabelle();
-    r.scrollTop = oben;
-  });
 
   function zelleHtml(liste, z, a, i) {
     const d = S.daten[liste], s = d.spalten[i];
     const istStatus = s.kopf === d.rollen.status, istAnm = s.kopf === d.rollen.anmerkung;
-    const f = fixAttr(i), kl = f.kl.slice(), stil = f.stil;
+    const kl = [];
     if (istStatus) {
       kl.push('status');
       const k = schluessel(liste, z.id), fehler = S.fehler.get(k);
       const titel = fehler || (S.lokal.has(k) ? 'wird gespeichert' : ({ bereit: 'bereit zur Übernahme', uebernommen: 'übernommen' })[zustand(a)] || '');
       const opts = [''].concat(s.auswahl || []);
-      return `<td class="${kl.join(' ')}"${stil} data-i="${i}"${titel ? ` title="${esc(titel)}"` : ''}><select data-status aria-label="Status für ${esc(a ? a.name : z.z[d.spalten.findIndex((x) => x.kopf === d.rollen.name)] || '')}"${S.schreiben ? '' : ' disabled'}>` +
+      return `<td class="${kl.join(' ')}" data-i="${i}"${titel ? ` title="${esc(titel)}"` : ''}><select data-status aria-label="Status für ${esc(a ? a.name : z.z[d.spalten.findIndex((x) => x.kopf === d.rollen.name)] || '')}"${S.schreiben ? '' : ' disabled'}>` +
         opts.map((o) => `<option value="${esc(o)}"${(a && a.status) === o ? ' selected' : ''}>${o ? esc(o) : '— offen —'}</option>`).join('') + '</select></td>';
     }
     const orig = z.z[i];
     let wert = orig, geaendert = false;
     if (istAnm) { wert = (a && a.anmerkung) || ''; geaendert = !!wert; }
-    else if (a && a.werte && Object.prototype.hasOwnProperty.call(a.werte, s.kopf)) { wert = a.werte[s.kopf]; geaendert = true; }
+    else if (hat(a, s.kopf)) { wert = a.werte[s.kopf]; geaendert = true; }
     if (!s.edit) kl.push('c-fest');
     if (s.kopf === d.rollen.name) kl.push('name');
-    const m = z.m && z.m[String(i)];
+    let m = z.m && z.m[String(i)];
+    // Datum kurz, und beim Start der vorläufige Termin gleich darunter – die
+    // Spalte „Termin vorläufig“ ist ausgeblendet, ihre Farbe gilt hier.
+    let vorl = false, vorlAlt = false;
+    if (DATUM_SPALTEN.has(s.kopf)) {
+      const iV = s.kopf === 'Datum Start' ? spalte(d, VORL) : -1;
+      if (iV >= 0) {
+        vorlAlt = z.z[iV] === 'ja';
+        vorl = hat(a, VORL) ? a.werte[VORL] === 'ja' : vorlAlt;
+        if (hat(a, VORL)) geaendert = true;
+        const mv = z.m && z.m[String(iV)];
+        if (mv === 'f' || (mv === 'q' && m !== 'f')) m = mv;
+      }
+    }
     if (m === 'f') kl.push('c-fehlt'); else if (m === 'q') kl.push('c-fraglich');
     if (geaendert && !istAnm) kl.push('c-geaendert');
     if (s.edit) kl.push('edit');
@@ -348,12 +367,16 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
       inhalt = wert.split('\n').map((u) => /^https?:\/\//.test(u.trim())
         ? `<a href="${esc(u.trim())}" target="_blank" rel="noopener noreferrer">${esc(u.trim().replace(/^https?:\/\/(www\.)?/, ''))}</a>` : esc(u)).join('<br>');
       if (s.edit) inhalt = `<button type="button" class="stift" data-stift aria-label="${esc(s.kopf)} ändern">✎</button>` + inhalt;
+    } else if (DATUM_SPALTEN.has(s.kopf)) {
+      inhalt = (wert ? esc(datumKurz(wert)) : '<span class="leer">–</span>') + (vorl ? '<br><span class="vorl">(vorläufig)</span>' : '');
     } else {
       inhalt = wert ? esc(wert) : (s.edit ? '<span class="leer">–</span>' : '');
     }
-    const alt = geaendert && !istAnm ? `<span class="alt">${orig ? esc(orig) : 'leer'}</span>` : '';
+    let altText = orig;
+    if (DATUM_SPALTEN.has(s.kopf)) altText = (orig ? datumKurz(orig) : '') + (vorlAlt ? ' (vorläufig)' : '');
+    const alt = geaendert && !istAnm ? `<span class="alt">${altText ? esc(altText) : 'leer'}</span>` : '';
     const tab = s.edit && !istLink ? ' tabindex="0"' : '';
-    return `<td class="${kl.join(' ')}"${stil} data-i="${i}"${tab}><div class="inhalt">${inhalt}</div>${alt}</td>`;
+    return `<td class="${kl.join(' ')}" data-i="${i}"${tab}><div class="inhalt">${inhalt}</div>${alt}</td>`;
   }
 
   function zeileHtml(liste, z) {
@@ -361,7 +384,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     const kl = ['s-' + (S.fehler.has(k) ? 'fehler' : zustand(a))];
     if (S.lokal.has(k)) kl.push('speichert');
     return `<tr data-id="${esc(z.id)}" class="${kl.join(' ')}">` +
-      S.daten[liste].spalten.map((_, i) => zelleHtml(liste, z, a, i)).join('') + '</tr>';
+      sichtbar(liste).map((i) => zelleHtml(liste, z, a, i)).join('') + '</tr>';
   }
 
   function zeichneZeile(liste, z) {
@@ -421,7 +444,12 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     schliesseEditor(true);
     const a = antwort(S.liste, z.id);
     const istAnm = s.kopf === d.rollen.anmerkung;
-    let wert = istAnm ? ((a && a.anmerkung) || '') : (a && a.werte && s.kopf in a.werte ? a.werte[s.kopf] : z.z[i]);
+    let wert = istAnm ? ((a && a.anmerkung) || '') : (hat(a, s.kopf) ? a.werte[s.kopf] : z.z[i]);
+    if (DATUM_SPALTEN.has(s.kopf)) {
+      wert = datumKurz(wert);
+      const iV = s.kopf === 'Datum Start' ? spalte(d, VORL) : -1;
+      if (iV >= 0 && (hat(a, VORL) ? a.werte[VORL] : z.z[iV]) === 'ja') wert += ' (vorläufig)';
+    }
     let feld;
     if (s.auswahl && !istAnm) {
       feld = document.createElement('select');
@@ -458,14 +486,23 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     const ed = S.editor;
     if (!ed) return;
     S.editor = null;
-    const liste = S.liste, s = S.daten[liste].spalten[ed.i];
+    const liste = S.liste, d = S.daten[liste], s = d.spalten[ed.i];
     const neu = ed.feld.value.replace(/\r/g, '');
     if (uebernehmen && neu !== ed.start) {
       const a = kopie(antwort(liste, ed.z.id) || neueAntwort(liste, ed.z));
       a.werte = a.werte || {};
+      // Gleich dem Original = keine Änderung, der Wert fällt aus der Antwort.
+      const setze = (kopf, wert, orig) => { if (wert === (orig || '').trim()) delete a.werte[kopf]; else a.werte[kopf] = wert; };
       if (ed.istAnm) a.anmerkung = neu.trim();
-      else if (neu.trim() === (ed.z.z[ed.i] || '').trim()) delete a.werte[s.kopf];
-      else a.werte[s.kopf] = neu.trim();
+      else if (DATUM_SPALTEN.has(s.kopf)) {
+        // „13.10.26 (vorläufig)“ -> Datum Start 13.10.2026 + Termin vorläufig ja
+        const iV = s.kopf === 'Datum Start' ? spalte(d, VORL) : -1;
+        setze(s.kopf, datumLang(iV >= 0 ? neu.replace(VORL_RE, '') : neu), ed.z.z[ed.i]);
+        if (iV >= 0) {
+          const vorl = VORL_RE.test(neu), vorher = ed.z.z[iV] === 'ja';
+          if (vorl === vorher) delete a.werte[VORL]; else a.werte[VORL] = vorl ? 'ja' : 'nein';
+        }
+      } else setze(s.kopf, neu.trim(), ed.z.z[ed.i]);
       speichere(liste, ed.z, a);
     } else {
       ed.tr.outerHTML = zeileHtml(liste, ed.z);

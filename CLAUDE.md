@@ -5755,10 +5755,27 @@ Suche, keine Hilfe – nicht wieder einbauen, ohne zu fragen
 selben Abend mit Bildschirmfoto: „Ich müsste das mit dem Handy machen,
 weil ich das viel unterwegs anschauen werde … Ich hab auch sehr gute
 Augen, also kann man alles auch bisschen kleiner machen, da die Liste nur
-intern ist“): Tabelle 0,8rem, Fußleiste 36 px; bis 900 px ist nur die
-Namensspalte fest (140 px, am linken Rand, die übrigen Spalten 0,9-fach),
-darüber die fixierten Spalten der Excel; auf Touch-Geräten haben Editor
-und Status-Feld 16 px Schrift, sonst zoomt iOS beim Antippen hinein. Alle Zeilen stehen da, beim Scrollen
+intern ist“): Tabelle 0,8rem, Fußleiste 36 px; auf Touch-Geräten haben
+Editor und Status-Feld 16 px Schrift, sonst zoomt iOS beim Antippen hinein.
+**Schmal und ohne feste Spalten** (20.10.2026: „die erste Spalte mit
+Nummern … ausblenden … alles bisschen komprimieren, dass ich nicht immer
+nach links und rechts wischen muss … Termin vorläufig einfach in das Datum
+schreiben, zum Beispiel 13.10.26 (vorläufig) … das Fixieren der ersten
+Spalten auflösen. Nur die Zeile mit den Beschriftungen fixiert“): Fest
+steht nur noch die Kopfzeile. Ausgeblendet sind `Nr`, `Termin vorläufig`
+und die Club-`id` (`VERSTECKT` – sie bleiben in Daten und Antwort,
+`data-i` ist weiter der Index der vollen Spaltenliste, der Import
+vergleicht gegen die ganze Zeile). Die Datumsspalten zeigen TT.MM.JJ, beim
+Start steht „(vorläufig)“ darunter, Farbe und Änderung der ausgeblendeten
+Spalte gelten dort; der Editor nimmt „13.10.26 (vorläufig)“ (auch
+„vorl.“, „vorlaeufig“) und speichert `Datum Start` als TT.MM.JJJJ und
+`Termin vorläufig` ja/nein – jeweils nur, wenn es vom Original abweicht.
+`korrekturliste.lies_wert()` liest seitdem auch das zweistellige Jahr.
+Breiten: Excel-Breite × 4,2 + 14 px, 52–180 px (Links höchstens 150),
+Datum 78/64, Status 104, Land 90, Koordinaten 76; kürzere Kopftexte
+(`KURZ`, voller Name im Tooltip), höchstens vier Zeilen je Zelle, der
+Editor ragt mit mindestens 190 px über die Nachbarzelle. Events 1.646 px
+breit statt ~2.700. Alle Zeilen stehen da, beim Scrollen
 kommen je 100 nach; der Stand einer Zeile steht am Status-Feld (blau =
 bereit, grün = übernommen, rot umrandet = nicht gespeichert), ein neuer
 Datenbank-Stand zeichnet nur die geänderten Zeilen neu. Eine Zelle antippen = Editor
