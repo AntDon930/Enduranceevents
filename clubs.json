@@ -21805,6 +21805,18 @@
     "wochentag": 2,
     "uhrzeit": "17:45",
     "bezeichnung": "Tuesday Socialrun"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-25",
+    "uhrzeit": "10:45",
+    "bezeichnung": "Coffeerave mit tenthirty.am ab Koko Café, 3 oder 5 km"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-29",
+    "uhrzeit": "17:45",
+    "bezeichnung": "ab Grano Pasta, 5 km"
    }
   ],
   "distanz_km": [
@@ -21836,9 +21848,10 @@
   "beschreibung_en": "Open social run club running an easy 5 km loop from Soulmate Café on Tuesdays; further Sunday runs at changing locations.",
   "quelle": [
    "https://www.strava.com/clubs/cozyrunclub",
-   "https://rausgegangen.de/en/events/cozyrunclub-socialrun-soulmate-cafe-3/"
+   "https://rausgegangen.de/en/events/cozyrunclub-socialrun-soulmate-cafe-3/",
+   "https://www.instagram.com/cozy.runclub/"
   ],
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-10-20"
  },
  {
   "id": "regensburg-runningclub-easy5",
