@@ -23309,26 +23309,40 @@
   "art": "Laufen",
   "stadt": "München",
   "land": "Deutschland",
-  "treffpunkt": "Speicherstraße 28 (Werksviertel)",
+  "treffpunkt": "ALRIGHTY Coffee Shop, Speicherstraße 28 (Werksviertel)",
   "lat": 48.12339,
   "lon": 11.60684,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 6,
-    "uhrzeit": "09:00"
+    "uhrzeit": "09:30",
+    "bezeichnung": "Coffee Run, 8 km auf wechselnden Strecken"
    }
   ],
   "instagram": "https://www.instagram.com/bigbadwolfrunning/",
-  "merkmale": [],
-  "beschreibung_de": "Samstagslauf am Morgen ab dem Werksviertel.",
-  "beschreibung_en": "Saturday morning run from the Werksviertel.",
+  "merkmale": [
+   "gepaeck",
+   "kaffee"
+  ],
+  "beschreibung_de": "Jeden Samstag um 9:30 Uhr ab dem ALRIGHTY im Werksviertel: Aufwärmen, 8 km auf wechselnder Strecke, danach Kaffee (geht aufs Haus), Gepäckabgabe möglich.",
+  "beschreibung_en": "Every Saturday at 9:30 am from ALRIGHTY in Werksviertel: warm-up, 8 km on changing routes, then coffee on the house; bag drop available.",
   "quelle": [
+   "https://www.strava.com/clubs/1260886",
    "https://socialrunclubs.de/muenchen/bwrc/"
   ],
   "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Termin und Treffpunkt nur über socialrunclubs.de (Eintrag vom 2025-08-15) belegt; Instagram/Strava des Clubs nicht lesbar – Aktualität prüfen; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "strava": "https://www.strava.com/clubs/1260886",
+  "distanz_km": [
+   8,
+   8
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Kaffee danach inklusive"
+  },
+  "anmeldung": "nein"
  },
  {
   "id": "muenchen-moovcrew-odeonsplatz",
@@ -23433,31 +23447,53 @@
  },
  {
   "id": "muenchen-munich-move",
-  "name": "Munich Move – Sunday Run",
+  "name": "MUVE",
   "art": "Laufen",
   "stadt": "München",
   "land": "Deutschland",
-  "treffpunkt": "Ryzon Concept Store",
-  "lat": 48.12375,
-  "lon": 11.56735,
+  "treffpunkt": "Torbogen am Hofgarten (Hofgartenstraße)",
+  "lat": 48.14139,
+  "lon": 11.58193,
   "termine": [
    {
     "rhythmus": "woechentlich",
-    "wochentag": 7,
-    "uhrzeit": "10:00"
+    "wochentag": 3,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Social Run durch den Englischen Garten",
+    "distanz_km": [
+     6.5,
+     7
+    ],
+    "pace": {
+     "von": "6:15",
+     "bis": "6:20"
+    }
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Intervalle"
    }
   ],
   "instagram": "https://www.instagram.com/munichmove/",
   "strava": "https://www.strava.com/clubs/1515602",
   "merkmale": [],
-  "beschreibung_de": "Sonntagslauf der Lauf- und Radcommunity Munich Move ab dem Ryzon Concept Store.",
-  "beschreibung_en": "Sunday run of the Munich Move running and cycling community from the Ryzon Concept Store.",
+  "beschreibung_de": "Mittwochs um 19 Uhr ein Social Run vom Torbogen am Hofgarten durch den Englischen Garten zum Kleinhesseloher See und zurück (6,5–7 km, 6:15–6:20 min/km), donnerstags um 19 Uhr Intervalle ab demselben Treffpunkt.",
+  "beschreibung_en": "Wednesdays at 7 pm a social run from the Hofgarten archway through the English Garden to Kleinhesseloher See and back (6.5–7 km, 6:15–6:20 min/km); Thursdays at 7 pm intervals from the same spot.",
   "quelle": [
+   "https://www.strava.com/clubs/1515602",
    "https://socialrunclubs.de/muenchen/munich-move/"
   ],
   "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Termin und Treffpunkt nur über socialrunclubs.de (Eintrag vom 2026-03-01) belegt; Instagram/Strava des Clubs nicht lesbar – Aktualität prüfen; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "distanz_km": [
+   6.5,
+   7
+  ],
+  "pace": {
+   "von": "6:15",
+   "bis": "6:20"
+  }
  },
  {
   "id": "muenchen-munich-run-collective",
@@ -23729,24 +23765,44 @@
   "art": "Laufen",
   "stadt": "München",
   "land": "Deutschland",
-  "treffpunkt": "Gasteig HP8",
+  "treffpunkt": "Gasteig HP8, Hans-Preißinger-Straße 8",
   "lat": 48.11145,
   "lon": 11.55419,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 7,
-    "uhrzeit": "10:00"
+    "uhrzeit": "10:00",
+    "bezeichnung": "Sunday Cruise, 11 km (Abkürzung 6 km)",
+    "distanz_km": [
+     6,
+     11
+    ],
+    "pace": {
+     "von": "5:30",
+     "bis": "6:30"
+    }
+   },
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 3,
+    "uhrzeit": "17:00",
+    "ab": "2026-10-28",
+    "bezeichnung": "Wednesday Spice: Intervalle, Start Brother Mill Café, Urbanstraße 3"
    }
   ],
   "anmeldung": "nein",
   "anmeldung_ueber": "Strava",
   "instagram": "https://www.instagram.com/sendling.running.club/",
   "strava": "https://www.strava.com/clubs/1745571",
-  "merkmale": [],
-  "beschreibung_de": "Sonntagslauf ab dem Gasteig HP8 an der Isar entlang zum Flaucher.",
-  "beschreibung_en": "Sunday run from Gasteig HP8 along the Isar to the Flaucher.",
+  "merkmale": [
+   "kaffee",
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Sonntags um 10 Uhr ein Social Run ab dem Gasteig HP8 an der Isar entlang (11 km, Abkürzung 6 km, Tempogruppen ab 5:30 min/km), danach Kaffee; jeden zweiten Mittwoch um 17 Uhr Intervalle auf der Bahn ab dem Brother Mill Café.",
+  "beschreibung_en": "Sundays at 10 am a social run from Gasteig HP8 along the Isar (11 km, 6 km shortcut, pace groups from 5:30 min/km), coffee afterwards; every other Wednesday at 5 pm track intervals from Brother Mill Café.",
   "quelle": [
+   "https://www.strava.com/clubs/1745571",
    "https://socialrunclubs.de/muenchen/sendling-running-club/"
   ],
   "geprueft": "2026-10-20",
@@ -23755,8 +23811,14 @@
    "betrag_eur": null,
    "text": "keine Mitgliedsgebühr"
   },
-  "pruefung_offen": true,
-  "pruefung_grund": "Beleg stammt von runningcrews.com (robots.txt sperrt unseren Abruf) – bitte an eigener Quelle bestätigen"
+  "distanz_km": [
+   6,
+   11
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:30"
+  }
  },
  {
   "id": "muenchen-sunday-runday",
@@ -28897,5 +28959,86 @@
   "geprueft": "2026-10-20",
   "pruefung_offen": true,
   "pruefung_grund": "1000things (03/2026): jeden 2. Donnerstag, gleicher Treffpunkt, 5/7/10 km, gratis; ORF Vorarlberg (12.10.2026): Bregenzer Community etwa alle zwei Wochen, über 100 Läufer – Uhrzeit, Treffpunkt und Startdatum (ab) NICHT belegt (18:30, Pipeline und 22.10. angenommen), Instagram nicht lesbar"
+ },
+ {
+  "id": "muenchen-bandoleros-muc",
+  "name": "Bandoleros MUC",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Giselastraße 8 (Schwabing)",
+  "lat": 48.15503,
+  "lon": 11.58543,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:30",
+    "bezeichnung": "Social Sunday: 6/8 km in 6:15 oder 10/12 km in 5:30 min/km"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:15",
+    "bezeichnung": "Intervalle ab Weltenburger Straße 53 (Bogenhausen)"
+   }
+  ],
+  "distanz_km": [
+   6,
+   12
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:15"
+  },
+  "anmeldung": "nein",
+  "strava": "https://www.strava.com/clubs/1487714",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "merkmale": [
+   "mehrere_gruppen",
+   "gepaeck"
+  ],
+  "beschreibung_de": "Sonntags um 10:30 Uhr ein Social Run in zwei Tempogruppen (6–8 km in 6:15, 10–12 km in 5:30 min/km) mit Aufwärmen und Gepäckabgabe; dienstags um 18:15 Uhr Intervalle in Bogenhausen.",
+  "beschreibung_en": "Sundays at 10:30 am a social run in two pace groups (6–8 km at 6:15, 10–12 km at 5:30 min/km) with warm-up and bag drop; Tuesdays at 6:15 pm intervals in Bogenhausen.",
+  "quelle": [
+   "https://www.strava.com/clubs/1487714"
+  ],
+  "geprueft": "2026-10-20"
+ },
+ {
+  "id": "muenchen-early-birds-friday-intervals",
+  "name": "Early Birds Munich – Friday Intervals",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Schloss Nymphenburg",
+  "lat": 48.15833,
+  "lon": 11.50329,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "06:30"
+   }
+  ],
+  "anmeldung": "nein",
+  "strava": "https://www.strava.com/clubs/1215180",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Freitags um 6:30 Uhr Intervalltraining am Schloss Nymphenburg mit Aufwärmen, Lauf-ABC und lockerem Auslaufen, danach manchmal Kaffee und Kuchen – für alle offen.",
+  "beschreibung_en": "Fridays at 6:30 am interval session at Nymphenburg Palace with warm-up, running drills and cool-down, sometimes coffee and cake afterwards – open to everyone.",
+  "quelle": [
+   "https://www.strava.com/clubs/1215180"
+  ],
+  "geprueft": "2026-10-20"
  }
 ]
