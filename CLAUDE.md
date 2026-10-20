@@ -5927,6 +5927,13 @@ dort nur `antwort`, Korrekturen von Hand im Checkout. Auch im Chat sagen,
 was herauskam. `test_check_again` hält Import, Auftragsliste, `erledigt`
 und die Seite fest.
 
+**Erledigte Zeilen sind ausgeblendet** (seit 20.10.2026, vom Nutzer: „Kann
+man die korrigierten und die ‚stimmt so‘ dann ausblenden … Sonst muss ich
+immer runterscrollen“): Status gesetzt und kein „Check again“ (bereit oder
+übernommen) – beim Laden, wenn Antworten und Quittungen da sind, und beim
+Blattwechsel, nicht sofort beim Setzen. Der Knopf „Erledigte einblenden (N)“
+unten holt sie zurück.
+
 **Übernommen** zeigt die Seite über **Quittungen**, nicht über ein Feld
 an der Antwort: `ArtifactData` schreibt ein vorhandenes Dokument nur mit
 seiner Versionsnummer, und die steht nicht in den Dateien von
