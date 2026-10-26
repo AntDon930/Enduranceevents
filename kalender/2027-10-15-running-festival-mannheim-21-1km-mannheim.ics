@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-15-running-festival-mannheim-21-1km-mannheim@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271015
+DTEND;VALUE=DATE:20271018
+SUMMARY:Running Festival Mannheim – Halbmarathon
+LOCATION:Mannheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://runningfest
+ ivalmannheim.de/
+TRANSP:TRANSPARENT
+URL:https://runningfestivalmannheim.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-26-firmenlauf-bad-kreuznach-5km-bad-kreuznach@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270526
+DTEND;VALUE=DATE:20270527
+SUMMARY:Firmenlauf Bad Kreuznach
+LOCATION:Bad Kreuznach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.firmenlauf
+ -kh.de
+TRANSP:TRANSPARENT
+URL:https://www.firmenlauf-kh.de
+END:VEVENT
+END:VCALENDAR

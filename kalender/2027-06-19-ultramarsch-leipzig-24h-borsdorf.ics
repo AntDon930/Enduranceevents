@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-ultramarsch-leipzig-24h-borsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270621
+SUMMARY:Ultramarsch Leipzig – 100 km \, Zielzeitrahmen 24 Stunden\, 4 Vers
+ orgungspunkte
+LOCATION:Borsdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 24 h\nhttps://www.ultramarsc
+ h.de/p/2027-ticket-ultramarsch-leipzig-early-bird
+TRANSP:TRANSPARENT
+URL:https://www.ultramarsch.de/p/2027-ticket-ultramarsch-leipzig-early-bir
+ d
+END:VEVENT
+END:VCALENDAR

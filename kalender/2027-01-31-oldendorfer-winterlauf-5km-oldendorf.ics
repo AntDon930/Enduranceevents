@@ -10,11 +10,9 @@ DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:Oldendorfer Winterlauf
 LOCATION:Oldendorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
- reibung/detail/49515/28.-Winterlauf-in-Oldendorf-Oldendorf-%28Landkreis-S
- tade%29.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.lgk-nord-s
+ tade.de/winterlauf/index.php
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49515/28.-Winterlauf-in-Oldendorf
- -Oldendorf-%28Landkreis-Stade%29.htm
+URL:https://www.lgk-nord-stade.de/winterlauf/index.php
 END:VEVENT
 END:VCALENDAR

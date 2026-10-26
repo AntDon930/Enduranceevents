@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-12-1-ultrarun-munderfing-x-munderfing@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:12+1 Ultrarun Munderfing
+LOCATION:Munderfing\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /430483/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/430483/
+END:VEVENT
+END:VCALENDAR

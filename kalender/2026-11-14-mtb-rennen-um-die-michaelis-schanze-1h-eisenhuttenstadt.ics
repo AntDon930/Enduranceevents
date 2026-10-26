@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-mtb-rennen-um-die-michaelis-schanze-1h-eisenhuttenstadt@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:MTB-Rennen um die Michaelis-Schanze – Cross-Country 1 h
+LOCATION:Eisenhüttenstadt\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 1 h\nhttps://www.msv-
+ diehloerberge.de/
+TRANSP:TRANSPARENT
+URL:https://www.msv-diehloerberge.de/
+END:VEVENT
+END:VCALENDAR

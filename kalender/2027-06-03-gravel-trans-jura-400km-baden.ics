@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-03-gravel-trans-jura-400km-baden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270603
+DTEND;VALUE=DATE:20270609
+SUMMARY:Gravel Trans Jura – Bikepacking 400 km
+LOCATION:Baden\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 400 km\nhttps://ridegravel.
+ ch/transjura/
+TRANSP:TRANSPARENT
+URL:https://ridegravel.ch/transjura/
+END:VEVENT
+END:VCALENDAR

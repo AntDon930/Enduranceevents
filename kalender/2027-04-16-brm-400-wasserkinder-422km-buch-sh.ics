@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-16-brm-400-wasserkinder-422km-buch-sh@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270416
+DTEND;VALUE=DATE:20270417
+SUMMARY:BRM 400 WASSERKINDER – Gravel Brevet 422 km
+LOCATION:Buch SH\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 422 km\nhttps://www.audax-s
+ uisse.ch/brevets/brm-400-wasserkinder/
+TRANSP:TRANSPARENT
+URL:https://www.audax-suisse.ch/brevets/brm-400-wasserkinder/
+END:VEVENT
+END:VCALENDAR

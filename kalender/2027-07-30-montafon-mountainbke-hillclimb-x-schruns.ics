@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-30-montafon-mountainbke-hillclimb-x-schruns@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270730
+DTEND;VALUE=DATE:20270731
+SUMMARY:Montafon Mountainbke Hillclimb – Cycling 4 All\, Hillclimb
+LOCATION:Schruns\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.mtb-mo
+ ntafon.at
+TRANSP:TRANSPARENT
+URL:https://www.mtb-montafon.at
+END:VEVENT
+END:VCALENDAR

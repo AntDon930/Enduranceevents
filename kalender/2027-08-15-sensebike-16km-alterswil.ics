@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-sensebike-16km-alterswil@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:SenseBike – Gravel Race 16 km
+LOCATION:Alterswil\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 16 km\nhttps://www.sensebik
+ e.ch/
+TRANSP:TRANSPARENT
+URL:https://www.sensebike.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-ultramarsch-black-forest-x-trem-50km-gutach-im-breisgau@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270823
+SUMMARY:Ultramarsch Black Forest X-Trem
+LOCATION:Gutach im Breisgau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://www.ultramars
+ ch.de/p/2027-ticket-ultramarsch-black-forest-x-trem
+TRANSP:TRANSPARENT
+URL:https://www.ultramarsch.de/p/2027-ticket-ultramarsch-black-forest-x-tr
+ em
+END:VEVENT
+END:VCALENDAR

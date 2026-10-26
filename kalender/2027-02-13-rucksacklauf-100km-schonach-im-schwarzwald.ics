@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-13-rucksacklauf-100km-schonach-im-schwarzwald@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:Rucksacklauf – 100 km Klassisch
+LOCATION:Schonach im Schwarzwald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://my.raceresul
+ t.com/430236/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/430236/
+END:VEVENT
+END:VCALENDAR

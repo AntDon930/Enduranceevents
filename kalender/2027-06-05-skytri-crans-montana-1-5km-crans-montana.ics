@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-skytri-crans-montana-1-5km-crans-montana@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:SkyTri Crans-Montana – 1\,5 km Schwimmen in offenen Gewässern (Lac
+  Grenon\, 3 Runden)
+LOCATION:Crans-Montana\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 1.5 km\nhttps://outliersp
+ ort.com/skytri-crans-montana/
+TRANSP:TRANSPARENT
+URL:https://outliersport.com/skytri-crans-montana/
+END:VEVENT
+END:VCALENDAR

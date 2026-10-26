@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-stadtlauf-ilshofen-5km-ilshofen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Stadtlauf Ilshofen – 5 km Hobbylauf (4\,9 km\, eine Runde)
+LOCATION:Ilshofen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.stadtlauf-i
+ lshofen.de/
+TRANSP:TRANSPARENT
+URL:http://www.stadtlauf-ilshofen.de/
+END:VEVENT
+END:VCALENDAR

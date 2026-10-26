@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:Lange-Bahn-Lauf – 5 km Jugend und Einsteigerlauf
 LOCATION:Suhl\, Deutschland
-DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 5 km\nhttps://my.raceresult.co
- m/428720/
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 5 km\nhttps://www.lange-bahn-l
+ auf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/428720/
+URL:https://www.lange-bahn-lauf.de/
 END:VEVENT
 END:VCALENDAR

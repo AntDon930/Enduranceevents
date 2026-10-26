@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-29-5-terra-raetica-trails-tour-festival-x-3-lander-eck-osterre
+ ich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270629
+DTEND;VALUE=DATE:20270630
+SUMMARY:5. Terra Raetica Trails / Tour Festival
+LOCATION:3-Länder-Eck Österreich\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.terra-raetica-t
+ rails.com
+TRANSP:TRANSPARENT
+URL:http://www.terra-raetica-trails.com
+END:VEVENT
+END:VCALENDAR

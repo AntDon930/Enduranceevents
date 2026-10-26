@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-appetizer-500-500km-kaltenkirchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270614
+SUMMARY:Appetizer 500 – Ultracycling 500 km
+LOCATION:Kaltenkirchen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 500 km\nhttps://nl-rg.de/ro
+ ad/
+TRANSP:TRANSPARENT
+URL:https://nl-rg.de/road/
+END:VEVENT
+END:VCALENDAR

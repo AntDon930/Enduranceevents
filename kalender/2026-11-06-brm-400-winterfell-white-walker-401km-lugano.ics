@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-06-brm-400-winterfell-white-walker-401km-lugano@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:BRM 400 WINTERFELL WHITE WALKER – Gravel Brevet 401 km
+LOCATION:Lugano\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 401 km\nhttps://www.audaxsu
+ isse.ch/brevets/brm-400-winterfell-white-walker
+TRANSP:TRANSPARENT
+URL:https://www.audaxsuisse.ch/brevets/brm-400-winterfell-white-walker
+END:VEVENT
+END:VCALENDAR

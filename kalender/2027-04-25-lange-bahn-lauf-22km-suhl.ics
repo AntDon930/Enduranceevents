@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:Lange-Bahn-Lauf – 22 km Hauptlauf
 LOCATION:Suhl\, Deutschland
-DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 22 km\nhttps://my.raceresult.c
- om/428720/
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 22 km\nhttps://www.lange-bahn-
+ lauf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/428720/
+URL:https://www.lange-bahn-lauf.de/
 END:VEVENT
 END:VCALENDAR

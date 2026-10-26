@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-21-rosellener-abendlauf-10km-neuss@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270522
+SUMMARY:Rosellener Abendlauf – 10 km Lauf
+LOCATION:Neuss\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sv-rosell
+ en.de/abendlauf
+TRANSP:TRANSPARENT
+URL:https://www.sv-rosellen.de/abendlauf
+END:VEVENT
+END:VCALENDAR

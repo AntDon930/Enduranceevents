@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-39-payerbacher-fruhlingslauf-buckltour-x-payerbach@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:39. Payerbacher Frühlingslauf (Buckltour)
+LOCATION:Payerbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://fruehlingslauf.jt
+ s-events.com/
+TRANSP:TRANSPARENT
+URL:https://fruehlingslauf.jts-events.com/
+END:VEVENT
+END:VCALENDAR

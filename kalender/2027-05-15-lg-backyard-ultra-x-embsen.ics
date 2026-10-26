@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-lg-backyard-ultra-x-embsen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:LG-Backyard-Ultra
+LOCATION:Embsen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: Open End\nhttps://lg
+ -backyard-ultra.de/faqs.html
+TRANSP:TRANSPARENT
+URL:https://lg-backyard-ultra.de/faqs.html
+END:VEVENT
+END:VCALENDAR

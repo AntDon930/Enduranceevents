@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-loffler-messelauf-10km-ried-im-innkreis@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Löffler Messelauf
+LOCATION:Ried im Innkreis\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sportmess
+ e-ried.at/messelauf/
+TRANSP:TRANSPARENT
+URL:https://www.sportmesse-ried.at/messelauf/
+END:VEVENT
+END:VCALENDAR

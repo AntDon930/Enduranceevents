@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-17-ochsenkopf-gravel-100km-bischofsgrun@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271017
+DTEND;VALUE=DATE:20271018
+SUMMARY:Ochsenkopf Gravel – Gravel Race 100 km
+LOCATION:Bischofsgrün\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 100 km\nhttps://ochsenkopf-
+ gravel.de/
+TRANSP:TRANSPARENT
+URL:https://ochsenkopf-gravel.de/
+END:VEVENT
+END:VCALENDAR

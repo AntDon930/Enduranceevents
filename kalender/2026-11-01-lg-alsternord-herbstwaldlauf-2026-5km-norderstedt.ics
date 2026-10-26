@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-lg-alsternord-herbstwaldlauf-2026-5km-norderstedt@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:LG Alsternord Herbstwaldlauf 2026 – 5 km Lauf (Jahrgang 2016 und ä
+ lter)
+LOCATION:Norderstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.lgalsterno
+ rd.de/2026/08/18/ankuendigung-lg-alsternord-herbst-waldlauf-01-november-2
+ 026/
+TRANSP:TRANSPARENT
+URL:https://www.lgalsternord.de/2026/08/18/ankuendigung-lg-alsternord-herb
+ st-waldlauf-01-november-2026/
+END:VEVENT
+END:VCALENDAR

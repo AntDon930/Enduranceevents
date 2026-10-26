@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-6-howut-hochwald-ultratrail-2027-x-osburg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270530
+SUMMARY:6. HoWUT – Hochwald Ultratrail 2027
+LOCATION:Osburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.hochwaldtraile
+ r.de/6-HoWUT-2027/Ausschreibung-HoWUT-2027/
+TRANSP:TRANSPARENT
+URL:https://www.hochwaldtrailer.de/6-HoWUT-2027/Ausschreibung-HoWUT-2027/
+END:VEVENT
+END:VCALENDAR

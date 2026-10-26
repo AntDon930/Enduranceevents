@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-10-heidelberger-panoramatour-145km-heidelberg@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:10. Heidelberger Panoramatour – RTF 145 km
+LOCATION:Heidelberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 145 km\nhttps://rsv-heidelb
+ erg.de/
+TRANSP:TRANSPARENT
+URL:https://rsv-heidelberg.de/
+END:VEVENT
+END:VCALENDAR

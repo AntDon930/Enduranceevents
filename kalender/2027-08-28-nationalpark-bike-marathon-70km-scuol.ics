@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-nationalpark-bike-marathon-70km-scuol@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Nationalpark-Bike-Marathon – MTB-Marathon 70 km
+LOCATION:Scuol\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 70 km\nhttps://www.bi
+ ke-marathon.com/
+TRANSP:TRANSPARENT
+URL:https://www.bike-marathon.com/
+END:VEVENT
+END:VCALENDAR

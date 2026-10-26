@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-46-alten-busecker-winterlaufserie-3-event-5km-buseck@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:46. Alten-Busecker Winterlaufserie - 3. Event – 5 km Jedermannslau
+ f\, Walking und Nordic Walking
+LOCATION:Buseck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tsg-alten-
+ buseck.com
+TRANSP:TRANSPARENT
+URL:https://www.tsg-alten-buseck.com
+END:VEVENT
+END:VCALENDAR

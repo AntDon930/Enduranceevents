@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-36-angerer-volkslauf-osterr-volkslaufcup-weizer-x-anger@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:36. Angerer-Volkslauf (Österr. Volkslaufcup\, Weizer Bezirkscuplau
+ f\, Steira Juniors Cup)
+LOCATION:Anger\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.happy-lauf-ang
+ er.at
+TRANSP:TRANSPARENT
+URL:http://www.happy-lauf-anger.at
+END:VEVENT
+END:VCALENDAR

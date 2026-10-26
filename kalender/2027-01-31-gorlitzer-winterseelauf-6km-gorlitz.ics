@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-gorlitzer-winterseelauf-6km-gorlitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Görlitzer Winterseelauf – 6 km Lauf\, eine Runde am Berzdorfer See
+LOCATION:Görlitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.europamara
+ thon.de/lauf/winterseelauf/
+TRANSP:TRANSPARENT
+URL:https://www.europamarathon.de/lauf/winterseelauf/
+END:VEVENT
+END:VCALENDAR

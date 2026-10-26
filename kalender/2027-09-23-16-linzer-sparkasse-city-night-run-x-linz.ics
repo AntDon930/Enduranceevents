@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-23-16-linzer-sparkasse-city-night-run-x-linz@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270923
+DTEND;VALUE=DATE:20270924
+SUMMARY:16. Linzer Sparkasse City Night Run
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.linzercitynigh
+ trun.com
+TRANSP:TRANSPARENT
+URL:http://www.linzercitynightrun.com
+END:VEVENT
+END:VCALENDAR

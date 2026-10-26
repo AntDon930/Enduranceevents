@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-wuggi-triathlon-35km-kollnburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Wuggi-Triathlon
+LOCATION:Kollnburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 35 km\nhttps://bayronman.
+ com/wuggi-triathlon-ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://bayronman.com/wuggi-triathlon-ausschreibung/
+END:VEVENT
+END:VCALENDAR

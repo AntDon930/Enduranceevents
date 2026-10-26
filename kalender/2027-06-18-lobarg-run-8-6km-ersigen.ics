@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-lobarg-run-8-6km-ersigen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270628
+SUMMARY:Lobärg-Run
+LOCATION:Ersigen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.6 km\nhttps://scersigen.ch
+ /run/
+TRANSP:TRANSPARENT
+URL:https://scersigen.ch/run/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-06-brm-600-winterfell-night-king-607km-lugano@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:BRM 600 WINTERFELL NIGHT KING – Gravel Brevet 607 km
+LOCATION:Lugano\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 607 km\nhttps://www.audaxsu
+ isse.ch/brevets/brm-600-winterfell-night-king/
+TRANSP:TRANSPARENT
+URL:https://www.audaxsuisse.ch/brevets/brm-600-winterfell-night-king/
+END:VEVENT
+END:VCALENDAR

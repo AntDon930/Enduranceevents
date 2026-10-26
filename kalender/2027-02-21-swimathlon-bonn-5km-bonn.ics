@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-swimathlon-bonn-5km-bonn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:Swimathlon Bonn
+LOCATION:Bonn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://swimathlon.de/
+TRANSP:TRANSPARENT
+URL:https://swimathlon.de/
+END:VEVENT
+END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270424
 DTEND;VALUE=DATE:20270426
 SUMMARY:Zittauer Gebirgslauf & Wandertreff – 7\,5 km Lauf
 LOCATION:Olbersdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.5 km\nhttps://baer-service.
- de/veranstaltung/ZGL/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.5 km\nhttps://www.zittauer-
+ gebirgslauf.de/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/ZGL/
+URL:https://www.zittauer-gebirgslauf.de/
 END:VEVENT
 END:VCALENDAR

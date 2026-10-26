@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-20-arlberg-ultra-11-5km-lech@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270820
+DTEND;VALUE=DATE:20270823
+SUMMARY:Arlberg Ultra – Rookie Trail 10K 11\,5 km 680 hm ↑ 680 hm ↓
+LOCATION:Lech\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11.5 km\nhttps://www.arlberg-
+ ultra.com/de
+TRANSP:TRANSPARENT
+URL:https://www.arlberg-ultra.com/de
+END:VEVENT
+END:VCALENDAR

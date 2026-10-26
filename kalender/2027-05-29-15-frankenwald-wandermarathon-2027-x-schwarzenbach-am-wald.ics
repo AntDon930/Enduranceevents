@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-15-frankenwald-wandermarathon-2027-x-schwarzenbach-am-wald@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:15. Frankenwald Wandermarathon 2027
+LOCATION:Schwarzenbach am Wald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: -\nhttps://www.frankenwald-t
+ ourismus.de/draussen/wandern/wandermarathon
+TRANSP:TRANSPARENT
+URL:https://www.frankenwald-tourismus.de/draussen/wandern/wandermarathon
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-forstenrieder-volkslauf-6-8km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Forstenrieder Volkslauf – 6.800 m Hobbylauf\, Preis 18\,00 €\, max
+ . 225 Teilnehmer.
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.8 km\nhttps://www.sas-onli
+ ne.net/eventportal_bs/851/
+TRANSP:TRANSPARENT
+URL:https://www.sas-online.net/eventportal_bs/851/
+END:VEVENT
+END:VCALENDAR

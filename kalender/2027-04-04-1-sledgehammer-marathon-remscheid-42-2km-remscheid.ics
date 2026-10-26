@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-1-sledgehammer-marathon-remscheid-42-2km-remscheid@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:1. Sledgehammer Marathon Remscheid
+LOCATION:Remscheid\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.frielin
+ gsdorf-datenservice.de/anmeldung/2027/hammerlauf
+TRANSP:TRANSPARENT
+URL:https://www.frielingsdorf-datenservice.de/anmeldung/2027/hammerlauf
+END:VEVENT
+END:VCALENDAR

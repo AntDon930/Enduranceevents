@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-der-rigolator-10-2km-riegel-am-kaiserstuhl@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Der Rigolator – Einsteigertriathlon
+LOCATION:Riegel am Kaiserstuhl\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 10.2 km\nhttps://www.rigo
+ lator.com/
+TRANSP:TRANSPARENT
+URL:https://www.rigolator.com/
+END:VEVENT
+END:VCALENDAR

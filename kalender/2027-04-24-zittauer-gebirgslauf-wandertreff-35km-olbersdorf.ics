@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270424
 DTEND;VALUE=DATE:20270426
 SUMMARY:Zittauer Gebirgslauf & Wandertreff – 35 km Lauf
 LOCATION:Olbersdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 35 km\nhttps://baer-service.d
- e/veranstaltung/ZGL/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 35 km\nhttps://www.zittauer-g
+ ebirgslauf.de/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/ZGL/
+URL:https://www.zittauer-gebirgslauf.de/
 END:VEVENT
 END:VCALENDAR

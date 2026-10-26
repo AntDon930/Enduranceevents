@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-winterlauf-buhlerzell-5km-buhlerzell@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:Winterlauf Bühlerzell
+LOCATION:Bühlerzell\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/376000/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/376000/
+END:VEVENT
+END:VCALENDAR

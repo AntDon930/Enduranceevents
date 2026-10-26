@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-munchner-kindl-lauf-5km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Münchner-Kindl-Lauf
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://muenchner-kind
+ l-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://muenchner-kindl-lauf.de/
+END:VEVENT
+END:VCALENDAR
