@@ -29387,5 +29387,834 @@
   ],
   "pruefung_offen": true,
   "pruefung_grund": "Treffpunkt widersprüchlich: Webseite nennt sonntags 10:00 Apollo-Theater (Rheinkniebrücke), Instagram-Plan Oktober 2026 Boskampweg; Dunkelrunde laut Plan Mi 18:00 Rheinterrassen, im Vereinskalender am 21.10. 18:30 Theodor-Heuss-Brücke (abgesagt). Nach dem Season Closing 25.10. stehen im Kalender keine Sonntags- und Mittwochsrunden mehr – Winterpause? Novemberplan auf Instagram abwarten."
+ },
+ {
+  "id": "aschaffenburg-absolute-run-community-run",
+  "name": "ABSOLUTE RUN Aschaffenburg Community Run",
+  "art": "Laufen",
+  "stadt": "Aschaffenburg",
+  "land": "Deutschland",
+  "treffpunkt": "ABSOLUTE RUN Aschaffenburg, Frohsinnstraße 4 (ca. 15 Minuten vorher da sein)",
+  "lat": 49.97758,
+  "lon": 9.14726,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-31",
+    "uhrzeit": "09:00",
+    "bezeichnung": "Test & Try ASICS – Morning Run mit Frühstück (Reservierung)"
+   }
+  ],
+  "anmeldung": "nein",
+  "stufen": [
+   "anfaenger",
+   "fortgeschritten"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "webseite": "https://absoluterun-aschaffenburg.de/community-run/",
+  "instagram": "https://www.instagram.com/absolute_run_aschaffenburg/",
+  "sprachen": [
+   "de"
+  ],
+  "beschreibung_de": "Wöchentlicher Lauf ab dem Laufgeschäft in der Innenstadt, ohne Leistungsdruck für Einsteiger und Erfahrene; gelegentlich mit Schuhtests.",
+  "beschreibung_en": "Weekly run from the running store in the city centre, relaxed and open to beginners and experienced runners, sometimes with shoe testing.",
+  "quelle": [
+   "https://absoluterun-aschaffenburg.de/community-run/",
+   "https://absoluterun-aschaffenburg.de/veranstaltungen"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-15",
+  "pruefung_offen": true,
+  "pruefung_grund": "Community-Run-Seite stammt von 07/2024; aktuell belegt ist nur der Laden-Lauf 31.10.2026 (Veranstaltungsseite, Startseite aktualisiert 15.10.2026) – ob der Mittwochstermin 18:30 noch gilt, bestätigen; Kosten nicht genannt"
+ },
+ {
+  "id": "berlin-prohibited-running-club",
+  "name": "Prohibited Running Club",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "Prohibited (Checkmate Commerce), Max-Beer-Straße 6, Berlin-Mitte",
+  "lat": 52.52502,
+  "lon": 13.40834,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   5,
+   6
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:30"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "Strava",
+  "strava": "https://www.strava.com/clubs/prohibitedrunningclub",
+  "webseite": "https://prohibited.shop/",
+  "merkmale": [
+   "mehrere_gruppen",
+   "gepaeck",
+   "kaffee"
+  ],
+  "pause": {
+   "hinweis_de": "Winterpause seit dem 19.10.2026, Neustart etwa Februar/März 2027",
+   "hinweis_en": "Winter break since 19 Oct 2026, restart around February/March 2027"
+  },
+  "beschreibung_de": "Lauftreff des Berliner Streetwear-Labels mit gemeinsamem Aufwärmen und zwei Tempogruppen über 5 bis 6 km, danach Getränke im Showroom.",
+  "beschreibung_en": "Run club of the Berlin streetwear label with a group warm-up and two pace groups over 5 to 6 km, followed by drinks at the showroom.",
+  "quelle": [
+   "https://www.strava.com/clubs/prohibitedrunningclub",
+   "https://prohibited.shop/",
+   "https://www.prohibited.shop/policies/legal-notice"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-18",
+  "pruefung_offen": true,
+  "pruefung_grund": "Treffpunkt unklar: Strava nennt 'Prohibited Showroom', am 21.09.2026 Mindspace; Adresse hier = Firmensitz laut Impressum. Wochentag Dienstag 18:30 aus Strava-Beiträgen (im Herbst 18:15)."
+ },
+ {
+  "id": "berlin-antifascist-running-club",
+  "name": "Antifascist Running Club Berlin",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "Coretex, Oranienstraße 3, Berlin-Kreuzberg",
+  "lat": 52.49975,
+  "lon": 13.42562,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "anmeldung_ueber": "Telegram",
+  "strava": "https://www.strava.com/clubs/AntiFascistRunningClub",
+  "webseite": "https://antifascistrunningclub.com/",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "beschreibung_de": "Politisch engagierte Lauf-Community aus der Punk- und Hardcore-Szene, die sich donnerstags abends am Coretex-Laden in Kreuzberg trifft.",
+  "beschreibung_en": "Politically engaged running community from the punk and hardcore scene that meets on Thursday evenings at the Coretex shop in Kreuzberg.",
+  "quelle": [
+   "https://www.strava.com/clubs/AntiFascistRunningClub"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-26",
+  "pruefung_offen": true,
+  "pruefung_grund": "Aktivität nur indirekt: Strava zeigt am 26.10.2026 ein kommendes Club-Event (Datum nur angemeldet sichtbar); keine datierten Beiträge, Webseite leer. Distanz/Tempo unbekannt."
+ },
+ {
+  "id": "berlin-s3velo-gravel-ride",
+  "name": "S3Velo Berlin – Gravel-Ausfahrt",
+  "art": "Fahrrad",
+  "rad_typ": "Gravel",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "S3Velo, Karl-Marx-Allee 76, Berlin-Friedrichshain",
+  "lat": 52.51721,
+  "lon": 13.43766,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "strava": "https://www.strava.com/clubs/s3bln",
+  "webseite": "https://s3velo.de/",
+  "beschreibung_de": "Wöchentliche Gravel-Ausfahrt des Fahrradladens S3Velo in Friedrichshain durch Berlin und Brandenburg.",
+  "beschreibung_en": "Weekly gravel ride from the S3Velo bike shop in Friedrichshain through Berlin and Brandenburg.",
+  "quelle": [
+   "https://www.strava.com/clubs/s3bln",
+   "https://s3velo.de/"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-26",
+  "pruefung_offen": true,
+  "pruefung_grund": "Aktivität nur indirekt: Strava zeigt am 26.10.2026 ein kommendes Club-Event (Datum nur angemeldet sichtbar); Webseite im Umbau; unklar, ob die Mittwochsrunde im Winter läuft; Tempo/Distanz unbekannt."
+ },
+ {
+  "id": "braunschweig-project19-coffee-ride",
+  "name": "Project 19 Velo Club – Sonntags-Coffeeride",
+  "art": "Fahrrad",
+  "rad_typ": "Rennrad",
+  "stadt": "Braunschweig",
+  "land": "Deutschland",
+  "treffpunkt": "Ampelkreuzung am Schöppenstedter Turm, 38126 Braunschweig",
+  "lat": 52.25022,
+  "lon": 10.59376,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   80,
+   80
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "strava": "https://www.strava.com/clubs/P19VCandFriends",
+  "instagram": "https://www.instagram.com/project19veloclub/",
+  "beschreibung_de": "Sonntägliche Rennradrunde von rund 80 km in gemäßigtem Tempo, gemeinsam mit TaT, mit Start am Schöppenstedter Turm.",
+  "beschreibung_en": "Sunday road ride of about 80 km at a moderate pace, together with TaT, starting at the Schöppenstedter Turm.",
+  "quelle": [
+   "https://www.strava.com/clubs/P19VCandFriends"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-26",
+  "pruefung_offen": true,
+  "pruefung_grund": "Aktivität nur indirekt: Strava zeigt am 26.10.2026 ein kommendes Club-Event (Datum nur angemeldet sichtbar); Saisonstart 21.03.2026 deutet auf Saisonbetrieb – Winterpause prüfen."
+ },
+ {
+  "id": "braunschweig-unlimited-watts-rides",
+  "name": "Unlimited Watts – Group Rides",
+  "art": "Fahrrad",
+  "rad_typ": "gemischt",
+  "stadt": "Braunschweig",
+  "land": "Deutschland",
+  "treffpunkt": "Sweet Spot Studio, Braunschweig",
+  "lat": 52.26478,
+  "lon": 10.5495,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "17:50",
+    "bezeichnung": "TGW (Drop-Ride)",
+    "pace": {
+     "von": 35,
+     "bis": 40
+    }
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00",
+    "bezeichnung": "FLINKA FLINTA* (No Drop, nur FLINTA*)",
+    "pace": {
+     "von": 27,
+     "bis": 29
+    }
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "16:00",
+    "bezeichnung": "sweet BASTA ride (Straße ab 32 km/h, Gravel ab 26 km/h)"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://unlimited-watts.de/kalender/",
+  "strava": "https://www.strava.com/clubs/unlimitedwatts",
+  "merkmale": [
+   "mehrere_gruppen",
+   "frauen"
+  ],
+  "stufen": [
+   "fortgeschritten"
+  ],
+  "beschreibung_de": "Das Braunschweiger Radrennteam bietet mehrere offene Ausfahrten pro Woche ab dem Sweet Spot Studio, darunter eine schnelle Drop-Runde und eine No-Drop-Runde für FLINTA*.",
+  "beschreibung_en": "The Braunschweig race team runs several open rides a week from Sweet Spot Studio, including a fast drop ride and a no-drop ride for FLINTA*.",
+  "quelle": [
+   "https://unlimited-watts.de/kalender/",
+   "https://unlimited-watts.de/",
+   "https://www.strava.com/clubs/unlimitedwatts"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-07-13",
+  "pruefung_offen": true,
+  "pruefung_grund": "Kalender ohne Datum, gilt laut Seite 'solange das Wetter hält' – Winterpause wahrscheinlich; jüngster Beleg nur Rennbericht vom 13.07.2026; Studio-Adresse nicht genannt (Koordinaten vom Eintrag Sweet Run Club)."
+ },
+ {
+  "id": "bochum-windkante-mittwochsrunde",
+  "name": "Windkante Rottstraße – Mittwochsrunde",
+  "art": "Fahrrad",
+  "rad_typ": "gemischt",
+  "stadt": "Bochum",
+  "land": "Deutschland",
+  "treffpunkt": "Clubhaus Windkante, Rottstraße 17, Bochum",
+  "lat": 51.47922,
+  "lon": 7.21186,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   40,
+   40
+  ],
+  "pace": {
+   "von": 20,
+   "bis": 22
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://windkante.net",
+  "instagram": "https://www.instagram.com/windkante_cc/",
+  "strava": "https://www.strava.com/clubs/windkante",
+  "merkmale": [
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Gemeinnütziger Radverein mit Café und Werkstatt, der jeden Mittwochabend eine gemütliche Talk&Ride-Runde mit Rennrad oder Gravelbike ab dem Clubhaus fährt.",
+  "beschreibung_en": "Non-profit cycling club with café and workshop that runs a relaxed talk-and-ride on road or gravel bikes from its clubhouse every Wednesday evening.",
+  "quelle": [
+   "http://windkante.net"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-24",
+  "pruefung_offen": true,
+  "pruefung_grund": "Im Herbst heißt der Termin 'Windkanten-Mittwoch ab 17:00' – prüfen, ob die 18:30-Ausfahrt im Winter läuft; Webseite nur http."
+ },
+ {
+  "id": "zollikofen-road-bike-bern-social-ride",
+  "name": "Road Bike Bern – Social Ride",
+  "art": "Fahrrad",
+  "rad_typ": "Rennrad",
+  "stadt": "Zollikofen",
+  "land": "Schweiz",
+  "treffpunkt": "Bantigerstrasse 45, Zollikofen",
+  "lat": 46.98683,
+  "lon": 7.45814,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-07",
+    "uhrzeit": "10:00",
+    "bezeichnung": "Warm-Up"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-15",
+    "uhrzeit": "10:00",
+    "bezeichnung": "Warm-Up"
+   }
+  ],
+  "pace": {
+   "von": 19,
+   "bis": 21
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://www.meetup.com/road-bike-bern-social-ride/",
+  "merkmale": [
+   "no_drop",
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "beschreibung_de": "Kleine Meetup-Gruppe für gemütliche No-Drop-Rennradrunden rund um Bern, Start in Zollikofen.",
+  "beschreibung_en": "Small Meetup group for relaxed no-drop road rides around Bern, starting in Zollikofen.",
+  "quelle": [
+   "https://www.meetup.com/road-bike-bern-social-ride/"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-25",
+  "pruefung_offen": true,
+  "pruefung_grund": "Sehr kleine Gruppe (7 Mitglieder, 1–2 Teilnehmende), unregelmäßige Termine; Treffpunkt ist womöglich eine Privatadresse."
+ },
+ {
+  "id": "duesseldorf-running-duesseldorf-zoopark",
+  "name": "Running Düsseldorf – Weekly Afterwork Run",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "das Alfreds – Café & Restaurant, Brehmplatz 1 (Eingang neben dem Café), Zoopark",
+  "lat": 51.23879,
+  "lon": 6.80332,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:30",
+    "distanz_km": [
+     5,
+     5
+    ]
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "dauer_min": 30,
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://www.meetup.com/running-duesseldorf/",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "beschreibung_de": "Lockerer 5-km-Lauf am Mittwochabend über fünf Runden im Zoopark, Start am Café Alfreds; eine Stirnlampe ist ratsam.",
+  "beschreibung_en": "Relaxed 5 km Wednesday evening run of five laps in Zoopark, starting at Café Alfreds; a headlamp is recommended.",
+  "quelle": [
+   "https://www.meetup.com/running-duesseldorf/events/317089362/"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-26"
+ },
+ {
+  "id": "duesseldorf-coterie-running-club",
+  "name": "The Coterie Running Club",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Rheinterrasse, Joseph-Beuys-Ufer 33",
+  "lat": 51.23621,
+  "lon": 6.77104,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-01",
+    "uhrzeit": "10:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "6:30"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://www.meetup.com/the-coterie-dusseldorf/",
+  "sprachen": [
+   "en"
+  ],
+  "beschreibung_de": "Gelegentlicher 5-km-Lauf der Düsseldorfer Coterie-Gruppe im Tempo 6:00–6:30 min/km an den Rheinterrassen.",
+  "beschreibung_en": "Occasional 5 km run of the Coterie Düsseldorf group at 6:00–6:30 min/km near the Rheinterrassen.",
+  "quelle": [
+   "https://www.meetup.com/the-coterie-dusseldorf/events/317069511/"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-26",
+  "pruefung_offen": true,
+  "pruefung_grund": "Meetup nennt nur 'Rheinterrassen' ohne genaue Adresse (Ort 'Needs a location'); kein fester Rhythmus, nur Einzeltermin; unklar, ob Gäste ohne Coterie-Mitgliedschaft willkommen sind"
+ },
+ {
+  "id": "oberschleissheim-bmw-radsport-dienstagsausfahrt",
+  "name": "BMW Radsport – Dienstags-Rennradausfahrt",
+  "art": "Fahrrad",
+  "stadt": "Oberschleißheim",
+  "land": "Deutschland",
+  "treffpunkt": "Ruderregattastrecke Oberschleißheim, Dachauer Straße 35 (Zubringer ab 17:30 Uhr am FIZ-Parkhaus München)",
+  "lat": 48.23983,
+  "lon": 11.51108,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "distanz_km": [
+   50,
+   80
+  ],
+  "dauer_min": 150,
+  "pace": {
+   "von": 26,
+   "bis": 32
+  },
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "rad_typ": "Rennrad",
+  "saison": {
+   "von": "03-25",
+   "bis": "10-31"
+  },
+  "sprachen": [
+   "de"
+  ],
+  "webseite": "https://bmw-radsport.de/veranstaltungen-der-bmw-radsport/",
+  "strava": "https://www.strava.com/clubs/36240",
+  "beschreibung_de": "Wöchentliche Trainingsausfahrt des Vereins BMW Radsport im Münchner Norden, 50 bis 80 km in Gruppen nach Tempo, auch für Interessierte ohne Mitgliedschaft.",
+  "beschreibung_en": "Weekly training ride of the BMW Radsport club north of Munich, 50 to 80 km in pace groups, also open to interested riders who are not members.",
+  "quelle": [
+   "https://bmw-radsport.de/veranstaltungen-der-bmw-radsport/",
+   "https://bmw-radsport.de/",
+   "https://www.instagram.com/p/Dd4nKfpIvj7/"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-09-29",
+  "pruefung_offen": true,
+  "pruefung_grund": "Aktivitätsbeleg ist ein auf bmw-radsport.de eingebetteter Instagram-Beitrag „Trainingsausfahrt jeden Dienstag 18 Uhr, München Nord … einfach mal mitfahren“ (Beitragsdatum aus der Beitrags-ID errechnet: 29.09.2026); Saison laut Seite „Ende März bis Ende Oktober“ – genaues Ende und Neustart 2027 prüfen; Gäste werden nur indirekt genannt („Mitglieder und Interessierte“)"
+ },
+ {
+  "id": "wien-wild-run-club-prater",
+  "name": "Wild Run Club Vienna – Tuesday Wild Run",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "land": "Österreich",
+  "treffpunkt": "Vor dem Würstelstand Bitzinger, Gabor-Steiner-Weg (Prater), 1020 Wien",
+  "lat": 48.2171,
+  "lon": 16.39541,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "distanz_km": [
+   10,
+   10
+  ],
+  "dauer_min": 90,
+  "pace": {
+   "von": "6:00",
+   "bis": "7:00"
+  },
+  "stufen": [
+   "anfaenger"
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://www.meetup.com/wild-run-club-vienna/",
+  "sprachen": [
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Lockerer Gruppenlauf am Dienstagabend über rund 10 km auf Schotter- und Waldwegen im Prater, auch für Einsteiger.",
+  "beschreibung_en": "Easy Tuesday evening group run of about 10 km on gravel and forest paths in the Prater, beginners welcome.",
+  "quelle": [
+   "https://www.meetup.com/wild-run-club-vienna/events/317056948/"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-26",
+  "pruefung_offen": true,
+  "pruefung_grund": "Meetup-Serie wöchentlich Di 18:30 nur bis 16.12.2026 angelegt; Treffpunkt-Koordinaten = Gabor-Steiner-Weg (Stand Bitzinger nicht genau geocodiert)"
+ },
+ {
+  "id": "wien-internationals-run-bfast-schoenbrunn",
+  "name": "Internationals in Wien – Run + B-fast Schönbrunn",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "land": "Österreich",
+  "treffpunkt": "U-Bahn Schönbrunn, Ausgang Grünbergstraße, 1120 Wien",
+  "lat": 48.18581,
+  "lon": 16.32006,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:30"
+   }
+  ],
+  "dauer_min": 60,
+  "stufen": [
+   "anfaenger"
+  ],
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://www.meetup.com/internationals-in-wien/",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "mehrere_gruppen",
+   "kaffee"
+  ],
+  "beschreibung_de": "Samstäglicher Lauf von etwa einer Stunde im Schlosspark Schönbrunn im eigenen Tempo, danach gemeinsames Frühstück in Hietzing.",
+  "beschreibung_en": "Saturday run of about an hour through Schönbrunn Palace park at your own pace, followed by breakfast together in Hietzing.",
+  "quelle": [
+   "https://www.meetup.com/internationals-in-wien/events/316813436/"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-26",
+  "pruefung_offen": true,
+  "pruefung_grund": "Distanz und Kosten auf Meetup nicht genannt; Serie bis 25.03.2027 angelegt"
+ },
+ {
+  "id": "wien-early-birds-cycling-tuesday-afterwork",
+  "name": "Early Birds Cycling Club – Tuesday Afterwork Ride",
+  "art": "Fahrrad",
+  "stadt": "Wien",
+  "land": "Österreich",
+  "treffpunkt": "Steinitzsteg (Yellow Bridge), 1200 Wien",
+  "lat": 48.25355,
+  "lon": 16.37792,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "17:30"
+   }
+  ],
+  "distanz_km": [
+   50,
+   70
+  ],
+  "rad_typ": "Rennrad",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Heylo",
+  "webseite": "https://www.heylo.com/event/2376ef79-bf67-406c-90e7-2de0019991bd",
+  "strava": "https://www.strava.com/clubs/earlybirdscyclingclub",
+  "sprachen": [
+   "en",
+   "de"
+  ],
+  "merkmale": [
+   "mehrere_gruppen",
+   "no_drop",
+   "frauen"
+  ],
+  "pause": {
+   "hinweis_de": "Winterpause",
+   "hinweis_en": "Winter break"
+  },
+  "beschreibung_de": "Wöchentliche Feierabend-Rennradausfahrt am Dienstag über 50–70 km mit Leistungsgruppen, darunter No-Drop- und Frauengruppen.",
+  "beschreibung_en": "Weekly Tuesday after-work road ride of 50–70 km in pace groups, including no-drop and women-only groups.",
+  "quelle": [
+   "https://www.heylo.com/event/2376ef79-bf67-406c-90e7-2de0019991bd",
+   "https://www.heylo.com/event/-OtxJxYeFARAReQxn-2h"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-08-11",
+  "pruefung_offen": true,
+  "pruefung_grund": "Jüngster Beleg Heylo-Termin Di 11.08.2026 (Jahr über Wochentag erschlossen); Abendausfahrt vermutlich nur in der hellen Jahreszeit, Saisonzeitraum nicht genannt; findet nur statt, wenn auf Strava eine Route steht"
+ },
+ {
+  "id": "zuerich-zueri-raennt-dienstag",
+  "name": "Züri rännt multikulturell – Dienstagslauf",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "land": "Schweiz",
+  "treffpunkt": "Schiffstation Bürkliplatz, 8001 Zürich",
+  "lat": 47.36647,
+  "lon": 8.54135,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "6:00",
+   "bis": "6:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://zueriraennt.ch/laufgruppen",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Kostenloser Dienstagslauf ohne Mitgliedschaft ab Bürkliplatz, der Zugezogene und Einheimische beim Laufen zusammenbringt.",
+  "beschreibung_en": "Free Tuesday run from Bürkliplatz without membership, bringing newcomers and locals together.",
+  "quelle": [
+   "https://zueriraennt.ch/laufgruppen"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-26",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termine auf der Seite ohne Jahr (27.10. = Dienstag 2026); Distanz nicht genannt"
+ },
+ {
+  "id": "zuerich-zueri-raennt-erster-donnerstag",
+  "name": "Züri rännt multikulturell – Donnerstagslauf (1. Donnerstag)",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "land": "Schweiz",
+  "treffpunkt": "Bahnhofplatz Stadelhofen, 8001 Zürich",
+  "lat": 47.36597,
+  "lon": 8.54776,
+  "termine": [
+   {
+    "rhythmus": "monatlich",
+    "nter": 1,
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "5:00",
+   "bis": "5:00"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "anmeldung": "nein",
+  "webseite": "https://zueriraennt.ch/laufgruppen",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "beschreibung_de": "Etwas schnellerer Gratislauf am ersten Donnerstag im Monat ab Bahnhof Stadelhofen, offen für alle ohne Anmeldung.",
+  "beschreibung_en": "Slightly faster free run on the first Thursday of the month from Stadelhofen station, open to all without sign-up.",
+  "quelle": [
+   "https://zueriraennt.ch/laufgruppen"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-26",
+  "pruefung_offen": true,
+  "pruefung_grund": "Termine auf der Seite ohne Jahr (5.11. = 1. Donnerstag 2026); Distanz nicht genannt"
+ },
+ {
+  "id": "zuerich-pizza-gravel",
+  "name": "Pizza Gravel Zurich",
+  "art": "Fahrrad",
+  "stadt": "Zürich",
+  "land": "Schweiz",
+  "treffpunkt": "Bullingerplatz, 8004 Zürich",
+  "lat": 47.37957,
+  "lon": 8.51597,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00"
+   }
+  ],
+  "dauer_min": 120,
+  "rad_typ": "Gravel",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://www.meetup.com/biking-camping/",
+  "sprachen": [
+   "en"
+  ],
+  "beschreibung_de": "Wöchentliche Social Ride am Donnerstagabend auf gemischtem Untergrund rund um Zürich, danach gemeinsam Pizza.",
+  "beschreibung_en": "Weekly Thursday evening social ride on mixed surfaces around Zurich, followed by pizza together.",
+  "quelle": [
+   "https://www.meetup.com/biking-camping/events/316912518/"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-26",
+  "pruefung_offen": true,
+  "pruefung_grund": "Distanz, Tempo und Kosten nicht genannt; Meetup-Gruppe verlangt Beitrittsanfrage; Radtyp aus „mixed surfaces“ erschlossen"
+ },
+ {
+  "id": "zuerich-hash-house-harriers",
+  "name": "Zürich Hash House Harriers (ZH3)",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "land": "Schweiz",
+  "treffpunkt": "Wechselnd je Hash (Ankündigung auf Meetup), z. B. Rossackerstrasse 106, 8047 Zürich",
+  "lat": 47.36957,
+  "lon": 8.48937,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00"
+   }
+  ],
+  "distanz_km": [
+   6,
+   10
+  ],
+  "dauer_min": 120,
+  "kosten": {
+   "gratis": false,
+   "betrag_eur": null,
+   "text": "CHF 5 inkl. Bier und Snacks"
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Meetup",
+  "webseite": "https://www.meetup.com/the-zurich-hash-house-harriers/",
+  "sprachen": [
+   "en"
+  ],
+  "merkmale": [
+   "gepaeck",
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Wöchentlicher Hash-Lauf auf einer ausgelegten Schnitzeljagd-Strecke von etwa 6–10 km, die am Bierstopp endet, auch für Geher.",
+  "beschreibung_en": "Weekly hash run following a laid trail of roughly 6–10 km that ends at a beer stop, walkers welcome.",
+  "quelle": [
+   "https://www.meetup.com/the-zurich-hash-house-harriers/events/316706582/"
+  ],
+  "geprueft": "2026-10-26",
+  "zuletzt_aktiv": "2026-10-26",
+  "pruefung_offen": true,
+  "pruefung_grund": "Treffpunkt wechselt je Hash; neben Donnerstagabend auch Samstags-Hashes (z. B. 07.11. und 14.11.2026, 14:00) – Rhythmus genauer prüfen"
  }
 ]
