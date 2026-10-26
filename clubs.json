@@ -184,14 +184,19 @@
     "rhythmus": "woechentlich",
     "wochentag": 3,
     "uhrzeit": "21:00",
-    "distanz_km": [
-     8,
-     15
-    ],
-    "pace": {
-     "von": "5:50",
-     "bis": "5:50"
-    }
+    "bezeichnung": "Crew Run, 8 oder 15 km easy (~5:50 min/km)"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Easy Sunday Long Run ab U3 Feldstraße, wechselnde Strecke"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Track Tuesday mit Fat Girlz/Boyz Track Club, Heiligengeistfeld (Bar „Kitty“), Updates per WhatsApp"
    }
   ],
   "distanz_km": [
@@ -208,13 +213,15 @@
    "de",
    "en"
   ],
-  "beschreibung_de": "Social Running Crew seit 2014: jeden Mittwoch um 21 Uhr ab der Superbude St. Pauli, wahlweise 8 oder 15 km in lockerem Tempo um 5:50 min/km.",
-  "beschreibung_en": "Social running crew since 2014: every Wednesday at 9 pm from Superbude St. Pauli, choose 8 or 15 km at an easy pace of about 5:50 min/km.",
+  "beschreibung_de": "Social Running Crew seit 2014: mittwochs um 21 Uhr ab der Superbude St. Pauli 8 oder 15 km easy (~5:50 min/km), sonntags um 10 Uhr ein lockerer Long Run ab U3 Feldstraße, dienstags um 19 Uhr Bahntraining mit dem Fat Girlz/Boyz Track Club.",
+  "beschreibung_en": "Social running crew since 2014: Wednesdays at 9 pm from Superbude St. Pauli, 8 or 15 km easy (~5:50 min/km); Sundays at 10 am an easy long run from U3 Feldstraße; Tuesdays at 7 pm track session with the Fat Girlz/Boyz Track Club.",
   "quelle": [
-   "https://www.strava.com/clubs/tiderunners"
+   "https://www.strava.com/clubs/tiderunners",
+   "https://www.strava.com/clubs/1335330",
+   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-10-26"
  },
  {
   "id": "hamburg-kraft-runners",
@@ -323,10 +330,12 @@
   "quelle": [
    "https://radcrew.hamburg/event/radcrew-hamburg-raceteam-training/2026-10-21/",
    "https://radcrew.hamburg/events/",
-   "https://www.strava.com/clubs/1283051/group_events/1976379"
+   "https://www.strava.com/clubs/1283051/group_events/1976379",
+   "https://www.strava.com/clubs/1283051",
+   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-10-26",
   "pace": {
    "von": 28,
    "bis": 40
@@ -5557,12 +5566,6 @@
    },
    {
     "rhythmus": "einmalig",
-    "datum": "2026-10-25",
-    "uhrzeit": "15:00",
-    "bezeichnung": "World Swim Hat Day (Wiedersehen vor der Saison)"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-10-31",
     "uhrzeit": "11:00",
     "bezeichnung": "Saisonstart"
@@ -6791,12 +6794,6 @@
   "lat": 47.78605,
   "lon": 13.08815,
   "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-21",
-    "uhrzeit": "18:00",
-    "bezeichnung": "Community Run – Hundewiese bei Schloss Aigen, Schwarzenbergpromenade 37"
-   },
    {
     "rhythmus": "einmalig",
     "datum": "2026-10-29",
@@ -14136,12 +14133,6 @@
     "rhythmus": "woechentlich",
     "wochentag": 4,
     "uhrzeit": "19:00"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-24",
-    "uhrzeit": "10:00",
-    "bezeichnung": "Frankfurt Marathon Shake Out Run mit adidas"
    }
   ],
   "webseite": "https://www.asphaltgold.com/pages/badhabits-run-club",
@@ -14279,6 +14270,12 @@
    },
    {
     "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Legends Speed Run: Intervalle auf der Bahn am Zentrum für Hochschulsport, Ginnheimer Landstraße 39"
+   },
+   {
+    "rhythmus": "woechentlich",
     "wochentag": 5,
     "uhrzeit": "19:00",
     "bezeichnung": "Social Run, Kunstverein Familie Montez",
@@ -14301,11 +14298,12 @@
   "beschreibung_en": "Social runs of 7 or 10 km (6:30 or 5:30 pace) on Tuesdays from Cosmic Cafe in the Nordend and on Fridays from Kunstverein Familie Montez, both at 7 pm, with bag drop and snacks afterwards.",
   "quelle": [
    "https://socialrunclubs.de/frankfurt-am-main/local-legends-run-club/",
-   "https://www.strava.com/clubs/1647549"
+   "https://www.strava.com/clubs/1647549",
+   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
   "art": "Laufen",
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-10-26",
   "sprachen": [
    "de"
   ],
@@ -14761,19 +14759,41 @@
     "rhythmus": "woechentlich",
     "wochentag": 2,
     "uhrzeit": "19:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:00",
+    "bezeichnung": "TrackNight, Bezirkssportanlage Mainz-Bretzenheim"
+   },
+   {
+    "rhythmus": "monatlich",
+    "wochentag": 6,
+    "nter": -1,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Female Run (nur Frauen) ab Via del Wir, Fischtorstraße 7"
+   },
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 7,
+    "uhrzeit": "09:00",
+    "ab": "2026-11-01",
+    "bezeichnung": "Long Run 15 km (6:00–6:30 min/km) ab Via del Wir Neustadt, Frauenlobstraße 58"
    }
   ],
   "instagram": "https://www.instagram.com/meenzrunners/",
-  "beschreibung_de": "Social Run jeden Dienstag um 19 Uhr an der Theodor-Heuss-Brücke.",
-  "beschreibung_en": "Social run every Tuesday at 7 pm at the Theodor-Heuss bridge.",
+  "beschreibung_de": "Lauftreff mit Social Run am Dienstagabend, TrackNight donnerstags in Bretzenheim, einem Female Run am letzten Samstag im Monat und alle zwei Wochen einem 15-km-Long-Run am Sonntag, danach Kaffee.",
+  "beschreibung_en": "Running club with a Tuesday evening social run, Thursday track night in Bretzenheim, a female run on the last Saturday of the month and a 15 km Sunday long run every other week, coffee afterwards.",
   "quelle": [
    "https://socialrunclubs.de/mainz/meenzrunners/",
    "https://www.mainz.de/en/verzeichnisse/vereinsverzeichnis/meenzrunners-e.v.vereine",
-   "https://www.strava.com/clubs/MeenzRunners"
+   "https://www.strava.com/clubs/MeenzRunners",
+   "https://www.strava.com/clubs/1226171",
+   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
   "art": "Laufen",
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-10-26",
   "sprachen": [
    "de"
   ],
@@ -19588,18 +19608,6 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-10-23",
-    "bezeichnung": "Afterwork Run x Tchibo",
-    "uhrzeit": "18:00"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-25",
-    "uhrzeit": "10:00",
-    "bezeichnung": "Sunday Social Run"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-10-31",
     "uhrzeit": "18:00",
     "bezeichnung": "Halloween Special"
@@ -21808,12 +21816,6 @@
    },
    {
     "rhythmus": "einmalig",
-    "datum": "2026-10-25",
-    "uhrzeit": "10:45",
-    "bezeichnung": "Coffeerave mit tenthirty.am ab Koko Café, 3 oder 5 km"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-10-29",
     "uhrzeit": "17:45",
     "bezeichnung": "ab Grano Pasta, 5 km"
@@ -23105,28 +23107,41 @@
   "lon": 8.68627,
   "termine": [
    {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:15",
+    "bezeichnung": "Wednesday Weekly ab Cosmic, Oeder Weg 38–40 (Treffen 19:00)"
+   },
+   {
     "rhythmus": "zweiwoechentlich",
     "wochentag": 6,
     "uhrzeit": "09:30",
-    "ab": "2026-10-24"
+    "ab": "2026-11-07",
+    "bezeichnung": "Saturday Coffee Run ab Drei Kaffeebar, Main-Runde (Treffen 9:15)"
    }
   ],
   "instagram": "https://www.instagram.com/irregularpractice/",
   "strava": "https://www.strava.com/clubs/regularpractice",
   "merkmale": [
+   "gepaeck",
    "kaffee",
    "mehrere_gruppen"
   ],
-  "beschreibung_de": "Samstagslauf jede zweite Woche ab einer Kaffeebar in der Innenstadt.",
-  "beschreibung_en": "Run every other Saturday from a coffee bar in the city centre.",
+  "beschreibung_de": "Mittwochs um 19:15 Uhr ab dem Cosmic im Oeder Weg durch den Grüneburgpark, alle zwei Wochen samstags um 9:30 Uhr ab der Drei Kaffeebar am Main – je etwa 45 Minuten in zwei Tempogruppen (5:30 und 6:15 min/km), Gepäckabgabe möglich.",
+  "beschreibung_en": "Wednesdays at 7:15 pm from Cosmic on Oeder Weg through Grüneburgpark, and every other Saturday at 9:30 am from Drei Kaffeebar along the Main – about 45 minutes in two pace groups (5:30 and 6:15 min/km), bag drop available.",
   "quelle": [
    "https://socialrunclubs.de/frankfurt-am-main/irregular-practice-run-club/",
    "https://freizeit.journal-frankfurt.de/freizeit_aufmacher/Freizeit-163/Lauftreffs-in-Frankfurt-Run-Clubs-Laufen-Kaffee-trinken-neue-Leute-kennenlernen-45460.html",
-   "https://www.strava.com/clubs/regularpractice"
+   "https://www.strava.com/clubs/regularpractice",
+   "https://www.strava.com/clubs/1061597",
+   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Eigener Strava-Club (3.985 Mitglieder) bestätigt „Running every second saturday – 09:30 at Drei Kaffeebar, 2+ pace groups, coffee afterwards“; offen ist nur, welche Samstage (Startdatum ‚ab‘ 24.10.2026 geschätzt) – an einem bekannten Termin festmachen"
+  "geprueft": "2026-10-26",
+  "pace": {
+   "von": "5:30",
+   "bis": "6:15"
+  },
+  "dauer_min": 45
  },
  {
   "id": "stuttgart-runningclub-stuttgart-degerloch",
@@ -29040,5 +29055,232 @@
    "https://www.strava.com/clubs/1215180"
   ],
   "geprueft": "2026-10-20"
+ },
+ {
+  "land": "Deutschland",
+  "geprueft": "2026-10-26",
+  "anmeldung": "nein",
+  "sprachen": [
+   "de"
+  ],
+  "id": "oberursel-veloon-ride-club",
+  "name": "Veloon Ride Club – Saturday Escape",
+  "art": "Fahrrad",
+  "stadt": "Oberursel (Taunus)",
+  "treffpunkt": "Veloon Lounge, Eppsteiner Straße 5",
+  "lat": 50.20376,
+  "lon": 8.57783,
+  "rad_typ": "gemischt",
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "11:00",
+    "bezeichnung": "Social Road Ride und Social Gravel Ride, 2–3 Gruppen"
+   }
+  ],
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "strava": "https://www.strava.com/clubs/1151845",
+  "merkmale": [
+   "mehrere_gruppen",
+   "kaffee"
+  ],
+  "beschreibung_de": "Samstags um 11 Uhr geführte Social Rides ab der Veloon Lounge in Oberursel – Rennrad und Gravel in zwei bis drei Gruppen in den Taunus, danach Espresso und Kuchen; kostenlos, Helmpflicht.",
+  "beschreibung_en": "Saturdays at 11 am guided social rides from the Veloon Lounge in Oberursel – road and gravel in two to three groups into the Taunus, espresso and cake afterwards; free, helmet required.",
+  "quelle": [
+   "https://www.strava.com/clubs/1151845",
+   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "land": "Deutschland",
+  "geprueft": "2026-10-26",
+  "anmeldung": "nein",
+  "sprachen": [
+   "de"
+  ],
+  "id": "hamburg-gravel-hamburg-granfondo",
+  "name": "Gravel Hamburg – GravelGranFondo",
+  "art": "Fahrrad",
+  "stadt": "Hamburg",
+  "treffpunkt": "Claus-Ferck-Straße 1 (Volksdorf)",
+  "lat": 53.64864,
+  "lon": 10.16397,
+  "rad_typ": "Gravel",
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-07",
+    "uhrzeit": "08:30",
+    "bezeichnung": "GravelGranFondo November, 100 km+"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-12-12",
+    "uhrzeit": "08:30",
+    "bezeichnung": "GravelGranFondo Dezember, 100 km+"
+   }
+  ],
+  "distanz_km": [
+   100,
+   100
+  ],
+  "strava": "https://www.strava.com/clubs/1129282",
+  "beschreibung_de": "Monatliche lange Gravel-Ausfahrt der Community Gravel Hamburg über 100 km und mehr ab Volksdorf; Details stehen kurz vorher im Strava-Club.",
+  "beschreibung_en": "Monthly long gravel ride of the Gravel Hamburg community, 100 km and more from Volksdorf; details are posted shortly before in the Strava club.",
+  "quelle": [
+   "https://www.strava.com/clubs/1129282",
+   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "land": "Deutschland",
+  "geprueft": "2026-10-26",
+  "anmeldung": "nein",
+  "sprachen": [
+   "de"
+  ],
+  "id": "hamburg-gruppetto-hamburg",
+  "name": "Gruppetto Hamburg",
+  "art": "Fahrrad",
+  "stadt": "Hamburg",
+  "treffpunkt": "Friedhof Ohlsdorf, Haupteingang (Talstraße)",
+  "lat": 53.6222,
+  "lon": 10.0476,
+  "rad_typ": "Rennrad",
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-30",
+    "uhrzeit": "15:00",
+    "bezeichnung": "Sachsenwald Spin, in Kleingruppen à 8 Personen"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/716641",
+  "beschreibung_de": "Große Hamburger Rennrad-Community mit wechselnden Ausfahrten, die einzeln im Strava-Club angekündigt werden – gefahren wird in Kleingruppen.",
+  "beschreibung_en": "Large Hamburg road cycling community with changing rides announced one by one in its Strava club – ridden in small groups.",
+  "quelle": [
+   "https://www.strava.com/clubs/716641",
+   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "land": "Deutschland",
+  "geprueft": "2026-10-26",
+  "anmeldung": "nein",
+  "sprachen": [
+   "de"
+  ],
+  "id": "hamburg-bsv-lunchride",
+  "name": "BSV Hamburg Radsport – Lunchride",
+  "art": "Fahrrad",
+  "stadt": "Hamburg",
+  "treffpunkt": "Oberbaumbrücke",
+  "lat": 53.5471,
+  "lon": 10.00479,
+  "rad_typ": "gemischt",
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "12:00"
+   }
+  ],
+  "pace": {
+   "von": 20,
+   "bis": 20
+  },
+  "strava": "https://www.strava.com/clubs/467041",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "no_drop"
+  ],
+  "beschreibung_de": "Mittwochs um 12 Uhr eine gemütliche Mittagsrunde seit 2017: um die 20 km/h, das Tempo richtet sich nach den Langsamsten, jedes Rad ist willkommen.",
+  "beschreibung_en": "Wednesdays at noon a relaxed lunch ride since 2017: around 20 km/h, paced to the slowest rider, any bike welcome.",
+  "quelle": [
+   "https://www.strava.com/clubs/467041",
+   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "land": "Deutschland",
+  "geprueft": "2026-10-26",
+  "anmeldung": "nein",
+  "sprachen": [
+   "de",
+   "en"
+  ],
+  "id": "hamburg-adidas-runners",
+  "name": "adidas Runners Hamburg",
+  "art": "Laufen",
+  "stadt": "Hamburg",
+  "treffpunkt": "Sportplatz Königshütter Straße (Linne-Kampfbahn), Dulsberg",
+  "lat": 53.58432,
+  "lon": 10.069,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Track Session für Einsteiger und Fortgeschrittene"
+   },
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 3,
+    "uhrzeit": "07:30",
+    "ab": "2026-10-28",
+    "bezeichnung": "Morning Miles, lockerer Lauf ab Zeit für Brot, Eppendorfer Baum 25"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/176543",
+  "merkmale": [
+   "mehrere_gruppen",
+   "gepaeck",
+   "dusche"
+  ],
+  "beschreibung_de": "Dienstags um 19 Uhr Bahntraining auf der Linne-Kampfbahn in zwei Gruppen (Einsteiger und Fortgeschrittene) mit Umkleiden; alle zwei Wochen mittwochs um 7:30 Uhr ein lockerer Morgenlauf ab Zeit für Brot in Eppendorf.",
+  "beschreibung_en": "Tuesdays at 7 pm track session at Linne-Kampfbahn in two groups (beginner and advanced), changing rooms available; every other Wednesday at 7:30 am an easy morning run from Zeit für Brot in Eppendorf.",
+  "quelle": [
+   "https://www.strava.com/clubs/176543",
+   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "land": "Deutschland",
+  "geprueft": "2026-10-26",
+  "anmeldung": "empfohlen",
+  "sprachen": [
+   "de"
+  ],
+  "id": "muenchen-monaco-velo-club-gravel",
+  "name": "Monaco Velo Club – Ciao Ragazzi Gravel-Ride",
+  "art": "Fahrrad",
+  "stadt": "München",
+  "treffpunkt": "Ohlmüllerstraße 7 (Au)",
+  "lat": 48.12606,
+  "lon": 11.57895,
+  "rad_typ": "Gravel",
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:30"
+   }
+  ],
+  "anmeldung_ueber": "Strava-Event",
+  "strava": "https://www.strava.com/clubs/149903",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Seit Oktober jeden Samstag um 10:30 Uhr ein Community-Gravelride ab der Ohlmüllerstraße, danach Espresso; Anmeldung über das Strava-Event.",
+  "beschreibung_en": "Since October every Saturday at 10:30 am a community gravel ride from Ohlmüllerstraße, espresso afterwards; sign up via the Strava event.",
+  "quelle": [
+   "https://www.strava.com/clubs/149903",
+   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
+  ]
  }
 ]
