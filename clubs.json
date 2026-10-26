@@ -29282,5 +29282,110 @@
    "https://www.strava.com/clubs/149903",
    "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
   ]
+ },
+ {
+  "art": "Fahrrad",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "webseite": "https://www.cyclingclub-duesseldorf.de/",
+  "instagram": "https://www.instagram.com/cyclingclubduesseldorf/",
+  "strava": "https://www.strava.com/clubs/2214",
+  "sprachen": [
+   "de"
+  ],
+  "geprueft": "2026-10-26",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Nichtmitglieder fahren auf eigene Gefahr"
+  },
+  "id": "duesseldorf-ccd-dreckiger-dienstag",
+  "name": "CCD Cycling Club Düsseldorf – Dreckiger Dienstag",
+  "treffpunkt": "Parkplatz Boskampweg / Ecke Fahneburgstraße (Rath)",
+  "lat": 51.25576,
+  "lon": 6.82474,
+  "rad_typ": "Gravel",
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Nachtschicht Gravel, rund 3 Stunden"
+   }
+  ],
+  "dauer_min": 180,
+  "anmeldung": "nein",
+  "merkmale": [
+   "mehrere_gruppen",
+   "no_drop"
+  ],
+  "beschreibung_de": "Jeden Dienstag um 18 Uhr drei Stunden Gravel auf den schönsten Strecken rund um Düsseldorf, teils in zwei Tempogruppen; die Strecke steht vorher auf Komoot. Offen für Nichtmitglieder, Helm- und Lichtpflicht.",
+  "beschreibung_en": "Every Tuesday at 6 pm three hours of gravel on the best routes around Düsseldorf, sometimes in two pace groups; the route is posted on Komoot beforehand. Open to non-members, helmet and lights required.",
+  "quelle": [
+   "https://www.cyclingclub-duesseldorf.de/veranstaltungen/dreckiger-dienstag-nachtschicht-gravel/",
+   "https://www.cyclingclub-duesseldorf.de/regelmaessige-ausfahrten/",
+   "https://www.instagram.com/cyclingclubduesseldorf/",
+   "Instagram-Monatsplan Oktober 2026 (Bildschirmfoto des Betreibers)"
+  ]
+ },
+ {
+  "art": "Fahrrad",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "webseite": "https://www.cyclingclub-duesseldorf.de/",
+  "instagram": "https://www.instagram.com/cyclingclubduesseldorf/",
+  "strava": "https://www.strava.com/clubs/2214",
+  "sprachen": [
+   "de"
+  ],
+  "geprueft": "2026-10-26",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": "Nichtmitglieder fahren auf eigene Gefahr"
+  },
+  "id": "duesseldorf-ccd-sonntagsausfahrt",
+  "name": "CCD Cycling Club Düsseldorf – Sonntagsausfahrt & Dunkelrunde",
+  "treffpunkt": "Parkplatz Boskampweg / Ecke Fahneburgstraße (Rath)",
+  "lat": 51.25576,
+  "lon": 6.82474,
+  "rad_typ": "Rennrad",
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Sonntagsrunde, 60–100 km, Strecke je nach Wetter"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Dunkelrunde ab den Rheinterrassen"
+   }
+  ],
+  "distanz_km": [
+   60,
+   100
+  ],
+  "pace": {
+   "von": 25,
+   "bis": 30
+  },
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "E-Mail an den Host (info@cyclingclub-duesseldorf.de)",
+  "merkmale": [
+   "mehrere_gruppen",
+   "no_drop"
+  ],
+  "beschreibung_de": "Rennrad-Ausfahrten des Vereins, offen für Nichtmitglieder: sonntags um 10 Uhr 60–100 km (es wird auf den Langsamsten gewartet, bei Schnee, Eis und Regen keine Fahrt), im Oktober mittwochs die Dunkelrunde ab den Rheinterrassen; vorher dem Host Bescheid geben.",
+  "beschreibung_en": "The club's road rides, open to non-members: Sundays at 10 am, 60–100 km (nobody gets dropped, no ride in snow, ice or rain); in October the Wednesday evening 'Dunkelrunde' from the Rheinterrassen; let the host know beforehand.",
+  "quelle": [
+   "https://www.cyclingclub-duesseldorf.de/regelmaessige-ausfahrten/",
+   "https://www.instagram.com/cyclingclubduesseldorf/",
+   "Instagram-Monatsplan Oktober 2026 (Bildschirmfoto des Betreibers)"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Treffpunkt widersprüchlich: Webseite nennt sonntags 10:00 Apollo-Theater (Rheinkniebrücke), Instagram-Plan Oktober 2026 Boskampweg; Dunkelrunde laut Plan Mi 18:00 Rheinterrassen, im Vereinskalender am 21.10. 18:30 Theodor-Heuss-Brücke (abgesagt). Nach dem Season Closing 25.10. stehen im Kalender keine Sonntags- und Mittwochsrunden mehr – Winterpause? Novemberplan auf Instagram abwarten."
  }
 ]
