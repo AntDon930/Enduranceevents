@@ -3782,9 +3782,19 @@ in `clubs.js`):
   "saison": {"von": "05-01", "bis": "09-30"}, "ausfaelle": ["2026-12-24"],
   "pause": {"bis": "2027-04-01", "hinweis_de": "Winterpause"},   // optional, ohne bis = Neustart offen
   "beschreibung_de": "…", "beschreibung_en": "…",
-  "quelle": ["https://…"], "geprueft": "2026-10-19"
+  "quelle": ["https://…"], "geprueft": "2026-10-19",
+  "zuletzt_aktiv": "2026-10-12"               // optional: jüngster Beleg, dass der Club noch trifft
 }
 ```
+
+**Nur lebendige Clubs** (vom Nutzer am 26.10.2026: „Ich will nicht schlechte
+Clubs drinnen haben die seit 2 Jahren inaktiv sind … eher auf Qualität gehen“):
+Ein neuer Club kommt nur hinein, wenn ein Beleg aus den letzten Monaten zeigt,
+dass er noch trifft (Beitrag, Strava-Termin, Ankündigung). Den Tag dieses
+Belegs trägt `zuletzt_aktiv`. Fundstellen aus Suchverzeichnissen (z. B.
+runningclubnearme.org, eine Meta-Suche über Google/Instagram/Meetup) sind nur
+Hinweise – übernommen wird nichts von dort, jeder Club wird an seiner eigenen
+Quelle geprüft.
 
 **Pausierte Clubs** (seit dem 20.10.2026, vom Nutzer: „grau hinterlegen
 und mit Pausiert markieren, damit die Leute sehen, dass die im Frühjahr

@@ -1872,6 +1872,14 @@ def test_clubs() -> None:
             _dt.date.fromisoformat(c.get("geprueft") or "")
         except ValueError:
             fehler.append(f"{n}: geprueft kein Datum")
+        # zuletzt_aktiv: Tag des jüngsten Belegs, dass der Club noch trifft
+        # (Beitrag, Strava-Termin, Ankündigung) – Qualität vor Menge.
+        if "zuletzt_aktiv" in c:
+            try:
+                if _dt.date.fromisoformat(c["zuletzt_aktiv"]) > _dt.date.fromisoformat(c["geprueft"]):
+                    fehler.append(f"{n}: zuletzt_aktiv nach geprueft")
+            except (ValueError, TypeError):
+                fehler.append(f"{n}: zuletzt_aktiv kein Datum")
     check("jeder Club hält sich an das Format", fehler, [])
     import clubs_korrekturliste as _ckp
     ck_pause = lambda t: _ckp.pause_text(_ckp.pause_aus_text(t))  # noqa: E731
@@ -2030,6 +2038,17 @@ def test_clubs_instagram() -> None:
         check("Bild geladen", p["beitraege"][0]["bilder"] if p.get("beitraege") else None, ["bilder/cozy.runclub/1-0.jpg"])
         check("privates/unbekanntes Konto landet bei den Fehlern", sorted(b["fehler"]), ["privat.club"])
         check("bericht.json geschrieben", _os.path.exists(_os.path.join(tmp, "aus", "bericht.json")), True)
+    check("Kandidaten kommen dazu, bekannte Handles nicht doppelt",
+          ci.handles([{"id": "a", "instagram": "https://www.instagram.com/cozy.runclub/"}],
+                     [{"stadt": "Berlin", "instagram": "https://www.instagram.com/neu.runclub/"},
+                      {"stadt": "Berlin", "instagram": "https://www.instagram.com/cozy.runclub/"}]),
+          {"cozy.runclub": ["a"], "neu.runclub": ["kandidat:Berlin"]})
+    kpfad = Path(__file__).resolve().parent / "clubs_kandidaten.json"
+    if kpfad.exists():
+        kand = _json.loads(kpfad.read_text(encoding="utf-8"))
+        check("clubs_kandidaten.json: je Eintrag Stadt, Art und eine Adresse",
+              [k.get("schluessel") for k in kand if not (k.get("stadt") and k.get("art") in ("Laufen", "Fahrrad", "Schwimmen")
+               and any(k.get(f) for f in ("instagram", "strava", "webseite", "meetup")))], [])
     wf = (Path(__file__).resolve().parent.parent / ".github/workflows/instagram.yml").read_text(encoding="utf-8")
     check("instagram.yml: Montagsjob holt die Club-Beiträge", all(x in wf for x in (
         "clubs-instagram:", "'17 5 * * 1'", "instagram-fb-token", "clubs_instagram.py", "daten/clubs-instagram")), True)

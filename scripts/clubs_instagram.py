@@ -60,13 +60,21 @@ def handle_aus(url: str | None) -> str | None:
     return m[1].lower()
 
 
-def handles(clubs: list[dict]) -> dict[str, list[str]]:
-    """Handle -> ids der Clubs, die ihn tragen (ein Profil, mehrere Treffs)."""
+def handles(clubs: list[dict], kandidaten: list[dict] | None = None) -> dict[str, list[str]]:
+    """Handle -> ids der Clubs, die ihn tragen (ein Profil, mehrere Treffs).
+
+    Kandidaten (scripts/clubs_kandidaten.json: Hinweise, noch nicht geprüft)
+    stehen mit "kandidat:<stadt>" statt einer id darin – die Wochenaufgabe
+    nimmt sie erst auf, wenn ihre Beiträge zeigen, dass sie noch treffen."""
     aus: dict[str, list[str]] = {}
     for c in clubs:
         h = handle_aus(c.get("instagram"))
         if h:
             aus.setdefault(h, []).append(c["id"])
+    for k in kandidaten or []:
+        h = handle_aus(k.get("instagram"))
+        if h and h not in aus:
+            aus[h] = [f"kandidat:{k.get('stadt', '')}"]
     return aus
 
 
@@ -147,7 +155,9 @@ def lauf(args, session=None, schlafen=time.sleep, jetzt: dt.datetime | None = No
     jetzt = jetzt or dt.datetime.now(dt.timezone.utc)
     grenze = jetzt - dt.timedelta(days=args.tage)
     clubs = json.loads(Path(args.clubs).read_text(encoding="utf-8"))
-    liste = handles(clubs)
+    kand_pfad = Path(getattr(args, "kandidaten", "") or "")
+    kandidaten = json.loads(kand_pfad.read_text(encoding="utf-8")) if kand_pfad.is_file() else []
+    liste = handles(clubs, kandidaten)
     aus = Path(args.aus)
     aus.mkdir(parents=True, exist_ok=True)
     bericht = {"abgerufen": jetzt.isoformat(timespec="seconds"), "tage": args.tage,
@@ -198,6 +208,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--aus", required=True)
     ap.add_argument("--clubs", default=str(CLUBS_JSON))
+    ap.add_argument("--kandidaten", default=str(WURZEL / "scripts" / "clubs_kandidaten.json"),
+                    help="Hinweise auf Clubs, die noch geprüft werden (Instagram-Handles)")
     ap.add_argument("--tage", type=int, default=21)
     ap.add_argument("--beitraege", type=int, default=8, help="je Profil höchstens so viele jüngste Beiträge")
     ap.add_argument("--max", type=int, default=400)
