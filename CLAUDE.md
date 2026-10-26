@@ -5966,6 +5966,31 @@ Verweise auf alte Nummern stehen in Klammern.
     `storage.googleapis.com/endurance-5177a-instagram/ig.html` eintippen,
     Zulassen, Adresse zurück) – erst dann zeigt die Auswertung
     Reichweite, Gespeichert und Geteilt.
+10. **Instagram der Clubs automatisch auslesen** (26.10.2026, nur der
+    Nutzer, „Ich arbeite das alles diese Woche noch ab“; gebaut auf dem
+    Clubs-Branch, Commit `b7997db1`, README „Clubs“): (a) Facebook-Seite
+    „AusdauerMaschine“ vom privaten Profil aus anlegen; (b) in den
+    Seiten-Einstellungen → Verknüpfte Konten @ausdauermaschine verbinden;
+    (c) Meta-App „AusdauerMaschine Content“ → Anwendungsfall „Facebook
+    Login“ / „Instagram API mit Facebook Login“ mit `instagram_basic`,
+    `instagram_manage_insights`, `pages_show_list`, `pages_read_engagement`
+    (Entwicklungsmodus reicht); (d) Graph API Explorer → App wählen, die
+    vier Rechte anhaken, „Generate Access Token“; (e) Cloud Shell:
+    `cd ~/Enduranceevents && git fetch origin claude/clubs-feature-map-kycnmi
+    && git checkout claude/clubs-feature-map-kycnmi && git pull && bash
+    scripts/instagram_fb_einrichten.sh` (fragt App-ID, App-Geheimcode,
+    Schlüssel; Probe an cozy.runclub zeigt, ob Bilder mitkommen; legt
+    Secret `instagram-fb-token` an); (f) Ja für `instagram.yml` auf `main`
+    (neuer Job `clubs-instagram`, montags 05:17 UTC) – dann pusht Claude
+    nur diese Datei. Danach wertet die Montagsaufgabe
+    (`trig_01MvVHbqKGeJjdmGLQ7mBqd3`, 08:56 Berlin) Strava UND den Branch
+    `daten/clubs-instagram` aus. Das Posten bleibt bei der Anmeldung über
+    Instagram.
+11. **Strava-Clubs beitreten** (26.10.2026, Nutzer, täglich 15): zuerst
+    die 252 Clubs „nur Instagram“ aus `clubs_profile_fehlen.xlsx` (im
+    Chat geschickt) – Strava liest die Montagsaufgabe sicher aus;
+    Clubs ohne Termine auf Strava wieder verlassen (die Montagsmeldung
+    nennt sie).
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
