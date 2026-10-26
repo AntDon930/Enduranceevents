@@ -6352,6 +6352,35 @@ Verweise auf alte Nummern stehen in Klammern.
     dabei). Erledigt, sobald die nächste Montagsmail im neuen Aussehen
     kommt (Log des Jobs `abo` nach dem Datenlauf-Deploy: „E-Mails
     verschickt: N"). Siehe „Abos sind Filter + Rhythmus“ (Die Mail selbst).
+11. **Instagram-Profile der Clubs automatisch auswerten** (eingetragen am
+    26.10.2026, vom Nutzer: „Und das du die Instagram Profile von den Clubs
+    automatisch auswertest muss auch noch draufstehen“; gebaut auf dem
+    Clubs-Branch `claude/clubs-feature-map-kycnmi`, Commit `b7997db1`, dort
+    To-do 10). **Weg**: Metas offizielle Schnittstelle Business Discovery
+    (kein Scraping) – `scripts/clubs_instagram.py` holt montags 05:17 UTC
+    (neuer Job `clubs-instagram` in `instagram.yml`) die öffentlichen
+    Beiträge der Club-Profile (Text, Bilder) auf den Branch
+    `daten/clubs-instagram`; die Montagsaufgabe
+    `trig_01MvVHbqKGeJjdmGLQ7mBqd3` („Clubs wöchentlich auslesen“, 08:56
+    Berlin, aktiv) liest Texte und Monatspläne und trägt die Termine in
+    `clubs.json` ein, wie bei einem Bildschirmfoto. Private Konten und
+    Konten ohne Business/Creator liefern nichts. **Erst der Nutzer** (er
+    will es diese Woche erledigen: „Ich arbeite das alles diese Woche noch
+    ab“): (a) Facebook-Seite „AusdauerMaschine“ anlegen, (b) dort
+    @ausdauermaschine verknüpfen, (c) in der Meta-App „Instagram API mit
+    Facebook Login“ mit `instagram_basic`, `instagram_manage_insights`,
+    `pages_show_list`, `pages_read_engagement`, (d) Schlüssel im Graph API
+    Explorer, (e) Cloud Shell auf dem Clubs-Branch `bash
+    scripts/instagram_fb_einrichten.sh` (Secret `instagram-fb-token`),
+    (f) Ja für `instagram.yml` auf `main` – Schritt für Schritt in der
+    To-do-Liste des Clubs-Branches. Fehlt `daten/clubs-instagram` oder ist
+    der Stand älter als drei Tage, meldet die Montagsaufgabe das. Das
+    Posten bleibt bei der Anmeldung über Instagram.
+12. **Strava-Clubs beitreten** (26.10.2026, Nutzer, täglich 15; auf dem
+    Clubs-Branch To-do 11): zuerst die 252 Clubs „nur Instagram“ aus
+    `clubs_profile_fehlen.xlsx` – Strava liest die Montagsaufgabe sicher
+    aus; Clubs ohne Termine auf Strava wieder verlassen (die Montagsmeldung
+    nennt sie).
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
