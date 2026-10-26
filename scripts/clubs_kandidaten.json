@@ -1877,6 +1877,16 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
+  "schluessel": "ig:bikecommunity.bz",
+  "name": "Bike Community Bozen",
+  "stadt": "Bozen",
+  "art": "Fahrrad",
+  "instagram": "https://www.instagram.com/bikecommunity.bz/",
+  "letzter_beleg": null,
+  "grund": "Hinweis aus der zweiten Städterunde, noch nicht geprüft",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
   "schluessel": "ig:bolzanorun",
   "name": "Bolzano run club",
   "stadt": "Bozen",
@@ -2158,6 +2168,16 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
+  "schluessel": "ig:wildpace.runclub",
+  "name": "Wildpace Runclub",
+  "stadt": "Brixen",
+  "art": "Laufen",
+  "instagram": "https://www.instagram.com/wildpace.runclub/",
+  "letzter_beleg": null,
+  "grund": "Hinweis aus der zweiten Städterunde, noch nicht geprüft",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
   "schluessel": "strava:theviberun",
   "name": "the vibe run.",
   "stadt": "Böblingen",
@@ -2166,6 +2186,26 @@
   "grund": "Strava-Beschreibung nennt Sa 10:00 ab Bistro Aranzulla, Stadtgrabenstraße 22, Böblingen; kein datierter Beleg ab 01.07.2026 (Strava-Termine nur angemeldet sichtbar, Websuche ohne Treffer)",
   "strava": "https://www.strava.com/clubs/theviberun",
   "instagram": "https://www.instagram.com/theviberun/",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "ig:chamrunclub",
+  "name": "CHAM Run Club",
+  "stadt": "Cham",
+  "art": "Laufen",
+  "instagram": "https://www.instagram.com/chamrunclub/",
+  "letzter_beleg": null,
+  "grund": "Hinweis aus der zweiten Städterunde, noch nicht geprüft (Ort nicht sicher)",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "strava:rmv-cham-hagendorn-67300",
+  "name": "RMV Cham-Hagendorn",
+  "stadt": "Cham",
+  "art": "Fahrrad",
+  "strava": "https://www.strava.com/clubs/rmv-cham-hagendorn-67300",
+  "letzter_beleg": null,
+  "grund": "Hinweis aus der zweiten Städterunde, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
@@ -3139,6 +3179,26 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
+  "schluessel": "ig:leichtathletik_su_kufstein",
+  "name": "Leichtathletik Sportunion Kufstein",
+  "stadt": "Kufstein",
+  "art": "Laufen",
+  "instagram": "https://www.instagram.com/leichtathletik_su_kufstein/",
+  "letzter_beleg": null,
+  "grund": "Hinweis aus der zweiten Städterunde, noch nicht geprüft",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "ig:thenexsport",
+  "name": "Thenex Runclub",
+  "stadt": "Kufstein",
+  "art": "Laufen",
+  "instagram": "https://www.instagram.com/thenexsport/",
+  "letzter_beleg": null,
+  "grund": "Hinweis aus der zweiten Städterunde, noch nicht geprüft",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
   "schluessel": "ig:koelnistkool.space",
   "name": "08/15 RUNCLUB",
   "stadt": "Köln",
@@ -3727,6 +3787,46 @@
   "strava": "https://www.strava.com/clubs/trirun-linz-124973",
   "letzter_beleg": null,
   "grund": "Vereinstraining (Lauf Mo/Mi 18:00 LA-Anlage PSV Derfflingerstraße, Schwimmen Gugl) für Mitglieder; Gastregel und Aktualität nicht belegt",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "meetup:allenamento-in-compagnia",
+  "name": "Allenamento in compagnia",
+  "stadt": "Lugano",
+  "art": "Laufen",
+  "meetup": "https://www.meetup.com/allenamento-in-compagnia/",
+  "letzter_beleg": null,
+  "grund": "Hinweis aus der zweiten Städterunde, noch nicht geprüft",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "ig:luganorunnersclub",
+  "name": "Lugano Runner's Club",
+  "stadt": "Lugano",
+  "art": "Laufen",
+  "instagram": "https://www.instagram.com/luganorunnersclub/",
+  "letzter_beleg": null,
+  "grund": "Hinweis aus der zweiten Städterunde, noch nicht geprüft",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "ig:runclub_lugano",
+  "name": "Run Club Lugano",
+  "stadt": "Lugano",
+  "art": "Laufen",
+  "instagram": "https://www.instagram.com/runclub_lugano/",
+  "letzter_beleg": null,
+  "grund": "Hinweis aus der zweiten Städterunde, noch nicht geprüft",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "strava:160769",
+  "name": "Ticino Runners",
+  "stadt": "Lugano",
+  "art": "Laufen",
+  "strava": "https://www.strava.com/clubs/160769",
+  "letzter_beleg": null,
+  "grund": "Hinweis aus der zweiten Städterunde, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
