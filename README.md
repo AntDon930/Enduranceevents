@@ -3796,6 +3796,23 @@ offen“), die Box „Pausiert / Wieder ab …“, die Karte ein graues Quadrat.
 In der Korrekturliste steht die Spalte „Pause“ („pausiert“, „pausiert bis
 2027-04-01 (Winterpause)“).
 
+**Instagram der Clubs automatisch** (seit dem 26.10.2026, vom Nutzer:
+„Wir müssen unbedingt die Sachen auf Instagram auch automatisch auslesen!“):
+Montags um 05:17 UTC holt der Job `clubs-instagram` in `instagram.yml`
+über Metas **Business Discovery** die öffentlichen Beiträge der letzten 21
+Tage aller Club-Profile aus `clubs.json` (`scripts/clubs_instagram.py`,
+eine Anfrage alle 15 s, Pause bei Rate-Limit) und legt Texte und Bilder
+unausgewertet auf den Branch `daten/clubs-instagram`. Die wöchentliche
+Claude-Aufgabe („Strava-Clubs auslesen“, montags) liest Strava UND diesen
+Branch und trägt Termine ein – wie bei einem Bildschirmfoto. Nur Business-
+und Creator-Konten liefern etwas; private Profile stehen im Bericht unter
+`fehler`. Voraussetzung (einmal, Nutzer): Facebook-Seite mit verknüpftem
+Instagram-Konto, in der Meta-App Facebook Login mit `instagram_basic`,
+`instagram_manage_insights`, `pages_show_list`, `pages_read_engagement`,
+dann `scripts/instagram_fb_einrichten.sh` in der Cloud Shell (Secret
+`instagram-fb-token`, Seiten-Schlüssel ohne Ablauf). Der Zeitplan wirkt
+erst, wenn `instagram.yml` auf `main` steht.
+
 `test_clubs` (in `test_scraper_lib.py`) prüft jeden Eintrag (Pflichtfelder,
 Wochentag des `ab`-Datums, Uhrzeit, Tempo-Format, Koordinaten in D/A/CH,
 Beleg) und rechnet `clubs.js` an festen Daten nach; der Rauchtest

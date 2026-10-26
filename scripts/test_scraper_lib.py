@@ -1973,6 +1973,69 @@ def test_clubs() -> None:
     check("pausiert(): vergangene Pause zählt nicht", r["pause_vorbei"], None)
 
 
+def test_clubs_instagram() -> None:
+    """Instagram-Beiträge der Clubs (26.10.2026): clubs_instagram.py liest
+    die Handles aus clubs.json, holt über Business Discovery die Beiträge der
+    letzten Tage und lädt die Bilder – hier mit einer Attrappe statt Meta."""
+    print("\nClubs: Instagram-Beiträge abholen (clubs_instagram.py):")
+    import clubs_instagram as ci
+    import datetime as _dt
+    import json as _json
+    import os as _os
+    import tempfile
+    from types import SimpleNamespace
+    check("Handle aus der Profiladresse", [ci.handle_aus("https://www.instagram.com/cozy.runclub/"),
+          ci.handle_aus("https://instagram.com/Run_Club"), ci.handle_aus("https://www.instagram.com/p/abc/")],
+          ["cozy.runclub", "run_club", None])
+    jetzt = _dt.datetime(2026, 10, 26, 6, 0, tzinfo=_dt.timezone.utc)
+
+    class Antwort:
+        def __init__(self, daten=None, inhalt=b"", status=200):
+            self.daten, self.inhalt, self.status_code, self.headers = daten, inhalt, status, {}
+        def json(self):
+            return self.daten
+        def iter_content(self, n):
+            yield self.inhalt
+
+    class Sitzung:
+        headers = {}
+        def __init__(self):
+            self.aufrufe = []
+        def get(self, url, params=None, headers=None, timeout=None, stream=False):
+            self.aufrufe.append(url)
+            if "cdn" in url:
+                return Antwort(inhalt=b"JPEG")
+            if "privat" in params["fields"]:
+                return Antwort({"error": {"message": "Invalid user id", "code": 110}})
+            return Antwort({"business_discovery": {"name": "Cozy", "media": {"data": [
+                {"id": "1", "timestamp": "2026-10-20T08:00:00+0000", "caption": "Our events in November",
+                 "media_type": "IMAGE", "media_url": "https://cdn.example/1.jpg", "permalink": "https://www.instagram.com/p/1/"},
+                {"id": "2", "timestamp": "2026-08-01T08:00:00+0000", "caption": "alt", "media_type": "IMAGE",
+                 "media_url": "https://cdn.example/2.jpg"}]}}})
+
+    with tempfile.TemporaryDirectory() as tmp:
+        clubs = [{"id": "a", "instagram": "https://www.instagram.com/cozy.runclub/"},
+                 {"id": "b", "instagram": "https://www.instagram.com/privat.club/"},
+                 {"id": "c", "strava": "https://www.strava.com/clubs/1"}]
+        pfad = _os.path.join(tmp, "clubs.json")
+        open(pfad, "w").write(_json.dumps(clubs))
+        _os.environ.update(IG_FB_TOKEN="geheim", IG_FB_USER_ID="178")
+        try:
+            b = ci.lauf(SimpleNamespace(aus=_os.path.join(tmp, "aus"), clubs=pfad, tage=21, beitraege=8, max=400, pause=0),
+                        session=Sitzung(), schlafen=lambda s: None, jetzt=jetzt)
+        finally:
+            _os.environ.pop("IG_FB_TOKEN"); _os.environ.pop("IG_FB_USER_ID")
+        p = b["profile"].get("cozy.runclub", {})
+        check("nur Beiträge der letzten 21 Tage", [x["text"] for x in p.get("beitraege", [])], ["Our events in November"])
+        check("Bild geladen", p["beitraege"][0]["bilder"] if p.get("beitraege") else None, ["bilder/cozy.runclub/1-0.jpg"])
+        check("privates/unbekanntes Konto landet bei den Fehlern", sorted(b["fehler"]), ["privat.club"])
+        check("bericht.json geschrieben", _os.path.exists(_os.path.join(tmp, "aus", "bericht.json")), True)
+    wf = (Path(__file__).resolve().parent.parent / ".github/workflows/instagram.yml").read_text(encoding="utf-8")
+    check("instagram.yml: Montagsjob holt die Club-Beiträge", all(x in wf for x in (
+        "clubs-instagram:", "'17 5 * * 1'", "instagram-fb-token", "clubs_instagram.py", "daten/clubs-instagram")), True)
+    check("instagram.yml: das Reel läuft nicht im Clubs-Termin", "github.event.schedule != '17 5 * * 1'" in wf, True)
+
+
 def test_farbschema_skript() -> None:
     """Hell und Dunkel: das Skript im <head>, das `data-theme` setzt, steht
     in allen drei Seiten WORTGLEICH.
@@ -5674,7 +5737,7 @@ def main() -> int:
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,
                  test_keine_fremden_dateien, test_laender_maske,
-                 test_asset_stempel, test_farbschema_skript, test_wartung, test_clubs,
+                 test_asset_stempel, test_farbschema_skript, test_wartung, test_clubs, test_clubs_instagram,
                  test_lauf_im_triathlonkalender,
                  test_wettbewerb_zusatz, test_triathlon_format, test_charity_merkmal,
                  test_triathlon_format_kopie):
