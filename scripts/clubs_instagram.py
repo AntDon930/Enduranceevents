@@ -60,7 +60,26 @@ def handle_aus(url: str | None) -> str | None:
     return m[1].lower()
 
 
-def handles(clubs: list[dict], kandidaten: list[dict] | None = None) -> dict[str, list[str]]:
+LANGE_INAKTIV_TAGE = 730   # ab zwei Jahren ohne Beleg nur noch vierteljährlich
+QUARTAL_TAGE = 90
+
+
+def faellig(k: dict, heute: dt.date) -> bool:
+    """Ist ein Kandidat diese Woche dran? (Wunsch des Nutzers, 26.10.2026:
+    Inaktive Clubs weiter prüfen, ob sie wieder aktiv sind – erst nach zwei
+    bis drei Jahren ohne Lebenszeichen nur noch einmal im Quartal.)"""
+    try:
+        beleg = dt.date.fromisoformat(k["letzter_beleg"]) if k.get("letzter_beleg") else None
+        zuletzt = dt.date.fromisoformat(k["geprueft"]) if k.get("geprueft") else None
+    except ValueError:
+        return True
+    if beleg is None or (heute - beleg).days < LANGE_INAKTIV_TAGE:
+        return True
+    return zuletzt is None or (heute - zuletzt).days >= QUARTAL_TAGE
+
+
+def handles(clubs: list[dict], kandidaten: list[dict] | None = None,
+            heute: dt.date | None = None) -> dict[str, list[str]]:
     """Handle -> ids der Clubs, die ihn tragen (ein Profil, mehrere Treffs).
 
     Kandidaten (scripts/clubs_kandidaten.json: Hinweise, noch nicht geprüft)
@@ -72,6 +91,8 @@ def handles(clubs: list[dict], kandidaten: list[dict] | None = None) -> dict[str
         if h:
             aus.setdefault(h, []).append(c["id"])
     for k in kandidaten or []:
+        if heute and not faellig(k, heute):
+            continue
         h = handle_aus(k.get("instagram"))
         if h and h not in aus:
             aus[h] = [f"kandidat:{k.get('stadt', '')}"]
@@ -157,7 +178,7 @@ def lauf(args, session=None, schlafen=time.sleep, jetzt: dt.datetime | None = No
     clubs = json.loads(Path(args.clubs).read_text(encoding="utf-8"))
     kand_pfad = Path(getattr(args, "kandidaten", "") or "")
     kandidaten = json.loads(kand_pfad.read_text(encoding="utf-8")) if kand_pfad.is_file() else []
-    liste = handles(clubs, kandidaten)
+    liste = handles(clubs, kandidaten, jetzt.date())
     aus = Path(args.aus)
     aus.mkdir(parents=True, exist_ok=True)
     bericht = {"abgerufen": jetzt.isoformat(timespec="seconds"), "tage": args.tage,

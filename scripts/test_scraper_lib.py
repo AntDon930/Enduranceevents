@@ -2043,6 +2043,13 @@ def test_clubs_instagram() -> None:
                      [{"stadt": "Berlin", "instagram": "https://www.instagram.com/neu.runclub/"},
                       {"stadt": "Berlin", "instagram": "https://www.instagram.com/cozy.runclub/"}]),
           {"cozy.runclub": ["a"], "neu.runclub": ["kandidat:Berlin"]})
+    h = _dt.date(2026, 10, 26)
+    check("Kandidaten: kürzlich inaktiv jede Woche, nach zwei Jahren vierteljährlich", [
+        ci.faellig({"letzter_beleg": None}, h),
+        ci.faellig({"letzter_beleg": "2026-03-01", "geprueft": "2026-10-19"}, h),
+        ci.faellig({"letzter_beleg": "2023-05-01", "geprueft": "2026-10-19"}, h),
+        ci.faellig({"letzter_beleg": "2023-05-01", "geprueft": "2026-07-20"}, h),
+        ci.faellig({"letzter_beleg": "2023-05-01"}, h)], [True, True, False, True, True])
     kpfad = Path(__file__).resolve().parent / "clubs_kandidaten.json"
     if kpfad.exists():
         kand = _json.loads(kpfad.read_text(encoding="utf-8"))

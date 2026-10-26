@@ -3791,7 +3791,14 @@ in `clubs.js`):
 Clubs drinnen haben die seit 2 Jahren inaktiv sind … eher auf Qualität gehen“):
 Ein neuer Club kommt nur hinein, wenn ein Beleg aus den letzten Monaten zeigt,
 dass er noch trifft (Beitrag, Strava-Termin, Ankündigung). Den Tag dieses
-Belegs trägt `zuletzt_aktiv`. Fundstellen aus Suchverzeichnissen (z. B.
+Belegs trägt `zuletzt_aktiv`. **Eine Winterpause ist keine Inaktivität**
+(Nachtrag des Nutzers am selben Tag): Ein saisonaler Club mit Beleg aus
+seiner Saison kommt hinein, mit `saison` oder `pause`. **Inaktivität allein
+löscht nichts**: Clubs ohne aktuellen Beleg stehen in
+`scripts/clubs_kandidaten.json` (`letzter_beleg`, `geprueft`) und werden
+weiter geprüft, ob sie wieder treffen – jede Woche, nach zwei Jahren ohne
+Lebenszeichen nur noch vierteljährlich (`clubs_instagram.faellig()`; das
+Instagram-Auslesen nimmt ihre Handles mit). Fundstellen aus Suchverzeichnissen (z. B.
 runningclubnearme.org, eine Meta-Suche über Google/Instagram/Meetup) sind nur
 Hinweise – übernommen wird nichts von dort, jeder Club wird an seiner eigenen
 Quelle geprüft.
