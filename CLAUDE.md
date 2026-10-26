@@ -5990,7 +5990,12 @@ Verweise auf alte Nummern stehen in Klammern.
     die 252 Clubs „nur Instagram“ aus `clubs_profile_fehlen.xlsx` (im
     Chat geschickt) – Strava liest die Montagsaufgabe sicher aus;
     Clubs ohne Termine auf Strava wieder verlassen (die Montagsmeldung
-    nennt sie).
+    nennt sie). **Dazu die 94 Strava-Kandidaten** (26.10.2026, aus
+    runningclubnearme.org, ohne aktuellen Beleg): Liste
+    `strava_kandidaten.xlsx` (im Chat geschickt; neu erzeugen aus
+    `scripts/clubs_kandidaten.json`, alle Einträge mit `strava`). Nach dem
+    Beitritt liest die Montagsaufgabe ihre Termine; ein Kandidat mit Treff
+    wird als Club angelegt und aus der Kandidatenliste genommen.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
