@@ -509,6 +509,9 @@ const TRIATHLON_FORMAT_NAME = {
   supersprint: "Super-Sprint", sprint: "Sprint", olympisch: "Olympisch",
   mittel: "Mitteldistanz (70.3)", lang: "Langstrecke (140.6)", ultra: "Ultra-Triathlon",
 };
+// Wie DUATHLON_NAMEN in event-detail.js: "70.3"/"140.6" sind
+// Triathlon-Marken, und ein Ultra-Duathlon ist kein Ultra-Triathlon.
+const DUATHLON_NAME = { mittel: "Mitteldistanz", lang: "Langstrecke", ultra: "Ultra-Duathlon" };
 
 // Die Länge einer Strecke wie in der Länge-Spalte der Liste
 // (EED.formatLength): Triathlon-Format, sonst km, sonst Dauer (unter
@@ -516,8 +519,8 @@ const TRIATHLON_FORMAT_NAME = {
 function laengeText(e) {
   const format = triathlonFormat(e);
   if (format) {
-    const name = TRIATHLON_FORMAT_NAME[format];
-    return e.art2 === "Duathlon" ? name.replace(/ \((70\.3|140\.6)\)$/, "") : name;
+    if (e.art2 === "Duathlon" && DUATHLON_NAME[format]) return DUATHLON_NAME[format];
+    return TRIATHLON_FORMAT_NAME[format];
   }
   if (e.laenge_km != null && Number(e.laenge_km) > 0) return `${zahl(e.laenge_km, 1)}km`;
   if (e.dauer_h != null && Number(e.dauer_h) > 0) {

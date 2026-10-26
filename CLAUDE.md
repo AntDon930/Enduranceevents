@@ -2840,6 +2840,16 @@ findet (Bericht: „… stehen schon unter einem anderen Namen“); der
 RIBE-Eintrag ist aus der Datei entfernt, `test_gedaechtnis` hält den Fall
 fest. Die beiden Gedächtnis-Einträge bleiben stehen (siehe oben,
 `finde()` nimmt den genauen).
+**Dieselbe Strecke zweimal IN einem Eintrag (26.10.2026)**: Der nächste
+Montagslauf blieb aus demselben Grund hinter dem Gate – „Naturpark
+Schönbuchlauf“ 2027 kam mit zweimal 25 km (einmal mit, einmal ohne Label;
+zwei Quellen der Vorjahresausgabe, beim Lernen vereinigt). Die Sperre vom
+19.10. verglich nur mit Zeilen, die schon in der Datei standen. Jetzt
+gilt `is_same_event()` auch INNERHALB einer Übernahme, die Zeile mit Label
+bleibt (Bericht: „… doppelt im Gedächtnis“); am Bestand tragen 75 Einträge
+eine Länge doppelt. `test_gedaechtnis` hält es fest. **Lehre**: Eine
+Regel gegen Doppelte muss alle drei Fälle sehen – gegen die Datei, gegen
+andere Einträge derselben Übernahme und innerhalb des Eintrags.
 
 **Einträge von Hand – die PDF-Liste des Nutzers (13.10.2026, „Ja, bitte
 die 45 ins Gedächtnis aufnehmen")**: Von den 72 „existiert, Termin
@@ -4120,7 +4130,11 @@ sagt es).
     ~100 KB). Betreff „4 neue Events: <Abo-Name>", ohne Filter „… auf
     Endurance Events" (vorher „… für Alle neuen Events"). `eventKurz` trägt
     dafür `wettbewerb` und `hoehenmeter` – ältere `wartend`-Einträge ohne
-    die Felder gehen trotzdem (dann km statt Triathlon-Format). Wirkt erst
+    die Felder gehen trotzdem (dann km statt Triathlon-Format). Ein
+    Duathlon heißt wie auf der Seite „Mitteldistanz"/„Langstrecke"/
+    „Ultra-Duathlon" (`DUATHLON_NAME`; am 26.10.2026 vom Test am
+    „Chemnitzer Indoor Triathlon" gefunden – „Triple Duathlon" stand als
+    „Ultra-Triathlon" in der Mail). Wirkt erst
     nach `firebase deploy --only functions` aus der Cloud Shell (Nutzer).
     Vorschau bauen: Abschnitt wie im Test in node rendern.
   - **`?abos=1` öffnet die Verwaltung** (darauf zeigt der Abmelde-Link

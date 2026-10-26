@@ -1163,6 +1163,25 @@ def uebernehmen(eintraege: list[tuple], heute: str, pfad: Path = MANUAL_EVENTS) 
         zeilen = manual_events_aus(eintrag, start, ende, heute, seiten_km)
         if (normalize_event_name(zeilen[0]["name"]), start) in vorhanden:
             continue
+        # Dieselbe Strecke zweimal im Gedächtnis-Eintrag (26.10.2026,
+        # „Naturpark Schönbuchlauf“: 25 km einmal mit, einmal ohne Label -
+        # zwei Quellen derselben Ausgabe, beim Lernen vereinigt; am Bestand
+        # 75 Einträge mit einer Länge doppelt): Innerhalb der Übernahme
+        # gilt dieselbe Duplikat-Regel wie beim Nachtragen, die Zeile MIT
+        # Label bleibt. Sonst stünde eine Zeile in manual_events.json, die
+        # add_manual_events() nie anlegt, test_manuelle_events würde rot,
+        # und der ganze Datenlauf bliebe hinter dem Deploy-Gate.
+        einmal: list = []
+        for z in zeilen:
+            gleich = next((b for b in einmal if is_same_event(z, b)), None)
+            if gleich is None:
+                einmal.append(z)
+            elif z.get("wettbewerb") and not gleich.get("wettbewerb"):
+                einmal[einmal.index(gleich)] = z
+        if len(einmal) < len(zeilen):
+            bericht.append(f"{eintrag.get('name')} ({eintrag.get('standort')}): {len(zeilen) - len(einmal)} "
+                           f"Strecke(n) doppelt im Gedächtnis - nur einmal übernommen")
+            zeilen = einmal
         # Dieselbe Ausgabe unter einem ZWEITEN Gedächtnis-Eintrag (Sponsorname,
         # 19.10.2026: „RIBE Citylauf Schwabach“ neben „Citylauf Schwabach“):
         # Strecken, die schon in der Datei stehen, kommen nicht noch einmal –

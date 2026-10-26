@@ -4396,6 +4396,17 @@ def test_gedaechtnis() -> None:
         roh = _json.loads(pfad.read_text(encoding="utf-8"))
         check("uebernehmen: Sponsorname derselben Ausgabe legt nichts doppelt an",
               (len(roh["events"]), "anderen Namen" in " ".join(b3)), (2, True))
+        # Dieselbe Strecke zweimal IM Eintrag (26.10.2026, Naturpark
+        # Schönbuchlauf: 25 km mit und ohne Label): nur einmal, die mit Label.
+        doppelt = dict(eintrag, name="Schönbuchlauf", strecken=[
+            {"laenge_km": 5.0, "dauer_h": None, "wettbewerb": "5 km", "art2": "Straße"},
+            {"laenge_km": 25.0, "dauer_h": None, "wettbewerb": None, "art2": "Straße"},
+            {"laenge_km": 25.0, "dauer_h": None, "wettbewerb": "25 km Schönbuchlauf", "art2": "Straße"}])
+        b4 = vs.uebernehmen([("k3", doppelt, "2027-10-17", "2027-10-17")], "2026-10-05", pfad)
+        roh = _json.loads(pfad.read_text(encoding="utf-8"))
+        neu4 = [(e["laenge_km"], e.get("wettbewerb")) for e in roh["events"] if e["name"] == "Schönbuchlauf"]
+        check("uebernehmen: doppelte Strecke im Gedächtnis nur einmal, mit Label",
+              (neu4, "doppelt im Gedächtnis" in " ".join(b4)), ([(5.0, "5 km"), (25.0, "25 km Schönbuchlauf")], True))
         g = Path(tmp) / "ged.json"
         ged2.speichern(g)
         check("speichern/laden: gültiges JSON, Eintrag unverändert", vs.Gedaechtnis.laden(g).finde(alt[0]), eintrag)
