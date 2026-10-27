@@ -6549,6 +6549,29 @@ def test_insta_logos() -> None:
     check("Karte: Länderfläche aus laender.json und Punkt Berlin im Nordosten",
           (karte.getpixel((200, 250))[3] > 0, karte.getpixel((5, 5))[3]), (True, 0))
 
+    # --- Anlass: am Tag eines großen internationalen Rennens
+    anl = [{"id": "london-2027", "name": "London Marathon", "datum": "2027-02-20", "sport": "Laufen",
+            "kategorie": "marathon", "anlass_text": "Heute läuft London", "quelle": "https://example.org",
+            "hashtag": "#londonmarathon"}]
+    b = I.plane(_dt.date(2027, 2, 20), tev, momente=I.lade_momente(), clips=[], grosse=tgross, anlaesse=anl)
+    check("anlass: am Tag des Rennens geht der Anlass allem vor (auch einem Samstag)", b["format"], "anlass")
+    check("anlass: erste Folie nennt das Rennen, die Zahl ALLER Marathons bis Silvester",
+          (b["folien"][0]["ueber"], b["folien"][0]["zahl"], b["folien"][0]["titel"]),
+          ("Heute läuft London", "6", "MARATHONS BEI UNS BIS SILVESTER 2027"))
+    check("anlass: dann die größten (Logo-Folien), Caption mit Hashtag des Rennens",
+          (sum(1 for f in b["folien"] if f["typ"] == "top" and f["aktiv"] is not None) >= 3,
+           "#londonmarathon" in b["caption"]), (True, True))
+    spaet = dict(anl[0], datum="2027-12-10")
+    tev2 = tev + [top_zeilen("Alpha Marathon", "Ort0", "2028-03-10", 42.195)]
+    b2 = I.format_anlass(_dt.date(2027, 12, 10), tev2, _random.Random(1), spaet, tgross)
+    check("anlass: bis Silvester zu wenig → die nächsten 12 Monate", b2 is None or
+          b2["folien"][0]["titel"].endswith("IN DEN NÄCHSTEN 12 MONATEN"), True)
+    check("anlaesse.json: Datum, Kategorie, Text und Quelle je Eintrag",
+          [a.get("id") for a in I.lade_anlaesse()
+           if not (a.get("datum") is None or _re.fullmatch(r"\d{4}-\d{2}-\d{2}", a["datum"]))
+           or a.get("kategorie") not in {k[0] for k in I.TOP_KATEGORIEN}
+           or not a.get("anlass_text") or not str(a.get("quelle", "")).startswith("http")], [])
+
     # --- Folie ohne Logo im Cache: Namenskarte statt Absturz
     bild = V.folie_bild(dict(logos[0], logo_id="gibt-es-nicht"), "Laufen")
     check("Logo-Folie ohne Logo zeichnet die Namenskarte (Karte weiß, mittig)",

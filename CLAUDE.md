@@ -5261,6 +5261,18 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Kartendienst). Zeit je Event nach Anzahl (`TOP_DAUER`). Neues Design =
   Zweig in `_top_folie` + Name in `TOP_DESIGNS` + der Test zeichnet es
   mit 3 und 10 Events.
+  **Anlass (`anlass`, am Tag eines großen internationalen Rennens aus
+  `marketing/instagram/anlaesse.json`; vom Nutzer am 27.10.2026: „zu Ehren
+  des Tour de France Starts … die noch anstehenden Radmarathons in diesem
+  Jahr", „London Marathon … alle Marathons in unserer Region … es ist
+  wichtig, dass es sich immer abwechselt")**: geht an seinem Tag ALLEM vor
+  (auch Monat/Anmeldung/Top). Hook „Heute startet die Tour de France“ +
+  Zahl aller sichtbaren Events der Kategorie bis Silvester (zu wenige →
+  „in den nächsten 12 Monaten“), dann die größten davon in einem der
+  Top-Designs. Das große Rennen nur als TEXT – keine Bilder, keine Logos
+  davon (Rechte). `anlaesse.json`: je Eintrag `datum` (bestätigt, sonst
+  null), `kategorie` (Schlüssel aus `TOP_KATEGORIEN`), `anlass_text`,
+  `quelle`; jährlich nachtragen.
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,
