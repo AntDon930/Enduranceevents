@@ -50,8 +50,39 @@ def _hz(grund: float, halbtoene: float) -> float:
     return grund * 2 ** (halbtoene / 12)
 
 
-def erzeuge(dauer_s: float, seed: int, bpm: int | None = None) -> tuple[array, int]:
-    """Stereo-Samples (int16, abwechselnd links/rechts) und das Tempo."""
+def _whoosh(seed: int) -> list[float]:
+    """Rauschen, das in 0,35 s anschwillt und abreißt, mit wanderndem
+    Tiefpass - der Luftzug zum Wisch-Übergang."""
+    r = random.Random(seed * 31 + 7)
+    aus, tief = [], 0.0
+    n = int(0.42 * RATE)
+    for i in range(n):
+        p = i / n
+        huelle = (p / 0.8) ** 2 if p < 0.8 else max(0.0, 1 - (p - 0.8) / 0.2)
+        k = 0.02 + 0.25 * p                     # Filter öffnet sich: dunkel → hell
+        tief += k * ((r.random() * 2 - 1) - tief)
+        aus.append(0.55 * huelle * tief)
+    return aus
+
+
+def _impact() -> list[float]:
+    """Tiefer Schlag mit kurzem Rauschen obendrauf (Start und Schluss)."""
+    r = random.Random(99)
+    aus = []
+    for i in range(int(0.9 * RATE)):
+        t = i / RATE
+        phase = 2 * math.pi * (38 * t + 90 * (1 - math.exp(-t * 14)) / 14)
+        v = 0.9 * math.sin(phase) * math.exp(-t * 3.2)
+        v += 0.25 * (r.random() * 2 - 1) * math.exp(-t * 40)
+        aus.append(v)
+    return aus
+
+
+def erzeuge(dauer_s: float, seed: int, bpm: int | None = None,
+            schnitte: list[float] | None = None, schlusspunkt: float | None = None) -> tuple[array, int]:
+    """Stereo-Samples (int16, abwechselnd links/rechts) und das Tempo.
+    `schnitte`: Zeiten (s) der Wisch-Übergänge - dort ein Whoosh, der genau
+    am Schnitt abreißt; zum Start und am `schlusspunkt` ein tiefer Schlag."""
     rng = random.Random(seed * 7919 + 13)
     bpm = bpm or bpm_fuer(seed)
     folge = FOLGEN[rng.randrange(len(FOLGEN))]
@@ -135,6 +166,15 @@ def erzeuge(dauer_s: float, seed: int, bpm: int | None = None) -> tuple[array, i
                 stoss_cache[stufe] = stoss([g, _hz(g, terz), _hz(g, 7)], schlag * 0.9)
             addiere(start, stoss_cache[stufe], pan=0.2 if im_takt else -0.2)
 
+    if schnitte:
+        w = _whoosh(seed)
+        for c in schnitte:
+            addiere(max(0, int((c - 0.34) * RATE)), w, pan=-0.25 if int(c * 10) % 2 else 0.25)
+    imp = _impact()
+    addiere(0, [0.8 * v for v in imp])
+    if schlusspunkt:
+        addiere(int(schlusspunkt * RATE), imp)
+
     # Weich begrenzen (tanh), ein- und ausblenden, nach int16.
     proben = array("h")
     aus_ab = max(0, n - int(1.2 * RATE))
@@ -149,9 +189,10 @@ def erzeuge(dauer_s: float, seed: int, bpm: int | None = None) -> tuple[array, i
     return proben, bpm
 
 
-def schreibe_wav(ziel: Path, dauer_s: float, seed: int, bpm: int | None = None) -> int:
+def schreibe_wav(ziel: Path, dauer_s: float, seed: int, bpm: int | None = None,
+                 schnitte: list[float] | None = None, schlusspunkt: float | None = None) -> int:
     """Schreibt den Beat als WAV (44,1 kHz, 16 Bit, Stereo); gibt das Tempo zurück."""
-    proben, bpm = erzeuge(dauer_s, seed, bpm)
+    proben, bpm = erzeuge(dauer_s, seed, bpm, schnitte, schlusspunkt)
     ziel.parent.mkdir(parents=True, exist_ok=True)
     with wave.open(str(ziel), "wb") as w:
         w.setnchannels(2)

@@ -2766,7 +2766,10 @@
    "anmeldestart": null,
    "webseite": "https://www.sierre-zinal.com",
    "instagram": "sierrezinal_officiel",
-   "hinweis": "Kult-Berglauf: 6.850 Teilnehmende 2026 (Pressemitteilung), Vergabe per Losverfahren. Suchstring trifft auch 'L'Hivernale Sierre-Zinal' (März, Winterlauf)."
+   "hinweis": "Kult-Berglauf: 6.850 Teilnehmende 2026 (Pressemitteilung), Vergabe per Losverfahren. Suchstring trifft auch 'L'Hivernale Sierre-Zinal' (März, Winterlauf).",
+   "nicht": [
+    "hivernale"
+   ]
   },
   {
    "name": "St. Moritz Running Festival / Engadin Sommerlauf",

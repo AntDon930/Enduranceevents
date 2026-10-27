@@ -5154,6 +5154,7 @@ def test_insta_freigabe() -> None:
 
     print("\nInstagram-Freigabe (insta_freigabe, plan.json, Dashboard):")
     import insta_inhalte as I
+    I.SONDERPLAN_DATEI = Path("/gibt-es-nicht/sonderplan.json")   # Plan-Tests ohne die feste Startwoche
     import insta_freigabe as F
     wurzel = Path(__file__).resolve().parent.parent
     heute = _dt.date(2026, 10, 19)
@@ -5248,6 +5249,7 @@ def test_instagram() -> None:
 
     print("\nInstagram (insta_inhalte, insta_video, insta_posten):")
     import insta_inhalte as I
+    I.SONDERPLAN_DATEI = Path("/gibt-es-nicht/sonderplan.json")   # Plan-Tests ohne die feste Startwoche
     wurzel = Path(__file__).resolve().parent.parent
     heute = _dt.date(2026, 10, 19)            # ein Montag
     ev = _insta_testevents(heute)
@@ -6438,6 +6440,7 @@ def test_insta_logos() -> None:
 
     print("\nInstagram-Logo-Reels (insta_inhalte monat/anmeldung, insta_logos):")
     import insta_inhalte as I
+    I.SONDERPLAN_DATEI = Path("/gibt-es-nicht/sonderplan.json")   # Plan-Tests ohne die feste Startwoche
     import insta_logos as L
     import insta_video as V
     from PIL import Image as _Image
@@ -6681,6 +6684,64 @@ def test_insta_logos() -> None:
           (sorted(dateien - set(namen)), sorted(d for d in dateien if not (meta.get(d) or {}).get("geprueft"))), ([], []))
     check("Der tägliche Lauf holt keine Logos aus dem Netz (nur geprüfte Dateien)",
           "logo_fuer" in (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8"), False)
+
+    # --- Rennjahr: je Monat das größte Event, zwölf Monate, dann die Übersicht
+    monate = [(2026, 11), (2026, 12)] + [(2027, m) for m in range(1, 11)]
+    buchst = "ABCDEFGHIJKL"
+    jev = [zeile(f"Lauf {buchst[i]}", "Kassel", f"{j}-{m:02d}-15") for i, (j, m) in enumerate(monate)]
+    jev.append(zeile("Kleiner Lauf", "Kassel", "2027-04-10"))
+    jg = [{"name": f"Lauf {buchst[i]}", "suche": [f"lauf {buchst[i].lower()}"], "land": "Deutschland",
+           "sport": "Laufen", "starter": 5000 + i} for i in range(12)]
+    jg.append({"name": "Kleiner Lauf", "suche": ["kleiner lauf"], "land": "Deutschland", "sport": "Laufen", "starter": 100})
+    jb = I.format_jahr(_dt.date(2026, 11, 2), jev, _random.Random(1), jg)
+    jahr_folien = [f for f in jb["folien"] if f["typ"] == "jahr"]
+    check("jahr: zwölf Monate im Takt (blitz) + Übersicht, je Monat das größte Event",
+          (len(jahr_folien), sum(1 for f in jahr_folien if f.get("blitz")), jahr_folien[-1]["aktiv"],
+           [e["name"] for e in jahr_folien[0]["eintraege"]][5]),
+          (13, 12, None, "Lauf F"))
+    check("jahr: unter zehn Monaten mit Event gilt der Plan",
+          I.format_jahr(_dt.date(2026, 11, 2), jev[:5], _random.Random(1), jg), None)
+    bild_j = V.folie_bild(jahr_folien[3], "Laufen")
+    check("jahr: Monatsfolie und Übersicht zeichnen", (bild_j.size, V.folie_bild(jahr_folien[-1], "Laufen").size),
+          ((V.B, V.H), (V.B, V.H)))
+
+    # --- Duell: zwei große Events derselben Kategorie mit Logo, ein festes Paar über den Sonderplan
+    dev = [zeile("Berlin-Marathon", "Berlin", "2027-09-26"), zeile("Berlin-Marathon", "Berlin", "2027-09-26", km=5.0),
+           dict(zeile("Vienna City Marathon", "Wien", "2027-04-18"), land="Österreich"),
+           zeile("Hamburg Marathon", "Hamburg", "2027-04-25")]
+    dg = [{"name": "Berlin-Marathon", "suche": ["berlin-marathon"], "land": "Deutschland", "sport": "Laufen", "starter": 49831},
+          {"name": "Vienna City Marathon", "suche": ["vienna city"], "land": "Österreich", "sport": "Laufen", "starter": 49379},
+          {"name": "Hamburg Marathon", "suche": ["hamburg marathon"], "land": "Deutschland", "sport": "Laufen", "starter": 46000}]
+    du = I.format_duell(_dt.date(2026, 11, 8), dev, _random.Random(1), dg, ["Berlin-Marathon", "Vienna City Marathon"])
+    df = du["folien"][1]
+    check("duell: festes Paar, Vergleichszeilen, der größere Wert leuchtet",
+          (df["links"]["name"], df["rechts"]["name"], [z[0] for z in df["zeilen"]], df["zeilen"][2][1:]),
+          ("Berlin-Marathon", "Vienna City Marathon", ["Termin", "Ort", "Am Start (ca.)", "Strecken"],
+           ["50.000", "49.000", 0]))
+    check("duell: animiert – erst leer, am Ende Logos, Zeilen und Frage",
+          ("duell" in V.ANIMIERT, flaeche(V.folie_bild(df, "Laufen", 0.0)) < 0.5 * flaeche(V.folie_bild(df, "Laufen", 1.0))),
+          (True, True))
+
+    # --- Sonderplan: ein fester Tag schlägt Wochenplan und Anlass; die Startwoche liegt im Repo
+    sp = {"2026-11-07": {"format": "top", "kategorie": "triathlon", "anzahl": 7, "design": "raster"}}
+    tb = I.plane(_dt.date(2026, 11, 7), ev_echt, momente=I.lade_momente(), clips=[], grosse=ganz, sonderplan=sp)
+    check("Sonderplan: Kategorie, Anzahl und Design fest", (tb["format"], tb.get("kategorie"), tb.get("design"),
+                                                            tb.get("anzahl")), ("top", "triathlon", "raster", 7))
+    start = I.lade_sonderplan(wurzel / "marketing" / "instagram" / "sonderplan.json")
+    check("sonderplan.json: die Startwoche 02.–08.11.2026, nur bekannte Formate",
+          (sorted(start), all(t["format"] in I.FORMATE for t in start.values())),
+          ([f"2026-11-0{k}" for k in range(2, 9)], True))
+
+    # --- Anmeldung: was am Tag des Beitrags schon offen ist, heißt „seit"
+    seit = I.format_anmeldung(_dt.date(2026, 11, 1), ev, _random.Random(1), grosse, heute=_dt.date(2026, 11, 5))
+    check("anmeldung: schon geöffnet = „Anmeldung offen seit …“",
+          "Anmeldung offen seit 3. Nov" in [f["ueber"] for f in seit["folien"] if f["typ"] == "logo"], True)
+
+    # --- Vor dem Start am 02.11.2026 wird nichts gepostet
+    import insta_freigabe as F
+    check("Startsperre: vor dem 02.11.2026 nie posten, ab dann ja",
+          (F.vor_start("2026-11-01", "2026-11-01"), F.vor_start("2026-11-02", "2026-11-02"),
+           F.vor_start("2026-11-05", "2026-11-05")), (True, False, False))
 
 
 def main() -> int:

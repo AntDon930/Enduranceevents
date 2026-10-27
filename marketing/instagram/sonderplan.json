@@ -1,0 +1,12 @@
+{
+ "hinweis": "Feste Formate für einzelne Tage (insta_inhalte.lade_sonderplan) – gehen dem Wochenplan und den Anlässen vor. Startwoche ab Montag 02.11.2026 (vom Nutzer: „wir fangen ab dem 2. November an … die ersten 7 Videos“).",
+ "tage": {
+  "2026-11-02": {"format": "jahr"},
+  "2026-11-03": {"format": "anmeldung"},
+  "2026-11-04": {"format": "laengste"},
+  "2026-11-05": {"format": "top", "kategorie": "marathon", "anzahl": 5, "design": "karte"},
+  "2026-11-06": {"format": "wochenende"},
+  "2026-11-07": {"format": "top", "kategorie": "triathlon", "anzahl": 7, "design": "raster"},
+  "2026-11-08": {"format": "duell", "paar": ["Berlin-Marathon", "Vienna City Marathon"]}
+ }
+}

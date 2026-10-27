@@ -56,7 +56,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 
 WURZEL = Path(__file__).resolve().parent.parent
 MARKETING = WURZEL / "marketing" / "instagram"
@@ -88,6 +88,7 @@ DAUER = {"titel": 3.6, "liste": 6.5, "moment": 3.4, "moment_text": 5.0,
          "cta": 2.6, "clip_titel": 5.0, "hook": 2.6, "event": 2.1, "satz": 2.4,
          "logo": 1.0, "top": 2.4}
 DAUER_TOP_UEBERSICHT = 3.6
+DAUER_JAHR = 1.0             # ein Monat im Format „jahr"
 DAUER_BLITZ = 0.5            # Folie „logo" mit blitz=True: ein Schlag je Logo (Format „monat")
 DAUER_SCHNELL = 1.5          # Folie „event" mit schnell=True (Saison-Listen)
 DAUER_POINTE = 2.9           # Pointe beim Humor: einen Takt länger
@@ -200,17 +201,30 @@ def zeichne_logo(d: ImageDraw.ImageDraw, x: int, y: int, groesse: int) -> None:
     d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=SIGNAL)
 
 
+_vignette_cache: Image.Image | None = None
+
+
+def _vignette() -> Image.Image:
+    """Abdunklung zu den Rändern (Maske 0…255), einmal gerechnet."""
+    global _vignette_cache
+    if _vignette_cache is None:
+        g = Image.radial_gradient("L").resize((B * 2, H * 2), Image.BILINEAR)
+        g = g.crop((B // 2, H // 2, B // 2 + B, H // 2 + H))
+        _vignette_cache = g.point(lambda v: int(max(0, v - 70) * 0.62))
+    return _vignette_cache
+
+
 def rahmen_ebene(logo_y: int = 128) -> Image.Image:
     """Was auf jedem Bild gleich ist: Verlauf oben/unten, Marke. Bei
     Stories sitzt die Marke tiefer (oben liegt die Kopfzeile der App)."""
     ebene = Image.new("RGBA", (B, H), (0, 0, 0, 0))
     verlauf = Image.new("L", (1, H))
     for y in range(H):
-        oben = max(0.0, 1 - y / 520) * 0.85
-        unten = max(0.0, (y - 1050) / 870) * 0.92
-        mitte = 0.48
+        oben = max(0.0, 1 - y / 560) * 0.88
+        unten = max(0.0, (y - 1000) / 920) * 0.94
+        mitte = 0.46          # das Foto ist Stimmung, nicht Inhalt: ruhig halten
         verlauf.putpixel((0, y), int(255 * min(1.0, max(oben, unten, mitte))))
-    alpha = verlauf.resize((B, H))
+    alpha = ImageChops.lighter(verlauf.resize((B, H)), _vignette())
     farbe = Image.new("RGBA", (B, H), NAVY + (255,))
     farbe.putalpha(alpha)
     ebene = Image.alpha_composite(ebene, farbe)
@@ -249,6 +263,24 @@ def _grosser_text(d: ImageDraw.ImageDraw, text: str, y: int, start: int, farbe, 
         d.text((RAND_X, y), z, font=kondensiert(g), fill=farbe)
         y += int(g * 0.98)
     return y
+
+
+def hochgezaehlt(text: str, fortschritt: float) -> str:
+    """„375" → „0"…„375" (die erste Zahl im Text, mit Tausenderpunkt wie im
+    Original), für das Hochzählen der großen Zahl (motion)."""
+    if fortschritt >= 1:
+        return text
+    m = re.search(r"\d[\d.]*", text)
+    if not m:
+        return text
+    roh = m.group(0).rstrip(".")
+    try:
+        ziel = int(roh.replace(".", ""))
+    except ValueError:
+        return text
+    wert = int(round(ziel * (1 - (1 - max(0.0, fortschritt)) ** 3)))
+    neu = f"{wert:,}".replace(",", ".") if "." in roh else str(wert)
+    return text[:m.start()] + neu + text[m.start() + len(roh):]
 
 
 def folie_bild(folie: dict, sport: str | None, fortschritt: float = 1.0) -> Image.Image:
@@ -300,7 +332,7 @@ def folie_bild(folie: dict, sport: str | None, fortschritt: float = 1.0) -> Imag
         if folie.get("zahl"):
             zahl = ohne_emoji(folie["zahl"]).upper()
             g = passende_groesse(zahl, kondensiert, 300, TEXT_BREITE, 120)
-            d.text((RAND_X - 8, y), zahl, font=kondensiert(g), fill=SONNE)
+            d.text((RAND_X - 8, y), hochgezaehlt(zahl, fortschritt), font=kondensiert(g), fill=SONNE)
             y += int(g * 1.0)
         y = _grosser_text(d, folie.get("titel", ""), y, 104, WEISS, 4)
         y += 26
@@ -398,6 +430,12 @@ def folie_bild(folie: dict, sport: str | None, fortschritt: float = 1.0) -> Imag
 
     elif typ == "balken":
         _balken_folie(img, d, folie, fortschritt)
+
+    elif typ == "jahr":
+        _jahr_folie(img, d, folie)
+
+    elif typ == "duell":
+        _duell_folie(img, d, folie, fortschritt)
 
     elif typ == "cta":
         y = 700
@@ -720,21 +758,26 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
         for z in umbrechen(ohne_emoji(folie.get("schluss", "")).upper(), kondensiert(84), TEXT_BREITE, 2):
             d.text((RAND_X, y), z, font=kondensiert(84), fill=WEISS)
             y += 84
+        oben = boxen[-1][3] + 250
     else:
+        # das vorgestellte Event groß: Logo-Karte über die ganze Breite
         e = eintraege[aktiv]
-        d.text((RAND_X, y), ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(70), fill=SONNE)
-        y += 74
-        d.text((RAND_X, y), umbrechen(ohne_emoji(e["name"]), kondensiert(56, False), TEXT_BREITE, 1)[0],
-               font=kondensiert(56, False), fill=WEISS)
-        y += 62
+        name_unten = logo_karte(img, d, (RAND_X, y, 960, y + 250), e.get("logo_id"), e["name"], radius=36, rand=44)
+        y += 276
+        d.text((RAND_X, y), ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(76), fill=SONNE)
+        y += 80
+        if name_unten:
+            d.text((RAND_X, y), umbrechen(ohne_emoji(e["name"]), kondensiert(56, False), TEXT_BREITE, 1)[0],
+                   font=kondensiert(56, False), fill=WEISS)
+            y += 62
         info = " · ".join(t for t in (e.get("ort"), _starter_text(e.get("starter"))) if t)
-        d.text((RAND_X, y), ohne_emoji(info), font=text_schrift(34), fill=KREIDE)
-    oben = boxen[-1][3] + 250
+        d.text((RAND_X, y), ohne_emoji(info), font=text_schrift(36), fill=KREIDE)
+        oben = boxen[-1][3] + 36 + 276 + 80 + 62 + 66
     hoehe = 1490 - oben
     img.alpha_composite(karte_bild(TEXT_BREITE, hoehe, punkte, aktiv, farbe), (RAND_X, oben))
 
 
-ANIMIERT = {"balken"}          # Folien, die sich während sie stehen bewegen
+ANIMIERT = {"balken", "duell"}          # Folien, die sich während sie stehen bewegen
 BALKEN_TAKT = 0.55             # Sekunden je Balken
 BALKEN_WACHSEN = 0.45
 
@@ -757,14 +800,20 @@ def _balken_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict, fortsch
         farbe = SPORTFARBE.get(feld.get("sport"), SIGNAL)
         y0 = oben + fi * feld_h
         kopf = 0
+        deckung = min(1.0, max(0.0, (t - 0.05) / 0.3))     # die Fläche blendet mit den ersten Balken ein
+        if deckung > 0:
+            flaeche = Image.new("RGBA", img.size, (0, 0, 0, 0))
+            ImageDraw.Draw(flaeche).rounded_rectangle([RAND_X - 24, int(y0) - 18, 984, int(y0 + feld_h) - 22],
+                                                      radius=30, fill=NAVY + (int(190 * deckung),))
+            img.alpha_composite(flaeche)
         if len(felder) > 1:
             pille(d, RAND_X, int(y0), ohne_emoji(feld.get("titel", "")).upper(), kondensiert(36, False), farbe)
             kopf = 66
         zeile_h = (feld_h - kopf - 10) / max(1, len(zeilen))
         maxkm = max((z["km"] for z in zeilen), default=1)
         maxbreite = TEXT_BREITE - 190
-        g_name = int(max(26, min(40, zeile_h * 0.34)))
-        balken_h = int(max(16, min(40, zeile_h * 0.32)))
+        g_name = int(max(30, min(46, zeile_h * 0.38)))
+        balken_h = int(max(18, min(40, zeile_h * 0.30)))
         for i in range(len(zeilen) - 1, -1, -1):       # unten (kürzester) zuerst
             z = zeilen[i]
             start = 0.25 + k * BALKEN_TAKT
@@ -816,6 +865,137 @@ def _logo_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
         d.text((RAND_X + 20, y), ohne_emoji(folie["ort"]), font=text_schrift(42), fill=KREIDE)
 
 
+MONATE_GROSS = ["JANUAR", "FEBRUAR", "MÄRZ", "APRIL", "MAI", "JUNI", "JULI", "AUGUST", "SEPTEMBER",
+                "OKTOBER", "NOVEMBER", "DEZEMBER"]
+MONATE_KURZ_GROSS = ["JAN", "FEB", "MÄR", "APR", "MAI", "JUN", "JUL", "AUG", "SEP", "OKT", "NOV", "DEZ"]
+
+
+def _jahr_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
+    """„Dein Rennjahr" (Format „jahr"): je Monat das größte Event - der
+    Monat riesig, darunter eine Leiste der zwölf Monate (der aktuelle
+    leuchtet), das Logo und die Angaben. `aktiv` None = die Übersicht:
+    alle zwölf Logos in einem Raster 3 × 4 mit ihrem Monat."""
+    eintraege = folie.get("eintraege") or []
+    aktiv = folie.get("aktiv")
+    farbe = SPORTFARBE.get(folie.get("sport"), SIGNAL)
+    if aktiv is None:
+        pille(d, RAND_X, 250, ohne_emoji(folie.get("titel", "")).upper(), kondensiert(46, False), SIGNAL)
+        spalten, luecke = 3, 22
+        w = (TEXT_BREITE - (spalten - 1) * luecke) // spalten
+        zeilen = (len(eintraege) + spalten - 1) // spalten
+        zeile_h = min(290, (1490 - 350) // max(1, zeilen))
+        for i, e in enumerate(eintraege):
+            z, sp = divmod(i, spalten)
+            x, y = RAND_X + sp * (w + luecke), 350 + z * zeile_h
+            d.text((x + 4, y), MONATE_KURZ_GROSS[e["monat"] - 1], font=kondensiert(40), fill=SONNE)
+            kh = zeile_h - 70
+            logo_karte(img, d, (x, y + 50, x + w, y + 50 + kh), e.get("logo_id"), e["name"],
+                       radius=max(14, kh // 7), rand=max(10, kh // 8))
+        return
+    e = eintraege[aktiv]
+    monat = MONATE_GROSS[e["monat"] - 1]
+    g = passende_groesse(monat, kondensiert, 230, TEXT_BREITE - 150, 120)
+    d.text((RAND_X - 6, 255), monat, font=kondensiert(g), fill=WEISS)
+    d.text((RAND_X + breite(kondensiert(g), monat) + 18, 255 + int(g * 0.52)), str(e["jahr"]),
+           font=kondensiert(64), fill=SONNE)
+    # die zwölf Monate als Leiste
+    y_l, n = 255 + int(g * 1.02) + 10, len(eintraege)
+    seg = (TEXT_BREITE - (n - 1) * 10) / max(1, n)
+    for i in range(n):
+        x0 = RAND_X + i * (seg + 10)
+        box = [x0, y_l, x0 + seg, y_l + 16]
+        if i < aktiv:
+            d.rounded_rectangle(box, radius=8, fill=farbe)
+        elif i == aktiv:
+            d.rounded_rectangle([x0, y_l - 4, x0 + seg, y_l + 20], radius=12, fill=SONNE)
+        else:
+            d.rounded_rectangle(box, radius=8, outline=(255, 255, 255, 110), width=3)
+    box = (RAND_X, y_l + 70, 960, y_l + 70 + 430)
+    name_unten = logo_karte(img, d, box, e.get("logo_id"), e["name"], radius=44, rand=64)
+    y = box[3] + 40
+    d.text((RAND_X, y), ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(96), fill=SONNE)
+    y += 104
+    if name_unten:
+        for z in umbrechen(ohne_emoji(e["name"]), kondensiert(60, False), TEXT_BREITE, 2):
+            d.text((RAND_X, y), z, font=kondensiert(60, False), fill=WEISS)
+            y += 62
+    info = " · ".join(t for t in (e.get("ort"), _starter_text(e.get("starter"))) if t)
+    d.text((RAND_X, y + 6), ohne_emoji(info), font=text_schrift(40), fill=KREIDE)
+
+
+DUELL_EIN = 0.9            # bis die Logos stehen
+DUELL_ZEILE = 0.85         # Abstand der Vergleichszeilen
+
+
+def _duell_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict, fortschritt: float) -> None:
+    """Zwei große Events im direkten Vergleich (Format „duell"): die
+    Logos fahren von links und rechts herein, dazwischen springt das VS,
+    dann kommen Zeile für Zeile Termin, Ort, Teilnehmende, Strecken - der
+    größere Wert leuchtet. Zum Schluss die Frage."""
+    t = fortschritt * float(folie.get("dauer") or 7.0)
+    a, b = folie["links"], folie["rechts"]
+    farbe = SPORTFARBE.get(folie.get("sport"), SIGNAL)
+    pille(d, RAND_X, 250, ohne_emoji(folie.get("titel", "DUELL")).upper(), kondensiert(46, False), farbe)
+    spalte = [(RAND_X, 500), (560, 960)]
+    for k, e in enumerate((a, b)):
+        p = _ease_back(min(1.0, max(0.0, (t - 0.1 * k) / 0.55)))
+        dx = int((1 - p) * (-520 if k == 0 else 520))
+        x0, x1 = spalte[k]
+        ebene = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        ed = ImageDraw.Draw(ebene)
+        logo_karte(ebene, ed, (x0, 350, x1, 640), e.get("logo_id"), e["name"], radius=32, rand=34)
+        y = 668
+        for z in umbrechen(ohne_emoji(e["name"]), kondensiert(42, False), x1 - x0, 2):
+            ed.text(((x0 + x1) / 2, y), z, font=kondensiert(42, False), fill=WEISS, anchor="ma")
+            y += 46
+        img.alpha_composite(ebene, (dx, 0) if dx >= 0 else (0, 0), (0, 0) if dx >= 0 else (-dx, 0))
+    # VS
+    p = min(1.0, max(0.0, (t - 0.45) / 0.35))
+    if p > 0:
+        r = int(66 * _ease_back(p, 2.4))
+        cx, cy = 530, 495
+        d.ellipse([cx - r - 10, cy - r - 10, cx + r + 10, cy + r + 10], fill=farbe + (120,))
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=SONNE, outline=WEISS, width=6)
+        if r > 20:
+            d.text((cx, cy + 2), "VS", font=kondensiert(int(r * 0.95)), fill=NAVY, anchor="mm")
+    zeilen = folie.get("zeilen") or []
+    y0 = 800
+    # eine ruhige Fläche hinter dem Vergleich, damit die Zahlen auf jedem Foto lesbar sind
+    p_flaeche = _ease_aus(min(1.0, max(0.0, (t - DUELL_EIN + 0.25) / 0.4)))
+    if p_flaeche > 0:
+        flaeche = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        ImageDraw.Draw(flaeche).rounded_rectangle([RAND_X - 20, y0 - 50, 980, y0 + 150 * len(zeilen) + 100],
+                                                  radius=36, fill=NAVY + (int(205 * p_flaeche),))
+        img.alpha_composite(flaeche)
+    for i, (label, wl, wr, besser) in enumerate(zeilen):
+        start = DUELL_EIN + i * DUELL_ZEILE
+        if t < start:
+            continue
+        p = _ease_aus(min(1.0, (t - start) / 0.4))
+        alpha = int(255 * p)
+        y = y0 + i * 150
+        ebene = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        ed = ImageDraw.Draw(ebene)
+        if i:
+            ed.line([(RAND_X + 20, y - 18), (940, y - 18)], fill=(255, 255, 255, int(50 * p)), width=2)
+        ed.text((530, y), label.upper(), font=kondensiert(32, False), fill=KREIDE + (int(alpha * 0.8),), anchor="ma")
+        versatz = int((1 - p) * 60)
+        for k, wert in enumerate((wl, wr)):
+            x0, x1 = spalte[k]
+            f = kondensiert(60)
+            text = umbrechen(ohne_emoji(str(wert)), f, x1 - x0 - 20, 1)[0]
+            fill = (SONNE if besser == k else WEISS) + (alpha,)
+            mx = (x0 + x1) / 2 + (versatz if k == 0 else -versatz)
+            ed.text((mx, y + 42), text, font=f, fill=fill, anchor="ma")
+        img.alpha_composite(ebene)
+    start = DUELL_EIN + len(zeilen) * DUELL_ZEILE + 0.2
+    if t >= start and folie.get("frage"):
+        p = _ease_back(min(1.0, (t - start) / 0.45))
+        f = kondensiert(max(10, int(70 * p)))
+        d.text((530, y0 + 150 * len(zeilen) + 40), ohne_emoji(folie["frage"]).upper(), font=f, fill=SONNE,
+               anchor="mm")
+
+
 def credit_ebene(text: str | None) -> Image.Image | None:
     if not text:
         return None
@@ -832,7 +1012,9 @@ def credit_ebene(text: str | None) -> Image.Image | None:
 def folien_dauer(f: dict) -> float:
     if f.get("typ") == "logo" and f.get("blitz"):
         return DAUER_BLITZ
-    if f.get("typ") == "balken":
+    if f.get("typ") == "jahr":
+        return DAUER_JAHR if f.get("aktiv") is not None else DAUER_TOP_UEBERSICHT + 0.6
+    if f.get("typ") in ("balken", "duell"):
         return float(f.get("dauer") or 6.0)
     if f.get("typ") == "top":
         return DAUER_TOP_UEBERSICHT if f.get("aktiv") is None else float(f.get("dauer") or DAUER["top"])
@@ -853,7 +1035,7 @@ def zeitplan(folien: list[dict], gesamt: float | None = None,
         faktor = gesamt / sum(dauern)
         dauern = [d * faktor for d in dauern]
     elif schlag:
-        dauern = [max(1 if f.get("typ") == "logo" else 2, round(d / schlag)) * schlag
+        dauern = [max(1 if f.get("typ") == "logo" or f.get("blitz") else 2, round(d / schlag)) * schlag
                   for f, d in zip(folien, dauern)]
     plan, t = [], 0.0
     for f, d in zip(folien, dauern):
@@ -878,14 +1060,23 @@ def sichtbarkeit(t: float, start: float, ende: float, letzte: bool, hart: bool =
     return max(0.0, min(ein, aus)), int(46 * (1 - glatt))
 
 
+def _ist_blitz(plan: list[tuple[float, float, dict]], schnitt: float) -> bool:
+    """Schnitte zwischen Blitz-Logos (Format „monat") bekommen keinen Wisch –
+    die Logos wechseln im Takt hart, das ist dort der Effekt."""
+    for s, _, f in plan:
+        if abs(s - schnitt) < 1e-6:
+            return bool(f.get("blitz"))
+    return False
+
+
 def punch(bild: Image.Image, t: float, plan: list[tuple[float, float, dict]]) -> Image.Image:
     """Kurzer Zoom des Hintergrunds nach jedem Schnitt (nicht beim ersten)."""
     for start, _, _ in plan[1:]:
         dt_ = t - start
         if 0 <= dt_ < PUNCH_S:
             z = 1 + PUNCH * (1 - dt_ / PUNCH_S) ** 2
-            w, h = int(B * z), int(H * z)
-            return bild.resize((w, h), Image.BILINEAR).crop(((w - B) // 2, (h - H) // 2, (w - B) // 2 + B, (h - H) // 2 + H))
+            bw, bh = B / z, H / z
+            return bild.resize((B, H), Image.BILINEAR, box=((B - bw) / 2, (H - bh) / 2, (B + bw) / 2, (H + bh) / 2))
     return bild
 
 
@@ -938,6 +1129,18 @@ def foto_wahl(sport: str | None, seed: int) -> tuple[Path, str | None]:
     return pool[seed % len(pool)]
 
 
+def farbgrad(bild: Image.Image, sport: str | None = None) -> Image.Image:
+    """Ein eigener Look statt Handyfoto: mehr Kontrast, weniger Sättigung,
+    Schatten in Navy, Lichter warm (leichter Duoton), getönt mit der
+    Sportfarbe – jedes Reel sieht nach derselben Marke aus."""
+    bild = ImageEnhance.Contrast(bild).enhance(1.14)
+    bild = ImageEnhance.Color(bild).enhance(0.78)
+    akzent = SPORTFARBE.get(sport, SIGNAL)
+    hell = tuple(int(0.82 * 246 + 0.18 * c) for c in akzent)
+    duo = ImageOps.colorize(ImageOps.grayscale(bild), black=(6, 14, 30), white=hell, mid=(96, 110, 132))
+    return Image.blend(bild, duo, 0.30)
+
+
 def foto_frames(sport: str | None, dauer: float, seed: int):
     """Langsamer Zoom (Ken Burns) über ein Foto aus dem Pool (foto_wahl).
     Ausschnitt, Richtung und Zoom wechseln mit dem Seed, damit auch
@@ -959,7 +1162,7 @@ def foto_frames(sport: str | None, dauer: float, seed: int):
     bild = bild.resize((1188, 2112), Image.LANCZOS)
     if rng.random() < 0.5:
         bild = bild.transpose(Image.FLIP_LEFT_RIGHT)
-    bild = bild.filter(ImageFilter.GaussianBlur(1.2))
+    bild = farbgrad(bild.filter(ImageFilter.GaussianBlur(2.6)), sport)   # Tiefenschärfe: die Grafik ist vorn
     richtung = rng.choice([-1, 1])
     hinein = rng.random() < 0.65
     senkrecht = rng.random() < 0.4
@@ -1177,6 +1380,175 @@ def musik_wahl(seed: int) -> Path | None:
 
 # ---------------------------------------------------------------- Rendern
 
+# ---------------------------------------------------------------- Motion
+#
+# Seit dem 27.10.2026 (vom Nutzer: „Die Videos sollen nicht so billig
+# aussehen … Steck gerne noch viele tokens in die Bearbeitung"). Eine
+# Schicht über ALLEN Folientypen, statt jeden Typ einzeln zu animieren:
+#
+#   Schatten   weicher Schlagschatten unter jedem Text und jeder Karte
+#              (aus dem Alphakanal der Folie)
+#   Staffel    die Folie wird in waagerechte Bänder zerlegt (Zeilen,
+#              Karten – dort, wo der Alphakanal zeilenweise etwas trägt);
+#              jedes Band kommt nacheinander von unten mit leichtem
+#              Überschwingen, große Bänder (Karten, Logos) mit „Pop"
+#   Abgang     die alte Folie gleitet in den letzten Zehnteln nach oben weg
+#   Wisch      bei jedem Schnitt fährt ein schräges Band in der Akzentfarbe
+#              durchs Bild
+#   Look       Filmkorn (vier Rauschbilder im Wechsel), ein langsam
+#              wandernder warmer Lichtschimmer; der Farbgrad sitzt im Foto
+#              (farbgrad), die Vignette im Rahmen
+#
+# Zählt eine Folie hoch (Hook mit Zahl), zeichnet sie sich in den ersten
+# Zehnteln Bild für Bild neu (ZAEHLEN).
+
+STAFFEL = 0.075            # Sekunden zwischen zwei Bändern
+BAND_DAUER = 0.42          # so lange braucht ein Band
+ABGANG = 0.16              # Abgang der alten Folie
+WISCH = 0.34               # Dauer des Wischs
+ZAEHLEN = 0.75             # Hochzählen der großen Zahl
+
+
+def _ease_aus(p: float) -> float:
+    return 1 - (1 - p) ** 3
+
+
+def _ease_back(p: float, s: float = 1.6) -> float:
+    p -= 1
+    return 1 + (s + 1) * p ** 3 + s * p ** 2
+
+
+def mit_schatten(fb: Image.Image) -> Image.Image:
+    """Weicher Schatten unter allem, was die Folie zeichnet."""
+    a = fb.getchannel("A")
+    if not a.getbbox():
+        return fb
+    weich = a.filter(ImageFilter.GaussianBlur(16)).point(lambda v: int(v * 0.62))
+    schatten = Image.new("RGBA", fb.size, (2, 8, 20, 0))
+    schatten.putalpha(weich)
+    unten = Image.new("RGBA", fb.size, (0, 0, 0, 0))
+    unten.alpha_composite(schatten, (0, 8))
+    return Image.alpha_composite(unten, fb)
+
+
+def baender(fb: Image.Image, luecke: int = 18) -> list[tuple[int, int]]:
+    """Waagerechte Bänder mit Inhalt: (y0, y1), von oben nach unten."""
+    zeilen = fb.getchannel("A").resize((1, H), Image.BOX)
+    werte = list(zeilen.getdata())
+    aus, start, leer = [], None, 0
+    for y, v in enumerate(werte):
+        if v > 2:
+            if start is None:
+                start = y
+            leer = 0
+        elif start is not None:
+            leer += 1
+            if leer > luecke:
+                aus.append((start, y - leer + 1))
+                start, leer = None, 0
+    if start is not None:
+        aus.append((start, H))
+    return [(max(0, a - 6), min(H, b + 14)) for a, b in aus if b - a > 3]
+
+
+def gestaffelt(fb: Image.Image, bands: list[tuple[int, int]], u: float, schnell: bool = False) -> Image.Image:
+    """Die Folie zur Zeit u (Sekunden seit ihrem Beginn): Band für Band."""
+    staffel = 0.0 if schnell else STAFFEL
+    dauer = 0.16 if schnell else BAND_DAUER
+    if u >= dauer + staffel * max(0, len(bands) - 1):
+        return fb
+    aus = Image.new("RGBA", fb.size, (0, 0, 0, 0))
+    for i, (y0, y1) in enumerate(bands):
+        p = (u - i * staffel) / dauer
+        if p <= 0:
+            continue
+        if p >= 1:
+            aus.alpha_composite(fb.crop((0, y0, B, y1)), (0, y0))
+            continue
+        e = _ease_back(p)
+        stueck = fb.crop((0, y0, B, y1))
+        hoehe = y1 - y0
+        if hoehe > 200:                                    # Karte/Logo: Pop
+            f = 0.90 + 0.10 * e
+            w2, h2 = max(1, int(B * f)), max(1, int(hoehe * f))
+            stueck = stueck.resize((w2, h2), Image.BILINEAR)
+            x, y = (B - w2) // 2, y0 + (hoehe - h2) // 2
+        else:                                              # Zeile: von unten
+            x, y = 0, y0 + int((1 - e) * 46)
+        alpha = _ease_aus(min(1.0, p * 1.4))
+        if alpha < 1:
+            stueck.putalpha(stueck.getchannel("A").point(lambda v, a=alpha: int(v * a)))
+        if 0 <= y < H:
+            aus.alpha_composite(stueck, (max(0, x), y), (max(0, -x), 0))
+    return aus
+
+
+def abgang(fb: Image.Image, rest: float) -> Image.Image:
+    """Die letzten Zehntel einer Folie: nach oben weg und ausblenden."""
+    p = 1 - max(0.0, rest) / ABGANG
+    if p <= 0:
+        return fb
+    dy = int(_ease_aus(p) * 60)
+    aus = Image.new("RGBA", fb.size, (0, 0, 0, 0))
+    aus.alpha_composite(fb.crop((0, dy, B, H)), (0, 0))
+    aus.putalpha(aus.getchannel("A").point(lambda v, a=1 - p: int(v * a)))
+    return aus
+
+
+def wisch(bild: Image.Image, t: float, schnitte: list[float], farbe) -> None:
+    """Ein schräges Band in der Akzentfarbe fährt bei jedem Schnitt durchs
+    Bild (von links unten nach rechts oben), dahinter ein dünnes helles."""
+    for c in schnitte:
+        p = (t - (c - WISCH / 2)) / WISCH
+        if not 0 <= p <= 1:
+            continue
+        e = p * p * (3 - 2 * p)
+        x = -700 + e * (B + 1400)
+        d = ImageDraw.Draw(bild)
+        for versatz, breite_b, f in ((0, 230, farbe + (235,)), (-120, 36, (255, 255, 255, 120))):
+            x0 = x + versatz
+            d.polygon([(x0, H), (x0 + breite_b, H), (x0 + breite_b + 520, 0), (x0 + 520, 0)], fill=f)
+
+
+_korn: list[Image.Image] = []
+_schimmer: Image.Image | None = None
+
+
+def korn(i: int) -> Image.Image:
+    """Filmkorn: vier Rauschbilder, alle zwei Bilder ein anderes."""
+    if not _korn:
+        for k in range(4):
+            r = Image.effect_noise((B // 2, H // 2), 48).resize((B, H), Image.NEAREST)
+            hell = r.point(lambda v: max(0, v - 150) // 3)
+            ebene = Image.new("RGBA", (B, H), (255, 255, 255, 0))
+            ebene.putalpha(hell)
+            dunkel = r.point(lambda v: max(0, 106 - v) // 3)
+            d2 = Image.new("RGBA", (B, H), (0, 0, 0, 0))
+            d2.putalpha(dunkel)
+            _korn.append(Image.alpha_composite(ebene, d2))
+    return _korn[(i // 2) % len(_korn)]
+
+
+def schimmer(bild: Image.Image, t: float, gesamt: float, seed: int) -> None:
+    """Ein großer, weicher, warmer Lichtfleck, der langsam übers Bild
+    wandert (Lichteinfall statt flacher Fläche)."""
+    global _schimmer
+    if _schimmer is None:
+        g = Image.radial_gradient("L").resize((1500, 1500), Image.BILINEAR)
+        maske = g.point(lambda v: int(max(0, 200 - v) * 0.30))
+        _schimmer = Image.new("RGBA", (1500, 1500), SONNE + (0,))
+        _schimmer.putalpha(maske)
+    rng = random.Random(seed)
+    sx, sy = rng.uniform(-400, 300), rng.uniform(-500, 400)
+    p = t / max(1.0, gesamt)
+    x = int(sx + p * rng.choice((-1, 1)) * 380 - 750 + B / 2)
+    y = int(sy + p * 520 - 750 + H / 3)
+    links, oben = max(0, x), max(0, y)
+    q = (links - x, oben - y, min(1500, B - x), min(1500, H - y))
+    if q[2] > q[0] and q[3] > q[1]:
+        bild.alpha_composite(_schimmer, (links, oben), q)
+
+
 def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
     """Schreibt reel.mp4 und cover.jpg nach `ausgabe` und gibt die
     Metadaten zurück (Dauer, Hintergrund, Nachweis)."""
@@ -1219,14 +1591,17 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
         else:
             plan = zeitplan(folien)
         gesamt = plan[-1][1]
-        pex = pexels_video(sport, seed)
+        # Formate über mehrere Sportarten (laengste: Lauf + Rad) wählen das
+        # Foto über `foto_sport` - sonst kam auch ein Schwimmfoto in Frage.
+        foto_sport = beitrag.get("foto_sport") or sport
+        pex = pexels_video(foto_sport, seed)
         if pex:
             frames = video_frames(pex[0], gesamt, 0.0, "crop")
             nachweis = pex[1]
             hintergrund = {"art": "pexels", "datei": pex[0].name}
         else:
-            pfad, credit = foto_wahl(sport, seed)
-            frames = foto_frames(sport, gesamt, seed)
+            pfad, credit = foto_wahl(foto_sport, seed)
+            frames = foto_frames(foto_sport, gesamt, seed)
             nachweis = f"Foto: {credit}" if credit else None
             hintergrund = {"art": "foto", "datei": pfad.name}
 
@@ -1235,7 +1610,13 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
     credit = credit_ebene(nachweis)
     if credit:
         rahmen = Image.alpha_composite(rahmen, credit)
-    folien_bilder = [folie_bild(f, sport) for _, _, f in plan]
+    # Korn liegt auf dem Hintergrund, unter der Schrift (die bleibt
+    # gestochen scharf) - vier fertige Ebenen Rahmen + Korn.
+    rahmen_korn = [Image.alpha_composite(korn(2 * k), rahmen) for k in range(4)]
+    folien_bilder = [mit_schatten(folie_bild(f, sport)) for _, _, f in plan]
+    folien_baender = [baender(fb) for fb in folien_bilder]
+    schnitte = [s for s, _, _ in plan[1:]]
+    akzent = SPORTFARBE.get(sport, SIGNAL) if sport else SIGNAL
     n_frames = int(round(gesamt * FPS))
 
     with tempfile.TemporaryDirectory() as tmp:
@@ -1247,30 +1628,40 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
              "-maxrate", "12M", "-bufsize", "24M", "-g", str(FPS * 2), str(stumm)],
             stdin=subprocess.PIPE)
         cover = None
-        cover_zeit = max(0.0, min(plan[0][1] - 0.3, 1.2))
+        # Das Titelbild: wenn die erste Folie ganz steht
+        cover_zeit = max(0.0, min(plan[0][1] - 0.2, 1.3))
         try:
             for i, bg in enumerate(frames):
                 if i >= n_frames:
                     break
                 t = i / FPS
-                bild = Image.alpha_composite(punch(bg, t, plan).convert("RGBA"), rahmen)
+                bild = Image.alpha_composite(punch(bg, t, plan).convert("RGBA"), rahmen_korn[(i // 2) % 4])
+                schimmer(bild, t, gesamt, seed)
                 for k, (s, e, f) in enumerate(plan):
-                    a, versatz = sichtbarkeit(t, s, e, k == len(plan) - 1, f.get("typ") == "logo")
-                    if a <= 0:
+                    letzte = k == len(plan) - 1
+                    if t < s or (t >= e and not letzte):
                         continue
+                    u = t - s
+                    # die erste Folie steht ab dem ersten Bild schon fast ganz
+                    if k == 0:
+                        u += 0.32
                     fb = folien_bilder[k]
                     if f.get("typ") in ANIMIERT:
-                        fb = folie_bild(f, sport, min(1.0, (t - s) / max(0.01, e - s)))
-                    if versatz:
-                        fb = fb.transform(fb.size, Image.AFFINE, (1, 0, 0, 0, 1, -versatz))
-                    if a < 1:
-                        fb = fb.copy()
-                        fb.putalpha(fb.getchannel("A").point(lambda v, a=a: int(v * a)))
-                    bild = Image.alpha_composite(bild, fb)
-                # Fortschritt
+                        fb = mit_schatten(folie_bild(f, sport, min(1.0, (t - s) / max(0.01, e - s))))
+                    elif f.get("typ") == "hook" and str(f.get("zahl", "")).strip() and u < ZAEHLEN:
+                        fb = mit_schatten(folie_bild(f, sport, u / ZAEHLEN))
+                    else:
+                        fb = gestaffelt(fb, folien_baender[k], u, schnell=f.get("typ") == "logo" or f.get("blitz"))
+                    if not letzte and e - t < ABGANG and f.get("typ") != "logo" and not f.get("blitz"):
+                        fb = abgang(fb, e - t)
+                    bild.alpha_composite(fb)
+                wisch(bild, t, [c for c in schnitte if not _ist_blitz(plan, c)], akzent)
+                # Fortschritt: dünn, mit leuchtendem Kopf
                 d = ImageDraw.Draw(bild)
-                d.rectangle([RAND_X, 1590, RAND_X + TEXT_BREITE, 1596], fill=(255, 255, 255, 60))
-                d.rectangle([RAND_X, 1590, RAND_X + int(TEXT_BREITE * (t / gesamt)), 1596], fill=SIGNAL)
+                d.rectangle([RAND_X, 1592, RAND_X + TEXT_BREITE, 1595], fill=(255, 255, 255, 55))
+                xe = RAND_X + int(TEXT_BREITE * (t / gesamt))
+                d.rectangle([RAND_X, 1591, xe, 1596], fill=akzent)
+                d.ellipse([xe - 7, 1586, xe + 7, 1600], fill=WEISS)
                 rgb = bild.convert("RGB")
                 if schwarzweiss:
                     rgb = rgb.convert("L").convert("RGB")
@@ -1287,7 +1678,8 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
         if beat_bpm:
             import insta_musik
             ton = Path(tmp) / "beat.wav"
-            insta_musik.schreibe_wav(ton, gesamt + 0.3, seed, beat_bpm)
+            wische = [c for c in schnitte if not _ist_blitz(plan, c)]
+            insta_musik.schreibe_wav(ton, gesamt + 0.3, seed, beat_bpm, wische, plan[-1][0])
         if ton:
             audio = ["-ss", f"{ton_start:.2f}", "-i", str(ton)]
             af = f"afade=t=in:d=0.3,afade=t=out:st={max(0.0, gesamt - 1.2):.2f}:d=1.2"
@@ -1319,7 +1711,7 @@ def rendere_story(story: dict, ziel: Path, seed: int) -> Path:
     ebene = credit_ebene(f"Foto: {credit}" if credit else None)
     if ebene:
         rahmen = Image.alpha_composite(rahmen, ebene)
-    bild = Image.alpha_composite(Image.alpha_composite(bg, rahmen), folie_bild(story["folie"], sport))
+    bild = Image.alpha_composite(Image.alpha_composite(bg, rahmen), mit_schatten(folie_bild(story["folie"], sport)))
     bild.convert("RGB").save(ziel, quality=90)
     return ziel
 
@@ -1331,7 +1723,7 @@ def vorschau(beitrag: dict, ausgabe: Path) -> list[Path]:
     bg = next(foto_frames(beitrag.get("sport"), 1.0, 1)).convert("RGBA")
     pfade = []
     for i, f in enumerate(beitrag["folien"], 1):
-        bild = Image.alpha_composite(Image.alpha_composite(bg, rahmen), folie_bild(f, beitrag.get("sport")))
+        bild = Image.alpha_composite(Image.alpha_composite(bg, rahmen), mit_schatten(folie_bild(f, beitrag.get("sport"))))
         p = ausgabe / f"folie-{i}.png"
         bild = bild.convert("RGB")
         if beitrag.get("stil") == "sw":

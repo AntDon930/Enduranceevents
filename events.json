@@ -5399,20 +5399,6 @@
     "art2": "Cyclecross",
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
-    "laenge_km": 500.0,
-    "wettbewerb": "Cycling 4 All 500 km",
-    "veranstalter_url": "https://www.rc-ovilava-wels.at"
-  },
-  {
-    "land": "Österreich",
-    "name": "DWH - dachwelten Cross powered by RCO BOA Wels",
-    "standort": "Wels",
-    "lat": 48.1565472,
-    "lon": 14.0243752,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-11-08",
-    "datum_ende": "2026-11-08",
     "dauer_h": 0.67,
     "wettbewerb": "Cyclocross 40 min",
     "veranstalter_url": "https://www.rc-ovilava-wels.at"

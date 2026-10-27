@@ -1,4 +1,9 @@
 {
+ "10-km-de-payerne": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://10kmpayerne.ch/wp-content/uploads/2025/05/logo.png",
+  "seite": "https://10kmpayerne.ch/"
+ },
  "20km-de-lausanne": {
   "geprueft": "2026-10-27",
   "notiz": "Logo '20KM Lausanne' (418×418).",
@@ -14,6 +19,11 @@
   "geprueft": "2026-10-27",
   "quelle": "https://www.eschborn-frankfurt.de/apple-touch-icon.png",
   "seite": "https://www.eschborn-frankfurt.de/"
+ },
+ "airport-race-hamburg": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.airportrace.de/wp-content/uploads/sites/6/2026/02/header_neu-1.jpg",
+  "seite": "https://www.airportrace.de/"
  },
  "alb-extrem": {
   "geprueft": "2026-10-27",
@@ -47,6 +57,11 @@
   "quelle": "https://www.badenmarathon.de/typo3conf/ext/moox_template_badenmarathon/Resources/Public/Images/Baden_Marathon_Logo_2023_final.png",
   "seite": "https://www.badenmarathon.de"
  },
+ "badische-meile": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://badischemeile.de/wp-content/uploads/2019/10/BM_Logo_neutral.png",
+  "seite": "https://badischemeile.de/"
+ },
  "basler-stadtlauf": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.baslerstadtlauf.ch/files/layout/icons/apple-touch-icon.png",
@@ -54,7 +69,7 @@
  },
  "berlin-marathon": {
   "geprueft": "2026-10-27",
-  "quelle": "https://www.bmw-berlin-marathon.com/fileadmin/media/eventlogos/BM27_MiniMarathon_Logo_Color_LINES.svg",
+  "quelle": "https://www.bmw-berlin-marathon.com/fileadmin/media/eventlogos/BM_Logo_Color_LINES.svg",
   "seite": "https://www.bmw-berlin-marathon.com"
  },
  "berlin-triathlon": {
@@ -73,21 +88,46 @@
   "quelle": "https://www.generali-berliner-halbmarathon.de/fileadmin/media/eventlogos/HM-Logo-neg-neutral-transp-Gospel-RGB.svg",
   "seite": "https://www.generali-berliner-halbmarathon.de"
  },
+ "berliner-silvesterlauf": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.berliner-silvesterlauf.de/_assets/10957bc1aa816ea9675eed01fae68a20/Dist/SL_RGB.svg",
+  "seite": "https://www.berliner-silvesterlauf.de/"
+ },
  "bieler-lauftage-100-km-von-biel": {
   "geprueft": "2026-10-27",
   "quelle": "https://100km.ch/wp-content/uploads/newlogo-1-e1698222215697.webp",
   "seite": "https://www.100km.ch"
+ },
+ "bietigheimer-silvesterlauf": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.bietigheimer-silvesterlauf.de/images/7917/silversterlauf-logo-mit-text-transparent.png",
+  "seite": "https://www.bietigheimer-silvesterlauf.de/"
  },
  "black-forest-ultra-bike-marathon": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.ultra-bike.de/clips/logo_grey.png",
   "seite": "https://www.ultra-bike.de/"
  },
+ "bodensee-radmarathon": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://bodensee-radmarathon.ch/wp-content/themes/brm/assets/images/BRM_Logo.svg",
+  "seite": "https://www.bodensee-radmarathon.ch/"
+ },
  "bonn-marathon": {
   "geprueft": "2026-10-27",
   "notiz": "bonn-marathon.de ist eine verkaufte Parkdomain! Offizielle Seite: deutschepostmarathonbonn.de. Logo 'Post Marathon Bonn' weiß/gelb, transparent – nur auf dunklem Grund.",
   "quelle": "https://www.deutschepostmarathonbonn.de/wp-content/uploads/2025/06/PP_Post_Marathon_Logo_cmyk_C__Yellow_White_Ohne-Datum.png",
   "seite": "https://bonn-marathon.de"
+ },
+ "bonner-nikolauslauf": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.bonner-nikolauslauf.de/wp-content/uploads/logo.png",
+  "seite": "https://www.bonner-nikolauslauf.de/"
+ },
+ "bramfelder-winterlaufserie": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.dielaufgesellschaft.de/bramfelder-winterlaufserie/wp-content/uploads/sites/15/2019/03/Bramfelder_winter_logo_navigation.png",
+  "seite": "https://www.winterlaufserie-hamburg.de/"
  },
  "challenge-kaiserwinkl-walchsee": {
   "geprueft": "2026-10-27",
@@ -104,10 +144,20 @@
   "quelle": "https://citylauf-dresden.de/typo3conf/ext/customer/Resources/Public/Images/Logos/citylauf-dresden-logo-2026.png",
   "seite": "https://citylauf-dresden.de"
  },
+ "corrida-bulloise": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.corrida-bulloise.ch/images/logos/logo-02-dark-2025.png",
+  "seite": "https://www.corrida-bulloise.ch/"
+ },
  "datev-challenge-roth": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.challenge-roth.com/apple-touch-icon.png",
   "seite": "https://www.challenge-roth.com/de/"
+ },
+ "davos-x-trails": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.davos-xtrails.ch/typo3conf/ext/spot_website/Resources/Public/Assets/Images/logos/DDO_XTrails_LogoDS_RGB_pos.svg",
+  "seite": "https://www.davos-xtrails.ch/"
  },
  "dolomitenradrundfahrt-supergirodolomiti": {
   "geprueft": "2026-10-27",
@@ -130,6 +180,11 @@
   "notiz": "Header-Logo 'uniper | Düsseldorf Marathon' (SVG).",
   "quelle": "https://www.uniper-duesseldorfmarathon.de/_assets/7bfcc9ff9e3508b56d038716b0a594c2/images/logos/logo-duesseldorfmarathon-colored.svg",
   "seite": "https://www.uniper-duesseldorfmarathon.de"
+ },
+ "eiger-bike-challenge": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.eigerbike.ch/wp-content/uploads/2023/08/logo-ebc-1.png",
+  "seite": "https://www.eigerbike.ch/"
  },
  "eiger-ultra-trail": {
   "geprueft": "2026-10-27",
@@ -263,6 +318,11 @@
   "quelle": "https://www.herodolomites.com/++resource++hero2019.site.images/loghi/Logo_HD_26_Neg.svg",
   "seite": "https://www.herodolomites.com/"
  },
+ "hkk-winterlaufserie-bremen": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://bremer-winterlaufserie.com/wp-content/uploads/2025/02/xcropped-fblogo_2025_hkk-winterlaufserie-180x180.jpg.pagespeed.ic.YsV2NzqT-z.jpg",
+  "seite": "https://bremer-winterlaufserie.com/"
+ },
  "inferno-triathlon": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.inferno.ch/img/asset/YXNzZXRzL2JyYW5kLWtpdC9pbmZlcm5vLXRyaWF0aGxvbi1sb2dvLnBuZw/inferno-triathlon-logo.png?fm=webp&w=200&dpr=2&q=90&s=6b9832e3826831b1ecb06525a21ab3b4",
@@ -272,6 +332,11 @@
   "geprueft": "2026-10-27",
   "quelle": "https://assets.innsbruckalpine.at/innsbruckalpine/2026/01/IATF26-Logo-RGB-negativ-1.png",
   "seite": "https://www.innsbruckalpine.at"
+ },
+ "internationaler-sparverein-silvesterlauf-saarbruecken": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://silvesterlauf-sb.de/wp-content/uploads/2026/09/Sparverein_Silvesterlauf_2026.png",
+  "seite": "https://www.silvesterlauf-sb.de/"
  },
  "ironman-70-3-duisburg": {
   "geprueft": "2026-10-27",
@@ -381,6 +446,26 @@
   "quelle": "Inline-SVG im Kopf der Startseite (Bildschirmfoto des Elements)",
   "seite": "https://www.koeln-triathlon.com/"
  },
+ "koezon-21-halbmarathon-fuehlingen-zons": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://koezon-21.de/wp-content/uploads/2026/05/Logo-Clean.png",
+  "seite": "https://koezon-21.de/"
+ },
+ "korschenbroicher-citylauf": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://citylauf-korschenbroich.com/wp-content/uploads/City-Lauf-Logo_frame_2835x1201-300x127.png",
+  "seite": "https://citylauf-korschenbroich.com/"
+ },
+ "kufsteinerland-radmarathon": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.kufsteinerland-radmarathon.at/img/layout/kufsteinerland-radmarathon-hd.png",
+  "seite": "https://www.kufsteinerland-radmarathon.at/"
+ },
+ "lauf-der-sympathie": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.laufdersympathie.de/wp-content/uploads/2026/09/cropped-LdS_RR_mobil-scaled-1.jpg",
+  "seite": "https://www.laufdersympathie.de/"
+ },
  "lausanne-marathon": {
   "geprueft": "2026-10-27",
   "quelle": "https://fr.lausanne-marathon.com/wp-content/themes/lausanne-marathon/images/lausanne-marathon-logo-bleu.jpg",
@@ -437,6 +522,11 @@
   "quelle": "https://www.volksbank-muenster-marathon.de/img/logo.png",
   "seite": "https://www.volksbank-muenster-marathon.de"
  },
+ "neujahrsmarathon-zuerich": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.neujahrsmarathon.ch/wp-content/uploads/2023/03/logoHeader.jpg",
+  "seite": "https://www.neujahrsmarathon.ch"
+ },
  "neusiedler-see-radmarathon": {
   "geprueft": "2026-10-27",
   "quelle": "https://irp.cdn-website.com/1cc750a1/dms3rep/multi/NRM_Logo.svg",
@@ -478,6 +568,16 @@
   "quelle": "https://a.storyblok.com/f/293697786847221/600x115/b45bdb0713/radamring-logo-2003.svg",
   "seite": "https://www.radamring.de/"
  },
+ "rad-marathon-tannheimer-tal": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.rad-marathon.at/wp-content/uploads/2024/12/Logo_Rad-Marathon.png",
+  "seite": "https://www.rad-marathon.at/"
+ },
+ "raiffeisen-silvesterlauf-peuerbach": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.silvesterlauf.at/wp-content/uploads/2022/07/Download.jpg",
+  "seite": "https://www.silvesterlauf.at/"
+ },
  "regensburg-marathon": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.regensburg-marathon.de/file/pagefile/948/0/0/logo_rgb_marathon_quer_4c.png",
@@ -487,6 +587,11 @@
   "geprueft": "2026-10-27",
   "quelle": "https://www.rhein-ruhr-marathon.de/images/logo-schauinslandreisen-300x107.png",
   "seite": "https://www.rhein-ruhr-marathon.de"
+ },
+ "rostocker-citylauf": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://rostocker-citylauf.de/wp-content/uploads/2025/10/Citylauf-Logo.png",
+  "seite": "https://rostocker-citylauf.de/"
  },
  "run-fun-tuttlingen": {
   "geprueft": "2026-10-27",
@@ -519,11 +624,26 @@
   "quelle": "https://www.salzkammergut-trophy.at/images/design/trophy_logo_21.png",
   "seite": "https://www.salzkammergut-trophy.at/"
  },
+ "schliersee-lauf": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.schliersee-lauf.de/wp-content/uploads/2026/10/schliersee-lauf-logo-2027.png",
+  "seite": "https://www.schliersee-lauf.de/"
+ },
  "schlosstriathlon-moritzburg": {
   "geprueft": "2026-10-27",
   "notiz": "Header-Logo (Schloss-Silhouette + schloss-triathlon-moritzburg.de), aus AVIF in PNG; nur 153×67 px, keine größere Fassung auf der Seite.",
   "quelle": "https://schlosstriathlon.de/app/uploads/2020/10/logo-png.avif",
   "seite": "https://www.schlosstriathlon.de/"
+ },
+ "schuster-tegernseelauf": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://tegernseelauf.de/wp-content/uploads/2026/02/2026_tegernsee_lauf_logo_bl.svg",
+  "seite": "https://www.tegernseelauf.de/"
+ },
+ "schwarzwald-marathon-braeunlingen": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.schwarzwaldmarathon.de/templates/yootheme/cache/a2/logo_2017_reg_2-a266cc33.png",
+  "seite": "https://www.schwarzwaldmarathon.de/"
  },
  "schweizer-frauenlauf-bern": {
   "geprueft": "2026-10-27",
@@ -536,6 +656,11 @@
   "quelle": "https://www.sierre-zinal.com/template/image/sierre-zinal-logo-v3.svg",
   "seite": "https://www.sierre-zinal.com"
  },
+ "silvesterlauf-hannover": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.silvesterlauf-hannover.de/typo3conf/ext/eichels/Resources/Public/Images/silvesterlauf-hannover/silvesterlauf-hannover-logo.svg",
+  "seite": "https://www.silvesterlauf-hannover.de/"
+ },
  "silvesterlauf-werl-soest": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.silvesterlauf.com/wp-content/uploads/2020/07/Silvesterlauf_header_180.png",
@@ -545,6 +670,11 @@
   "geprueft": "2026-10-27",
   "quelle": "https://muenster-triathlon.de/wp-content/uploads/Logo-2027_.png",
   "seite": "https://muenster-triathlon.de/"
+ },
+ "sparkasse-3-laender-marathon": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.sparkasse-3-laender-marathon.at/fileadmin/images/_layout/logo.png",
+  "seite": "https://www.sparkasse-3-laender-marathon.at/"
  },
  "stadttriathlon-erding": {
   "geprueft": "2026-10-27",
@@ -594,6 +724,11 @@
   "quelle": "http://www.triathlon-heilbronn.de/media/pages/home/94e75a18ce-1731583198/heilbronn-logo-homepage.png",
   "seite": "https://www.triathlon-heilbronn.de/"
  },
+ "vulkanland-fruehlingslauf": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.vulkanlandlauf.at/images/logo-header-left.png",
+  "seite": "https://www.vulkanlandlauf.at/"
+ },
  "wachau-radmarathon": {
   "geprueft": "2026-10-27",
   "notiz": "Inline-SVG aus dem Seitenkopf, Farben aufgelöst; schwarze Schrift 'presented by Sportland NÖ'.",
@@ -604,6 +739,11 @@
   "geprueft": "2026-10-27",
   "quelle": "https://www.wachaumarathon.com/wp-content/uploads/2025/12/logo2026.png",
   "seite": "https://wachaumarathon.com"
+ },
+ "wings-for-life-world-run-muenchen": {
+  "geprueft": "2026-10-27",
+  "quelle": "https://www.wingsforlifeworldrun.com/_nuxt/wflwr-logo-pos.CJlzM-_-.svg",
+  "seite": "https://www.wingsforlifeworldrun.com/"
  },
  "wolfgangseelauf": {
   "geprueft": "2026-10-27",

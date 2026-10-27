@@ -88,6 +88,17 @@ def autopost_aktiv(umgebung: dict | None = None) -> bool:
     return str(env.get("INSTAGRAM_AUTOPOST", "")).strip().lower() in ("ja", "yes", "true", "1")
 
 
+# Erster Tag, an dem überhaupt gepostet wird (vom Nutzer am 27.10.2026: „wir
+# fangen ab dem 2. November (Montag) an … Davor wird jetzt noch nichts
+# gepostet"). Gilt für JEDEN Weg – Freigabe, Autopost und den Haken „posten"
+# im Handlauf –, gemessen am heutigen Tag UND am Tag des Beitrags.
+POST_START = "2026-11-02"
+
+
+def vor_start(datum: str, heute: str) -> bool:
+    return min(str(datum), str(heute)) < POST_START
+
+
 def entscheide(beitrag_hash: str, freigabe: dict | None, autopost: bool) -> tuple[bool, str]:
     """Darf der Beitrag mit dieser Kennung raus? (ja/nein, Begründung).
     Reihenfolge: gesperrt schlägt alles; dann die Freigabe mit passender

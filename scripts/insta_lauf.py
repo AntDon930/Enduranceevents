@@ -149,8 +149,14 @@ def main() -> int:
         vorschauen(datum, vorschau_tage, ziel, beitrag["hash"], z)
 
     darf, grund, story_fehler = True, "", None
-    if a.posten and a.freigabe:
-        import insta_freigabe as freigabe
+    import insta_freigabe as freigabe
+    heute = dt.datetime.now(ZoneInfo("Europe/Berlin")).date().isoformat()
+    if a.posten and freigabe.vor_start(beitrag["datum"], heute):
+        darf, grund = False, f"vor dem Start am {freigabe.POST_START} wird nichts gepostet"
+        print(f"  Freigabe: NICHT posten - {grund}")
+        zusammenfassung(f"Freigabe: **nicht posten** - {grund}\n")
+        beitrag["freigabe"] = {"posten": False, "grund": grund}
+    elif a.posten and a.freigabe:
         darf, grund = freigabe.darf_posten(beitrag["datum"], beitrag["hash"])
         print(f"  Freigabe: {'posten' if darf else 'NICHT posten'} - {grund}")
         zusammenfassung(f"Freigabe: **{'posten' if darf else 'nicht posten'}** - {grund}\n")

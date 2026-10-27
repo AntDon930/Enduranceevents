@@ -2590,6 +2590,20 @@ Datum, Logo, kleine Karte), Raster (Kacheln füllen sich) und Zeitleiste
 Fehlt ein Logo, zeigt die Folie den Namen groß auf einer Karte. Will ein
 Veranstalter sein Logo nicht im Reel, die Datei löschen.
 
+### Startwoche ab dem 02.11.2026, Rennjahr und Duell (27.10.2026)
+
+Vor Montag, dem 2. November 2026, wird nichts gepostet
+(`insta_freigabe.POST_START`). Die erste Woche steht fest in
+`marketing/instagram/sonderplan.json`: Rennjahr (das größte Event jedes
+Monats), Anmeldestart im November, die längsten Rennen, die fünf größten
+Marathon-Events (Karte), Wochenende, die sieben größten Triathlons
+(Raster), Duell Berlin-Marathon gegen Vienna City Marathon. Die Vorschauen
+legt ein Handlauf von `instagram.yml` mit Datum 2026-11-02 ab; der Nutzer
+sieht sie im Dashboard an und gibt sie frei. Neu sind die Formate `jahr`
+und `duell` und ein überarbeiteter Look (Farblook, Tiefenschärfe, Korn,
+Schatten, gestaffelte Animation, Wisch-Übergänge mit Whoosh) – Einzelheiten
+in CLAUDE.md, „Instagram".
+
 ### Das Video (`scripts/insta_video.py`, `scripts/insta_musik.py`)
 
 1080 × 1920, 30 Bilder/s, H.264/AAC, `faststart`, 10–16 s. Hintergrund:

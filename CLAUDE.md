@@ -5307,6 +5307,41 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   davon (Rechte). `anlaesse.json`: je Eintrag `datum` (bestätigt, sonst
   null), `kategorie` (Schlüssel aus `TOP_KATEGORIEN`), `anlass_text`,
   `quelle`; jährlich nachtragen.
+- **Start am 02.11.2026 – vorher wird NICHTS gepostet** (vom Nutzer am
+  27.10.2026: „wir fangen ab dem 2. November (Montag) an … Davor wird jetzt
+  noch nichts gepostet"): `insta_freigabe.POST_START`, `vor_start()` sperrt
+  in `insta_lauf.py` jedes `--posten` (auch Handlauf und Autopost) für
+  Beiträge vor dem Tag. Die Startwoche steht fest in
+  **`marketing/instagram/sonderplan.json`** (`lade_sonderplan()`, geht in
+  `plane()` und `format_am()` allem vor; bei `top` mit `kategorie`/
+  `anzahl`/`design`, bei `duell` mit `paar`): Mo `jahr`, Di `anmeldung`,
+  Mi `laengste`, Do `top` Marathon/karte/5, Fr `wochenende`, Sa `top`
+  Triathlon/raster/7, So `duell` Berlin gegen Wien. Der Nutzer sieht jedes
+  Video im Dashboard („View") an, gibt Feedback, dann frei.
+- **Zwei Formate dazu (27.10.2026)**: **`jahr`** („Dein Rennjahr": je
+  Monat der nächsten zwölf das größte Event, geprüftes Logo vor ohne,
+  Monatsfolien `blitz` im Takt ohne Wisch, Übersicht 3 × 4, mindestens zehn
+  Monate) und **`duell`** (zwei große Events einer Kategorie mit Logo,
+  Größe höchstens Faktor 2 auseinander – `duell_paare()`; animierte Folie:
+  Logos fahren ein, VS, Zeilen Termin/Ort/Am Start/Strecken auf einer
+  Navy-Fläche, der größere Wert in Sonne). Beide nur über Sonderplan oder
+  `--format`, noch nicht im Wochenplan. `gross_fuer()` kennt `nicht`
+  (Ausschlusswörter: L'Hivernale ist nicht Sierre-Zinal).
+- **Der Look seit dem 27.10.2026 („Die Videos sollen nicht so billig
+  aussehen")**: Foto mit Farblook (`farbgrad`: Kontrast, weniger Farbe,
+  Duoton Navy/warm), Tiefenschärfe (Blur 2,6), Vignette, ruhiger Mitte
+  (`rahmen_ebene` 0,46), Filmkorn unter der Schrift (vier fertige Ebenen
+  Rahmen + Korn), warmer Lichtfleck; Folien mit weichem Schatten, Bänder
+  staffeln sich herein (`gestaffelt`: Zeilen von unten, große Flächen
+  „poppen"), alte Folie geht nach oben ab, schräger Wisch in der Sportfarbe
+  an jedem Schnitt, Zahlen zählen hoch, dünner Fortschritt mit Leuchtpunkt;
+  im Ton ein Whoosh je Wisch und ein tiefer Schlag zu Beginn und am CTA
+  (`insta_musik`, `schnitte`/`schlusspunkt`). Lange Listen (Balken,
+  Duell) stehen auf einer Navy-Fläche, sonst ist Text auf manchen Fotos
+  unlesbar. Ein Reel braucht ~70 s Rechenzeit; der Morgenlauf rendert acht
+  (heute + 7 Vorschauen) – bei einem weiteren Effekt das 30-Minuten-Limit
+  von `instagram.yml` im Blick behalten. `foto_sport` am Beitrag wählt das
+  Foto bei gemischten Formaten (laengste: Lauf oder Rad, nie Schwimmen).
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,
