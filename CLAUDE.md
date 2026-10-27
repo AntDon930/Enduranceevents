@@ -5228,7 +5228,11 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   sonst „aktuell" mit Hinweis, sonst „kommt mit dem Morgenlauf". Kein
   Änderungsbedarf an `instagram.yml`. `test_insta_freigabe`
   und der Rauchtest (`pruefe_statistik_dashboard`, Attrappe speichert
-  set/delete) halten es fest. **Beides ist live**: die Regeln seit dem
+  set/delete) halten es fest; der Rauchtest zählt die Zeilen der Karte
+  gegen die künftigen Beiträge in plan.json, nicht gegen eine feste Zahl
+  (am 27.10.2026 rot mit „6 Tage“, weil der Plan seit den Pausentagen
+  nur noch Post-Tage enthält – fünfte Begegnung mit „fest eingetragenes
+  Beispiel“, siehe Frontend-Fallen). **Beides ist live**: die Regeln seit dem
   15.10.2026, 12:25 (vom Nutzer aus der Cloud Shell, `firebase deploy
   --only firestore:rules`; per REST geprüft: `insta_freigaben/<Tag>`
   antwortet 404 statt 403, `config/wartung` weiter 200), `instagram.yml`

@@ -1711,6 +1711,7 @@ def pruefe_statistik_dashboard(ctx, basis):
     Zielgruppe nach Sportart und Region, Bericht je Veranstaltung,
     Werbeplätze - und dass alles in DE und EN zeichnet.
     """
+    import json
     print("\nStatistik-Dashboard mit Firebase-Attrappe")
     # Eigener Kontext: Die Umleitungen der SDKs dürfen die anderen
     # Prüfungen (Abo-Dialog, Anmeldung) nicht treffen.
@@ -1806,8 +1807,17 @@ def pruefe_statistik_dashboard(ctx, basis):
                      knoepfe: Array.from(erste.querySelectorAll('button')).map(b => b.textContent),
                      caption: (erste.querySelector('pre') || {}).textContent || '',
                      link: !!document.querySelector('#insta-freigabe-card a[href*="actions/workflows/instagram.yml"]') }; }""")
-        pruefe(frei["zeilen"] >= 7 and frei["status"] == "offen" and frei["knoepfe"] == ["Freigeben", "View", "Sperren"],
-               "Freigabe-Karte: %d Tage aus plan.json, erste Zeile offen mit Freigeben/View/Sperren (%s)" % (frei["zeilen"], frei["knoepfe"]))
+        # Die Karte zeigt jeden künftigen Beitrag aus plan.json – nicht
+        # „mindestens 7“: Seit dem 27.10.2026 hat der Plan Pausentage
+        # (Di/Do, vor dem Start am 02.11.2026 gar keine), die Zahl hängt
+        # also am Datum. Verglichen wird mit der Datei selbst.
+        with open(os.path.join(WURZEL, "marketing", "instagram", "plan.json"), encoding="utf-8") as f:
+            heute_iso = datetime.date.today().isoformat()
+            erwartet = sum(1 for b in json.load(f).get("beitraege", []) if b.get("datum", "") >= heute_iso)
+        pruefe(erwartet >= 1 and frei["zeilen"] == erwartet and frei["status"] == "offen"
+               and frei["knoepfe"] == ["Freigeben", "View", "Sperren"],
+               "Freigabe-Karte: %d von %d Tagen aus plan.json, erste Zeile offen mit Freigeben/View/Sperren (%s)"
+               % (frei["zeilen"], erwartet, frei["knoepfe"]))
         pruefe(len(frei["caption"]) > 40 and frei["link"], "… Caption aufklappbar, Link zu den Videos in GitHub Actions")
         seite.click("#insta-freigabe-card .frei-zeile:first-child button[data-frei]")
         seite.wait_for_function("() => document.querySelector('#insta-freigabe-card .frei-zeile').classList.contains('ist-frei')", timeout=5000)
