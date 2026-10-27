@@ -151,7 +151,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 335 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 347 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (bis 900 px: Kacheln statt Tabelle, der Knopf
 „Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -726,6 +726,17 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      **Seit dem 07.10.2026 auch FITLETIX, THE ROX, Deadly Dozen, ATHX und
      StrongAthlon** (To-do-Liste, Punkt 9) – vorher nur per Override, und
      ein Override trifft nur seinen einen Termin.
+     **Skilanglauf erweitert am 27.10.2026** (bei der Instagram-Durchsicht
+     sichtbar gefunden, sieben Veranstaltungen / 21 Zeilen als „Laufen ·
+     Straße“, jede an ihrer Seite geprüft): `\blanglauf\b` traf das
+     Kompositum nicht („Planoiras Volkslanglauf“), dazu „Loppet“ (Skadi,
+     Gantrisch – „Swiss Loppet“ ist die Volkslanglauf-Serie), die Marken
+     Gommerlauf, Ganghoferlauf, „Nordic Days“ (Kandersteg) und die Technik
+     im Label („Skating“ ohne „Inline“, „freie Technik“, „100 km
+     Klassisch“ – Rucksacklauf Schonach). Gegenproben „Inlineskating“,
+     „klassischer Marathon“, „Langläufer-Cup“, „Langlaufzentrum“ in
+     `test_nicht_ausdauer`. Keine neue Kategorie, die Entscheidung vom
+     21.09. – nur das Muster dafür.
      **Nicht** darunter fallen die Walking-/Nordic-Walking-Strecken
      innerhalb eines Volkslaufs (145 Zeilen) – das ist eine offene
      Frage an den Nutzer, siehe unten.
@@ -3982,9 +3993,32 @@ sagt es).
   (`halloweenrunbremen` beim Lauf in Rotenburg: ein Ort ab 10.000
   Einwohnern aus `places.json` im nicht abgedeckten Rest des Namens); das
   ist zugleich der Filter „nur die großen“ – kleine Vereinsläufe haben
-  kein eigenes Konto. Abkürzungen sieht die Regel nicht (`trailvsb`,
-  `wtcshamburg`) – dafür der Override `"instagram": "<name>"`,
-  abschalten mit `"instagram": null`. **Vor der Erkennung steht die
+  kein eigenes Konto. **Die Durchsicht ALLER 696 Treffer** (27.10.2026,
+  nach dem ersten vollen Lauf: 3.766 Seiten, 2.191 mit Instagram-Link)
+  fand 30 Fehltreffer in vier Klassen, jetzt Regel bzw. Liste: ein
+  **Vereinskürzel im Rest** des Kontonamens (`heeslingersc`, `lcauensee`,
+  `bocholterwsv_triathlon` mit Adjektivendung; „tri“ zählt dort nicht –
+  `ostseemantri`), das Vereinswort **„club“** (`triathlon_club_bremen`,
+  `ratzeburger_ruderclub`), „lauffreunde“ und „verband“, ein Konto
+  NUR aus **Kürzel des Namens plus Ort**, wenn der Lauf selbst im Konto
+  fehlt (`tgs.hausen` beim „Volkslauf der TGS Hausen“, `otb_osnabrueck`,
+  `mrrc_muenchen`, `wvckassel`, `awg_plauen`; `byu.lustenau` für „BYU
+  Lustenau“ und `evl.halbmarathon` bleiben), **Tourismus** (`mein…`/
+  `dein…`/`visit…` vor EINEM Namenswort ohne Veranstaltungswort –
+  `meinmontafon`, `dein.edersee`, aber `meinfreiburgmarathon` bleibt; ein
+  Konto NUR aus Ortsnamen aus `places.json`, wenn dem Konto ein eigenes
+  Wort der Veranstaltung fehlt – `usedom` beim „Usedom Beach Marathon“,
+  `zellamseekaprun` beim TriZell; „A Travers Romanel“ und
+  `sierrezinal_officiel` bleiben) und die **Sperrliste
+  `KEIN_EVENT_KONTO`** in `instagram_konten.py` für Firmen, Bergbahn,
+  Flughafen, Laufteams und Tourismusverbände, die keine Regel erkennt
+  (`sportscheck`, `airportpad`, `niesenbahn`, `vabalispa_official`,
+  `pitztal` …, je mit Grund) – sie hängt am Kontonamen, gilt also auch
+  für die nächste Ausgabe. **Stand danach**: 2.383 Zeilen tragen ein
+  Konto, 2.093 davon sichtbar, 810 verschiedene Konten (davon 101 aus der
+  recherchierten Liste). Abkürzungen sieht die Regel nicht
+  (`trailvsb`, `wtcshamburg`) – dafür der Override `"instagram":
+  "<name>"`, abschalten mit `"instagram": null`. **Vor der Erkennung steht die
   recherchierte Liste** `marketing/instagram/grosse_events.json` (127
   große Events für die Logo-Reels, am 27.10.2026 von einer parallelen
   Sitzung einzeln recherchiert, 101 mit Konto): Gehört die Zeile zu einem

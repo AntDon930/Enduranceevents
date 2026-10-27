@@ -2783,7 +2783,18 @@ NICHT_AUSDAUER: list[tuple[re.Pattern, str]] = [
     (re.compile(r"race\s*walking|racewalking|\bgeher(?:tag|wettbewerb|meeting)?\b|"
                 r"stra(?:ß|ss)engehen|bahngehen", re.I),
      "Gehen / Race Walking (keine Laufveranstaltung)"),
-    (re.compile(r"skilanglauf|ski-langlauf|\blanglauf\b|skimarathon", re.I),
+    # Am 27.10.2026 standen sieben Skilanglauf-Veranstaltungen als "Laufen ·
+    # Straße" in der Liste, alle an ihrer Seite geprüft: Das Wort steckt im
+    # Kompositum ("Planoiras Volkslanglauf"), die Rennen heißen "Loppet"
+    # (Skadi Loppet, Gantrisch Loppet - "Swiss Loppet" ist die Serie der
+    # Volkslanglaufrennen), oder nur das Label verrät die Technik
+    # ("Skating", "freie Technik", "100 km Klassisch"); Gommerlauf,
+    # Ganghoferlauf und die Kandersteger Nordic Days tragen nur ihre Marke.
+    # "Inlineskating" (Berlin Marathon), "klassischer Marathon" und der
+    # "Langläufer-Cup" bleiben.
+    (re.compile(r"skilanglauf|ski-langlauf|\w*langlauf\b|skimarathon|\w*loppet\b|"
+                r"ganghoferlauf|gommerlauf|nordic\s+days?\b|\bkm\s+klassisch\b|"
+                r"(?<!inline)(?<!inline-)(?<!inline\s)\bskating\b|freie\s+technik", re.I),
      "Skilanglauf (keine Laufveranstaltung)"),
     # Virtuelle Läufe ("egal wo, egal wann") haben weder Ort noch Termin
     # noch Koordinaten; die Liste ist auf Karte und Umkreissuche gebaut.

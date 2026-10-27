@@ -100,12 +100,37 @@ VEREIN_VORN = ("tsv", "tus", "tsg", "vfl", "vfb", "djk", "asv", "ssv", "esv", "p
 # vorn im Kontonamen allein wären sie zu kurz („schwebebahnlauf“, „lac“ =
 # See auf Französisch):
 VEREIN_KUERZEL = VEREIN_VORN + ("sv", "tv", "sc", "lg", "lc", "rc", "rv", "fc", "cs", "llg", "lac",
-                                "alv", "ast", "osc", "scc", "lsg", "usc", "ssc", "ac", "tri")
+                                "alv", "ast", "osc", "scc", "lsg", "usc", "ssc", "ac", "tri",
+                                "bsv", "wsv", "lv")
 # Wörter, die im Kontonamen den Verein verraten („athletik_waldniel“,
 # „laufclub_geinberg“, „jeunesse_de_fey“):
 VEREIN_WORT = ("athletik", "laufclub", "runclub", "runningclub", "triclub", "radsport", "jeunesse",
                "turnverein", "sportverein", "sportclub", "laufgemeinschaft", "lauftreff", "skiclub",
-               "verein")
+               "verein", "club", "lauffreunde", "verband")
+# Tourismus: Ein Konto, das nur aus Ortsnamen besteht („usedom“,
+# „zellamseekaprun“ beim TriZell) oder mit „mein“/„dein“/„visit“ vor einem
+# einzigen Namenswort („meinmontafon“, „dein.edersee“), gehört der Region,
+# nicht dem Rennen. Mit einem Veranstaltungswort daneben bleibt es
+# („meinfreiburgmarathon“). Durchsicht vom 27.10.2026, 696 Konten.
+TOURISMUS_VORN = ("mein", "dein", "visit", "erlebe", "urlaub", "ferien", "tourismus")
+# Konten, die die Regel nicht von einem Event-Konto unterscheiden kann –
+# jedes einzeln an der Seite geprüft (27.10.2026). Hängt am Kontonamen,
+# nicht am Termin: Die Ausgabe 2028 bekommt es genauso wenig.
+KEIN_EVENT_KONTO = {
+    "airportpad": "Flughafen Paderborn/Lippstadt, Gastgeber des Airport Run",
+    "keltereiheil": "die Kelterei (Firma), nicht ihr Apfellauf",
+    "niesenbahn": "die Niesenbahn (Bergbahn), nicht der Treppenlauf",
+    "sportscheck": "der Sporthändler, nicht der SportScheck RUN",
+    "vabalispa_official": "die Therme, nicht der Sunrise Run",
+    "sedus_official": "der Möbelhersteller, nicht sein Firmenlauf",
+    "stahlradlaatzen": "der Verein Stahlrad Laatzen, nicht seine CTF",
+    "crazyrunnersteamfrankenwald": "das Laufteam, nicht der Trail",
+    "we.run.hamburg": "eine Laufgemeinschaft, der Name nennt den Lauf nicht",
+    "paznaunischgl_crew": "der Tourismusverband Paznaun-Ischgl",
+    "ischgl_com": "der Tourismusverband Paznaun-Ischgl",
+    "pitztal": "der Tourismusverband Pitztal",
+    "lenzerheide": "der Tourismusverband Lenzerheide",
+}
 VEREIN = set(VEREIN_KUERZEL) | set(VEREIN_WORT) | {
     "sg", "lt", "ski", "team", "club", "ev", "ltf", "triteam", "laufteam"}
 # Füllwörter: decken Buchstaben des Kontonamens ab („cityundtrail“),
@@ -122,6 +147,7 @@ MIN_ABDECKUNG = 0.6         # Anteil der Buchstaben des Kontonamens aus Namensw�
 MIN_ABDECKUNG_GENERISCH = 0.9
 GROSSE_ORTE_AB = 10_000     # Einwohner: ab hier zählt ein Ort im Rest des Kontonamens als fremder Ort
 _GROSSE_ORTE: set[str] | None = None
+_ALLE_ORTE: set[str] | None = None
 
 
 def grosse_orte() -> set[str]:
@@ -140,6 +166,22 @@ def grosse_orte() -> set[str]:
             if len(o) > 5 and isinstance(o[5], int) and o[5] >= GROSSE_ORTE_AB:
                 _GROSSE_ORTE |= {v for v in _varianten(o[0]) if len(v) >= 4}
     return _GROSSE_ORTE
+
+
+def alle_orte() -> set[str]:
+    """Alle Ortsnamen aus places.json ab vier Buchstaben, beide
+    Umlaut-Schreibweisen – für die Tourismus-Regel."""
+    global _ALLE_ORTE
+    if _ALLE_ORTE is None:
+        _ALLE_ORTE = set()
+        try:
+            orte = json.loads((WURZEL / "places.json").read_text(encoding="utf-8"))["orte"]
+        except (OSError, ValueError, KeyError):
+            orte = []
+        for o in orte:
+            if o and isinstance(o[0], str):
+                _ALLE_ORTE |= {v for v in _varianten(o[0]) if len(v) >= 4}
+    return _ALLE_ORTE
 
 
 def _vereinskonto(konto: str, h: str, name: str) -> bool:
@@ -204,10 +246,42 @@ def _bewertung(konto: str, name: str, standort: str) -> tuple[float, bool]:
     rest = re.findall(r"[a-z0-9]+", "".join(c if not b else " " for c, b in zip(h, belegt_von)))
     if any(len(r) >= 4 and r in grosse_orte() and r not in orte for r in rest):
         return abdeckung, False
+    # Ein Vereinskürzel im Rest („heeslingersc“, „lcauensee“,
+    # „bocholterwsv_triathlon“ – mit Adjektivendung davor): der Verein.
+    # „tri“ im Rest ist der Triathlon („ostseemantri“), kein Verein.
+    if any(r != "tri" and (r in VEREIN_KUERZEL or (r.startswith("er") and r[2:] in VEREIN_KUERZEL))
+           for r in rest):
+        return abdeckung, False
     worte = [w for w in treffer if w not in FUELL]
+    # Kürzel aus dem Namen plus Ort, sonst nichts, und der Lauf selbst
+    # fehlt im Konto („tgs.hausen“ beim „Volkslauf der TGS Hausen“,
+    # „otb_osnabrueck“, „mrrc_muenchen“, „wvckassel“, „awg_plauen“): der
+    # Verein oder die Firma. Mit einem Veranstaltungswort daneben bleibt es
+    # („evl.halbmarathon“, „bcn_tour_officiel“), ebenso, wenn der Name nur
+    # aus Kürzel und Ort besteht („byu.lustenau“ für „BYU Lustenau“).
+    kuerzel = {t.lower() for t in re.findall(r"\b[A-ZÄÖÜ]{2,5}\b", name or "")}
+    if (any(w in kuerzel for w in worte)
+            and any(w in orte or w in alle_orte() for w in worte if w not in kuerzel)
+            and all(w in kuerzel or w in orte or w in alle_orte() for w in worte)
+            and any(len(w) >= 4 and w not in h and w not in orte for w in namen)):
+        return abdeckung, False
     eigen = [w for w in worte if w in namen and w not in orte and w not in GENERISCH and w not in VEREIN]
     ort = [w for w in worte if w in orte and w not in VEREIN]
     generisch = [w for w in worte if w in GENERISCH]
+    if not generisch:
+        if h.startswith(TOURISMUS_VORN) and len(set(worte)) <= 1:
+            return abdeckung, False
+        # Nur Ortsnamen, und der Name der Veranstaltung hat ein eigenes Wort,
+        # das im Konto fehlt („Usedom Beach Marathon“ → `usedom`). Fehlt
+        # nichts, heißt das Rennen nach seinen Orten („A Travers Romanel“);
+        # ein „official“ im Kontonamen sagt eine Region nicht von sich.
+        offiziell = any(t in {"official", "offiziell", "officiel", "ufficiale", "oficial"}
+                        for t in re.split(r"[._]+", konto.lower()))
+        fehlt = [w for w in namen if len(w) >= 4 and w not in h and w not in orte and w not in GENERISCH
+                 and w not in VEREIN and w not in alle_orte()]
+        if (worte and not offiziell and fehlt
+                and all(w in orte or w in alle_orte() for w in worte)):
+            return abdeckung, False
     belegt = (
         (eigen and abdeckung >= MIN_ABDECKUNG)                     # „rennsteiglauf“, „evl.halbmarathon“
         or (ort and generisch and abdeckung >= MIN_ABDECKUNG)      # „leipzigmarathon“
@@ -227,7 +301,7 @@ def event_konto(konten: list[str] | None, name: str, standort: str = "") -> str 
     belegte: das mit der höchsten Abdeckung; Gleichstand heißt keines."""
     belegte = []
     for konto in konten or []:
-        if not NAME_RE.match(konto or ""):
+        if not NAME_RE.match(konto or "") or konto.lower() in KEIN_EVENT_KONTO:
             continue
         abdeckung, belegt = _bewertung(konto, name, standort)
         if belegt:

@@ -2409,6 +2409,10 @@ def test_nicht_ausdauer() -> None:
                  # Gehen und Skilanglauf (Nutzer, 21.09.2026)
                  "Lusatian Race Walking", "Internationaler Kammlauf (Skilanglauf)",
                  "König-Ludwig-Langlauf", "Gehermeeting: Gehertag Naumburg",
+                 # Skilanglauf, am 27.10.2026 sichtbar in der Liste gefunden
+                 "Planoiras Volkslanglauf Lenzerheide", "Skadi Loppet", "Gantrisch Loppet",
+                 "Kandersteger Nordic Days", "Gommerlauf", "Ganghoferlauf Leutasch",
+                 "Rucksacklauf 100 km Klassisch", "Gommerlauf Gommer Skating-Kombi, 63 km (freie Technik)",
                  # virtuelle Läufe (Nutzer, 21.09.2026)
                  "Virtueller Silvesterlauf", "Virtual Run Berlin"):
         check(f"{name!r} fliegt heraus", bool(ist_nicht_ausdauer(name)), True)
@@ -2425,7 +2429,14 @@ def test_nicht_ausdauer() -> None:
                  # Walking-Strecken bleiben (offene Frage an den Nutzer),
                  # "Langläufer" ist kein Langlauf, ein Bergläufer kein Geher.
                  "21. Trochtelfinger Nordic Walking Stöckles-Cup", "Ahmadiyya Charity Walk",
-                 "5 km Walking", "Langläufer-Cup Oberstdorf", "Marathon der Bergläufer"):
+                 "5 km Walking", "Langläufer-Cup Oberstdorf", "Marathon der Bergläufer",
+                 # Inline und "klassisch" ohne Technik bleiben
+                 "Berlin Marathon 42,195 km (Laufen, Inlineskating, Rollstuhl, Handbike)",
+                 "Halbmarathon Inline-Skating", "Inline Skating Marathon",
+                 "Napf-Marathon 42.195 km klassischer Marathon",
+                 "Freimarktslauf Garrel 10 km Klassische Strecke durch Garrel",
+                 "Giro Media Blenio 10 km , klassische Distanz.", "Lauf am Langlaufzentrum",
+                 "2B Schöckl-Halterhütte-Rucksacklauf", "Nordic Walking Tag"):
         check(f"{name!r} bleibt", ist_nicht_ausdauer(name), None)
     # Der Ort zählt mit: Die XMAS-Challenge trug "virtuell" nur dort.
     from scraper_lib import nicht_ausdauer_text
@@ -4984,6 +4995,15 @@ def test_instagram_konten() -> None:
         (["algemarin_sv3sathlon"], "Algemarin SV3sathlon", "Mühltal-Traisa", "algemarin_sv3sathlon"),
         (["schwebebahnlauf"], "Schwebebahnlauf Wuppertal 2027", "Wuppertal", "schwebebahnlauf"),
         (["der_frauenfelder"], "Frauenfelder (Halb-)Marathon Wil", "Wil", "der_frauenfelder"),
+        # Durchsicht aller 696 Treffer (27.10.2026): Gegenproben der neuen Regeln
+        (["ostseemantri"], "OstseeMan Triathlon Glücksburg", "Glücksburg (Ostsee)", "ostseemantri"),
+        (["spiezathlon_tri"], "Spiezathlon", "Spiez", "spiezathlon_tri"),
+        (["a.travers.romanel"], "A Travers Romanel", "Romanel-sur-Lausanne", "a.travers.romanel"),
+        (["sierrezinal_officiel"], "L'Hivernale Sierre-Zinal", "Anniviers", "sierrezinal_officiel"),
+        (["meinfreiburgmarathon"], "Freiburg Marathon", "Freiburg", "meinfreiburgmarathon"),
+        (["penzberger_teamtrail"], "Penzberger TeamTrail", "Penzberg", "penzberger_teamtrail"),
+        (["byu.lustenau"], "BYU Lustenau", "Lustenau", "byu.lustenau"),
+        (["bcn_tour_officiel"], "BCN Tour", "Neuchâtel", "bcn_tour_officiel"),
     ]:
         check(f"Event-Konto: {name}", k(konten, name, ort), soll)
     for konten, name, ort, warum in [
@@ -5007,6 +5027,23 @@ def test_instagram_konten() -> None:
         (["jeunesse_de_fey"], "Cross de la Jeunesse de Fey", "Fey", "Vereinswort"),
         # ... und dieselbe Serie in einer anderen Stadt.
         (["halloweenrunbremen"], "1. Halloween-Run-Rotenburg", "Rotenburg (Wümme)", "fremder großer Ort"),
+        # Durchsicht aller 696 Treffer: Kürzel im Rest, „club“, Tourismus, Sperrliste
+        (["heeslingersc"], "13. Heeslinger Nikolauscross", "Heeslingen", "Kürzel im Rest"),
+        (["lcauensee"], "36. Sparkassen Silvesterlauf am Auensee", "Leipzig", "Kürzel im Rest"),
+        (["bocholterwsv_triathlon"], "Aasee Triathlon", "Bocholt", "Kürzel mit Adjektivendung"),
+        (["triathlon_club_bremen"], "Einhorn Triathlon", "Bremen", "Vereinswort club"),
+        (["ratzeburger_ruderclub"], "Winterlauf des Ratzeburger Ruderclubs", "Ratzeburg", "Vereinswort club"),
+        (["lauffreundeboenen"], "8. Sechs-Std.-Lauf am Förderturm Bönen", "Bönen", "Vereinswort"),
+        (["usedom", "eventbikeberlin"], "Usedom Beach Marathon", "Heringsdorf", "Tourismus: nur Ort"),
+        (["zellamseekaprun"], "TriZell: Internationaler Triathlon Zell am See-Kaprun", "Zell am See", "Tourismus: nur Orte"),
+        (["meinmontafon"], "Montafon Arlberg Marathon", "Silbertal", "Tourismus: mein + Region"),
+        (["dein.edersee"], "13. 24-Stunden Wanderabenteuer Edersee 2027", "Vöhl", "Tourismus: dein + Region"),
+        (["pitztal"], "Gletschermarathon Pitztal", "Gruabe Arena", "Sperrliste: Tourismus"),
+        (["sportscheck"], "SportScheck RUN Hamburg", "Aussen-Alster", "Sperrliste: Händler"),
+        (["airportpad"], "Paderborn-Lippstadt Airport Run", "Büren", "Sperrliste: Flughafen"),
+        (["tgs.hausen"], "Volkslauf der TGS Hausen", "Obertshausen", "Kürzel + Ort, der Lauf fehlt"),
+        (["otb_osnabrueck"], "OTB Silvesterlauf", "Osnabrück", "Kürzel + Ort, der Lauf fehlt"),
+        (["wvckassel"], "10. Volkslauf WVC Kassel", "Kassel", "Kürzel + Ort, der Lauf fehlt"),
         (["laufen", "muenchen"], "Halbmarathon München", "München", "zu kurz/nur Ort"),
         ([], "Leipzig Marathon", "Leipzig", "keine Konten"),
         (None, "Leipzig Marathon", "Leipzig", "Seite nie gelesen"),

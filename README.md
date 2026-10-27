@@ -3549,6 +3549,16 @@ verlinken das Konto ihres Vereins, und das fällt durch.
 | `brooksrunning` | Brooks München Marathon | ✗ Sponsor |
 | `pitztal` | Pitz Alpine Snow Trail | ✗ Tourismusverband |
 | `erlentriathlon` | Einsiedeln Triathlon | ✗ Schwesterrennen |
+| `heeslingersc`, `triathlon_club_bremen` | Vereinsläufe | ✗ Kürzel im Rest bzw. „club“ |
+| `tgs.hausen`, `otb_osnabrueck` | Volkslauf der TGS Hausen, OTB Silvesterlauf | ✗ nur Kürzel + Ort, der Lauf fehlt |
+| `usedom`, `meinmontafon` | Usedom Beach Marathon, Montafon Arlberg Marathon | ✗ Tourismus |
+| `sportscheck`, `airportpad` | SportScheck RUN, Airport Run | ✗ Sperrliste (Händler, Flughafen) |
+
+Nach dem ersten vollen Lauf (27.10.2026: 3.766 Seiten, 2.191 mit
+Instagram-Link) nahm die Regel 696 Konten an; die Durchsicht aller 696
+fand 30 Fehltreffer, daraus wurden die vier unteren Zeilen der Tabelle
+(Regel) und die Sperrliste `KEIN_EVENT_KONTO` mit Grund je Konto. Danach
+tragen 2.383 Zeilen ein Konto (2.093 sichtbar), 810 verschiedene Konten.
 
 Abkürzungen sieht die Regel nicht (`trailvsb` für den Trail Verbier St
 Bernard, `wtcshamburg`). Dafür gibt es den Override
