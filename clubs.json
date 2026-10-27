@@ -30216,5 +30216,247 @@
   "zuletzt_aktiv": "2026-10-26",
   "pruefung_offen": true,
   "pruefung_grund": "Treffpunkt wechselt je Hash; neben Donnerstagabend auch Samstags-Hashes (z. B. 07.11. und 14.11.2026, 14:00) – Rhythmus genauer prüfen"
+ },
+ {
+  "id": "duesseldorf-run-club-petit-punch",
+  "name": "RUN CLUB. PETIT PUNCH",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Jülicher Straße 9 (Bar, Bag Drop)",
+  "lat": 51.24233,
+  "lon": 6.78375,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "17:30",
+    "bezeichnung": "5k Shakeout Run, Treffen 17:30, Start 18:00"
+   },
+   {
+    "rhythmus": "monatlich",
+    "nter": 1,
+    "wochentag": 7,
+    "uhrzeit": "17:30",
+    "bezeichnung": "10K Brückenlauf (statt des Shakeout Runs), Start 18:00"
+   }
+  ],
+  "distanz_km": [
+   5,
+   10
+  ],
+  "merkmale": [
+   "gepaeck"
+  ],
+  "instagram": "https://www.instagram.com/runclub.petitpunch/",
+  "strava": "https://www.strava.com/clubs/2233427",
+  "beschreibung_de": "Sonntäglicher Community-Run ab einer Bar in der Jülicher Straße: Treffen und Bag Drop um 17:30 Uhr, Start um 18 Uhr über 5 km, am ersten Sonntag im Monat 10 km über die Brücken.",
+  "beschreibung_en": "Sunday community run from a bar on Jülicher Straße: meet and bag drop at 5:30 pm, start at 6 pm over 5 km; on the first Sunday of the month 10 km across the bridges.",
+  "quelle": [
+   "https://www.strava.com/clubs/2233427",
+   "Strava-Club-Termine, abgerufen am 27.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-27",
+  "zuletzt_aktiv": "2026-10-27"
+ },
+ {
+  "id": "bamberg-running-club-bamberg",
+  "name": "Running Club Bamberg",
+  "art": "Laufen",
+  "stadt": "Bamberg",
+  "land": "Deutschland",
+  "treffpunkt": "An der Spinnerei 27, 96047 Bamberg",
+  "lat": 49.90385,
+  "lon": 10.87185,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "19:30",
+    "bezeichnung": "After Work Run, 5–7 km Social Pace"
+   }
+  ],
+  "distanz_km": [
+   5,
+   7
+  ],
+  "instagram": "https://www.instagram.com/runningclubbamberg/",
+  "strava": "https://www.strava.com/clubs/2127261",
+  "beschreibung_de": "Donnerstags um 19:30 Uhr After Work Run über 5 bis 7 km im lockeren Social-Tempo ab An der Spinnerei.",
+  "beschreibung_en": "Thursday after-work run at 7:30 pm, 5 to 7 km at an easy social pace, starting from An der Spinnerei.",
+  "quelle": [
+   "https://www.strava.com/clubs/2127261",
+   "Strava-Club-Termine, abgerufen am 27.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-27",
+  "zuletzt_aktiv": "2026-10-27"
+ },
+ {
+  "id": "boeblingen-the-vibe-run",
+  "name": "the vibe run.",
+  "art": "Laufen",
+  "stadt": "Böblingen",
+  "land": "Deutschland",
+  "treffpunkt": "Bistro Aranzulla, Stadtgrabenstraße 22",
+  "lat": 48.68613,
+  "lon": 9.01176,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Weekly Social Run: drei Gruppen 4 km (~7:00), 6 km (~6:00), 8 km (~5:30), danach Kaffee"
+   }
+  ],
+  "distanz_km": [
+   4,
+   8
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "7:00"
+  },
+  "stufen": [
+   "anfaenger",
+   "mittel"
+  ],
+  "merkmale": [
+   "mehrere_gruppen",
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "instagram": "https://www.instagram.com/theviberun/",
+  "strava": "https://www.strava.com/clubs/theviberun",
+  "beschreibung_de": "Samstags um 10 Uhr Social Run ab dem Bistro Aranzulla in drei Gruppen über 4, 6 und 8 km, danach Kaffee im Bistro.",
+  "beschreibung_en": "Saturday social run at 10 am from Bistro Aranzulla in three groups over 4, 6 and 8 km, followed by coffee at the bistro.",
+  "quelle": [
+   "https://www.strava.com/clubs/1485068",
+   "Strava-Club-Termine, abgerufen am 27.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-27",
+  "zuletzt_aktiv": "2026-10-27"
+ },
+ {
+  "id": "aachen-runs",
+  "name": "RUNS",
+  "art": "Laufen",
+  "stadt": "Aachen",
+  "land": "Deutschland",
+  "treffpunkt": "NO EX Cross Club, Adalbertsteinweg 271–273",
+  "lat": 50.77106,
+  "lon": 6.1159,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "06:30",
+    "bezeichnung": "Early Miles, 8 km, Bag Drop und Kaffee danach"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Friday Intervals im Waldstadion, Im Rote-Haag-Weg 68"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Sunday Community Run, 6–8 km in Pacegruppen ab Parkplatz Siegel (Monschauer Straße)"
+   },
+   {
+    "rhythmus": "monatlich",
+    "nter": 2,
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Long Run Edition, 18 km ab NO EX Cross Club, danach Waffeln und Kaffee"
+   }
+  ],
+  "distanz_km": [
+   6,
+   18
+  ],
+  "merkmale": [
+   "mehrere_gruppen",
+   "kaffee",
+   "gepaeck"
+  ],
+  "strava": "https://www.strava.com/clubs/runs-club",
+  "beschreibung_de": "Laufcrew mit vier Terminen: donnerstags 6:30 Uhr 8 km ab dem NO EX Cross Club, freitags 18 Uhr Intervalle im Waldstadion, sonntags 10 Uhr 6–8 km ab Parkplatz Siegel und am zweiten Sonntag im Monat ein 18-km-Long-Run.",
+  "beschreibung_en": "Running crew with four sessions: Thursdays 6:30 am 8 km from NO EX Cross Club, Fridays 6 pm intervals at Waldstadion, Sundays 10 am 6–8 km from Parkplatz Siegel, and an 18 km long run on the second Sunday of the month.",
+  "quelle": [
+   "https://www.strava.com/clubs/1234371",
+   "Strava-Club-Termine, abgerufen am 27.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-27",
+  "zuletzt_aktiv": "2026-10-27"
+ },
+ {
+  "id": "bielefeld-cycling-bats",
+  "name": "Cycling Bats",
+  "art": "Fahrrad",
+  "rad_typ": "Gravel",
+  "stadt": "Bielefeld",
+  "land": "Deutschland",
+  "treffpunkt": "Siegfriedplatz („Siggi“), 33615 Bielefeld",
+  "lat": 52.02813,
+  "lon": 8.5225,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-01",
+    "uhrzeit": "10:00",
+    "bezeichnung": "CB Gravel Ride, 44,6 km / 390 hm, No Drop, Helm Pflicht"
+   }
+  ],
+  "distanz_km": [
+   44.6,
+   44.6
+  ],
+  "merkmale": [
+   "no_drop"
+  ],
+  "instagram": "https://www.instagram.com/cycling_bats/",
+  "strava": "https://www.strava.com/clubs/1098712",
+  "beschreibung_de": "Radgruppe aus Bielefeld mit angekündigten Ausfahrten, als Nächstes ein Gravel Ride über 44,6 km ab dem Siegfriedplatz, gemeinsam und ohne Zurücklassen.",
+  "beschreibung_en": "Cycling group from Bielefeld with announced rides; next up a 44.6 km no-drop gravel ride from Siegfriedplatz.",
+  "quelle": [
+   "https://www.strava.com/clubs/1098712",
+   "Strava-Club-Termine, abgerufen am 27.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-27",
+  "zuletzt_aktiv": "2026-10-27",
+  "pruefung_offen": true,
+  "pruefung_grund": "Bisher nur Einzeltermine auf Strava; prüfen, ob es einen festen Rhythmus gibt (Instagram)."
+ },
+ {
+  "id": "braunschweig-gravel-braunschweig",
+  "name": "Gravel Braunschweig",
+  "art": "Fahrrad",
+  "rad_typ": "Gravel",
+  "stadt": "Braunschweig",
+  "land": "Deutschland",
+  "treffpunkt": "Marienstraße 34",
+  "lat": 52.26478,
+  "lon": 10.5495,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-10-28",
+    "uhrzeit": "18:00",
+    "bezeichnung": "Graviér Petit, Feierabend-Gravelrunde mit Licht"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/gravel-braunschweig",
+  "beschreibung_de": "Gravel-Gemeinschaft aus Braunschweig mit angekündigten Ausfahrten, etwa der Feierabendrunde „Graviér Petit“ ab der Marienstraße.",
+  "beschreibung_en": "Gravel community from Braunschweig with announced rides, such as the after-work loop “Graviér Petit” from Marienstraße.",
+  "quelle": [
+   "https://www.strava.com/clubs/1049586",
+   "Strava-Club-Termine, abgerufen am 27.10.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-10-27",
+  "zuletzt_aktiv": "2026-10-27",
+  "pruefung_offen": true,
+  "pruefung_grund": "Bisher nur ein Einzeltermin auf Strava; prüfen, ob „Graviér Petit“ regelmäßig stattfindet."
  }
 ]

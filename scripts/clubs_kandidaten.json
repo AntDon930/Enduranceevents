@@ -17,8 +17,9 @@
   "strava": "https://www.strava.com/clubs/bike-components-156060",
   "webseite": "https://www.bike-components.de",
   "letzter_beleg": null,
-  "grund": "Strava-Club des Online-Shops; ob offene Ausfahrten stattfinden, unbelegt (Strava 403)",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:fastrada.eu",
@@ -81,16 +82,6 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
-  "schluessel": "strava:runs-club",
-  "name": "runs",
-  "stadt": "Aachen",
-  "art": "Laufen",
-  "strava": "https://www.strava.com/clubs/runs-club",
-  "letzter_beleg": null,
-  "grund": "Strava-Club (1.326 Mitglieder, wöchentliche Läufe, WhatsApp-Gruppe); Termine nur für Angemeldete sichtbar, Treffpunkt/Uhrzeit unbekannt",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
   "schluessel": "ig:runs",
   "name": "runs",
   "stadt": "Aachen",
@@ -148,8 +139,9 @@
   "strava": "https://www.strava.com/clubs/sportograf-road-cycling-club-191253",
   "webseite": "https://www.sportograf.com",
   "letzter_beleg": null,
-  "grund": "Firmen-/Community-Club von Sportograf; offene Ausfahrten nicht belegt, nur Strava-Club; Strava antwortet 403, kein datierter Beleg auffindbar",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:fabiochristen",
@@ -451,27 +443,6 @@
   "instagram": "https://www.instagram.com/mrc_bonn/",
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "strava:2127261",
-  "name": "Running Club Bamberg",
-  "stadt": "Bamberg",
-  "art": "Laufen",
-  "strava": "https://www.strava.com/clubs/2127261",
-  "instagram": "https://www.instagram.com/runningclubbamberg/",
-  "letzter_beleg": null,
-  "grund": "Laut Strava donnerstags 17 Uhr im ERBA-Park (Höhe Café Zeiten & Wunder); nur Strava-Club; Strava antwortet 403, kein datierter Beleg auffindbar",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "ig:runningclubbamberg",
-  "name": "Running Club Bamberg (Instagram)",
-  "stadt": "Bamberg",
-  "art": "Laufen",
-  "instagram": "https://www.instagram.com/runningclubbamberg/",
-  "letzter_beleg": null,
-  "grund": "vermutlich derselbe Club wie strava:2127261; Profil nennt Runbase Studio 047, Hauptwachstraße 10; nur Instagram-Profil; Instagram gesperrt (429), Websuche ohne datierten Beleg ab 01.07.2026",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
@@ -794,8 +765,9 @@
   "art": "Fahrrad",
   "strava": "https://www.strava.com/clubs/bike-pivo",
   "letzter_beleg": null,
-  "grund": "Strava zeigt ein kommendes Club-Event (Details gesperrt), aber kein Treffpunkt, Wochentag oder Uhrzeit bekannt.",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: nur ein Einzelevent (WinterGravelGlühen 05.12.2026 im Erzgebirge, Anmeldung folgt), kein fester Treff.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:blackwomenrunberlin",
@@ -1136,8 +1108,9 @@
   "strava": "https://www.strava.com/clubs/939937",
   "webseite": "https://www.neworder.berlin/",
   "letzter_beleg": null,
-  "grund": "Laden mit angeblich wöchentlichen Group Rides; Webseite 503, Strava-Club 403 – kein Termin, keine Uhrzeit belegt.",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "meetup:outrunners-berlin",
@@ -1176,8 +1149,9 @@
   "art": "Laufen",
   "strava": "https://www.strava.com/clubs/1763349",
   "letzter_beleg": null,
-  "grund": "Treff am Potsdamer Platz laut Strava, Tag/Uhrzeit unbekannt; nur Strava-Club; Strava antwortet 403, kein datierter Beleg auffindbar",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:prohibitedclo",
@@ -1208,8 +1182,9 @@
   "strava": "https://www.strava.com/clubs/queer-cyclists-berlin",
   "webseite": "https://wonderl.ink/@queercyclingberlin",
   "letzter_beleg": null,
-  "grund": "Abendliche queere Rides angekündigt (18.04., Jahr unklar); kein Termin ab 07/2026, kein fester Treffpunkt.",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:queerswhosweat",
@@ -1260,8 +1235,9 @@
   "instagram": "https://www.instagram.com/rapha_berlin/",
   "webseite": "https://content.rapha.cc/de/de/clubhouses/berlin",
   "letzter_beleg": "2026-10-09",
-  "grund": "Aktiv (Strava-Post 09.10.2026 zu Samstagsausfahrt), Clubhouse Alte Schönhauser Str. 5; Wochentag/Uhrzeit der wöchentlichen Rides stehen nur auf events.rapha.cc (403) – Termin nicht belegbar.",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:rapha_rcc",
@@ -1350,8 +1326,9 @@
   "art": "Fahrrad",
   "strava": "https://www.strava.com/clubs/social-rides-berlin",
   "letzter_beleg": null,
-  "grund": "Strava zeigt ein kommendes Club-Event (Details gesperrt); Treffpunkt/Wochentag/Uhrzeit unbekannt.",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:_spinclub",
@@ -1471,8 +1448,9 @@
   "strava": "https://www.strava.com/clubs/trekberlin",
   "webseite": "https://www.trekbikes.com/de/de_DE/stores/berlin/",
   "letzter_beleg": null,
-  "grund": "Laden-Club (Adlershof, Charlottenburg); Rides nur über Strava (gesperrt) bzw. VELO-Berlin-Ride Frühjahr 2026 – kein wiederkehrender Termin belegt.",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:ycc.rides",
@@ -1532,8 +1510,9 @@
   "art": "Fahrrad",
   "strava": "https://www.strava.com/clubs/biel-bienne",
   "letzter_beleg": null,
-  "grund": "Strava-Gruppe mit gesperrtem kommendem Event; kein fester Treff, keine Sportart/Zeit bekannt.",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:biennecrit",
@@ -1623,17 +1602,6 @@
   "instagram": "https://www.instagram.com/alpecincycling/",
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "strava:1098712",
-  "name": "Cycling Bats",
-  "stadt": "Bielefeld",
-  "art": "Fahrrad",
-  "strava": "https://www.strava.com/clubs/1098712",
-  "instagram": "https://www.instagram.com/cycling_bats/",
-  "letzter_beleg": null,
-  "grund": "Strava-Club 403, Websuche ohne Treffer; Termine unbekannt.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
@@ -1903,8 +1871,9 @@
   "art": "Laufen",
   "strava": "https://www.strava.com/clubs/bolzano-bozen-trail-running-42379",
   "letzter_beleg": null,
-  "grund": "Strava-Austauschgruppe (456 Mitglieder), Event gesperrt; kein fester Treff.",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:club_corsa",
@@ -1994,16 +1963,6 @@
   "instagram": "https://www.instagram.com/away_velo_club/",
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "strava:gravel-braunschweig",
-  "name": "Gravel Braunschweig",
-  "stadt": "Braunschweig",
-  "art": "Fahrrad",
-  "strava": "https://www.strava.com/clubs/gravel-braunschweig",
-  "letzter_beleg": null,
-  "grund": "Strava-Gruppe mit gelegentlich vorgeschlagenen Rides (gesperrt), kein fester Termin/Treffpunkt.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
@@ -2178,17 +2137,6 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
-  "schluessel": "strava:theviberun",
-  "name": "the vibe run.",
-  "stadt": "Böblingen",
-  "art": "Laufen",
-  "letzter_beleg": null,
-  "grund": "Strava-Beschreibung nennt Sa 10:00 ab Bistro Aranzulla, Stadtgrabenstraße 22, Böblingen; kein datierter Beleg ab 01.07.2026 (Strava-Termine nur angemeldet sichtbar, Websuche ohne Treffer)",
-  "strava": "https://www.strava.com/clubs/theviberun",
-  "instagram": "https://www.instagram.com/theviberun/",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
   "schluessel": "ig:chamrunclub",
   "name": "CHAM Run Club",
   "stadt": "Cham",
@@ -2205,8 +2153,9 @@
   "art": "Fahrrad",
   "strava": "https://www.strava.com/clubs/rmv-cham-hagendorn-67300",
   "letzter_beleg": null,
-  "grund": "Hinweis aus der zweiten Städterunde, noch nicht geprüft",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: Serien seit 2014 (So 11:00 Hobby-Ausfahrt ab Rest. Kreuz, Di Indoor) – ob sie 2026 noch stattfinden, ist nicht belegt.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:dortmundrunclub",
@@ -2346,8 +2295,9 @@
   "instagram": "https://www.instagram.com/duesseldorf_running_crew/",
   "strava": "https://www.strava.com/clubs/duesseldorfrunningcrew",
   "letzter_beleg": null,
-  "grund": "Loser Zusammenschluss ohne bekannten festen Treff; Strava 403",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:conceptgluecklich",
@@ -2387,17 +2337,6 @@
   "instagram": "https://www.instagram.com/rhein_runners/",
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "strava:2233427",
-  "name": "RUN CLUB. PETIT PUNCH",
-  "stadt": "Düsseldorf",
-  "art": "Laufen",
-  "instagram": "https://www.instagram.com/runclub.petitpunch/",
-  "strava": "https://www.strava.com/clubs/2233427",
-  "letzter_beleg": null,
-  "grund": "Laut Strava-Text/Veranstaltungsportal So 18:00 5 km ab Petit Punch, Jülicher Straße 9 (1. So im Monat 10 km Bridge Run); Strava und rausgegangen.de 403, kein datierter Beleg ab 07/2026 bestätigt",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
