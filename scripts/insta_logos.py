@@ -14,8 +14,13 @@ grosse_events.json `"logo": false` - dann zeigt das Reel eine Namenskarte.
 Wie ein Logo gefunden wird (nur die Startseite aus `webseite`, höflich wie
 insta_veranstalter.py: robots.txt, 2 s Pause je Host, 15 s Frist):
 
-  1. `logo_url` in grosse_events.json, wenn gesetzt (von Hand, schlägt
-     alles).
+  0. `logo_datei` in grosse_events.json: eine Datei in
+     marketing/instagram/logos/ (von Hand von der Veranstalterseite geholt,
+     wenn die Suche das Logo nicht findet - z. B. Ötztaler Radmarathon: Die
+     Seite setzt ihr Logo per JavaScript als SVG-Symbol ein, im HTML stehen
+     nur die Sponsoren; vom Nutzer am 27.10.2026 bemerkt: „sicher nicht das
+     Garmin Logo"). Schlägt alles.
+  1. `logo_url` in grosse_events.json, wenn gesetzt (von Hand).
   2. <img>, deren class/id/alt/src oder das umschließende Element „logo"
      oder „brand" tragen - Sponsoren, Partner, Fuß, soziale Netze,
      Zahlungsarten und Flaggen fliegen raus. Früh auf der Seite, im Kopf
@@ -53,6 +58,7 @@ WURZEL = Path(__file__).resolve().parent.parent
 MARKETING = WURZEL / "marketing" / "instagram"
 GROSSE_EVENTS = MARKETING / "grosse_events.json"
 LOGO_ORDNER = MARKETING / ".cache" / "logos"
+LOGO_DATEIEN = MARKETING / "logos"           # von Hand abgelegte Logos (logo_datei)
 GUELTIG_TAGE = 30
 MAX_BILD_BYTES = 4_000_000
 MAX_KANTE = 900
@@ -284,6 +290,19 @@ def logo_fuer(ev: dict, abrufer=None, ordner: Path = LOGO_ORDNER, meta: dict | N
     s = slug(ev["name"])
     if ev.get("logo") is False:
         return None
+    if ev.get("logo_datei"):
+        quelle = LOGO_DATEIEN / ev["logo_datei"]
+        erg = aufbereiten(quelle.read_bytes(), quelle.suffix.lower() == ".svg") if quelle.exists() else None
+        if erg:
+            ordner.mkdir(parents=True, exist_ok=True)
+            erg[0].save(ordner / f"{s}.png")
+            eintrag = {"geprueft": heute.isoformat(), "seite": ev.get("webseite"), "datei": f"{s}.png",
+                       "bild": f"logos/{ev['logo_datei']}", "hell": erg[1], "groesse": list(erg[0].size),
+                       "logo_datei": ev["logo_datei"]}
+            meta[s] = eintrag
+            if eigene_meta:
+                speichere_meta(meta, ordner)
+            return eintrag
     alt = meta.get(s)
     if alt and not neu:
         try:
