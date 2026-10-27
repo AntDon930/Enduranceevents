@@ -6428,7 +6428,7 @@ def test_insta_logos() -> None:
     check("Aufbereiten: zu kleines Bild ist kein Logo", L.aufbereiten(klein.getvalue()), None)
     check("Slug ohne Umlaute", L.slug("Zürich Marathon – Läufe"), "zuerich-marathon-laeufe")
 
-    # --- Testdaten: vier große Events im November, eines ohne Eintrag
+    # --- Testdaten: sechs große Events im November
     def zeile(name, ort, tag, sport="Laufen", km=42.195):
         return {"name": name, "standort": ort, "land": "Deutschland", "art1": sport, "art2": "Straße",
                 "datum_start": tag, "datum_ende": tag, "lat": 50.0, "lon": 8.0, "laenge_km": km,
@@ -6437,6 +6437,7 @@ def test_insta_logos() -> None:
     ev += [zeile("Mainufer Marathon", "Frankfurt", "2026-11-08"), zeile("Mainufer Halbmarathon", "Frankfurt", "2026-11-08", km=21.1),
            zeile("Domstadt-Lauf", "Köln", "2026-11-15"), zeile("Isar Triathlon", "München", "2026-11-21", "Triathlon", 51.5),
            zeile("Elbe Run", "Hamburg", "2026-11-29"), zeile("Kinder Elbe Run", "Hamburg", "2026-11-29", km=2.0),
+           zeile("Saale Lauf", "Halle", "2026-11-01"), zeile("Rhein Lauf", "Bonn", "2026-11-22"),
            zeile("Domstadt-Lauf", "Köln", "2027-04-25")]
     grosse = [
         {"name": "Mainufer Marathon", "suche": ["mainufer"], "land": "Deutschland", "sport": "Laufen", "starter": 20000,
@@ -6449,6 +6450,8 @@ def test_insta_logos() -> None:
          "anmeldestart": "2026-12-01", "webseite": "https://elberun.de/"},
         {"name": "Alpen Radmarathon", "suche": ["alpen rad"], "land": "Österreich", "sport": "Fahrrad", "starter": 4000,
          "anmeldestart": "2026-11-10", "termin": "2027-08-29"},
+        {"name": "Saale Lauf", "suche": ["saale lauf"], "land": "Deutschland", "sport": "Laufen", "starter": 900},
+        {"name": "Rhein Lauf", "suche": ["rhein lauf"], "land": "Deutschland", "sport": "Laufen", "starter": 1200},
     ]
     check("letzter Freitag im Oktober 2026 ist der 30.", [d for d in range(20, 32) if I.letzter_freitag(_dt.date(2026, 10, d))], [30])
     b = I.plane(_dt.date(2026, 10, 30), ev, momente=I.lade_momente(), clips=[], grosse=grosse)
@@ -6458,15 +6461,25 @@ def test_insta_logos() -> None:
           (str(len(I.veranstaltungen(ev, _dt.date(2026, 11, 1), _dt.date(2026, 11, 30)))), "EVENTS IM NOVEMBER 2026"))
     check("monat: je großes Event ein Logo (Halbmarathon zählt zum Marathon, Kinderlauf nie), nach Datum",
           [(f["name"], f["datum"], f["logo_id"]) for f in logos],
-          [("Mainufer Marathon", "8. Nov", "mainufer-marathon"), ("Domstadt-Lauf", "15. Nov", "domstadt-lauf"),
-           ("Isar Triathlon", "21. Nov", "isar-triathlon"), ("Elbe Run", "29. Nov", "elbe-run")])
+          [("Saale Lauf", "1. Nov", "saale-lauf"), ("Mainufer Marathon", "8. Nov", "mainufer-marathon"),
+           ("Domstadt-Lauf", "15. Nov", "domstadt-lauf"), ("Isar Triathlon", "21. Nov", "isar-triathlon"),
+           ("Rhein Lauf", "22. Nov", "rhein-lauf"), ("Elbe Run", "29. Nov", "elbe-run")])
+    alt = I.MONAT_MAX_LOGOS
+    I.MONAT_MAX_LOGOS = 5
+    try:
+        knapp = I.plane(_dt.date(2026, 10, 30), ev, momente=I.lade_momente(), clips=[], grosse=grosse)
+    finally:
+        I.MONAT_MAX_LOGOS = alt
+    check("monat: bei mehr Events als Platz die größten nach Starterzahl (der kleinste fällt)",
+          [f["name"] for f in knapp["folien"] if f["typ"] == "logo"],
+          ["Mainufer Marathon", "Domstadt-Lauf", "Isar Triathlon", "Rhein Lauf", "Elbe Run"])
     check("monat: ein Schlag je Logo, Ende mit „Check it out“, Schwarzweiß im November",
           (all(f.get("blitz") for f in logos), b["folien"][-1]["typ"], b["folien"][-1]["titel"], b["stil"]),
           (True, "cta", "Check it out!", "sw"))
     plan = V.zeitplan(b["folien"], schlag=0.5)
     check("monat: Logo-Folien stehen genau einen Schlag", {round(e - s, 2) for s, e, f in plan if f["typ"] == "logo"}, {0.5})
-    weniger = I.plane(_dt.date(2026, 10, 30), ev, momente=I.lade_momente(), clips=[], grosse=grosse[:3])
-    check("monat: unter vier Logos gilt der normale Plan", weniger["format"] != "monat", True)
+    weniger = I.plane(_dt.date(2026, 10, 30), ev, momente=I.lade_momente(), clips=[], grosse=grosse[:5])
+    check("monat: unter sechs Logos gilt der normale Plan", weniger["format"] != "monat", True)
 
     a = I.plane(_dt.date(2026, 11, 1), ev, momente=I.lade_momente(), clips=[], grosse=grosse)
     karten = [f for f in a["folien"] if f["typ"] == "logo"]

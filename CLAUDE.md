@@ -110,7 +110,8 @@ in `robots.txt` entfernen.
 | `scripts/insta_inhalte.py`, `insta_video.py`, `insta_musik.py`, `insta_veranstalter.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions + Stories, Reel- und Story-Render (Pillow + ffmpeg, eigener Beat), @-Erwähnung der Veranstalter (Name von deren Seite), Auswertung, Upload über die Instagram-API (seit 16.10.2026 **Anmeldung über Instagram**: Video kurz im Google-Speicher, Schlüssel im Google-Tresor, beides ohne Schlüsseldatei über Workload Identity; einmal einrichten mit `scripts/instagram_google_einrichten.sh` in der Cloud Shell), alles in einem Aufruf – siehe „Instagram" |
 | `scripts/insta_freigabe.py`, `marketing/instagram/plan.json` | **Freigabe mit einem Klick** (14.10.2026): `plan.json` (im Pages-Workflow erzeugt, nie committet) nennt die Beiträge der nächsten 14 Tage mit Kennung des Inhalts; das Dashboard (`admin.html`, Karte „Instagram-Freigabe") schreibt `insta_freigaben/<Datum>` in Firestore; der Abendlauf fragt `insta_freigabe.darf_posten()` – siehe „Instagram" |
 | `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `humor.json` (eigene Läuferwitze für das Format „humor"), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` (dort auch `instagram_namen.json`) nicht im Repo |
-| `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort seit dem 16.10.2026 auf diesem Stand (Commit `ae5751ef`, Anmeldung über Instagram, Google-Zugang per Workload Identity) |
+| `scripts/insta_logos.py`, `marketing/instagram/grosse_events.json`, `marketing/instagram/logos/` | **Logo-Reels** (seit 27.10.2026): die großen Events mit Starterzahl und Anmeldestart (je mit Quelle) und ihre GEPRÜFTEN Logos (`logos/<slug>.png`, Quelle in `logos/logos.json`); `insta_logos.py sammeln|uebernehmen|bogen` – siehe „Instagram", Bullet „Logo-Reels" |
+| `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort auf diesem Stand (seit dem 27.10.2026 Commit `9461aba6`: Formate monat/anmeldung im Handlauf, vom Nutzer: „Ja bitte auf main“; davor `ae5751ef`, Anmeldung über Instagram) |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
@@ -5198,6 +5199,45 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   freigegeben: „Ja für instagram.yml auf main"), die Fassung mit der
   Anmeldung über Instagram seit dem 16.10.2026 (Commit `ae5751ef`, „Ja,
   instagram.yml auf main").
+- **Logo-Reels (27.10.2026, vom Nutzer: „schnelles Video von vielen Event
+  Logos im Monat … XX Events im November 2026 … Check it out! Link in
+  Bio" und „welche Events diesen Monat mit der Registrierung anfangen")**:
+  zwei Formate in `insta_inhalte.py`, die an ihrem Tag ALLES andere
+  schlagen (auch den Jahrestag): **`monat`** am letzten Freitag des Monats
+  (`letzter_freitag`) für den NÄCHSTEN Monat – Hook „375 EVENTS IM
+  NOVEMBER 2026" (Zahl aller sichtbaren Veranstaltungen), dann die bis zu
+  20 größten Events nach `starter` als Folie `logo` mit `blitz` (EIN
+  Schlag je Logo, harter Schnitt ohne Blende – `sichtbarkeit(…, hart)`,
+  `zeitplan` erlaubt bei `logo` einen Schlag), Schluss „Check it out!";
+  ungerader Monat Schwarzweiß (`stil: "sw"`, ganzes Bild in Graustufen),
+  gerader Farbe; unter 6 Events gilt der Wochenplan. **`anmeldung`** am
+  1. des Monats: die Events aus der Liste, deren `anmeldestart` in diesen
+  Monat fällt (genau → „Anmeldung ab 3. Nov", nur Monat → „Anmeldung im
+  November"), mit nächstem Renntermin (`renntermin`: events.json, sonst
+  `termin`), Caption „ohne Gewähr"; unter 3 gilt der Wochenplan.
+  **Größe**: Vom Nutzer erst „5.000+ Starter, Triathlon weniger", dann
+  korrigiert: „die Schwelle war nur dahergesagt … die 10-20 größten
+  Events im Monat". `grosse_events.json` ist deshalb eine recherchierte
+  Liste mit Starterzahl (Finisher oder Anmeldungen, `hinweis` sagt
+  welche, `starter_quelle` Pflicht, `null` nur bei IRONMAN), keine
+  Schwelle im Code. `gross_fuer()` ordnet eine Veranstaltung über
+  `suche` (Teilstrings des Namens) + Land + Sportart zu. **`anmeldestart`
+  gilt für EINE Ausgabe** – einmal im Jahr nachtragen, sonst bleibt das
+  Format leer. **Logos (vom Nutzer gewählt: „Logos von den Webseiten",
+  nach Hinweis auf das Restrisiko – Logo geschützt, Veranstalter freuen
+  sich meist)**: NUR geprüfte Dateien in `marketing/instagram/logos/`;
+  der tägliche Lauf holt NICHTS aus dem Netz (`insta_lauf.logos_holen`
+  meldet nur). Grund: Die automatische Suche traf bei jedem vierten Event
+  ein Sponsorlogo (Garmin beim Ötztaler – vom Nutzer bemerkt –, LBS,
+  Mizuno, Intersport) oder eine geparkte Domain (bonn-marathon.de).
+  Ablauf: `insta_logos.py sammeln --uebersicht bogen.png` (Kandidaten in
+  `.cache/logos/`), Bogen ansehen, `uebernehmen <slug>` bzw. `uebernehmen
+  <slug> --url <Bild oder Datei>`, `bogen geprueft.png` zum Gegenlesen.
+  Seiten mit Logo per JavaScript/Inline-SVG (Ötztaler, Köln Triathlon):
+  Playwright (Node) rendern, Element-Screenshot oder Symbol als SVG.
+  SVG rastert `_rastern_svg` mit Chromium, sonst ffmpeg/librsvg. Logos mit
+  viel Weiß und kaum Schwarz (`ist_hell`) bekommen eine Navy-Karte. Ohne
+  Logo zeigt die Folie den Namen groß auf der Karte. `test_insta_logos`.
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,

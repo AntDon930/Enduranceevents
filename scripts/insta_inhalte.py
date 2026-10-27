@@ -30,18 +30,20 @@ kommentieren):
     So  moment       ein großer Moment des Ausdauersports
 
 Zwei Tage im Monat haben ein eigenes Format (seit 27.10.2026, vom Nutzer:
-„Instagram konzentriert sich auf die Events mit 5.000+ Startern"). Beide
-zeigen nur Events aus marketing/instagram/grosse_events.json (recherchiert,
-mit Starterzahl und Anmeldestart samt Quelle) und deren LOGOS
-(insta_logos.py holt sie von den Veranstalterseiten):
+„Instagram konzentriert sich auf die großen Events" – und gleich danach:
+„eine gesunde Anzahl … die 10-20 größten Events im Monat", die Schwelle
+5.000 war nur ein Beispiel). Beide zeigen nur Events aus
+marketing/instagram/grosse_events.json (recherchiert, mit Starterzahl und
+Anmeldestart samt Quelle) und deren geprüfte LOGOS (insta_logos.py):
 
     letzter Fr  monat      „375 EVENTS IM NOVEMBER 2026" - dann die Logos der
-                           großen Events des nächsten Monats im Takt (ein
-                           Schlag je Logo), Farbe und Schwarzweiß im Wechsel
+                           bis zu 20 größten Events des nächsten Monats (nach
+                           Starterzahl) im Takt (ein Schlag je Logo), Farbe
+                           und Schwarzweiß im Wechsel
     1. des Monats  anmeldung  „Diese Rennen öffnen im November die Anmeldung"
                            - je Event Logo, Anmeldestart, Renntermin
 
-Fehlen dafür Events (monat: unter 4 Logos, anmeldung: unter 3), gilt der
+Fehlen dafür Events (monat: unter 6, anmeldung: unter 3), gilt der
 normale Wochenplan.
 
 Die alten Formate (wochenvorschau, spotlight, region) bleiben über
@@ -93,8 +95,8 @@ WOCHENPLAN = {0: "krass", 1: "naehe", 2: "wuerdest", 3: "humor",
 JAHRESTAG_ERLAUBT = {1, 2, 3, 6}
 FORMATE = ("krass", "naehe", "wuerdest", "humor", "wochenende", "saison", "moment", "clip",
            "monat", "anmeldung", "wochenvorschau", "spotlight", "region")
-MONAT_MIN_LOGOS = 4
-MONAT_MAX_LOGOS = 16
+MONAT_MIN_LOGOS = 6           # darunter gilt der Wochenplan
+MONAT_MAX_LOGOS = 20          # „die 10-20 größten Events im Monat" (Nutzer, 27.10.2026)
 ANMELDUNG_MIN = 3
 ANMELDUNG_MAX = 8
 

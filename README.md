@@ -2547,6 +2547,38 @@ nicht. Von Hand prüfen: `python3 scripts/insta_veranstalter.py <url>`.
 
 Ansehen ohne Video: `python3 scripts/insta_inhalte.py --tage 7`.
 
+### Logo-Reels: der Monat und der Anmeldestart (seit 27.10.2026)
+
+Zwei Tage im Monat zeigen statt des Wochenplans die großen Events mit
+ihren Logos – vom Nutzer gewünscht: „ein schnelles Video von vielen Event
+Logos … XX Events im November 2026 … Check it out! Link in Bio" und „welche
+Events diesen Monat mit der Registrierung anfangen".
+
+| Tag | Format | Inhalt |
+|---|---|---|
+| letzter Freitag | `monat` | „375 EVENTS IM NOVEMBER 2026", dann die bis zu 20 größten Events des nächsten Monats als Logo, ein Logo je Schlag, am Ende „Check it out!"; abwechselnd Farbe und Schwarzweiß |
+| 1. des Monats | `anmeldung` | „6 TOP-RENNEN ÖFFNEN IM NOVEMBER DIE ANMELDUNG", je Event Logo, „Anmeldung ab 2. Nov" und Renntermin |
+
+Die Events kommen aus `marketing/instagram/grosse_events.json` – eine
+recherchierte Liste mit Starterzahl und Anmeldestart, je mit Quelle
+(„die 10–20 größten Events im Monat", keine feste Schwelle). Der
+Anmeldestart gilt für eine Ausgabe und muss jährlich nachgetragen werden.
+
+**Logos** liegen geprüft in `marketing/instagram/logos/` (Quelle je Logo in
+`logos.json`). Der tägliche Lauf holt keine Logos aus dem Netz – die
+automatische Suche erwischte bei jedem vierten Event ein Sponsorlogo. Neue
+Logos:
+
+```bash
+python3 scripts/insta_logos.py sammeln --uebersicht bogen.png   # Kandidaten + Kontaktbogen
+python3 scripts/insta_logos.py uebernehmen <slug>               # angesehenes Logo übernehmen
+python3 scripts/insta_logos.py uebernehmen <slug> --url <Bild>  # anderes Bild
+python3 scripts/insta_logos.py bogen geprueft.png               # alle geprüften, Lücken rot
+```
+
+Fehlt ein Logo, zeigt die Folie den Namen groß auf einer Karte. Will ein
+Veranstalter sein Logo nicht im Reel, die Datei löschen.
+
 ### Das Video (`scripts/insta_video.py`, `scripts/insta_musik.py`)
 
 1080 × 1920, 30 Bilder/s, H.264/AAC, `faststart`, 10–16 s. Hintergrund:
