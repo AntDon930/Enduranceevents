@@ -6034,6 +6034,54 @@ lässt sie ausgeblendet, bis Claude sie an der Quelle geprüft hat
 - *Bei Bedarf*: Fällt dem Nutzer auf der Seite etwas auf, hier melden;
   Claude prüft an der Quelle, zählt die Klasse, baut Regel oder Override.
 
+**Die längeren Rhythmen** (vom Nutzer am 27.10.2026 so beschlossen: „Ja
+ich stimme überall zu, bitte so aufnehmen“). Jede Sitzung sieht hier
+nach, ob etwas fällig ist, und sagt es dem Nutzer – das Datum der
+letzten Erledigung steht in Klammern dahinter (beim Erledigen
+nachtragen). Routine geht vor Entwicklung: Reichen die Tokens nicht,
+wartet die Entwicklung, nicht der Wochenablauf.
+- *Monatlich, Claude* (zuletzt: –):
+  - Clubs-Korrekturliste durchsehen (Clubs-Branch, `clubs_korrekturliste.py`).
+  - `veranstalter_links.py sammeln --nur-host my.raceresult.com
+    --auch-geprueft --pause 8`, dann `anwenden` – Veranstalter tragen
+    ihre Seite auf der Kontaktseite nach.
+  - `seitenabgleich.py` über alle Veranstalterseiten: DATUM/DISTANZ
+    prüfen, ABGESAGT als „Fällt aus“, BESTAETIGT → Override
+    `datum_vorlaeufig` löschen.
+- *Monatlich, Nutzer*: Statistik-Dashboard und Instagram-Auswertung
+  ansehen.
+- *Quartalsweise, Claude* (zuletzt: –):
+  - **Neue Quellen suchen – INTENSIV** (Wunsch des Nutzers: „Das neue
+    Quellen suchen soll dann schon sehr intensive sein“): je Sportart
+    (Rad und Schwimmen zuerst, dann Triathlon, Lauf) und je Region
+    (jedes Bundesland in DE und AT, jeder Kanton-Verband in CH,
+    Südtirol) Landesverbände, Cups und Serien, Zeitnehmer,
+    Anmeldeportale, Vereins- und Regionalkalender, Tourismusseiten;
+    dazu die Kandidaten- und Verbotslisten im README („Quellen für den
+    großen Datenlauf“ und folgende) erneut ansehen. Je Fund robots.txt,
+    Impressum, AGB live lesen und wie viele NEUE Events er bringt
+    (gegen `events.json` gezählt). Ergebnis als Tabelle für den Nutzer –
+    **kein Scraper ohne sein Ja**.
+  - Gesperrte Quellen erneut prüfen (robots.txt/Bedingungen geändert?) –
+    nur lesen, nie umgehen; Anfragen an Betreiber gibt es nicht
+    (alt 30, gestrichen).
+  - Geräte-Check (Handy, iPad, Rechner; Rauchtest plus
+    `pruefe_plattformen`) und `vendor/` auf Sicherheits-Updates
+    (Leaflet, markercluster, Firebase).
+- *Quartalsweise, Nutzer*: Impressum und Datenschutzerklärung
+  gegenlesen, sobald sich etwas an Daten, Statistik oder Werbung
+  geändert hat.
+- *Jährlich bzw. fest terminiert*:
+  - Frühjahr (März/April): nachsehen, ob BOE, Fricktaler Cup,
+    dsergebnis, swimsports, BRV Timing und fsieben die neue Saison
+    liefern; von Hand NordCup, Freiwassercup Bayern, RAD RACE (To-do
+    Punkte 3 und 4).
+  - Bis 31.03.2027: Mailversand ohne Firebase Extension (To-do Punkt 5,
+    Erinnerung am 11.01.2027).
+  - Saisonwechsel (Herbst/Winter): Gedächtnis-Funde und „geloescht“-
+    Wiedervorlagen in der Korrekturliste besonders im Blick behalten.
+  - *Nutzer*: Domain bei IONOS verlängern, Firebase-Abrechnung prüfen.
+
 **Stand beim Livegang**: 1.256 von 6.940 Zeilen ausgeblendet (sichtbar
 5.684; vor der Sternchen-Ausnahme 1.299). Die größten Gruppen: Distanz
 fehlt (496), Werktag (253), Portallink (216). **Folge, dem Nutzer
