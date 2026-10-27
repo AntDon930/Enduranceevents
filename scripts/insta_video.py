@@ -85,7 +85,9 @@ SPORTFARBE = {"Laufen": (232, 89, 12), "Fahrrad": (61, 181, 90),
 # Wie lange eine Folie steht (Sekunden) - je nach Textmenge. Mit Beat
 # wird auf ganze Schläge gerundet (zeitplan()).
 DAUER = {"titel": 3.6, "liste": 6.5, "moment": 3.4, "moment_text": 5.0,
-         "cta": 2.6, "clip_titel": 5.0, "hook": 2.6, "event": 2.1, "satz": 2.4}
+         "cta": 2.6, "clip_titel": 5.0, "hook": 2.6, "event": 2.1, "satz": 2.4,
+         "logo": 1.0}
+DAUER_BLITZ = 0.5            # Folie „logo" mit blitz=True: ein Schlag je Logo (Format „monat")
 DAUER_SCHNELL = 1.5          # Folie „event" mit schnell=True (Saison-Listen)
 DAUER_POINTE = 2.9           # Pointe beim Humor: einen Takt länger
 EIN = 0.18                  # Einblenden
@@ -385,6 +387,9 @@ def folie_bild(folie: dict, sport: str | None) -> Image.Image:
             d.text((RAND_X, y), z, font=f, fill=WEISS)
             y += 72
 
+    elif typ == "logo":
+        _logo_folie(img, d, folie)
+
     elif typ == "cta":
         y = 700
         titel = ohne_emoji(folie.get("titel", "")).upper()
@@ -409,6 +414,54 @@ def folie_bild(folie: dict, sport: str | None) -> Image.Image:
     return img
 
 
+KARTE = (100, 560, 940, 1060)       # die Logo-Karte (x0, y0, x1, y1), in der sicheren Zone
+
+
+def _logo_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
+    """Ein Event als Logo (Formate „monat" und „anmeldung", insta_inhalte):
+    das Logo groß auf einer Karte - weiß, bei hellen Logos Navy -, darunter
+    Datum, Name und Ort. Liegt kein Logo im Cache (insta_logos.py), steht
+    der Name groß auf der Karte."""
+    import insta_logos
+    x0, y0, x1, y1 = KARTE
+    y = y0 - 110
+    if folie.get("ueber"):
+        pille(d, RAND_X + 20, y, ohne_emoji(folie["ueber"]).upper(), kondensiert(46, False), SIGNAL)
+    logo = insta_logos.logo_bild(folie["logo_id"]) if folie.get("logo_id") else None
+    hell = bool(logo and logo[1])
+    d.rounded_rectangle(KARTE, radius=44, fill=NAVY if hell else WEISS)
+    if logo:
+        bild = logo[0]
+        rand = 70
+        f = min((x1 - x0 - 2 * rand) / bild.width, (y1 - y0 - 2 * rand) / bild.height, 3.0)
+        bild = bild.resize((max(1, int(bild.width * f)), max(1, int(bild.height * f))), Image.LANCZOS)
+        img.alpha_composite(bild, ((x0 + x1 - bild.width) // 2, (y0 + y1 - bild.height) // 2))
+        name_unten = True
+    else:
+        name = ohne_emoji(folie.get("name", "")).upper()
+        g = 120
+        zeilen = umbrechen(name, kondensiert(g), x1 - x0 - 100, 3)
+        while g > 60 and (zeilen[-1].endswith("…") or len(zeilen) * g * 0.98 > y1 - y0 - 80):
+            g -= 6
+            zeilen = umbrechen(name, kondensiert(g), x1 - x0 - 100, 3)
+        ty = (y0 + y1) / 2 - len(zeilen) * g * 0.98 / 2
+        for z in zeilen:
+            d.text(((x0 + x1) / 2, ty), z, font=kondensiert(g), fill=NAVY, anchor="ma")
+            ty += g * 0.98
+        name_unten = False
+    y = y1 + 44
+    if folie.get("datum"):
+        d.text((RAND_X + 20, y), ohne_emoji(folie["datum"]).upper().rstrip("."), font=kondensiert(104), fill=SONNE)
+        y += 112
+    if name_unten and folie.get("name"):
+        for z in umbrechen(ohne_emoji(folie["name"]), kondensiert(62, False), TEXT_BREITE - 40, 2):
+            d.text((RAND_X + 20, y), z, font=kondensiert(62, False), fill=WEISS)
+            y += 64
+        y += 6
+    if folie.get("ort"):
+        d.text((RAND_X + 20, y), ohne_emoji(folie["ort"]), font=text_schrift(42), fill=KREIDE)
+
+
 def credit_ebene(text: str | None) -> Image.Image | None:
     if not text:
         return None
@@ -423,6 +476,8 @@ def credit_ebene(text: str | None) -> Image.Image | None:
 # ---------------------------------------------------------------- Zeitplan
 
 def folien_dauer(f: dict) -> float:
+    if f.get("typ") == "logo" and f.get("blitz"):
+        return DAUER_BLITZ
     if f.get("typ") == "event" and f.get("schnell"):
         return DAUER_SCHNELL
     if f.get("pointe"):
@@ -440,7 +495,8 @@ def zeitplan(folien: list[dict], gesamt: float | None = None,
         faktor = gesamt / sum(dauern)
         dauern = [d * faktor for d in dauern]
     elif schlag:
-        dauern = [max(2, round(d / schlag)) * schlag for d in dauern]
+        dauern = [max(1 if f.get("typ") == "logo" else 2, round(d / schlag)) * schlag
+                  for f, d in zip(folien, dauern)]
     plan, t = [], 0.0
     for f, d in zip(folien, dauern):
         plan.append((t, t + d, f))
@@ -448,13 +504,16 @@ def zeitplan(folien: list[dict], gesamt: float | None = None,
     return plan
 
 
-def sichtbarkeit(t: float, start: float, ende: float, letzte: bool) -> tuple[float, int]:
+def sichtbarkeit(t: float, start: float, ende: float, letzte: bool, hart: bool = False) -> tuple[float, int]:
     """(Deckung 0…1, Versatz in px) einer Folie zur Zeit t: einblenden
     mit kleinem Hub von unten, ausblenden - die letzte bleibt stehen. Die
     ERSTE Folie (Start bei 0) steht sofort: Wer in der ersten Sekunde nur
-    Hintergrund sieht, wischt weiter."""
+    Hintergrund sieht, wischt weiter. `hart`: harter Schnitt ohne Blende
+    (Logo-Folien im Takt)."""
     if t < start or t >= ende:
         return 0.0, 0
+    if hart:
+        return 1.0, 0
     ein = 1.0 if start <= 0 else min(1.0, (t - start) / EIN)
     aus = 1.0 if letzte else min(1.0, (ende - t) / AUS)
     glatt = 1 - (1 - ein) ** 3
@@ -813,6 +872,7 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
             nachweis = f"Foto: {credit}" if credit else None
             hintergrund = {"art": "foto", "datei": pfad.name}
 
+    schwarzweiss = beitrag.get("stil") == "sw"
     rahmen = rahmen_ebene()
     credit = credit_ebene(nachweis)
     if credit:
@@ -836,8 +896,8 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
                     break
                 t = i / FPS
                 bild = Image.alpha_composite(punch(bg, t, plan).convert("RGBA"), rahmen)
-                for k, (s, e, _) in enumerate(plan):
-                    a, versatz = sichtbarkeit(t, s, e, k == len(plan) - 1)
+                for k, (s, e, f) in enumerate(plan):
+                    a, versatz = sichtbarkeit(t, s, e, k == len(plan) - 1, f.get("typ") == "logo")
                     if a <= 0:
                         continue
                     fb = folien_bilder[k]
@@ -852,6 +912,8 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
                 d.rectangle([RAND_X, 1590, RAND_X + TEXT_BREITE, 1596], fill=(255, 255, 255, 60))
                 d.rectangle([RAND_X, 1590, RAND_X + int(TEXT_BREITE * (t / gesamt)), 1596], fill=SIGNAL)
                 rgb = bild.convert("RGB")
+                if schwarzweiss:
+                    rgb = rgb.convert("L").convert("RGB")
                 if cover is None and t >= cover_zeit:
                     cover = rgb.copy()
                 enc.stdin.write(rgb.tobytes())
@@ -911,7 +973,10 @@ def vorschau(beitrag: dict, ausgabe: Path) -> list[Path]:
     for i, f in enumerate(beitrag["folien"], 1):
         bild = Image.alpha_composite(Image.alpha_composite(bg, rahmen), folie_bild(f, beitrag.get("sport")))
         p = ausgabe / f"folie-{i}.png"
-        bild.convert("RGB").save(p)
+        bild = bild.convert("RGB")
+        if beitrag.get("stil") == "sw":
+            bild = bild.convert("L").convert("RGB")
+        bild.save(p)
         pfade.append(p)
     return pfade
 

@@ -6228,8 +6228,133 @@ def test_geloescht() -> None:
           (rc, eintrag.get("exclude"), eintrag.get("geloescht"), eintrag.get("abgesagt")), (0, True, True, None))
 
 
+def test_insta_logos() -> None:
+    """Logo-Reels (27.10.2026): am letzten Freitag „monat" (Zahl aller
+    Events des nächsten Monats, dann die Logos der großen Events im Takt),
+    am 1. „anmeldung" (große Events, deren Anmeldung in dem Monat öffnet);
+    die Logo-Suche auf der Veranstalterseite und die Pflichtfelder von
+    grosse_events.json."""
+    import datetime as _dt
+    import io as _io
+    import json as _json
+    import random as _random
+    import re as _re
+
+    print("\nInstagram-Logo-Reels (insta_inhalte monat/anmeldung, insta_logos):")
+    import insta_inhalte as I
+    import insta_logos as L
+    import insta_video as V
+    from PIL import Image as _Image
+
+    # --- Logo-Suche: das Logo im Startseiten-Link schlägt den Sponsor
+    html = ('<html><body><header><a href="/"><img src="/img/logo.svg" alt="Stadtlauf"></a></header>'
+            '<div class="sponsors"><img class="logo" src="/s/garmin_logo.png"></div>'
+            '<footer><img src="/f/partner-logo.png"></footer>'
+            '<link rel="apple-touch-icon" href="/apple.png"></body></html>')
+    k = L.kandidaten(html, "https://www.stadtlauf.de/", "Stadtlauf")
+    check("Logo-Suche: Kopf-Logo zuerst, Sponsoren und Fuß nie, Touch-Icon zuletzt",
+          [u for _, u in k], ["https://www.stadtlauf.de/img/logo.svg", "https://www.stadtlauf.de/apple.png"])
+    check("Logo-Suche: Sponsor im Umfeld (class=sponsors) fliegt raus",
+          any("garmin" in u for _, u in k), False)
+
+    # --- Aufbereiten: Rand weg, helles Logo erkannt, zu kleines abgewiesen
+    weiss = _Image.new("RGBA", (600, 400), (0, 0, 0, 0))
+    weiss.paste((255, 255, 255, 255), (100, 150, 500, 250))
+    puffer = _io.BytesIO()
+    weiss.save(puffer, "PNG")
+    erg = L.aufbereiten(puffer.getvalue())
+    check("Aufbereiten: transparenter Rand abgeschnitten, weißes Logo = hell (Navy-Karte)",
+          (erg[0].size, erg[1]), ((400, 100), True))
+    klein = _io.BytesIO()
+    _Image.new("RGB", (40, 40), (200, 0, 0)).save(klein, "PNG")
+    check("Aufbereiten: zu kleines Bild ist kein Logo", L.aufbereiten(klein.getvalue()), None)
+    check("Slug ohne Umlaute", L.slug("Zürich Marathon – Läufe"), "zuerich-marathon-laeufe")
+
+    # --- Testdaten: vier große Events im November, eines ohne Eintrag
+    def zeile(name, ort, tag, sport="Laufen", km=42.195):
+        return {"name": name, "standort": ort, "land": "Deutschland", "art1": sport, "art2": "Straße",
+                "datum_start": tag, "datum_ende": tag, "lat": 50.0, "lon": 8.0, "laenge_km": km,
+                "veranstalter_url": "https://x.de/"}
+    ev = [zeile(f"Dorflauf {i}", "Hinterwald", f"2026-11-{i + 1:02d}", km=10.0) for i in range(20)]
+    ev += [zeile("Mainufer Marathon", "Frankfurt", "2026-11-08"), zeile("Mainufer Halbmarathon", "Frankfurt", "2026-11-08", km=21.1),
+           zeile("Domstadt-Lauf", "Köln", "2026-11-15"), zeile("Isar Triathlon", "München", "2026-11-21", "Triathlon", 51.5),
+           zeile("Elbe Run", "Hamburg", "2026-11-29"), zeile("Kinder Elbe Run", "Hamburg", "2026-11-29", km=2.0),
+           zeile("Domstadt-Lauf", "Köln", "2027-04-25")]
+    grosse = [
+        {"name": "Mainufer Marathon", "suche": ["mainufer"], "land": "Deutschland", "sport": "Laufen", "starter": 20000,
+         "anmeldestart": "2026-11-03", "webseite": "https://mainufer.de/"},
+        {"name": "Domstadt-Lauf", "suche": ["domstadt-lauf"], "land": "Deutschland", "sport": "Laufen", "starter": 9000,
+         "anmeldestart": "2026-11", "webseite": "https://domstadt.de/"},
+        {"name": "Isar Triathlon", "suche": ["isar triathlon"], "land": "Deutschland", "sport": "Triathlon", "starter": 1500,
+         "anmeldestart": "2026-11-20", "termin": "2027-07-04"},
+        {"name": "Elbe Run", "suche": ["elbe run"], "land": "Deutschland", "sport": "Laufen", "starter": 6000,
+         "anmeldestart": "2026-12-01", "webseite": "https://elberun.de/"},
+        {"name": "Alpen Radmarathon", "suche": ["alpen rad"], "land": "Österreich", "sport": "Fahrrad", "starter": 4000,
+         "anmeldestart": "2026-11-10", "termin": "2027-08-29"},
+    ]
+    check("letzter Freitag im Oktober 2026 ist der 30.", [d for d in range(20, 32) if I.letzter_freitag(_dt.date(2026, 10, d))], [30])
+    b = I.plane(_dt.date(2026, 10, 30), ev, momente=I.lade_momente(), clips=[], grosse=grosse)
+    logos = [f for f in b["folien"] if f["typ"] == "logo"]
+    check("monat: letzter Freitag → Logo-Reel für den nächsten Monat", b["format"], "monat")
+    check("monat: erste Folie = Zahl ALLER Events im November", (b["folien"][0]["zahl"], b["folien"][0]["titel"]),
+          (str(len(I.veranstaltungen(ev, _dt.date(2026, 11, 1), _dt.date(2026, 11, 30)))), "EVENTS IM NOVEMBER 2026"))
+    check("monat: je großes Event ein Logo (Halbmarathon zählt zum Marathon, Kinderlauf nie), nach Datum",
+          [(f["name"], f["datum"], f["logo_id"]) for f in logos],
+          [("Mainufer Marathon", "8. Nov", "mainufer-marathon"), ("Domstadt-Lauf", "15. Nov", "domstadt-lauf"),
+           ("Isar Triathlon", "21. Nov", "isar-triathlon"), ("Elbe Run", "29. Nov", "elbe-run")])
+    check("monat: ein Schlag je Logo, Ende mit „Check it out“, Schwarzweiß im November",
+          (all(f.get("blitz") for f in logos), b["folien"][-1]["typ"], b["folien"][-1]["titel"], b["stil"]),
+          (True, "cta", "Check it out!", "sw"))
+    plan = V.zeitplan(b["folien"], schlag=0.5)
+    check("monat: Logo-Folien stehen genau einen Schlag", {round(e - s, 2) for s, e, f in plan if f["typ"] == "logo"}, {0.5})
+    weniger = I.plane(_dt.date(2026, 10, 30), ev, momente=I.lade_momente(), clips=[], grosse=grosse[:3])
+    check("monat: unter vier Logos gilt der normale Plan", weniger["format"] != "monat", True)
+
+    a = I.plane(_dt.date(2026, 11, 1), ev, momente=I.lade_momente(), clips=[], grosse=grosse)
+    karten = [f for f in a["folien"] if f["typ"] == "logo"]
+    check("anmeldung: am 1. die großen Events, deren Anmeldung in dem Monat öffnet", a["format"], "anmeldung")
+    check("anmeldung: Anmeldestart (genau oder nur Monat) und nächster Renntermin, nach Anmeldestart",
+          [(f["name"], f["ueber"], f["datum"]) for f in karten],
+          [("Domstadt-Lauf", "Anmeldung im November", "15. Nov 2026"),
+           ("Mainufer Marathon", "Anmeldung ab 3. Nov", "8. Nov 2026"),
+           ("Alpen Radmarathon", "Anmeldung ab 10. Nov", "29. Aug 2027"),
+           ("Isar Triathlon", "Anmeldung ab 20. Nov", "21. Nov 2026")])
+    check("anmeldung: Caption sagt „ohne Gewähr“", "ohne Gewähr" in a["caption"], True)
+    check("anmeldung: unter drei Events gilt der Wochenplan",
+          I.plane(_dt.date(2026, 12, 1), ev, momente=I.lade_momente(), clips=[], grosse=grosse)["format"] != "anmeldung", True)
+    check("Formate monat und anmeldung über --format wählbar", {"monat", "anmeldung"} <= set(I.FORMATE), True)
+
+    # --- Folie ohne Logo im Cache: Namenskarte statt Absturz
+    bild = V.folie_bild(dict(logos[0], logo_id="gibt-es-nicht"), "Laufen")
+    check("Logo-Folie ohne Logo zeichnet die Namenskarte (Karte weiß, mittig)",
+          bild.getpixel(((V.KARTE[0] + V.KARTE[2]) // 2, V.KARTE[1] + 20))[:3], V.WEISS)
+
+    # --- grosse_events.json: Pflichtfelder und Quellen
+    wurzel = Path(__file__).resolve().parent.parent
+    liste = _json.loads((wurzel / "marketing" / "instagram" / "grosse_events.json").read_text(encoding="utf-8"))["events"]
+    fehler = []
+    for g in liste:
+        n = g.get("name", "?")
+        if not g.get("suche") or not all(isinstance(x, str) and x == x.lower() and x for x in g["suche"]):
+            fehler.append(f"{n}: suche")
+        if g.get("land") not in I.LAND_KURZ or g.get("sport") not in I.SPORTARTEN:
+            fehler.append(f"{n}: land/sport")
+        if not isinstance(g.get("starter"), int) or not str(g.get("starter_quelle", "")).startswith("https://"):
+            fehler.append(f"{n}: starter/quelle")
+        if g.get("anmeldestart") is not None:
+            if not _re.fullmatch(r"\d{4}-\d{2}(-\d{2})?", str(g["anmeldestart"])) or not I.anmeldestart(g):
+                fehler.append(f"{n}: anmeldestart")
+            if not str(g.get("anmeldestart_quelle") or "").startswith("http"):
+                fehler.append(f"{n}: anmeldestart ohne Quelle")
+        if g.get("webseite") and not g["webseite"].startswith("https://"):
+            fehler.append(f"{n}: webseite")
+    check("grosse_events.json: Pflichtfelder, Quellen, Datumsformat", fehler, [])
+    namen = [L.slug(g["name"]) for g in liste]
+    check("grosse_events.json: Namen eindeutig (Logo-Cache je Name)", len(namen), len(set(namen)))
+
+
 def main() -> int:
-    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_insta_freigabe,
+    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_insta_freigabe, test_insta_logos,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung, test_namensrand,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien, test_web_data,

@@ -91,6 +91,7 @@ def main() -> int:
           + (f", Moment {beitrag['moment_id']}" if beitrag.get("moment_id") else "")
           + (f", Clip {beitrag['clip']['id']}" if beitrag.get("clip") else ""))
 
+    logos_holen(beitrag)
     if a.vorschau:
         for p in video.vorschau(beitrag, ziel):
             print(f"  {p}")
@@ -194,6 +195,19 @@ def main() -> int:
     return 1 if pflege_fehler or story_fehler else 0
 
 
+def logos_holen(beitrag: dict) -> None:
+    """Die Logos der Folien „logo" (Formate monat/anmeldung) in den Cache
+    holen (insta_logos.py) - fehlt eines, zeigt die Folie den Namen."""
+    if not any(f.get("logo_id") for f in beitrag.get("folien", [])):
+        return
+    try:
+        import insta_logos
+        n = insta_logos.logos_fuer_beitrag(beitrag)
+        print(f"  Logos: {n} von {sum(1 for f in beitrag['folien'] if f.get('logo_id'))} vorhanden")
+    except Exception as e:                                   # noqa: BLE001 - Logo ist Beiwerk
+        print(f"  Logos nicht geholt ({type(e).__name__}) - Namenskarten")
+
+
 def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str, z: dict) -> None:
     """Die Reels der nächsten Tage rendern und als Vorschau ablegen
     (insta_posten.lade_vorschau) – der „View"-Knopf der Freigabe-Karte in
@@ -212,6 +226,7 @@ def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str, z: dic
             else:
                 b = inhalte.plane(tag)
                 kennung = inhalte.beitrag_hash(b)
+                logos_holen(b)
                 ordner = Path(tempfile.mkdtemp(prefix=f"vorschau-{tag.isoformat()}-"))
                 video.rendere(b, ordner, seed=tag.toordinal())
             posten.lade_vorschau(ordner, tag.isoformat(), kennung, z)

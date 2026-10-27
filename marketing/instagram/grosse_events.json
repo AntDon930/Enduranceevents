@@ -1,0 +1,5 @@
+{
+ "stand": "2026-10-27",
+ "hinweis": "Große Events für die Logo-Reels (insta_inhalte monat/anmeldung): Starterzahl und Anmeldestart je mit Quelle; suche = Teilstrings des Namens in events.json; logo_url überstimmt die Logo-Suche, logo:false schaltet das Logo ab.",
+ "events": []
+}
