@@ -5173,8 +5173,8 @@ def test_insta_freigabe() -> None:
     check("Plan: 14 Tage", len(plan), 14)
     check("Plan: Felder je Tag", sorted(k for k in plan[0] if k not in ("moment_id", "clip_id")),
           ["caption", "datum", "folien", "format", "hash", "stories", "wochentag"])
-    check("Plan: erster Tag = Start, Montag, krass", (plan[0]["datum"], plan[0]["wochentag"], plan[0]["format"]),
-          (heute.isoformat(), "Mo", "krass"))
+    check("Plan: erster Tag = Start, Montag, Wochenplan (ungerade KW: laengste)",
+          (plan[0]["datum"], plan[0]["wochentag"], plan[0]["format"]), (heute.isoformat(), "Mo", "laengste"))
     check("Plan: Stories je Tag mit Art und Folie", all({"art", "folie"} <= set(st) for st in plan[0]["stories"]), True)
     check("Dashboard: Stories-Zeile", ("storiesText(b.stories)" in (wurzel / "admin.html").read_text(encoding="utf-8")), True)
     check("Plan: Kennung je Tag = beitrag_hash des geplanten Beitrags", plan[0]["hash"], h)
@@ -5255,9 +5255,11 @@ def test_instagram() -> None:
     ev.append(dict(ev[0], name="Wolfgangsee Junior-Marathon", laenge_km=42.195))
     momente = I.lade_momente()
     formate = [I.plane(heute + _dt.timedelta(days=i), ev, momente=momente, clips=[])["format"] for i in range(7)]
-    check("Wochenplan Mo-So (seit 16.10.2026; ohne Clips: Do = Humor)", formate,
-          ["krass", "naehe", "wuerdest", "humor", "wochenende", "saison", "moment"])
+    check("Wochenplan Mo-So (seit 16.10.2026; ohne Clips: Do = Humor; Montag ungerade KW = laengste)",
+          formate, ["laengste", "naehe", "wuerdest", "humor", "wochenende", "saison", "moment"])
     woche = [I.plane(heute + _dt.timedelta(days=i), ev, momente=momente, clips=[]) for i in range(7)]
+    # die Prüfungen von „krass" am Montag mit erzwungenem Format
+    woche[0] = I.plane(heute, ev, format_="krass", momente=momente, clips=[])
     check("jedes Format beginnt mit Zahl oder Satz (sofort sichtbar), endet mit dem Aufruf",
           [(w["folien"][0]["typ"] in ("hook", "satz", "moment"), w["folien"][-1]["typ"]) for w in woche],
           [(True, "cta")] * 7)
@@ -5302,7 +5304,7 @@ def test_instagram() -> None:
           [b27["format"], b27["folien"][0]["ueber"]], ["moment", "Heute vor 8 Jahren"])
     mo_jahrestag = momente + [dict(momente[0], id="test-montag", datum="2000-10-19")]
     check("Montag bleibt beim Plan, auch am Jahrestag",
-          I.plane(heute, ev, momente=mo_jahrestag, clips=[])["format"], "krass")
+          I.plane(heute, ev, momente=mo_jahrestag, clips=[])["format"], "laengste")
 
     pflicht = ("id", "datum", "sport", "titel", "text", "quelle")
     fehler = [m.get("id") for m in momente if any(not m.get(k) for k in pflicht)
@@ -6518,7 +6520,7 @@ def test_insta_logos() -> None:
     weniger = I.plane(_dt.date(2026, 10, 30), ev, momente=I.lade_momente(), clips=[], grosse=grosse[:5])
     check("monat: unter sechs Logos gilt der normale Plan", weniger["format"] != "monat", True)
 
-    a = I.plane(_dt.date(2026, 11, 1), ev, momente=I.lade_momente(), clips=[], grosse=grosse)
+    a = I.plane(_dt.date(2026, 11, 1), ev, momente=I.lade_momente(), clips=[], grosse=grosse, anlaesse=[])
     karten = [f for f in a["folien"] if f["typ"] == "logo"]
     check("anmeldung: am 1. die großen Events, deren Anmeldung in dem Monat öffnet", a["format"], "anmeldung")
     check("anmeldung: Anmeldestart (genau oder nur Monat) und nächster Renntermin, nach Anmeldestart",
@@ -6529,7 +6531,13 @@ def test_insta_logos() -> None:
            ("Isar Triathlon", "Anmeldung ab 20. Nov", "21. Nov 2026")])
     check("anmeldung: Caption sagt „ohne Gewähr“", "ohne Gewähr" in a["caption"], True)
     check("anmeldung: unter drei Events gilt der Wochenplan",
-          I.plane(_dt.date(2026, 12, 1), ev, momente=I.lade_momente(), clips=[], grosse=grosse)["format"] != "anmeldung", True)
+          I.plane(_dt.date(2026, 12, 1), ev, momente=I.lade_momente(), clips=[], grosse=grosse, anlaesse=[])["format"]
+          != "anmeldung", True)
+    nyc = [{"id": "x", "name": "NYC", "datum": "2026-11-01", "kategorie": "marathon", "anlass_text": "Heute läuft New York",
+            "quelle": "https://example.org"}]
+    check("anmeldung: belegt ein Anlass den 1., kommt der Anmeldestart am 2.",
+          I.plane(_dt.date(2026, 11, 2), ev, momente=I.lade_momente(), clips=[], grosse=grosse, anlaesse=nyc)["format"],
+          "anmeldung")
     check("Formate monat, anmeldung und top über --format wählbar", {"monat", "anmeldung", "top"} <= set(I.FORMATE), True)
 
     # --- Top 5 (jeder zweite Samstag): Kategorie, Rangfolge, Rotation, Karte
@@ -6608,6 +6616,32 @@ def test_insta_logos() -> None:
            if not (a.get("datum") is None or _re.fullmatch(r"\d{4}-\d{2}-\d{2}", a["datum"]))
            or a.get("kategorie") not in {k[0] for k in I.TOP_KATEGORIEN}
            or not a.get("anlass_text") or not str(a.get("quelle", "")).startswith("http")], [])
+
+    # --- Die längsten (animierte Balken)
+    lev = [top_zeilen(f"Ultra {i}", f"U{i}", "2027-06-0%d" % (i % 9 + 1), 100.0 + 50 * i) for i in range(12)]
+    lev += [top_zeilen(f"Radrennen {i}", f"R{i}", "2027-07-0%d" % (i % 9 + 1), 300.0 + 100 * i, sport="Fahrrad")
+            for i in range(12)]
+    lev.append(top_zeilen("Mammut Marsch", "M", "2027-06-10", 999.0, art2="Marsch"))
+    lev.append(top_zeilen("Ultra 11", "U11", "2027-06-03", 650.0))                 # dieselbe Veranstaltung, kürzer
+    lauf = I.laengste_kandidaten(_dt.date(2026, 11, 2), lev, "Laufen", 10)
+    check("laengste: die längsten Läufe absteigend, Märsche nie, je Veranstaltung die längste Strecke",
+          [v["name"] for v in lauf[:3]] + [len(lauf)], ["Ultra 11", "Ultra 10", "Ultra 9", 10])
+    lb = I.format_laengste(_dt.date(2026, 11, 2), lev, _random.Random(1))
+    balken = lb["folien"][1]
+    check("laengste: Hook mit der größten Länge, Balkenfolie, Frage, CTA",
+          ([f["typ"] for f in lb["folien"]], lb["folien"][2]["titel"]),
+          (["hook", "balken", "satz", "cta"], "WELCHES WÜRDEST DU SCHAFFEN?"))
+    check("laengste: Tausenderpunkt in der Kilometerzahl",
+          I._balken_zeile({"name": "x", "km": [1284.0], "datum": "2027-08-01", "ort": "F", "land": "Deutschland",
+                           "sport": "Laufen"})["km_text"], "1.284 km")
+    leer = V.folie_bild(balken, None, 0.0)
+    voll = V.folie_bild(balken, None, 1.0)
+    from PIL import ImageStat as _Stat
+    flaeche = lambda b: _Stat.Stat(b.getchannel("A")).sum[0]
+    check("laengste: animiert – am Anfang nur Titel und Überschriften, am Ende alle Balken",
+          flaeche(leer) < 0.3 * flaeche(voll), True)
+    check("laengste: wird Bild für Bild gezeichnet und steht so lange, wie die Balken brauchen",
+          ("balken" in V.ANIMIERT, V.folien_dauer(balken) == balken["dauer"]), (True, True))
 
     # --- Folie ohne Logo im Cache: Namenskarte statt Absturz
     bild = V.folie_bild(dict(logos[0], logo_id="gibt-es-nicht"), "Laufen")

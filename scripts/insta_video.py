@@ -251,8 +251,10 @@ def _grosser_text(d: ImageDraw.ImageDraw, text: str, y: int, start: int, farbe, 
     return y
 
 
-def folie_bild(folie: dict, sport: str | None) -> Image.Image:
-    """Eine Texttafel als transparentes Bild (1080 × 1920)."""
+def folie_bild(folie: dict, sport: str | None, fortschritt: float = 1.0) -> Image.Image:
+    """Eine Texttafel als transparentes Bild (1080 × 1920). `fortschritt`
+    (0…1) nur für animierte Folien (ANIMIERT) – die zeichnet der Renderer
+    Bild für Bild neu."""
     img = Image.new("RGBA", (B, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     typ = folie.get("typ")
@@ -393,6 +395,9 @@ def folie_bild(folie: dict, sport: str | None) -> Image.Image:
 
     elif typ == "top":
         _top_folie(img, d, folie)
+
+    elif typ == "balken":
+        _balken_folie(img, d, folie, fortschritt)
 
     elif typ == "cta":
         y = 700
@@ -729,6 +734,65 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
     img.alpha_composite(karte_bild(TEXT_BREITE, hoehe, punkte, aktiv, farbe), (RAND_X, oben))
 
 
+ANIMIERT = {"balken"}          # Folien, die sich während sie stehen bewegen
+BALKEN_TAKT = 0.55             # Sekunden je Balken
+BALKEN_WACHSEN = 0.45
+
+
+def _balken_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict, fortschritt: float) -> None:
+    """Animierte Balkengrafik (Format „laengste"): je Feld (Laufen, Rad) die
+    Rennen von oben nach unten nach Länge; die Balken wachsen nacheinander
+    vom KÜRZESTEN (unten) zum längsten (oben), die Kilometer zählen dabei
+    hoch, Name und Termin blenden mit ein. Jedes Feld hat seinen eigenen
+    Maßstab – 5.000 km Rad neben 1.284 km Laufen ließen sonst die Läufe
+    verschwinden."""
+    felder = folie.get("felder") or []
+    t = fortschritt * float(folie.get("dauer") or 6.0)
+    pille(d, RAND_X, 250, ohne_emoji(folie.get("titel", "")).upper(), kondensiert(44, False), SIGNAL)
+    oben, unten = 350, 1480
+    feld_h = (unten - oben) / max(1, len(felder))
+    k = 0                                          # laufende Nummer des Balkens (Reihenfolge der Animation)
+    for fi, feld in enumerate(felder):
+        zeilen = feld.get("zeilen") or []
+        farbe = SPORTFARBE.get(feld.get("sport"), SIGNAL)
+        y0 = oben + fi * feld_h
+        kopf = 0
+        if len(felder) > 1:
+            pille(d, RAND_X, int(y0), ohne_emoji(feld.get("titel", "")).upper(), kondensiert(36, False), farbe)
+            kopf = 66
+        zeile_h = (feld_h - kopf - 10) / max(1, len(zeilen))
+        maxkm = max((z["km"] for z in zeilen), default=1)
+        maxbreite = TEXT_BREITE - 190
+        g_name = int(max(26, min(40, zeile_h * 0.34)))
+        balken_h = int(max(16, min(40, zeile_h * 0.32)))
+        for i in range(len(zeilen) - 1, -1, -1):       # unten (kürzester) zuerst
+            z = zeilen[i]
+            start = 0.25 + k * BALKEN_TAKT
+            k += 1
+            if t < start:
+                continue
+            p = min(1.0, (t - start) / BALKEN_WACHSEN)
+            glatt = 1 - (1 - p) ** 3
+            y = y0 + kopf + i * zeile_h
+            alpha = int(255 * min(1.0, (t - start) / 0.2))
+            name = umbrechen(ohne_emoji(z["name"]), kondensiert(g_name, False), TEXT_BREITE - 20, 1)[0]
+            ebene = Image.new("RGBA", img.size, (0, 0, 0, 0))
+            e = ImageDraw.Draw(ebene)
+            e.text((RAND_X, y), name, font=kondensiert(g_name, False), fill=WEISS + (alpha,))
+            e.text((RAND_X + breite(kondensiert(g_name, False), name) + 14, y + g_name * 0.22),
+                   ohne_emoji(f"{z.get('datum', '')} · {z.get('ort', '')}"), font=text_schrift(int(g_name * 0.62)),
+                   fill=GRAU + (alpha,))
+            by = y + g_name + 8
+            bw = max(10, int(maxbreite * (z["km"] / maxkm) * glatt))
+            e.rounded_rectangle([RAND_X, by, RAND_X + bw, by + balken_h], radius=balken_h // 2,
+                                fill=farbe + (alpha,))
+            wert = z["km"] * glatt
+            text = (f"{wert:,.0f} km".replace(",", ".") if p < 1 else z.get("km_text", ""))
+            e.text((RAND_X + bw + 14, by + balken_h / 2), text, font=kondensiert(int(balken_h * 1.25)),
+                   fill=SONNE + (alpha,), anchor="lm")
+            img.alpha_composite(ebene)
+
+
 def _logo_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
     """Ein Event als Logo (Formate „monat" und „anmeldung", insta_inhalte):
     das Logo groß auf einer Karte - weiß, bei hellen Logos Navy -, darunter
@@ -768,6 +832,8 @@ def credit_ebene(text: str | None) -> Image.Image | None:
 def folien_dauer(f: dict) -> float:
     if f.get("typ") == "logo" and f.get("blitz"):
         return DAUER_BLITZ
+    if f.get("typ") == "balken":
+        return float(f.get("dauer") or 6.0)
     if f.get("typ") == "top":
         return DAUER_TOP_UEBERSICHT if f.get("aktiv") is None else float(f.get("dauer") or DAUER["top"])
     if f.get("typ") == "event" and f.get("schnell"):
@@ -1193,6 +1259,8 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
                     if a <= 0:
                         continue
                     fb = folien_bilder[k]
+                    if f.get("typ") in ANIMIERT:
+                        fb = folie_bild(f, sport, min(1.0, (t - s) / max(0.01, e - s)))
                     if versatz:
                         fb = fb.transform(fb.size, Image.AFFINE, (1, 0, 0, 0, 1, -versatz))
                     if a < 1:

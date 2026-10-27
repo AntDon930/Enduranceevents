@@ -46,6 +46,10 @@ Anmeldestart samt Quelle) und deren geprüfte LOGOS (insta_logos.py):
 Fehlen dafür Events (monat: unter 6, anmeldung: unter 3), gilt der
 normale Wochenplan.
 
+Jeden zweiten Montag (ungerade Kalenderwoche) statt „krass" das Format
+**laengste**: eine animierte Balkengrafik der längsten Lauf- und
+Radrennen, „Welches würdest du schaffen?".
+
 Dazu jeden zweiten Samstag (gerade Kalenderwoche) statt „saison" das
 Format **top**: die 3/5/7/10 größten Marathon-, Halbmarathon-, Ultra-,
 Trail-Events, Radmarathons oder Triathlons der nächsten 12 Monate, nach
@@ -103,7 +107,7 @@ WOCHENPLAN = {0: "krass", 1: "naehe", 2: "wuerdest", 3: "humor",
               4: "wochenende", 5: "saison", 6: "moment"}
 JAHRESTAG_ERLAUBT = {1, 2, 3, 6}
 FORMATE = ("krass", "naehe", "wuerdest", "humor", "wochenende", "saison", "moment", "clip",
-           "monat", "anmeldung", "top", "anlass", "wochenvorschau", "spotlight", "region")
+           "monat", "anmeldung", "top", "anlass", "laengste", "wochenvorschau", "spotlight", "region")
 MONAT_MIN_LOGOS = 6           # darunter gilt der Wochenplan
 MONAT_MAX_LOGOS = 20          # „die 10-20 größten Events im Monat" (Nutzer, 27.10.2026)
 ANMELDUNG_MIN = 3
@@ -856,6 +860,7 @@ TOP_KATEGORIEN = (
      lambda km, art2, n: any(21.0 <= k <= 21.2 for k in km) and not any(42.0 <= k <= 42.3 for k in km)),
     ("ultra", "Ultra-Events", "Laufen", lambda km, art2, n: any(k > 42.3 for k in km) and "Marsch" not in art2),
     ("triathlon", "Triathlons", "Triathlon", lambda km, art2, n: True),
+    ("gravel", "Gravel-Events", "Fahrrad", lambda km, art2, n: "Gravel" in art2 or "gravel" in n),
 )
 TOP_ANZAHLEN = (5, 3, 7, 10)    # „es muss nicht immer Top 5 sein … Top 10, Top 3" (Nutzer, 27.10.2026)
 TOP_DESIGNS = ("karte", "einzeln", "raster", "zeitleiste")
@@ -906,7 +911,8 @@ def top_eintraege(auswahl: list[dict]) -> list[dict]:
 ANLAESSE_DATEI = MARKETING / "anlaesse.json"
 # Wie die Kategorie im Satz heißt (Mehrzahl, ohne „-Events").
 KATEGORIE_WORT = {"marathon": "Marathons", "halbmarathon": "Halbmarathons", "ultra": "Ultraläufe",
-                  "trail": "Trailläufe", "radmarathon": "Radmarathons", "triathlon": "Triathlons"}
+                  "trail": "Trailläufe", "radmarathon": "Radmarathons", "triathlon": "Triathlons",
+                  "gravel": "Gravel-Rennen"}
 
 
 def lade_anlaesse(pfad: Path | None = None) -> list[dict]:
@@ -934,13 +940,19 @@ def format_anlass(datum: dt.date, events: list[dict], rng: random.Random, anlass
     kat = next((k for k in TOP_KATEGORIEN if k[0] == anlass.get("kategorie")), None)
     if not kat:
         return None
-    schluessel, name, sport, pruefe = kat
+    # Hat die Kategorie zu wenige große Events (Gravel), gilt die erste
+    # Kategorie derselben Sportart (Radmarathons).
+    kandidaten = [kat] + [k for k in TOP_KATEGORIEN if k[2] == kat[2] and k != kat][:1]
     jahresende = dt.date(datum.year, 12, 31)
     fenster = [(jahresende, f"bis Silvester {datum.year}"), (datum + dt.timedelta(days=365), "in den nächsten 12 Monaten")]
-    for bis, wann in fenster:
-        liste = top_kandidaten(datum, events, grosse, kat, bis)
-        alle = [v for v in sicher(veranstaltungen(events, datum, bis))
-                if v["sport"] == sport and pruefe(v["km"], {v.get("art2") or ""}, v["name"].lower())]
+    for k in kandidaten:
+        schluessel, name, sport, pruefe = k
+        for bis, wann in fenster:
+            liste = top_kandidaten(datum, events, grosse, k, bis)
+            alle = [v for v in sicher(veranstaltungen(events, datum, bis))
+                    if v["sport"] == sport and pruefe(v["km"], {v.get("art2") or ""}, v["name"].lower())]
+            if len(liste) >= 3:
+                break
         if len(liste) >= 3:
             break
     else:
@@ -948,17 +960,23 @@ def format_anlass(datum: dt.date, events: list[dict], rng: random.Random, anlass
     runde = datum.toordinal()
     anzahl = min(len(liste), (5, 7, 10)[runde % 3])
     design = TOP_DESIGNS[(runde // 7) % len(TOP_DESIGNS)]
-    eintraege = top_eintraege(liste[:anzahl])
+    # Abwechslung: mal die größten, mal die nächsten (die als Erstes anstehen)
+    naechste = runde % 2 == 1
+    if naechste:
+        auswahl = sorted(liste, key=lambda e: e["v"]["datum"])[:anzahl]
+    else:
+        auswahl = liste[:anzahl]
+    eintraege = top_eintraege(auswahl)
     wort = KATEGORIE_WORT.get(schluessel, name)
-    titel = f"Die {anzahl} größten {name}"
+    titel = f"Die nächsten {anzahl} großen {name}" if naechste else f"Die {anzahl} größten {name}"
     basis = {"typ": "top", "variante": design, "sport": sport, "titel": titel, "eintraege": eintraege,
              "start": datum.isoformat()[:7], "dauer": TOP_DAUER.get(anzahl, 2.0)}
     folien = [
         {"typ": "hook", "ueber": anlass["anlass_text"], "zahl": str(len(alle)),
          "titel": f"{wort.upper()} BEI UNS {wann.upper()}",
          "zeilen": ["Deutschland · Österreich · Schweiz · Südtirol"]},
-        {"typ": "satz", "ueber": anlass["name"], "titel": f"UND WO STARTEST DU?",
-         "zeilen": [f"Die größten {wort} bei uns"]},
+        {"typ": "satz", "ueber": anlass["name"], "titel": "UND WO STARTEST DU?",
+         "zeilen": [f"Die nächsten großen {wort} bei uns" if naechste else f"Die größten {wort} bei uns"]},
         *[dict(basis, aktiv=i) for i in range(anzahl)],
         dict(basis, aktiv=None, schluss="Wo bist du dabei?"),
         cta_folie("Check it out!", f"Alle {len(alle)} {wort} mit Termin", SEITE, "Link in der Bio"),
@@ -966,12 +984,99 @@ def format_anlass(datum: dt.date, events: list[dict], rng: random.Random, anlass
     zeilen = "\n".join(f"• {e['datum']}: {e['name']}, {e['ort']}" for e in eintraege)
     caption = caption_bauen([
         f"🏁 {anlass['anlass_text']}! Und bei uns? {len(alle)} {wort} {wann} in Deutschland, "
-        "Österreich, der Schweiz und Südtirol. Die größten davon:",
+        "Österreich, der Schweiz und Südtirol. " + ("Die nächsten großen:" if naechste else "Die größten davon:"),
         zeilen,
         "Wo startest du? 👇",
     ], hashtags(sport, rng=rng, extra=[anlass.get("hashtag") or "", f"#{schluessel}"]), rng, len(events))
     return _beitrag("anlass", datum, folien, caption, sport, anlass=anlass.get("id"), kategorie=schluessel,
                     design=design, anzahl=anzahl)
+
+
+# ---------------------------------------------- Die längsten (Balken)
+
+LAENGSTE_VARIANTEN = ("gemischt", "Laufen", "Fahrrad")
+# Von Hand geprüft und KEIN Rennen bzw. falsche Länge in den Daten – fliegt
+# aus der Grafik (die Zeile auf der Seite bleibt, das klärt die Korrektur).
+LAENGSTE_AUSNAHMEN: set[str] = set()
+
+
+def laengste_kandidaten(datum: dt.date, events: list[dict], sport: str, n: int) -> list[dict]:
+    """Die n längsten Veranstaltungen einer Sportart in den nächsten 12
+    Monaten (je Veranstaltung die längste Strecke). Märsche, Zeitrennen
+    ohne Kilometer und Kinderläufe zählen nicht; dieselbe Veranstaltung
+    unter zwei Namen am selben Tag und Ort nur einmal."""
+    beste: dict[tuple, dict] = {}
+    for v in sicher(veranstaltungen(events, datum, datum + dt.timedelta(days=365))):
+        if v["sport"] != sport or not v["km"] or v.get("art2") == "Marsch":
+            continue
+        if v["name"] in LAENGSTE_AUSNAHMEN:
+            continue
+        schluessel = (v["datum"], v["ort"].lower(), round(v["km"][-1]))
+        if schluessel not in beste:
+            beste[schluessel] = v
+    # je Name nur die längste Ausgabe/Strecke
+    je_name: dict[str, dict] = {}
+    for v in beste.values():
+        if v["name"] not in je_name or v["km"][-1] > je_name[v["name"]]["km"][-1]:
+            je_name[v["name"]] = v
+    return sorted(je_name.values(), key=lambda v: (-v["km"][-1], v["datum"]))[:n]
+
+
+def _balken_zeile(v: dict) -> dict:
+    tag = dt.date.fromisoformat(v["datum"])
+    km = v["km"][-1]
+    km_text = f"{km:,.0f}".replace(",", ".") if km >= 1000 else fmt_km(km)
+    return {"name": v["name"], "km": km, "km_text": f"{km_text} km",
+            "datum": datum_kurz(tag, jahr=True), "ort": f"{v['ort']} {LAND_KURZ.get(v['land'], '')}".strip(),
+            "sport": v["sport"], "url": v.get("url")}
+
+
+def format_laengste(datum: dt.date, events: list[dict], rng: random.Random) -> dict | None:
+    """„Welches würdest du schaffen?" – eine animierte Balkengrafik der
+    längsten Rennen der nächsten 12 Monate: die Balken wachsen nacheinander
+    vom kürzesten zum längsten, die Kilometer zählen hoch (vom Nutzer am
+    27.10.2026: „eine animierte Grafik der 10 längsten Radevents oder der 10
+    längsten Laufevents … welches Event würdest du schaffen? … Laufen und
+    Radfahren in einen Post"). Varianten im Wechsel: gemischt (je 5 Lauf und
+    Rad in zwei Feldern), nur Laufen, nur Rad (je 10)."""
+    runde = datum.toordinal() // 14
+    for versuch in range(len(LAENGSTE_VARIANTEN)):
+        variante = LAENGSTE_VARIANTEN[(runde + versuch) % len(LAENGSTE_VARIANTEN)]
+        if variante == "gemischt":
+            gruppen = [("Laufen", laengste_kandidaten(datum, events, "Laufen", 5)),
+                       ("Fahrrad", laengste_kandidaten(datum, events, "Fahrrad", 5))]
+        else:
+            gruppen = [(variante, laengste_kandidaten(datum, events, variante, 10))]
+        if all(len(z) >= 5 for _, z in gruppen):
+            break
+    else:
+        return None
+    felder = [{"sport": sp, "titel": {"Laufen": "Laufen", "Fahrrad": "Rad"}[sp],
+               "zeilen": [_balken_zeile(v) for v in zeilen]} for sp, zeilen in gruppen]
+    laengste = max(z["km"] for f in felder for z in f["zeilen"])
+    wort = {"gemischt": "RENNEN", "Laufen": "LÄUFE", "Fahrrad": "RADRENNEN"}[variante]
+    anzahl = sum(len(f["zeilen"]) for f in felder)
+    folien = [
+        {"typ": "hook", "ueber": "Würdest du das schaffen?", "zahl": f"{fmt_km(laengste)} KM",
+         "titel": f"DIE {anzahl} LÄNGSTEN {wort} BEI UNS", "zeilen": ["in den nächsten 12 Monaten"]},
+        {"typ": "balken", "titel": f"Die längsten {wort.capitalize()}", "felder": felder,
+         "dauer": 1.2 + 0.55 * anzahl},
+        {"typ": "satz", "ueber": "Und du?", "titel": "WELCHES WÜRDEST DU SCHAFFEN?",
+         "zeilen": ["Schreib's in die Kommentare"]},
+        cta_folie("Check it out!", "Alle Ultras mit Termin", SEITE, "Link in der Bio"),
+    ]
+    zeilen = "\n".join(f"{SPORT_EMOJI.get(f['sport'], '•')} {z['km_text']}: {z['name']} ({z['datum']}, {z['ort']})"
+                       for f in felder for z in f["zeilen"])
+    caption = caption_bauen([
+        f"🤯 {fmt_km(laengste)} km am Stück – die längsten Rennen in Deutschland, Österreich, der Schweiz "
+        "und Südtirol in den nächsten 12 Monaten:",
+        zeilen,
+        "Welches würdest du schaffen? Schreib's in die Kommentare 👇",
+    ], hashtags(None if variante == "gemischt" else variante, rng=rng, extra=["#ultra", "#ultracycling",
+                                                                             "#ultrarunning"]),
+        rng, len(events))
+    sport = None if variante == "gemischt" else variante
+    return _beitrag("laengste", datum, folien, caption, sport, variante=variante)
 
 
 def format_top(datum: dt.date, events: list[dict], rng: random.Random,
@@ -1226,12 +1331,21 @@ def plane(datum: dt.date, events: list[dict] | None = None, format_: str | None 
         a = anlass_am(datum, anlaesse)
         if a:
             beitrag = format_anlass(datum, events, rng, a, grosse)
-        if beitrag is None and datum.day == 1:
-            beitrag = format_anmeldung(datum, events, rng, grosse)
-        elif beitrag is None and letzter_freitag(datum):
+        # Belegt ein Anlass den 1. oder den letzten Freitag, rückt das
+        # Monatsformat einen Tag weiter (NYC-Marathon am 01.11.2026).
+        gestern = datum - dt.timedelta(days=1)
+        gestern_anlass = anlass_am(gestern, anlaesse) is not None
+        if beitrag is None and (datum.day == 1 or (datum.day == 2 and gestern_anlass)):
+            beitrag = format_anmeldung(datum.replace(day=1), events, rng, grosse)
+            if beitrag:
+                beitrag["datum"] = datum.isoformat()
+                beitrag["kampagne"] = f"anmeldung-{datum.isoformat()}"
+        elif beitrag is None and (letzter_freitag(datum) or (letzter_freitag(gestern) and gestern_anlass)):
             beitrag = format_monat(datum, events, rng, grosse)
         elif beitrag is None and datum.weekday() == 5 and datum.isocalendar()[1] % 2 == 0:
             beitrag = format_top(datum, events, rng, grosse)
+        elif beitrag is None and datum.weekday() == 0 and datum.isocalendar()[1] % 2 == 1:
+            beitrag = format_laengste(datum, events, rng)
     if beitrag is None and format_ is None and datum.weekday() in JAHRESTAG_ERLAUBT:
         m = jahrestag(datum, momente)
         if m:
@@ -1258,6 +1372,8 @@ def plane(datum: dt.date, events: list[dict] | None = None, format_: str | None 
                 beitrag = format_anmeldung(datum, events, rng, grosse)
             elif wunsch == "top":
                 beitrag = format_top(datum, events, rng, grosse)
+            elif wunsch == "laengste":
+                beitrag = format_laengste(datum, events, rng)
             elif wunsch == "anlass":
                 # von Hand: der nächste Anlass ab dem Datum
                 naechster = sorted((a for a in (anlaesse if anlaesse is not None else lade_anlaesse())
@@ -1285,6 +1401,8 @@ def format_am(datum: dt.date, momente: list[dict] | None = None) -> str:
         return "monat"
     if datum.weekday() == 5 and datum.isocalendar()[1] % 2 == 0:
         return "top"
+    if datum.weekday() == 0 and datum.isocalendar()[1] % 2 == 1:
+        return "laengste"
     if datum.weekday() in JAHRESTAG_ERLAUBT and jahrestag(datum, momente):
         return "moment"
     return WOCHENPLAN[datum.weekday()]
