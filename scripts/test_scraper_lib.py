@@ -6259,7 +6259,8 @@ def test_insta_logos() -> None:
 
     # --- Aufbereiten: Rand weg, helles Logo erkannt, zu kleines abgewiesen
     weiss = _Image.new("RGBA", (600, 400), (0, 0, 0, 0))
-    weiss.paste((255, 255, 255, 255), (100, 150, 500, 250))
+    weiss.paste((255, 255, 255, 255), (100, 150, 280, 250))     # zwei „Buchstaben" mit Lücke
+    weiss.paste((255, 255, 255, 255), (320, 150, 500, 250))
     puffer = _io.BytesIO()
     weiss.save(puffer, "PNG")
     erg = L.aufbereiten(puffer.getvalue())
@@ -6344,8 +6345,7 @@ def test_insta_logos() -> None:
                 fehler.append(f"{n}: starter fehlt (nur bei IRONMAN ohne veröffentlichte Zahl erlaubt)")
         elif not isinstance(g["starter"], int) or not str(g.get("starter_quelle", "")).startswith("https://"):
             fehler.append(f"{n}: starter/quelle")
-        if g.get("logo_datei") and not (wurzel / "marketing" / "instagram" / "logos" / g["logo_datei"]).is_file():
-            fehler.append(f"{n}: logo_datei fehlt")
+
         if g.get("anmeldestart") is not None:
             if not _re.fullmatch(r"\d{4}-\d{2}(-\d{2})?", str(g["anmeldestart"])) or not I.anmeldestart(g):
                 fehler.append(f"{n}: anmeldestart")
@@ -6355,7 +6355,14 @@ def test_insta_logos() -> None:
             fehler.append(f"{n}: webseite")
     check("grosse_events.json: Pflichtfelder, Quellen, Datumsformat", fehler, [])
     namen = [L.slug(g["name"]) for g in liste]
-    check("grosse_events.json: Namen eindeutig (Logo-Cache je Name)", len(namen), len(set(namen)))
+    check("grosse_events.json: Namen eindeutig (Logo-Datei je Name)", len(namen), len(set(namen)))
+    ordner = wurzel / "marketing" / "instagram" / "logos"
+    dateien = {p.stem for p in ordner.glob("*.png")}
+    meta = _json.loads((ordner / "logos.json").read_text(encoding="utf-8"))
+    check("logos/: jede Datei gehört zu einem großen Event und hat Quelle + Prüfdatum in logos.json",
+          (sorted(dateien - set(namen)), sorted(d for d in dateien if not (meta.get(d) or {}).get("geprueft"))), ([], []))
+    check("Der tägliche Lauf holt keine Logos aus dem Netz (nur geprüfte Dateien)",
+          "logo_fuer" in (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8"), False)
 
 
 def main() -> int:

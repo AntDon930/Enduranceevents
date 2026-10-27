@@ -196,16 +196,14 @@ def main() -> int:
 
 
 def logos_holen(beitrag: dict) -> None:
-    """Die Logos der Folien „logo" (Formate monat/anmeldung) in den Cache
-    holen (insta_logos.py) - fehlt eines, zeigt die Folie den Namen."""
-    if not any(f.get("logo_id") for f in beitrag.get("folien", [])):
-        return
-    try:
-        import insta_logos
-        n = insta_logos.logos_fuer_beitrag(beitrag)
-        print(f"  Logos: {n} von {sum(1 for f in beitrag['folien'] if f.get('logo_id'))} vorhanden")
-    except Exception as e:                                   # noqa: BLE001 - Logo ist Beiwerk
-        print(f"  Logos nicht geholt ({type(e).__name__}) - Namenskarten")
+    """Meldet, welche Logo-Folien (Formate monat/anmeldung) ein GEPRÜFTES
+    Logo haben (marketing/instagram/logos/, insta_logos.py) - die übrigen
+    zeigen den Namen. Der Lauf holt bewusst nichts aus dem Netz: Ungeprüft
+    kam jedes vierte Mal ein Sponsorlogo."""
+    import insta_logos
+    n, ohne = insta_logos.vorhanden(beitrag)
+    if n or ohne:
+        print(f"  Logos: {n} geprüft" + (f", Namenskarte für: {', '.join(ohne)}" if ohne else ""))
 
 
 def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str, z: dict) -> None:

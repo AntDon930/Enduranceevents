@@ -1,6 +1,6 @@
 {
  "stand": "2026-10-27",
- "hinweis": "Große Events für die Logo-Reels (insta_inhalte monat/anmeldung), recherchiert am 27.10.2026: Laufen/Rad ab ca. 5.000 bzw. 3.000 Startenden, Triathlon ab ca. 1.000 oder Marke (IRONMAN/Challenge), Kultrennen auch darunter; keine Firmen-/Businessläufe. starter = Anmeldungen oder Finisher der jüngsten Ausgabe (hinweis sagt, welche), null nur bei IRONMAN ohne veröffentlichte Zahl. anmeldestart = Öffnung der Anmeldung für die NÄCHSTE Ausgabe (YYYY-MM-DD oder YYYY-MM), jährlich nachtragen. suche = Teilstrings des Namens in events.json (klein). logo_datei (marketing/instagram/logos/) schlägt logo_url schlägt die Logo-Suche; logo:false schaltet das Logo ab.",
+ "hinweis": "Große Events für die Logo-Reels (insta_inhalte monat/anmeldung), recherchiert am 27.10.2026: Laufen/Rad ab ca. 5.000 bzw. 3.000 Startenden, Triathlon ab ca. 1.000 oder Marke (IRONMAN/Challenge), Kultrennen auch darunter; keine Firmen-/Businessläufe. starter = Anmeldungen oder Finisher der jüngsten Ausgabe (hinweis sagt, welche), null nur bei IRONMAN ohne veröffentlichte Zahl. anmeldestart = Öffnung der Anmeldung für die NÄCHSTE Ausgabe (YYYY-MM-DD oder YYYY-MM), jährlich nachtragen. suche = Teilstrings des Namens in events.json (klein). Logos: nur geprüfte Dateien marketing/instagram/logos/<slug>.png (scripts/insta_logos.py sammeln/uebernehmen); logo_url lenkt die Suche auf ein bestimmtes Bild.",
  "events": [
   {
    "name": "ADAC Cyclassics Hamburg",
@@ -398,8 +398,7 @@
    "anmeldestart": null,
    "webseite": "https://www.soelden.com/de/events-freizeittipps/events/oetztaler-radmarathon",
    "instagram": "oetztalerradmarathon",
-   "hinweis": "Anmeldefenster 2027 noch nicht veröffentlicht. Für 2026 galt: Registrierung nur 01.–31.01.2026, Verlosung Mitte Februar (2. Verlosung Anfang April); max. 4.000 Startplätze. Muster lässt Januar 2027 erwarten (unbestätigt).",
-   "logo_datei": "oetztaler-radmarathon.svg"
+   "hinweis": "Anmeldefenster 2027 noch nicht veröffentlicht. Für 2026 galt: Registrierung nur 01.–31.01.2026, Verlosung Mitte Februar (2. Verlosung Anfang April); max. 4.000 Startplätze. Muster lässt Januar 2027 erwarten (unbestätigt)."
   },
   {
    "name": "Baden-Marathon Karlsruhe",
