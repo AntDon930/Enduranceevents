@@ -54,7 +54,7 @@ on:
         required: false
         default: ''
         type: choice
-        options: ['', monat, anmeldung, krass, naehe, wuerdest, humor, wochenende, saison, moment, clip, wochenvorschau, spotlight, region]
+        options: ['', monat, anmeldung, top, krass, naehe, wuerdest, humor, wochenende, saison, moment, clip, wochenvorschau, spotlight, region]
       posten:
         description: 'Auf Instagram veröffentlichen'
         required: false
