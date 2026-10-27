@@ -1265,7 +1265,7 @@ def format_jahr(datum: dt.date, events: list[dict], rng: random.Random,
         kandidaten = [(g, v) for g, v in je_monat.get(f"{jahr:04d}-{monat:02d}", {}).values()
                       if g["name"] not in schon]
         if kandidaten:
-            g, v = max(kandidaten, key=lambda x: (insta_logos.logo_bild(insta_logos.slug(x[0]["name"])) is not None,
+            g, v = max(kandidaten, key=lambda x: (insta_logos.hat_logo(insta_logos.slug(x[0]["name"])),
                                                   x[0].get("starter") or 0))
             schon.add(g["name"])
             tag = dt.date.fromisoformat(v["datum"])
@@ -1322,7 +1322,7 @@ def duell_paare(datum: dt.date, events: list[dict], grosse: list[dict]) -> list[
         if kat[0] not in DUELL_KATEGORIEN:
             continue
         liste = [e for e in top_kandidaten(datum, events, grosse, kat)
-                 if insta_logos.logo_bild(insta_logos.slug(e["g"]["name"])) and e["g"].get("starter")]
+                 if insta_logos.hat_logo(insta_logos.slug(e["g"]["name"])) and e["g"].get("starter")]
         for a, b in zip(liste[0::2], liste[1::2]):
             if a["g"]["starter"] <= 2 * b["g"]["starter"]:
                 paare.append((kat[0], a, b))

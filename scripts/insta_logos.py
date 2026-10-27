@@ -365,6 +365,12 @@ def logo_fuer(ev: dict, abrufer=None, ordner: Path = LOGO_ORDNER, meta: dict | N
     return eintrag if eintrag["datei"] else None
 
 
+def hat_logo(logo_id: str, ordner: Path | None = None) -> bool:
+    """Ob ein GEPRÜFTES Logo da ist - ohne Pillow (die Planung läuft auch
+    im Pages-Workflow, der Pillow nicht installiert)."""
+    return ((ordner or GEPRUEFT) / f"{logo_id}.png").is_file()
+
+
 def logo_bild(logo_id: str, ordner: Path | None = None):
     """(RGBA-Bild, hell) eines GEPRÜFTEN Logos oder None."""
     from PIL import Image
