@@ -7226,7 +7226,8 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
 41. ~~**Timeout des Datenlaufs auf 360 Minuten**~~ **erledigt**
     (27.10.2026, vom Nutzer: „Ja, Timeout auf main auf 360 anheben“):
     `timeout-minutes: 360` in `update-events.yml` auf beiden
-    Entwicklungs-Branches und auf `main` (nur diese Datei), Diff zwischen
+    Entwicklungs-Branches und auf `main` (Commit `a202d26f`, nur diese
+    Datei), Diff zwischen
     `main` und Entwicklungs-Branch leer. Anlass: Der Lauf vom 26.10.2026
     brauchte 262 von 300 Minuten, dazu kam die Instagram-Prüfung. 360 ist
     das Maximum für gehostete Läufer.
