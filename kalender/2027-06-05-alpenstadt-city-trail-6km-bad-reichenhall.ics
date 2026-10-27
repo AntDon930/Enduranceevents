@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-alpenstadt-city-trail-6km-bad-reichenhall@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Alpenstadt City&Trail
+LOCATION:Bad Reichenhall\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://dare2b.cityundt
+ rail.de/
+TRANSP:TRANSPARENT
+URL:https://dare2b.cityundtrail.de/
+END:VEVENT
+END:VCALENDAR

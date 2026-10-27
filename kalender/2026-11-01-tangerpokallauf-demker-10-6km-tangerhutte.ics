@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-tangerpokallauf-demker-10-6km-tangerhutte@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Tangerpokallauf Demker
+LOCATION:Tangerhütte\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.6 km\nhttps://www.elbe-oh
+ re-cup.de/veranstaltungen/tangerpokallauf/
+TRANSP:TRANSPARENT
+URL:https://www.elbe-ohre-cup.de/veranstaltungen/tangerpokallauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-donkey-creek-cyclocross-30km-nideggen-schmidt@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Donkey Creek Cyclocross – Cyclocross 30 km
+LOCATION:Nideggen Schmidt\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 30 km\nhttp://www.donke
+ y-creek.de
+TRANSP:TRANSPARENT
+URL:http://www.donkey-creek.de
+END:VEVENT
+END:VCALENDAR

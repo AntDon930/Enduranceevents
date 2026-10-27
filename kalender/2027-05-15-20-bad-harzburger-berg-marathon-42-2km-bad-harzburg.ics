@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-20-bad-harzburger-berg-marathon-42-2km-bad-harzburg@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:20. Bad Harzburger Berg-Marathon – Marathon
+LOCATION:Bad Harzburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttp://www.bergmarat
+ hon-harzburg.de
+TRANSP:TRANSPARENT
+URL:http://www.bergmarathon-harzburg.de
+END:VEVENT
+END:VCALENDAR

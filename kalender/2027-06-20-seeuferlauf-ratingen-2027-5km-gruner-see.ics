@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-seeuferlauf-ratingen-2027-5km-gruner-see@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Seeuferlauf Ratingen 2027
+LOCATION:Grüner See\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://seeuferlauf.de
+TRANSP:TRANSPARENT
+URL:https://seeuferlauf.de
+END:VEVENT
+END:VCALENDAR

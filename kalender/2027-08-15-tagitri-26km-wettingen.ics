@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-tagitri-26km-wettingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:TägiTri – Duathlon 26 km (3.8 km Laufen / 18.4 km Rad / 3.8 km Lau
+ fen)
+LOCATION:Wettingen\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 26 km\nhttps://taegitri
+ .ch/home
+TRANSP:TRANSPARENT
+URL:https://taegitri.ch/home
+END:VEVENT
+END:VCALENDAR

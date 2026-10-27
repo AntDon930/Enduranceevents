@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-slowup-hochrhein-32km-laufenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:slowUp Hochrhein – Volksradfahren 32 km
+LOCATION:Laufenburg\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 32 km\nhttps://www.sl
+ owup.ch/hochrhein/de
+TRANSP:TRANSPARENT
+URL:https://www.slowup.ch/hochrhein/de
+END:VEVENT
+END:VCALENDAR

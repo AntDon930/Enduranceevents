@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-45-oberlichtenauer-sommerlauf-13km-pulsnitz@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:45. Oberlichtenauer Sommerlauf
+LOCATION:Pulsnitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://www.sg-oberli
+ chtenau.de/
+TRANSP:TRANSPARENT
+URL:https://www.sg-oberlichtenau.de/
+END:VEVENT
+END:VCALENDAR

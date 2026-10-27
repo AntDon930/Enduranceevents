@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-gp-der-stadt-dubendorf-10km-dubendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:GP der Stadt Dübendorf – ZKB Zürilauf Cup Hauptkategorie 10km
+LOCATION:Dübendorf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.gpduebend
+ orf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.gpduebendorf.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-panoramalauf-ottenberg-x-berg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:Panoramalauf Ottenberg
+LOCATION:Berg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://runfitthurgau.ch/
+ panorama-abendlauf/panoramalauf-ottenberg/
+TRANSP:TRANSPARENT
+URL:https://runfitthurgau.ch/panorama-abendlauf/panoramalauf-ottenberg/
+END:VEVENT
+END:VCALENDAR

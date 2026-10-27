@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-tiergartenlauf-velen-21-1km-velen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Tiergartenlauf Velen – Halbmarathon
+LOCATION:Velen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.sf-nord
+ velen.de/tgl/
+TRANSP:TRANSPARENT
+URL:https://www.sf-nordvelen.de/tgl/
+END:VEVENT
+END:VCALENDAR

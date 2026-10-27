@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-legend-of-cross-fryheit-20km-bad-frankenhausen-kyffhauser@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Legend of Cross - Fryheit – 20 km EXPERT (ab 16 Jahren\, Jg. 2011 
+ und älter)
+LOCATION:Bad Frankenhausen/Kyffhäuser\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 20 km\nhttps://www.legendofcr
+ oss.de/fryheit/
+TRANSP:TRANSPARENT
+URL:https://www.legendofcross.de/fryheit/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-trail-de-l-aminona-43km-crans-montana@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270627
+SUMMARY:Trail de l'Aminona
+LOCATION:Crans-Montana\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 43 km\nhttps://trail-aminona.
+ ch/
+TRANSP:TRANSPARENT
+URL:https://trail-aminona.ch/
+END:VEVENT
+END:VCALENDAR

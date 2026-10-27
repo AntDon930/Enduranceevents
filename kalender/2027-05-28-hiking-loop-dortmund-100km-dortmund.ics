@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-hiking-loop-dortmund-100km-dortmund@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270531
+SUMMARY:Hiking Loop Dortmund
+LOCATION:Dortmund\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 100 km\nhttps://www.hiking-l
+ oop.de/events/hiking-loop-dortmund-2027
+TRANSP:TRANSPARENT
+URL:https://www.hiking-loop.de/events/hiking-loop-dortmund-2027
+END:VEVENT
+END:VCALENDAR

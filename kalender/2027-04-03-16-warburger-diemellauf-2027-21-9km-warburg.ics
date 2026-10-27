@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-16-warburger-diemellauf-2027-21-9km-warburg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:16. Warburger Diemellauf 2027
+LOCATION:Warburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.9 km\nhttp://warburgersv.
+ de
+TRANSP:TRANSPARENT
+URL:http://warburgersv.de
+END:VEVENT
+END:VCALENDAR

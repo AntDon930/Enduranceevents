@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-allgau-panorama-marathon-18km-sonthofen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270809
+SUMMARY:Allgäu Panorama Marathon – Hörnerlauf
+LOCATION:Sonthofen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 18 km\nhttps://www.datasport.
+ de/anmeldeservice/apm2027
+TRANSP:TRANSPARENT
+URL:https://www.datasport.de/anmeldeservice/apm2027
+END:VEVENT
+END:VCALENDAR

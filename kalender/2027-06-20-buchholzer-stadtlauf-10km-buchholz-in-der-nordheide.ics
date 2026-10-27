@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-buchholzer-stadtlauf-10km-buchholz-in-der-nordheide@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Buchholzer Stadtlauf
+LOCATION:Buchholz in der Nordheide\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://buchholzersta
+ dtlauf.de/
+TRANSP:TRANSPARENT
+URL:https://buchholzerstadtlauf.de/
+END:VEVENT
+END:VCALENDAR

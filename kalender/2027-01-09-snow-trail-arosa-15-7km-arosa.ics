@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-snow-trail-arosa-15-7km-arosa@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Snow Trail Arosa – S16 15\,7 km 10 Meilen
+LOCATION:Arosa\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 15.7 km\nhttp://www.snowwalkr
+ un.ch
+TRANSP:TRANSPARENT
+URL:http://www.snowwalkrun.ch
+END:VEVENT
+END:VCALENDAR

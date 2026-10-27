@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-course-de-noel-et-trail-des-chateaux-sion-5km-sion@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:Course de Noël et Trail des Châteaux \, Sion – Course Dames 5 km
+LOCATION:Sion\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.coursedenoe
+ l.ch/
+TRANSP:TRANSPARENT
+URL:https://www.coursedenoel.ch/
+END:VEVENT
+END:VCALENDAR

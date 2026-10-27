@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-peter-drey-crosslauf-7-9km-idar-oberstein@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Peter Drey-Crosslauf – Lauf 5 Männer/Frauen\, Senioren M/W-30 bis 
+ M/W-90
+LOCATION:Idar-Oberstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.9 km\nhttps://my.raceresult
+ .com/427361/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/427361/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-7-thuringer-gravel-night-x-altenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270712
+SUMMARY:7. Thüringer Gravel Night – Gravel Ride
+LOCATION:Altenburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: -\nhttps://www.instagram.co
+ m/gravel.night
+TRANSP:TRANSPARENT
+URL:https://www.instagram.com/gravel.night
+END:VEVENT
+END:VCALENDAR

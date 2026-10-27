@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-ironman-5150-kraichgau-x-ubstadt-weiher@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Ironman 5150 Kraichgau – Mitteldistanz
+LOCATION:Ubstadt-Weiher\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.ironman.co
+ m/races/im703-kraichgau
+TRANSP:TRANSPARENT
+URL:https://www.ironman.com/races/im703-kraichgau
+END:VEVENT
+END:VCALENDAR

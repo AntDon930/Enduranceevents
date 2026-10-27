@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-altmuhltal-radmarathon-gravel-200km-beilngries@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Altmühltal Radmarathon [ Gravel ] – Radmarathon 200 km
+LOCATION:Beilngries\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 200 km\nhttps://www.altmueh
+ ltaler-radmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.altmuehltaler-radmarathon.de/
+END:VEVENT
+END:VCALENDAR

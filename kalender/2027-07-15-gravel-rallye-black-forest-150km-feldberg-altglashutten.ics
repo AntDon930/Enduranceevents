@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-15-gravel-rallye-black-forest-150km-feldberg-altglashutten@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270715
+DTEND;VALUE=DATE:20270719
+SUMMARY:Gravel Rallye Black Forest – Gravel Tour 150 km
+LOCATION:Feldberg-Altglashütten\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 150 km\nhttp://gravel-rally
+ e.com/black-forest
+TRANSP:TRANSPARENT
+URL:http://gravel-rallye.com/black-forest
+END:VEVENT
+END:VCALENDAR

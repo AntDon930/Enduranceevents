@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-13-stirnlampenlauf-tuttlingen-8km-tuttlingen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:Stirnlampenlauf Tuttlingen
+LOCATION:Tuttlingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://runundfun.de/i
+ nfos/stirnlampenlauf/
+TRANSP:TRANSPARENT
+URL:https://runundfun.de/infos/stirnlampenlauf/
+END:VEVENT
+END:VCALENDAR

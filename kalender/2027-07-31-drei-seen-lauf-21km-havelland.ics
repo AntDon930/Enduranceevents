@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-drei-seen-lauf-21km-havelland@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:Drei-Seen-Lauf
+LOCATION:Havelland\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://www.drei-seen
+ -lauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.drei-seen-lauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-28-winterlicher-hunderter-2026-die-gans-muss-weg-45km-dohna@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261228
+DTEND;VALUE=DATE:20261230
+SUMMARY:Winterlicher Hunderter 2026 – Die Gans muss weg – 45 km Nachtrunde
+LOCATION:Dohna\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 45 km\nhttps://dohnaer-100.d
+ e
+TRANSP:TRANSPARENT
+URL:https://dohnaer-100.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-adac-velotour-eschborn-frankfurt-92km-eschborn@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:ADAC Velotour Eschborn–Frankfurt – Jedermannrennen Express 92 km
+LOCATION:Eschborn\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 92 km\nhttps://www.eschborn
+ -frankfurt.de/de
+TRANSP:TRANSPARENT
+URL:https://www.eschborn-frankfurt.de/de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-montafon-totale-trail-16km-schruns@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Montafon Totale Trail
+LOCATION:Schruns\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 16 km\nhttps://www.montafonto
+ tale.at/
+TRANSP:TRANSPARENT
+URL:https://www.montafontotale.at/
+END:VEVENT
+END:VCALENDAR

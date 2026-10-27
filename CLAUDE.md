@@ -1,0 +1,7796 @@
+# CLAUDE.md
+
+Kurzbriefing für Claude Code. Ausführliche Doku: `README.md` (36 KB, nur bei
+Bedarf gezielt lesen).
+
+## Was das ist
+
+Statische Webseite mit einer filterbaren Liste von Ausdauersport-Events
+(Laufen, Schwimmen, Fahrrad, Triathlon) im deutschsprachigen Raum:
+Deutschland, Österreich, Schweiz und **Südtirol** (seit dem 21.09.2026,
+im Filter „Italien (Südtirol)"). Läuft auf GitHub Pages, kein
+Build-Schritt, kein Framework.
+Datenbasis ist `events.json`, gefüllt von Python-Scrapern.
+
+## Entwicklungs-Branch
+
+Alle Arbeit auf **`claude/endurance-events-website-v1wruf`** (PR #1).
+Nicht auf einen anderen Branch pushen.
+
+**Zweiter Name für denselben Stand**: Seit dem 21.09.2026 gibt es
+daneben `claude/website-access-9d9tg1`. Beide Branches werden **auf
+demselben Commit gehalten** (vom Nutzer am 21.09.2026 so entschieden:
+„die beiden Branches zusammenführen") – jeder Push geht auf beide. Wer
+nur einen sieht, sieht trotzdem alles.
+
+**Vorschau-Branch für die Clubs** (seit dem 19.10.2026, vom Nutzer
+gewünscht: „erst einmal alles bauen und dann in einem launchen"): Die
+Clubs (Run-/Rad-/Schwimm-Treffs, Seite `clubs.html`, Schalter auf der
+Karte) entstehen auf **`claude/clubs-feature-map-kycnmi`**. Schnelle
+Korrekturen an der Live-Seite gehen weiter direkt auf den
+Entwicklungs-Branch oben; der Clubs-Branch holt sie per **Merge** nach
+(nie umgekehrt vor dem Launch). `pages.yml` legt bei jedem Deploy den
+Clubs-Stand unter **`/vorschau/`** (noindex, robots.txt gesperrt, Daten
+vom Live-Stand); ein Push auf den Clubs-Branch stößt den Deploy über
+`vorschau.yml` an. **Seit dem 19.10.2026 mit Anmeldesperre** (vom Nutzer
+gewünscht, nachdem er gefragt hatte, ob die Vorschau geschützt ist – sie
+war es nicht, jede/r mit der Adresse kam drauf): `pages.yml` setzt
+`vorschau-sperre.js` als erstes Skript in jede Vorschau-Seite; sie zeigt
+die Seite nur, wenn das angemeldete Konto unter `admins/<uid>` steht (wie
+`admin.html`, REST mit ID-Token), sonst „Mit Google anmelden“ bzw. „kein
+Zugang“ mit der Konto-ID. Fail-closed: bis zur Bestätigung ist alles
+dahinter `opacity:0` + `inert`, und der Schritt „Vorschau nur mit
+Anmeldesperre“ wirft vor dem Upload die ganze Vorschau heraus, wenn EINE
+Seite die Sperre nicht trägt. **Grenze, dem Nutzer gesagt: Sichtschutz,
+kein Tresor** – GitHub Pages liefert die Dateien (HTML, Daten) an jeden
+aus, der sie direkt abruft. Ein Firebase-Update in `vendor/` muss
+`FIREBASE_PFAD` in der Datei mitnehmen (`test_vorschau_sperre` prüft den
+Pfad). **Launch**: Clubs-Branch in den Entwicklungs-Branch mergen, dann
+die drei Vorschau-Schritte in `pages.yml` (holen, vorbereiten, Wächter),
+`vorschau.yml`, `vorschau-sperre.js` und die Zeile `Disallow: /vorschau/`
+in `robots.txt` entfernen.
+
+## Dateien
+
+| Datei | Zweck |
+|---|---|
+| `events.json` | die Daten (**~450 KB**, wächst mit jedem Lauf) |
+| `index.html` | Startseite (statisch, kein Kartenlink – bewusst entfernt) |
+| `events.html` | die Liste; Tabelle mit 7 Spalten, Filter pro Spalte |
+| `places.json` | **~1,5 MB**, alle Orte + PLZ von DE/AT/CH und Südtirol (GeoNames IT, nur Provinz Bozen) für die Umkreissuche (nie komplett lesen) |
+| `laender.json` | **73 KB**, Umrisse von DE/AT/CH und Südtirol für die Maske und die Landfläche der Karte – und für `scraper_lib.in_suedtirol()` |
+| `scripts/build_laender.py` | baut `laender.json` aus Natural Earth (Staaten aus admin_0, Südtirol als Provinz IT-BZ aus admin_1); läuft nicht im Workflow mit |
+| `scripts/build_places.py` | baut `places.json` aus GeoNames (`TEILGEBIET`: Italien nur admin2 „BZ"); läuft nicht im Workflow mit |
+| `bilder/` | die **fünf Fotos der Startseite** als WebP (Hero 1600×900, vier Sport-Kacheln 960×640, seit dem 13.10.2026 je dazu die **halbe Breite** `hero-800.webp` / `*-480.webp` für das Handy, per `srcset` in `index.html`), alle von Wikimedia Commons unter CC0/CC BY/CC BY-SA – Quellen und das Pillow-Rezept für die kleinen Fassungen in `bilder/QUELLEN.md`, Namensnennung im Impressum („Datenquellen und Lizenzen"); wer ein Bild tauscht, zieht alle drei nach |
+| `favicon.svg`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `manifest.webmanifest` | das Zeichen des Style Guides (Navy-Kachel, weiße Route, oranger Punkt); die PNGs entstehen aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 bzw. 192/512 px, randvoll ohne Rundung), `cairosvg` gibt es in der Sandbox nicht. Das **Manifest** (seit 13.10.2026, in allen sechs Seiten verlinkt) macht aus „Zum Home-Bildschirm" eine App mit Namen, Navy-Farbe und eigenem Fenster (`display: standalone`) |
+| `vendor/fonts/` | **Barlow und Barlow Condensed** als woff2 (SIL OFL, Lizenztexte daneben), eingebunden über `vendor/fonts/barlow.css` in allen fünf Seiten – selbst gehostet, nichts von Google-Servern; ohne Stempel wie alles in `vendor/` |
+| `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
+| `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
+| `site.css` | **Farben (ZWEI Schemata: dunkel = `:root`, hell = `:root[data-theme="light"]`), Kopfzeile (Marke, Navigation, Hell/Dunkel-Knopf, DE/EN, Anmelden), Filterleiste, Werkzeugleiste, Fußzeile** – geteilt von Liste, Karte und Startseite; seit dem Umbau vom 21.09.2026 nach den Vorlagen des Nutzers (Liste dunkel, Karte hell) |
+| `filter-ui.js`, `filter-ui.css` | die Filterknöpfe (**Pillen mit gesetztem Wert**, `buildButtonBar` mit `order`) + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |
+| `event-detail.js`, `event-detail.css` | die **Detail-Box** eines Events (Datum groß, Abzeichen, **Strecken-Pillen** über `siblings`/`onSelect`, vier Fakten mit Symbol, Kalender-Menü, Teilen, `eventSlug`/`icsFileName`, `sportIcon`, Toast) – Liste (neben der Tabelle) und Karte (oben rechts, genau eine) zeigen dieselbe |
+| `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den sieben geteilten Dateien (`site.css`, `filters.js`, `filter-ui.js`, `filter-ui.css`, `event-detail.js`, `event-detail.css`, `stats.js`; **nach jeder Änderung daran laufen lassen**) – in allen sechs Seiten |
+| `kalender/*.ics` | **~4.150 Dateien**, eine je Event, fertig für den Kalender (nie alle lesen) |
+| `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
+| `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
+| `stats.js` | **Besucherstatistik im Browser** (seit 13.10.2026): ein Seitenaufruf je Seite plus Aktionen (Event geöffnet, Veranstalter-Klick, Kalender, Teilen, Abo, Meldung, Suche, Filter) an die Cloud Function `collect`; schweigt auf localhost, bei `webdriver`, DNT/GPC und nach dem Abschalten in der Datenschutzerklärung; alle sechs Seiten laden es mit `?v=`-Stempel |
+| `admin.html` | **das Dashboard** – nur für den Betreiber (Anmeldung + Dokument `admins/<uid>` in Firestore), liest `stats_daily`; nicht in der Navigation verlinkt. Seit dem 14.10.2026 mit den Kennzahlen für Werbekunden (Monat, Abos, Wochentag, Zielgruppe, Bericht je Veranstaltung, Werbeplätze). **Seit dem 16.10.2026 in fünf Bereichen, je Linie + Überschrift (`hr.stat-trenner` + `h2.stat-bereich`, Reihenfolge vom Nutzer): Dashboard (Zeitraum, Kennzahlen) – Graphen – Auswertungen (`#stat-listen`, `ABSCHNITTE`) – Instagram (`#ig-card`, `#stat-listen-ig` mit `ABSCHNITTE_IG`, Freigabe) – Wartung**; der Rauchtest prüft die Reihenfolge |
+| `functions/stats_aggregate.js` | die Rechenregeln der Statistik (Besuche, Absprung, Dauer, Listen) ohne Firestore – `aggregateStats` ruft sie, `test_statistik` rechnet sie mit node nach |
+| `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
+| `scripts/*_scraper.py` | ein Skript pro Quelle (seit dem 17.10.2026 auch `mammutmarsch_scraper.py` und `megamarsch_scraper.py`, Kategorie „Marsch“, Datenregel 25; seit dem 24.09.2026 auch `schwimmkalender_scraper.py`, seit dem 30.09.2026 `datasport_scraper.py`, siehe „Quellen") |
+| `scripts/clean_events.py` | räumt bestehende `events.json` nach allen Regeln auf, idempotent |
+| `scripts/audit_events.py` | **prüft einzelne Zeilen** und meldet Verdachtsfälle – ändert nichts |
+| `scripts/geprueft.json` | **Protokoll der Einzelprüfungen** – wer hier steht, ist geprüft (`audit_events.py --offen` blendet ihn aus) |
+| `scripts/links_geprueft.json` | **Protokoll der Linkprüfung** (nur `veranstalter_url`, 500 Veranstaltungen am 19.09.2026) – bewusst getrennt von `geprueft.json`, damit die Datenprüfung diese Events nicht für „erledigt" hält |
+| `scripts/eventliste_pdf_geprueft.json` | **Prüfprotokoll der PDF-Eventliste des Nutzers** (24.09.2026, 247 Rad- und Schwimm-Einträge DE/AT je Bundesland): je Eintrag Ergebnis und Notiz – 34 nachgetragen, 19 im Bestand, 67 „existiert, Termin offen" (53 davon mit Seite – im Gedächtnis, der Wochenlauf fragt sie ab –, 14 ohne auffindbare Seite), 98 nicht gefunden; Stand 13.10.2026 nach der Websuche zu den letzten 28 ohne Seite; siehe README („Die Eventliste des Nutzers") |
+| `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
+| `scripts/abo_meldung.py` | **E-Mail-Abos** (seit 20.10.2026): `vergleichen` (in `pages.yml` vor dem Upload: was ist seit der letzten Meldung sichtbar geworden? Meldestand in `deploy.json` auf der Seite), `senden` (Job `abo` NACH dem Deploy, an `checkNewEvents`); gemeldet wird einmal je Datenlauf – siehe „Abos sind Filter + Rhythmus“ |
+| `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
+| `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
+| `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** – `sammeln` (raceresult-Kontaktseite, externe Links der Portalseite), `verifizieren` (Adressen aus einer Websuche), `pruefen` (eigene Seiten: tot? nennt den Lauf?), `anwenden` (Overrides + Protokoll); jede Kandidatenseite muss den Lauf am Namen nennen (bei `verifizieren` zählt auch der Ort im Hostnamen), siehe „Neunter/Zehnter Durchgang"; `sammeln --ohne-host`, `veranstalter_name` aus der raceresult-Kontaktseite und die Berichtsfelder `begruendung`/`protokoll` für Handbelege seit dem „Achtzehnten Durchgang" |
+| `scripts/seitenabgleich.py` | hält jede Veranstaltung mit eigener Seite gegen den **Seitentext** (Datum da? Distanzen da?) und meldet DATUM/DISTANZ/LEER/FEHLER – nur Bericht, siehe „Elfter Durchgang" |
+| `scripts/veranstalter_seiten.py` | **Gedächtnis je Veranstaltung OHNE Datum** (seit 05.10.2026, vom Nutzer gewünscht): Schlüssel `<Kern des Namens>\|<Ort>`, merkt Veranstalterseite, Koordinaten, Sportart und Strecken der jüngsten Ausgabe; `lernen`/`anwenden`/`abgleich_vorjahr` laufen in `clean_events.py`, `pruefen` ruft die Seiten VERGANGENER Veranstaltungen ab und sucht die nächste Ausgabe (wöchentlich in `update_events.py`, `--uebernehmen` schreibt eindeutige Funde nach `manual_events.json`); siehe „Gedächtnis je Veranstaltung" |
+| `scripts/veranstalter_seiten.json` | **~2 MB, 4.371 Veranstaltungen (4.151 mit Seite) – nie komplett lesen**; eine Zeile je Eintrag, nach Schlüssel sortiert; geschrieben von `clean_events.py`, vom Datenlauf mitcommittet. Nachschlagen: `python3 scripts/veranstalter_seiten.py zeigen <Suchwort>` |
+| `scripts/veranstalter_seiten_pruefung.json` | Bericht von `pruefen` (je Veranstaltung Flag NEU/NEU?/LEER/NICHTS/FEHLER, gefundene Termine); entsteht im Datenlauf, wird mitcommittet |
+| `scripts/instagram_konten.py`, `scripts/instagram_konten.json` | **Das eigene Instagram-Konto großer Veranstaltungen** (seit 27.10.2026, vom Nutzer gewünscht): `pruefen` liest die EIGENE Veranstalterseite künftiger Events (nie Portal; robots.txt, 2 s je Host, 8 Hosts gleichzeitig, Startseite als Rückfall) und legt je Adresse die verlinkten Konten ab (eine Zeile je Adresse, ohne Urteil, alle 90 Tage neu, nach Fehler nach 21); `event_konto()` entscheidet, welches dem Event selbst gehört; `clean_events.fix_instagram()` setzt das Feld `instagram` – siehe Frontend-Fallen „Das Instagram-Zeichen großer Veranstaltungen“. Nachschlagen: `python3 scripts/instagram_konten.py zeigen <Suchwort>` |
+| `scripts/korrekturliste.py` | **Excel-Korrekturliste für den Nutzer** (seit 05.10.2026): `export` schreibt alle Strecken mit fehlender/fraglicher Angabe (Audit-Meldungen ohne Eintrag in `geprueft.json`, vorläufige Termine, „unklar“-Fälle) als `.xlsx`, Zellen rot = fehlt, orange = fraglich; `import datei.xlsx [--dry-run]` liest die korrigierte Fassung zurück (Vergleich gegen das ausgeblendete Blatt `_original`), schreibt `manual_overrides.json` + `geprueft.json` und lässt `clean_events.py --no-geocoding` und `build_ics.py` laufen. Braucht `openpyxl`. Die `.xlsx` wird nicht committet. **Seit dem Livegang (13.10.2026) ist die Liste der Schalter: Jede Zeile, die in ihr steht, trägt in `events.json` `pruefung_offen: true` und ist auf der Seite ausgeblendet** (siehe „Livegang") |
+| `korrektur/korrekturliste.html`, `scripts/korrektur_seite.py` | **Die Korrekturseite** (seit 19.10.2026, statt die zwei Excel-Listen hin- und herzuschicken): privates claude.ai-Artifact mit Datenbank, gleiche Spalten, Farben und Auswahllisten wie die Excel; `korrektur_seite.py daten events\|clubs` baut die Zeilen aus dem Excel-Export (`korrektur/daten/*.json`, nicht committet), `einlesen` schickt die Antworten durch den VORHANDENEN Import – siehe „Korrekturseite“ |
+| `vorschau-sperre.js` | **Anmeldesperre der Clubs-Vorschau** (seit 19.10.2026): `pages.yml` kopiert sie nach `vorschau/` und setzt sie in jede Vorschau-Seite; nur Konten in `admins/<uid>` sehen die Seiten – siehe „Vorschau-Branch für die Clubs“ oben |
+| `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
+| `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
+| `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
+| `scripts/smoke_test_frontend.py` | Rauchtest der Seite in Chromium (lokaler Server, Handybreite) |
+| `impressum.html`, `datenschutz.html` | Pflichtseiten, Anschrift und Kontaktadresse (`impressum@endurance-events.de`, seit dem 05.10.2026) stehen; von jeder Seite aus verlinkt |
+| `robots.txt`, `.well-known/tdmrep.json`, `LICENSE` | **Schutz der Datenbank** (14.10.2026): Suchmaschinen dürfen alles, KI-Crawler nichts, alle anderen nicht an die Datendateien; TDM-Vorbehalt nach § 44b UrhG (dazu `<meta name="tdm-reservation">` in allen sieben Seiten); „Alle Rechte vorbehalten" mit den Ausnahmen Dritter. Nutzungsbedingungen in `impressum.html#nutzung` (DE/EN) – README „Schutz der Datenbank" |
+| `scripts/fangzeile.py` | **erfundene Zeile** „Großweiler Moosrunde" in `events.json`/`events.web.json`/`kalender/`, an der sich eine Kopie erkennen lässt; immer `pruefung_offen` (nie auf der Seite), `clean_events.py` nimmt sie beim Laden heraus und setzt sie als LETZTEN Schritt wieder ein, Termin wandert (2. Samstag, 8 Monate voraus). **Nicht löschen, nicht „bereinigen"**; wer events.json in einem neuen Skript liest, das Seiten abruft oder Zeilen zeigt, lässt sie mit `fangzeile.entfernen()` aus |
+| `seite.css` | Stile der beiden Textseiten (ohne `?v=`-Stempel, Begründung in der Datei) |
+| `wartung.html` | **Wartungsmodus** (13./14.10.2026): Schalter ist das Firestore-Dokument `config/wartung`, umgelegt in `admin.html` (Karte „Wartungsmodus" mit Knopf und Texten DE/EN); Startseite, Liste und Karte fragen es im `<head>` per REST ab und leiten bei `aktiv` hierher, Impressum/Datenschutz/admin.html bleiben erreichbar; Wirkung sofort, kein Deploy. Bei ausgeschaltetem Schalter springt die Seite zur Startseite zurück – ansehen über `wartung.html?vorschau`. Regeln deployt und Probe bestanden am 14.10.2026 – siehe README „Deploy-Gate und Wartungsmodus" |
+| `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
+| `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
+| `scripts/insta_inhalte.py`, `insta_video.py`, `insta_musik.py`, `insta_veranstalter.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions + Stories, Reel- und Story-Render (Pillow + ffmpeg, eigener Beat), @-Erwähnung der Veranstalter (Name von deren Seite), Auswertung, Upload über die Instagram-API (seit 16.10.2026 **Anmeldung über Instagram**: Video kurz im Google-Speicher, Schlüssel im Google-Tresor, beides ohne Schlüsseldatei über Workload Identity; einmal einrichten mit `scripts/instagram_google_einrichten.sh` in der Cloud Shell), alles in einem Aufruf – siehe „Instagram" |
+| `scripts/insta_freigabe.py`, `marketing/instagram/plan.json` | **Freigabe mit einem Klick** (14.10.2026): `plan.json` (im Pages-Workflow erzeugt, nie committet) nennt die Beiträge der nächsten 14 Tage mit Kennung des Inhalts; das Dashboard (`admin.html`, Karte „Instagram-Freigabe") schreibt `insta_freigaben/<Datum>` in Firestore; der Abendlauf fragt `insta_freigabe.darf_posten()` – siehe „Instagram" |
+| `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `humor.json` (eigene Läuferwitze für das Format „humor"), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` (dort auch `instagram_namen.json`) nicht im Repo |
+| `scripts/insta_logos.py`, `marketing/instagram/grosse_events.json`, `marketing/instagram/logos/` | **Logo-Reels** (seit 27.10.2026): die großen Events mit Starterzahl und Anmeldestart (je mit Quelle) und ihre GEPRÜFTEN Logos (`logos/<slug>.png`, Quelle in `logos/logos.json`); `insta_logos.py sammeln|uebernehmen|bogen` – siehe „Instagram", Bullet „Logo-Reels" |
+| `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort auf diesem Stand (seit dem 27.10.2026 Commit `9461aba6`: Formate monat/anmeldung im Handlauf, vom Nutzer: „Ja bitte auf main“; davor `ae5751ef`, Anmeldung über Instagram) |
+| `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
+
+**`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
+gezielt abfragen:
+
+```bash
+python3 -c "import json; ev=json.load(open('events.json')); print(len(ev))"
+```
+
+## Vor jedem Commit
+
+```bash
+python3 scripts/test_scraper_lib.py     # muss grün sein
+```
+
+Der Test prüft auch, ob `kalender/` zu `events.json` passt. Schlägt er
+dort an (typisch nach einem Datenlauf), hilft:
+
+```bash
+python3 scripts/build_ics.py            # und die Dateien mitcommitten
+```
+
+Wurde `site.css`, `filters.js`, `filter-ui.js`, `filter-ui.css`,
+`event-detail.js`, `event-detail.css` oder `stats.js` angefasst, **vorher** stempeln
+(der Test schlägt sonst fehl und sagt es auch):
+
+```bash
+python3 scripts/stamp_assets.py
+```
+
+`node --check` über die Inline-Skripte und die geteilten JS-Dateien
+steckt **im Test** (`test_js_syntax`) – von Hand nötig ist es nicht mehr.
+Bei Änderungen an `events.html`/`index.html`/`karte.html` zusätzlich den
+Rauchtest laufen lassen:
+
+```bash
+python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
+```
+
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 347 Punkte:
+Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
+**Kachelansicht** (bis 900 px: Kacheln statt Tabelle, der Knopf
+„Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
+Block, ab 901 px wieder die Tabelle), Aufklappen der
+zusammengefassten Veranstaltungen (samt Rahmen um den Block – die
+Tabellenprüfungen laufen dafür auf 1024 px), Filter-Panel, Kalenderdatei hinter dem
+Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
+Ausgangspunkt ungebündelt, das Fenster der Tabelle (nur ein Schub im
+DOM, volle Trefferzahl, Knopf hängt nach), Teilen eines Events (was an
+`navigator.share` geht und der Rückweg über den geteilten Link),
+Impressum und Datenschutz (erreichbar von jeder Seite, keine
+Platzhalter mehr, Name und Kontaktadresse da, Sprachumschalter), **Enter im Namens-Panel** (schließt es,
+Filter bleibt, Fokus zurück am Knopf), die **Suche auf der Karte**
+(vor den Filterknöpfen, filtert Marker, `?s=`, Chip, Listen-Knopf nimmt
+sie mit), die **Detail-Box auf der Karte** (Marker „2" öffnet das
+Popup mit zwei Veranstaltungen, ein Klick darin genau EINE Box oben
+rechts, das zweite Event ersetzt sie, ✕, „Fehler melden" führt in die
+Liste und öffnet den Dialog), der Abo-Dialog (Knopf, Zusammenfassung,
+drei Rhythmen, `?abos=1`, Null-Treffer-Box, die Filterleiste darin –
+vorbelegt, Panel im Dialog und davor, Liste dahinter unberührt),
+Tastaturbedienung (ein Tab-Stopp, Pfeile,
+Enter **auch auf einer aufklappbaren Veranstaltung**, Leertaste,
+Escape, Fokusfessel der Dialoge), das **Filter-Blatt auf dem Handy**
+(Pillen im Blatt, Knopf „Filter" in der Leiste, erste Veranstaltung im
+Bild, „Filter – Sortieren – E-Mail-Abo" in einer Zeile, das Sortier-Blatt
+sortiert und schließt sich, Panel über dem Blatt, „Events
+anzeigen" schließt beides, Karte mindestens halbe Bildhöhe ohne
+Seiten-Scroll), „Wir haben dein Event nicht?"
+(Knopf unter der Liste, die drei Felder, eigene Fehlermeldungen, beide
+Wege bei null Treffern), gleiche Zeilenhöhe aller Zeilen und das
+Dezimaltrennzeichen in DE und EN, die **Mastersuche** (Ort UND Name,
+Chip, `?s=` in der Adresse, das ✕), das **zweizeilige Datum** bei
+mehrtägigen Rennen, der **Events-Knopf der Startseite** (gleiches Ziel
+wie „Events entdecken“, links von der Anmeldung), der **Kartenrahmen**
+(Herauszoomen hat eine Grenze, keine zweite Weltkarte daneben), die
+**graue Maske** (vorhanden, unter den Markern, fängt keine Klicks ab,
+Länder ausgespart), der **Aufbau der Karte nach der Vorlage** (Legende
+unten links mit Trefferzahl und vier Sportarten, „Mein Standort" öffnet
+das Ort-Panel, Werkzeugleiste ohne Filter weg, Landfläche unter den
+Kacheln, flache Übersicht und Kacheln ab Zoom 8, Bündel mit Ortsnamen,
+Orientierungsorte, „E-Mail-Abo" in die Liste), der Popup-Link ohne
+Pfeil, Filter über den Weg Liste → Karte → Liste und das **Farbschema**
+(der Knopf schaltet um, die Wahl bleibt gespeichert und gilt auf der
+nächsten Seite). Ohne Playwright bricht er
+mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
+`/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
+blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`
+laden Leaflet und Firebase (das Skript setzt es schon).
+
+## Datenregeln (hart erkämpft – nicht aufweichen)
+
+1. **Jede Strecke ein eigener Eintrag.** Veranstaltungen bieten mehrere
+   Wettbewerbe an; jeder wird eine Zeile mit eigener `laenge_km` und eigenem
+   `wettbewerb`-Label. Der Veranstaltungs-*name* bleibt identisch (er ist Teil
+   des Duplikat-Schlüssels). Siehe `parse_competitions()`/`expand_competitions()`.
+2. **`veranstalter_url` = offizielle Seite des Laufs**, nie das Kalenderportal.
+   Ein gespeicherter Portallink wird ersetzt, sobald die offizielle bekannt ist,
+   auch quellenübergreifend (`update_existing_event()`, `PORTAL_DOMAINS`).
+   Geraten wird nie.
+   **Bei `my.raceresult.com` steht die offizielle Seite auf der
+   KONTAKT-Seite der Anmeldung** (`…/<nr>/contact`, Feld „Organizer-URL"
+   samt Veranstalter-Anschrift) – vom Nutzer am 19.09.2026 am
+   Backyardman Würzburg gezeigt (`410433/contact` → `backyardman.de`).
+   **Das bei raceresult-Links immer prüfen** – seit dem 19.09.2026 macht
+   das `scripts/veranstalter_links.py sammeln` (Kontaktseite abrufen,
+   Organizer-URL prüfen, ob die Seite den Lauf nennt, dann `anwenden`).
+   **Zeitnehmer und Anmeldeplattformen sind Portallinks** (vom Nutzer
+   am 19.09.2026 entschieden: „zieh die anderen Zeitnehmer genauso
+   nach"): raceresult, datasport, lanet3, racepedia, runtix, davengo,
+   myracepartner, sas-online, maxx-timing, rennmeldung, time-and-voice,
+   anmeldungs-service, laufmanager, triathlon-service, zeitgemaess,
+   sportstiming, laufauswertung, berlin-timing, seit dem 22.09.2026
+   time2win, pentek, time-now-sports, katjas-laufzeit, softtiming,
+   chiplauf, dazu die Kalender ladv,
+   laufen-os und strassenlauf.org – alle in `PORTAL_DOMAINS`.
+   `rennmeldung.de` sperrt `/cgi-bin/` per robots.txt: eintragen ja,
+   abrufen nie (das Skript achtet robots.txt selbst).
+   **Die eine Ausnahme (13.10.2026): `"portal_erlaubt": true` im
+   Override.** Nennt die Vereinsseite den Lauf nicht mehr (skiclub-bb.com
+   zeigt zuletzt den Kirta-Lauf 2023, leichtathletik-kw.de und
+   tsg-nattheim.de nennen ihren Lauf 2026 nicht), ist die Anmeldeseite
+   die bessere Adresse – vom Nutzer so entschieden („Ja dann ist die
+   Anmeldeseite besser"). Ohne das Flag blockt `apply_overrides()` (beide
+   Fassungen) einen Portallink über einem Veranstalter-Link weiter;
+   `korrekturliste.py import` setzt es selbst, wenn der Nutzer in der
+   Liste einen Portallink über eine Vereinsseite schreibt, und trägt den
+   Fall als `link_ok` in `links_geprueft.json` ein (sonst suchte
+   `veranstalter_links.py sammeln` wieder nach der Vereinsseite).
+   **Grenze**: Der Override hängt am Datum – die Ausgabe 2027 bekommt
+   von der Quelle wieder die Vereinsseite, bis jemand sie prüft; das
+   Gedächtnis zieht die Vereinsseite für diese Ausgabe zurück
+   (`zurueckgezogen`) und gibt sie nicht weiter. `test_override_koordinaten`
+   hält Sperre und Ausnahme fest.
+3. **Distanzen immer auf eine Dezimalstelle** (`round_km()`): 42,195 → 42.2.
+4. **`land` nie aus dem Event-Namen raten.** Der „Fränkische-Schweiz-Marathon"
+   liegt in Bayern. Quelle: Landesangabe der Seite (`(Schweiz)`, `(AUT)`) oder
+   Reverse-Geocoding der Koordinaten.
+
+   **Südtirol ist die vierte Region** (vom Nutzer am 21.09.2026
+   aufgenommen: „sehr viele Radrennen, ein sehr sportliches Bundesland –
+   damit alle Ausdauer-Events im deutschsprachigen Raum"). Der Wert heißt
+   **„Italien (Südtirol)"** (`scraper_lib.SUEDTIROL`), damit niemand ganz
+   Italien erwartet, und steht in `LAENDER` (`scraper_lib`, `filters.js`,
+   `laender.json`, `functions/index.js`, `filter-ui.js` `LAND_BY_CODE`
+   `IT`). **„Italien" allein ist kein gültiger Wert**, nur ein
+   Zwischenstand: `guess_land()` macht daraus Südtirol, wenn eine
+   Südtiroler PLZ dabeisteht (`39010–39100` = genau die Provinz Bozen,
+   `praezisiere_italien()`), `reverse_land()` und `filter_dach()` über
+   die Koordinaten (`in_suedtirol()`: Punkt-in-Polygon gegen den Umriss
+   in `laender.json` – Nominatim nennt die Provinz je nach Sprache
+   „Bozen", „Bolzano" oder „Südtirol", der Umriss ist eindeutig; Trient
+   liegt in derselben Region, aber außerhalb). Was danach noch „Italien"
+   heißt, wirft `clean_events.drop_ausserhalb()` heraus (nach
+   `fix_land()`, mit Bericht). `test_land` hält Meran (PLZ), Mailand
+   (bleibt „Italien"), Bozen/Sterzing (drin), Innsbruck/Trient (draußen)
+   fest. Die Ortsauswahl kennt 750 Südtiroler Orte (deutsch UND
+   italienisch, wie GeoNames sie führt), Region „Südtirol".
+   **Ein Start knapp außerhalb ist kein Ausschluss, wenn die Strecke
+   durch unsere Regionen führt – aber nur per Entscheidung des Nutzers,
+   keine Regel** (13.10.2026, Berglauf Geschriebenstein: Start in Bozsok
+   (Ungarn), die Strecken führen über Rechnitz und Lockenhaus durch das
+   Burgenland, Veranstalterseite `.at`, Teil des Internationalen
+   Österreichischen Berglaufcups – „Ja aufnehmen"). Die Zeile trägt
+   `land` Österreich und die Koordinaten des Günser Gebirges auf der
+   österreichischen Seite; `drop_ausserhalb()` sieht nur das Land-Feld.
+   Wer den nächsten Grenzfall findet, fragt – und schreibt die
+   Begründung in die `_note` des Overrides.
+5. **5-km-Mindestdistanz nur für `art1 == "Laufen"`** und nur bei *bekannter*
+   Distanz. 3,5 km Freiwasserschwimmen ist eine ernsthafte Distanz.
+   **Seit dem 24.09.2026 hat auch das SCHWIMMEN eine Grenze: 500 m**
+   (vom Nutzer entschieden: „Schwimm events sollten erst ab 500m
+   aufgenommen werden. Also reine Schwimmevents. Bei einem Triathlon
+   kann es auch weniger sein als 500m."). `MIN_DISTANCE_BY_ART1` in
+   `scraper_lib.py` trägt beide Grenzen (`ist_zu_kurz()`,
+   `filter_min_distance()`, `clean_events.drop_too_short()`); Fahrrad
+   und Triathlon haben keine – der 300-m-Schwimmteil eines Super-Sprints
+   ist keine Schwimmveranstaltung. Ohne bekannte Distanz greift sie
+   nicht, ein Zeitrennen (24-Stunden-Schwimmen) ist nie zu kurz.
+   `test_schwimmen_regeln` hält alle Gegenproben fest.
+   **Die Grenze ist hart** (vom Nutzer am 19.09.2026 entschieden: „Die
+   Läufe unter 5km nicht aufnehmen"): Eine als „5 km" beworbene Strecke
+   mit 4,80 km (Sedus Firmenlauf), eine 4,66-km-Runde (Bramfelder
+   Winterlaufserie), 4,6 km (Hochplatten Berglauf) und 4,8 km
+   (Herbstcross Saalfeld) stehen mit ihrer echten Länge im Override und
+   fallen damit heraus. Wer eine solche Zeile prüft, trägt die gemessene
+   Länge ein und lässt die Regel entscheiden – nicht die Marketingzahl.
+6. **`art2`: spezifisch vor generisch.** „Straße"/Marathon steht in
+   `ART2_KEYWORDS_LAUFEN` bewusst ZULETZT, sonst wird ein „Bergtrail
+   Trail-Marathon" zum Straßenlauf. Zusätzlich: ab 20 Höhenmetern pro km gilt
+   eine Strecke als Geländelauf und bekommt „Trail" (`art2_from_elevation()`).
+
+   **„Trail", „Cross" und „Berglauf" sind EINE Kategorie: „Trail".** Alles
+   drei ist Geländelauf, die Quellen benennen dieselbe Strecke mal so, mal
+   so, und eine verlässliche Trennung gibt es nicht. **Treppenläufe
+   (Towerruns, Schanzenläufe, „Stäffeleslauf") sind seit dem 21.09.2026
+   ebenfalls Trail** („Ja Treppenläufe als Trail aufnehmen"); sie haben
+   meist keine Distanz, nur Stufen, die Länge bleibt leer. Erst „Trail/Cross"
+   (mit „Berg" daneben), am 19.09.2026 vom Nutzer erweitert und umbenannt:
+   „Berglauf der Kategorie Trail/Cross hinzufügen und die Kategorie nur
+   ‚Trail' nennen, das ist die beste Bezeichnung einfach für die ganzen
+   Events." Die Laufen-Kategorien sind damit: Straße, Trail, Bahn,
+   Hindernis, Backyard Ultra.
+   Die drei Stichwort-Zeilen (trail / berg+höhenmeter / cross) bleiben
+   trotzdem **getrennt und an ihrer Stelle**, weil „backyard" dazwischen
+   steht (siehe Datenregel 9): „trail" VOR „backyard", Berg und Cross
+   DAHINTER. Bestehende Daten zieht `clean_events.merge_art2()` nach
+   (je Sportart, idempotent – „Cross" beim Triathlon bleibt); die
+   Filterliste steht in `filter-ui.js` (`ART2_BY_ART1`), die Übersetzung
+   in `filters.js` und `functions/index.js`, wo die alten Werte
+   („Trail/Cross", „Berg") für geteilte Links von früher weiter
+   übersetzbar sind – `test_scraper_lib.py` prüft, dass Stichwortliste
+   und Filter dieselben Werte kennen.
+7. **Duplikate**: gleiches Datum + ähnlicher Name + Ort ≤ 30 km + kompatible
+   Distanz (`is_same_event()`). Gleiche Veranstaltung mit *unterschiedlichen*
+   Distanzen bleibt absichtlich getrennt.
+   „Ähnlicher Name" hat fünf Wege (siehe `_same_name()`); der fünfte ist
+   neu: **gleicher Veranstaltungsname ohne Wettbewerb gerechnet, und
+   höchstens eine Seite nennt einen Wettbewerb, bei gleicher `art1`**.
+   Damit fiel der doppelte SAARathon (42,2 km, einmal mit Portallink)
+   weg. Beide Zusatzbedingungen sind nötig: Nennen BEIDE einen
+   Wettbewerb, ist das Label das Unterscheidende („10 km Lauf" vs.
+   „10 km Nordic Walking"), und Lauf vs. Wandern über dieselbe Strecke
+   sind zwei Einträge.
+   **Siebter Weg (30.09.2026, nach dem ersten Kilometerliebe-Lauf)**:
+   Der KERN des einen Namens (ohne Auflage, Jahr, Ort und Ortsadjektiv,
+   `_kern_tokens()`) ist Teilmenge des anderen – „SAARathon" in
+   „Sparkassen-SAARathon", „Frauenlauf Berlin" in „Vitamin Well Frauenlauf
+   Berlin 2027", „Keltenlauf Ditzingen" in „2. Ditzinger Keltenlauf".
+   Bedingungen: gleiche `art1`, **derselbe Standort als Wortmenge**
+   (`_gleicher_standort()`, nicht die 30 km – sonst wären zwei
+   „Nikolauslauf" in Nachbarorten eins; und als Wortmenge, nicht als
+   Zeichenkette: „essen" steckt in „giessen"), und die Labels wie beim
+   fünften/sechsten Weg (höchstens eines, oder gleiche Distanz ohne
+   unterscheidende Gattung). 96 Paare am Bestand, alle durchgesehen, ein
+   Fehltreffer (Kölner Nikolauslauf, von der Quelle nach Bonn verortet –
+   Override). `normalize_event_name()` wirft seitdem Apostrophe weg
+   („Runner's" = „Runners"). `test_siebter_weg` hält Treffer und
+   Gegenproben fest.
+   **Achter Fall (05.10.2026, am „Munich Triathlon" vom Nutzer gemeldet:
+   „Warum ist der 2x drinnen?")**: Nur EINE Seite kennt die Distanz, und
+   beide Labels nennen dasselbe FORMAT. Kilometerliebe liefert Triathlons
+   als „Munich Triathlon 2027" mit dem Label „Sprint" und ohne
+   Kilometer; die Veranstalterseite steht als „Munich Triathlon" mit
+   „Sprintdistanz 25,5 km (…)" in der Liste. Der siebte Weg sah den
+   Namen, verlangte aber zwei Distanzen – also zwei Zeilen für eine
+   Strecke. Jetzt ersetzt das Gattungswort die fehlende Zahl: gleiche,
+   NICHT LEERE Gattung auf beiden Seiten (Sprint, Olympisch,
+   Mitteldistanz …) → eine Strecke; „Sprint" gegen „Kurzdistanz 51,5 km"
+   bleiben zwei, „Hauptlauf" gegen „10 km" (keine Gattung) auch.
+   **„Super-Sprint" ist dafür eine eigene Gattung** (vor „sprint" in
+   `_LABEL_GATTUNG_RE`), sonst wäre die Super-Sprint-Zeile von
+   Kilometerliebe mit der Sprintdistanz des Triathlon Tübingen
+   verschmolzen. Und **die Teilstrecken-Klammer zählt nicht mehr als
+   Gattung** (`_TEILSTRECKEN_KLAMMER` in `_label_gattung()`): Das „Rad"
+   in „(500 m Schwimmen / 20 km Rad / 5 km Laufen)" ist kein Radrennen –
+   bis dahin trennte genau dieses Wort „Sprintdistanz 26 km" von
+   „Sprintdistanz 26 km (…)" (Siebzehnter Durchgang, 20 Paare per
+   Override). Am Bestand nachgezählt: elf Paare neu zusammengeführt, alle
+   Triathlons, alle geprüft, kein Paar verloren; die Gegenproben stehen
+   in `test_siebter_weg`. **Dabei kam der Umweg der allgemeinen
+   Override-Schlüssel ans Licht** (siehe „Die wichtigste Lektion").
+   **Achter Weg (07.10.2026, vom Nutzer an den „Bayerischen Marathon
+   Meisterschaften" gemeldet: „Beide verlinken auf den gleichen Link,
+   haben das gleiche Datum, die gleichen Distanzen. Es ist ja
+   offensichtlich das es das gleiche Event ist.")**: Zwei Zeilen OHNE
+   gemeinsames Namenswort sind dieselbe Strecke, wenn ALLES andere
+   stimmt – `_gleiche_seite_und_strecke()` in `is_same_event()`:
+   dieselbe VOLLSTÄNDIGE Veranstalterseite (kein Portallink, nicht die
+   Domain), `_gleicher_standort()` (Wortmenge oder ≤ 3 km – NICHT die
+   30 km: der Spreewaldmarathon hat „70 km Radtour" ab Lübbenau UND ab
+   Burg, 13 km auseinander, auf einer Seite), gleiche `art1`, gleiche
+   `art2` (wenn beide gesetzt: Black Forest Ultra Bike ≠ Ultra Gravel),
+   auf BEIDEN Seiten eine Maßzahl, Distanzen höchstens 0,5 km
+   auseinander (nicht die 5 % von `_compatible_distance()`: TOP20RUN
+   22 km ≠ Halbmarathon 21,1 km in Zermatt), und Labels ohne
+   verschiedene Gattung – „CTF" ist seit dem Tag ein Gattungswort
+   (Linneser Cross-Country-Tag: CTF 50 km neben Gravel Tour 50 km),
+   „Schülerlauf 5 km" ≠ „5 km Hauptlauf". Einzige Ausnahme: ein
+   FORMATWORT auf nur EINER Seite (`_FORMAT_GATTUNG`: sprint, olymp,
+   volks, kurz-/mittel-/langdistanz …) trennt nicht – „Olympische
+   Distanz 51,5 km" gegen „51 km" ist dieselbe Strecke; zwei
+   verschiedene Formatwörter dagegen schon („Sprintdistanz 28,8" gegen
+   „Volksdistanz 28,5", Silbersee-Triathlon, 750 gegen 500 m Schwimmen).
+   Am Bestand (6.985 Zeilen) nachgezählt: 24 Zusammenführungen, alle
+   durchgesehen, alle echt (SAARathon, Auwaldlauf, Rothaarsteig ×3,
+   TuSLi, Wurzelweg, Alten-Buseck, Nikolauslauf Bad Schönborn, Pönitz,
+   neun Triathlons mit Sponsor-Namen …); die Gegenproben Spreewald,
+   parkrun (eine Seite für alle Standorte, hunderte km auseinander),
+   Linneser, Erkelenzer RTF/Gravel Ride, Black Forest, Silbersee,
+   Zermatt stehen in `test_duplikate`. Lektion 4 der Einzelprüfung
+   („dieselbe Seite ist keine Regel") gilt damit nur noch für die
+   DOMAIN und für den weiten Fall; ihre drei Gegenbeispiele (Mad Chicken
+   Marathon/24 h, Kolberger Berglauf/Wanderung, Heidi-Challenge 61,8/
+   63,0 km) fallen alle durch die engen Bedingungen. Drei Nebenbefunde
+   derselben Klasse per Override: Zeilen eines Laufs unter dem Namen
+   eines ANDEREN („Silvesterlauf Stadtlohn" 10/5 km am Bocholter Marker,
+   „Griesheimer Silvesterlauf" 10 km am Spiridon-Marker) – dort hätte
+   der achte Weg den falschen Namen behalten; und zwei falsch verortete
+   Zeilen (Rothaarsteig in „Schmalenberg"/Pfalz, 205 km; Pönitz in
+   Sachsen, 369 km – Lektion 3), erst mit richtigen Koordinaten greift
+   der Weg. `merge_duplicates()` bevorzugt seitdem bei Gleichstand den
+   Namen OHNE „Meisterschaft" (Datenregel 18: der Volkslauf ist die
+   Veranstaltung). `report_gleiche_seite_gleiche_distanz()` meldet
+   weiter, was übrig bleibt (31: Nachbarorte über 3 km wie Braunsteich,
+   Riesenbeck, Brüder-Grimm; „50 km Lauf und Staffel"; RTF-Labels bei
+   Sella Ronda und Shades of Speed) – einzeln prüfen.
+   **`merge_duplicates()` verkettet nicht über eine Zeile ohne Distanz**
+   (13.10.2026): Sie gilt als kompatibel mit jeder Distanz, und der
+   Cluster wuchs über sie hinweg – eine Zeile ohne Angabe zog 7, 14 und
+   21,1 km des LCC Leopoldilaufs zu EINER Zeile zusammen. Eine Zeile kommt
+   jetzt nur in einen Cluster, wenn ihre Distanz/Dauer zu JEDEM Mitglied
+   passt (`_compatible_distance`). Am Bestand nachgerechnet: genau diese
+   zwei Strecken kommen zurück, sonst keine Änderung.
+   **Der erste Durchlauf von `clean_events.py` konvergiert
+   nicht vollständig** – der zweite merged noch einmal rund 50 Gruppen,
+   der dritte ist stabil; die CI vergleicht Lauf 2 mit Lauf 3.
+   **Was das Dedupe NICHT erkennt**: Zwei Schreibweisen ohne ein
+   gemeinsames Wort. „13. Fichtelgebirgstrailrun" und „Fichtellauf"
+   (19.09.2026, Gefrees, beide 21 km) sind dieselbe Veranstaltung – der
+   Veranstalter nennt sie „Fichtellauf (Trail + Nordic Walking)", der
+   Trail Run IST der Fichtellauf. Kein Namensvergleich kann das sehen.
+   `clean_events.report_moegliche_duplikate()` **meldet** solche Paare
+   (gleicher Tag + Ort + Distanz, verschiedene Namen; 60 Stück), geprüft
+   und ausgeschlossen wird einzeln über `manual_overrides.json`.
+   **Nicht automatisch zusammenführen**: Ein Straßenlauf und ein
+   Trailrun desselben Veranstalters am selben Tag über dieselbe Distanz
+   sind ein häufiger, echter Fall – die Regel würde ein echtes Rennen
+   unsichtbar machen.
+
+8. **Zeitrennen haben `dauer_h`, nicht `laenge_km`.** Ein 24-Stunden-Lauf
+   hat keine feste Strecke; die Dauer in Stunden steht in `dauer_h` und
+   erscheint in derselben Spalte („24 h"). Eine bekannte Distanz hat in der
+   Anzeige Vorrang – „24h Mad Chicken Run | Marathon, 42 km" ist eine
+   42-km-Strecke, das „24h" ist der Veranstaltungsname.
+   `parse_duration_h()` sichert gegen „229 hm" (Höhenmeter) und
+   „Zeitlimit 6 Stunden" (Zielschlusszeit) ab; nachgetragen wird nur bei
+   Einträgen ohne Distanz (`clean_events.fill_duration()`).
+   Filter: Kategorie „Zeitrennen" im Länge-Panel, gespiegelt in
+   `functions/index.js` (`ZEIT_CATEGORY_KEY`).
+
+   **Ein „Stundenlauf" ist eine Stunde, ein „Halbstundenlauf" eine
+   halbe.** Das Muster `_DURATION_PATTERN` verlangt eine ZAHL vor dem
+   Wort – der klassische Ein-Stunden-Lauf heißt aber einfach
+   „Stundenlauf". 13 Veranstaltungen standen dadurch ganz ohne Maßzahl
+   in der Liste. `_STUNDENLAUF_OHNE_ZAHL` fängt das jetzt ab, **die
+   Reihenfolge der beiden Zeilen ist bedeutungstragend**: „Halb·
+   stundenlauf" enthält „stundenlauf" als Teilzeichenkette und wäre
+   sonst doppelt so lang. Definition gegen Wikipedia/Brockhaus geprüft
+   (möglichst viele Runden in einer Stunde); `test_stundenlauf` hält
+   beides fest.
+   Steht bei einem Zeitrennen trotzdem eine Distanz („Emder
+   Stundenlauf – 10 km"), meldet das `audit_events.py` – `fill_duration()`
+   füllt bewusst nur, wo gar nichts steht.
+
+   **Zwei Dauern sind zwei Wettbewerbe.** `_compatible_distance()`
+   vergleicht bei Zeilen ohne Distanz die `dauer_h` – Stundenlauf und
+   Halbstundenlauf des Döbelner Fackellaufs sind sonst EINE Zeile, und
+   `manual_events.json` konnte den zweiten nicht anlegen, weil
+   `is_same_event()` ihn für den ersten hielt. Fehlt eine der beiden
+   Dauern, bleibt es beim Alten (unbekannt schließt nichts aus);
+   `test_duplikate` hält alle drei Fälle fest.
+   **Distanz gegen Dauer ist seit dem 21.09.2026 ebenfalls unvereinbar**:
+   Ein 24-Stunden-Lauf ist nicht der Marathon derselben Veranstaltung.
+   Vorher galt „unbekannte Distanz schließt nichts aus", und deshalb
+   ließen sich Rokathon 24 h, die 24 Stunden van Halen und die
+   6-/12-h-Challenge des Winterloop nicht neben ihre Marathon-Zeilen
+   tragen (Elfter Durchgang). Am Bestand nachgezählt: Fünf
+   Veranstaltungen trugen genau diese Struktur schon (Remshalden Run,
+   Mad Chicken Run, …), dort hielt nur das abweichende Label die Zeilen
+   auseinander – die Regel macht ausdrücklich, was der Bestand zeigte.
+   Ohne JEDE Angabe bleibt es ein Duplikat.
+
+   **Die Rundenlänge ist keine Renndistanz** – inzwischen die vierte
+   Begegnung mit dieser Fehlerklasse (Backyard-Runde, „Running Paule
+   Marathon" 6,4 km, „Warendorfer Weihnachtslauf" 6 km, „Borsig
+   Halbmarathon" 5,3 km, „Helgoland Marathon" 5,2 km). Das Label
+   verrät sie: Nennt es „N Runden à X km" und steht im Feld X statt
+   N·X, ist die Runde gespeichert (`audit_events.RUNDEN_MAL_RE`).
+   **Neben einer Dauer ist eine Distanz bis 10 km die Runde**
+   (13.10.2026, `clean_events.clear_rundenlaenge_bei_zeitrennen()`): Weil
+   eine bekannte Distanz in der Anzeige Vorrang hat, stand beim
+   Wuhlheider 12-Stundenlauf „2km" in der Liste – neun Zeilen, alle
+   Runden. Darüber bleibt die Distanz (Gravallo 85 km in 6 h ist eine
+   Zielvorgabe mit Zeitlimit); `dauer_h` 0 fällt weg. Test:
+   `test_rundenlaenge_zeitrennen`.
+   **Eine STAFFEL ist etwas anderes** (`STAFFEL_RE`): Bei „2x5 km
+   Staffel" läuft man wirklich 5 km, und die Staffel ist ein eigener
+   Wettbewerb. Ohne diese Unterscheidung meldete die Regel sechs
+   Staffeln als Fehler, die keine waren.
+
+   **Unter einer Stunde steht die Dauer IMMER in Minuten** („40min",
+   „25–40min", „40min–2h"; vom Nutzer am 18.10.2026 gemeldet: „Was sind
+   denn bitte 0,3 und 0,8 Stunden? Das muss man natürlich dann in Minuten
+   ausdrücken."). Dieselbe Regel an vier Stellen: `EF.minutenVon`/
+   `EF.formatHours` (`filters.js`), `formatLengthSpan` (`event-detail.js`),
+   `build_ics.laenge_text()`, `insta_inhalte.dauer_wort()`, dazu
+   `scraper_lib.dauer_text()` für Labels. **Die Zahl muss dafür
+   minutengenau sein**: `dauer_h` steht auf ZWEI Stellen (0,67 = 40 min);
+   bis zum 13.10.2026 rundete `Event.to_dict()` auf eine (40 min → 0,7 =
+   42 min, 45 und 50 min beide → 0,8), und `radsportevents_scraper.py`
+   tat es bis zum 18.10.2026 selbst (Label „Cyclocross 0.7 h"). Drei
+   Dinge halten das sauber: `clean_events.fix_dauer_minuten()` nimmt bei
+   einer UNGENAUEN Dauer (kein Vielfaches von fünf Minuten) die Minuten
+   aus dem Label („Masters 40 min"), schreibt „0.7 h" im Label als „40
+   min", sobald die Zahl glatt ist, und meldet den Rest (⚠, nichts
+   geändert – eine glatte Dauer schlägt ein veraltetes Label);
+   `update_existing_event()` übernimmt beim Einsammeln die glatte Dauer
+   der Quelle über eine ungenaue mit gleicher Rundung (samt Label);
+   `test_dauer_minuten` verlangt im Bestand jede Dauer unter einer Stunde
+   in vollen fünf Minuten. Am 18.10.2026 waren 13 Zeilen nur über die
+   radsport-events-API zu klären (Minuten von dort), drei per Override
+   (Cross im Park U15, Ternitz Sonntag ohne 40 min, Bad Ischl 45 min,
+   Mittelkärnten 30/40/59 → 45/60 laut ÖRV-Seite).
+9. **`art2` „Backyard Ultra"** – EIN Wert für Laufen UND Triathlon (vom
+   Nutzer am 19.09.2026 zusammengelegt: „die Kategorie Backyard und
+   Backyard Ultra zusammenfügen zu ‚Backyard Ultra'"; vorher hieß die
+   Laufkategorie „Backcountry Ultra" und die Triathlon-Kategorie
+   „Backyard"). Das Stichwort „backyard" (und „last man/person standing")
+   steht in `ART2_KEYWORDS_LAUFEN` an einer bestimmten Stelle – Absicht,
+   nicht Zufall:
+   - **NACH** „Trail": ein reiner „Backyard Ultra" ist Last-Man-Standing,
+     ein „Backyard Ultra **Trail**" dagegen ein Trailrun, der das Wort nur
+     im Namen trägt.
+   - **VOR** der Berg-/Höhenmeter-Zeile: ein Backyard mit „120 Höhenmeter
+     pro Runde" bleibt ein Backyard.
+
+   Das frühere Stichwort „backcountry" ist mit der Umbenennung
+   **weggefallen**: Ein „Backcountry Ultra" ist ein langer Trailrun
+   durch unwegsames Gelände, kein Rundenformat – er fällt über „trail"
+   in die Trail-Kategorie. Kein Event im Bestand trug das Wort.
+   Reihenfolge nicht „aufräumen".
+
+   **Backyard Ultra TRIATHLON gibt es auch** (vom Nutzer am 19.09.2026
+   genannt – „das ist jetzt neu, das gibts"): Der „Backyardman Würzburg"
+   ist laut backyardman.de „die Weltpremiere eines neuen Ultra-Formats:
+   ein Backyard-Ultra, erstmals kombiniert mit dem Triathlon" – je
+   Zwei-Stunden-Runde 500 m Schwimmen, 20 km Rad, 5 km Laufen, bis nur
+   eine Person übrig ist. Dafür steht **„Backyard Ultra" auch unter
+   Triathlon** (`ART2_KEYWORDS_TRIATHLON`, ganz vorn – das Format zählt
+   vor dem Gelände; `ART2_BY_ART1['Triathlon']`, Übersetzung in
+   `filters.js` und `functions/index.js`). Die Länge bleibt leer wie bei
+   jedem Backyard. `guess_art1()` entscheidet zuerst die Sportart, dann
+   kommt aus beiden Listen derselbe Kategorie-Wert.
+
+   **Die Backyard-Runde ist keine Distanz.** Ein Backyard läuft dieselbe
+   Runde (klassisch 4,167 Meilen = 6,706 km, in den Quellen „6,7" oder
+   „7 km") zur gleichen Stunde, bis nur noch eine Person weiterläuft.
+   Deshalb:
+   - Länge-Spalte zeigt **„Open End"**, wenn das Rennen zeitlich offen
+     ist (seit dem 13.10.2026, vorher „–"; `ohneMasszahl()` in
+     `event-detail.js`, gleich in `build_ics.laenge_text()`), und
+     **„24h"**, wenn es auf 24 Stunden begrenzt ist.
+   - `clean_events.clear_backyard_lap_km()` nimmt bei Backyard-Ultra-
+     Einträgen **jede** Distanz heraus. Bis zum 13.10.2026 nur bis 10 km
+     (die Runde), größere (47/54/80/161 km) wurden gemeldet; dann hat der
+     Nutzer es entschieden: „es ist ein backyard ultra, also die Distanz
+     kann unendlich sein. Die Runde ist immer 6,706km" – eine Zahl an
+     einem Backyard ist Runde, Rekord oder Zielvorgabe, nie die Länge.
+     Ein Zeitlimit gehört in `dauer_h` (Valais 38 h).
+   - Ein Override darf jetzt auch `dauer_h` und `wettbewerb` setzen, und
+     `null` löscht ein Feld – so wurde „Murr BackYard 12h" auf 12 h ohne
+     Distanz gebracht (die beiden Zeilen mit 67/34 km sind dadurch zu
+     einer verschmolzen). Offen bleibt nur noch „RET-Team Backyard
+     80 km".
+   - Nennt ein Wettbewerb eine Dauer, verwirft `parse_competitions()`
+     eine km-Angabe daneben („24h Solo auf einer 2km MotoCross-Strecke
+     (2km)" → 24 h, keine 2 km). Vorher wurde daraus ein 2-km-Eintrag,
+     den die 5-km-Mindestdistanz gleich wieder verwarf – so fehlten die
+     vier 24h-Wettbewerbe des Mad Chicken Run komplett.
+10. **Vergangene Events raus.** Maßgeblich ist `datum_ende` (sonst
+   `datum_start`); der heutige Tag bleibt, ein mehrtägiges Rennen bleibt bis
+   zu seinem letzten Tag, ein Event mit unlesbarem Datum wird nicht
+   gelöscht. An drei Stellen: `scraper_lib.filter_past()` beim Einsammeln,
+   `clean_events.drop_past_events()` rückwirkend, und `dropPastEvents()`
+   beim Laden in `events.html`/`karte.html` (zwischen zwei Läufen liegt
+   eine Woche).
+
+11. **Die Sportart kommt nicht von der Quelle.** Alle vier aktiven
+   Quellen sind **Laufkalender**; ihre `SiteConfig` trägt
+   `default_art1 = "Laufen"` – und damit stand jeder Triathlon als
+   Laufveranstaltung in der Liste. Aufgefallen ist es dem Nutzer an einer
+   Zeile, die es nicht geben darf: „Ironman 70.3 Kraichgau · Laufen ·
+   Straße". Bei einem Ironman kann man sich nicht für den Lauf allein
+   anmelden. 132 Einträge waren betroffen.
+   - `guess_art1()` (`scraper_lib.py`, `ART1_KEYWORDS`) überschreibt die
+     Voreinstellung der Quelle, wenn der Name eindeutig eine andere
+     Sportart nennt. `clean_events.fix_multisport_art1()` holt den
+     Bestand nach (idempotent, respektiert Overrides).
+   - **Nur eindeutige Stichwörter.** „Triathlon" und „Ironman" sind
+     eindeutig, ein „Rad" im Namen ist es nicht („Radrennbahn-Lauf").
+     Was nicht eindeutig ist, bleibt draußen – dieselbe Linie wie bei
+     der wichtigsten Lektion unten.
+   - **„Triathlon" ist die Mehrsport-Schublade.** Duathlon
+     (Laufen-Rad-Laufen), Aquathlon (Schwimmen-Laufen), SwimRun und
+     Quadrathlon sind keine Triathlons im Wortsinn, gehören aber zur
+     selben Familie; die Seite hat nur vier Sportarten. Die genaue Form
+     steht in **`art2`** (`ART2_KEYWORDS_TRIATHLON`): Straße, Cross,
+     Duathlon, Aquathlon, Swimrun, Quadrathlon, Indoor. Damit ist auch
+     `ART2_BY_ART1['Triathlon']` gefüllt, das bis dahin fehlte.
+   - **Das Format steht vor dem Gelände**: Ein „Baltic X Cross Duathlon"
+     ist ein **Duathlon**, der im Gelände stattfindet – danach filtert
+     jemand, nicht nach „Cross". Deshalb stehen Swimrun/Aquathlon/
+     Duathlon in der Liste VOR „Cross". Dieselbe Sorte Reihenfolge wie
+     bei `ART2_KEYWORDS_LAUFEN`, also nicht „aufräumen".
+   - **`guess_art2(text, config, art1)`** nimmt die Kategorie-Liste zur
+     Sportart (`ART2_LISTEN`). Ohne das dritte Argument bleibt es bei
+     der Lauf-Liste – ältere Aufrufe funktionieren unverändert, ein
+     Cross-Triathlon bekäme dort aber „Trail", also eine
+     Laufkategorie an einer Nicht-Laufveranstaltung.
+   - **Zwei Meldungen, keine automatische Korrektur** (siehe Lektion
+     unten): `report_multisport_teilstrecken()` findet Zeilen, die nur
+     eine Teilstrecke beschreiben („Ironman Hamburg · 42,2 km Laufen
+     entlang der Alster" – der Laufteil eines Triathlons, keine
+     Anmeldemöglichkeit; 5 Fälle), und `report_triathlon_distanzen()`
+     Zeilen, deren Distanz zu keinem gängigen Format passt (~26, ~52,
+     113, 226 km; 44 Fälle, nur für den klassischen Triathlon – ein
+     15-km-SwimRun ist normal). Beide gehören einzeln geprüft und als
+     Override eingetragen.
+   - **Der umgekehrte Fall: ein LAUF im Triathlon-Kalender** (vom
+     Nutzer am 21.09.2026 am „O-SEE Ultra Trail" gemeldet: „Das ist ein
+     reines Trail lauf Event. Triathlons können auch nicht wirklich ein
+     Trail Event sein"). running.life führt die Trailläufe von O-SEE
+     Sports (100K bis Minis) im Triathlon-Kalender, weil derselbe
+     Veranstalter die O-SEE Challenge ausrichtet; `default_art1 =
+     "Triathlon"` machte daraus Triathlons mit Kategorie „Trail" – eine
+     Kategorie, die es beim Triathlon gar nicht gibt. Folge: Die vier
+     Kinder-/Canicross-Zeilen unter 5 km blieben stehen, weil
+     Datenregel 5 nur für Laufen gilt. Drei Dinge dagegen:
+     - `guess_art1()` fällt bei `default_art1 == "Triathlon"` auf
+       „Laufen" zurück, wenn der Name ein Laufwort trägt
+       (`LAUF_IM_TRIATHLONKALENDER`: trail, marathon, lauf, run, ultra)
+       und KEIN Mehrsport-Stichwort – die `ART1_KEYWORDS` laufen vorher,
+       („xterra" zählt dort seit dem 05.10.2026 nur OHNE Trail/Run/Lauf
+       dahinter – XTERRA hat auch eine Trailrun-Serie, der „XTERRA Trail
+       de la Vallée de Joux" stand als Triathlon da),
+       „XTERRA", „Cross Triathlon Trail Edition" und „Swimrun" bleiben
+       Triathlon. Nur im Triathlon-Kalender: Im Laufkalender ändert sich
+       nichts, im Radkalender bleibt ein „MTB Trail Marathon" Rad.
+     - `fix_multisport_art1()` konvertiert nur Laufen → Triathlon, nie
+       zurück; der Bestand braucht deshalb den **Override** (`art1:
+       "Laufen"`, beide Datumsschlüssel, siehe „Die wichtigste Lektion").
+       Mit `art1` Laufen greift Datenregel 5, die vier Zeilen fallen.
+     - `report_triathlon_mit_laufkategorie()` meldet jede Triathlon-Zeile
+       mit einer reinen Laufkategorie (`LAUF_KATEGORIEN_NUR_LAUFEN`:
+       Trail, Bahn, Hindernis) – nur Hinweis, Override prüfen.
+     `test_lauf_im_triathlonkalender` hält Treffer und Gegenproben fest.
+
+12. **Das Wettbewerbs-Label darf eine andere Sportart nennen als die
+   Veranstaltung.** Der „Drei Talsperren Marathon" hat neben Marathon,
+   Halbmarathon und 8 km auch „Rad 100 km", „Rad 50 km" und „Rad 30 km" -
+   laut Ausschreibung eigenständige Wettbewerbe. Bei uns standen sie als
+   **Lauf** in der Liste, also als 100-km-Lauf.
+   `clean_events.fix_fremde_sportart_im_wettbewerb()` stellt das um. Die
+   Abgrenzung zur Triathlon-Teilstrecke ist der ganze Aufwand daran, und
+   sie steckt in der **Verbform** des Labels:
+
+   | Label | heißt | Folge |
+   |---|---|---|
+   | „Rad 100 km", „Mountainbike Rennen 42 km" | ein Rennen, das man bucht | `art1` → Fahrrad |
+   | „21,5 km Radfahren", „7,3 km Laufen", „Run 1" | eine Etappe, die man absolviert | unangetastet |
+
+   Geprüft wird nicht die einzelne Zeile, sondern die ganze
+   **Veranstaltung** (`TEILSTRECKEN_VERB_RE`,
+   `_ist_mehrsport_veranstaltung()`): Trägt IRGENDEINE ihrer Zeilen eine
+   Verbform, bleibt alles stehen. An den zwölf Veranstaltungen, die die
+   Regel sonst getroffen hätte, trennt das sauber - Aluman, RömerMan,
+   Trifun Pellworm, Mainathlon, Dirty Race und Speck Race sind
+   Triathlons und bleiben; Drei Talsperren, Possenlauf, Elsterlauf,
+   Frickinger Apfellauf und Schneeglöckchen-Lauf haben wirklich ein
+   eigenes Radrennen. Die erste Fassung der Regel hatte nur das Label
+   geprüft und aus sechs Triathlon-Etappen Radrennen gemacht.
+   **`art1 == "Triathlon"` wird nie überschrieben.**
+
+   Damit stehen die **ersten Radrennen überhaupt** in `events.json` (9).
+   `ART2_KEYWORDS_FAHRRAD` gibt es deshalb jetzt - **ohne
+   Voreinstellung**: „Mountainbike" wird zu Mountainbike, „Rad 100 km"
+   bleibt ohne Kategorie. Aus „Rad 100 km" geht der Untergrund nicht
+   hervor, und eine geratene Kategorie ist schlechter als keine - sie
+   sieht aus wie eine Angabe.
+
+13. **Zwei Rennen in einer Zeile.** „15 km / 21 km Crosslauf" ist nicht
+   ein Rennen über 21 km. `guess_distance_km()` nimmt bei mehreren Zahlen
+   die größte - der 15-km-Lauf des Limberglaufs Ranis **fehlte dadurch
+   komplett** in der Liste. `_trenne_doppelte_distanzen()` teilt solche
+   Zeilen jetzt vor `parse_competitions()`.
+   Bewusst eng: Das Label muss **mit** „A km / B km" anfangen. „19 km
+   (14 + 5 km)", „100 km (10 x 10 km)" und „3 Runden je 15,5 km" sind
+   Aufteilungen derselben Strecke, kein zweites Rennen.
+   **Ein fehlendes Event ist die unangenehmere Sorte Fehler**: Eine
+   falsche Zahl sieht man, eine fehlende Zeile nicht.
+
+14. **HYROX gehört nicht in die Liste – und Gymrace und die Decathlon
+   Hybrid Series ebenso** (dieselbe Klasse, vom Nutzer am 19.09.2026
+   bestätigt: „Ja HYROX ausschließen"). Die Seite führt Laufen,
+   Schwimmen, Fahrrad und Triathlon. HYROX ist achtmal ein Kilometer
+   Laufen im Wechsel mit acht Kraftstationen (Sled Push, Burpees, Wall
+   Balls, Rudern) – man kann sich dafür nicht als Läufer anmelden.
+   Vom Nutzer am 18.09.2026 entschieden, ausdrücklich „erst einmal".
+   - `NICHT_AUSDAUER` in `scraper_lib.py` hält die Liste, angewendet
+     beim Einsammeln (`filter_nicht_ausdauer`) und rückwirkend
+     (`clean_events.drop_nicht_ausdauer`) – dieselbe Aufteilung wie bei
+     den vergangenen Events.
+   - **Die Liste ist winzig und leicht umzudrehen**: Zeile heraus, und
+     beim nächsten Datenlauf sind die Events wieder da. Seit dem
+     21.09.2026 (Entscheidungen des Nutzers) stehen dort: HYROX, Gymrace,
+     Decathlon Hybrid Series, Runworx, Black Forest Team Battle
+     („Keine Hyrox oder ähnliche Events mit Kraft Übungen"); **Gehen**
+     (Race Walking, Geher-Wettbewerbe) und **Skilanglauf** („Gehen und
+     Skilanglauf nicht aufnehmen"); **virtuelle Läufe** („Virtuelle
+     Läufe rausnehmen" – geprüft wird auch der ORT, die XMAS-Challenge
+     des Blauen Landes trug „virtuell" nur dort, `nicht_ausdauer_text()`).
+     **Seit dem 07.10.2026 auch FITLETIX, THE ROX, Deadly Dozen, ATHX und
+     StrongAthlon** (To-do-Liste, Punkt 9) – vorher nur per Override, und
+     ein Override trifft nur seinen einen Termin.
+     **Skilanglauf erweitert am 27.10.2026** (bei der Instagram-Durchsicht
+     sichtbar gefunden, sieben Veranstaltungen / 21 Zeilen als „Laufen ·
+     Straße“, jede an ihrer Seite geprüft): `\blanglauf\b` traf das
+     Kompositum nicht („Planoiras Volkslanglauf“), dazu „Loppet“ (Skadi,
+     Gantrisch – „Swiss Loppet“ ist die Volkslanglauf-Serie), die Marken
+     Gommerlauf, Ganghoferlauf, „Nordic Days“ (Kandersteg) und die Technik
+     im Label („Skating“ ohne „Inline“, „freie Technik“, „100 km
+     Klassisch“ – Rucksacklauf Schonach). Gegenproben „Inlineskating“,
+     „klassischer Marathon“, „Langläufer-Cup“, „Langlaufzentrum“ in
+     `test_nicht_ausdauer`. Keine neue Kategorie, die Entscheidung vom
+     21.09. – nur das Muster dafür.
+     **Nicht** darunter fallen die Walking-/Nordic-Walking-Strecken
+     innerhalb eines Volkslaufs (145 Zeilen) – das ist eine offene
+     Frage an den Nutzer, siehe unten.
+   - **Nur eindeutige Markennamen.** Ein Stichwort wie „Fitness" oder
+     „Hindernis" wäre falsch: Ein Hindernislauf (Spartan, XLETIX,
+     CrossDeLuxe, Muddy Angel, Tough Mudder) IST ein Laufformat und
+     bleibt. `test_nicht_ausdauer` hält beide Seiten fest.
+
+15. **Die Länge eines Triathlons ist die SUMME seiner Teilstrecken.**
+   Der größte systematische Datenfehler, den die Einzelprüfung gefunden
+   hat: `guess_distance_km()` nimmt bei mehreren Zahlen die größte – bei
+   einem Triathlon ist das die **Radstrecke**. Deshalb stand die
+   Kurzdistanz des Triathlon Höchstadt mit „40 km" in der Liste statt
+   mit 51,5 km (1,5 + 40 + 10), der Niederrhein N3T mit 38 statt 49,5,
+   Frankfurt City mit 80 statt 102, Indeland mit 88 statt 109,9, der
+   Schloss-Triathlon Moritzburg mit 173 statt 218,8. Nennt die Quelle
+   nur EINE Zahl, ist es stattdessen oft die Laufstrecke (Möhnesee 5 /
+   10 / 15 statt 25,5 / 51,5 / 87).
+
+   Eine Radstrecke als Länge des Rennens auszuweisen ist doppelt falsch:
+   Die Zahl stimmt nicht, und sie sieht aus wie ein Radrennen.
+
+   `summiere_teilstrecken()` (`scraper_lib.py`) fängt das beim
+   Einsammeln ab. Drei Bedingungen, alle nötig, damit die Regel nur
+   dort zuschlägt, wo wirklich Teilstrecken aufgezählt sind:
+   - **Mindestens zwei verschiedene Disziplinen** mit eigener Zahl.
+   - **Schwimmen oder Rad muss dabei sein.** Ein reiner Lauftext kann
+     damit nie hineinrutschen.
+   - **Je Disziplin genau EINE Angabe.** Zählt ein Text mehrere
+     Wettbewerbe auf („Jedermann 400m Swim 20km Bike 5km Run …
+     Kurzdistanz 1.500m Swim 40km Bike 10km Run"), lässt sich nicht
+     sagen, welche Zahlen zusammengehören – dann lieber nichts.
+
+   Die beiden Schreibweisen (Zahl vor dem Wort, Wort vor der Zahl)
+   werden **getrennt** ausgewertet und nicht gemischt: In „400m Swim
+   20km Bike 5km Run" passt auf „Swim 20km" auch die zweite
+   Schreibweise, und Schwimmen bekäme 20 km statt 400 m.
+   `test_mehrsport_teilstrecken` hält Treffer und Gegenproben fest.
+
+   **Der Bestand ist damit NICHT geheilt** – die Regel wirkt erst beim
+   nächsten Datenlauf, weil `clean_events.py` den Quelltext nicht mehr
+   hat. Die vorhandenen Zeilen gehören einzeln geprüft;
+   `report_triathlon_distanzen()` meldet sie (40 → 18 am 18.09.2026).
+   Und eine Zuordnung Label → Standarddistanz wäre falsch: Deutsche
+   Veranstaltungen weichen ab (Moritzburgs „Langdistanz" hat 173 km
+   Rad, Frankfurts „Mitteldistanz" 80 km, Indelands 88 km).
+   - Jeder Ausschluss wird **gemeldet**, nicht stillschweigend gemacht.
+
+16. **Erst einmal keine Staffeln** (vom Nutzer am 21.09.2026
+   entschieden).
+
+   **DIE UNIVERSALE REGEL (vom Nutzer am 07.10.2026):** „Ich möchte erst
+   einmal nur Einzelläufe aufnehmen. … Wenn man den Firmenlauf von 5km
+   alle 5km alleine laufen muss, dann kann das event gerne aufgenommen
+   werden. Aber wenn man von einer 10km Strecke, die Strecke durch 4
+   Leute teilen muss, dann bitte nicht aufnehmen. Das soll die universale
+   Regel sein." Also: **Läuft jede Person die GANZE Strecke selbst, bleibt
+   die Zeile** – auch wenn man sich nur als Team anmelden kann, im Team
+   gewertet wird oder gemeinsam läuft (Firmenläufe, Zehn Freunde Team
+   Triathlon, Penzberger TeamTrail, Teamwertung). **Wird die Strecke auf
+   mehrere Personen AUFGETEILT, fliegt sie** (Staffel, Stafette, SOLA,
+   Paarlauf, Team-Etappen, Staffel-Triathlon). Eine „Team-Strecke", die
+   nur die SUMME der Einzelstrecken ist (Remstal-Lauf „25 km Teamlauf" =
+   5 × 5 km Jedermannlauf), ist keine eigene Strecke und fliegt ebenfalls.
+   Gilt für alle Sportarten. Was die Regel `ist_staffel()` nicht sieht,
+   per Override mit Beleg (Team Challenge Halle, Salzburger
+   Firmen-Triathlon). **Staffel-, Team- und Firmenformate sind eine
+   Reserve** – siehe „Wo das Projekt gerade steht".
+
+   Eine Staffel ist ein Team-Wettbewerb; im Bestand stand
+   mal die Team-Gesamtstrecke, mal die Teilstrecke. `ist_staffel()` in
+   `scraper_lib.py` entscheidet in zwei Stufen, beide **am Bestand
+   gezählt** (49 Zeilen mit „Staffel", 29 entfernt): Ein **Label**, das
+   nur die Staffel beschreibt („ZEISS Marathon Staffel", „2x5 km
+   Staffel", „DUO Marathon 2 x 21,1 km", „H/21 for Two"), nimmt diese
+   eine Zeile; ein **Name**, der eine Staffelveranstaltung nennt
+   (Staffellauf, Staffelmarathon, Firmenstaffel, Marathonstaffel,
+   Staffel-Mix), nimmt alle Zeilen – auch die „5 km" des Ostsee
+   Staffelmarathons, das ist seine Rundenlänge. **Gegenproben, die
+   bleiben müssen**: Einzelrennen mit Staffel-Option („10 km Lauf und
+   Staffel", „Einzel oder Staffel", „Solo oder Staffel"); Namen, in
+   denen die Staffel nur Zusatz ist („Nikolauslauf mit Fun/Firmenstaffel",
+   „Volks- und Staffeltriathlon"); die „GVG-Winterstaffel Pulheim"
+   (Seite geprüft: Staffel PLUS Einzelstrecken 5/10/21,1/42,2 km) und
+   die „Meckenheimer Apfelstaffel" („Einzelläufe und Staffeln") – deshalb
+   fällt bewusst NICHT jedes „Staffel" im Namen; Orte (Staffelsee, Bad
+   Staffelstein). `filter_staffeln()` beim Einsammeln,
+   `clean_events.drop_staffeln()` rückwirkend, `test_staffeln` hält beide
+   Seiten fest. **Seit dem 07.10.2026 auch Stafette, SOLA, Staffel-Run, Paarläufe und
+   Team-Etappen** (To-do Punkt 10, „Nur Einzelläufe"). Wer Staffeln zurückwill, nimmt die beiden Aufrufe heraus.
+
+17. **Charity ist eine MARKIERUNG, keine Kategorie** – und der Weg
+   dorthin ist die Lehre. Am 21.09.2026 wollte der Nutzer „eine neue
+   Kategorie … die ‚Charity' heißt … alle Schwimmen, Lauf und Rennrad
+   Charity Events"; sie kam als `art2`-Wert ganz vorn in die
+   Stichwortlisten, vor jedes Gelände-Stichwort. **Am selben Tag hat er
+   es zurückgenommen**: „Ich weiß das wir jetzt in der Kategorie
+   ‚Charity' stehen drinnen haben. Aber da bitte wieder die Kategorie
+   einfügen."
+
+   Der Grund ist allgemein und steht deshalb hier: **Ein Merkmal, das
+   QUER zu einer Einteilung liegt, darf nicht als weiterer Wert in sie
+   hinein.** Ein Benefiz-Crosslauf ist ein Crosslauf, der für einen
+   guten Zweck läuft – als Kategorie verdrängte „Charity" genau die
+   Auskunft, die sie ergänzen sollte (der Bietlauf verlor sein „Trail",
+   43 Zeilen verloren ihre Kategorie). Dieselbe Frage kommt wieder, bei
+   „Frauenlauf", „Firmenlauf", „Nachtlauf", „Kinderlauf": Das sind alles
+   Eigenschaften NEBEN dem Untergrund, keine Untergründe.
+
+   Wie es jetzt aussieht:
+   - **`charity: true` am Event** (`ist_charity()` in `scraper_lib.py`,
+     gesetzt von `clean_events.fix_charity()`; wie `datum_vorlaeufig`
+     None statt False, damit `to_dict()` es weglässt). `art2` bleibt die
+     echte Kategorie, `refresh_art2()` holt sie für die Altbestände
+     zurück.
+   - **Stichwörter** wie bisher (charity, benefiz, spendenlauf/-marathon/
+     -run, sponsorenlauf, wohltätig) plus **„guter Zweck"** in allen
+     Beugungen: „Lauf für einen guten Zweck – Rastenberg" trug keines
+     der alten und stand unmarkiert da (vom Nutzer am 21.09.2026
+     gemeldet). Erkannt wird nur, was der NAME sagt – „Lauf gegen Krebs"
+     und der Wings for Life World Run tragen kein Stichwort und bleiben
+     unmarkiert. Ein Override kann `charity` setzen **und mit `false`
+     abschalten**.
+   - **Angezeigt** wird es als Herz in der Spalte **Kategorie** (nicht
+     hinter dem Namen – die Namensspalte ist 23 % breit und kürzt mit
+     „…", dort war das Herz bei jedem langen Namen unsichtbar). Eine
+     leicht rosa hinterlegte Zeile dazu war gebaut und **vom Nutzer am
+     selben Tag verworfen** („Das Herz … reicht aus"); die Klasse
+     `.charity-row` bleibt an der Zeile, ohne Fläche. Die Detail-Box trägt ein eigenes
+     Abzeichen neben dem Sport-Abzeichen. Farbe, Tonfläche und Textfarbe
+     stehen als `--charity*` in beiden Schemata, nach demselben Muster
+     wie die vier Sportfarben.
+   - **Gefiltert** wird weiter über die Kategorie-Pille: „Charity" steht
+     in `ART2_BY_ART1` (Laufen, Schwimmen, Fahrrad – nicht Triathlon,
+     der Nutzer nannte drei Sportarten), und `EF.matchesKategorie()`
+     löst den Sonderfall auf (`e.charity`, dazu `art2 === 'Charity'` für
+     geteilte Links von früher). **Dieselbe Auflösung steht in
+     `functions/index.js`** – laufen die beiden auseinander, bekommt
+     jemand E-Mails über Events, die seine Suche nie gezeigt hat.
+   - `test_kategorie` hält beides fest: dass `ist_charity()` greift UND
+     dass die Kategorie dabei erhalten bleibt.
+
+18. **Abgesagt, nicht öffentlich, Schule – per Override** (vom Nutzer am
+   21.09.2026 entschieden: „Abgesagte Veranstaltungen bitte nicht
+   aufführen", „Nicht öffentliche Läufe nicht aufnehmen. Es soll jeder
+   die Chance haben sich … anzumelden", „Schul Events bitte nicht
+   aufnehmen"). Keine Regel kann das erkennen, deshalb `exclude` mit
+   Beleg in `manual_overrides.json`: Marner Kohltagelauf 2026 (beide
+   Zeilen), Benefizlauf der Wiehenläufer 2026 („krankheitsbedingt …
+   AUSFALLEN"), Belgershainer Crosslauf (seit 2022 nicht mehr
+   ausgeschrieben), ClimAid Plant a Tree Run (Getränkemarke, kein Lauf
+   2026); 67. Panorama Marathon (Running Paule, „nicht öffentlicher
+   Trainingsmarathon"), X-Mas StairRun Oberhof (nur Feuerwehr/Polizei),
+   Schanzenlauf Oberstdorf (Feuerwehr-Treppenlauf in Teams, umkehrbar);
+   Bonner Friedenslauf (Schul-Spendenlauf). **Meisterschaften bleiben,
+   wenn jeder starten kann** – die sieben im Rahmen eines Volkslaufs
+   sind Duplikate des Volkslaufs und bleiben draußen (der Volkslauf
+   steht in der Liste), die Polizeimeisterschaft (Potsdamer Cross) ist
+   nicht offen. Spenden- und Spaßformate ohne Distanz (Sterntaler, STELP,
+   ProSana, The Quest, Tragathlon, Pace Race) **bleiben** („Ja bitte
+   aufnehmen"), Weinathlon auch (keine Kraftübungen). `seitenabgleich.py`
+   meldet seit dem Tag **ABGESAGT**, wenn die Veranstalterseite von
+   Absage/Ausfall spricht – nur Hinweis, der Kohltagelauf wirbt neben
+   der Absage weiter mit „Melde dich jetzt an". Der Neunkirchner
+   Sommerlauf ist KEIN Absage-Fall mehr: Die Seite dankt inzwischen für
+   die Teilnahme 2026.
+   **Abgesagt heißt: DIESE Ausgabe, nicht die Veranstaltung** (vom Nutzer
+   am 20.10.2026 am 25h Handorf: „einen Status der das Event rausnimmt
+   aus der Liste aber auch für nächstes Jahr merkt, weil löschen will ich
+   es nicht"). Dafür gibt es den Status **„Fällt aus"** in Korrekturseite
+   und Excel (`korrekturliste.STATUS_WERTE`, `korrektur_seite.STATUS_WERTE`):
+   Der Import schreibt `exclude: true` UND `abgesagt: true` in den
+   Override (`_note` „Ausgabe … fällt aus – die Veranstaltung bleibt im
+   Gedächtnis") und `ergebnis` **`abgesagt`** in `geprueft.json`;
+   `clean_events.abgesagte_zeilen()` reicht die Zeilen an
+   `veranstalter_seiten.merke_abgesagt()`, das am Gedächtnis-Eintrag
+   `abgesagt: <Starttag>` setzt – Seite und Strecken bleiben, und weil die
+   Zeile in `events.json` fehlt, fragt `pruefen` die Seite nach der
+   nächsten Ausgabe (10–14 Monate später), wie bei jeder vergangenen
+   Veranstaltung. Die Markierung fällt weg, sobald eine jüngere Ausgabe
+   gelernt ist. `merke_abgesagt()` legt nichts an (eine Zeile mit Status
+   kam über die Korrekturliste, ist also längst gelernt) und meldet ⚠,
+   wenn es keinen Eintrag findet – dann von Hand merken. **„Löschen"
+   ist dagegen nur „diese Zeile raus" – und nächstes Jahr wird
+   nachgesehen** (vom Nutzer am 20.10.2026 entschieden: „löschen soll nur
+   die eine Zeile herausnehmen und schauen ob das Event nächstes Jahr
+   passend ist"; NICHT „für immer" – eine gelöschte Strecke ist oft nur
+   EINE von mehreren). Der Import schreibt `exclude` + **`geloescht`**,
+   `clean_events.geloeschte_zeilen()` reicht die Zeile an
+   `veranstalter_seiten.merke_geloescht()`: Die Strecke fliegt aus den
+   gemerkten `strecken` dieser Ausgabe (sonst legte `pruefen` sie
+   nächstes Jahr als Vorjahreskopie wieder an) und steht unter
+   `geloescht` (Tag + Strecke; `ganz`, wenn von der Ausgabe nichts
+   übrig bleibt). `Gedaechtnis.geloescht_fuer()` findet die passende
+   Zeile der NÄCHSTEN Ausgabe (300–430 Tage später wie `FENSTER_TAGE`,
+   gleiche Länge ± 0,5 km bzw. Dauer bzw. Label; bei `ganz` jede), und
+   `audit_events.offene_pruefungen(…, gedaechtnis=)` gibt ihr den Grund
+   **„geloescht"** – sie ist ausgeblendet und steht wieder in der
+   Korrekturliste, bis der Nutzer sie geprüft hat (egal ob Quelle oder
+   Gedächtnis sie bringt). Gleiche Saison einer Serie und spätere Jahre
+   zählen nicht; Markierungen älter als 430 Tage räumt `merke_geloescht`
+   weg. `mark_pruefung_offen()` und `korrekturliste.export` übergeben
+   das Gedächtnis. Die neun Löschungen vor dem 20.10.2026 sind von Hand
+   nachgezogen (Zeilen aus der Git-Geschichte von `events.json`). **Wer
+   von Hand löscht, was der NUTZER löschen wollte** (etwa ein
+   „Check again" mit Ergebnis `entfernt`), setzt `"geloescht": true` mit
+   ins Override. `test_geloescht` hält alles fest. **Quellen, die die
+   Absage in den Namen schreiben**, fallen beim Einsammeln weg wie bei
+   boe/dsergebnis/kilometerliebe – seit dem Tag auch schwimmkalender.de
+   (`ABGESAGT` im Scraper). Der Anlass: „25h Handorf FÄLLT AUS!!!"
+   kam am 19.10.2026 als NEUE Zeile mit dem Ort „FÄLLT AUS!!!" (und einem
+   verdorbenen Gedächtnis-Eintrag, entfernt) – die saubere Zeile „25h
+   Handorf" vom September blieb daneben sichtbar, denn das Einsammeln
+   fügt hinzu, es löscht nicht. Beide stehen mit „Fällt aus" im Override.
+   **Lehre**: Ändert eine Quelle den Namen einer Ausgabe, steht die alte
+   Zeile weiter da – bei einer Absage immer nach der Schwesterzeile
+   suchen (`aktuelle_schluessel()` zeigt, welche Zeile einen Eintrag als
+   „aktuell" hält). `test_faellt_aus` hält Import,
+   Gedächtnis, `pruefen`-Auswahl und Scraper fest.
+
+19. **Vorläufige Termine tragen `datum_vorlaeufig`** (vom Nutzer am
+   21.09.2026 entschieden: „kein konkretes Datum auf jeden Fall, wenn
+   noch kein genauer Tag genannt wurde"). Viele Kalender tragen den
+   Termin des nächsten Jahres vor, bevor der Veranstalter ihn
+   veröffentlicht hat (der Elfte Durchgang fand ~180 „Seite zeigt 2026,
+   2027 nicht ausgeschrieben"). Solche Zeilen zeigen in Liste, Box,
+   Karten-Popup und E-Mail nur **„Juni 2027*"** (`EF.formatEventDate`,
+   `EED.formatEventRangeHtml`, `datumText` in `functions/index.js`), die
+   Box sagt „Termin noch nicht veröffentlicht" statt „in 6 Tagen", die
+   Fußzeile trägt die Fußnote (nur sichtbar, wenn es markierte Zeilen
+   gibt), die Kalenderdatei „(Termin vorläufig)" im Titel. Gefiltert und
+   sortiert wird weiter mit dem Prognose-Tag – er ist die beste Schätzung.
+   - **Nur per Override** (`OVERRIDE_FIELDS`), aus der Einzelprüfung:
+     Keine Regel kann eine Prognose von einem echten Termin
+     unterscheiden. 56 Veranstaltungen (94 Zeilen) sind markiert –
+     die `unklar`-Fälle des Elften Durchgangs ohne Silvester-/
+     Neujahrsläufe (der Tag ist dort durch den Kalender fest).
+   - **Geschätzt aus dem Vorjahr – die eine Ausnahme von „nur per
+     Override"** (vom Nutzer am 08.10.2026 für fsieben entschieden: „Ja
+     aufnehmen, und in den Stern halt noch schreiben das es to be
+     confirmed noch sein muss. Aber dann können die Leute sich drauf
+     vorbereiten"): Nennt eine QUELLE den letzten Termin ausdrücklich
+     („zuletzt 22.08.2026") und sagt „Termin folgt", legt der Scraper die
+     neue Ausgabe am selben Wochentag ein Jahr später an
+     (`fsieben_scraper.naechster_termin`: +52 Wochen, +53, wenn der
+     Kalendertag mehr als drei Tage danach läge), mit `datum_vorlaeufig`
+     UND `gedaechtnis`, Auflage vorn weg. Die Seite zeigt „Aug. 2027*"
+     und Stern/Fußnote sagen seitdem **„noch zu bestätigen (to be
+     confirmed)"** (DE und EN, `event-detail.js`, `functions/index.js`,
+     `build_ics.py`). **`clean_events.zurueckziehen_prognosen()`** nimmt
+     eine solche Zeile heraus, sobald eine Zeile derselben Veranstaltung
+     ohne Markierung (gleiche `art1`, `_gleicher_standort`, ein
+     Namenskern im anderen) höchstens 60 Tage daneben liegt – auch die
+     echte Ausgabe aus fsieben selbst; Kopien aus `manual_events.json`
+     bleiben der 10-Tage-Regel überlassen. `Event` hat dafür das Feld
+     `gedaechtnis` bekommen. Nicht geschätzt wird ohne Einzelformat (nur
+     Kids/Staffel) und mit „Kids" im Namen. `test_fsieben` hält es fest.
+     Für eine weitere Quelle gilt dasselbe nur mit Ja des Nutzers.
+   - **Der Override hängt am vorläufigen Datum**: Bringt der Datenlauf
+     einen anderen Tag, greift er nicht mehr, das Sternchen verschwindet
+     von selbst. Bringt er denselben Tag, bleibt es – deshalb meldet
+     `seitenabgleich.py` **BESTAETIGT**, wenn die Seite unser Datum
+     inzwischen nennt; dann den Override löschen. Neue Prognosen findet
+     derselbe Lauf als DATUM.
+   - `test_datum_vorlaeufig` hält Override-Feld, `to_dict()` (kein
+     `false` in events.json) und die Kalenderdatei fest.
+
+20. **Hindernisläufe: die Marke oder der PLURAL.** Vom Nutzer am
+   21.09.2026 an einer einzigen Zeile gemeldet („Xletix Challenge -
+   Berlin ist ein Hindernis lauf und kein Lauf auf der Straße") – die
+   Nachzählung machte daraus **58 Zeilen**: alle 18 XLETIX-, 13 Muddy-
+   Angel-, 5 CrossDeLuxe-, 4 Mud-Masters-Zeilen und die Rats-Run-/
+   Hotfoot-Serien standen als Straßenlauf da. Die Stichwortliste kannte
+   nur `hindernislauf|obstacle|ocr|spartan|tough mudder`, und kein
+   Veranstalter nennt seine Veranstaltung „Hindernislauf" – er nennt
+   sie „XLETIX Challenge" und schreibt „mit 15 Hindernissen" daneben.
+   Zwei Wege deshalb:
+   - **Die Markennamen** (xletix, muddy angel, mud masters, crossdeluxe,
+     rats-run, hotfoot, dazu die alten). Eindeutig, also eine Tatsache –
+     dieselbe Linie wie bei `NICHT_AUSDAUER`: „Fitness" wäre geraten,
+     „XLETIX" ist es nicht.
+   - **Die PLURALFORM „Hindernisse(n)"** und „Hindernis-Lauf". Der
+     Plural ist der ganze Trick: Ein Hindernislauf wirbt mit ihrer ZAHL
+     („mit 15 Hindernissen", „25+ Hindernisse", „mind. 30 Hindernissen"),
+     der SINGULAR steht dagegen in gewöhnlichen Läufen – der „TIME2RUN
+     Silvesterlauf in Schwabmünchen" nennt „kein Wasserhindernis" bzw.
+     „mögliches Wasserhindernis". Ein Muster auf „hindernis" ohne Plural
+     hätte ausgerechnet die Zeile zum Hindernislauf gemacht, die es
+     ausdrücklich VERNEINT. Beide Gegenproben stehen in
+     `test_kategorie`.
+
+   Zwei Änderungen an `clean_events.refresh_art2()` gehören dazu, beide
+   am Bestand nachgezählt (die Linie der „wichtigsten Lektion": erst
+   zählen, was eine Regel anrichtet):
+   - Es liest jetzt **Name UND Wettbewerbs-Label**. Die Gattung steht oft
+     nur im Label („Hot-20 (40 Hindernisse)", „9,2 km Crosslauf"), und
+     `expand_competitions()` liest es beim Einsammeln längst mit. Vier
+     Zeilen ändern sich zusätzlich, alle vier zu Recht (Crossläufe, die
+     als Straße standen).
+   - **Hindernis schlägt Trail.** Sonst bleibt es dabei, nur Generisches
+     zu ersetzen; hier ist die Ausnahme die Reihenfolge der
+     Stichwortliste selbst (Hindernis steht VOR Trail, weil ein
+     Hindernislauf durchs Gelände immer noch ein Hindernislauf ist).
+     Fünf Zeilen standen nur deshalb als Trail, weil „Cross" in ihrem
+     Namen steht (CrossDeLuxe Erzgebirge, „Puls 300 Cross- und
+     Hindernis-Lauf", der Berserker des Legend of Cross) – und ihre
+     Schwesterveranstaltungen wären danach Hindernis gewesen, sie nicht.
+
+   **Die allgemeine Lehre**: Eine gemeldete Zeile ist selten eine
+   einzelne Zeile. Erst zählen, wie viele derselben Klasse angehören,
+   dann eine Regel bauen – ein Override hätte hier 1 von 58 Fällen
+   erledigt und die anderen 57 beim nächsten Datenlauf erneut erzeugt.
+
+21. **Die Länge eines Triathlons entscheidet auch das SCHWIMMEN.** Vom
+   Nutzer am 21.09.2026 am „2. Weinstadt Triathlon" gemeldet: 0,3 km
+   Schwimmen / 18,7 km Rad / 4,6 km Laufen, und die Box schrieb „Sprint"
+   – richtig ist **Super-Sprint**. Die Summe 23,6 km liegt knapp über
+   der Sprint-Grenze (23 km), der Schwimmteil von 300 m aber unter dem
+   kleinsten Sprint-Schwimmen (500 m).
+
+   Zwei Zeilen daneben zeigen, dass die Summe das **grundsätzlich** nicht
+   leisten kann: Der Berliner Volkstriathlon hat bei 23,7 km Gesamtlänge
+   700 m Schwimmen (ein echter Sprint), der Stadttriathlon Erding bei
+   25,4 km nur 400 m. Dieselbe Summe, verschiedene Formate – die
+   Radstrecke gleicht den kurzen Schwimmteil wieder aus.
+
+   `triathlonFormat()` (`event-detail.js`) liest deshalb die
+   Schwimm-Teilstrecke aus dem Label, wenn sie dort steht. Bewusst eng:
+   nur wenn das Label sie überhaupt nennt, nur NACH unten (auf
+   Super-Sprint) und nur, wenn **kein** Format-Stichwort im Label steht –
+   ein als „Jedermann Sprint" ausgeschriebenes Rennen bleibt ein Sprint,
+   auch mit 400 m Schwimmen. Am Bestand nachgezählt: **zwei** Zeilen
+   ändern sich (Erding und der Günzburger Cross Triathlon, beide 400 m).
+
+   Damit das greift, gehört die Aufteilung ins Label – die Schreibweise
+   steht schon in „Elfter Durchgang": Gesamtlänge vorn, Teilstrecken in
+   Klammern. Für Weinstadt ist das ein Override.
+
+   **Filter und Anzeige sagen dasselbe** (seit dem 21.09.2026, abends):
+   `triathlonFormat()` wohnt in `filters.js`, `event-detail.js` ruft es
+   von dort, und `matchesDistanceCategory()` prüft beim Triathlon das
+   FORMAT gegen die gewählte Kategorie (`TRIATHLON_FORMAT_KATEGORIE`:
+   olympisch → `olympic`, ultra → `tultra`), nicht die rohen Kilometer.
+   Vorher zeigten drei Zeilen ein Format, das ihre Filterkategorie nicht
+   teilte. `functions/index.js` trägt die Kopie für den Abo-Filter;
+   `test_triathlon_format_kopie` vergleicht beide Fassungen Zeile für
+   Zeile UND prüft an jeder Triathlon-Zeile des Bestands, dass der Filter
+   genau die Kategorie trifft, die die Spalte anzeigt.
+
+22. **Schwimm-Meisterschaften fliegen – per Regel, nicht per Override**
+   (vom Nutzer am 24.09.2026 entschieden: „Ich möchte keine Schwimm
+   Events aufnehmen, die nicht für jeden sind, also 50m deutsche
+   Meisterschaft etc.. Es soll sich jeder anmelden können, wie beim
+   laufen und Rennrad auch."). Anders als bei den Läufen (Datenregel 18:
+   Meisterschaften bleiben, wenn jeder starten kann) ist eine
+   Meisterschaft beim Schwimmen der Regelfall des GESCHLOSSENEN
+   Wettkampfs: Startrecht nur mit Verbandslizenz und Pflichtzeit.
+   `NICHT_OFFEN_SCHWIMMEN` (`scraper_lib.py`) trifft „Meisterschaft",
+   „Championship" und die Kürzel DM/DMS/DJM/LM/EM/WM – nur bei
+   `art1 == "Schwimmen"`, in Name und Label; `filter_nicht_offen_schwimmen()`
+   beim Einsammeln, `clean_events.drop_nicht_offen_schwimmen()`
+   rückwirkend (mit Bericht). Ein Cup oder eine Serie ist keine
+   Meisterschaft; die „Offenen Sächsischen Freiwassermeisterschaften /
+   Pöhl-Cup" fallen trotzdem – wer den Jedermann-Teil (500–5.000 m)
+   haben will, trägt ihn unter seinem eigenen Namen in
+   `manual_events.json` nach. Im Bestand traf die Regel am 24.09.2026
+   keine Zeile (fünf Schwimm-Events, alle Bodensee Openwater).
+
+23. **Reine Walking-Wettbewerbe fliegen – nur die, deren LABEL nichts
+   als Walking nennt** (vom Nutzer am 07.10.2026 entschieden, To-do
+   Punkt 8: „Nur A raus … C ist ein Ultra, der wird nicht nur gelaufen
+   sondern viele gehen auch beim Ultra. Deshalb bitte C drinnenlassen.").
+   Am Bestand (7.095 Zeilen) vorher gezählt, drei Sorten:
+   - **A, 96 Zeilen, Label nur Walking/Wandern/Marsch** („7,5 km
+     Walking", „Nordic Walking 5,7 km", „25 km Wandern / Nordic Walking",
+     „18 km Hohe Salve Gipfelmarsch" – laut tirol.at eine Wanderung):
+     **raus**. `ist_walking(art1, wettbewerb, name)` in `scraper_lib.py`
+     (`WALKING_LABEL`, `LAUF_IM_LABEL`), `filter_walking()` beim
+     Einsammeln, `clean_events.drop_walking()` rückwirkend (mit Bericht),
+     nur `art1 == "Laufen"`.
+   - **B, 64 Zeilen, Label nennt Lauf UND Walking** („10 km Lauf und
+     Nordic Walking", „5 km für Läufer und Walker", „5 km Run/Walk",
+     „6,5 km (Laufen, Walken, …)", „Running oder (Nordic) Walking",
+     „5,5 km Hobby, U18, Walking/Wandern" – Hobby ist die Hobbylauf-
+     Klasse): **bleibt**, das IST der Lauf. Dazu zwei Wettbewerbe in
+     einem Label, deren erster der Lauf ist („36er und 36er Walk", „ca.
+     6 km Seerunde und Nordic Walking", „10km fun & walking" – ein mit
+     und/oder/&/Schrägstrich abgetrennter Teil mit eigenem Text ohne
+     Walking-Wort; Kommas trennen NICHT: „6 km Nordic Walker, offen für
+     alle" ist Walking) und „auch als Nordic Walking".
+   - **C, 75 Zeilen, Walking nur im NAMEN** (Bödefelder Hollenmarsch
+     7,5–101 km, Ultra Walk Magdeburg, Ultramarsch Leipzig,
+     Karwendelmarsch, TeutoMarsch, Ahmadiyya Charity Walk, „Winterlauf-
+     und Walkingserie"): **bleibt** – der Name entscheidet nie.
+   - **Wiederholt das Label VORN den Namen, zählt das Laufwort darin
+     nicht**: „Aletsch-Halbmarathon Walking 21.1 km" ist die
+     Walking-Kategorie des Halbmarathons (`_ohne_namenspraefix()`); nur
+     als Präfix – bei „Schliersee Lauf | 10,0 km Lauf und Walk" bleibt
+     das „Lauf" mitten im Label ein Laufwort.
+   - **`drop_walking()` läuft VOR `add_manual_events()`**: Eine
+     Walking-Zeile hält `is_same_event()` sonst für dieselbe Strecke wie
+     der nachgetragene Lauf gleicher Länge (Allschwil 6,6 km), der Lauf
+     wird übersprungen, die Walking-Zeile danach gelöscht, und erst der
+     nächste Durchlauf trägt den Lauf nach – nicht idempotent, beim Bau
+     so passiert.
+   - **Eine Walking-Zeile verbirgt oft den Lauf**: Bei sieben
+     Veranstaltungen war sie die EINZIGE Zeile; fünf an der
+     Veranstalterseite geprüft und den Lauf in `manual_events.json`
+     nachgetragen (Biberacher Genießerlauf HM, Silvesterlauf Bremen 5/10
+     km, Enzenbüschlauf 10,6 km, Aletsch-Halbmarathon 21,1 km; Allschwil
+     stand als „Klausenlauf Allschwil" schon drin), Waldreiterlauf
+     `unklar` (nur raceresult). Die drei reinen Walking-Einträge in
+     `manual_events.json` (Lohelauf Wentorf, Zweitalsperrenlauf,
+     Wildschönauer Wanderroute) sind entfernt. Ergebnis: 87 Zeilen raus,
+     7.095 → 7.008 Events. `test_walking` hält Treffer und Gegenproben
+     fest. Sportliches Gehen (Race Walking, „Geher") fällt unabhängig
+     davon über `NICHT_AUSDAUER` (Datenregel 14).
+
+24. **Reine Kinder- und Jugendwettbewerbe fliegen – für alle Sportarten**
+   (vom Nutzer am 09.10.2026 entschieden, To-do Punkt 21: „Ja
+   Kinderrennen raus"). Die 5-km-Grenze (Datenregel 5) gilt nur fürs
+   Laufen; bei Triathlon und Rad standen deshalb Kinderrennen von 300 m
+   bis 2,5 km in der Liste, dazu Jugendläufe über 5 km und „Kids-/
+   Junior-Marathons" mit 42,2 km. `ist_kinder(name, wettbewerb)` in
+   `scraper_lib.py` (`KINDER_WORT`, `ERWACHSENEN_WORT`),
+   `filter_kinder()` beim Einsammeln, `clean_events.drop_kinder()`
+   rückwirkend (mit Bericht, VOR `add_manual_events()` wie bei Walking).
+   Entschieden wird am LABEL: Kinderwort (Kinder, Kids, Schüler, Bambini,
+   Jugend, Junior, Youth, U4–U18) und KEIN Erwachsenenwort (Erwachsene,
+   Jedermann, Aktive, Masters, Frauen/Männer, Altersklassen, M30/W40,
+   „ab U14"/„ab Jugend", Freizeit, Fitness, Walking, Sprint, Olympisch,
+   Schnupper …). Ohne Label entscheidet der Name nur, wenn das Kinderwort
+   ein ganzes Rennen benennt und kein zweites Rennen übrig bleibt
+   („Kinder- und Jugendlauf Strasshof" fällt, „Pesenbachtallauf + …
+   Kinderlauf" bleibt). Gegenproben: eine WERTUNG („mit Schülerwertung")
+   ist kein Wettbewerb, „Mini" ist kein Kinderwort („Mini Trail 8 km",
+   „Lindwurm mini 24,5 km"), U20/U23 sind Erwachsene, „Kinderkrebs" ist
+   kein Kinderrennen. Am Bestand gezählt: 21 Treffer, alle durchgesehen;
+   dazu O-SEE X'Kids per Override (das Label nennt „Super Sprint").
+   `test_kinder` hält Treffer und Gegenproben fest.
+
+25. **Märsche sind eine eigene Kategorie unter Laufen: „Marsch“ (EN
+   „Walking“)** – vom Nutzer am 17.10.2026 entschieden („Ja, alle
+   mammutmarsch aufnehmen. Aber es muss schon irgendwo gekennzeichnet
+   sein, das es ein marsch ist … die Unterkategorie ‚Marsch‘ oder
+   ‚Walking‘ auf Englisch unter Laufen … Bitte alle aufnehmen").
+   `scraper_lib.ist_marsch_name()` und die erste Zeile von
+   `ART2_KEYWORDS_LAUFEN`: Marschwort im Namen (marsch, walk/walking,
+   wander, hike) und **kein Laufwort** (lauf, run, running, trail, jogg,
+   hobby) – „Winterlauf- und Walkingserie", „Run & Walk", „Koasamarsch
+   Trailruns" bleiben Läufe; die Marschen des Nordens (Elbmarsch,
+   Wesermarsch, Wilstermarsch, Marschacht) und „skywalk" sind keine.
+   `refresh_art2()` setzt „Marsch" über jede Kategorie (Format vor
+   Gelände), `ist_walking()` (Datenregel 23) lässt die Strecken einer
+   Marsch-Veranstaltung stehen – die Walking-Beilage eines LAUFS fliegt
+   weiter. Quellen: `mammutmarsch_scraper.py` (eine Seite, Flight-JSON
+   mit `distances`), `megamarsch_scraper.py` (Übersicht `/megamärsche` +
+   Startort je Eventseite) – beide mit Ort über die PLZ aus `places.json`,
+   nur DE/AT/CH –, und `kilometerliebe_scraper.py` nimmt die Kategorie
+   „Wandern" jetzt als Laufen/Marsch (ohne Mammut-/Megamarsch, die
+   kommen vom Veranstalter). Filter: `ART2_BY_ART1['Laufen']`,
+   Übersetzung in `filters.js` und `functions/index.js`. Am 17.10.2026:
+   36 Bestandszeilen umgestellt (Hollenmarsch, Ultra Walk, Ultramarsch
+   Leipzig, Karwendelmarsch, Charity Walks, Speed Hiking …), 75 neue
+   Zeilen aus den beiden Veranstalterquellen. **Keine eigene
+   Mindestdistanz für Märsche**: Eine 20-km-Grenze war am 17.10.2026
+   kurz gebaut (Commit `69db3871`) und wurde vom Nutzer noch am selben
+   Abend zurückgenommen („Ach lass einfach alle märsche drinnen. Auch
+   wenn sie nur kurz sind") – nicht wieder einführen; es gilt nur die
+   5-km-Grenze von Laufen (Datenregel 5), und Charity-Events sollen
+   nie wegen einer Längengrenze fallen. Tests:
+   `test_marsch_quellen` und die Marsch-Prüfungen bei `test_kategorie`.
+
+### Die wichtigste Lektion
+
+**Keine automatische Löschregel auf Heuristik-Basis.** Eine Regel, die
+widersprüchliche Distanzen automatisch entfernen sollte, traf bei 7 Fällen
+2 echte Rennen (Halbmarathon des NRZ Klosterlauf, 42-km-Strecke der Mud
+Masters) – die Streckenlisten der Quellen sind nicht verlässlich vollständig.
+Solche Fälle daher nur **melden** (`report_suspicious_distances()`), einzeln
+per Websuche prüfen und bestätigte Fehler mit `"exclude": true` in
+`manual_overrides.json` eintragen. Schlüssel dort:
+`"<Name>|<Datum>|<km>"` (distanzgenau), `"<Name>|<Datum>|@<Wettbewerb>"`
+(eine Strecke OHNE Distanz, seit 05.10.2026) oder `"<Name>|<Datum>"`
+(alle Strecken).
+
+**Die Distanz im Schlüssel wird mit `:g` formatiert** – also `|21`, nicht
+`|21.0`. Ein Schlüssel in der falschen Schreibweise wird
+**stillschweigend nie gefunden**: Der Override steht in der Datei, sieht
+richtig aus und tut nichts. Genau das ist beim Eintragen des
+Fichtel-Duplikats passiert. `test_override_schluessel` prüft jetzt jeden
+Schlüssel gegen `override_keys()`.
+
+**Ein Override, der `laenge_km` ändert, bricht seinen eigenen
+distanzgenauen Schlüssel.** Die Distanz im Schlüssel ist die ALTE; sobald
+der Override gegriffen und die Zahl in `events.json` geändert hat, findet
+`find_override()` ihn über die NEUE Distanz nicht mehr. Zwei Folgen, beide
+real aufgetreten:
+
+- **Innerhalb desselben Laufs**: Schritte, die den Override erneut
+  abfragen, sehen ihn nicht. Beim OstseeMan Glücksburg setzte ein
+  Override den „6 km Triathlon"-Eintrag auf 5,5 km Laufen (es ist der
+  Charity Run der Veranstaltung) – `fix_multisport_art1()` suchte den
+  Override dann mit 5,5 km, fand ihn nicht und setzte `art1` wegen des
+  Wortes „Triathlon" im Veranstaltungsnamen wieder zurück.
+- **Beim nächsten Lauf**: Ein `exclude` unter dem alten Schlüssel trifft
+  nichts mehr.
+
+**Allgemeiner und distanzgenauer Schlüssel liegen seit dem 20.09.2026
+ÜBEREINANDER**: `find_override()` mischt „<Name>|<Datum>“ und
+„<Name>|<Datum>|<km>“, der distanzgenaue gewinnt bei Widerspruch.
+Vorher gewann der erste Treffer allein, und ein `veranstalter_url` im
+allgemeinen Eintrag war für jede Strecke mit eigenem Eintrag unsichtbar
+(sechs Fälle, siehe „Zehnter Durchgang“).
+
+**Die Auflage vorn im Namen wird seit dem 06.10.2026 überlesen**:
+„35. Ismaninger Winterlaufserie|2026-12-13|21.1" trifft auch die Zeile
+„Ismaninger Winterlaufserie" und umgekehrt (`_AUFLAGE_VORN_RE` in
+`find_override()`, ein exakter Schlüssel gewinnt; eine Nummer MITTEN im
+Namen bleibt unterscheidend). Ob die Nummer dasteht, entscheidet
+`unify_event_names()` nach der Quellenmehrheit – sie wechselt also mit
+jedem Datenlauf, der eine neue Quelle bringt. Genau so lief der
+Halbmarathon-Override vom 18.09. ins Leere: Am 30.09. lieferte eine
+zweite Quelle dieselbe Serienzeile ohne „35.", und die Veranstaltung
+stand wieder als „13.12.–21.02." in der Liste (vom Nutzer am 06.10.2026
+gemeldet). Dieselbe Klasse wie der `|21.0`-Schlüssel.
+`test_override_schluessel` hält beide Richtungen und die Gegenproben fest.
+
+**Ein allgemeiner Schlüssel mit `laenge_km` beschreibt EINE Strecke –
+seit dem 05.10.2026 auch im Code.** Er entsteht, wenn die Zeile beim
+Eintragen keine Länge hatte (41 Triathlons im Zwölften Durchgang,
+Hasenmelker, Poggenhagen …); die weiteren Strecken kommen aus
+`manual_events.json`. Bis dahin setzte der Override beim nächsten Lauf
+die Länge an ALLE Zeilen der Veranstaltung (77 je Lauf), sie
+verschmolzen zu einer, und `add_manual_events()` legte die anderen
+wieder an – „idempotent, aber ein Umweg". Der Umweg brach, als die
+Namensregel (Datenregel 7, achter Fall) eine Kilometerliebe-Zeile
+„Olympisch" ohne Länge für die nachgetragene Olymp-Strecke des Allgäu
+Triathlons hielt: `add_manual_events()` übersprang sie, die 57,5 km
+waren weg, die Zeile ohne Länge blieb. Jetzt lässt `apply_overrides()`
+bei einer Zeile mit ANDERER Distanz `laenge_km`, `wettbewerb` und
+`dauer_h` in Ruhe (`STRECKEN_FELDER`) und setzt nur den Rest (Link,
+Koordinaten, Charity, vorläufig); ein distanzgenauer Schlüssel
+korrigiert weiterhin jede Distanz. Am Bestand nachgerechnet: alter und
+neuer Lauf liefern dieselben Zeilen, bis auf die elf Paare des achten
+Falls. `test_override_schluessel` hält es fest.
+
+Deshalb: **`laenge_km` und `art1` nie im selben Override ändern.** Wo
+eine Zeile eigentlich eine andere Veranstaltung ist (ein Volkslauf im
+Rahmen eines Triathlons), gehört sie unter ihren eigenen Namen in
+`manual_events.json` – dann greift `guess_art1()` richtig. Und wo beides
+nötig ist, beide Schlüssel eintragen (alte UND neue Distanz).
+
+Zu viel gelöscht ist schlimmer als eine Zahl zu großzügig – es ist unsichtbar.
+
+### Fehlende Strecken nachtragen (`scripts/manual_events.json`)
+
+**Ein Override ändert eine Zeile, er legt keine an.** Beim Durchgehen
+der Streckenlisten kam derselbe Fall immer wieder: Die Veranstaltung
+steht in der Liste, aber nicht alle ihre Wettbewerbe. Die Bühlauer
+Winterlaufserie hat fünf Termine à vier Distanzen – wir hatten einen
+Termin. Der proWissen-Lauf hat 5 km UND 10 km – wir hatten die 10 km.
+Und ein fehlendes Event ist die unangenehmere Sorte Fehler: Eine falsche
+Zahl sieht man, eine fehlende Zeile nicht.
+
+Deshalb `scripts/manual_events.json` – das Gegenstück zu
+`manual_overrides.json`, gelesen von `clean_events.add_manual_events()`.
+Fünf Dinge daran:
+
+- **Nur einzeln geprüft.** Jeder Eintrag ist an der offiziellen
+  Ausschreibung belegt, die Stelle steht als `_quelle`/`_note` in der
+  Datei. Dieselbe Linie wie bei den Overrides: geraten wird nie.
+- **Felder mit `_` am Anfang sind Dokumentation** und landen nicht in
+  `events.json`.
+- **Doppelt kann nichts entstehen**: Übersprungen wird jeder Eintrag,
+  zu dem `is_same_event()` schon eine Zeile findet – also genau die
+  Duplikat-Definition des Projekts. Damit ist der Schritt idempotent
+  und verträgt sich mit einem späteren Scraper-Lauf, der dieselbe
+  Strecke selbst einsammelt: Dann greift er nicht mehr.
+- **Der Name muss der sein, den die Veranstaltung nach dem Aufräumen
+  TRÄGT** (`unify_event_names` kann ihn vereinheitlichen) – sonst
+  erkennt `is_same_event()` die eigene Zeile beim nächsten Lauf nicht
+  wieder und legt sie erneut an. Real passiert: Die nachgetragene
+  Lindensee-Strecke heißt am 21.11. „44. Lindenseelaufserie".
+- **`add_manual_events()` läuft NACH `apply_overrides()`.** Ein Override
+  mit dem Schlüssel `"<Name>|<Datum>"` trifft sonst jede Strecke dieser
+  Veranstaltung an diesem Tag – auch eine gerade nachgetragene. Beim ASV
+  Duisburg hat genau das die neue 5-km-Zeile auf 10 km gesetzt und damit
+  zum Duplikat gemacht.
+
+Danach laufen die nachgetragenen Zeilen durch **dieselben** Regeln wie
+alles andere (Kategorie, Rundung, Mindestdistanz, vergangene Events,
+Zusammenführen). `test_manuelle_events` hält Pflichtfelder und
+Idempotenz fest.
+
+### Was die Einzelprüfung von 200 Events gelehrt hat (18.09.2026)
+
+Der Nutzer hat darum gebeten, 200 Events ganz genau anzusehen. Geprüft
+wurden die ersten 200 nach Datum (18./19.09.2026). Von 80 maschinellen
+Verdachtsfällen blieben nach der Einzelprüfung **7 echte Fehler** übrig;
+alle sind behoben. Wichtiger als die sieben sind vier Lektionen:
+
+1. **Die Prüfregel irrt öfter als die Daten.** Drei der vier größten
+   Fundgruppen waren Fehler meiner *Prüfung*:
+   - „Wochentag Mo-Fr" (45 Treffer) - die 200 Events liegen auf Fr/Sa,
+     und ein Freitagabend-Stadtlauf ist völlig normal. Regel auf Mo-Do
+     eingeengt.
+   - „‚Halbmarathon', aber Distanz passt nicht" - der *Veranstaltungs*name
+     ist „Bernburger Halbmarathon", der *Wettbewerb* sind 12 km. Die
+     Regel muss das **Label** lesen, nicht den Namen.
+   - „Cross im Namen, Kategorie Hindernis" - der „Family-CrossDeLuxe
+     Leipzig" ist tatsächlich ein Hindernislauf. Die Regel
+     „spezifisch vor generisch" hat richtig gearbeitet.
+
+2. **Eine naheliegende „Verbesserung" hätte 57 richtige Einordnungen
+   zerstört.** `berglauf` steht ohne Wortgrenze in
+   `ART2_KEYWORDS_LAUFEN`, und „Lim·berglauf" trifft darauf. Der Reflex
+   war, `\bberglauf\b` daraus zu machen. Gemessen: Von 58 betroffenen
+   Events sind 57 **echte** Bergläufe - „Belchen·berglauf",
+   „Turm·berglauf", „Nebelhorn·berglauf". Deutsche Komposita sind hier
+   die Regel, nicht die Ausnahme. **Die fehlende Wortgrenze bleibt** –
+   auch jetzt, wo das Stichwort „Trail" statt „Berg" ergibt: Ein
+   Limberglauf ist ein Geländelauf, kein Straßenlauf.
+   Vor jedem „das sieht falsch aus" erst zählen, was die Änderung
+   anrichtet.
+
+3. **Koordinaten sind Daten, keine Dekoration.** Der „Bodensee
+   Marathon" lag mit seiner Marathon-Strecke auf 49.07/10.14 - das ist
+   Franken, 168 km vom Bodensee. Der Ortsname war auf „Kressbronn"
+   verkürzt (statt „Kressbronn am Bodensee"), und dafür fand der
+   Geocoder einen gleichnamigen Ort anderswo. Umkreissuche und Karte
+   bauen allein darauf auf: Wer im Umkreis von Friedrichshafen suchte,
+   bekam den Marathon nicht zu sehen.
+   Neu deshalb: **`lat`/`lon` dürfen im Override stehen**
+   (`OVERRIDE_FIELDS`, jetzt EINE Liste für beide Wege statt zweier),
+   und `report_widerspruechliche_koordinaten()` meldet Veranstaltungen,
+   die am selben Tag an zwei über 30 km entfernten Punkten liegen.
+
+   Der Bericht fand **neun weitere Fälle**, alle einzeln an der
+   offiziellen Seite geprüft und behoben (der Bericht meldet jetzt 0):
+   Steverlauf → Senden in Westfalen statt bei Neu-Ulm (400 km);
+   Pokallauf → Roßbach bei Braunsbedra statt im Westerwald;
+   Quickborn → Kreis Pinneberg statt Dithmarschen; Cross der Deutschen
+   Einheit → Weißensee in Thüringen statt Berlin-Weißensee;
+   Hohenloher Silvesterlauf → Wallhausen-Hengstfeld statt Wallhausen an
+   der Nahe; Laubacher Ramsberglauf → Laubach in Hessen statt im
+   Hunsrück; Rodenbacher Lauftag → Rodenbach im Main-Kinzig-Kreis statt
+   bei Kaiserslautern; Zeiler Waldmarathon → Zeil am Main statt Raum
+   Frankfurt; Königsforst-Marathon → Bergisch Gladbach statt bei Kassel.
+
+   Zwei Nachwirkungen, die zeigen, wie weit so ein Fehler reicht:
+   - Beim **Königsforst-Marathon** war die falsch verortete Zeile ein
+     unerkanntes Duplikat: Die Orts-Bedingung der Duplikat-Erkennung
+     erlaubt 30 km, 158 km sprengen sie. Mit den richtigen Koordinaten
+     fielen die beiden 42,2-km-Zeilen zusammen. Die Veranstaltung hat
+     jetzt genau die drei Strecken, die ihre Ausschreibung nennt.
+     Damit trug auch die alte Begründung für den **Ort im
+     ICS-Dateinamen** nicht mehr; das Ersatzbeispiel „TEAG - Legend of
+     Cross - Mühlberg" ist am 21.09.2026 denselben Weg gegangen (Drei
+     Gleichen = Mühlberg, zusammengeführt). Der Ort bleibt im Namen -
+     Begründung an der Stelle in `event-detail.js`.
+   - Beim **Rodenbacher Lauftag** wäre die 50-km-Strecke fast
+     gelöscht worden: Die Cup-Seite main-lauf-cup.de listet sie nicht.
+     Die Ausschreibung des Veranstalters nennt sie sehr wohl
+     (50-km-Harry-Arndt-Lauf, Start 9:31 Uhr). Wieder dieselbe Lektion:
+     **Streckenlisten der Quellen sind nicht verlässlich vollständig.**
+
+4. **Dieselbe Veranstalter-SEITE ist ein starkes Signal - und trotzdem
+   keine Regel** (seit dem 07.10.2026 im ENGEN Fall doch eine: Datenregel
+   7, achter Weg – gleicher Ort ≤ 3 km, beide Maßzahlen, ≤ 0,5 km, keine
+   Gattung verschieden; der weite Fall unten bleibt gemeldet). „45. Hörnle Berglauf Bad Kohlgrub" und „Hörnlelauf
+   Bad Kohlgrub" tragen dieselbe vollständige Adresse
+   (`…veranstaltungen.php?id=94`), dasselbe Datum, dieselben 7 km - ein
+   Rennen. Durchgerechnet über den ganzen Bestand hätte diese Regel aber
+   **48 Paare** verschmolzen, darunter echte Wettbewerbe: den Marathon
+   des „24h Mad Chicken Run" mit dem 24-Stunden-Rennen, den „Kolberger
+   Berglauf" mit der Wanderung über dieselbe Strecke, „Tour Werder
+   61,8 km" mit „Tour City Berlin 63,0 km". Also
+   `report_gleiche_seite_gleiche_distanz()` - **melden, nicht
+   zusammenführen** (36 Fälle offen). Die DOMAIN allein bleibt auch
+   weiterhin kein Kriterium, siehe `_same_name()`.
+
+Die sieben behobenen Fehler: Bodensee Marathon falsch verortet; ONW-Lauf
+Dannenberg doppelt (mit der Jahreszahl 2025 im Namen); Hörnlelauf Bad
+Kohlgrub doppelt (und als „Straße" statt Berglauf); „BFUTR EXTREME" mit
+18 km/Straße statt der 105 km des Black Forest ULTRA Trail Run, den wir
+bereits vollständig hatten; drei Radrennen des Drei Talsperren Marathons
+als Lauf geführt; der 15-km-Lauf des Limberglaufs Ranis fehlte ganz.
+Jeder Fall gegen die offizielle Ausschreibung geprüft, die Belege stehen
+als `_note` in `manual_overrides.json`.
+
+**Was in den 200 bleibt**: 21 Einträge mit einem Portallink statt der
+offiziellen Seite. Das ist kein falscher Datensatz, nur ein schlechterer
+Link - und Datenregel 2 verbietet das Raten. Er wird ersetzt, sobald
+eine Quelle die offizielle Seite nennt (`update_existing_event()`).
+
+### Zweiter Durchgang: die Events 201-400 (18.09.2026)
+
+Auf Wunsch des Nutzers gleich weiter mit den nächsten 200 (19./20.09.2026).
+Von 72 maschinellen Verdachtsfällen blieben **sechs echte Fehler** - und
+ein Fund, der mit den Daten gar nichts zu tun hatte (siehe unten).
+
+Die sechs: der Kinderlauf des Karlsfelder Seelaufs stand mit **21,1 km**
+in der Liste (er ist 999 m lang - die Distanz war das Maximum aus der
+Streckenliste); der Stadtlauf Erding stand unter **drei** Namen
+(„23. Stadtlauf Erding 2026", „Erdinger Stadtlauf", „Stadtlauf Erding");
+der „Alagastlauf" doppelt, weil laufen.de ihn als „Alagastaluf" führt
+(ein fehlendes l); der Laacher See Naturlauf trug das Label „9 km" bei
+8,5 km echter Strecke; und der „Running Paule Marathon" stand mit
+**6,4 km** da - das ist die RUNDENLÄNGE (4× 6,4 km + 4× 4,2 km = ein
+Marathon), dieselbe Fehlerklasse wie die Backyard-Runde.
+
+Drei Lektionen:
+
+1. **Ein Trennzeichen kostete elf Veranstaltungen.** `ART1_KEYWORDS`
+   enthielt `swim ?run` - nur ein optionales LEERZEICHEN. „Wunnebad
+   Swim&Run", „DSW Swim & Run", „Kronberger Bike+Run" und „Run and Bike
+   Berlin" blieben deshalb Laufveranstaltungen. Jetzt steht dort
+   `_ZWEI_SPORTARTEN` (`&`, `+`, „and", „und", Bindestrich), und
+   Run&Bike/Bike&Run ist als Duathlon-Format dabei.
+   **Nicht** daraus geworden ist das naheliegende Stichwort „athlon":
+   Unter den zwölf Events mit „athlon" im Namen sind die „Decathlon
+   Hybrid Series" (der Sporthändler), der „Weinathlon" und der
+   „Eschathlon Halbmarathon". Dieselbe Linie wie bei „berglauf" im
+   ersten Durchgang - erst zählen, was eine Regel anrichtet.
+   `test_zwei_sportarten_im_namen` hält beide Seiten fest.
+
+2. **Ein Override kann nicht umbenennen.** Beim Stadtlauf Erding heißt
+   die Veranstaltung offiziell „Stadtlauf Erding", die brauchbarste
+   Zeile aber „Erdinger Stadtlauf" (sie hat die offizielle Seite UND
+   beide Strecken). Der Name ist Teil des Override-Schlüssels, also
+   ging nur: die Duplikate ausschließen und den Namen stehen lassen.
+   Falls das öfter vorkommt, wäre ein `name`-Feld im Override der
+   nächste Schritt - dann muss `find_override` aber über den ALTEN
+   Namen suchen und darf den Schlüssel nicht mit sich selbst brechen.
+
+3. **Eine Datenänderung hat einen Frontend-Fehler aufgedeckt, der nichts
+   mit Daten zu tun hatte.** Nach dem Entfernen von fünf Zeilen war der
+   Rauchtest rot: „Enter springt in die Angaben". Kein Zufall und kein
+   Wackler - **Enter klappte auf einer Veranstaltungszeile nur um**,
+   statt in den Detailbereich zu springen, und ein Tastatur-Nutzer kam
+   bei jeder Veranstaltung mit mehreren Strecken nie an Kalenderdatei
+   und Veranstalter-Link. Der Rauchtest hatte den Fall bis dahin nur
+   zufällig NICHT getroffen (am Ende des Fensters lag immer eine
+   einzelne Strecke). Behoben in `events.html`, und der Fall steht
+   jetzt ausdrücklich im Rauchtest - siehe Frontend-Fallen,
+   „Tastaturbedienung".
+   Die Lehre: Ein roter Test nach einer Datenänderung ist nicht
+   automatisch „die Daten haben sich verschoben". Erst nachsehen.
+
+**Was auch hier bleibt**: 56 Portallinks und 11 Einträge ohne
+Distanzangabe. Beides sind keine falschen Daten - die Quelle nennt sie
+schlicht nicht, und Datenregel 2 verbietet das Raten.
+
+### Dritter Durchgang: die Berichte abgearbeitet (18./19.09.2026)
+
+Statt der nächsten 200 nach Datum wurden diesmal die **Berichte**
+durchgegangen – `audit_events.py --offen` und die `⚠`-Meldungen von
+`clean_events.py`. Das ist die ergiebigere Reihenfolge: Dort steht, wo
+etwas nicht stimmen KANN, statt jede Zeile gleich zu behandeln.
+
+Stand danach (4.335 → **4.248 Events**, 279 Overrides, 194 Einzel­prüfungen
+im Protokoll, 46 nachgetragene Strecken):
+
+| Bericht | vorher | nachher |
+|---|---|---|
+| Gleicher Tag, Ort und Distanz, anderer Name | 57 | 7 |
+| Triathlon-Distanz passt zu keinem Format | 40 | 15 |
+| Gleiche Veranstalter-Seite, gleiche Distanz | 32 | 5 |
+| Verdächtige Distanz | 23 | 18 |
+| Mehrsport: Zeile sieht nach Teilstrecke aus | 3 | 0 |
+| `audit`: Veranstaltung >1 Woche | 44 | 0 |
+| `audit`: auffällige Distanz | 24 | 0 |
+| `audit`: keine Koordinaten | 12 | 0 |
+| `audit`: Zahl im Label weicht ab / Berglauf / „Marathon" / Name sehr lang | 5/4/6/5 | 0 |
+
+**Die scharfen Kategorien von `audit_events.py --offen` sind damit leer.**
+Übrig bleiben dort nur 897 Portallinks, 320 Zeilen ohne Distanzangabe und
+120 Termine von Montag bis Donnerstag – alles drei keine Fehler, sondern
+Lücken oder Eigenheiten der Quellen.
+
+Die Reste in den `clean_events.py`-Berichten sind **geprüft und keine
+Fehler** – gemeldet werden sie nur, weil die Bedingung grob ist (± 0,5 km,
+oder „passt zu keinem der vier Standardformate").
+
+Fünf Muster, die dabei herauskamen und beim großen Datenlauf wieder
+auftreten werden:
+
+1. **Dieselbe Veranstaltung unter zwei Namen.** Einmal der förmliche
+   Kalendername von laufen.de (ohne Wettbewerbs-Label, mit Portallink),
+   einmal die Seite des Veranstalters (mit allen Strecken und Labels).
+   `is_same_event()` sieht das nicht – „33. Lauf Rund um den Grengel"
+   und „Grengellauf" haben kein gemeinsames Wort. 29 Fälle.
+2. **Meisterschaften, die IM Rahmen eines Volkslaufs laufen**, stehen
+   ein zweites Mal im Kalender (Bayerische Halbmarathon-Meisterschaften
+   = Aschaffenburger Halbmarathon, Deutsche Polizeimeisterschaften =
+   Crosslauf in den Ravensbergen). Wer starten will, meldet sich beim
+   Volkslauf an. 7 Fälle – das ist eine Entscheidung, die der Nutzer
+   umdrehen kann.
+3. **Laufserien**: `expand_competitions()` hängt jede Distanz an jeden
+   Termin. Bei der Hammer Winterlaufserie waren von neun Zeilen sechs
+   erfunden. Und die Zeilen des ERSTEN Termins spannen oft bis zum Ende
+   der Serie (Bramfelder, Alfter, Bühlauer, Wilhelmsburg, HKK).
+4. **Ein Datenfehler verdeckt ein Duplikat.** Dreimal an einem Tag:
+   Fehlende Koordinaten beim Rodheimer Volkslauf, ein falsches Datum
+   beim Britzinger Silvesterlauf, ein falscher Ort beim Isar-Lauf Bad
+   Tölz – erst nach der Korrektur griff die Duplikat-Erkennung (ihre
+   Ortsbedingung erlaubt 30 km, mehr nicht).
+5. **Die Radstrecke als Länge des Triathlons** – siehe Datenregel 15,
+   der größte systematische Fehler im ganzen Bestand.
+
+Offen geblieben und im Protokoll als `unklar` abgelegt (11 Fälle),
+darunter drei, die eine **Entscheidung des Nutzers** brauchen:
+
+- **Virtuelle Läufe**: „Blaues Land läuft – XMAS-Challenge" ist „Egal wo,
+  egal wann", fünf Wochen lang, ohne Ort und ohne Koordinaten. Gehören
+  solche Events in eine Liste, die auf Karte und Umkreissuche gebaut ist?
+- **Abgesagte Veranstaltungen** erkennt niemand – weder die Scraper noch
+  `clean_events.py`. Beim Marner Kohltagelauf schreibt der Veranstalter
+  „Leider müssen wir den Kohltagelauf 2026 … absagen!", wirbt daneben
+  aber weiter mit „Melde dich jetzt für 2026 an!".
+- **Staffeln**: Beim Celler Staffelmarathon steht die TEAM-Gesamtstrecke
+  in `laenge_km` (42,195 km auf vier Läufer), beim „DUO Marathon
+  2 x 21,1 km" dagegen die Teilstrecke. Das gehört vereinheitlicht.
+
+### Vierter Durchgang: die Veranstalter-Links von 500 Veranstaltungen (19.09.2026)
+
+Auf Wunsch des Nutzers („checke 500 Events, ob die alle die richtige
+Veranstalter-Webseite haben – auch googeln"). Geprüft wurden die
+**ersten 500 Veranstaltungen nach Datum** (18.09.–03.10.2026, ~900
+Zeilen), Protokoll in `scripts/links_geprueft.json`. Vorgehen:
+
+1. **Jeden Link abgerufen** (Status, Titel, ob die Seite Event oder Ort
+   nennt). 379 eigene Seiten, davon 352 erreichbar und passend, 27 mit
+   403/404/Timeout.
+2. **`my.raceresult.com` → `/contact`** (47 Fälle; robots.txt erlaubt
+   die Seite). Die Organizer-URL steht dort im JSON-LD
+   (`"organizer":{…,"url":…}`) – 24-mal brauchbar, sonst leer,
+   Platzhaltertext („Geben Sie hier die Veranstaltungs-Website an"),
+   Facebook, Zeitnehmer oder Stadt-Homepage.
+3. **Portal- und Anmeldelinks (74) sowie tote Links per Websuche**, die
+   gefundene Seite abgerufen und gegen Event/Datum geprüft. Geraten
+   wurde nichts: Wo nur Kalender und Anmeldeportale auftauchten, bleibt
+   der alte Link (`unklar`).
+
+Ergebnis: **77 korrigiert** (Overrides in `manual_overrides.json`, je
+mit `_note` und Quelle), **394 in Ordnung**, **29 unklar**. Was dabei
+außer Links herauskam – **alles Entscheidungen des Nutzers, nichts
+davon ist umgesetzt**:
+
+- **Sechs Duplikate unter zwei Namen** (jetzt mit derselben Seite,
+  deshalb meldet `report_gleiche_seite_gleiche_distanz()` 12 statt 5):
+  Wehringer Wertachlauf (19.09.), Panoramalauf Kriegsheim/Monsheim
+  (20.09.), Herbstlauf Fleckenberg (20.09.), Zonser Nachtlauf (25.09.),
+  Ellernstaffellauf Rastede (27.09.), Weezer Staffellauf (26.09.). Dazu
+  die **Saarländische 5-km-Meisterschaft**, die IM Altstadtlauf
+  Ottweiler läuft (Meisterschaft-im-Rahmen-Fall).
+- **Abgesagt laut Veranstalter**: Bordesholmer SEE&RUN 2026
+  („Fokus auf 2027"); wahrscheinlich auch Benefizlauf der Wiehenläufer
+  („krankheitsbedingt", ohne Jahr) und Crosslauf Jüchen (Vereinsseite:
+  „wird nicht mehr durchgeführt", raceresult-Seite weg).
+- **Datenhinweise**: Running Paule RP-Marathon steht bei uns am 20.09.,
+  die Seite nennt den 19.09.; VfL Nagold bewirbt den 18.09. als
+  „Herbstlauf unter Flutlicht" (bei uns „Mittsommerlauf"); Schildberglauf
+  liegt laut Kalendern in Schildau, nicht Lossatal; Wunnebad Swim&Run
+  ist 2026 nur für Jugendliche; DKB Staffellauf Liebenberg laut
+  kulturfeste.de am 14.09. statt 19.09.
+- **Ein Fehler im Code**: `is_portal_link()` verglich Teilzeichenketten
+  – `tsv-weeze-leichtathletik.de` galt als Portal („leichtathletik.de"
+  steckt drin), der echte Veranstalter-Link wäre beim nächsten Datenlauf
+  ersetzbar gewesen. Jetzt Hostname-Vergleich, mit Test.
+
+**Zeitnehmer-Seiten sind Portallinks** (vom Nutzer am 19.09.2026 am
+Kallinchen Triathlon gemeldet: berlin-timing.de schreibt fett
+„Informationen zur Veranstaltung entnehmen Sie bitte der
+Veranstalterseite" samt Link – und bei uns stand der Zeitnehmer). Warum
+das durchgerutscht war: Die Linkprüfung hatte nur die ersten 500
+Veranstaltungen nach Datum (bis 03.10.2026) angesehen, der Triathlon
+liegt im August 2027; und `berlin-timing.de` stand in keiner Liste, also
+meldete auch `audit_events.py` ihn nicht als Portallink. Jetzt: alle
+acht Veranstaltungen mit diesem Zeitnehmer auf die dort genannte
+Veranstalterseite gesetzt (Protokoll in `links_geprueft.json`; Krummensee
+aus der Sandbox nicht abrufbar, Volkstriathlon unter neuem Pfad),
+`berlin-timing.de` in `PORTAL_DOMAINS` und
+`WEITERLEITUNG_KEIN_VERANSTALTER`. **Die anderen Zeitnehmer** (raceresult,
+datasport, lanet3, racepedia, runtix, davengo, …) stehen seit dem
+19.09.2026 ebenfalls in `PORTAL_DOMAINS` (vom Nutzer so entschieden);
+bei raceresult liegt die Veranstalterseite auf `/contact`, und
+`scripts/veranstalter_links.py` holt sie (Punkt 10, gebaut).
+
+Was die Sandbox nicht kann: Einige Seiten blocken automatische Abrufe
+(403, Sicherheitscheck) oder scheitern am Proxy; die stehen als
+`link_ok` mit Hinweis, weil die Adresse eventspezifisch und in der
+Websuche belegt ist.
+
+### Fünfter Durchgang: „Verdächtige Distanz" leer geprüft (19.09.2026)
+
+Die zwölf offenen Fälle aus `report_suspicious_distances()` einzeln an
+der offiziellen Ausschreibung geprüft (Protokoll in `geprueft.json`).
+**Fünf Zeilen waren falsch** und stehen als `exclude` in
+`manual_overrides.json`: Möhnesee-Pokal-Lauf 30 km (2026 durch den
+Halbmarathon ersetzt, die 30 km waren das Programm 2025), Entega
+Nightrun 10 km (nur 2,5 / 5 / 7,5 km), Crosslauf Friedrichsruh 25 km
+(laufen.de führt „2,5km Kreismeisterschaft" mit „25 km"), und zwei
+Serienzeilen der Winterlaufserie Drelsdorf (15 km am 10.01., 10 km am
+07.02. – jeder Termin hat andere Distanzen). **Der Chiemgauer100
+StundenRundenLauf ist ein 24-Stunden-Rennen** (Stundenrunden à 6,7 km,
+100 km und 100 Meilen werden nur „gesondert ausgezeichnet") und steht
+jetzt mit `dauer_h` 24 statt „100 km". Drei Veranstalter-Links dabei
+nachgetragen (Werdau, Thülsfelder Talsperre, Rodenbach), einer davon
+über die raceresult-Kontaktseite (Chiemgauer100).
+
+**Die übrigen neun Meldungen sind echte Strecken** (Mud Masters 42 km,
+Helbetal-Halbmarathon 21 km, Harry-Arndt-Lauf 50 km, L³ 47 km Ultratrail
+aus drei Runden, Porz 21,1 km, Thülsfelder 10 englische Meilen, Drelsdorf
+15 und 21,1 km, Werdau ¾-Marathon 31 km) – der Bericht meldet sie
+weiter, weil die Bedingung grob ist; wer dort steht, steht auch in
+`geprueft.json`. Damit sind **alle** `clean_events.py`-Berichte
+abgearbeitet; was sie noch nennen, ist geprüft und wartet auf eine
+Entscheidung des Nutzers (siehe „Was der Nutzer noch entscheiden muss").
+
+Nebenbefund: **PDF-Ausschreibungen lassen sich in der Sandbox lesen** –
+`pypdf` ist kaputt (`cryptography`-Backend), aber ein kleiner
+Zlib-plus-ToUnicode-Dekoder (im Chat gebaut, nicht im Repo) reichte für
+die Werdauer Ausschreibung. Falls das öfter gebraucht wird, lohnt sich
+ein `scripts/pdf_text.py`.
+
+### Sechster Durchgang: die Wochentage Mo–Do (19.09.2026)
+
+Die 120 Zeilen der Audit-Kategorie „Wochentag Mo–Do“ durchgesehen
+und die ~45 Veranstaltungen mit echtem Zweifel an der offiziellen
+Seite geprüft (Feiertage, Silvester, Heiligabend, Dreikönig,
+Rosenmontag, Buß- und Bettag und die Mittwochabend-Stadt- und
+Campusläufe brauchten keine Prüfung). **Kein einziges Datum war
+falsch** – Stundenläufe, Firmenläufe und Campusläufe liegen wirklich
+unter der Woche. Gefunden wurden dafür sechs andere Fehler:
+
+- **Falscher Link auf ein anderes Rennen**: Der „Sparkassen
+  Uni-Triathlon“ (Magdeburg, Barleber See) zeigte auf den *Berliner*
+  Uni-Triathlon. Jetzt usc-triathlon.de, dazu die Sprintdistanz
+  500 m / 20 km / 5 km = 25,5 km.
+- **Gerundete Distanzen**: Karlsruhe Volkslauf 11 → 10,5 km,
+  Frühlingslauf Schwerin 11 → 10,5 km, Martinslauf Sindorf 7 → 6,6 km.
+- **Zeitrennen ohne Maßzahl**: Rastenberg (4-Stunden-Spendenlauf auf
+  der 400-m-Runde), Döbelner Fackellauf (Stundenlauf; der
+  Halbstundenlauf nachgetragen – dafür musste `_compatible_distance()`
+  Dauern vergleichen lernen, siehe Datenregel 8).
+- **Idar-Obersteiner Felsenkirche Treppenlauf mit 42,2 km** – es sind
+  5,4 und 8,1 km (aus „Marathonteam Hagner“ wurde ein Marathon).
+- Drei Veranstalter-Links über die **raceresult-Kontaktseite** (Haus
+  Vortlage, Wild & Run, Idar-Oberstein); bei PULSEDAY, Töwerland und
+  Fun & Erlebnis Marathons nannte sie nur Verband, Kurverwaltung oder
+  einen abgeschalteten Blog – Link bleibt.
+
+Was daraus als **Entscheidung** übrig bleibt: Treppenläufe (neuer Punkt
+13), zwei weitere 4,6/4,8-km-Läufe für Punkt 4, und drei
+2027-Termine, die nur Prognosen sind (Borkener Citylauf 07.06.2027 ist
+ein Montag – die 2026-Ausgabe war Sonntag, der 7.6.; Wild & Run und
+Uni-Triathlon Magdeburg haben ihren 2027-Termin noch nicht
+veröffentlicht). Solche **Jahreswechsel-Prognosen** erkennt keine Regel;
+sie fallen erst auf, wenn der Wochentag nicht passt.
+
+**Die Audit-Kategorie bleibt** – sie hat die sechs Fehler gefunden,
+nicht als Datumsfehler, sondern weil man dafür die Seite aufruft.
+
+### Siebter Durchgang: Zeilen ohne Distanzangabe (19.09.2026)
+
+316 Zeilen stehen ohne `laenge_km` und ohne `dauer_h` in der Liste –
+sie zeigen „–" und treffen nie einen Längenfilter. Die frühesten ~90
+davon an der offiziellen Seite geprüft (Protokoll in `geprueft.json`,
+Stand danach 268 offen). Ergebnis, ehrlich gerechnet:
+
+- **~30 % bekamen ihre Distanz** – meist erst auf der Unterseite
+  „Strecken"/„Ausschreibung", die Startseite nennt sie fast nie. Oft
+  waren es gleich mehrere Wettbewerbe (Balkantrassenlauf 42,2 / 21,1 /
+  10 / 5 km, Run and Bike Berlin 42 / 21 / 10 km, triathlon.de CUP
+  Königsbrunn 25,5 / 51,5 / 101,9 km, Pöhl Trail 21 / 12 / 5 km,
+  Remshalden Run 11,4 / 5,7 km + Staffel + Stundenlauf) – **eine Zeile
+  ohne Distanz verbirgt häufig eine ganze Veranstaltung.**
+- **Ein Viertel sind Runden- oder Zeitformate** (Stundenläufe,
+  Paarläufe, Spendenläufe auf der 400-m-Bahn) – die mit fester Dauer
+  stehen jetzt als Zeitrennen, der Rest wartet auf Punkt 14.
+- **Fehler nebenbei**: Drachentriathlon ist 2026 ein Duathlon am 20.09.
+  (19.09. war der Kinderduathlon); Hünsborn 2 be Wild ist ein
+  Lauf-MTB-Lauf-Duathlon (29 / 43,4 km), stand als Trailrun; Wetzede
+  fand am 12.09. statt (stand am 19.09.); drei Bergsprints und ein
+  Jugend-Staffelcross unter 5 km fielen heraus.
+- **raceresult-Kontaktseiten** (vom Nutzer gewünscht): 17 abgerufen,
+  6 brauchbare Organizer-URLs (Remshalden, Meckenheim, Sägerserie,
+  Chiemgauer100, Haus Vortlage, Wild & Run); der Rest Platzhalter,
+  Zeitnahme-Firma, Stadt oder Verband.
+
+Womit die Sandbox nicht weiterkommt: Strecken nur als **Bild** (Northeim),
+als **PDF mit kaputter Zeichenzuordnung** (Sondershausen), hinter
+**Polar-Flow-Links** (Rimsingen) oder auf **raceresult-Infoseiten**
+(dynamisch, nicht lesbar – Oppau, Apfelstaffel). Und **Jahreswechsel-
+Prognosen** (Borken) sieht keine Regel.
+
+### Achter Durchgang: die laufen.de-Weiterleitungen (19.09.2026)
+
+Beim Prüfen eines Portallinks fiel auf, dass **jeder gespeicherte
+`laufen.de/laufkalender/details/<id>`-Link per 302 weiterleitet** –
+auf genau den Veranstalter-Link, den der DLV-Kalender selbst hinterlegt
+hat. 208 verschiedene Detaillinks (215 Zeilen) per HEAD aufgelöst
+(2 s Pause), 182 hatten ein Ziel. Dann jede Zielseite abgerufen und
+geprüft, ob sie den Lauf nennt (ein unverwechselbares Wort des Namens
+oder das Datum im Text bzw. im Hostnamen – „lauf", „marathon",
+„Sparkasse" zählen nicht):
+
+| | Zahl | Folge |
+|---|---|---|
+| Zielseite nennt den Lauf | **120** Veranstaltungen | Override `veranstalter_url`, protokolliert in `links_geprueft.json` (`korrigiert`) |
+| Zielseite nennt ihn nicht erkennbar / leer | 45 | `unklar` mit dem Ziel in der Notiz – Portallink bleibt |
+| Ziel ist selbst Portal oder Anmeldung (lanet3, raceresult, datasport, racepedia) oder gar keine Adresse | 14 | `link_ok`, kein besserer Link |
+| kein Redirect (laufen.de zeigt die Detailseite selbst) | 26 | nichts zu tun |
+
+Damit sind von 215 laufen.de-Portalzeilen **98 übrig**; die
+Audit-Kategorie „Portallink" fällt von 791 auf rund 100 laufen.de- plus
+die raceresult-Zeilen. Für NEUE Events erledigt das seit dem 19.09.2026
+der Scraper selbst (Punkt 15, gebaut). Die Werkzeuge liegen nicht im Repo (zwei kurze
+Skripte im Chat); wenn der Nutzer Punkt 15 ablehnt, lohnt ein
+`scripts/laufen_redirects.py` nach demselben Muster.
+
+**Die raceresult-Kontaktseiten sind dagegen mager**: 23 weitere
+abgerufen, alle schon in der Linkprüfung vom Vortag – und zwei
+„Funde" (crossfitrecklinghausen.de, tusem-leichtathletik.de) waren
+dort bereits als 404 bzw. leere Domain abgelegt. **Vor jeder
+Linkarbeit `links_geprueft.json` UND `geprueft.json` filtern**, nicht
+nur eines von beiden. 225 raceresult-Veranstaltungen sind noch ganz
+ungeprüft (Punkt 10).
+
+### Neunter Durchgang: die Veranstalterseite hinter Zeitnehmer- und Portallinks (19.09.2026)
+
+Auf Wunsch des Nutzers („zieh die anderen Zeitnehmer genauso nach … check
+ob es ein Link zu der offiziellen Webseite gibt, so viele wie möglich
+seriös"). Dafür gibt es jetzt `scripts/veranstalter_links.py` mit vier
+Modi, alle ohne Raten – übernommen wird nur, was die Zielseite am
+Namen des Laufs belegt (`nennt_den_lauf()`: ein unverwechselbares
+Wort des Namens im Text oder im Hostnamen, oder das Datum):
+
+| Modus | tut | Ergebnis |
+|---|---|---|
+| `sammeln --bericht` | ruft jeden Portallink ab (raceresult: die `/contact`-Seite, sonst die externen Links der Seite), prüft jede Kandidatenseite | 404 Veranstaltungen: **95 gefunden**, 3 abgelehnt, 267 unklar, 32 `link_ok` |
+| `pruefen --bericht` | ruft die EIGENEN Veranstalterseiten ab (tot? nennt den Lauf?) | 1.247 Seiten, 1.110 in Ordnung, **4 Adressen korrigiert** |
+| `verifizieren --kandidaten <json> --bericht` | prüft Adressen aus einer **Websuche** (Handarbeit) mit derselben Regel | 122 Veranstaltungen: **88 gefunden**, 34 unklar |
+| `anwenden --bericht [--auch-geprueft]` | schreibt Overrides (`veranstalter_url` + `_note`) und `links_geprueft.json` | – |
+
+Zusammen mit dem achten Durchgang fallen die Portalzeilen damit von
+847 auf **555** (695 vor der Websuche). Was übrig ist, sind fast nur
+noch Veranstaltungen, die **wirklich keine eigene Seite haben**:
+private Ultra-Serien mit raceresult als einziger Adresse (Uwe Laig
+rund um Ibbenbüren/Osnabrück – Dörenther Klippen, Silbersee-Hüggel,
+Wassermühlen, Gut Sutthausen, Sloopsteener, Mühlenweg, Holter Wald,
+Mops-Ultra …; die Bremer Marathons von Bergmarathon bis Zeitsprung;
+Fun & Erlebnis Marathons; SOBVL und „Wir wollen doch nur laufen" in
+Berlin; Speck-weg-Serie; Northeimer Heiligabend-/Neujahrsmarathon),
+dazu Vereine, deren Seite den Lauf nicht nennt (`unklar`).
+
+Sechs Lektionen aus dem Bau, alle im Code festgehalten:
+
+1. **Ortsnamen zählen nur im Hostnamen.** Die erste Fassung nahm
+   „Cross", „Martin" oder den Ort als Beleg – und fand damit die
+   Stadtverwaltung, den Sportladen und den Ergebnisdienst. Jetzt:
+   Namenswörter ab fünf Buchstaben außerhalb der `ALLGEMEIN`-Liste,
+   der Ort nur, wenn er im Hostnamen steckt (`tsg-giengen.de`).
+   **Aber**: Der Ort im Hostnamen ist auch die Stadt-Homepage –
+   `niedenstein.de` nennt den Panoramalauf im Namen, Veranstalter ist
+   die SG Chattengau. Eine Kandidatenadresse aus der Websuche muss
+   deshalb schon die des VERANSTALTERS sein; die Regel prüft nur, ob
+   die Seite den Lauf nennt, nicht, wem sie gehört. Und **Umlaute im
+   Host**: „Dülmen" heißt `tsg-duelmen.de` – `host_woerter()` prüft
+   seit dem 19.09.2026 beide Schreibweisen (sieben Treffer mehr;
+   `test_veranstalter_links` hält es fest).
+2. **Ergebnisdienste und Karten sind keine Veranstalter**
+   (`KEIN_VERANSTALTER`: live-results.de, ddmess.de, sportstiming,
+   maximalpuls.com, yumpu, stay22 …; `KEIN_VERANSTALTER_PFAD`:
+   Datenschutz/Impressum/AGB/Cookie-Seiten). **Ausnahme von Hand**:
+   `leipzigrun.maximalpuls.com` IST die Veranstaltungsseite – die
+   maximalPULS GmbH veranstaltet den Leipzig Run selbst. Steht als
+   Override mit Begründung, nicht als Regel.
+3. **Ein tröpfelnder Server hängt das Skript 20 Minuten.** Der
+   `Abrufer` liest gestreamt mit 30-s-Frist und 2-MB-Grenze, hält 2 s
+   Pause je Host, respektiert robots.txt, und `--fortsetzen` führt
+   einen Bericht weiter. `ironman.com` steht in `NIE_ABRUFEN`.
+4. **Die Websuche ist Handarbeit, die Prüfung nicht.** Eine
+   gefundene Adresse landet nie direkt in den Daten; `verifizieren`
+   ruft sie ab und lässt dieselbe Regel entscheiden. 41 von 122
+   Kandidaten fielen zunächst durch – meist Vereinsseiten, die den
+   Lauf nur in einem Menüpunkt oder als Bild führen (SG Bad Schönborn,
+   TSV Hasede, HSG Uni Greifswald), oder tote Unterseiten (404);
+   sieben davon holte ein zweiter Anlauf mit der Startseite bzw. der
+   Umlaut-Schreibweise des Hosts. Die Adresse steht
+   dann in der `unklar`-Notiz, für einen zweiten Blick.
+5. **Das Budget für Websuchen ist endlich** (200 je Sitzung). 122 der
+   309 offenen Fälle waren damit drin. Für die Fortsetzung: `python3
+   scripts/veranstalter_links.py sammeln` erneut laufen lassen, dann nur
+   die `unklar`-Fälle ohne Notiz „Websuche" suchen. Serien (siehe
+   oben) lohnen die Suche nicht.
+6. **`anwenden` braucht `--auch-geprueft`, wenn `sammeln` dieselben
+   Schlüssel schon als `unklar` eingetragen hat** – sonst werden 0
+   Overrides geschrieben, ohne Fehlermeldung. Die Notiz sagt dann
+   „per Websuche gefunden (nicht auf der Portalseite verlinkt)".
+
+Nebenbefunde (alle in `geprueft.json`): **Österberg 333** ist ein
+Bergsprint über 333 m (Länge 0,3 km eingetragen, fällt über Datenregel 5
+heraus), **Klaar Kiming Throwdown** ein CrossFit-Wettkampf (`exclude`,
+dieselbe Klasse wie HYROX), der **13. Alstätter Sandhasenlauf 2030**
+eine DLV-Serienprognose drei Jahre voraus mit toter Quellseite
+(`exclude`). Offen als `unklar`: Silvesterlauf Amberg steht bei uns
+in Kallmünz, Kalender nennen den Marktplatz Amberg (25 km); Hainberglauf
+laut Kalendern 4,8 statt 5 km (Veranstalterseite 503); **Runworx**
+(5-km-Hindernislauf plus Kraft-WOD) gehört wahrscheinlich in die
+HYROX-Klasse – Punkt 14. Und ein neues Meisterschaft-im-Rahmen-Paar:
+„Rennbahncross in Herxheim" und „Rennbahncross mit
+rheinland-pfälzischen Crosslaufmeisterschaften" (15.11.2026, dieselbe
+Seite) – Punkt 12.
+
+### Zehnter Durchgang: die Websuche fortgesetzt (20.09.2026)
+
+Auf Wunsch des Nutzers („noch einmal so viele Quellen googeln … und die
+neue URL hinzufügen“). Von den 224 Portallink-Veranstaltungen ohne
+Websuche blieben nach Abzug der privaten Ultra-Serien und der im vierten
+Durchgang schon gesuchten Fälle **161**; dafür rund 120 Websuchen, die
+Kandidaten über `verifizieren` geprüft, mit `anwenden --auch-geprueft`
+übernommen. Ergebnis: **88 Veranstaltungen** haben jetzt ihre
+Veranstalterseite (81 über die Regel, 7 von Hand belegt), die
+Portalzeilen fallen von 555 auf **394**. Vier Dinge, die dabei
+herauskamen:
+
+1. **Ein allgemeiner Override war unsichtbar, sobald eine Strecke einen
+   distanzgenauen hatte.** `find_override()` nahm den ERSTEN Treffer
+   und hörte auf – ein `veranstalter_url` unter „Taubertal 100|2026-10-03“
+   griff für die 161-km-Zeile nie, weil sie „…|161“ (Wettbewerbs-Label)
+   hatte. Sechs Links aus der Linkprüfung vom Vortag standen deshalb
+   wirkungslos in der Datei (Taubertal 100, Mössinger Apfellauf,
+   Freundschaftslauf Wustweiler, Steverlauf ×2, Marner Kohltagelauf).
+   Jetzt legt `find_override()` beide Einträge übereinander, der
+   distanzgenaue gewinnt bei Widerspruch; `test_override_schluessel`
+   hält es fest. **Ein Override, der nichts tut, fällt niemandem auf** –
+   dieselbe Klasse wie der `|21.0`-Schlüssel.
+2. **Umlaut-Domains stehen als Punycode in der Adresse.**
+   `tus-mörschied.de` ist `xn--tus-mrschied-8ib.de`, und darin steckt
+   kein „mörschied“ – `host_von()` dekodiert jetzt (`idna`).
+3. **Der Ort im Hostnamen zählte entgegen der Doku gar nicht.** Die
+   Regel prüfte nur Namenswörter gegen den Host; `djk-herzogenrath.de`
+   für den „46. Internationaler Halbmarathon, 56. Internationaler
+   Volkslauf“ (lauter Allgemeinwörter) fiel durch. Jetzt gilt der Ort
+   im Host **nur bei `verifizieren`** (`ort_im_host=True`) – dort sind
+   die Kandidaten handverlesen. Bei `sammeln` bleibt es aus: Dort ist
+   jeder externe Link der Portalseite Kandidat, und `herzogenrath.de`
+   wäre die Stadtverwaltung.
+4. **Bot-Sperren sind kein Nein.** `seelauf-teisendorf.de` (403) und
+   die Jimdo-Seite des Endurance Team Pirmasens (Ruppertslauf) lassen
+   sich aus der Sandbox nicht lesen; die Domain nennt den Lauf, die
+   Websuche belegt den Veranstalter – als Override mit Begründung
+   eingetragen, wie im vierten Durchgang. Ebenso von Hand: LSV Porz
+   (Seite sagt „Winterlaufserie“, laufen.de „Winterserie“, und „Porz“
+   hat vier Buchstaben), Firmenlauf Lörrach (Ort nur im Text) und der
+   Robert-Hannemann-Lauf (am 19.09. als „korrigiert“ protokolliert,
+   Override vergessen).
+
+Was ohne eigene Seite bleibt (`unklar` mit Notiz „Websuche“): Vereine
+ohne Netzauftritt (SFG Nellschütz, TV Langen, SV Broggingen, TuS
+Dallmin, SC Freital …), Veranstaltungen nur auf raceresult (Nebelseelauf,
+Treßsee Marathon, Mauritz-Lindenweg-Marathon, Rund um Detmold) und
+Seiten, die den Lauf nicht nennen (tvelm.de, lcfru.de, hs-wismar.de nach
+404 der Unterseite). Neu für den Nutzer (siehe „Was der Nutzer noch
+entscheiden muss“, Punkt 17): ein Duplikat unter zwei Namen (FT Jahn
+Nikolauslauf = Nikolauslauf Landsberg a. Lech, 06.12.2026), drei
+Formate der HYROX-/Treppenlauf-Klasse und ein Ortsfehler (Rheine).
+
+### Elfter Durchgang: Abgleich mit den Veranstalterseiten (21.09.2026)
+
+Auf Wunsch des Nutzers („alle Einträge checken, ob es noch Fehler gibt,
+bis die Nutzung aufgebraucht ist – alles so seriös wie irgendwie möglich,
+ich checke es dann händisch danach"). Statt der nächsten 200 nach Datum
+wurde **jede Veranstaltung mit eigener Veranstalterseite** maschinell
+gegen den Seitentext gehalten: `scripts/seitenabgleich.py` ruft die
+1.849 Seiten ab (~65 Minuten) und meldet, ob unser Datum und unsere
+Distanzen im Text stehen. Ergebnis des Laufs: 1.154 ohne Befund, 348
+DISTANZ, 287 DATUM, 58 LEER, 64 FEHLER. Die gemeldeten Fälle wurden dann
+einzeln angesehen (Seite und Unterseiten „Strecken"/„Ausschreibung",
+notfalls das PDF), Korrekturen als Override bzw. in `manual_events.json`.
+
+Stand danach (Protokoll `geprueft.json`, 534 Einträge vom 21.09.2026):
+**202 quelle_ok, 151 korrigiert, 180 unklar, 1 entfernt**; 3.761 →
+3.754 Events, 1.093 Overrides, 115 nachgetragene Strecken. Die
+Fehlerklassen, grob gezählt:
+
+1. **Mehrsport-Veranstaltungen als Lauf mit der RADSTRECKE als Länge** –
+   die größte Klasse und genau der Bestand, den Datenregel 15 nicht
+   heilt: O-SEE Challenge/XTERRA (vier Zeilen, „37 km" war das MTB),
+   Trinale, ksp MöWathlon, ÖTILLÖ Rügen, NordseeMan, Mountain
+   Challenge, Berliner Volkstriathlon, Swim & Run Köln/Werdersee/
+   Winnweiler/Darmstadt, Jag de Wuidsau. Jetzt Triathlon mit der Summe
+   der Teilstrecken; reine Etappen (Laufetappe des MöWathlon, die
+   Einzeletappen des Berchtesgaden Stage Run) ausgeschlossen.
+2. **Doppelte Terminsätze** – die Kalenderprognose UND der echte Termin
+   standen beide in der Liste: Marburger Lahntallauf (27.02./06.03.),
+   Rostocker Citylauf (23.05./30.05.), Klausdorfer Nikolauslauf (unter
+   zweitem Namen), Mitteldeutscher Marathon. Der falsche Satz per
+   `exclude`.
+3. **Ungenaue Distanzen** (~50 Zeilen): Rundenvielfache (Bramfelder
+   Winterlaufserie 4,66 km, Winterloop 7,5 km), Marathon-Bruchteile
+   (Berliner Nikolauslauf: Achtel/Viertel/Drittel/Big 5; Bremerhaven
+   3/4; Regensburg), Marketingzahlen – „5 km" mit 4,5–4,9 km beim
+   Kerner Nachtlauf, Stimberg-Haardlauf, Geilenkirchen, Burgkirchen,
+   Oktoberlauf Petershagen, Belgenbachtrail, Col d'Allrath (2,5 km
+   bergauf) – sie fallen über Datenregel 5 heraus; und Walking-Zeilen,
+   die als Lauf standen (Saaletal Marathon, Citylauf Telgte, Neiße
+   Adventure Race).
+4. **Zeitrennen als Distanz**: SV Schwindegg Ultralauf ist die Deutsche
+   Meisterschaft im 6-Stunden-Lauf (stand als Marathon + 50 km), 6h
+   Adventslauf Langenhagen (Marathon + 46 km waren 10 und 11 Runden),
+   Lauf mit Musik (30-Minuten-Lauf) – Datenregel 8.
+5. **Nicht im Programm**: Possenlauf MTB 28/42 km, Berlin City Night
+   „20 km" (der Doppelstart Skaten + Laufen), KäseKross 9 km, Frickinger
+   MTB (2026 ausgesetzt), Winterloop 8 km, Kinderrennen (O-SEE X'Kids) –
+   und der **Internationale Kammlauf Klingenthal ist Skilanglauf**
+   (klassisch/Freestyle), vier Zeilen entfernt.
+6. **Termine**: Winterlaufserie München (Nikolauslauf 15 statt 10 km),
+   Grüngürtel Ultra (Terminänderung auf der Seite), Frühlingsultra,
+   Ingelheimer Halbe, Apfelblütenlauf, Schluchseelauf (Hauptlauf am
+   Sonntag), Landkreislauf Schwandorf (Nachholtermin nach Hitzeabsage –
+   unser Datum war richtig), Enddaten mehrtägiger Trails (Yeti,
+   Frostwiese, 3Kings3Hills, Lindwurm), Starttage je Strecke (Zugspitz
+   Ultra Trail, Berchtesgaden).
+7. **Orte**: Bühlauer Winterlaufserie (Dresden-Bühlau, nicht Radeberg),
+   EnergieSüdwest Cup (Göcklingen bzw. Offenbach an der Queich, nicht
+   Landau).
+8. **Fehlende Strecken** (~35 Zeilen): Werderseelauf (fünf Strecken
+   neben dem Marathon), Seligenstädter Winterlaufserie (5 km an vier
+   Terminen), Alten-Busecker Winterlaufserie, Eschweiler Volkslauf,
+   Hollenmarsch 21/42 km, Monschau Ultra K56, Tharandter-Wald-Lauf HM,
+   Donatuslauf, Saaletal 3/4-Marathon, Bergische 5 (37-km-Etappe),
+   Einetallauf 21 km, Pönitz 7,5 km, Hasenmelker 5 km, Rainbow Run 5 km,
+   Schmachtendorf 5 km, Berliner Nikolauslauf HM.
+
+Sieben Lektionen, alle im Code oder in den Notizen festgehalten:
+
+- **Ein Label, das eine Rundenlänge oder Teilstrecke nennt, verschwindet
+  oder wird gemeldet.** `drop_contradicting_wettbewerb()` liest JEDE Zahl
+  vor „km" – „Marathon (6 Runden à 7,5 km)" widerspricht 45 km und wird
+  gelöscht; `audit_events.py` liest die ERSTE Zahl. Deshalb steht die
+  Gesamtlänge im Label und vorn: „Full Distance 49,3 km (1,5 km
+  Schwimmen / 37 km MTB / 10,8 km Laufen)".
+- **Ein Zeitrennen lässt sich neben einer Distanz-Zeile nicht
+  nachtragen.** `is_same_event()` hält eine Zeile ohne Distanz für
+  kompatibel mit jeder Distanz („unbekannt schließt nichts aus"); die
+  nachgetragene 6-h-Challenge des Winterloop verschmolz mit der
+  45-km-Zeile, `dauer_h` landete am Marathon. Rokathon 24 h, 24 Stunden
+  van Halen, Winterloop 6/12 h stehen deshalb nur in den Notizen. Wer
+  das lösen will, muss `_compatible_distance()` „Distanz gegen Dauer" als
+  unvereinbar werten lassen – und vorher zählen, was das im Bestand
+  anrichtet.
+- **Ein Override, der Distanz oder Datum ändert, braucht den zweiten
+  Schlüssel** – bekannt („Die wichtigste Lektion"), hier erneut
+  zugeschlagen: Die Labels für O-SEE & Co. griffen im zweiten Lauf nicht
+  mehr, weil aus `|37` `|49.3` und aus dem 13.08. der 14.08. geworden
+  war. Beide Schlüssel eingetragen (der alte für den frischen
+  Scraper-Stand, der neue für den Bestand).
+- **Allgemeiner Schlüssel plus nachgetragene Strecke** ist die
+  ASV-Duisburg-Falle in neuer Form: Bei Zeilen OHNE Distanz (Hasenmelker,
+  Poggenhagen) geht nur der allgemeine Schlüssel; setzt er `laenge_km`,
+  trifft er beim nächsten Lauf auch die nachgetragene 5-km-Zeile,
+  verschmilzt sie, und `add_manual_events()` legt sie danach wieder an.
+  Idempotent, aber ein Umweg – wo es geht, distanzgenaue Schlüssel.
+  **Seit dem 05.10.2026 gibt es den Umweg nicht mehr**: Der allgemeine
+  Schlüssel lässt Zeilen mit anderer Distanz in Ruhe (siehe „Die
+  wichtigste Lektion").
+- **Veranstalterseiten zeigen oft noch das Vorjahr.** Fast alle 180
+  `unklar` heißen „Seite zeigt 2026, 2027 nicht ausgeschrieben". Solche
+  Zeilen sind Kalenderprognosen; die Zählung im Namen verrät sie
+  manchmal („44. Winser Silvesterlauf" ist die Nummer von 2025, „54.
+  Kißlegger" ebenso). Kein Fehler – aber nichts Belegtes. Nach dem
+  nächsten Datenlauf `seitenabgleich.py` erneut laufen lassen.
+- **Gekaperte Domains bestehen die Namensprüfung.** harzlauf-thale.de
+  (Lotterie-Spam) und tus-kaisersesch.de (Shop) trugen den Lauf im
+  Hostnamen; erst das Zählen von Laufvokabular im Seitentext
+  (`hostcheck`, Wegwerf-Skript) fand sie. Idee für `pruefen`.
+- **sportprogramme.org und baer-service.de** sind Anmelde-/Zeitnahme-
+  portale (Oberpfalz bzw. Sachsen) → `PORTAL_DOMAINS`.
+
+Was der Nutzer daraus entscheiden muss, steht unter Punkt 18.
+
+### Zwölfter Durchgang: alle Triathlons (21.09.2026)
+
+Auf Wunsch des Nutzers („Bitte noch einmal alle Triathlons checken und
+die Länge dann ausfüllen"; Anlass: der Munich Triathlon stand ohne
+Länge, gehört „Sprint & Kurzdistanz" – mit den sechs Formaten vom
+selben Tag heißt das „Sprint & Olympisch"). Stand vorher: 149 Triathlon-
+Zeilen in 103 Veranstaltungen, **43 Veranstaltungen ohne jede Länge** –
+alle aus dem running.life-Triathlon-Kalender, dessen Detailseiten keine
+Wettbewerbe liefern. Jede der 43 an der Veranstalterseite gelesen
+(Wegwerf-Skript mit `veranstalter_links.Abrufer` über Start- und
+Unterseiten „Strecken/Ausschreibung", dann von Hand; wo die Seite nur
+ein PDF oder Bilder hat, der **DTU-Veranstaltungskalender**
+`triathlondeutschland.de/…/veranstaltungskalender/` – er nennt je
+Wettbewerb Schwimmen/Rad/Laufen und ist damit die beste zweite Quelle).
+Ergebnis: **41 Veranstaltungen mit 98 Strecken** (41 Overrides an der
+vorhandenen Zeile, 57 neue Zeilen in `manual_events.json`), 2 `unklar`
+(Indoor-Triathlon Aschersleben und 1. Friedberger Triathlon – 2027 noch
+nicht ausgeschrieben). Dazu die Gegenprüfung der 50 Triathlon-Zeilen
+unter 20 km: **Teilstrecken** bei Ironman Hamburg (3,8 km Schwimmen),
+Aluman, Dirty Race, Stralsund, Jedermanntriathlon Neustrelitz, Wanzleben,
+Berlin Triathlon (5/9/19 km = drei Laufstrecken) und triathlon.de CUP
+München (10/20 km) – zusammengeführt bzw. durch die Summen ersetzt,
+Kinder-/Jugendzeilen (Lipperland) und ein Duplikat (O-SEE „Family &
+Kids Races") ausgeschlossen. Protokoll: 55 Einträge in `geprueft.json`.
+Vier Dinge daraus:
+
+- **Eine Triathlon-Zeile ohne Länge ist fast immer eine ganze
+  Veranstaltung** – im Schnitt 2,4 Wettbewerbe (Sprint/Volks, Olympisch/
+  Kurz, oft Mittel, dazu Schnupper). Dieselbe Lehre wie im siebten
+  Durchgang bei den Läufen.
+- **Der allgemeine Override-Schlüssel plus nachgetragene Strecken** ist
+  hier 41-mal der Normalfall (die Zeile hat keine Distanz, also gibt es
+  keinen distanzgenauen Schlüssel): Beim nächsten Lauf trifft der
+  Override alle Zeilen der Veranstaltung, sie verschmelzen, und
+  `add_manual_events()` legt die weiteren wieder an – idempotent (CI
+  prüft es), aber ein Umweg (siehe Elfter Durchgang, Hasenmelker).
+  **Seit dem 05.10.2026 abgestellt** – der allgemeine Schlüssel trifft
+  nur noch die Zeile ohne Länge (siehe „Die wichtigste Lektion").
+- **`report_triathlon_distanzen()` meldet jetzt 35 statt 31 Fälle** –
+  erwartbar, weil deutsche Veranstaltungen von 25,75/51,5/113/226 km
+  abweichen (Tübingen 27,4/54,2, Heilbronn 27,8/57/106,4, Bonn 84,2 km).
+  Alle sind an der Ausschreibung belegt; der Bericht ist damit eher ein
+  Hinweis auf Abweichler als auf Fehler.
+- **Was die Sandbox nicht liest**: raceresult-Seiten (dynamisch), manche
+  PDFs (Heilbronn ging über die rohen Streams), Jimdo-/Squarespace-Seiten
+  nur teilweise. Für die Zukunft: `running.life` liefert bei Triathlons
+  keine Wettbewerbe – jede neue Zeile dort landet ohne Länge und gehört
+  in denselben Durchgang.
+
+### Dreizehnter Durchgang: aus einer Nutzer-Meldung eine Regel machen (21.09.2026)
+
+Der Nutzer hat an diesem Tag eine Liste von Beobachtungen geschickt und
+einen Auftrag dazu, der über die einzelnen Fälle hinausgeht:
+
+> „Es ist außerdem sehr wichtig, das du aus allen Verbesserungen die ich
+> dir über die Datenqualität gebe lernst damit wir ständig die Qualität
+> verbessern können und bei neuen Events nicht die gleichen Fehler
+> entstehen."
+
+**Das ist eine Arbeitsanweisung, kein Kommentar.** Sie heißt: Eine
+gemeldete Zeile wird nicht als Zeile erledigt. Das Vorgehen, das sich
+an diesem Durchgang bewährt hat, in vier Schritten:
+
+1. **Den Fall an der Quelle prüfen.** Wie immer (Datenregel 2).
+2. **Die KLASSE zählen, nicht den Fall.** Ein kurzes Wegwerf-Skript über
+   `events.json`: Wie viele Zeilen haben denselben Fehler? Das ist der
+   Schritt, der am ehesten übersprungen wird, und der mit Abstand
+   wertvollste.
+3. **Eine Regel bauen, wenn die Klasse größer als eins ist** – und die
+   Regel wieder am Bestand nachzählen, samt Gegenproben (die Linie der
+   „wichtigsten Lektion": erst zählen, was eine Änderung anrichtet).
+4. **Einen Override nur, wenn die Klasse wirklich eins ist** (ein
+   falscher Termin, eine falsche Distanz auf genau einer Seite).
+
+Was das an diesem Tag gebracht hat – fünf Meldungen, vier Klassen:
+
+| Meldung des Nutzers | Klasse | Ergebnis |
+|---|---|---|
+| „Xletix Challenge - Berlin ist ein Hindernis lauf" | **58 Zeilen** | Regel (Datenregel 20) |
+| „Lauf für einen guten Zweck - Rastenberg ist ein Charity Event" | 1 + 43 unmarkierte | Stichwort + Umbau (Datenregel 17) |
+| „2. Weinstadt Triathlon … müsste da stehen Super-Sprint" | 3 Zeilen | Regel (Datenregel 21) |
+| „Winterlauf … Originalstrecke über 18 Kilometer" | 1 | Override |
+| „Gaudilauf 27 und 14 – woher kommen die Informationen?" | 2 | Override + `manual_events.json` |
+
+Die erste Zeile ist das Argument für den ganzen Abschnitt: Ein Override
+hätte **1 von 58** Fällen erledigt, und die anderen 57 wären beim
+nächsten Datenlauf unverändert wieder entstanden.
+
+**Der Gaudilauf war kein Datenfehler** – die Nachfrage lohnte trotzdem.
+Der DLV-Laufkalender (laufen.de) führt bei dieser Veranstaltung **jede
+Distanz als eigene Veranstaltung** und schreibt die Kilometer in den
+NAMEN: „Gaudilauf 27", „Gaudilauf 14". Datum, Ort, Distanzen und
+Veranstalter stimmten alle (20. Gaudilauf am 04.10.2026, LWV 05 / SG
+Medizin Bad Liebenwerda, 27 km ab München im Landkreis Elbe-Elster und
+14 km ab Bad Liebenwerda); nur der Name verstieß gegen Datenregel 1 –
+der Veranstaltungsname bleibt identisch, die Distanz steht in
+`laenge_km`. Dass der Nutzer nichts fand, lag zusätzlich daran, dass
+der gespeicherte Link auf die Startseite von `elsterlauf.de` zeigte, wo
+der **Elsterlauf** (30.05.2027) steht – dieselbe Veranstalterseite, eine
+andere Veranstaltung. Behoben über `exclude` beider Zeilen plus einen
+Eintrag „Gaudilauf" mit zwei Strecken in `manual_events.json` und den
+Link auf die Gaudilauf-Seite.
+
+Drei Lehren daraus, alle allgemein:
+
+- **Eine Distanz im NAMEN ist ein Warnzeichen.** Wo sie steht, hat eine
+  Quelle eine Veranstaltung in ihre Strecken zerlegt – dann gehören die
+  Zeilen zusammengeführt. Ein Override kann das nicht (der Name ist Teil
+  seines Schlüssels); der Weg ist `exclude` plus `manual_events.json`,
+  und der läuft in dieser Reihenfolge von selbst richtig, weil
+  `add_manual_events()` nach `apply_overrides()` kommt.
+- **Ein Link auf die Startseite des Veranstalters kann der falsche sein**,
+  wenn derselbe Verein mehrere Veranstaltungen ausrichtet. „Die Seite
+  nennt den Lauf" (die Regel aus dem neunten Durchgang) prüft nicht, ob
+  sie ihn auf der verlinkten SEITE nennt.
+- **Was ins Wettbewerbs-Label kommt, durchsucht die Mastersuche.** Der
+  Startort der 27 km stand kurz als „27 km (Start München,
+  Elsterbrücke)" im Label – und damit fand eine Ortssuche nach „München"
+  eine Veranstaltung in Bad Liebenwerda. Der Rauchtest hat es gemeldet.
+  Ein Startort ist kein Ort im Sinne der Liste.
+
+### Vierzehnter Durchgang: Zeilen ohne Maßzahl, zweite Runde (21.09.2026, ohne den Nutzer)
+
+Der Nutzer war einige Stunden weg („möchte aber das du weiter an der
+Webseite baust") – gearbeitet wurde deshalb nur, was in diesem Dokument
+als „nur Arbeit, keine Entscheidung" steht, und alles Neue, das eine
+Entscheidung braucht, steht unten in der Liste. Erledigt in dieser
+Reihenfolge: Zeitrennen neben Distanz-Zeilen (Datenregel 8), Duplikate
+unter zwei Namen (offene Punkte, Nr. 19), Ladezustand der Liste
+(Frontend-Fallen), dann die **96 ungeprüften Zeilen ohne Distanz und
+ohne Dauer** an ihren Veranstalterseiten (Protokoll `geprueft.json`,
+`am` = 2026-09-21).
+
+Bilanz der 96, ehrlich gerechnet: **17 bekamen eine Maßzahl** (davon
+sechs Veranstaltungen mit nachgetragenen weiteren Strecken – Leipziger
+Frauenlauf, Nürnberger Winterlaufserie mit drei Terminen, Paul-Ultralauf
+50/100/150 Meilen, Ruhr Trail Run, Besenbinderlauf, Schwelmer Citylauf),
+**vier wurden Zeitrennen** (Klosterparklauf Harsefeld 6 h, Sommer24hLauf
+24/48 h, Sixdaysrun 144 h), **zwei wurden Triathlons** (HavelMan,
+neuseenMAN – beide noch ohne Kilometer), **elf flogen** (siehe unten),
+**23 Wings-for-Life-Standorte** sind belegt ohne Distanz und tragen jetzt
+`charity` per Override, der Rest ist `unklar` – fast immer „2027 noch
+nicht ausgeschrieben" oder „Strecken nur als PDF/auf raceresult".
+
+Drei Klassen, die dabei sichtbar wurden (alle nach Punkt 2 des
+Dreizehnten Durchgangs gezählt, nicht einzeln behandelt):
+
+1. **Hybrid-Fitness-Formate unter neuen Marken.** THE ROX (Wildau),
+   Deadly Dozen („Deadly Sprint", „Deadly Gross": 12 Stunden lang je
+   Stunde 400 m plus zwölf Kraftübungen) und ATHX Games (vier Termine:
+   Strength Zone, MetCon X, Messehalle) – dieselbe Klasse wie HYROX
+   (Datenregel 14). Alle **per Override** ausgeschlossen, nicht über
+   `NICHT_AUSDAUER`: Eine Zeile dort braucht das Ja des Nutzers (so am
+   Runworx gelernt). Kandidaten für die Liste: `the rox`, `deadly
+   dozen|deadly sprint|deadly gross`, `athx`.
+2. **Staffeln ohne Staffel-Wort im Namen.** „Landkreislauf" heißt in
+   Amberg-Sulzbach (11 Läufer je Team) und Günzburg (Staffellauf, jedes
+   Jahr andere Strecke) eine reine Staffel – `ist_staffel()` sieht das
+   nicht. Beide per Override (Datenregel 16). Beim nächsten Datenlauf
+   lohnt ein Blick auf jeden weiteren „Landkreislauf".
+3. **Paarläufe** (Paarlauf mit Musik des SCC, Holger Anders
+   Flutlicht-Paarlauf, Paarlauf des ABC-Zentrum: zwei Läufer wechseln
+   sich über 30 bzw. 60 Minuten ab) sind Zweier-Teams – ob sie unter die
+   Staffel-Regel fallen, ist nicht entschieden (Frage unten).
+
+Nebenbefunde: `_same_name()` hält „5 km Walking" und „5 km Lauf" für
+dieselbe Zeile (die kürzere Wortmenge steckt in der längeren), ein
+Walking-Nachtrag neben dem Lauf derselben Länge geht also nicht – und
+`test_manuelle_events` merkt es sofort (zwei Einträge weniger als
+erwartet). Eine Laufserie hängt in den Quellen jede Distanz an jeden
+Termin (Nürnberger Winterlaufserie: 5 km am 17.01., den es nicht gibt –
+Dritter Durchgang, Muster 3, erneut). Ein Sponsorwechsel wechselt die
+Domain (`brooks-ruhr-trail-run.de` → `altra-ruhr-trail-run.de`, per
+302). Und `firmenlauf-oberschwaben.de` ist ein Hosting-Platzhalter – ob
+es die Veranstaltung 2027 gibt, weiß niemand.
+
+### Fünfzehnter Durchgang: die Websuche zu Ende geführt (21.09.2026, ohne den Nutzer)
+
+Alle Portallink-Veranstaltungen, die noch keine Websuche hatten (nach
+dem Zehnten Durchgang 224, davon ~100 als private Serien übersprungen),
+in vier weiteren Runden gesucht, mit `verifizieren` geprüft und mit
+`anwenden --auch-geprueft` übernommen (Commits „fünfte" bis „achte
+Runde"). **Die Portalzeilen fallen von 394 auf 239.** Was übrig ist,
+steht jetzt vollständig als `unklar` mit Notiz „Websuche" in
+`links_geprueft.json` – die Filterung `quelle == "Websuche"` liefert
+also keine Kandidaten mehr; die nächste Linkarbeit beginnt erst nach
+dem nächsten Datenlauf. Drei Dinge daraus:
+
+1. **Die „privaten Ultra-Serien" hatten doch eine Seite.** Uwe Laigs
+   Läufe rund um Osnabrück, Ibbenbüren und Bielefeld (Gut Sutthausen,
+   Dörenther Klippen, Silbersee-Hüggel, Wassermühlen, Sloopsteene,
+   Kletterfelsen, Lengerich, Eversburg, Tatenhausen, Werther, Hohe Ward,
+   Langenberg, Dyckerhoff, Oerlinghausen, Detmold, Holter Wald, Mops –
+   19 Zeilen) stehen mit Termin auf **„Uwes Laufangebote"**
+   (`ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/`), der
+   Terminseite des Veranstalters. Gefunden über die Websuche nach dem
+   Dyckerhoff Steinbruch Marathon – der Neunte Durchgang hatte die Serie
+   als „nur raceresult, keine Websuche wert" abgehakt. **Eine Serie
+   lohnt EINE Suche**: Findet sie die Seite des Veranstalters, gilt sie
+   für alle seine Läufe. Die übrigen Serien (Fun & Erlebnis Marathons
+   Hamburg, Bremer Marathons, SOBVL, „Wir wollen doch nur laufen",
+   Speck-weg, Northeim, Witzenhausen) haben wirklich keine – je einmal
+   gesucht, Kontaktseiten gelesen, als `unklar` protokolliert.
+2. **Kurze Namen und Allgemeinwörter sieht die Regel nicht.** „OTB
+   Silvesterlauf" (drei Buchstaben plus Allgemeinwort), „Rund um
+   Detmold" (der Ort steht auf der Seite als eigene Zeile), „Sloopsteener
+   Seenrunden" (die Seite schreibt „Sloopsteene") und der Borna Half
+   (Seite ohne JavaScript leer) sind von Hand belegt – Override mit
+   Begründung, wie im Zehnten Durchgang. Vier von 60, der Rest über die
+   Regel.
+3. **Nebenbefund**: „Cross im Grund" (Erfurt) ist laut Veranstalter
+   (OCR-Squad) ein 13-km-Lauf mit rund 30 Hindernissen – Kategorie
+   Hindernis statt Trail, per Override.
+4. **Nach jeder Linkrunde `seitenabgleich.py` über die neuen Seiten**
+   (über einen vorbesetzten Bericht mit `--fortsetzen`, ~2 s je Seite –
+   die 74 Seiten des Tages in 90 s). Das fand vier Datenfehler
+   (Frauenlauf Bremen 8,5 statt 10 km, Ratzeburger Adventslauf 7,5 km
+   statt 7,3 und 8, Remseck 8 statt 7,5 km, Burgdorf ohne 11 km), den
+   Double Ultra Triathlon Lensahn (452 km, fehlte), acht 2027-Prognosen
+   (Datenregel 19) – und **drei falsche Links der Regel**: Der Ort im
+   Hostnamen (`ort_im_host`) hat bei `falkensteinlauf.de` einen anderen
+   Falkenstein-Lauf, bei `tsg-leutkirch.de/…/volkslauf/` den
+   Juli-Volkslauf statt der Stadtmeisterschaft und bei `tv-albig.de` den
+   Verein statt des privaten Doppelzwölfers (2 × 12 h, die „6 km" waren
+   die Runde) belegt. Alle zurück auf
+   raceresult – **direkt in `events.json`**: Ein gelöschter Override
+   nimmt nichts zurück, und ein Override darf keinen Portallink über
+   einen Veranstalter-Link setzen (`apply_overrides()` blockt das).
+   Der Ort im Host ist ein Beleg für den VEREIN, nicht für den Lauf;
+   bei Vereinen mit mehreren Läufen die Unterseite prüfen. **Seit dem
+   22.09.2026 heißt dieser Treffer `ort:` statt `host:`, und
+   `verifizieren` legt einen reinen Orts-Treffer als `unklar` zur
+   Handprüfung vor** – erst Ort im Host PLUS Name oder Datum auf der
+   Seite ist „gefunden". Von Hand belegen heißt dann: Override mit
+   Begründung, wie bei OTB und Borna (Punkt 2).
+
+### Sechzehnter Durchgang: der erste Lauf mit neun Quellen (22.09.2026)
+
+Der Datenlauf mit den fünf neuen Scrapern und den zwölf running.life-
+Kalendern (Run 9, 3 h 27 min, ohne Fehler): **3.861 → 5.643 Events**,
+danach 5.604 nach dem Nachziehen. Je Quelle: running.life 1.569 neu
+(2.799 Detailseiten, 2.798 mit Veranstalterseite), ÖLV 116 (119 von 125
+mit Homepage), laufen.de 102, lauftermine.ch 81 (180 Läufe ohne Ort im
+Namen übersprungen), endure 71 (807 von 817 mit Veranstalterseite; 19
+italienische Gran Fondos außerhalb Südtirols entfernt), planet-marathon 9,
+NWS 7, Sparkasse 6. Länder danach: DE 3.986, **AT 893, CH 763**, Südtirol 1.
+Fahrrad 49, Schwimmen 5 – die Lücke bleibt Fahrplan-Punkt 1.
+
+Was der Lauf gelehrt hat – nach Punkt 2 des Dreizehnten Durchgangs
+gezählt, nicht einzeln behandelt:
+
+- **Zwei Quellen, zwei Labels, eine Strecke.** Sobald mehrere Quellen
+  dieselbe Veranstaltung liefern, trägt dieselbe Strecke je Quelle ein
+  eigenes Label: „Marathon" (running.life) neben „42.2 km"
+  (lauftermine.ch), „10 km" neben „TopLauf", „8 km offen ab 14 Jahren"
+  neben „8 km , offen ab 14 Jahre, Cup-Wertung möglich". Der fünfte Weg
+  von `_same_name()` verlangte, dass höchstens EINE Seite ein Label
+  trägt – rund 30 Zeilen standen deshalb doppelt, der Halloween Run
+  Bremen fünffach. **Sechster Weg** (`_same_name()`, `_label_gattung()`):
+  gleicher Name, gleiche Sportart, beide Distanzen bekannt und unter
+  0,5 km auseinander, und die Labels unterscheiden sich in keiner
+  GATTUNG (Walking/Wandern, Staffel, Rad, Kinder/Jugend, Sprint/Volks/
+  Olympisch, Trail/Cross/Berg …). Am Bestand nachgezählt: 18 Gruppen,
+  alle geprüft echte Duplikate; die Gegenproben („10 km Walking" gegen
+  „10-km-Lauf", „Sprintdistanz" gegen „Volksdistanz", „12 km" gegen
+  „12,5 km" beim Seen-Lauf Tannheimer Tal) stehen in `test_duplikate`.
+- **Meter im Label sind eine Distanz.** „Mini Marathon mit 150 m, 300 m,
+  550 m und 900 m" (Traunsee Halbmarathon, ÖLV) fiel auf das Stichwort
+  „Marathon" zurück, der Halbmarathon-Bugfix machte 21,1 km daraus – ein
+  Kinderlauf stand als Halbmarathon da. `meter_km()` liest jetzt die
+  größte Meterangabe (nur im Label, nicht im Namen: „400-m-Bahn" ist
+  eine Runde; Mehrsport-Summen gehen vor), `clean_events.fix_meter_labels()`
+  zieht den Bestand nach (eine Zeile).
+- **Halbmarathon in anderen Sprachen.** „Half marathon" traf nur das
+  Teilwort „marathon" – der Grand Prix Winterthur stand mit 42,2 km da.
+  `KNOWN_DISTANCES_KM_LAUFEN` kennt jetzt half/semi/mezza/½ (21,1) und
+  „maratona" (42,2).
+- **Zeitnehmer aus Österreich und der Schweiz.** time2win.at (84
+  Zeilen!), pentek-payment.at, time-now-sports.at, katjas-laufzeit.de,
+  softtiming.ch, chiplauf.de standen als Veranstalterlink – jetzt in
+  `PORTAL_DOMAINS`; die time2win-Eventseite verlinkt den Veranstalter,
+  `veranstalter_links.py sammeln` fand ihn in 26 von 39 Fällen. Für die
+  80 neuen Portal-Veranstaltungen der anderen Quellen: 31 gefunden.
+  **Vor jeder Linkarbeit die Hostliste zählen** – ein Zeitnehmer, der in
+  keiner Liste steht, sieht aus wie ein Veranstalter.
+- **Meisterschaften im ÖLV-Kalender sind eigene Einträge.** Der Verband
+  führt „NÖLV-Straßenlauf-Meisterschaften … im Rahmen des Windpark Run"
+  neben dem Windpark Run; fünf solche Zeilen per Override (Meisterschaft-
+  im-Rahmen-Fall, Punkt 5 der Entscheidungen), dazu „10km Straßengehen"
+  als Gehen (`NICHT_AUSDAUER`). Beim nächsten Lauf lohnt ein Blick auf
+  jeden ÖLV-Namen mit „im Rahmen".
+- **Nicht gelöst**: `kalender/` kann zwei Wettbewerbe mit gleichem Namen,
+  Tag, Distanz und Ort nicht unterscheiden (Walking neben Lauf über
+  dieselbe Strecke, vier Fälle) – die zweite Zeile hat keine
+  Kalenderdatei. Und die running.life-Kalender Triathlon AT/CH, Trail AT
+  und Hindernis AT/CH lieferten 0 Einträge (Seiten antworten mit 200,
+  vermutlich leer) – beim nächsten Lauf prüfen.
+
+
+### Siebzehnter Durchgang: die Berichte nach dem Kilometerliebe-Lauf (01.10.2026, ohne den Nutzer)
+
+Nach dem ersten Kilometerliebe-Lauf (336 neue Zeilen) die `⚠`-Berichte von
+`clean_events.py` abgearbeitet – jeder Fall an der Veranstalterseite
+(`veranstalter_links.Abrufer`, robots.txt wird beachtet), Protokoll in
+`geprueft.json` (`am` = 2026-10-01, 70 Einträge), 123 Overrides, neun
+Zeilen in `manual_events.json`. 7.194 → **7.086 Events (Laufen 5.692, Fahrrad 829, Triathlon 522, Schwimmen 43; DE 5.090, AT 1.027, CH 942, Südtirol 26)**. Die Berichte danach:
+Teilstrecke 16 → 4 (die vier sind Aquabike/Swim&Run, echt), weit
+entfernte Punkte 4 → 0, unplausible Distanz 3 → 0, gleicher Tag/Ort/
+Distanz 47 → 12 (alle geprüft: zwei Veranstaltungen am selben Tag,
+Walking neben Lauf, parkruns), gleiche Seite 110 → 57.
+
+Was dabei als KLASSE sichtbar wurde (Punkt 2 des Dreizehnten Durchgangs):
+
+- **Zwei Quellen, zwei Labels, dieselbe Strecke – und ein Gattungswort
+  trennt sie.** „Radmarathon 130 km" / „Classic-Tour mit Trikot 130 km",
+  „Velodom 120 (Granfondo)" / „Gran Fondo 120 km", „RTF 306" / „Radmarathon
+  306", „CTF 35" / „Gravel Tour 35" (GTF = Gravel-Touren-Fahrt), „69 km" /
+  „Panorama Ultra Trail", „13 km" / „13 km für Erwachsene und Jugendliche",
+  „Sprintdistanz 26 km" / „Sprintdistanz 26 km (… / 20 km **Rad** / …)".
+  Der sechste Weg sieht ein Gattungswort auf einer Seite und hält die
+  Zeilen auseinander – zu Recht als Regel (Datenregel 7), hier aber 20
+  Paare, die einzeln mit **gleichem Label per Override** zusammengeführt
+  wurden. Die Lehre für neue Labels war: **die Klammer mit den
+  Teilstrecken eines Triathlons enthält „Rad"** und zählt damit als
+  Gattung – **seit dem 05.10.2026 nicht mehr** (`_TEILSTRECKEN_KLAMMER`,
+  Datenregel 7, achter Fall); die 20 Overrides bleiben als No-op stehen.
+- **Kilometerliebe zerlegt Veranstaltungen in Strecken mit eigenem
+  Namen** („PUMelchen 2027", „Schönbuch Ultra 50km", „UltraSteinhart666",
+  „Straßenlauf-Kreismeisterschaften") – dieselbe Klasse wie der Gaudilauf
+  (Dreizehnter Durchgang): `exclude`, die Strecke steht beim Hauptlauf.
+  Und **generierte Texte**: Der „RUR Rheingold Ultrarace" (201/570/1062 km
+  an einem Tag, „Startnummer KL-REM-2026", „Noch 11 Tage. Das schaffst du.")
+  existiert außer dort nirgends – per `exclude`, umkehrbar. Eine Quelle
+  mit generierten Seiten ist für Distanzen nur so gut wie ihr
+  Veranstalterlink.
+- **Teilstrecken als Zeilen** (Datenregel 15, Bestandsfall): Lorsbacher
+  Cross-Duathlon (5/20/3 km als drei Zeilen neben den 28 km), Einhorn
+  Triathlon, Sempachersee, Chemnitzer Indoor (Radstrecke als Länge),
+  Hirtstein-Trophy (die Bike-RUNDE 6 km als Strecke). Bei **Giubiasco-
+  Carena Run & Bike** sind Run (10,7 km) und Bike (11,7 km) dagegen ZWEI
+  Rennen mit getrennter Anmeldung – der Lauf ist ein Lauf, das Rennen ein
+  Radrennen; „Run & Bike" im Namen heißt nicht Duathlon.
+- **Falsch verortet, dritte Begegnung**: Arber Radmarathon startet in
+  **Regensburg** (VCR-Regensburg), nicht in Regen; Gänslauf in Herbolzheim
+  **an der Jagst**, nicht im Breisgau; Gantrisch Trail in Riggisberg, nicht
+  „Rüggisberg" (Appenzell); Herzlauf OÖ in Traun bei Linz, nicht am
+  Traunsee; Donautal-Halbmarathon an der Donau, nicht im Burgenland;
+  Rennsteiglauf: alle Strecken am **Zielort Schmiedefeld am Rennsteig**
+  (Starts in Eisenach/Neuhaus/Oberhof) – vorher zwei Standorte, deshalb
+  stand der Marathon doppelt. Gleichnamige Orte sind die häufigste
+  Ursache; `report_widerspruechliche_koordinaten()` findet sie nur, wenn
+  die Veranstaltung ZWEI Zeilen hat.
+- **Ein allgemeiner Schlüssel braucht distanzgenaue Gegenschlüssel.**
+  Hirtstein-Trophy: Die Zeile ohne Länge („Duathlon") ist nur über den
+  allgemeinen Schlüssel erreichbar; der setzt 19,9 km, Label und `art2`
+  Duathlon an JEDE Zeile – die Lauf- und Walking-Zeilen brauchten deshalb
+  eigene Schlüssel, die `laenge_km`, `wettbewerb` UND `art2` wiederholen
+  (die erste Fassung vergaß `art2`: „Laufen/Duathlon"). Genauso beim
+  41. Büchener Triathlon.
+- **Der Ort im Hostnamen, vierter Fall**: `pfingstlauf.de` ist der
+  Emlichheimer Pfingstlauf – die Linkprüfung hatte ihn dem Langeneicker
+  Pfingstlauf (Geseke) gegeben (`host:pfingstlauf`). Link gelöscht
+  (`veranstalter_url: null`), `links_geprueft.json` auf `unklar`.
+- **mtb-rhens.de**: Beide Quellen hatten alle acht Strecken des CANYON
+  Rhein-Hunsrück Bike Marathons falsch beschriftet („Gravel Race" bzw.
+  „RTF" für MTB 25/42/57/80, Gravel 38/76, RTF 70/110) und die Veranstaltung
+  unter zwei Namen. Zwölf Zeilen per `exclude`, acht neu in
+  `manual_events.json` unter dem offiziellen Namen – der einzige Weg, wenn
+  Name UND Labels beider Quellen falsch sind.
+
+Offen geblieben (`unklar`, Seiten nicht erreichbar oder ohne Streckentext):
+Bismarckturmlauf 21,4 km, Weinturmlauf 21,1 km, Winterstein 42,2 km,
+Andechs Trail 15,8 km, Finnelauf 21,1 km, Norderney 21,1 km – je eine
+Zeile ohne Label aus einer zweiten Quelle neben den Strecken des
+Veranstalters. Und vier Backyards mit großer Distanz (80/47/54/161 km),
+wie bisher nur gemeldet.
+
+
+### Achtzehnter Durchgang: alle Portallinks noch einmal (05.10.2026)
+
+Auf Wunsch des Nutzers („bei allen Webseiten, die nicht Veranstalter
+sind, noch einmal ordentlich schauen, ob es nicht die originale Webseite
+gibt – lass dir Zeit"). Ausgangslage: **403 Veranstaltungen mit
+Portallink** (49 Hosts; raceresult 156, laufen.de 66, kilometerliebe 33,
+ladv 22, datasport 15, time2win 10, dsergebnis 10, laufen-os 10 …).
+Drei Wege, alle über `veranstalter_links.py`:
+
+1. **`sammeln --auch-geprueft`** über ALLE Portal-Veranstaltungen (neue
+   Option `--ohne-host`, damit raceresult getrennt und langsamer laufen
+   kann): raceresult-Kontaktseiten erneut gelesen – seit September
+   hatten **28** Veranstalter dort eine Organizer-URL nachgetragen
+   (Glashauslauf, Weinathlon, Tergaster Volkslauf, Jenaer Backyard,
+   Stäffeleslauf, Gütersloh Läuft, Sunset-Serie, Alsterlauf …); bei den
+   anderen Portalen 24 Treffer über die externen Links.
+   **raceresult drosselt ab ~45 Abrufen in 2 s Takt (429, danach 404)** –
+   mit `--pause 8` und `--fortsetzen` läuft es durch; die 429/404-Zeilen
+   des ersten Anlaufs waren Müll und wurden verworfen.
+   Die Kontaktseite trägt den **Veranstalter-NAMEN** auch dann, wenn die
+   URL leer ist (`organizer_name_aus_jsonld()`, steht jetzt als
+   `veranstalter_name` im Bericht) – das ist der Suchbegriff für die
+   Websuche nach der Vereinsseite.
+2. **Websuche** (200 Suchen, das ganze Budget) für die ~330 übrigen,
+   Kandidaten in fünf Runden über `verifizieren` geprüft: 88 nahm die
+   Namensregel an.
+3. **Handbelege** für die Fälle, die die Regel strukturell nicht sehen
+   kann (`begruendung` im Bericht, `anwenden` schreibt sie statt
+   „Zielseite nennt den Lauf" in die Notiz): Ortsadjektiv plus
+   Allgemeinwort („Haseder Silvesterlauf" – alle Namenswörter sind
+   entweder Ort oder `ALLGEMEIN`), zu kurze Namen („BCN Tour", „RuG
+   Marathon"), Bot-Sperren (fitforbrainrun.at), Vereinsseiten, die den
+   Lauf nur im Menü oder als PDF-Banner führen (TuS Hasede, SC
+   Ronsberg). Jeder Handbeleg nennt, woher der Veranstalter bekannt ist
+   (raceresult-Kontaktseite, ladv-/laufen.de-Ausschreibung, Websuche).
+
+**Ergebnis: 194 Veranstaltungen (327 Zeilen) haben jetzt ihre
+Veranstalterseite, die Portalzeilen fallen von 403 auf 204
+Veranstaltungen.** 14 Portallinks sind als `link_ok` protokolliert,
+weil der „Zeitnehmer" dort selbst Veranstalter ist (Lauflust-Events,
+Katjas Laufzeit beim Mäschder Drehwurm und Westerwälder Backyard Ultra,
+Lausitzer Sportevents beim Weinlauf Ortrand, crosscup.org, SWIM 100x100,
+der Radsport-Bezirk Weser-Ems bei seinem Cup) – der Bericht
+`protokoll: link_ok` setzt das von Hand. 191 bleiben `unklar`, die
+Notiz trägt jetzt „erneut geprüft 05.10.2026" samt Veranstalternamen.
+
+Was ohne Seite bleibt, in Klassen: **private Zählmarathons** (Fun &
+Erlebnis Marathons, Bremer Marathons von Olaf Häsler, „Wir wollen doch
+nur laufen", Speck-weg, Northeim, Witzenhausen, SOBVL, Hochzeitstag-
+Ultra, Rund um Fehmarn Ultra – ~45 Zeilen), **Meisterschaften**, deren
+Ausrichter nur der Verband nennt (Kreis-/Landes-/Nordrhein-/FLVW-
+Crossmeisterschaften, ~15), **Vereine ohne Netzauftritt** (Spee-Cup
+Genthin/GRC, SFG Nellschütz, Alfstedt, Scharnhorst Großgörschen), und
+**Veranstalter, deren Seite den Lauf nicht nennt** (Insel-Apotheke CUP/
+Poeler SV, Nospa Fischteiche Cross/SV Enge-Sande, Hesselberglauf/TSV
+Dinkelsbühl).
+
+Fünf Lehren, alle im Code oder in den Notizen:
+
+- **Die Kontaktseite lohnt den zweiten Blick.** 28 von 156 hatten seit
+  dem Neunten Durchgang eine URL bekommen – Veranstalter tragen sie nach,
+  wenn die Ausschreibung des nächsten Jahres steht. Nach jedem Datenlauf
+  `sammeln --nur-host my.raceresult.com --auch-geprueft --pause 8`.
+- **Automatische Treffer gegenlesen.** Fünf von 52 waren falsch:
+  `kaerntensport.net` (Kalender des Landessportverbands, Treffer
+  „kärntner"), `vbvisbek.de` (die Volksbank als Sponsor, Treffer „visbek"
+  im Host), `hartberg.at` und `ruestorf.at` (Gemeindekalender), die
+  Tourismus-Seite ahrntal.com mit der Ausgabe 2023. Der Ort im Host und
+  ein Landesname sind keine Belege – `REJECT` im Wegwerf-Skript.
+- **Der Portallink kann der Veranstalter sein.** Kleine Zeitnehmer
+  richten eigene Läufe aus (Katjas Laufzeit, Lauflust-Events); dann ist
+  `PORTAL_DOMAINS` für diese Zeile falsch, und das Protokoll sagt es
+  (`link_ok`). Nicht aus der Liste nehmen – für die anderen Läufe
+  derselben Firma stimmt sie.
+- **Dieselbe Veranstaltung unter zwei Namen fällt beim Verlinken auf**:
+  „49. Nat. Nikolaus Volkslauf" (Mingolsheim) und „Nikolauslauf Bad
+  Schönborn" (06.12.2026) zeigen jetzt beide auf sg-badschoenborn.de –
+  `report_gleiche_seite_gleiche_distanz()` meldet sie (70 statt 57).
+- **FITLETIX ist HYROX** (Fitness-Challenge mit Kraftstationen, fitletix.at;
+  Graz, Salzburg, Eisenstadt, Raedbox Challenge, LakeSide Challenge –
+  fünf Zeilen, als „Laufen" in der Liste): per Override `exclude`,
+  umkehrbar, wie THE ROX/Deadly Dozen/ATHX; eine `NICHT_AUSDAUER`-Zeile
+  braucht das Ja des Nutzers. Dazu der **BriggYard Staffel-Run** (42 km
+  Team-Gesamtstrecke) per Override – `ist_staffel()` kennt „Staffel-Run"
+  nicht. Beides steht bei den Entscheidungen (Punkt 23).
+
+
+### Neunzehnter Durchgang: die erste Korrekturliste des Nutzers (05.10.2026)
+
+Der Nutzer hat die ersten 24 Zeilen der Excel-Liste (`korrekturliste.py`)
+geprüft und zurückgeschickt („Falls du aus meinen Korrekturen lernen
+kannst, dann mach das bitte"). Eingelesen: 5 Korrekturen, 3 Löschungen,
+15 bestätigt. Was daraus als KLASSE folgte (Dreizehnter Durchgang, Punkt 2):
+
+- **Ein Format im Label IST die Länge** – auch beim Duathlon („Bei dem
+  Duathlon sind die Distanzen immer ähnlich wie beim Triathlon"). Die
+  Seite zeigt und filtert „Sprint"/„Olympisch" längst aus dem Label
+  (`triathlonFormat()`), nur `audit_events.py` meldete „weder Distanz noch
+  Dauer" – 45 Fehlalarme. Jetzt `TRIATHLON_FORMAT_IM_LABEL` als dritte
+  Kopie dort (`test_triathlon_format_kopie` vergleicht sie mit filters.js).
+  Schreibt der Nutzer „Sprint" in die Distanz-Spalte, macht der Import
+  daraus das Label, nicht eine Zahl.
+- **Werktag-Hinweis nicht bei mehrtägigen Events bis ins Wochenende**
+  (Gravel 'n' Gröstl Do–So, „Stimmt so") – 140 Zeilen weniger.
+- **„Auffällige Distanz" über 130 km nur beim Laufen** – Gravel 540 km und
+  Langdistanzen sind normal, 200 Zeilen weniger.
+- **PLZ im Ort** („3251 Purgstall"): Der Import trennt sie ab und sucht
+  den Ort über die PLZ in `places.json` – nur Orte MIT Einwohnern, denn
+  GeoNames führt einen Weiler „Purgstall" (0 Einwohner) unter fremden PLZ,
+  40 km daneben.
+- **Andere Tabellen-Apps** speichern `<family val="18"/>` im Stylesheet,
+  openpyxl verweigert dann die ganze Datei – `lade_mappe()` repariert eine
+  Kopie.
+- **Kilometerliebe-Duplikate zum dritten Mal**: „2 Pfälzer Weinsteig UTPW
+  170" und „UTPW Tiny Trail" sind die Strecken des „Ultratrail Pfälzer
+  Weinsteig" – ausgeschlossen; dabei kam heraus, dass das Original beide
+  Strecken falsch hatte (173 km startet am 09.10. in Schweigen-Rechtenbach,
+  70 km am 10.10. in Neustadt, nicht beide in Bockenheim). Ebenso zwei
+  Zeilen für den Purgstaller Marktlauf.
+- **Eine Anmerkung kann eine fehlende Strecke sein** („es gibt ein 10km
+  lauf und 5km lauf") – die liest der Import nicht, sie gehört von Hand in
+  `manual_events.json` (Viersener Herbstwaldlauf 5 km).
+
+Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
+Fehler passieren. Die 13 gefundenen Fehler, danach sortiert, was beim
+nächsten Lauf wirklich geschieht:
+
+| | Klasse | Wirkung |
+|---|---|---|
+| **3** | Rad-Wettbewerbe, „A km / B km", Swim&Run/Bike+Run | **verhindert** – eine Regel in `scraper_lib.py`/`clean_events.py` greift automatisch |
+| **3** | falsche Koordinaten, Duplikate über dieselbe Seite, Rundenlänge | **gemeldet** – `clean_events.py` findet sie, ein Mensch entscheidet |
+| **5** | BFUTR, Kinderlauf mit 21 km, Tippfehler-Duplikat, Label ≠ Distanz, Jahreszahl im Namen | fand nur ein **Wegwerf-Skript** |
+
+Die letzte Zeile war die eigentliche Lücke: Diese fünf hätte beim
+großen Datenlauf **niemand** gefunden. Deshalb gibt es jetzt
+`scripts/audit_events.py` im Repo - dieselben Prüfungen, dauerhaft,
+mit `test_audit_pruefungen` abgesichert. Der Test hält vor allem die
+**Gegenproben** fest (Jugendlauf über 5,6 km, „Bernburger
+Halbmarathon" mit 12-km-Label, „Winterlaufserie 2026/2027",
+Freitagslauf, „(L)auf zur Venus", Hindernislauf mit „Cross" im Namen):
+Drei der vier größten Fundgruppen waren Fehler der REGEL, nicht der
+Daten - und genau die rutschen beim nächsten Umbau zurück, wenn sie
+nicht festgenagelt sind.
+
+**Was sich damit NICHT löst**, und das ist die ehrliche Grenze:
+
+- **Ein Override gilt für genau einen Termin.** Der Schlüssel ist
+  `<Name>|<Datum>|<km>` - die Ausgabe 2028 derselben Veranstaltung
+  trifft er nicht mehr. Die 76 Einträge sind Einzelfallpflege, keine
+  Regel.
+- **Die Meldungen skalieren mit.** Heute stehen 168 offene Hinweise
+  aus `clean_events.py` bei 4.335 Events; bei 20.000 werden daraus
+  rund 800. Jeder einzelne gehört gegen die offizielle Ausschreibung
+  geprüft - das ist Arbeit für den Nutzer, nicht für eine Regel.
+  `audit_events.py` meldet im bisher ungeprüften Bestand zusätzlich
+  1.536 Fälle, davon aber 944 Portallinks und 312 ohne Distanz (beides
+  keine Fehler). Scharf sind rund 70.
+- **Die Trefferquote bleibt ähnlich.** In beiden geprüften Hundertern
+  waren ~3 % der Zeilen falsch. Was die neuen Regeln abfangen, war
+  etwa ein Drittel davon - bei 20.000 Events also grob 400 statt 600
+  Fehler. Deutlich weniger, aber nicht wenige.
+
+Der wirksamste Hebel für den großen Lauf ist deshalb **nicht** noch
+eine Regel, sondern: nach dem Datenlauf `audit_events.py` laufen
+lassen, die scharfen Kategorien durchgehen (nicht die Portallinks) und
+die bestätigten Fälle als Override eintragen.
+
+### Zwanzigster Durchgang: Laufserien als EINE Spanne (06.10.2026)
+
+Vom Nutzer an der Ismaninger Winterlaufserie gemeldet („3 Events an 3
+Tagen, nicht 13.12.–21.02."; winterlaufserie.net: 13.12.2026 = 13 km,
+17.01.2027 = 17 km, 21.02.2027 = Halbmarathon). Die Klasse dahinter ist
+Muster 3 des Dritten Durchgangs: Kalender führen eine Serie als EINE
+Zeile vom ersten bis zum letzten Termin, mit allen Distanzen daran. Am
+Bestand gezählt (Spanne über 14 Tage): zwölf Veranstaltungen, davon
+**fünf Serien** – vier an ihrer Veranstalterseite aufgelöst (Override
+setzt jede Distanz auf ihren Tag, fehlende Strecken in
+`manual_events.json`): Ismaning (3 Termine), Winterlaufserie München
+(laufwinter.de: 05.12. Nikolauslauf 15 km, 06.01. 15 km, 13.02. 20 km),
+Winter Run Serie Graz (29.11.: 5/10 km, 24.01.: 5/10/15 km, 28.02.:
+5/10/15/20 km) und Sommerlaufcup Wien (27.06. 7 km/HM Prater, 18.07.
+10 km Donaupark, 01.08. 7 km/HM, 15.08. 10 km). Eckernförde bleibt
+`unklar` (Seite zeigt nur 2026). **Keine Regel**: Welche Distanz an
+welchem Tag läuft, steht nur auf der Veranstalterseite;
+`audit_events.py` meldet die Spannen („Veranstaltung dauert über eine
+Woche"), entschieden wird einzeln. **Und die Anzeige fasst eine Serie
+seitdem zu EINER Veranstaltung zusammen** (zweite Entscheidung des
+Nutzers am selben Tag, siehe Frontend-Fallen „Eine Laufserie ist EINE
+Veranstaltung"); `unify_auflage_in_serien()` gibt dabei allen Terminen
+einer Serie dieselbe Auflage im Namen (25 Serien am Bestand standen „mit
+und ohne Nummer", 45 Zeilen umbenannt). Die Sternsteintrail-Winterchallenge
+ist dagegen eine ECHTE Spanne (freier Startzeitpunkt zwischen 01.12. und
+28.02.) – ob so etwas in die Liste gehört, steht bei den Entscheidungen
+(Punkt 31; am 09.10.2026 entschieden: raus). Nebenbefund: Der Override traf die Serienzeile nicht, weil
+die zweite Quelle den Namen ohne „35." lieferte – seitdem überliest
+`find_override()` die Auflage (siehe „Die wichtigste Lektion").
+
+### Nutzer-Fehlermeldungen
+
+In `events.html` gibt es pro Event „Fehler zu diesem Event melden"
+(Drop-down + Freitext → Firestore-Collection `errorReports`, anonyme
+Anmeldung). Die Meldungen werden **nie automatisch** übernommen:
+
+```bash
+python3 scripts/review_reports.py fetch --credentials <serviceaccount.json>
+python3 scripts/review_reports.py show          # gebündelt, häufigste zuerst
+python3 scripts/review_reports.py propose --key "<Name>|<Datum>|<km>" \
+        --set laenge_km=12,4 --grund "…" --quelle "…"
+python3 scripts/review_reports.py confirm       # fragt den Nutzer, j/n
+```
+
+Fehlt eine Veranstaltung ganz, kommt sie über „Wir haben dein Event
+nicht?" (Collection `eventSuggestions`) – angesehen mit:
+
+```bash
+python3 scripts/review_reports.py suggestions --credentials <serviceaccount.json>
+```
+
+Auch hier gilt: nur ansehen. Was daraus wird (Scraper oder Override),
+entscheidet der Nutzer, nachdem robots.txt und Nutzungsbedingungen der
+Quelle geprüft sind.
+
+Der Vorschlag bleibt bis zur Bestätigung in `pending_overrides.json`;
+erst `confirm` schreibt ihn nach `manual_overrides.json`. Also: Meldungen
+ansehen, jede einzeln per Websuche gegen die offizielle Ausschreibung
+prüfen, Vorschlag anlegen, **vom Nutzer bestätigen lassen** – nicht
+selbst durchwinken. Details im README („Fehler zu diesem Event melden").
+
+## Gedächtnis je Veranstaltung (seit 05.10.2026)
+
+Vom Nutzer so entschieden: „Ja, bau ein Gedächtnis je Veranstaltung,
+aber ohne das Datum! Und damit werden dann die alten Daten mit den neuen
+abgeglichen und auf den Webseiten in der Vergangenheit soll auch ab und
+zu gecheckt werden, ob denn das neue Event schon rausgekommen ist. Der
+Sinn ist, dass wir irgendwann eine Liste mit allen Events haben … Also
+müssen wir immer nur schauen, ob die alten Events am nächsten Jahr
+wieder stattfinden. … Außerdem schaue ich gerade bei vielen Events nach
+den Original-Seiten, das ist viel manuelle Arbeit von meiner Seite, also
+wäre das sehr schade, wenn diese Informationen verloren gehen würden!"
+
+Das Problem dahinter: Ein Override hängt am Schlüssel `<Name>|<Datum>`.
+Die Ausgabe 2027 kommt mit neuem Datum und Portallink, der Override
+greift nicht mehr, die alte Zeile ist als vergangen gelöscht – am
+05.10.2026 zeigten 194 von 894 Link-Overrides schon ins Leere.
+
+`scripts/veranstalter_seiten.py` (Doku im Modul-Docstring, Datei
+`scripts/veranstalter_seiten.json`). Was man wissen muss:
+
+- **Schlüssel ohne Datum**: Kern des Namens (`_kern_tokens()`, ohne
+  Auflage, Jahr, Ort, Ortsadjektiv) + Ort als Wortmenge. Allerwelts-Kerne
+  („Crosslauf", „Silvesterlauf") brauchen den Ort wörtlich.
+- **JEDE Veranstaltung steht drin**, auch ohne Seite – mit Strecken,
+  Sportart, Land, Koordinaten der jüngsten Ausgabe (`strecken_datum`).
+  Die erste Füllung kam aus fünf älteren Ständen von `events.json`
+  (`aufbauen --alt`).
+- **Reihenfolge in `clean_events.py`**: nach `add_manual_events()`, vor
+  `drop_past_events()`: `abgleich_vorjahr` (Bericht: welche Strecken der
+  vorigen Ausgabe fehlen) → `anwenden` → `lernen`; ein zweites `lernen`
+  nach dem Vereinheitlichen der Namen; `speichern()` am Ende. **`anwenden`
+  VOR `lernen`** ist Absicht: `lernen` zieht den Eintrag auf die neue
+  Ausgabe, danach wäre die vorige nicht mehr erkennbar.
+- **Eine Seite gilt nur für eine SPÄTERE Ausgabe.** Beim Probelauf
+  brachte das Gedächtnis elf Links zurück, die für DIESELBE Ausgabe
+  bewusst entfernt worden waren (tv-albig.de = der Verein, nicht der
+  Doppelzwölfer; die Wylandlauf-Unterseite für den ganzen Zürilauf Cup).
+  Jetzt: Trägt die bekannte Ausgabe auf keiner Zeile mehr eine eigene
+  Seite und kein Override setzt eine, wird die Seite **zurückgezogen**
+  (`quelle: "zurueckgezogen"`, `url: null`) und nicht weitergegeben.
+  Sieben Einträge am 05.10.2026. Ein Override `veranstalter_url: null`
+  nimmt dem Eintrag ebenfalls nur die Seite, nie die Strecken.
+- **Gleiche Ausgabe zweimal gelernt = Vereinigung der Strecken**, nicht
+  Ersatz (das zweite `lernen` sieht nach dem Zusammenführen weniger
+  Zeilen). Erst eine jüngere Ausgabe ersetzt sie.
+- **`pruefen`** (wöchentlich aus `update_events.py`, vor dem Aufräumen,
+  höchstens 150 Seiten je Lauf, 40 Minuten): ruft die Seiten der
+  Veranstaltungen ab, die KEINE Zeile mehr in `events.json` haben, sucht
+  einen Termin 10–14 Monate nach der letzten Ausgabe
+  (`kandidaten_termine`, `daten_aus` – dieselbe Datumserkennung wie
+  `seitenabgleich.py`, dort seit dem Tag importiert), prüft
+  `nennt_den_lauf()`, jede Seite höchstens alle 21 Tage. Ein EINDEUTIGER
+  Fund (ein Termin oder eine Spanne bis 3 Tage) geht mit `--uebernehmen`
+  als neue Ausgabe mit den Strecken der vorigen nach `manual_events.json`
+  (`uebernommen` am Eintrag, `_quelle` die Seite); „NEU?" bleibt im
+  Bericht `scripts/veranstalter_seiten_pruefung.json` für die
+  Handprüfung. Name ohne Jahreszahl (`name_ohne_jahr`). Probelauf:
+  12 Seiten in 33 s, 11 NICHTS (Seiten zeigen noch das alte Jahr).
+- **Der Datenlauf committet** `veranstalter_seiten.json`,
+  `veranstalter_seiten_pruefung.json` und `manual_events.json` mit –
+  **auch mit der alten Workflow-Fassung auf `main`** (nachgelesen am
+  05.10.2026, abends): `stage_kalender()` legt die drei Dateien in
+  GitHub Actions in den Index, und `git commit` committet den Index;
+  die Fassung auf `main` fragt nur `git diff --quiet -- events.json
+  kalender`, und `events.json` ändert sich jede Woche (vergangene Events
+  fallen). Die Fassung hier listet die Dateien ausdrücklich; sie auf
+  `main` nachzuziehen bleibt sauberer, ist aber nicht mehr nötig, damit
+  das Gedächtnis überlebt.
+
+**Die Wochenstruktur** (vom Nutzer am 05.10.2026 verlangt: „eine klare
+Struktur, die wöchentlich wiederholt wird, um alle Events neu und
+wiederholt sicher zu veröffentlichen"), alles in `update_events.py`, vom
+`schedule` auf `main` montags 05:00 UTC angestoßen:
+
+1. **Alle Scraper** lesen ihre Kalender und ergänzen `events.json`
+   (`merge_events`, Duplikate über `dedupe_key` und `is_same_event`).
+2. **`veranstalter_seiten.py pruefen --uebernehmen`**
+   (`run_naechste_ausgaben`): Jede Veranstaltung des Gedächtnisses, die
+   KEINE Zeile mehr in `events.json` hat, deren Seite also noch von keiner
+   Quelle für die nächste Ausgabe geliefert wurde, wird auf ihrer
+   Veranstalterseite nach dem nächsten Termin gefragt – höchstens 600
+   Seiten und 40 Minuten je Lauf (`--zeitlimit`: das Skript hört selbst
+   auf, übernimmt und speichert; der harte Timeout von 50 Minuten ist nur
+   die Notbremse), jede Seite höchstens alle 21 Tage, die am längsten
+   ungeprüften zuerst. Eindeutige Funde landen in `manual_events.json`
+   mit den Strecken des Vorjahrs, die die Seite noch nennt.
+3. **`clean_events.py`**: nimmt die Funde auf (`add_manual_events`, zieht
+   dabei Vorjahreskopien zurück, die eine Quelle inzwischen liefert),
+   gibt neuen Ausgaben mit Portallink die gemerkte Seite (`anwenden`),
+   lernt die jüngsten Ausgaben (`lernen`), wirft Vergangenes heraus.
+4. **`build_ics.py`** und der Commit von `events.json`, `kalender/`,
+   Gedächtnis, Prüfbericht und `manual_events.json`; der Push auf den
+   Branch löst `pages.yml` aus – damit ist der Stand veröffentlicht.
+
+Gerechnet: Jede der ~4.400 Veranstaltungen ist irgendwann vergangen und
+wartet auf ihren Termin; bei 21 Tagen Abstand sind das ~1.500 Seiten je
+Woche, mit 600 je Lauf kommt jede Seite etwa alle sieben Wochen dran.
+Reicht das nicht, ist `NAECHSTE_AUSGABEN_MAX` die Stellschraube (eine
+Seite kostet ~4 s), oder ein eigener Workflow nur für `pruefen` (der
+Zeitplan müsste auf `main` stehen).
+- `test_gedaechtnis` hält alles fest: Schlüssel ohne Jahr, Rangfolge,
+  Vereinigung, Zurückziehen, nie dieselbe/spätere Ausgabe, Abgleich,
+  `kandidaten_termine`, `spanne`, `manual_events_aus`, `uebernehmen`,
+  Speichern/Laden und die Repo-Datei.
+
+**Seit dem 05.10.2026 (abends) hält das Gedächtnis fünf Fälle aus**, nach
+denen der Nutzer gefragt hat („auch wenn im nächsten Jahr die Webseite
+leicht geändert oder neu aufgesetzt wurde, oder aus einem 10 km ein
+Halbmarathon wurde") – Tabelle im README („Was das Gedächtnis aushält"):
+
+- **Sponsorwechsel im Namen**: `_kandidaten()` findet den Eintrag auch,
+  wenn der Kern des einen Namens im anderen steckt – nur mit
+  unterscheidendem Wort, passendem Ort, gleicher `art1`, **einem Jahr
+  Abstand** (`_jahresabstand`) und ohne Zahl oder Sportwort
+  (`_FORMATWOERTER`) im Unterschied. Ohne den Jahresabstand hätte die
+  Regel „Ironman 5150 Erkner" mit „Ironman 70.3 Erkner" (Folgetag)
+  verschmolzen. `schluessel_fuer()` lernt unter dem gefundenen Schlüssel
+  und zieht den Eintrag auf den **kleineren** Kern um („saarathon" bleibt
+  stabil). Am Bestand nachgezählt: 5 Paare, alle echt.
+- **Jüngere Ausgabe gewinnt vor dem Rang** (`lerne()`): Ein Override-Link
+  der Ausgabe 2026 blockierte sonst die neue Domain, die der Scraper für
+  2027 liefert. Bei DERSELBEN Ausgabe schlägt der Override weiter die
+  Quelle, bei gleichem Rang bleibt es beim Konflikt.
+- **`pruefe_eintrag()`** (die Prüfung EINER Seite, aus `cmd_pruefen`
+  herausgelöst, testbar mit einem Fake-Abrufer): Weiterleitung auf einen
+  anderen Host → neue Adresse gemerkt (`Abrufer.endadresse`; derselbe Host
+  zählt nicht – velosolingen.de leitet auf `/adm_program/index.php`);
+  tote Unterseite (404/410, Host weg) → Startseite abrufen, nennt sie den
+  Lauf, ersetzt sie die Adresse; Unterseite ohne passenden Termin →
+  Startseite dazulesen; **tot nach zwei Prüfungen** (`TOT_NACH_PRUEFUNGEN`,
+  mindestens drei Wochen auseinander): `quelle` tot, `url` leer, `url_tot`
+  – `anwenden()` gibt nichts mehr weiter, `lerne()` nimmt die nächste
+  eigene Seite einer Quelle. **403/429/5xx und Zeitüberschreitungen sind
+  keine Beweise** (Bot-Sperren).
+- **Strecken gegen die Seite** (`manual_events_aus(…, seiten_km)`): Nennt
+  die Seite Kilometer (`distanzen_aus`, aus `seitenabgleich.py`
+  hierhergezogen – EINE Fassung), kommen nur die Vorjahresstrecken mit,
+  die dort noch stehen; bleibt keine, eine Zeile ohne Maßzahl. Was die
+  Seite zusätzlich nennt, steht in `_note` und Bericht (`seiten_km`),
+  wird aber **nie angelegt**. Ohne Kilometer auf der Seite gilt das
+  Vorjahr.
+- **`gedaechtnis: true` an jeder so angelegten Zeile** – das Feld landet
+  in events.json (die Seite ignoriert es) und heißt: Vorjahreskopie,
+  von keiner Quelle bestätigt. `clean_events.zurueckziehen_vorjahreskopien()`
+  (in `add_manual_events()`) nimmt die Kopien zurück und lässt den
+  Eintrag in `manual_events.json` aus, sobald eine Zeile derselben
+  Veranstaltung ohne Markierung im Abstand von höchstens zehn Tagen da
+  ist; `update_existing_event()` (Einsammeln) und `merge_duplicates()`
+  nehmen NUR die Markierung weg, wenn eine Quelle dieselbe Strecke
+  bestätigt – die Zeile bleibt. `lerne_ausgabe()` lernt Kopien nur,
+  solange keine Quelle liefert (`strecken_uebernommen`), und ersetzt sie
+  dann statt zu vereinigen. Das ist keine Löschregel auf Heuristik-Basis:
+  Entfernt wird nur, was wir selbst abgeschrieben haben. `uebernehmen()`
+  räumt vergangene Kopien aus `manual_events.json`.
+- `daten_aus()` liest jetzt auch „12.10.27" (nur 2020–2039, keine Ziffer
+  oder Punkt dahinter), „12/10/2027", englische, französische und
+  italienische Monatsnamen – Romandie, Tessin und Südtirol.
+- **Ein Termin von der STARTSEITE ist nur ein Hinweis (NEU?)**, nie ein
+  Fund: Die Startseite nennt auch die anderen Veranstaltungen desselben
+  Veranstalters – im ersten vollen Lauf (05.10.2026, 637 Seiten) hätte
+  der „GENERALI 5K" sonst den Termin des Berlin-Marathons bekommen
+  (Sonntag statt Samstag). `pruefe_eintrag()` merkt sich
+  `von_startseite`, der Bericht trägt `grund`.
+- **`python3 scripts/veranstalter_seiten.py handpruefung`** listet die
+  NEU?- und TOT-Fälle des Berichts für den Nutzer (Termin, Grund, Seite,
+  Kilometer auf der Seite). Wer einen Termin bestätigt, trägt ihn wie
+  jede einzeln geprüfte Veranstaltung in `manual_events.json` ein.
+  **Seit dem 13.10.2026 ohne die erledigten Fälle**: Der Bericht
+  vergisst nichts, und am 13.10. standen dort noch die 13 Fälle vom
+  05.10., die am 07.10. von Hand übernommen waren, dazu fünf, die eine
+  Quelle inzwischen selbst lieferte. `handpruefung_faelle()` lässt
+  jeden Fall weg, dessen Veranstaltung eine Zeile in `events.json` hat –
+  nach derselben Regel, nach der `pruefen` sie nicht mehr abfragt
+  (`aktuelle_schluessel()`, unscharf wie `_kandidaten`); 35 → 19 Fälle.
+  Was trotzdem stehen bleibt, sind Gedächtnis-Einträge mit ANDEREM Ort
+  als die neue Zeile (Rheinhöhenlauf unter Vettelschoß, die Zeile in
+  Linz am Rhein; S3-T Triathlon unter Visp, die Zeile in Brig-Glis) –
+  Nachbarorte über 3 km, zwei Einträge für eine Veranstaltung.
+- `name_ohne_jahr()` lässt auch die Auflage vorn weg („6. Appelhülsener
+  Landlauf" → „Appelhülsener Landlauf"): die nächste Ausgabe heißt „7.".
+- **Der erste volle Prüflauf (05.10.2026, 637 Seiten, 40 Minuten)**:
+  39 NEU, 34 NEU?, 32 FEHLER, 17 LEER, 515 NICHTS – 35 Ausgaben mit 58
+  Strecken in `manual_events.json`, 7.012 → 7.067 Events. Vier Lehren,
+  alle im Code: (1) **523 vergangene Einträge kannten keine Strecken** –
+  ihre Zeilen waren weg, bevor das Strecken-Lernen gebaut war; aus vier
+  älteren Ständen von `events.json` nachgeladen (`aufbauen --alt`, 4.374
+  → 4.451 Einträge, 50 ohne Strecken). Beim nächsten Umbau des
+  Gedächtnisses zuerst zählen, welche Felder die VERGANGENEN Einträge
+  haben. (2) **Feiertage**: Ein Lauf am 3. Oktober hängt am Kalendertag;
+  `_gleicher_wochentag()` lässt denselben Kalendertag nur an den festen
+  Tagen in `_FESTE_TAGE` gelten. (3) **Die Startseite als Ersatzadresse
+  bleibt eine Startseite** (`seite_ist_startseite`): Termine von dort
+  sind nur Hinweise, bis eine Quelle wieder die Seite des Laufs liefert.
+  (4) **Ohne `art1` oder Seite im Gedächtnis keine Zeile** – `uebernehmen()`
+  meldet und überspringt; `test_manuelle_events` verlangt beides an jeder
+  Zeile. Zwei Fälle, die nur die Handprüfung lösen kann: Veranstaltungen,
+  die auf der Seite eines größeren Events stehen (GENERALI 5K beim
+  Berlin-Marathon), und Serien mit mehreren Terminen auf einer Seite
+  (Altkönig-Lauf, Köhlbrandbrückenlauf).
+- `_kandidaten(e, auch_unscharf=True)` gibt genaue UND unscharfe Treffer
+  – `pruefen` zählt damit auch die Sponsor-Variante als „aktuell", wenn
+  die nächste Ausgabe unter dem anderen Namen schon in `events.json`
+  steht („King of the Lake" 2027 neben „Asvö King of the Lake" 2026);
+  solche Doppel-Einträge aus der Zeit vor der unscharfen Suche bleiben
+  im Gedächtnis stehen, `finde()` nimmt weiter nur den genauen.
+
+**Abgesagte Ausgaben (20.10.2026)**: Status „Fällt aus" → Override
+`exclude` + `abgesagt` → `merke_abgesagt()` setzt `abgesagt: <Tag>` am
+Eintrag; Seite und Strecken bleiben, `pruefen` sucht die nächste Ausgabe,
+die nächste gelernte Ausgabe nimmt die Markierung weg (Einzelheiten bei
+Datenregel 18).
+
+**Zwei Gedächtnis-Einträge, EINE Ausgabe (19.10.2026)**: Der Wochenlauf
+übernahm den Citylauf Schwabach zweimal – unter „Citylauf Schwabach“
+(5/10/21,1 km) und unter dem Sponsornamen „RIBE Citylauf Schwabach“
+(21 km), zwei Schlüssel aus der Zeit vor der unscharfen Suche.
+`add_manual_events()` überging die zweite 21-km-Zeile richtig, aber
+`test_manuelle_events` verlangt, dass jeder Eintrag der Datei in eine
+leere Liste passt – rot, und damit blieb der ganze Datenlauf hinter dem
+Deploy-Gate. Seitdem lässt `uebernehmen()` jede Strecke weg, für die
+`is_same_event()` in `manual_events.json` am selben Tag schon eine Zeile
+findet (Bericht: „… stehen schon unter einem anderen Namen“); der
+RIBE-Eintrag ist aus der Datei entfernt, `test_gedaechtnis` hält den Fall
+fest. Die beiden Gedächtnis-Einträge bleiben stehen (siehe oben,
+`finde()` nimmt den genauen).
+**Dieselbe Strecke zweimal IN einem Eintrag (26.10.2026)**: Der nächste
+Montagslauf blieb aus demselben Grund hinter dem Gate – „Naturpark
+Schönbuchlauf“ 2027 kam mit zweimal 25 km (einmal mit, einmal ohne Label;
+zwei Quellen der Vorjahresausgabe, beim Lernen vereinigt). Die Sperre vom
+19.10. verglich nur mit Zeilen, die schon in der Datei standen. Jetzt
+gilt `is_same_event()` auch INNERHALB einer Übernahme, die Zeile mit Label
+bleibt (Bericht: „… doppelt im Gedächtnis“); am Bestand tragen 75 Einträge
+eine Länge doppelt. `test_gedaechtnis` hält es fest. **Lehre**: Eine
+Regel gegen Doppelte muss alle drei Fälle sehen – gegen die Datei, gegen
+andere Einträge derselben Übernahme und innerhalb des Eintrags.
+
+**Einträge von Hand – die PDF-Liste des Nutzers (13.10.2026, „Ja, bitte
+die 45 ins Gedächtnis aufnehmen")**: Von den 72 „existiert, Termin
+offen"-Einträgen in `eventliste_pdf_geprueft.json` haben 45 eine
+Veranstalterseite. Statt sie im Frühjahr 2027 von Hand abzufragen, stehen
+sie im Gedächtnis: `quelle` „override" (die Seite ist einzeln geprüft),
+dazu das Feld **`herkunft`** („PDF-Eventliste des Nutzers …"), damit man
+sie wiederfindet; `datum`/`strecken_datum` = die letzte auf der Seite
+genannte Ausgabe (meist 2026) oder `null`, wenn die Seite keinen Termin
+nannte – `kandidaten_termine()` nimmt dann jeden künftigen Termin bis 14
+Monate, `_gleicher_wochentag()` sperrt nicht; `strecken` nur, wo die
+Prüfnotiz einzelne Distanzen nennt (Zollernkönig 207 km, Hallstättersee
+2,1/5/7 km …), Spannen („15–46 km") bleiben leer – eine Zeile ohne Maßzahl
+landet dann in der Korrekturliste. 31 Einträge neu; 9 standen schon drin
+(Alb-Extrem, Bodensee-Radmarathon, Altmühltal, Burning Roads,
+Erzgebirgstour, Granitmarathon, Salzkammergut Trophy, Kufsteinerland,
+Lindauer Seequerung – alle schon mit Termin 2027 in `events.json`); 5
+bewusst nicht: Deutschland Tour Jedermann (Ort wechselt jährlich),
+Nordcup-Radmarathon (Serienseite, To-do Punkt 4), Jedermannradcup RC Feld
+am See (Cup, kein Rennen), Kaiserbäder Seebrückenschwimmen (im Protokoll
+versehentlich mit der Brandenburger URL), Senftenberg doppelt. Die
+`_note` einer Fund-Zeile sagt seitdem bei Einträgen ohne Datum „vorige
+Ausgabe ohne Datum" statt „Ausgabe None". Wer weitere Einträge von Hand
+anlegt: `schluessel_von({"name", "standort"})`, Koordinaten über
+`korrekturliste.koordinaten()`, speichern über `Gedaechtnis.speichern()`
+(eine Zeile je Eintrag).
+
+**Die 28 ohne Seite per Websuche (13.10.2026, „Ja, bitte die 28 ohne
+Seite jetzt schon googeln")**: je Eintrag Websuche, Kandidatenseite
+abgerufen, nur übernommen, was die Seite selbst sagt. Ergebnis: **drei
+schon in `events.json`** (ADAC Velotour 01.05.2027, Mecklenburger Seen
+Runde 28.05.2027, Race Across the Alps 25.06.2027 – der Wochenlauf war
+schneller als die PDF-Prüfung vom 24.09.), **eine als andere Zeile im
+Bestand** („Burgenland Extrem Radmarathon" = „Bike 224 Meilen", 360 km,
+21.01.2027, über dealgrid – beim Abgleich zuerst übersehen, weil der Name
+nicht „Burgenland" enthält; erst der Bericht „gleiche Seite, gleiche
+Distanz" hat die doppelte Zeile gemeldet. **Lehre: vor einem Nachtrag
+auch nach der Veranstalter-URL in `events.json` suchen, nicht nur nach
+dem Namen**), **zwei mit Termin 2027 auf der Seite nachgetragen**
+(Malchower Inselschwimmen 11.07.2027, 825 m / 2 km, Stadtseite
+visit-malchow.de; DLRG-Winterschwimmen im Neckar 10.01.2027, 3,5 km
+Remseck → Schießtal, aus „Neckar-Schwimmen Ludwigsburg"), **neun ins
+Gedächtnis** (Düsseldorf300 213/310/411 km; Sundschwimmen Stralsund
+2,3 km; Wariner Langstreckenschwimmen 800/1.600 m – der Menüpunkt liegt
+unter `/kinder-langstreckenschwimmen/`; WakenitzMan Lübeck;
+Fuschlseecrossing 4,2/2,1 km und Stausee Losheim – beide Seiten
+antworteten 503, kein 404, `pruefen` versucht es wöchentlich; Ultra Rad
+Challenge Kaindorf bei Hartberg – die Seite spricht von der abgelehnten
+Streckensperre 2026, Fortbestand unklar, Koordinaten von Hand, weil
+`places.json` nur Kaindorf an der Sulm kennt; Voralpen-Marathon St. Veit
+an der Gölsen über die Serienseite mountainbike-challenge.at; dazu der
+**Nebenfund Weserschwimmen Minden**, 15.08.2026 – festivalsindeutschland
+hatte weserschwimmen.de dem Rintelner Schwimmen zugeschrieben) und **14
+ohne auffindbare Seite** (Liste bei den To-dos). Das Protokoll
+`eventliste_pdf_geprueft.json` trägt je Eintrag die Notiz „Websuche
+13.10.2026: …". Was die Suche nicht leistet: Vereine ohne Netzauftritt
+(DRK-Wasserwachten, Kultur- und Sportring) und Serien ohne Seite
+(Austria Swim Open) – dort hilft nur „Wir haben dein Event nicht?".
+
+**Was es weiter nicht kann**: Eine Seite, die den Lauf nicht beim Namen
+nennt (Allerweltswörter – „Seelauf", „Silvesterlauf" stehen in
+`ALLGEMEIN`), wird nie „NEU", nur „NEU?" für die Handprüfung. Strecken
+auf Unterseiten liest `pruefen` nicht (dann gilt das Vorjahr, die Notiz
+sagt es).
+
+## Frontend-Fallen (events.html)
+
+- **Handy: das Filter-Blatt (bis 900 px, seit dem 13.10.2026).** Auf die
+  Frage des Nutzers „Ist das alles mobile optimiert, oder können wir da
+  noch mehr machen?" auf einem iPhone-Viewport gemessen: Kopfzeile,
+  Suchfeld, sieben Filterpillen, „Karte"/„E-Mail-Abo", Trefferzeile und
+  zwei Reihen Sortierpillen brauchten ~600 px – **die erste Veranstaltung
+  lag unter dem Bildrand** (601 von 664 px), auf der Karte blieben 398 px
+  Karte und die Seite scrollte dahinter. Vom Nutzer freigegeben („Ja,
+  fang mit 1 und 2 an, mach aber den Rest auch"). Was gebaut ist:
+  - **`EFU.filterSheet()`** (`filter-ui.js`): Bis 900 px bleibt in der
+    Filterleiste nur das Suchfeld und ein Knopf **„Filter"** mit der
+    Zahl der gesetzten Filter (Chips ohne die Suche, `setBadge`),
+    darunter **„E-Mail-Abo"** (zweite Zeile der Leiste, beide je zur
+    Hälfte – das Abo stand kurz im Blatt, vom Nutzer am 14.10.2026
+    zurückgeholt: „sonst weiß keiner, wofür das ist"); die Pillen und
+    „Karte"/„Liste" liegen in einem **Blatt von unten** (`.filter-sheet`, `body.filter-sheet-offen`, Schleier
+    `.filter-sheet-scrim`), mit Titel, „Filter löschen", ✕ und dem Knopf
+    **„N Events anzeigen"** (`setTexts({ done })` aus `render()`). Am
+    Rechner ist die Hülle `display: contents` – **dieselben Pillen,
+    kein zweites Markup, kein Umhängen im DOM**. Beide Seiten rufen es
+    vor `EFU.create()` und geben `panelParent: () => filterSheet.isOpen()
+    ? filterSheet.el : document.body` – das Panel hängt im offenen Blatt,
+    sonst läge es (z 1000) hinter dem Blatt (1400); derselbe Weg wie im
+    Abo-Dialog. **Kein `transform` am Blatt** (Ein-/Ausblenden über
+    `visibility`/`opacity`): Ein `fixed` positioniertes Panel darin
+    rechnete sonst in den Koordinaten des Blattes. Escape schließt erst
+    das Panel, dann das Blatt (der Detail-Escape in `events.html` lässt
+    das Blatt in Ruhe). Auf der Karte öffnet „Mein Standort" zuerst das
+    Blatt – die Pille liegt dort.
+  - **Karte auf dem Handy: „Filter – Standort – E-Mail-Abo", darunter die
+    Legende als EINE Zeile** (vom Nutzer am 17.10.2026 mit Foto: „sehr
+    unübersichtlich mit dem Handy … die Anzahl der Events entfernen …
+    Mein Standort rechts neben dem Filter Feld und links neben dem Abo
+    Feld … die Legende relativ klein in einer Zeile unter die 3 Boxen").
+    Über der Karte liegt bis 900 px nur noch der Zoom: `.map-legend` und
+    `.standort-control` sind ausgeblendet (die Karte ließ sich unter
+    beide schieben). Der mittlere Knopf `#standort-bar-btn` (Klasse
+    `.filter-sheet-btn`, also am Rechner unsichtbar; gefüllt, sobald ein
+    Ausgangspunkt gesetzt ist) ruft dasselbe `oeffneStandort()` wie der
+    Leaflet-Knopf – mit `stopPropagation`, sonst schlösse der Klick am
+    Dokument das eben geöffnete Panel. `#legend-zeile` (letztes Kind der
+    Filterleiste, `flex: 1 1 100%`) trägt die vier Sportfarben ohne
+    Trefferzahl – die Bündel tragen ihre Zahlen; bei null Treffern steht
+    dort „Kein Event entspricht den Filtern." (`zeichneLegendenZeile`).
+    `#map-hint` bleibt im (versteckten) Kasten, der Rauchtest liest die
+    Zahl weiter. Der Ausschnitt lässt oben keine 100 px mehr für die
+    Legende frei. Am Rechner bleibt alles wie es war (Legende unten links
+    mit Zahl, „Mein Standort" unter den Zoom-Knöpfen).
+    **Auch die Chip-Zeile (`#toolbar`) ist auf der Handy-Karte weg** (vom
+    Nutzer am 18.10.2026: „Wir können die Zeilen mit dem Filter auch
+    einfach weglassen. Ich denke die Orange Zahl ‚3' zeigt ganz gut das
+    Filter aktiviert sind" – drei Chips standen in drei Zeilen und
+    schoben die Karte halb aus dem Bild). Die Zahl am Knopf „Filter"
+    sagt, wie viele, die gefüllten Pillen im Blatt sagen, welche, und
+    „Filter löschen" steht im Blatt. Nur CSS – die Chips bleiben im DOM,
+    der Rauchtest liest sie und löscht auf dem Handy über
+    `#filter-sheet-reset` (`pruefe_ausgangspunkt`).
+  - **In der Liste bleiben die Chips auf dem Handy, aber klein und
+    höchstens in ZWEI Zeilen** (vom Nutzer am 18.10.2026 – erst „in der
+    Liste auch weglassen", gleich darauf: „in der Liste bitte drinnen
+    lassen, aber einfach kleiner darstellen … kleinere Schrift … nach 2
+    Zeilen kann man einfach ein ‚…' hinmachen und wenn man auf den …
+    klickt dann kommt man auf den Filter Knopf"). Bis 900 px sind die
+    Chips 28 px hoch, 0,76rem, lange Werte kürzt `.chip-text` mit „…"
+    (ganzer Text im `title`); vorher 40 px (Tippflächen-Regel), drei
+    Filter = drei Zeilen. `kuerzeChips()` in `events.html` (nach jedem
+    `renderChips()`, bei `resize` und nach dem Laden der Schrift) zählt
+    die Zeilen über `offsetTop`, versteckt die letzten Chips (`hidden`,
+    `.active-chips .chip[hidden]`), bis der Knopf `.chip-mehr` („…",
+    `aria-label` „N weitere Filter – alle Filter anzeigen") in die
+    zweite Zeile passt; er öffnet das Filter-Blatt. Am Rechner stehen
+    alle Chips. Rauchtest: `pruefe_chips_handy` (acht Filter per
+    Adresse, ≤ 2 Zeilen, „…" öffnet das Blatt).
+  - **„Sortieren" ist ein Knopf zwischen „Filter" und „E-Mail-Abo"**
+    (vom Nutzer am 14.10.2026 mit Foto: „Filter – Sortieren – Abo"). Bis
+    dahin stand über den Kacheln eine waagerecht scrollbare Reihe
+    Sortierpillen (`thead tr`); jetzt ist `thead` bis 900 px
+    ausgeblendet, und der Knopf `#sort-sheet-btn` (dieselbe Klasse
+    `.filter-sheet-btn`, Icon mit zwei Pfeilen) öffnet das **Sortier-Blatt**
+    `#sort-sheet`: ein Hinweis („Noch einmal antippen dreht die Richtung
+    um.") und eine Zeile je sortierbare Spalte (`.sort-option`, gebaut
+    in `buildSortSheet()` aus `buildHeader()`, also bei jeder Sortierung
+    und jedem Sprachwechsel neu); die gewählte trägt „▲ aufsteigend"/„▼
+    absteigend" und die Füllung einer gesetzten Pille. Ein Tippen ruft
+    denselben `toggleSort` wie die Spaltenköpfe und **schließt das
+    Blatt**, der Fokus geht zurück auf den Knopf; der Knopf ist gefüllt
+    (`has-filter` über `setBadge(1)` ohne `.fsb-badge`), sobald nicht
+    mehr nach Datum ▲ sortiert ist. Dieselbe Mechanik wie das
+    Filter-Blatt: `EFU.filterSheet({ …, bodyClass: 'sort-sheet-offen',
+    focusSelector: '.sort-option.active' })`, eigener Schleier
+    `#sort-sheet-scrim`, die Box-Regeln in `site.css` gelten für
+    `.filter-sheet, .sort-sheet`; am Rechner ist `.sort-sheet` samt Knopf
+    `display: none`, dort sortieren die Spaltenköpfe. Bis 380 px
+    bekommen die drei Knöpfe 7 px Innenabstand und 0,85rem, bis 340 px
+    fallen ihre Symbole weg (nachgemessen am 17.10.2026: „E-Mail-Abo" ragte
+    auf 320 px, „Email alerts" auf Android-360 px über den Rand). Die Werkzeugleiste steht in zwei kurzen
+    Zeilen (Zahl + Stand, Schalter, Chips; „Filter löschen" nur im
+    Blatt). Ergebnis: erste Veranstaltung bei ~320 px (vorher ~380), auf
+    der Karte Karte bis zum Fuß (`.map-wrap { min-height:
+    0 }`, `body { height: 100dvh }` wie in der Liste, Fußnote dort
+    ausgeblendet, Fußzeile flach). **Die Legende steht auf dem Handy seit
+    dem 17.10.2026 als Zeile unter den Knöpfen** (siehe oben; vom 14. bis
+    17.10. lag sie oben rechts auf der Karte, davor unten unter der
+    Werkzeugleiste von Safari).
+  - **Zwei Fallen beim Bau, beide in Kommentaren festgehalten**: Die
+    nicht umbrechende Pillenreihe machte die Tabelle 677 px breit, weil
+    `.layout { grid-template-columns: 1fr }` die Spalte auf die
+    Inhaltsbreite wachsen lässt – jetzt `minmax(0, 1fr)` wie am Rechner
+    und `table { width: 100% }` statt `auto`. Chrome (mobil) zog darauf
+    den Layout-Viewport in die Breite (694 px), das Blatt lag unter dem
+    Bildrand und sein Schleier fing JEDEN Klick ab – der Rauchtest
+    meldete es als „Überlauf 304 px" und als Timeout „scrim intercepts
+    pointer events". Ein waagerechter Überlauf ist auf dem Handy nie nur
+    kosmetisch.
+  - **Dieselbe Grenze überall: 900 px.** Kacheln, Blatt, einspaltige
+    Seite und Detail-Blatt gelten bis 900 px (`KACHEL_MQ`, vorher 699) –
+    auf dem **iPad hochkant** (768–820 px) schnitt die 900-px-Tabelle
+    genau die Spalte „Länge" ab. Der Rauchtest misst die Tabelle deshalb
+    bei `TABLET_BREITE = 1024` und öffnet vor jedem Klick auf eine Pille
+    das Blatt (`oeffne_filterblatt`/`schliesse_filterblatt` – der
+    Schleier fängt sonst den nächsten Klick).
+  - **Tippflächen 44 px** (Apple) in `site.css` bis 900 px: Navigation,
+    DE/EN, die Zeilen des Sortier-Blatts (48 px), „Filter löschen",
+    Chips (seit dem 18.10.2026 wieder klein, siehe oben – nur das ✕ hat eine größere Tippfläche), Links im Fuß, „Event melden"; die Pillen der Textseiten ebenso
+    (`seite.css`), dort stehen DE/EN als Paar (`.sprache`), vorher brach
+    „EN" allein um.
+  - **Kategorie-Panel nach Sportart gruppiert** (`art2Gruppen()` in
+    `filter-ui.js`, Überschriften `.fp-group`), sobald keine oder
+    mehrere Sportarten gewählt sind – ein Wert, der zu mehreren gehört
+    (Charity, Straße), steht einmal unter der ersten.
+  - **Bilder je Breite** (`srcset`, siehe Dateitabelle): Startseite auf
+    dem Handy ~250 statt ~900 KB. **Web-Manifest** mit Icons.
+- **Android, Windows, Linux (14.10.2026).** Auf die Frage des Nutzers
+  („checken ob die Webseite auch für Android, Linux und Windows gut ist"
+  – auf dem iPhone „jetzt schon sehr gut") in Chromium mit zehn
+  Geräteprofilen gemessen (Android 360/393/412 px und Tablet 800/1280,
+  Windows 1366×768, 1536×864 bei 125 %, 1280 bei 150 %, 1920×1080, Linux
+  1440×900; klassische Scrollbalken wie unter Windows, also OHNE
+  Playwrights `--hide-scrollbars`). Firefox gibt es in der Sandbox nicht –
+  dafür nur die statische Prüfung: kein `:has()`, kein `color-mix`, keine
+  neuen JS-APIs, `content-visibility` fällt in altem Firefox still weg.
+  Sechs Befunde, alle behoben, alle im Rauchtest (`pruefe_plattformen`):
+  - **Windows-Laptop 1366×768 (häufigste Auflösung) und 1280 bei 150 %**:
+    die Liste hatte einen festen waagerechten Scrollbalken, „Länge" war
+    abgeschnitten – die Tabelle braucht 900 px, die Detail-Spalte nahm
+    ab 1300 px 440. Jetzt `grid-template-columns: … clamp(300px,
+    calc(100vw − 993px), 440px)` (bis 1366 px −977, weil `--seite-rand`
+    dort 20 statt 28 px ist, `site.css`); ab 1277 px passt die Tabelle
+    ohne Balken, darunter (iPad quer) scrollt sie wie bisher. Bei
+    301–350 px Spalte stehen die vier Fakten und die zwei Knöpfe der Box
+    untereinander (`.side-panel .detail-grid`, 901–1330 px), sonst brach
+    „Deutschland" mitten im Wort. Die Melde-Box bricht bis 1432 px um.
+  - **Startseite auf niedrigen Fenstern** (1366×768 lässt dem Browser
+    ~640 px, 1280×720 bei 150 % 577): die Überschrift stand dreizeilig
+    zu 88 px, die Knöpfe lagen unter dem Bildrand. Zwei Stufen in
+    `index.html` (`max-height: 700px` / `620px`, nur ab 901 px Breite).
+  - **Android 360 px** (Samsung Galaxy, die häufigste Android-Breite –
+    das iPhone hat 390/393): Teilen, Hell/Dunkel, DE/EN und „Anmelden"
+    brauchten 336 px bei 328 Platz, „Anmelden" rutschte in eine DRITTE
+    Kopfzeile, die erste Veranstaltung lag 54 px tiefer. Bis 400 px:
+    `.top-actions { gap: 6px }`, DE/EN mit 10 px Innenabstand → 316 px.
+  - **Zurück-Taste schließt Detail-Blatt, Filter-Blatt und Sortier-Blatt** – auf Android
+    ist „Zurück" DER Weg, etwas zu schließen (vorher verließ sie die
+    Seite). Beim Öffnen `pushState` mit derselben Adresse
+    (`merkeBlattImVerlauf` in `events.html`, `merkeImVerlauf` in
+    `filter-ui.js filterSheet`), `popstate` schließt; schließt jemand über
+    ✕/Schleier/Escape/„Events anzeigen", nimmt `history.back()` den
+    Eintrag wieder heraus (Flagge `eigenesZurueck`), danach schreibt
+    `writeUrlState()` die Adresse des Eintrags nach, auf dem man landet
+    (`replaceState` trifft nur den aktuellen; die Seiten geben dem
+    Filter- und Sortier-Blatt dafür `onPop`). Ein geteilter Link (`?event=`) legt
+    KEINEN Eintrag an (`oeffneDetail({ ohneVerlauf: true })`) – wer von
+    WhatsApp kommt, soll mit „Zurück" dorthin zurück. Die Dialoge (Abo,
+    Melden, Vorschlag) haben das nicht.
+  - **Kein Pull-to-Refresh im Blatt**: `overscroll-behavior: contain` am
+    Detail-Blatt und am Filter-Blatt – Chrome (Android) lud sonst die
+    Seite neu, wenn man am oberen Rand des Blattes weiterzog.
+  - **Sortierknöpfe der Tabelle waren 15 px hoch** (der Innenabstand lag
+    an `.th-inner`, nicht am Knopf): jetzt 45 px, der ganze Spaltenkopf
+    ist die Klickfläche. Dazu Navigation und DE/EN am Rechner 44 px hoch
+    (Guide: Kopfzeile 44; gemessen waren es 35) – die Kopfzeile wird
+    nicht höher.
+  Dazu **`icon-192-maskable.png`/`icon-512-maskable.png`** im Manifest
+  (`purpose: maskable`): Android schneidet Home-Bildschirm-Symbole in
+  Kreis oder abgerundetes Quadrat; ohne maskierbares Symbol lag die
+  Navy-Kachel klein auf weißem Grund. Das Zeichen steht darin auf 50 %
+  (die sichere Zone ist der Kreis mit 80 % Durchmesser – das volle
+  Zeichen reicht bis 97 % und würde beschnitten); erzeugt per
+  Chromium-Screenshot wie die anderen PNGs. **Nicht behoben, nur
+  notiert**: die `:hover`-Regeln gelten auf Touch-Geräten nach dem Tippen
+  weiter („sticky hover", auch auf dem iPhone, bisher nicht störend –
+  Abhilfe wäre `@media (hover: hover)` um alle ~40 Regeln), Windows-
+  Kontrastmodus (`forced-colors`: der box-shadow-Rahmen um den
+  aufgeklappten Block verschwindet dort), und die Leaflet-Zoomknöpfe
+  bleiben 30 px (Pinch ist der Hauptweg). Ein sporadischer
+  Kartenfehler (einmal in 60 Läufen „Cannot set properties of null") war
+  der eigene Testserver (`TCPServer` ohne Threads, eine Datei nicht
+  geliefert → Notbremse), nicht die Seite.
+- **Handy: Kacheln statt Tabelle (bis 900 px; bis zum 13.10.2026 unter 700 px).** Vom Nutzer am
+  22.09.2026 gefragt („Was genau passiert da bei der Handyansicht?") und
+  freigegeben („Yes, bitte bauen"). Die Tabelle ist 900 px breit; auf
+  dem Handy lagen Länge, Kategorie und Land außerhalb des Bildes, man
+  musste waagerecht scrollen. Jetzt gilt in `events.html` ein
+  `@media (max-width: 900px)`-Block (bis zum 13.10.2026 699 px), der **dieselben `<tr>`/`<td>` als
+  Kacheln zeichnet** – kein zweites Markup, keine zweite Zeichenroutine:
+  Sortierung, Fenster, Zusammenfassen, Auswahl und Tastatur laufen
+  unverändert über dieselben Zeilen. Was daran nicht zurückgedreht
+  werden soll:
+  - **Die `<tr>` ist ein Raster** (`grid-template-areas`: Datum |
+    Sportart, Name, Ort | Land, Entfernung, Kategorie | Länge groß
+    rechts), jede `<td>` bekommt ihren Platz über ihre Spaltenklasse.
+    Die Spaltenbreiten der Tabelle (`.col-datum { width: 13% }`) müssen
+    dafür aufgehoben werden – **mit `td[class]`**, sonst verliert das
+    nackte `td` gegen die Klassenregel, und die Zellen sind 13 % breit
+    (so sah die erste Fassung aus: „Böbl / ing…"). Dasselbe bei
+    `table.with-distance { min-width: 960px }`: Mit gesetztem
+    Ausgangspunkt blieb die Tabelle 960 px breit, Chrome (mobil)
+    verbreiterte darauf den ganzen Layout-Viewport auf 977 px, und der
+    Abo-Dialog stand halb außerhalb – der Rauchtest hat es an der
+    Abo-Prüfung gemeldet, nicht an der Liste.
+  - **Die Kopfzeile ist ausgeblendet** (`thead { display: none }`);
+    sortiert wird über den Knopf „Sortieren" und sein Blatt (seit dem
+    14.10.2026, siehe „Handy: das Filter-Blatt" – bis dahin war `thead
+    tr` eine Flex-Reihe aus Sortier-Pillen).
+  - **Die Entfernung trägt in der Kachel eine Beschriftung**
+    (`.kachel-label`, in der Tabelle ausgeblendet – dort sagt es der
+    Spaltenkopf).
+  - **Der Rahmen um den aufgeklappten Block** ist hier `border` in
+    `--frame` (die Kacheln hängen ohne Lücke aneinander, Rundung nur
+    oben an der ersten und unten an der letzten), die box-shadow-Regeln
+    der Tabelle werden ausgeschaltet. Die Strecken zeigen Datum, Ort und
+    Land nicht noch einmal – der Rahmen sagt, wozu sie gehören.
+  - **`tr.mehr-row` bleibt `content-visibility: visible`**: Mit `auto`
+    fing die Zeile den Klick, solange ihr Inhalt nach dem Hineinscrollen
+    noch nicht gesetzt war (Playwright: „intercepts pointer events").
+  - **Die Detail-Box ist ein Blatt von unten** (`.side-panel` fixiert,
+    `body.detail-offen`, Schleier als `body::after`, Seiten-Scroll
+    gesperrt). Geöffnet wird sie nur ausdrücklich – Tippen auf eine
+    Kachel, Enter, geteilter Link (`oeffneDetail()` setzt `detailOffen`)
+    –, **nicht beim Bewegen mit den Pfeiltasten** und nicht beim
+    Aufklappen einer Veranstaltung. ✕ (`schliesseDetail`), ein Tippen
+    auf den Schleier (Ziel ist der `<body>`) und Escape schließen sie;
+    Escape aber nicht, solange ein Dialog oder das Filter-Panel offen
+    ist (die haben ihren eigenen Escape). `aktualisiereDetailSheet()`
+    setzt die Klasse und hört auf den Wechsel der Breite – sonst bliebe
+    nach dem Drehen eines Tablets der Seiten-Scroll gesperrt.
+    `zeigeDetailbereich()` tut in der Kachelansicht nichts.
+  - **Im Rauchtest** (390 px) liegt das Blatt nach jedem Tippen auf eine
+    Zeile über allem; wer danach etwas anderes anklickt, ruft vorher
+    `schliesse_blatt()`. Die Prüfungen, die Eigenschaften der TABELLE
+    messen (52-px-Zeilen, box-shadow-Rahmen, Pfeil in der Namensspalte:
+    `pruefe_datum_zweizeilig`, `pruefe_gruppierung`), laufen auf
+    `TABLET_BREITE` (1024 px, bis zum 13.10.2026 820); `pruefe_kacheln`
+    prüft die Kacheln und das Filter-Blatt.
+
+- **Weniger anzeigen ist eine Datenqualitäts-Entscheidung.** Der Nutzer
+  hat das am 21.09.2026 in einem Satz begründet, der für die ganze Seite
+  gilt: „Wir wollen nicht zu viele Infos zeigen, weil das erhöht die
+  chance, dass sie Infos auch falsch sind." Daraus drei Änderungen, die
+  **nicht** zurückgedreht werden sollen:
+  - **Das Feld „Strecke" in der Detail-Box zeigt nur die Länge** –
+    „5,6km", nicht „5,6 km · 5.555 m (Berglauf auf den Lousberg)". Das
+    Wettbewerbs-Label ist die unzuverlässigste Angabe im Datensatz (es
+    kommt wörtlich aus dem Kalendereintrag) und wiederholte dort meist
+    ohnehin die Distanz. Bei einem Triathlon ist „die Länge" das FORMAT
+    („Super-Sprint"), ohne den Zusatz des Labels.
+  - **Unter dem Namen steht keine Maßzahl mehr.**
+    `EED.displayWettbewerb()` schneidet jede Maßzahl aus dem Label
+    (km, m, hm, Stunden, Minuten, auch „2x5 km" und „400-m-Runde") und
+    gibt null zurück, wenn nichts Eigenes übrig bleibt. Begründung des
+    Nutzers: „Wir haben die Länge in der Liste schon und in der
+    Detailansicht dann auch. Man muss es nicht 3x sehen. Wenn ein Event
+    zum Beispiel ein Geh event ist, dann kann man da schon ‚Walking'
+    oder so hinschreiben … Aber keine Informationen die bereits genannt
+    wurden." Aus „Brian Trail (15,5 km, 500 hm)" wird „Brian Trail", aus
+    „5.555 m (Berglauf auf den Lousberg)" „Berglauf auf den Lousberg",
+    aus „10 km Fuchsburg Lauf (ab Jahrgang 2015)" „Fuchsburg Lauf (ab
+    Jahrgang 2015)". Zwei Feinheiten, beide nötig: Eine **Klammer mit
+    Maßzahl fliegt GANZ** (sonst bliebe „( Schwimmen / Rad / Laufen)"
+    stehen), eine Klammer OHNE Maßzahl bleibt (das ist genau die Art
+    Zusatz, die gemeint ist); und eine Klammer, die danach den ganzen
+    Rest ausmacht, verliert sie. Nach dem Kürzen tragen von 3.877 Zeilen
+    noch 1.312 einen Zusatz.
+    **Der Rückfall auf die Länge im aufgeklappten Block ist weg** – er
+    stand dort, damit sich die Strecken einer Veranstaltung im Namen
+    unterscheiden; die Längen-Spalte in derselben Zeile tut das bereits.
+  - **Das Wettbewerbs-Feld in `events.json` bleibt unangetastet.** Die
+    Duplikat-Erkennung der Scraper braucht den vollen Text, und die
+    Strecken-Pille zeigt ihn als Tooltip. Gekürzt wird nur die ANZEIGE.
+
+- **Maßzahlen ohne Leerzeichen: „16km", „6h".** Vom Nutzer am 21.09.2026
+  so gewünscht. Es gilt für die Maßzahl eines Events (`EF.formatKm`,
+  `EF.formatHours`, `EF.formatDistanceKm`, `EED.formatLengthSpan`) –
+  also Länge-Spalte, Spanne einer Veranstaltung, Strecken-Pillen,
+  Entfernung und Detail-Box. **Nicht** betroffen sind Sätze, in denen
+  eine Zahl vorkommt („Umkreis: 25 km", „Länge ab 10 km", „bis 50 km" im
+  Filter): Dort ist die Einheit ein Wort im Satz, kein Etikett an einer
+  Zahl.
+
+- **Das Sternchen erklärt sich selbst.** Die Fußnote zu „Juni 2027*"
+  stand von Anfang an in der Fußzeile – der Nutzer hat sie am 21.09.2026
+  trotzdem nicht gefunden („finde ich als user nirgendwo was genau das
+  ‚*' bedeutet"), und zu Recht: klein, grau, am Seitenende, auf dem
+  Handy hinter vierhundert Zeilen. Das Zeichen selbst ist jetzt ein
+  `<abbr class="vorlaeufig-stern">` mit Erklärung im `title`, gepunktet
+  unterstrichen und in der Signalfarbe (`EED.vorlaeufigStern`, gilt für
+  Liste UND Karte). Die Fußzeile behält den Text – ein `title` erscheint
+  auf einem Touchgerät nicht –, jetzt mit 78 % statt 60 % Deckung, und
+  er steht als `datum_fussnote` nur noch EINMAL in `event-detail.js`
+  statt in beiden Seiten.
+  **Die allgemeine Lehre**: Eine Erklärung gehört an die Stelle, an der
+  die Frage entsteht, nicht dorthin, wo Platz ist.
+
+  **Seit dem 07.10.2026 trägt auch eine STRECKE das Sternchen** (vom
+  Nutzer bei Punkt 6 der To-do-Liste verlangt: „bei den Strecken wieder
+  einen * machen … die Fußnote so anpassen, dass sie für Datum und
+  Strecke passt"). Gemeint sind die Zeilen mit `gedaechtnis: true` –
+  Vorjahreskopien aus dem Gedächtnis, deren Strecken noch keine Quelle
+  für die neue Ausgabe bestätigt hat. Wie es gebaut ist, alles in
+  `event-detail.js`:
+  - `vorlaeufigStern(lang, key)` nimmt jetzt einen Textschlüssel;
+    `streckeStern(e, lang)` gibt das Sternchen mit
+    `strecke_vorlaeufig_kurz` („Strecke noch nicht bestätigt – Angabe
+    aus dem Vorjahr") zurück, wenn `e.gedaechtnis` gesetzt ist, sonst
+    nichts. Dieselbe Klasse `.vorlaeufig-stern`, dieselbe Farbe – ein
+    Zeichen, zwei Fälle, der `title` sagt, welcher.
+  - **`formatLengthHtml(e, lang)` und `formatLengthSpanHtml(rows, lang)`**
+    sind die HTML-Fassungen von `formatLength`/`formatLengthSpan`
+    (escaped plus Sternchen; die Spanne trägt es, sobald EINE Zeile der
+    Veranstaltung eine Vorjahreskopie ist). Die Länge-Spalte der Liste,
+    die zusammengefasste Zeile, die Strecken-Pillen, der Fakt „Strecke"
+    in der Box und das Karten-Popup rufen sie. **Die Textfassungen
+    bleiben** für Teilen-Text, Kalender-Beschreibung und Melde-Dialog –
+    dort steht stattdessen der Satz `detail_strecke_vorlaeufig` als
+    eigene Zeile, und `functions/index.js` hängt denselben Hinweis an
+    die Zeile in der Abo-Mail (`eventKurz` reicht `gedaechtnis` durch).
+  - **EINE Fußnote für beides**: `datum_fussnote` heißt jetzt „* noch
+    nicht bestätigt – Termin bzw. Strecke sind Schätzungen aus dem
+    Vorjahr" (EN: „still to be confirmed – date or distance are
+    estimates from the previous year"), und `events.html`/`karte.html`
+    blenden `#datum-fussnote` ein, sobald eine Zeile `datum_vorlaeufig`
+    ODER `gedaechtnis` trägt.
+  - **Nicht geändert**: der Titel der Kalenderdatei (`build_ics.py`
+    schreibt „(Termin vorläufig)" nur bei `datum_vorlaeufig`) und
+    `events.json` selbst – `gedaechtnis` stand dort schon, die Seite
+    hat es bis dahin nur ignoriert. `events.web.json` nimmt jedes Feld
+    mit, also auch dieses.
+  - Das Sternchen verschwindet von selbst: Sobald eine Quelle die
+    Strecke bestätigt, nimmt `update_existing_event()`/`merge_duplicates()`
+    die Markierung weg (siehe „Gedächtnis je Veranstaltung").
+
+- **Die Detail-Box hat auch in der Liste ein ✕.** Die Karte hatte es von
+  Anfang an, die Liste nicht (`onClose` war optional und wurde dort nicht
+  übergeben) – bis der Nutzer es am 21.09.2026 auch hier wollte. Drei
+  Dinge gehören dazu, sonst schließt sich nur die Hälfte: die Markierung
+  in der Tabelle (`selectedIndex = null` plus `markiereAuswahl`), der
+  Parameter `?event=` in der Adresse (`writeUrlState`), und der **Fokus**
+  – er steht im ✕, und das verschwindet gerade; ohne Zurücksetzen landet
+  er am `<body>`, und wer mit der Tastatur arbeitet, beginnt wieder ganz
+  oben. Er geht an die Zeile, die eben gewählt war.
+
+- **`.sr-only` gehört nicht in die Tabelle.** Das Charity-Herz trug
+  zuerst eine `.sr-only`-Beschriftung; die ist `position: absolute`, und
+  ein absolut positioniertes Element bezieht sich auf den nächsten
+  POSITIONIERTEN Vorfahren – `overflow-x: auto` an `.table-wrap` ist
+  keiner. Die Beschriftungen landeten damit am Dokument, an der x-Stelle
+  ihrer Zelle in der 900 px breiten Tabelle, und zogen die ganze SEITE
+  124 px in die Breite: Auf dem Handy scrollte danach alles waagerecht,
+  und der sticky „Weitere 200 anzeigen"-Knopf war nicht mehr klickbar.
+  Für eine Beschriftung in einer Tabellenzelle also `role="img"` +
+  `aria-label` am Element selbst. **Der Rauchtest hat genau das
+  gemeldet** („kein waagerechter Überlauf der Seite (124 px)") – die
+  Prüfung ist keine Formalie.
+
+- **Die Melde-Box in der rechten Spalte der Liste, UNTER der Detail-Box**
+  („Dein Event fehlt? Schick uns die Originalseite", `.fehlt-box` in
+  `events.html`, vom Nutzer am 30.09.2026 gewünscht: „Das ist am Anfang
+  schon sehr wichtig"; am 05.10.2026 unter die Box mit „Wähle eine Zeile
+  aus" gesetzt – oben verdrängte sie die Angaben zum gewählten Event)
+  führt in denselben Dialog wie die Leiste in der Fußzeile und
+  die Null-Treffer-Box (`openSuggestModal`) – ein Weg, drei Zugänge. Auf
+  dem Handy ist sie im Blatt ausgeblendet, dort bleibt die Fußzeile.
+  Signalfarbe als Rand, damit sie neben der ruhigen Detail-Box auffällt.
+- **Keine Entfernungs-Spalte mehr** (vom Nutzer am 05.10.2026: „nicht
+  nützlich und verwirrt nur mit der Länge der Strecke"). `activeColumns()`
+  ist nur noch `TABLE_ORDER`, ein Ausgangspunkt filtert (Umkreis), schaltet
+  aber weder Spalte noch Sortierung zu; `sort=entfernung` aus alten Links
+  wird verworfen. Die Detail-Box nennt die Entfernung weiter, beschriftet
+  („Entfernung: 14 km von deinem Standort"). Was weiter unten über die
+  Entfernungs-Spalte steht, ist Geschichte.
+- **Bei null Treffern verschwindet die Liste** (vom Nutzer am 05.10.2026:
+  „Wenn keine Events angezeigt werden … brauchen wir die Liste nicht"):
+  `renderNotifyPrompt()` setzt `body.null-treffer`, das blendet `.layout`
+  (Tabelle UND Detail-Box) aus; `#notify-box` zeigt dann groß die blaue
+  Karte (Überschrift, Text, E-Mail-Abo) und darunter die rote „Dein Event
+  fehlt?" (`#notify-fehlt-btn`, dieselben `.fehlt-box`-Klassen, derselbe
+  Dialog). `removeNotifyPrompt()` nimmt die Klasse wieder weg. Ab 901 px
+  hält `margin-bottom: auto` die Fußzeile unten.
+- **„Mehr erfahren" auf der Startseite ist ein Link** (`<a
+  class="scroll-hint" href="#mehr">`, `scroll-behavior: smooth`) – der
+  Nutzer las den Hinweis als Knopf (30.09.2026). **Seit dem 05.10.2026
+  ist der Pfeil ein 44-px-Kreis INNERHALB des Links** (`.chev-btn`),
+  denn der Nutzer tippte auf den Pfeil und nichts geschah („sollte man
+  auch auf den Pfeil klicken können") – Wort und Pfeil sind ein Ziel.
+- **Die Startseite ist seit dem 05.10.2026 mit FOTOS gebaut** (vom
+  Nutzer: „das Hintergrundbild … noch ziemlich einfach und nicht wirklich
+  ansprechend … es soll modern sein und auch motivieren und nicht
+  wirklich Natur. Können wir hier keine Bilder verwenden und die
+  Startseite noch einmal neu aufbauen vom Design her?"). Aufbau:
+  Hero mit Foto (`bilder/hero.webp`, Marathonfeld von oben) unter einem
+  Navy-Verlauf (`.hero-overlay`, Text bleibt lesbar, Farben bleiben die
+  des Guides – „das blau und die Farben gefallen mir sehr gut"), Zeile
+  „Laufen · Rad · Schwimmen · Triathlon", Überschrift **„Finde jetzt
+  deine nächste Herausforderung!"** (Wunsch des Nutzers; „Wo Ausdauer
+  beginnt" war ihm „ein bisschen langweilig" – die Seite soll
+  „dynamischer und aktiver" wirken, deshalb Imperative: Finde, Wähle,
+  Bereit für den Startschuss?), zwei Knöpfe (Events entdecken /
+  Auf der Karte suchen), drei Kennzahlen aus den Daten (Events,
+  Orte, 4 Regionen – `[data-fact]`, gefüllt in `zeigeZahlen()`), dann
+  Leiste mit drei Fakten, **vier Foto-Kacheln je Sportart** (Link in die
+  gefilterte Liste, Zähler `.sport-count`), Navy-Band mit
+  Schlussknopf. Den Abschnitt „In drei Schritten am Start" hat der
+  Nutzer am 05.10.2026 herausnehmen lassen – nicht wieder einbauen. **Bildregel des Nutzers (05.10.2026, nach dem ersten Satz Fotos):
+  keine Einzelpersonen, keine Bilder, auf denen man Gesichter genau
+  sieht** – Gruppen von hinten, von oben oder im Wasser. Deshalb Laufen
+  = Rhein-Ruhr-Marathon kurz nach dem Start (Läufer von hinten),
+  Triathlon = Schwimmstart Weiswampach; die ersten beiden Fassungen
+  (Läuferin im Ziel, Athletin mit Sonnenbrille) sind deshalb raus. Fotos selbst gehostet als WebP
+  (`bilder/`, Lizenzen siehe Dateitabelle) – kein fremder Server, wie
+  bei Schriften und Leaflet. Die Illustration (Bergketten-SVG) ist
+  damit weg; der Guide nannte Fotos als zweiten Schritt, der ist jetzt
+  gegangen.
+- **Eine Laufserie ist EINE Veranstaltung** (vom Nutzer am 06.10.2026
+  an der Ismaninger Winterlaufserie entschieden: „wenn Event
+  zusammenfassen an ist, dann soll es ein Event sein mit 3 Distanzen,
+  und beim Aufklappen 3 Events mit 3 unterschiedlichen Daten und 3
+  unterschiedlichen Längen"). Der Gruppenschlüssel `EF.groupKey` nimmt
+  seitdem den SERIENBEGINN statt des Starttags und den Namen OHNE Auflage
+  vorn: `EF.markSerien()` (in `EF.loadEvents()`, also auf allen drei
+  Seiten) setzt an jede Zeile `serie_start` – Zeilen mit gleichem Namen
+  (ohne „35. ") am gleichen Ort gehören zusammen, solange zwischen zwei
+  aufeinanderfolgenden Starttagen höchstens **100 Tage**
+  (`SERIE_MAX_LUECKE_TAGE`) liegen. Die Lücke trennt die Ausgabe 2027
+  von der 2026 (365 Tage) und zwei Ausgaben desselben Laufs im Jahr (ab
+  112 Tagen im Bestand) von einer Serie (Pausen bis ~90 Tage);
+  mehrtägige Rennen (Freitag Kinder, Samstag Hauptlauf) und „1. Lauf /
+  2. Lauf"-Namen fallen damit ebenfalls zusammen – so gemeint. Am
+  Bestand: 4.047 → 3.835 Veranstaltungen. Was daran hängt: Die
+  zusammengefasste Zeile zeigt die SPANNE der Termine
+  (`EED.formatGroupDateHtml`, zwei Zeilen wie ein mehrtägiges Rennen),
+  aufgeklappt trägt jede Strecke ihren Tag (in der Kachelansicht bleibt
+  das Datum der Unterzeile über `tr.sub-row.serie` sichtbar), die
+  Strecken-Pillen der Box tragen das Datum vor der Länge („13.12. ·
+  13km", nach Datum sortiert), das Karten-Popup nennt die Spanne
+  (`EED.formatGroupDate`). `serie_start` lebt nur im Browser –
+  `events.json` bleibt eine Zeile je Strecke und Termin. **Python-
+  Zwilling** `scraper_lib.serien_cluster()`/`serien_schluessel()`
+  (Rauchtest, `clean_events.unify_auflage_in_serien()` gleicht die
+  Auflage innerhalb einer Serie an); `test_serien` vergleicht beide
+  Fassungen über den ganzen Bestand und die Konstante. Der Rauchtest
+  findet die Gruppenzeile über `data-idx`, nicht über den Datumstext.
+
+- **Die Reihenfolge der Sportarten ist IMMER Laufen, Rad, Schwimmen,
+  Triathlon** (vom Nutzer am 05.10.2026: „Bitte immer die Reihenfolge
+  … nehmen"). Sie steht EINMAL in `filters.js` (`EF.SPORTARTEN`);
+  `filter-ui.js` sortiert das Sportart-Panel danach (`columnOptions`,
+  unbekannte Werte dahinter) und nimmt sie für `BEKANNTE_WERTE`, die
+  Startseite ordnet Kacheln und Texte so, die Legende der Karte und
+  die Untertitel nennen sie so. Alphabetisch (Fahrrad, Laufen, …) war
+  die alte Reihenfolge des Panels – nicht zurückdrehen.
+- **Die Fußzeile der Liste muss auf dem iPad erreichbar sein** (vom
+  Nutzer am 05.10.2026 mit Foto gemeldet: „Ich kann nicht zu Impressum
+  runterscrollen"). Ab 901 px ist der `body` fensterhoch (siehe unten,
+  „nur die Liste scrollt"); Safari auf dem iPad rechnet `100vh` aber mit
+  eingeblendeter Werkzeugleiste, die Fußzeile lag darunter, und
+  `overflow: hidden` ließ niemanden hinscrollen. Jetzt `height: 100dvh`
+  (mit `100vh` als Rückfall davor) und `overflow-y: auto`: Am Rechner
+  ändert sich nichts (die Seite passt, nichts scrollt), auf dem iPad
+  stimmt die Höhe, und falls doch etwas übersteht, scrollt die Seite.
+- **Die Melde-Box sagt „Schick uns die Informationen – wir tragen es
+  ein."** (Wortlaut des Nutzers, 05.10.2026; vorher „Schick uns die
+  Originalseite").
+- **Die Startseite zählt VERANSTALTUNGEN, nicht Strecken** (vom Nutzer
+  am 30.09.2026 gemeldet: „Triathlon wär 281 anstatt 500"): über
+  `EF.groupKey` (Name + Tag + Ort), das dafür von `event-detail.js` nach
+  `filters.js` umgezogen ist – `EED.groupKey` ruft es nur noch. Dieselbe
+  Zahl wie die Liste beim Zusammenfassen.
+- **Die Startseite zählt die Events je Sportart** (vom Nutzer am
+  21.09.2026 gewünscht). Gezählt wird nach `EF.dropPastEvents()`, also
+  mit derselben Grenze, die `events.html` beim Laden zieht – sonst
+  verspräche die Startseite Events, die einen Klick später nicht mehr da
+  sind. Dafür lädt `index.html` seit dem Tag **`filters.js`** (mit
+  `defer`): Die zwei Helfer nachzubauen wäre eine zweite Kopie, die beim
+  nächsten Umbau ausschert, und die Datei braucht `events.html` – das
+  die Startseite ohnehin per `prefetch` vorlädt – danach sowieso, der
+  Abruf wärmt also den Cache. Die Zahlen sind `hidden`, bis der Abruf
+  zurück ist: Eine „0" oder ein Platzhalter, der später springt, wäre
+  schlechter als eine Kachel ohne Zahl, und schlägt der Abruf fehl,
+  bleibt die Seite wie vorher. Sie tragen kein `data-i` (ihr Text kommt
+  aus den Daten), müssen aber in `applyLang()` mitgezeichnet werden –
+  das Tausendertrennzeichen hängt am Umschalter DE/EN.
+  **Sie machen die Datenlücke sichtbar**: 3.667 Laufen, 201 Triathlon,
+  5 Schwimmen, 4 Fahrrad. Das ist Fahrplan-Punkt 1.
+
+- **Der Style Guide des Nutzers gilt („Design-System v1", Richtung
+  „Morgenstart", 21.09.2026: „Bitte an den Style Guide halten").** Er
+  steht als Bild im Chat und hier in Zahlen; wer eine Farbe, Schrift oder
+  einen Radius ändert, ändert den Guide – also vorher fragen.
+  - **Farben** (`site.css`, helles Schema = der Guide): Nacht `#0B1B33`
+    (Marke, Kopf der Startseite, Fußzeile, Primär-Buttons, gewählte
+    Filter), Tiefe `#163B6B` (Hover, Illustration, Links), Signal
+    `#E8590C` (Marke, Sportfarbe Laufen, Akzente – **nie als Fläche
+    unter weißem Text**), Sonne `#F97316` (**nur** der Hero-CTA, mit
+    Navy-Text, und die Sonne der Illustration), Kreide `#F4F2ED`
+    (Seitenhintergrund, warm statt Grau), Weiß (Karten, Tabelle, Panels),
+    Linie `#E2DED5`, Tinte `#0F1B20` (Text), Grau `#66707F`
+    (Beschriftungen), Ton `#EDF1F7` (gewählte Zeile, aufgeklappter Block,
+    Icon-Flächen). **Sportfarben** als zweite Ebene für Icons, Marker und
+    Tags – nie als Textfarbe auf Weiß, dafür je eine Tonfläche und eine
+    dunklere Textfarbe darauf: Laufen `#E8590C`/`#FFF1E8`/`#9A3B05`,
+    Fahrrad `#2B8A3E`/`#E9F7EC`/`#1B5E2B`, Schwimmen
+    `#1971C2`/`#E7F1FC`/`#0F4C86`, Triathlon `#7048E8`/`#F1ECFF`/`#482FA6`
+    (`--sport-<art>`, `-bg`, `-fg`). Der **Dunkelmodus** ist die
+    Dunkelmodus-Zeile des Guides: Navy wird zur Fläche (Grund `#0B1B33`,
+    Fläche `#13233D`, Linie `#2A3A56`, Ton `#1C2C48`, Text `#EDF1F7`),
+    Signal bleibt Signal, die Sportfarben sind aufgehellt.
+  - **Schrift**: Barlow Condensed für alles Große (Überschriften, Datum,
+    Distanzen, Zahlen – `--font-display`), Barlow für Text und
+    Bedienelemente (`--font-text`). Größen: Display 88 px/700 (Hero),
+    H1 56/700, H2 44/600, H3 24/600 (Kartentitel, `.detail-panel h2`),
+    Zahl/Datum 30/700 (`.result-count`, `.detail-date`), Lead 20/400,
+    Fließtext 16/400, Bedienelemente/Tabelle 14/500, Beschriftung 12/600
+    versal. **Selbst gehostet** (`vendor/fonts/barlow.css`, woff2 mit
+    unicode-range latin/latin-ext) – kein Google-Server, dieselbe Linie
+    wie bei Leaflet und Firebase.
+  - **Komponenten**: Radius **10 px** für Bedienelemente
+    (`--radius-ctl`), 14–16 px für Karten und Panels; Klickflächen
+    mindestens 40 px (Kopfzeile 44). Primär ist Navy, das Orange bleibt
+    dem Hero-CTA vorbehalten. Filterpillen: leer weiß mit Linie, gewählt
+    Navy mit weißer Schrift, **geöffnet weiß mit 2 px Navy-Rand**
+    (`.open:not(.has-filter)`). Chips als Pillen auf Ton. Der Sport-Tag
+    in der Box (`.detail-badge`) trägt Tonfläche und Textfarbe seiner
+    Sportart. Icons: Konturicons mit **1,8 px** Strich, runde Enden, als
+    Inline-SVG.
+  - **Marke**: Navy-Kachel, weiße Route, oranger Punkt auf hellem Grund;
+    auf Navy (Kopf der Startseite `.site-header--navy`, dunkles Schema)
+    weiße Kachel mit Navy-Route, der Punkt bleibt orange
+    (`--logo-bg/-fg/-dot`). Dasselbe Zeichen ist `favicon.svg`.
+  - **Fußzeile ist Navy** in beiden Schemata (`--footer-bg`); Liste und
+    Karte tragen die helle Kopfzeile (`--header-bg`). **Die Kopfzeile der
+    Startseite ist seit dem 13.10.2026 nur noch im DUNKLEN Schema Navy**
+    (`:root:not([data-theme="light"]) .site-header--navy` in `site.css`),
+    im hellen fällt sie auf die weiße Kopfzeile von Liste und Karte
+    zurück. Vom Nutzer gemeldet: „Wenn ich auf der Startseite wechsle
+    zwischen Nacht- und Tagmodus, dann merkt man da gar nichts … damit
+    die User nicht denken, dass der Button nicht funktioniert." Der Hero
+    (Foto unter Navy-Verlauf) bleibt in beiden Schemata dunkel – so
+    gewollt –, also war die Kopfzeile das Einzige im ersten Bild, das
+    den Wechsel zeigen kann. Der Rauchtest prüft seitdem, dass die
+    Kopfzeile der Startseite beim Umschalten die Farbe wechselt
+    (`pruefe_farbschema`, Weiß ↔ Navy).
+  - **Bildsprache**: seit dem 05.10.2026 **Fotos** (der im Guide
+    genannte zweite Schritt: unter einer Navy-Fläche, selbst gehostet
+    als WebP in `bilder/`) – Hero und vier Sport-Kacheln, Sportszenen
+    statt Natur, auf Wunsch des Nutzers. Die frühere Illustration
+    (Bergketten-SVG) ist weg. Siehe „Die Startseite ist seit dem
+    05.10.2026 mit FOTOS gebaut".
+  - Die beiden Textseiten (`seite.css`) tragen dieselben Farben und
+    Schriften, folgen aber weiter der Systemeinstellung (kein Knopf).
+  - **Die Seite nennt sich „Ausdauersport im deutschsprachigen Raum"**
+    (seit Südtirol, 21.09.2026): Titel, `og:site_name` „Endurance
+    Events", Beschreibungen („Deutschland, Österreich, Schweiz und
+    Südtirol"), Hero-Zeile, „4 Regionen" – kein „DACH"/„D/A/CH" mehr in
+    sichtbaren Texten (in Code-Kommentaren darf es stehen).
+
+- **Das Aussehen ist seit dem 21.09.2026 die Vorlage des Nutzers** (ein
+  Bild: dunkle Fläche, Marke mit orangem Zeichen, Navigation „Events /
+  Karte“, Filterpillen ÜBER der Tabelle, Trefferzahl groß mit Schalter,
+  Chips und „Stand“, Tabelle mit Sportart-Symbolen, Detail-Box mit
+  großem Datum und Strecken-Pillen, Fußzeile „Dein Event fehlt?“ links
+  und Impressum rechts). Was daran nicht zurückgedreht werden soll:
+  - **`site.css` ist das gemeinsame Gerüst** (Farben, Kopf, Filterleiste,
+    Werkzeugleiste, Fußzeile) für alle drei Seiten – nichts davon zurück
+    in eine Seite kopieren. In `events.html` steht nur noch Tabelle,
+    Detailbereich und die Dialoge, in `karte.html` nur die Karte.
+  - **ZWEI Farbschemata, ein Knopf.** Die Vorlage der Liste war dunkel,
+    die der Karte (am selben Tag) hell – beide gelten. Das Schema hängt
+    an `data-theme` am `<html>` („dark" = die Werte in `:root`, „light"
+    = der Block `:root[data-theme="light"]` in `site.css`); gesetzt wird
+    es von einem **wortgleichen Skript im `<head>` aller drei Seiten**
+    (gespeicherte Wahl `endurance-theme` vor der Systemeinstellung, und
+    im Kopf, damit die Seite nicht erst im falschen Schema aufblitzt),
+    der Knopf `.theme-btn` in der Kopfzeile schaltet um (Sonne im
+    Dunkeln, Mond im Hellen). `test_farbschema_skript` vergleicht die drei
+    Kopien und verbietet `prefers-color-scheme` in `site.css` – darüber
+    hätte der Knopf keine Wirkung. **Feste Farben gibt es nur, wo eine
+    Fläche in beiden Schemata gleich aussieht** (Leaflet-Popup, das Weiß
+    in der Marker-Nadel, die Sportfarben); alles andere über die
+    Variablen. Die wichtigsten: `--accent` ist die Hervorhebung (dunkel:
+    HELL, hell: Marine `#0f1b33`), `--on-accent` die Schrift darauf – ein
+    festes `#fff` auf einer Akzentfläche ist im Dunkeln unsichtbar;
+    `--pill-active-bg/-fg/-border` für gesetzte Pillen und DE/EN (dunkel
+    leise, hell Marine mit weißer Schrift); `--logo-bg/-fg/-dot` für die
+    Marke (dunkel: orange Kachel, weißer Punkt; hell: Marine, oranger
+    Punkt); `--shadow`; `--sport-laufen/-fahrrad/-schwimmen/-triathlon`
+    (eine Farbe je Sportart – Symbole in der Tabelle, Abzeichen der Box,
+    Nadeln und Legende der Karte; Laufen ist Orange = `--brand`);
+    `--map-*` für die Karte. `--frame` für die Linien um einen
+    aufgeklappten Block.
+  - **Die Filterknöpfe sitzen nicht mehr in den Spaltenköpfen**, sondern
+    als Pillen in der Filterleiste (`ui.buildButtonBar(…, { order:
+    FILTER_ORDER })`, gebaut in `setLanguage`, weil sie die Spaltennamen
+    tragen). **Die Pille zeigt nur den Spaltennamen** und ob sie gesetzt
+    ist (gefüllte Fläche) – den WERT nennt allein die Chip-Zeile neben
+    „Filter löschen“. Am 21.09.2026 stand kurz „Sportart: Laufen“ in der
+    Pille (gerechnet aus den Chips); der Nutzer hat es am selben Abend
+    zurückgenommen: doppelt zur Chip-Zeile, und die Leiste wurde zu lang
+    („Ort & Umkreis: 25 km um Aktueller Standort“). Gilt für Liste UND
+    Karte. Der Datum-Chip nennt bei einem Zeitraum-Knopf
+    den ZEITRAUM („26.09.–26.12.2026“), nicht den Knopfnamen. Die Spalte
+    „Name“ hat weiterhin eine Pille (ganz rechts; die Mastersuche deckt
+    das meiste ab, der Rauchtest prüft das Namens-Panel dort).
+  - **Die Marke führt zur Startseite** (Punkt 11 der offenen Fragen: der
+    Rückweg über das Logo ist die übliche Konvention). `#page-title` ist
+    der Markenname; die Notbremse („Bitte neu laden“) schreibt in
+    `#page-title` und die sonst leere `.page-note` (`#subtitle`).
+  - **Tabelle**: Reihenfolge Datum, Name, Sportart, Ort, Land, Kategorie,
+    Länge (`TABLE_ORDER`; die Entfernung rutscht hinter den Ort); Datum
+    mit Wochentag (`EF.formatDateWeekday`, in der Zelle `nowrap`);
+    Sportart mit Symbol (`EED.sportIcon`, Inline-SVG – kein `<img>` je
+    Zeile); im aufgeklappten Block steht unter jedem Namen IMMER der
+    Wettbewerb, notfalls die Länge (`cellHtml(…, { zweiteZeile: true })`).
+    Spaltenbreiten sind auf 900 px Mindestbreite gerechnet, „So
+    27.09.2026“, „Deutschland“ und „Triathlon“ mit Symbol passen genau –
+    wer eine Spalte schmaler macht, prüft die drei.
+  - **Trefferzahl** ist nur noch die Zahl („1.889 Events“,
+    `EF.formatInt`), kein „von N“ mehr; **„Stand: Mo, 21.09.2026“** kommt
+    aus dem `Last-Modified` der `events.json` (GitHub Pages schickt ihn,
+    der lokale Server auch); fehlt er, bleibt die Zeile verborgen.
+  - **Detail-Box**: `EED.render(container, e, { …, siblings, onSelect,
+    mapLink, listLink, distanceText })`. `siblings` sind die Zeilen derselben Veranstaltung (Liste:
+    über `groupKey` aus ALLEN Events, nicht den gefilterten; Karte: Name +
+    Datum + Ort), `onSelect(idx)` wechselt die Strecke (Liste:
+    `waehleZeile` ohne Scrollen; Karte: tauscht das Event dieser Box aus),
+    `mapLink` (nur Liste) ist `karte.html?s=<Name>`, `listLink` (nur
+    Karte) `EED.eventLink(e)` – je Seite nur der Knopf zur ANDEREN.
+    `distanceText` („14 km", `EF.formatDistanceKm`, in beiden Seiten
+    dieselbe Schreibweise) ersetzt den vierten Fakt „Veranstalter" durch
+    „Entfernung: 14 km von deinem Standort", sobald ein Ausgangspunkt
+    gesetzt ist (Vorlage der Karte); die Veranstalterseite bleibt als
+    Hauptknopf. Das Abzeichen trägt `sportClass(e.art1)` und damit die
+    Farbe der Sportart. Das Kalender-Menü
+    liegt absolut unter dem Knopf, die Klassen `.event-share-btn`,
+    `.report-open-btn`, `.cal-open-btn`, `.cal-ics`, `.detail-close`,
+    `.detail-grid dt` bleiben – der Rauchtest hängt daran.
+  - **Karte**: dieselbe Kopf- und Filterleiste; die Trefferzeile
+    („3.830 Events an 1.363 Orten“, `#map-hint`) steht in der
+    Werkzeugleiste, nicht mehr als Kasten über der Karte; Marker orange,
+    Kacheln leicht abgedunkelt; das Popup behält feste helle Farben
+    (Leaflet-Popup ist immer weiß).
+  - **Startseite**: dieselbe Kopfzeile über dem Hero (der `.events-btn`
+    ist der Navigationslink „Events“, links von der Anmeldung; seit dem
+    13.10.2026 im hellen Schema weiß, im dunklen Navy – siehe „Fußzeile
+    ist Navy"), Hero dunkel mit orangem Schimmer, Fußzeile wie überall.
+
+- **Die Karte ist seit dem 21.09.2026 die zweite Vorlage des Nutzers**
+  („Die Map bitte so gut wie möglich in dem Format darstellen"; ein
+  helles Bild – daher das zweite Farbschema, siehe oben). Was daran
+  nicht zurückgedreht werden soll (alles in `karte.html`):
+  - **Ein Punkt je VERANSTALTUNG, nicht je Strecke** (vom Nutzer am
+    21.09.2026: „auf der Karte gibt es nur die zusammengefassten Events;
+    wenn man draufklickt, sieht man, welche Distanzen möglich sind").
+    `renderMarkers()` fasst die gefilterten Zeilen über `EED.groupKey`
+    (Name + Starttag + Ort, klein – derselbe Schlüssel wie beim
+    Zusammenfassen der Liste und bei den Strecken-Pillen der Box, seit
+    dem Tag in `event-detail.js`) zu Veranstaltungen zusammen; die erste
+    Zeile vertritt sie (`g.e`), die Zeilen stehen in `g.rows`. Ein Marker
+    je Ort trägt die Zahl seiner Veranstaltungen (`eeCount`), die Bündel
+    summieren sie, die Legende zählt sie („N Events" – dieselbe Zahl wie
+    die Liste beim Zusammenfassen). Ein Ort mit EINER Veranstaltung ist
+    eine Nadel, bis zwei öffnet der Klick die Boxen direkt, ab drei
+    listet das Popup **je Veranstaltung einen Eintrag** mit der Spanne
+    ihrer Strecken (`EED.formatLengthSpan`, dieselbe Funktion wie die
+    Längen-Spalte der Liste) und „4 Strecken". Die Distanzen sieht man
+    dann in der Box (Pillen). Der Rauchtest sucht dafür einen Ort mit
+    genau zwei VERANSTALTUNGEN (`ort_mit_zwei_veranstaltungen()`).
+  - **Flach bis Zoom 7, Kacheln ab Zoom 8** (`TILES_AB_ZOOM`,
+    `aktualisiereFlach`): Die Übersicht zeigt nur die Landfläche der
+    drei Länder (hell, aus `laender.json`, eigenes Pane `landPane` mit
+    z-index **150 – UNTER den Kacheln** (200), `fillRule: nonzero`) auf
+    grauer Fläche mit feinem Raster (CSS-Hintergrund von `#map`, wandert
+    nicht mit). Die Kacheln werden **nicht abgeschaltet, sondern per CSS
+    ausgeblendet** (`.map-flach .leaflet-tile-pane { visibility: hidden }`):
+    So sind sie beim Hineinzoomen sofort da, und der Rauchtest kann sie
+    weiter zählen (noWrap-Prüfung bei kleinstem Zoom). Die Maske (250,
+    evenodd) bleibt darüber, ihre Farbe kommt jetzt aus dem Stylesheet
+    (`path.maske-pfad`, ebenso `path.land-pfad`, `path.umkreis-pfad`):
+    Leaflet schreibt `fill`/`stroke` als Attribut, eine CSS-Regel gewinnt
+    – so folgen sie dem Farbschema.
+  - **Orientierungsorte** enthalten seit dem 21.09.2026 Bozen, Meran,
+    Brixen und Bruneck; die Landfläche und die Maske kommen automatisch
+    aus `laender.json` (vier Schlüssel).
+  - **Bündel: Kreis in der Akzentfarbe + Ortsname** des größten Ortes im
+    Bündel (`options.eeStandort`, „349 Köln"). Die Zahl steht ALLEIN in
+    `.cluster-badge`/`.marker-badge` – der Rauchtest addiert die Kreise
+    mit `parseInt` gegen die Legende. **Ein Ort mit genau einer
+    Veranstaltung ist eine Nadel** (`.marker-pin`, Farbe und Symbol der
+    Sportart ihrer ersten Zeile) mit einer unsichtbaren „1"
+    (`.marker-badge.sr-only`) für dieselbe Rechnung.
+  - **Beschriftungen werden geordnet** (`ordneBeschriftungen`, nach
+    `moveend`/`zoomend`/`animationend` in EINEM Animationsframe plus
+    einem zweiten Durchgang nach 450 ms, weil markercluster die Marker
+    animiert schiebt): größte Bündel zuerst; ein Name, der einen Nachbarn
+    überschneidet, wandert nach links (`.label-links`), sonst
+    verschwindet er (`.label-versteckt`). Dann die **Orientierungsorte**
+    (`REFERENZ_ORTE`, ~37 Städte fest im Code, graue Punkte, nur in der
+    flachen Ansicht, Pane 300): weg, wenn ein Bündel, ein Name oder ein
+    wichtigerer Ort auf ihnen liegt, oder ein Bündel denselben Namen
+    trägt. Ausgeblendet wird mit `visibility`, nicht `display` – sonst
+    hätte ein Kasten keine Maße mehr und käme nie zurück.
+  - **„Mein Standort"** (`StandortControl`, unter den Zoom-Knöpfen; auf
+    dem Handy der mittlere Knopf der Leiste, `#standort-bar-btn`)
+    öffnet das Ort-Panel an seiner Pille (`ui.open`, kein künstlicher
+    Klick – der liefe bis zum Dokument und schlösse das Panel gleich
+    wieder) und drückt dort `.geo-btn`: derselbe Weg wie im Panel, kein
+    zweiter.
+  - **Legende unten links** (`.map-legend`; auf dem Handy statt dessen
+    `#legend-zeile` unter den Knöpfen, ohne Zahl) mit `#map-hint` („3.830
+    Events" – die Werkzeugleiste zeigt keine Trefferzahl mehr und ist
+    **ohne Filter ausgeblendet**, `toolbarEl.hidden`) und den vier
+    Sportfarben; Quellenangabe unten rechts ohne Leaflet-Vorspann
+    (`attributionControl`, Text je Sprache). **„E-Mail-Abo"** in der
+    Filterleiste führt in die Liste mit diesen Filtern und `?abos=1`.
+    Der Umkreis ist gestrichelt (`dashArray`), der Ausschnitt knapp um
+    die Marker (`pad(0.04)`, sonst fiel D/A/CH auf 1440×700 in Zoom 5)
+    und höchstens Zoom 13 (ein einzelner Ort zoomte bis zur Hausnummer).
+  - Auf der Karte gibt es KEINE festen Farben außer im Popup und im Weiß
+    der Nadel – alles über `--map-*`, `--accent`, `--sport-*`.
+
+- **Das Filter-Panel folgt seinem Spaltenknopf beim Scrollen, es schließt
+  sich nicht mehr** (jetzt in `filter-ui.js`) (`folgeDemKnopf`/`isTriggerVisible`). Früher schloss
+  jedes `scroll`/`resize` das Panel – auf 390 px ließ sich der
+  Stadt/Ort-Filter damit gar nicht öffnen (das Scroll-Ereignis vom
+  waagerechten Wischen kommt erst nach dem Klick an), und die
+  Android-Tastatur (`resize`) hätte jedes Suchfeld sofort wieder
+  geschlossen. Nicht zurückdrehen.
+
+- **Der Panel-Anker überlebt `buildHeader()`.** Ein Ausgangspunkt
+  schaltet die Entfernungs-Spalte zu, `setOrigin()` baut dafür den
+  Tabellenkopf neu – der Knopf, an dem das offene Panel hängt, wird durch
+  einen neuen ersetzt. Der alte liefert dann `getBoundingClientRect()`
+  = lauter Nullen, und das Panel sprang in die linke obere Ecke (vom
+  Nutzer gemeldet). Deshalb in `filter-ui.js`: `attachButton()` übergibt
+  dem neuen Knopf derselben Spalte die Ankerrolle, `isTriggerVisible()`
+  und `positionFloatingPanel()` prüfen `isConnected`, und `reposition()`
+  richtet am **Ende** von `render()` neu aus – das `refresh()` am Anfang
+  ist zu früh, die Spaltenbreiten (`table.with-distance`) stehen dort
+  noch nicht.
+
+- **Stadt/Ort ist eine Umkreissuche, keine Ortsliste mehr.** Reihenfolge
+  im Panel: Standort-Button → Regler 1–200 km → Suchfeld für Ort/PLZ
+  (aus `places.json`, ~32.600 Orte; wird erst beim Öffnen des Panels
+  geladen). Ein Ausgangspunkt schaltet den Umkreis auf 25 km
+  (`RADIUS_DEFAULT_KM`). Der Regler filtert erst bei `change`, nicht bei
+  `input` – sonst baut sich die Tabelle bei jeder Fingerbewegung neu auf.
+  `normalizePlaceText()` hier und `normalisiere()` in `build_places.py`
+  müssen dasselbe tun. Im Panel steht nur, was beim Suchen hilft – die
+  GeoNames-Namensnennung (CC BY 4.0 verlangt sie) steht in der Fußzeile
+  von `index.html`, nicht im Filter.
+
+- **Den Standort-Dialog kann die Seite nicht erzwingen.** Der Browser
+  fragt nur beim ersten Mal und merkt sich die Antwort; systemweit
+  abgeschaltete Ortung liefert Fehlercode 1 sofort, ganz ohne Dialog.
+  Deshalb unterscheidet der Fehler-Zweig nach der Dauer: unter 800 ms
+  = nie gefragt → nummerierte Anleitung für die Einstellungen
+  (iOS-Pfade bei Apple-Geräten) einblenden; länger = gerade selbst
+  abgelehnt → „noch einmal tippen". Nicht zu einem einzigen Text
+  zusammenfassen, die beiden Fälle brauchen verschiedene Schritte.
+
+- **`refreshOpenPanel()` zeichnet das offene Filter-Panel nicht neu,
+  solange der Fokus darin liegt** (damit eine Eingabe im Namensfeld nicht
+  abreißt). Jeder Button *im* Panel, der den Filterzustand ändert, muss
+  daher vor `render()` den Fokus abgeben – siehe `geoBtn.blur()` beim
+  Standort-Button; ohne das sah „Aktuellen Standort verwenden" kaputt aus
+  (Status blieb „wird ermittelt…", Radius-Auswahl ausgegraut).
+- **Chips nie pro Wert aufzählen.** Mengen-Filter fassen sich zusammen:
+  alles ausgewählt → „Stadt/Ort: Alle", mehr als `MAX_VALUE_CHIPS` (5) →
+  „Stadt/Ort: 12 ausgewählt". „Alle" bei Stadt/Ort sind ~2000 Orte.
+- **Reihenfolge im Skript beachten**: `const`/`let` auf oberster Ebene
+  müssen VOR ihrer ersten Verwendung stehen – sonst
+  Temporal-Dead-Zone-Fehler. Beim Bau der Zeitraum-Knöpfe und des
+  Deep-Links ist das zweimal passiert: `DATE_PRESETS` und
+  `urlZustandGelesen` werden schon beim Laden gebraucht (readUrlState
+  bzw. der erste `render()`), standen aber weiter unten. Beide stehen
+  jetzt oben bei `state`, mit Begründung im Kommentar.
+- **`writeUrlState()` schreibt nur nach `readUrlState()`**
+  (`urlZustandGelesen`). `EndauranceAuth.onAuthChange` ruft `render()`
+  schon auf, während `events.json` noch lädt – ohne die Flagge löschte
+  dieser erste Durchlauf die Parameter eines geteilten Links, bevor sie
+  gelesen waren.
+- **Sortierung**: jede Spaltenüberschrift ist ein Knopf, Schlüssel in
+  `SORT_KEYS` (Rückgabe `[Gruppe, Wert]`, damit Zeilen ohne Angabe immer
+  hinten landen). Bei der Länge gibt es drei Stufen: Distanz, dann
+  Zeitrennen nach Dauer, dann leer – km und Stunden werden NICHT in eine
+  Zahlenreihe gemischt.
+- **Entfernungs-Spalte** erscheint nur mit Ausgangspunkt
+  (`activeColumns()`), Breiten dafür unter `table.with-distance`. Zellen
+  werden aus `activeColumns()` gebaut, nicht fest untereinander – sonst
+  müsste die Spaltenreihenfolge an zwei Stellen gepflegt werden.
+- **Zusammenfassen ist die VOREINSTELLUNG** (so vom Nutzer gewünscht,
+  19.09.2026): `state.gruppiert` startet mit `true`. Drei Stellen hängen
+  daran, alle drei müssen zusammenpassen:
+  - `localStorage` (`endurance-gruppiert`) überschreibt die
+    Voreinstellung **nur, wenn ein Eintrag da ist** – also nur eine
+    eigene Entscheidung. Die frühere Zeile `=== '1'` hätte einen
+    fehlenden Eintrag wie „aus" behandelt und die Voreinstellung
+    stillschweigend ausgehebelt.
+  - `currentParams()` schreibt nur die **Abweichung** in die Adresse:
+    `gruppiert=0`, wenn aus. Die Karte reicht den Wert unverändert
+    zurück; ohne ihn käme der Weg Liste (aus) → Karte → Liste
+    zusammengefasst zurück. Alte Links mit `gruppiert=1` bleiben gültig.
+  - `readUrlState()` versteht `1` UND `0`; fehlt der Parameter, bleibt
+    es bei Voreinstellung bzw. gemerkter Wahl.
+  Der Rauchtest prüft den ersten Besuch in einem frischen
+  Browser-Kontext (an, nichts im Speicher, nichts in der Adresse), das
+  Merken nach dem Abschalten und den Rückweg von der Karte mit
+  abgeschalteter Gruppierung.
+- **Der Schalter „Veranstaltungen zusammenfassen" steht direkt hinter der
+  Trefferzahl**, nicht bei den Knöpfen rechts: er verändert, wie diese
+  Zahl zu lesen ist („810 Veranstaltungen (1413 Strecken)").
+  `.toolbar-actions` behält dafür `margin-left: auto`, damit „Alle Filter
+  zurücksetzen" am rechten Rand bleibt. Die Chips dazwischen NICHT
+  `flex: 1` geben – dann rutscht der Knopf beim Umbruch nach links.
+- **Zusammenfassen ist reine Anzeige** (`state.gruppiert`,
+  `buildGroups()`): Datenregel 1 (eine Zeile pro Strecke) bleibt gültig,
+  die Tabelle bündelt sie nur nach Name + Datum + Ort und zeigt die
+  Spanne der Distanzen.
+- **Die Spalte „#" (Anzahl) gibt es nicht mehr.** Sie stand beim
+  Zusammenfassen ganz links und wurde als Durchnummerierung der Events
+  gelesen – „1, 2, 1, 1, 3" sah nach einer kaputten Liste aus (vom
+  Nutzer gemeldet). An ihrer Stelle steht jetzt der **Aufklapp-Pfeil**
+  (der saß immer schon im Namensfeld, hat ohne die Zahl davor aber den
+  Platz ganz links). Wie viele Strecken sich hinter einer Veranstaltung
+  verbergen, muss man vorher nicht wissen – die Gesamtzahl steht in der
+  Trefferzeile („7 Veranstaltungen (10 Strecken)"). Nicht
+  wieder einführen.
+- **Aufgeklappt zeigt die Veranstaltungszeile die erste Strecke selbst**
+  (`groupRowHtml()` mit `offen`, `subRowsHtml()` gibt nur `rows.slice(1)`
+  aus): zwei Strecken = zwei Zeilen. Die frühere dritte Zeile war die
+  Zusammenfassung über ihren eigenen Strecken – vom Nutzer als Doppelung
+  gemeldet. Zugeklappt bleiben die Marken mit allen Längen.
+  `klappeGruppe()` zeichnet die Veranstaltungszeile dafür neu (immer noch
+  ohne `render()`).
+- **Auf- und zugeklappt wird NUR über den Pfeil** (vom Nutzer am
+  18.10.2026: „Das einklappen bitte immer nur über den Pfeil … Ich kann
+  beispielsweise nicht auf den 100km Lauf klicken, weil es dann da immer
+  wieder eingeklappt wird … Man muss auf das erste Event auch klicken
+  können"). Der Klick-Zuhörer am `<tbody>` klappt nur um, wenn das Ziel
+  in `.chevron` liegt; jeder andere Klick auf die Veranstaltungszeile
+  wählt ihre erste Strecke und öffnet die Box (auf dem Handy das Blatt) –
+  zugeklappt wie aufgeklappt. Vorher klappte jeder Klick um, und die
+  erste Strecke eines offenen Blocks war nie anwählbar (sie IST die
+  Veranstaltungszeile). Die Tastatur bleibt, wie sie war (→/←/Leertaste
+  klappen, Enter springt in die Box). **Der Pfeil trägt Farbe und Rand
+  seiner Sportart** (`EED.sportClass(e.art1)` am `.chevron`, `--chev`
+  aus `--sport-*`, beim Darüberfahren die Tonfläche `--sport-*-bg`), die
+  Tippfläche ist per `::before` 10 px größer als der Kreis. Rauchtest:
+  Farbe/Rand, Aufklappen über den Pfeil, Tippen auf die erste Strecke
+  öffnet das Blatt bei offenem Block, Klick neben den Pfeil klappt nicht
+  zu.
+- **Eine Veranstaltung mit nur einer Strecke klappt nicht auf**
+  (`istEinzelgruppe()`, `tr.group-row.single`): die Unterzeile würde
+  dasselbe wiederholen. Kein Pfeil, kein `aria-expanded`, kein
+  Aufklappen – der Klick wählt die Strecke nur aus. Statt des Pfeils ein
+  gleich breiter Platzhalter (`.chevron-spacer`), sonst beginnen die
+  Namen einzelner Strecken weiter links als die der aufklappbaren.
+- **Aufgeklappt bekommt die Veranstaltung einen RAHMEN**: eine Linie oben
+  an der Veranstaltungszeile, eine unten an der letzten Strecke, je ein
+  senkrechter Strich links UND rechts durch alle Zeilen dazwischen – alles
+  in `var(--accent)`. Der rechte Strich kam am 19.09.2026 auf Wunsch des
+  Nutzers dazu (vorher eine offene Klammer); er hängt an `:last-child`,
+  weil die letzte Spalte mit der Entfernungs-Spalte wechselt. Ohne ihn standen die Strecken einer Veranstaltung
+  mitten in der Liste, ohne dass man ihnen ansah, dass sie
+  zusammengehören; man konnte nicht erkennen, ob eine Veranstaltung drei
+  oder fünf Läufe hat (vom Nutzer gemeldet). Drei Entscheidungen daran:
+  - **`box-shadow: inset` statt `border`.** Ein Rahmen aus Rändern
+    verschöbe die Zeilen: `border-collapse: collapse` teilt sich die
+    Ränder zwischen zwei Zeilen, und eine 2-px-Linie gegen die 1-px-Linie
+    daneben macht die Zeile einen Pixel höher. Alle Zeilen sind aber
+    gleich hoch (52 px), und der Rauchtest prüft das auf den Pixel. Ein
+    Schatten wirkt nie auf das Layout.
+  - **Der Block ist durchgehend in EINEM Blau hinterlegt** (`--accent-bg`,
+    vom Nutzer am 19.09.2026 so gewünscht – vorher bewusst ohne Farbe).
+    Die Regel steht zwischen Zebra und Auswahl. **Die gewählte Strecke
+    im Block trägt dieselbe Farbe** – ein kräftigerer Ton für sie
+    (`--row-active-block`) war gebaut und am selben Tag vom Nutzer
+    verworfen („bitte die gleiche blaue Farbe benutzen"): In der Liste
+    sah das wie zwei verschiedene Blautöne aus. Welche Strecke gewählt
+    ist, zeigt der Detailbereich; die Klasse `active` bleibt an genau
+    einer Zeile (Tastatur, `markiereAuswahl()`), färbt im Block aber
+    nicht. Die Veranstaltungszeile wird **aufgeklappt nicht mehr
+    mitmarkiert**, wenn eine andere Strecke gewählt ist (`aktiv` in
+    `gruppenHtml`): Sie zeigt die erste Strecke selbst. Zugeklappt
+    bleibt es beim Alten – dort steht sie für die verborgene Strecke.
+    Der Rauchtest prüft eine Farbe im Block, anders als außen, genau
+    eine als gewählt markierte Zeile darin mit derselben Farbe. Nicht
+    wieder einen zweiten Ton einführen.
+  - **Oben und unten über die ganze Breite.** Der senkrechte Strich
+    allein reichte nicht: Die Tabelle ist mindestens 800 px breit und
+    scrollt auf dem Handy waagerecht – wer nach rechts schiebt, sähe ihn
+    nicht mehr. Die beiden waagerechten Linien laufen über alle Spalten.
+
+  Die letzte Unterzeile trägt dafür die Klasse `letzte` (`subRowsHtml`).
+  Bewusst eine Klasse und **kein** `.sub-row:not(:has(+ .sub-row))`: Der
+  Selektor müsste bei über 4.000 Zeilen für jede davon die Nachbarschaft
+  prüfen, und die Tabelle ist genau an dieser Stelle auf Tempo gebaut.
+  Die Reihenfolge der acht CSS-Regeln ist bedeutungstragend – die
+  Kombinationen für die Eckzellen (`:first-child`/`:last-child` mit zwei
+  Schatten) müssen NACH den allgemeinen stehen: `box-shadow` ist EINE Eigenschaft,
+  die spätere Regel ersetzt die frühere vollständig statt sie zu
+  ergänzen.
+
+  **Eine Zahl („5 Strecken") steht bewusst nicht dabei.** Sie hätte nur
+  in die Namensspalte gepasst, und die ist 22 % breit – auf Handybreite
+  176 px. Dort noch ein Textstück unterzubringen heißt, den Namen
+  abzuschneiden. Der Rahmen zeigt die Zusammengehörigkeit, gezählt sind
+  die Zeilen in einem Blick.
+- **Die Anzahl-Zahl steht schlicht in der Tabelle.** Eine Variante, in
+  der sie als Kapsel halb über der linken Rahmenlinie lag, war gebaut und
+  vom Nutzer wieder verworfen („wie ein aufgeklebtes Etikett"). Der
+  Rahmen sitzt daher wieder auf `.table-wrap`, das Zwischen-`div`
+  `.table-frame` ist weg. Falls das noch einmal aufkommt: `.table-wrap`
+  scrollt und beschneidet, der Überhang braucht also einen inneren Frame
+  plus Innenabstand – und `width: max-content` am Frame geht NICHT
+  (bemisst sich gegenseitig mit `width: 100%` der Tabelle, die Tabelle
+  rutscht aus dem Bild).
+- **Kalender-Einträge sind immer ganztägig**: Startzeiten stehen in
+  keiner Quelle verlässlich. `DTEND` bzw. `dates=`/`enddt=` ist
+  **exklusiv**, also Enddatum + 1 Tag – ohne das +1 fehlt der letzte Tag.
+- **Die `.ics`-Dateien liegen fertig im Repo** (`kalender/`, erzeugt von
+  `scripts/build_ics.py`, aufgerufen von `update_events.py` nach dem
+  Aufräumen). Grund: Auf iPhone/iPad übergibt Safari einen Termin nur an
+  den Kalender, wenn die Datei **vom Server** mit
+  `Content-Type: text/calendar` kommt. Drei Versuche, das im Browser zu
+  lösen, sind am Gerät gescheitert – data-URI, Blob und eine vom Service
+  Worker erfundene Antwort landeten alle als Download („Unknown.ics",
+  Teilen-Liste ohne Kalender) bzw. auf der 404-Seite von GitHub Pages.
+  Der Service Worker (`sw.js`) ist deshalb wieder **entfernt**, ebenso
+  die ICS-Erzeugung in `events.html`: **einzige Quelle ist jetzt Python.**
+  Der Link im Detailbereich trägt bewusst **kein `download`-Attribut** –
+  das würde Safari das Übergeben an den Kalender wieder verbieten.
+- **Der Dateiname wird zweimal berechnet**: `ics_dateiname()` in
+  `build_ics.py` und `icsFileName()` in `event-detail.js`
+  (`<datum>-<name>-<distanz>-<ort>.ics`). Weichen sie ab, zeigt der Knopf
+  ins Leere – `test_scraper_lib.py` prüft beide gegeneinander und lässt
+  dafür den echten JS-Code in `node` laufen. Der **Ort** gehört in den
+  Namen, weil Name + Datum + Distanz nicht eindeutig sein MÜSSEN: Zweimal
+  stand dieselbe Strecke unter zwei Orten in den Daten (Königsforst-
+  Marathon 18.09.2026, Legend of Cross Mühlberg/Drei Gleichen 21.09.2026)
+  – beide Male ein Verortungsfehler, beide zusammengeführt, und danach
+  gab es kein solches Paar mehr. Der Ort bleibt trotzdem: Der nächste
+  Datenlauf bringt den nächsten Fall, und ein Dateiname, der sich mit
+  jeder Bereinigung ändert, bräche geteilte Links und Kalender.
+- **`DTSTAMP` ist fest** (`20260101T000000Z`), nicht „jetzt": sonst
+  änderte jeder Lauf alle 4.150 Dateien und der wöchentliche Commit wäre
+  ein Riesen-Diff ohne inhaltliche Änderung.
+- **Spaltenbreiten über Klassen** (`.col-name`, `.col-anzahl`, …), nicht
+  `nth-child`: Entfernung und Anzahl kommen und gehen, jede Kombination
+  bräuchte sonst eigene Regeln. `CHEVRON_SVG` steht oben bei `state` -
+  der erste `render()` braucht es bei aktiver Gruppierung sofort (TDZ).
+- **`.group-name` ist ein Flex-Element ohne `.cell-clamp`**: dessen
+  `display: -webkit-box` widerspricht dem Flex, der Name rutschte sonst
+  unter das Chevron. Gekürzt wird stattdessen `.group-name-text`.
+- **Ein Tippen auf eine Zeile scrollt zu den Angaben** – aber nur auf
+  dem Handy und nur beim Auswählen. Unter 900 px hat die Seite eine
+  Spalte, der Detailbereich steht also unter der 78vh hohen Tabelle; ein
+  Tippen wirkte vorher folgenlos (vom Nutzer gemeldet).
+  `zeigeDetailbereich()` prüft erst, ob der Bereich wirklich außerhalb
+  des Bildes liegt – am Rechner steht er daneben und darf sich nicht
+  bewegen –, achtet auf `prefers-reduced-motion` und wird **nicht**
+  gerufen, wenn der Klick eine Veranstaltung auf- oder zugeklappt hat
+  (dann will man die Strecken an dieser Stelle sehen) und nicht bei der
+  Pfeiltasten-Navigation (sonst schiebt sich die Tabelle weg, in der man
+  gerade navigiert).
+- **Tastaturbedienung der Tabelle: „roving tabindex".** Jede Zeile trägt
+  `tabindex="-1"`, aber nur **eine** ist per Tab erreichbar
+  (`setzeTabStop()`, `tabStopZeile` steht oben bei `state` – als `let`
+  weiter unten warf sie beim ersten `render()` einen
+  Temporal-Dead-Zone-Fehler und brach `render()` mitten ab). 4.155
+  Tab-Stopps wären eine Falle. Bewegt wird mit ↑/↓, Home/End, →/←
+  (Veranstaltung auf/zu), Leertaste klappt um, Enter springt in den
+  Detailbereich (`tabindex="-1"` am `#detail-panel`). Alles über **einen**
+  `keydown`-Listener am `<tbody>` – kein Listener je Zeile, das
+  Ein-String-Zeichnen bleibt.
+  **Enter klappt NICHT um, auch nicht auf einer Veranstaltungszeile.**
+  Dafür gibt es schon →, ← und die Leertaste – drei Wege. Enter ist der
+  **einzige** Weg in den Detailbereich, und dort stehen Kalenderdatei,
+  Veranstalter-Seite und „Fehler melden". Bis zum 18.09.2026 stand im
+  Enter-/Leertaste-Zweig ein gemeinsames `return` vor dem Sprung: Wer
+  die Liste mit der Tastatur bedient, kam bei jeder Veranstaltung mit
+  **mehreren Strecken** nie an diese Links. Gemerkt hat es niemand,
+  weil der Rauchtest Enter am Ende des Fensters drückt – und dort lag
+  zufällig immer eine einzelne Strecke. Erst als die Einzelprüfung der
+  Events 201–400 fünf Zeilen entfernte, rutschte eine aufklappbare
+  Zeile dorthin. Der Fall steht deshalb jetzt **ausdrücklich** im
+  Rauchtest (beide Seiten: Enter springt, Leertaste klappt um), nicht
+  dem Zufall überlassen.
+- **Die Tabelle zeichnet nur ein FENSTER** (`FENSTER_SCHRITT = 200`,
+  `zeigeMehr()`), gefiltert und sortiert wird aber über **alle** Events.
+  Gemessen mit 20.770 Events (`scripts/bench_frontend.py`): alle Zeilen
+  im DOM waren 317.913 Knoten und 12,2 MB HTML, und jede Änderung baute
+  sie neu – Sortieren 4,6 s, Zusammenfassen 8,2 s, Filter zurücksetzen
+  4,4 s. Mit Fenster: 742 / 237 / 145 ms. Vier Dinge nicht aufweichen:
+  - Die **Trefferzahl bleibt die volle Zahl** – das Fenster ist reine
+    Anzeige, wie `state.gruppiert`.
+  - `idxZuGruppe` wird für **alle** Gruppen gefüllt, nicht nur die
+    gezeichneten (ausgewählt sein kann eine Strecke außerhalb des
+    Fensters).
+  - `data-g` trägt die **absolute** Gruppennummer (`gruppenHtml(…,
+    startNr)`), sonst liest `klappeGruppe()` die falsche Gruppe.
+  - **Tastatur**: ↓ am Rand des Fensters holt den nächsten Schub
+    (`nachbarZeile()`), `End` führt ans Ende des Geladenen – ohne das
+    wäre per Tastatur nur die erste Seite erreichbar.
+  Der Knopf steht in einem `position: sticky; left: 0`-Element: Die
+  Zelle spannt über alle Spalten (800 px), ein mittiger Knopf lag auf
+  Handybreite außerhalb des Bildes, sobald man waagerecht gescrollt
+  hatte. Beim Scrollen lädt ohnehin von selbst nach – der Knopf ist für
+  die Tastatur, für Screenreader und als ehrliche Anzeige, wie viel
+  noch fehlt.
+  `fenster` und `nachladeFrame` stehen oben bei `state`: `render()` ruft
+  `pruefeNachladen()` am Ende, und weiter unten deklariert gab es
+  „Cannot access 'nachladeFrame' before initialization" (der Rauchtest
+  hat es gemeldet – dieselbe Falle wie bei `DATE_PRESETS`).
+- **Das Instagram-Zeichen großer Veranstaltungen** (seit 27.10.2026, vom
+  Nutzer: „die größeren Events mit einem Instagram Account verknüpfen …
+  das Instagram Logo irgendwo klein hin … Das muss nicht für jedes Event
+  gemacht werden, aber für die großen wär das schon gut, die auch einen
+  eigenen Instagram Account haben.“). Ein kleines quadratisches Zeichen
+  (`a.detail-insta`, Konturicon `INSTA_SVG`, 48 × so hoch wie der Knopf)
+  RECHTS neben „Zur Veranstalterseite“ in `.detail-link-zeile` – in der
+  Liste und auf der Karte (dieselbe Box), Link
+  `https://www.instagram.com/<name>/`, Beschriftung „@name auf
+  Instagram“ (`detail_instagram`, DE/EN). Nichts wird von Instagram
+  geladen (inline-SVG, ein Link überträgt nichts) – deshalb keine
+  Änderung an der Datenschutzerklärung; ein Klick wird NICHT gezählt (das
+  wäre eine neue Aktion in der Statistik samt Datenschutz-Text und
+  Functions-Deploy). **Woher das Konto kommt, ist der ganze Punkt**:
+  nur von der eigenen Veranstalterseite, und nur, wenn der Kontoname aus
+  dem Namen der Veranstaltung besteht (`instagram_konten.event_konto`):
+  mindestens 60 % seiner Buchstaben aus Namens-/Ortswörtern UND ein
+  unterscheidendes Namenswort (kein Allerweltswort wie marathon/lauf/
+  trail, kein Vereinskürzel, nicht der Ort) – oder Ort plus
+  Veranstaltungswort („leipzigmarathon“) oder der Name ganz aus zwei
+  Namenswörtern („cityundtrail“). So fallen Verein (`lsvham`,
+  `tsvpenzberg`), Agentur (`alohasport.at`), Sponsor (`brooksrunning`),
+  Tourismus (`pitztal`) und Schwesterrennen (`erlentriathlon`) weg. Die
+  Durchsicht der ersten 128 Treffer fand zwei weitere Klassen, beide
+  jetzt Regel: der **Verein im Namen des Laufs** (`tuswasserstrasse`,
+  `alvmainz`, `scc.la` – Kürzel vorn im Kontonamen, `VEREIN_VORN`/
+  `VEREIN_KUERZEL`, und Vereinswörter wie athletik/laufclub/jeunesse) und
+  die **Ausgabe derselben Serie in einer anderen Stadt**
+  (`halloweenrunbremen` beim Lauf in Rotenburg: ein Ort ab 10.000
+  Einwohnern aus `places.json` im nicht abgedeckten Rest des Namens); das
+  ist zugleich der Filter „nur die großen“ – kleine Vereinsläufe haben
+  kein eigenes Konto. **Die Durchsicht ALLER 696 Treffer** (27.10.2026,
+  nach dem ersten vollen Lauf: 3.766 Seiten, 2.191 mit Instagram-Link)
+  fand 30 Fehltreffer in vier Klassen, jetzt Regel bzw. Liste: ein
+  **Vereinskürzel im Rest** des Kontonamens (`heeslingersc`, `lcauensee`,
+  `bocholterwsv_triathlon` mit Adjektivendung; „tri“ zählt dort nicht –
+  `ostseemantri`), das Vereinswort **„club“** (`triathlon_club_bremen`,
+  `ratzeburger_ruderclub`), „lauffreunde“ und „verband“, ein Konto
+  NUR aus **Kürzel des Namens plus Ort**, wenn der Lauf selbst im Konto
+  fehlt (`tgs.hausen` beim „Volkslauf der TGS Hausen“, `otb_osnabrueck`,
+  `mrrc_muenchen`, `wvckassel`, `awg_plauen`; `byu.lustenau` für „BYU
+  Lustenau“ und `evl.halbmarathon` bleiben), **Tourismus** (`mein…`/
+  `dein…`/`visit…` vor EINEM Namenswort ohne Veranstaltungswort –
+  `meinmontafon`, `dein.edersee`, aber `meinfreiburgmarathon` bleibt; ein
+  Konto NUR aus Ortsnamen aus `places.json`, wenn dem Konto ein eigenes
+  Wort der Veranstaltung fehlt – `usedom` beim „Usedom Beach Marathon“,
+  `zellamseekaprun` beim TriZell; „A Travers Romanel“ und
+  `sierrezinal_officiel` bleiben) und die **Sperrliste
+  `KEIN_EVENT_KONTO`** in `instagram_konten.py` für Firmen, Bergbahn,
+  Flughafen, Laufteams und Tourismusverbände, die keine Regel erkennt
+  (`sportscheck`, `airportpad`, `niesenbahn`, `vabalispa_official`,
+  `pitztal` …, je mit Grund) – sie hängt am Kontonamen, gilt also auch
+  für die nächste Ausgabe. **Stand danach**: 2.383 Zeilen tragen ein
+  Konto, 2.093 davon sichtbar, 810 verschiedene Konten (davon 101 aus der
+  recherchierten Liste). Abkürzungen sieht die Regel nicht
+  (`trailvsb`, `wtcshamburg`) – dafür der Override `"instagram":
+  "<name>"`, abschalten mit `"instagram": null`. **Vor der Erkennung steht die
+  recherchierte Liste** `marketing/instagram/grosse_events.json` (127
+  große Events für die Logo-Reels, am 27.10.2026 von einer parallelen
+  Sitzung einzeln recherchiert, 101 mit Konto): Gehört die Zeile zu einem
+  davon (`insta_inhalte.gross_fuer` – Suchwort im Namen, Land, Sportart),
+  gilt dessen Konto, auch hinter einem Portallink. Rangfolge also
+  Override > große Events > Erkennung. `fix_instagram()` läuft als
+  vorletzter Schritt von `clean_events.py` (vor `mark_pruefung_offen`,
+  nach allen Korrekturen an Name, Ort und Link), idempotent; der
+  Wochenlauf fragt vorher bis zu 400 Seiten in 8 Minuten
+  (`run_instagram_konten()` in `update_events.py`, neue Seiten zuerst),
+  `stage_kalender()` nimmt `instagram_konten.json` mit in den Commit (die
+  Workflow-Datei auf `main` kennt sie nicht und muss dafür nicht
+  geändert werden). Tests: `test_instagram_konten` (Regel mit den Fällen
+  der Stichprobe vom 27.10.2026, Sammeln mit Attrappe, Zuordnung),
+  Rauchtest `pruefe_instagram` (Zeichen, Link, Lage neben dem Knopf; Event
+  ohne Konto ohne Zeichen).
+- **Ein Event teilen: Link, kein PDF.** Der Knopf oben rechts in der Box
+  gibt `navigator.share()` Titel, die Angaben aus der Box und einen
+  **absoluten Link auf genau dieses Event** (`?event=<eventSlug>`);
+  ohne Teilen-Dialog (Firefox am Rechner) wird Text + Link kopiert.
+  Begründung im Kommentar bei `teileEvent()`: Ein Link führt zum Event
+  samt Kalender-Knopf und Veranstalter-Seite und veraltet nicht, ein PDF
+  bräuchte eine Bibliothek für ein schlechteres Ergebnis. Ein PDF lohnt
+  erst für die ganze gefilterte Liste (Saisonplan) - und dafür reicht
+  ein Druck-Stylesheet.
+  - **`eventSlug(e)`** ist die Kennung (Datum, Name, Maßzahl, Ort) und
+    steht nur EINMAL da, in `event-detail.js`: `icsFileName()` baut
+    darauf auf, und `test_scraper_lib.py` prüft sie gegen
+    `build_ics.ics_dateiname()` (schneidet dafür `icsSlug`,
+    `icsMasszahl`, `eventSlug`, `icsFileName` aus dem Modul heraus -
+    beim Umbenennen dort nachziehen). `EED.eventLink()` zeigt IMMER auf
+    `events.html`, auch von der Karte aus – nur die Liste kennt
+    `?event=`. Eine laufende Nummer wäre wertlos: Sie
+    verschiebt sich, sobald ein Event dazukommt oder ein vergangenes
+    wegfällt, und ein geteilter Link zeigte auf ein fremdes Rennen.
+  - `?event=…` wird **gelesen** (readUrlState) und bleibt in der Adresse
+    stehen, solange dieses Event ausgewählt ist (writeUrlState) - aber
+    **nicht** in `currentParams()`: Das speist auch den Kartenknopf, und
+    die Karte kennt kein einzelnes Event. `deepEventSlug` steht oben bei
+    `state` (TDZ).
+  - Beim Öffnen eines geteilten Links wird zur Box gescrollt
+    (`zeigeDetailbereich()`), sonst sieht der Empfänger auf dem Handy nur
+    eine Liste.
+- **Die Detail-Box ist ein Modul (`event-detail.js`/`.css`,
+  `window.EnduranceDetail` = `EED`).** `EED.render(container, e, { t,
+  tv, lang, onReport, onClose })` baut sie – in der Liste in
+  `#detail-panel` (mit `onReport` → Melde-Dialog, ohne `onClose`), auf
+  der Karte in `#map-details` **oben rechts über der Karte, genau EINE
+  Box – das nächste Event ersetzt sie** (vom Nutzer am 19.09.2026
+  gewünscht: „genau gleiche Struktur wie wenn man auf eins von der
+  Liste klickt"; bis zum 05.10.2026 waren es zwei Boxen nebeneinander,
+  die sich mit dem Popup überschnitten – „wieder zurück auf den
+  Ursprung, dass man immer nur ein Event rechts hat, das reicht aus").
+  **Ein Marker mit EINER Veranstaltung öffnet die Box direkt beim
+  Klick, ohne Popup** (`zeigeDetails(loc.events)`; „wenn ich auf die 1
+  klicke, soll sich rechts oben einfach die Info öffnen"). Ab zwei
+  Veranstaltungen listet das **Popup des Ortes seine Events**
+  (`.popup-event`, `data-idx`); ein Klick öffnet die Box
+  (`zeigeDetail`), EIN Zuhörer am Kartencontainer, weil Leaflet den
+  Popup-Inhalt bei jedem Öffnen neu baut. `MAX_DETAILS` (= 1)
+  entscheidet beides. Vier Dinge daran:
+  - **Keine Ids in der Box, nur Klassen** (`.event-share-btn`,
+    `.report-open-btn`, `.cal-open-btn`, `.cal-menu`, `.cal-ics`, …):
+    das Modul läuft in Liste und Karte, und `MAX_DETAILS` darf wieder
+    wachsen. Der Rauchtest sucht entsprechend `#detail-panel
+    .event-share-btn`.
+  - **„Fehler melden" auf der Karte führt in die Liste**
+    (`EED.eventLink(e) + '&melden=1'`): Der Melde-Dialog mit Firestore
+    lebt nur dort, `readUrlState()` liest `melden=1` (`deepMelden`) und
+    öffnet ihn nach dem ersten Zeichnen; `writeUrlState()` wirft den
+    Parameter gleich wieder aus der Adresse.
+  - **Der Toast (`EED.showToast`) erzeugt sein Element selbst** – kein
+    `#toast` mehr im Markup; `events.html` ruft ihn über den Wrapper
+    `showToast()` auch für „Suche teilen".
+  - **Ab 900 px hängt die Box rechts oben mit Breite nach Inhalt**
+    (`row-reverse` aus der Zeit mit zwei Boxen, schadet bei einer
+    nicht). **Bis 900 px nimmt sie die ganze Karte ein** (vom Nutzer am
+    18.10.2026: „einfach die Ansicht der Karte nehmen und noch minimal
+    bisschen Platz lassen als Umrandung" – zum nächsten Event muss man
+    die Box ohnehin schließen): 8 px Rand, unten 24 px für die
+    OSM-Quellenangabe. Dort scrollt die BOX selbst (`.detail-panel`
+    mit `overflow-y: auto`, der Rahmen `.map-details` nicht), und
+    `.detail-head` (Datum, Teilen, ✕) klebt oben (`position: sticky`) –
+    vorher scrollte das ✕ mit weg. Die feine Linie unter dem Kopf setzt
+    `zeichneDetails()` erst beim Scrollen (`.gescrollt`). `#map` trägt
+    dafür `z-index: 0`: Leaflet legt seine Bedienelemente auf 1000
+    (`.leaflet-top`), ohne eigenen Stapelkontext lagen die Zoom-Knöpfe
+    über der Box (900). Das Kalender-Menü holt sich beim Öffnen per
+    `scrollIntoView({ block: 'nearest' })` ins Bild (`event-detail.js`,
+    gilt auch fürs Blatt der Liste), `scroll-margin-top: 74px` hält es
+    unter dem klebenden Kopf; auf 320 × 568 passt es trotzdem nicht ganz
+    (man scrollt in der Box nach).
+  - **Die Popup-Einträge haben feste Farben**, nicht die Seitenvariablen:
+    Das Leaflet-Popup ist immer weiß, im Dunkelmodus waren die hellen
+    Seitenfarben darauf unlesbar.
+  - Auf Handybreite **liegt die Box über dem Popup** (sie deckt die
+    ganze Karte ab); der Rauchtest klickt weitere Popup-Einträge deshalb
+    per JavaScript an. Am Rechner stören sie sich nicht.
+  `formatRange`/`formatRangeHtml`/`formatLength`/`displayWettbewerb`
+  wohnen ebenfalls im Modul; `events.html` behält nur Wrapper mit
+  `currentLang` für die Tabelle.
+
+- **Abos sind Filter + Rhythmus** („Neue Events per E-Mail"). Der Knopf
+  steht in der Werkzeugleiste und ist **immer** erreichbar – die alte
+  Box erschien nur bei null Treffern, wer „alle neuen Schwimm-Events in
+  Thüringen" wollte, kam nie an sie heran. Die Box bei null Treffern
+  führt jetzt in denselben Dialog: **ein** Weg, an dem ein Abo
+  entsteht.
+  - **„Welche Events?" steht im Dialog selbst.** Die Filter der Liste
+    *sind* die Auswahl, aber das war unsichtbar: Wer ohne Filter auf den
+    Knopf tippte, las nur „Alle neuen Events" und hatte keine
+    Möglichkeit, „nur Radrennen im Umkreis" einzustellen (vom Nutzer
+    gemeldet). Der Dialog trägt deshalb **dieselbe Knopfreihe wie die
+    Karte** (`aboUi.buildButtonBar(…, { ohne: ['datum'] })`) – keine
+    zweite Kopie der Filterlogik, nur eine zweite Bedieneinheit auf
+    einem **eigenen Zustand** (`aboState`). Vier Dinge daran nicht
+    aufweichen:
+    - **Eigener Zustand, beim Öffnen aus der Suche gefüllt**
+      (`uebernehmeSucheInAbo()` → `EF.copyState(state, true)`, ohne
+      Datum). Wer schon gefiltert hat, findet seine Filter vor; was er
+      im Dialog umstellt, verändert die Liste dahinter **nicht**.
+      `EF.copyState` kopiert die Sets, nicht die Verweise – sonst wäre
+      es derselbe Filter.
+    - **Das Panel hängt IM Dialog** (`panelParent: () => aboOverlay` in
+      `EFU.create`). An `<body>` gehängt lag es hinter dem Overlay
+      (z-index 1000 gegen 2000) und außerhalb der Fokusfessel von
+      `dialogTasten()` – per Tastatur nicht erreichbar. Als Funktion
+      übergeben, weil `aboOverlay` weiter unten steht; umgehängt wird
+      erst beim Öffnen.
+    - **`alleWerte: true`.** Die Liste bietet nur Werte an, zu denen es
+      Events gibt; ein Abo schaut in die Zukunft. Ohne diese Flagge
+      stand „Fahrrad" gar nicht zur Wahl – damals stand in
+      `events.json` kein einziges Radrennen, und genau das wollte der
+      Nutzer abonnieren. (Inzwischen sind es neun, siehe Datenregel 12 –
+      die Flagge bleibt trotzdem nötig: Für die Schweiz oder fürs
+      Schwimmen gilt dasselbe Argument weiter.) Die Liste steht in
+      `filter-ui.js` (`BEKANNTE_WERTE` = `EF.LAENDER` + die Sportarten
+      aus `DISTANCE_CATEGORIES`, dazu `ALLE_ART2` aus `ART2_BY_ART1`).
+    - **`updateIndicators()` färbt nur die eigenen Knöpfe.** Es läuft
+      über die `buttons`-Sammlung der Bedieneinheit (gelöste Knöpfe
+      fliegen dabei raus), nicht über
+      `document.querySelectorAll('.col-filter-btn')` – sonst malte der
+      Dialog die Spaltenköpfe der Liste an und umgekehrt.
+  - Die Zusammenfassung im Dialog entsteht aus **genau den Feldern, die
+    gespeichert werden** (`serializeFiltersForNotify` →
+    `aboBeschreibung`), nicht aus den Chips: Die zeigen auch den
+    Datumsfilter, und der gehört nicht ins Abo (ein Abo schaut in die
+    Zukunft). Neu gezeichnet wird bei jeder Änderung **nur der Kasten**
+    (`zeichneAboZusammenfassung()`, `#abo-umfasst`) – ein `render()` des
+    ganzen Dialogs nähme den gewählten Rhythmus und den Fokus mit.
+  - **`nameQuery` und `suche` gehören ins Abo.** Ohne diese Felder wäre
+    ein Abo stiller weiter gefasst als die Suche, aus der es entstand –
+    wer „marathon" gesucht hat, bekäme alles. `functions/index.js` prüft
+    beide mit.
+  - **Drei Rhythmen** (`sofort`, `woechentlich`, `monatlich`) stehen an
+    **vier** Stellen: `auth.js` (`ABO_RHYTHMEN`), `functions/index.js`
+    (+ `RHYTHMUS_TAGE`), `firestore.rules` und die Texte in
+    `events.html`. `test_abo_rhythmen` vergleicht alle vier – läuft eine
+    weg, wird ein Abo gespeichert, von dem nie eine E-Mail kommt.
+  - „Sofort" ist ehrlich beschriftet: Die Daten werden **wöchentlich**
+    erneuert, schneller als der Datenlauf kann kein Abo sein. Der Text
+    sagt das (`abo_r_sofort_note`).
+  - **Wann die Mails rausgehen (seit dem 20.10.2026)**: einmal je
+    Datenlauf, im Job `abo` von `pages.yml` NACH dem ersten grünen Deploy,
+    der einen neuen Datenlauf-Commit (github-actions[bot]) enthält – also
+    montags, nach einem roten Gate am Tag der Reparatur. Gemeldet wird
+    alles, was seit der letzten Meldung SICHTBAR geworden ist, auch die
+    über die Korrekturseite freigegebenen Zeilen (`scripts/abo_meldung.py`,
+    Meldestand in `deploy.json` auf der Seite: `commit` + `gemeldet`).
+    Vorher meldete `update_events.py` im Datenlauf – vor dem Deploy
+    (am 19.10.2026 kamen die Mails um 17:02, das Gate war rot) und ohne
+    freigegebene Zeilen. **Nicht jeden Deploy melden lassen**: Die Function
+    verschickt „wöchentlich", sobald sechs Tage um sind – die Mail wanderte
+    sonst mit jedem Korrektur-Deploy einen Tag früher. Ein Rückfall auf
+    einen älteren Lauf („Re-run all jobs") meldet nichts. Das Log des Jobs
+    nennt geprüfte Abos und verschickte Mails (`mailsQueued`).
+    `NOTIFY_WEBHOOK_URL` in `update-events.yml` (auf `main`) ist seitdem
+    ungenutzt – harmlos, die Datei muss deshalb nicht nach `main`.
+    Grenze: Kam die letzte Mail an einem Dienstag (Gate-Reparatur), ist
+    „wöchentlich" am Montag danach noch nicht fällig (sechs Tage) und
+    kommt eine Woche später mit allem. `test_abo_meldung`.
+  - **Die Mail selbst (seit dem 20.10.2026, „Ja, bitte die schönere
+    Mail-Vorlage bauen")**: `aboMail()`/`einmalMail()` zwischen den Marken
+    `// ==== Abo-Mail: Anfang/Ende ====` in `functions/index.js` – Navy-Kopf
+    mit Marke, EINE Karte je Veranstaltung (Name + Tag + Ort) mit Rand in
+    der Sportfarbe, Datum mit Wochentag (vorläufig „Juni 2027*"), alle
+    Längen wie in der Länge-Spalte (`laengeText` = `EED.formatLength`,
+    `test_abo_mail` vergleicht es am ganzen Bestand), Abzeichen Sportart ·
+    Kategorie, Charity-Herz, Knöpfe „Zum Event" (`events.html?s=<Name>` –
+    bewusst kein `?event=`-Slug, das wäre die dritte Kopie der Regel) und
+    „Veranstalter-Seite", Fuß mit Abo beenden / verwalten / Impressum, dazu
+    eine Textfassung (`message.text`). Nur Tabellen und Inline-Stile, keine
+    Bilder (ein Bild vom eigenen Server wäre ein Lesebeleg), alles maskiert,
+    nur http(s) verlinkt, höchstens `MAX_KARTEN` = 30 Karten (Gmail kürzt ab
+    ~100 KB). Betreff „4 neue Events: <Abo-Name>", ohne Filter „… auf
+    Endurance Events" (vorher „… für Alle neuen Events"). `eventKurz` trägt
+    dafür `wettbewerb` und `hoehenmeter` – ältere `wartend`-Einträge ohne
+    die Felder gehen trotzdem (dann km statt Triathlon-Format). Ein
+    Duathlon heißt wie auf der Seite „Mitteldistanz"/„Langstrecke"/
+    „Ultra-Duathlon" (`DUATHLON_NAME`; am 26.10.2026 vom Test am
+    „Chemnitzer Indoor Triathlon" gefunden – „Triple Duathlon" stand als
+    „Ultra-Triathlon" in der Mail). Wirkt erst
+    nach `firebase deploy --only functions` aus der Cloud Shell (Nutzer).
+    Vorschau bauen: Abschnitt wie im Test in node rendern.
+  - **`?abos=1` öffnet die Verwaltung** (darauf zeigt der Abmelde-Link
+    der E-Mails, solange `UNSUBSCRIBE_URL` fehlt). Gelesen wird der
+    Parameter in `readUrlState()`, **nicht** im Ladeteil: Dazwischen
+    liegt `writeUrlState()`, und das hatte `abos` längst aus der Adresse
+    geworfen. Geöffnet wird er über `EE_AUTH_QUEUE` – `auth.js` trägt
+    `defer`, beim Laden gibt es `window.EndauranceAuth` noch nicht.
+    Beide Fallen sind hier zugeschlagen, bevor sie auffielen.
+  - **Kein `try/catch` um den Aufruf.** Im ersten Versuch lag er mit im
+    `try` – der Temporal-Dead-Zone-Fehler wurde verschluckt, und
+    `?abos=1` tat einfach nichts, ohne Spur in der Konsole. Ein
+    `try/catch` fängt die eine erwartete Ausnahme, nicht jeden
+    Programmierfehler darin.
+- **Nach der Anmeldung kommt eine Begrüßung mit dem Abo** (vom Nutzer
+  am 16.10.2026: „Wenn man sich einfach so anmeldet, dann versteht der
+  User nicht ganz, was es für einen Mehrwert bringt"). `renderWillkommen()`
+  in `auth.js` ersetzt den Inhalt des Anmelde-Dialogs nach Popup,
+  E-Mail-Login, Registrierung (mit Bitte um Bestätigung der Adresse) und
+  der Rückkehr von Google (`openModal('willkommen')`) – nie beim stillen
+  Wiederherstellen der Sitzung. Drei Punkte zum Nutzen, Hauptknopf
+  „E-Mail-Abo einrichten“ (Liste: klickt `#abo-open-btn`; sonst
+  `events.html?abos=1`), daneben „Später“. Anmelde- und Registrieren-
+  Dialog sagen schon vorher in einer Zeile, wofür das Konto ist
+  (`loginNutzen`). Der Rauchtest prüft beides (`pruefe_willkommen`).
+- **Dialoge: `dialogTasten()` steht in `auth.js`** (Escape + Fokusfessel,
+  `aria-modal="true"` verspricht genau das) und wird von `events.html`
+  für den Melde-Dialog mitbenutzt – **erst beim ersten Öffnen**
+  eingehängt, weil `auth.js` `defer` trägt und beim Inline-Skript noch
+  nicht existiert (dieselbe Reihenfolge wie bei `EE_AUTH_QUEUE`). Nicht
+  kopieren, sonst laufen zwei Fesseln auseinander.
+- **Die Kopfzeile: Knöpfe immer rechts, EINE Reihe, keine E-Mail.**
+  Drei Dinge, die zusammengehören (alle am 18.09.2026 vom Nutzer
+  gemeldet):
+  - `.top-actions` trägt **`margin-left: auto`**. Bricht die Knopfreihe
+    unter den Titel um, beginnt ein einzelnes Flex-Element dort am
+    **linken** Rand – genau so standen Startseite/Karte/DE/EN plötzlich
+    links. `justify-content: flex-end` am `.top-bar` hilft dagegen
+    nicht, es gilt nur innerhalb einer Zeile.
+  - **Eine Reihe statt zwei**: Der Teilen-Knopf lag früher unter DE/EN
+    (eigenes `.top-actions-row` in einer Spalte). Jetzt sind alle Knöpfe
+    Geschwister in einer umbrechenden Reihe – der blaue Kasten ist damit
+    flacher. `.top-bar-text` (`flex: 1 1 260px; min-width: 0`) nimmt den
+    Rest.
+  - **Die E-Mail-Adresse steht nicht mehr im Kopf** (`renderAuthButton`
+    in `auth.js`): unnötig, in Screenshots eine Preisgabe ohne
+    Gegenwert – und sie machte die Reihe so breit, dass sie umbrach.
+    „Abmelden" allein sagt, dass jemand angemeldet ist; um welches Konto
+    es geht, steht im Abo-Dialog. `loggedInShort` ist deshalb aus beiden
+    `I18N`-Blöcken von `auth.js` entfernt.
+  Der Untertitel ist **kein Bedienhinweis** mehr („Klicke auf eine
+  Kopfzeile-Filterschaltfläche …" war ein Handbuchsatz für etwas, das man
+  sieht), sondern sagt in einer Zeile, was die Liste ist und dass sie
+  wöchentlich neu eingesammelt wird. Kurz halten – jede Zeile mehr macht
+  den Kasten höher. Der lange **Titel** ist der nächste Hebel dafür, der
+  gehört aber zum Design-Punkt „Marke und einheitliche Kopfzeile"
+  (Fahrplan 4) und nicht in eine Nebenänderung.
+
+- **Ab 901 px ist die SEITE fensterhoch, und nur die Liste scrollt.**
+  Vorher war die Tabelle auf `78vh` begrenzt, die Seite selbst aber
+  höher: Wer die Seite statt der Liste scrollte, sah die Liste enden und
+  darunter eine leere Fläche – und scrollte in zwei verschiedenen Dingen
+  (vom Nutzer gemeldet). Deshalb in der `@media (min-width: 901px)`:
+  `body { height: 100vh; overflow: hidden; display: flex; flex-direction:
+  column }`, `.layout { flex: 1; min-height: 0; align-items: stretch }`,
+  `.table-wrap { height: 100% }`. **`min-height: 0` an beiden Stellen ist
+  nicht Kosmetik** – ohne das wächst das Grid auf seine Inhaltshöhe und
+  schiebt die Fußzeile aus dem Bild, statt selbst zu scrollen.
+  Fußzeile und der Knopf „Event fehlt?" stehen damit immer sichtbar
+  unten. **Auf dem Handy bleibt der Seiten-Scroll** (eine Spalte, der
+  Detailbereich steht UNTER der Tabelle und `zeigeDetailbereich()`
+  scrollt die Seite dorthin) – die Regel darf also nicht unter 901 px
+  gelten. Das Nachladen des nächsten Schubs hängt schon an beidem
+  (`wrapEl` **und** `window`, siehe `pruefeNachladen`), da war nichts zu
+  ändern.
+
+- **Alle Zeilen sind gleich hoch (52 px), und kein Text geht über zwei
+  Zeilen** (so vom Nutzer gewünscht). `tbody tr { height: 52px }` wirkt
+  wie eine Mindesthöhe; dass nichts darüber hinauswächst, sichern drei
+  Dinge: `.cell-clamp` (zwei Zeilen), `.group-row.open .group-name-text`
+  (dort ebenfalls zwei – vorher `white-space: normal` ohne Grenze) und
+  die **Längen-Spanne**:
+  - `laengeSpanne(g)` schreibt bei einer zusammengefassten Veranstaltung
+    nur noch `5–51 km` statt einer Marke je Strecke. Die
+    „Globetrotter Wandertage" mit 15 Wettbewerben hatten vorher 15
+    Marken in einer Zelle und waren vierfach so hoch wie jede andere
+    Zeile. Ohne Leerzeichen um den Gedankenstrich – die Spalte ist
+    schmal.
+  - **Eine bekannte Distanz hat Vorrang** (Datenregel 8): Bietet eine
+    Veranstaltung Strecken UND ein Zeitrennen, nennt die Zeile die
+    Strecken; nur ohne jede Distanz steht dort die Spanne der Dauern.
+  - **Die Marken (`.badge`) sind weg** – sie sahen mit Rahmen und
+    abgesetztem Hintergrund aus, als ließen sie sich anklicken. Nicht
+    wieder einführen: In der Tabelle gilt **eine** Schrift und **ein**
+    Aussehen. Aus demselben Grund sind die kleineren Schriftgrößen von
+    `.sub-row` und `.group-row.open` (0.82rem) gefallen; Veranstaltung
+    und Strecke unterscheiden sich über Pfeil, Anzahl und Einrückung.
+
+- **Dezimaltrennzeichen: DE Komma, EN Punkt.** Alles, was eine Zahl mit
+  Nachkommastelle anzeigt, geht durch `EF.formatNumber(wert, lang,
+  stellen)` bzw. `EF.formatKm`/`EF.formatHours` in `filters.js` – die
+  Liste (`formatKm`, `formatLength`, `formatDistance`, `laengeSpanne`),
+  die Chips (`Länge ab …`, aus einem `<input type="number">` kommt immer
+  ein Punkt) und die deutschen Kategorie-Labels („Olympische Distanz
+  (51,5 km)"; „70.3" bleibt mit Punkt, das ist der Markenname).
+  **Bewusst kein `toLocaleString()`**: Das hängt an der
+  Spracheinstellung des Browsers, nicht am Umschalter DE/EN der Seite –
+  ein Deutscher mit englischem System hätte im deutschen Text Punkte
+  gesehen. **Nicht** durch diese Funktion gehen darf `icsMasszahl()`:
+  Der Dateiname der Kalenderdatei und der `eventSlug` müssen
+  sprachunabhängig sein, sonst zeigt ein geteilter Link ins Leere
+  (`test_scraper_lib.py` prüft sie gegen `build_ics.py`).
+
+- **„Wir haben dein Event nicht?"** – der zweite Fall bei null Treffern.
+  Ein Abo hilft nur, wenn das Event noch nicht existiert; unsere Liste
+  kann aber auch einfach unvollständig sein. Zwei Wege, **ein** Dialog
+  (`openSuggestModal`): die leise Leiste `.fehlt-bar` unter der Liste
+  (immer da) und ein zweiter Knopf in der Null-Treffer-Box.
+  - Gefragt wird **nur nach der Adresse der offiziellen Seite und dem
+    Namen** (plus optionalem Hinweis). Datum, Strecken, Ort und Sportart
+    holen wir uns von genau dieser Seite: Abgetippte Angaben wären eine
+    dritte Datenquelle neben Scraper und `manual_overrides.json`, und
+    Datenregel 2 verlangt die offizielle Seite ohnehin.
+  - `normalisiereUrl()` ergänzt ein fehlendes `https://` (der häufigste
+    Fall beim Eintippen), weist aber alles ohne Punkt im Hostnamen und
+    jedes andere Schema ab. Dieselbe Bedingung steht in
+    `firestore.rules` (`matches('^https?://.+')`).
+  - Gespeichert wird in der neuen Collection **`eventSuggestions`**
+    (anonyme Anmeldung wie bei den Fehlermeldungen, geschlossene
+    Feldliste, `allow read, update, delete: if false`). Angesehen wird
+    sie mit `python3 scripts/review_reports.py suggestions`.
+  - **Übernommen wird nichts automatisch.** Ein Hinweis von außen ist
+    eine Adresse, kein Datensatz: erst robots.txt und
+    Nutzungsbedingungen der Quelle prüfen, dann Scraper oder Override –
+    dieselbe Linie wie bei den Fehlermeldungen.
+  - Die **Datenschutzerklärung** hat dafür einen eigenen Abschnitt
+    (`h_fehlt`/`t_fehlt`, DE und EN). Kommt ein weiteres Feld dazu, muss
+    er mit.
+
+- **Die Mastersuche ist ein eigener Filter, nicht `nameQuery`.** Das
+  Feld links von der Trefferzahl sucht über **Name, Wettbewerb UND Ort**
+  und liegt in `filters.js` als `state.suche` (Adresse: `?s=`), neben
+  dem unveränderten `nameQuery` (`?q=`, nur Name + Wettbewerb, das
+  Textfeld der Spalte „Name"). **Gebaut wird das Feld von
+  `filter-ui.js` (`ui.buildSearch(container)` → `{ sync, input }`),
+  seit dem 19.09.2026 steht es auch auf der Karte** (vom Nutzer
+  gewünscht) – ganz links in der Filterleiste, vor den Knöpfen. Markup,
+  Vorschläge, Tastatur und CSS (`filter-ui.css`) liegen deshalb EINMAL
+  im Modul; die Seiten rufen nur `suche.sync()` in ihrem `render()`
+  (Platzhalter, ✕-Beschriftung und Feldinhalt folgen so Sprache und
+  Zustand). Die Ids `master-search`, `-clear`, `-list` sind fest – ein
+  Feld je Seite, der Rauchtest greift darauf zu. Zwei Felder statt
+  einem, mit Absicht:
+  - Würde die Mastersuche auf `nameQuery` schreiben, hieße der
+    Spaltenfilter „Name" plötzlich auch „Ort" – ein Spaltenfilter, der
+    etwas anderes filtert als seine Spalte.
+  - Weil sie in `EF.matchEvent()` steckt, filtert sie die **Karte**
+    mit, steht im Chip, in der Adresse und überlebt den Seitenwechsel.
+  - Sie gehört ins **Abo** (`serializeFiltersForNotify` → Feld `suche`)
+    und ist deshalb ein **drittes Mal** in `functions/index.js`
+    nachgebaut – wie `nameQuery`. Die Regel ist dort absichtlich so
+    schlicht wie hier (kleinschreiben, `includes`): Je einfacher, desto
+    eher bleiben beide Kopien gleich. Wer hier normalisiert (Umlaute,
+    Akzente), muss es dort genauso tun, sonst bekommt jemand E-Mails
+    über Events, die seine Suche nie gezeigt hat.
+  - Gefiltert wird bei jedem Tastendruck, **neu gezeichnet erst nach
+    180 ms** (`sucheTimer`): Über 4.000 Events filtern und die Tabelle
+    bauen kostet auf einem Handy mehr als der Abstand zwischen zwei
+    Tastendrücken. Enter zeichnet sofort.
+  - `syncMasterSearch()` gleicht das Feld an den Zustand an (der Chip
+    „Suche: …" und „Filter zurücksetzen" ändern ihn, ohne das Feld
+    anzufassen) – **nicht**, während jemand darin tippt, sonst
+    überschreibt ein Renderlauf die Eingabe.
+
+- **Die Länge eines Triathlons ist ein FORMAT, keine Zahl** – und zwar
+  eines von SECHS (vom Nutzer am 21.09.2026 als Bild vorgegeben, „genau
+  so aufnehmen"): **Super-Sprint, Sprint, Olympisch, Mitteldistanz
+  (70.3), Langstrecke (140.6), Ultra-Triathlon**. Die Normdistanzen
+  dahinter (DTU-Sportordnung, World Triathlon, Ironman):
+
+  | Format | Schwimmen / Rad / Laufen | Summe |
+  |---|---|---|
+  | Super-Sprint | 250–500 m / 6,5–13 km / 1,7–3,5 km | ~9–17 km |
+  | Sprint (Volks-/Jedermann) | 500–750 m / 18–22 km / 4,5–5,5 km | ~25,75 km |
+  | Olympisch (Kurz-/Standarddistanz) | 1,5 / 40 / 10 km | 51,5 km |
+  | Mitteldistanz (70.3) | 1,9 / 90 / 21,1 km | 113 km = 70,3 Meilen |
+  | Langstrecke (140.6) | 3,8 / 180 / 42,2 km | 226 km = 140,6 Meilen |
+  | Ultra-Triathlon | Vielfache der Langstrecke (Double, Triple, Deca) | ab 452 km |
+
+  Die Kilometerzahl (Summe der Teilstrecken, Datenregel 15) bleibt in
+  `events.json` und entscheidet Filter und Sortierung; ANGEZEIGT wird
+  das Format – `triathlonFormat(e)` in `event-detail.js`, gebraucht von
+  `formatLength()` (Tabelle, Box, Pillen), `formatLengthSpan()`
+  (zusammengefasste Zeile und Karten-Popup: „Sprint & Olympisch",
+  „Sprint, Olympisch & Mitteldistanz (70.3)") und dem Teilen-Text. Vier
+  Dinge daran:
+  - **Erst das Label des Veranstalters, dann die Summe.**
+    `FORMAT_IM_LABEL` liest Ultra/Double/Deca, 140.6/Langdistanz/
+    Langstrecke, 70.3/Mitteldistanz/Halbdistanz, Olympisch/Kurzdistanz/
+    Standard (Kurzdistanz IST die Olympische Distanz), Super-Sprint,
+    Sprint. Ohne Stichwort entscheidet die Summe – Regel des Nutzers
+    (21.09.2026): „alles, was weniger als ein Sprint ist, ist Super-Sprint,
+    alles über der 140.6 ist Ultra". Also: unter 23 km Super-Sprint (23 km
+    ist der kleinste DTU-Sprint 0,5 / 18 / 4,5; darunter liegen Schnupper-,
+    Einsteiger- und Fitnessdistanzen), bis 40 km Sprint (auch Volks- und
+    Jedermann), bis 80 km Olympisch, bis 160 km Mitteldistanz, bis 230 km
+    Langstrecke (226 km plus Spielraum für die Vermessung), darüber Ultra.
+  - **Das sind GRENZEN zwischen den Formaten, keine Toleranzen um die
+    Normdistanzen.** Deutsche Veranstaltungen weichen ab (Moritzburgs
+    Langdistanz 218,8 km, Cross-Triathlons 41,5 km, Heilbronns
+    Mitteldistanz 106,4 km); mit den früheren Bändern (51,5 ± 3 usw.)
+    fielen sie in keine Filterkategorie. `DISTANCE_CATEGORIES.Triathlon`
+    in `filters.js` und die Kopie in `functions/index.js` tragen die
+    sechs Kategorien mit denselben Grenzen (Schlüssel `supersprint`,
+    `sprint`, `olympic`, `middle`, `long`, `tultra` – nicht `ultra`, der
+    ist der Ultramarathon, und die Beschriftungen hängen am Schlüssel).
+  - **Swimrun und Quadrathlon kennen die Formate nicht** (ein 40-km-Swimrun
+    ist kein „Olympisch"): dort zählt nur ein Stichwort im Label, sonst
+    die Kilometer. Ein **Duathlon** über Mittel-/Langstrecke heißt
+    „Mitteldistanz"/„Langstrecke" ohne den Zusatz 70.3/140.6 – das sind
+    Triathlon-Marken.
+  - **Zwei Strecken mit demselben Format bekommen die Kilometer dazu**
+    (Jedermann 500/20/5 und Sprint 750/20/5 sind beide „Sprint"):
+    Pillen als „Sprint (25,5 km)" / „Sprint (25,8 km)", der Fakt in der
+    Box immer „Olympisch (51,5 km)" (`formatLength(e, lang, { mitKm: true })`).
+  Das Wettbewerbs-Label trägt die Gesamtlänge VORN und die Teilstrecken
+  in Klammern („Kurzdistanz 51,5 km (1,5 km Schwimmen / 40 km Rad /
+  10 km Laufen)") – so bleibt `drop_contradicting_wettbewerb()` still,
+  und die Box zeigt die Aufteilung. Die Länge-Spalte ist dafür auf 16 %
+  verbreitert (Name 23 %, Sportart 11 %, Ort 12 %; Land bleibt 12 %, mit
+  10 % brach „Deutschland" bei 900 px um): „Mitteldistanz (70.3)" braucht
+  zwei Zeilen, drei Formate passen in die zwei Zeilen der `.cell-clamp`;
+  nur `.cell-clamp.format` darf in der Länge-Spalte umbrechen.
+
+- **Ein mehrtägiges Datum steht in zwei Zeilen.** `formatRangeHtml()`
+  setzt ein `<br>` nach dem Gedankenstrich; vorher brach die Zelle dort
+  um, wo gerade Platz war („18 Sep 2026 – 20" / „Sep 2026", vom Nutzer
+  gemeldet). Zwei Zeilen passen genau in die 52 px Zeilenhöhe.
+  **`formatRange()` (Text) bleibt daneben bestehen** – Melde-Dialog und
+  Teilen-Text escapen ihren Wert, dort stünde ein `<br>` als Zeichenfolge
+  im Text.
+
+- **Die Werkzeugleiste muss in EINE Zeile passen** – auf 1024 px, der
+  Breite eines iPads. Sie hatte früher dasselbe Raster wie `.layout`
+  (rechter Rand exakt auf dem Tabellenrand, zweite Spalte für den
+  Detailbereich frei); damit blieben ihr nur ~676 px, und Suchfeld,
+  Trefferzahl, Schalter und die zwei Knöpfe brachen um (vom Nutzer
+  gemeldet). Jetzt nutzt sie die **ganze Breite**, und die Texte sind
+  kürzer: „Filter löschen" statt „Filter zurücksetzen", „Events
+  zusammenfassen" statt „Veranstaltungen zusammenfassen", und die
+  Trefferzeile nennt beim Zusammenfassen nur noch **eine** Zahl
+  (`%d von %d Events` statt „… Veranstaltungen (… Strecken) von …
+  Events"). Wer hier Text hinzufügt, bricht die Zeile wieder.
+
+- **Städte mit eigenem englischen Namen** stehen in
+  `VALUE_TRANSLATIONS.standort` (München → Munich, Köln → Cologne, …).
+  Nur **echte Exonyme** – Orte, die im Englischen anders *heißen*, nicht
+  bloß anders geschrieben werden („Wurzburg" ohne Umlaut gehört NICHT
+  dazu). Angezeigt wird überall über `tv('standort', …)`: Tabelle,
+  Detailbereich, Chips, Karten-Popup, Teilen-Text und Melde-Dialog. Die
+  übrigen ~1.500 Orte gibt `tv()` unverändert zurück.
+
+- **Die Mastersuche schlägt Serien und Orte vor** („Iron" → „Ironman").
+  Entstanden aus der Frage nach einer **Veranstalter-Spalte**. Gemessen
+  an den Daten lohnt die nicht: Die größte Serie hat 21
+  Veranstaltungen, nennenswert sind rund elf (Wings for Life World Run
+  21, Ahmadiyya Charity Walk 18, Muddy Angel Run 13, Rats-Run 9,
+  Ironman 7, XLETIX 6, SportScheck RUN 6, HYROX 5, Spartan 3). Eine
+  Spalte kostete Platz, den die Werkzeugleiste auf dem Laptop nicht hat
+  – der Vorschlag im Suchfeld kostet keinen. „Sparkasse" (30) und
+  „Stadtwerke" (6) sind übrigens **Sponsoren**, keine Veranstalter, und
+  „Backyard" (21) ein Format.
+  - **Gerechnet aus den Daten, nicht aus einer Liste im Code**
+    (`EF.buildSuggestions`, `EF.matchSuggestions` in `filters.js`). Eine
+    gepflegte Markenliste würde veralten, sobald eine Serie dazukommt –
+    und beim großen Datenlauf kommen 16.000 Events dazu.
+  - **Wortgruppen an JEDER Stelle des Namens, nicht nur am Anfang.**
+    „Kulmbach Spartan Trifecta Weekend" beginnt mit dem Ort; nur mit
+    Wortanfängen wäre „Spartan" kein Vorschlag geworden. Dasselbe gilt
+    für „… Charity Walk".
+  - **Der längere Begriff verdrängt den kürzeren bei gleicher
+    Trefferzahl**: „Wings" und „Wings for Life" treffen beide 21,
+    angeboten wird der längere. **Die Richtung dieses Vergleichs ist
+    Tempo, nicht Stil**: Naheliegend wäre, für jeden Begriff die
+    Begriffe mit derselben Trefferzahl zu durchsuchen – gemessen 533 ms
+    bei 4.335 Events und 1,7 s bei 20.000, weil allein die Gruppe
+    „1 Treffer" 6.209 Einträge hat. Umgedreht (jeder LANGE Begriff
+    markiert seine höchstens fünf Teilstücke) sind es **35 ms bzw.
+    112 ms**. Nicht zurückdrehen.
+  - **Ein ORT wird nie verdrängt** und unterliegt nicht der
+    Vier-Zeichen-Mindestlänge: „Ulm" muss vorkommen, „Berlin" ist eine
+    eigene Auskunft neben „Berlin Marathon". Der Test hält beides fest.
+  - **Der Index entsteht erst beim ersten Tippen** (`holeVorschlagIndex`),
+    nicht beim Laden: Er gehört nicht in den ersten Seitenaufbau, für
+    den die ganze Tempo-Arbeit gemacht wurde.
+  - Gegenproben, die alle beim Bauen aufgetreten sind und jetzt im Test
+    stehen: kein Vorschlag endet auf einem **Bindestrich** („Wings for
+    Life -"), keine **Jahreszahl** („2026", „Silvesterlauf 2026"),
+    Schreibvarianten sind **ein** Vorschlag („UltraTrail" /
+    „Ultratrail" / „ULTRATRAIL"), und ein Ort steht **einmal** da (vorher
+    zweimal: als Ort und aus den Namen).
+  - Bedienung wie ein Auswahlfeld: `role="combobox"` +
+    `role="listbox"`, ↑/↓ (über den Rand hinaus zurück ins Feld, kein
+    Ring), Enter übernimmt, Escape schließt, `aria-activedescendant`.
+    **`mousedown` statt `click`** an der Liste – ein Klick löste erst
+    das `focusout` des Feldes aus, das die Liste schließt, und ging dann
+    ins Leere.
+  - **`t(key, ...args)` ruft einen Funktions-Text SELBST auf.** Beim
+    ersten Versuch stand hier `t('vorschlag_serie')(v.anzahl)`, und die
+    Seite warf bei jedem Tastendruck „t(...) is not a function" – ohne
+    dass man es sah, weil die Liste einfach zublieb.
+
+- **Ein Ort in der Mastersuche wird zur Umkreissuche** (14.10.2026,
+  vom Nutzer gewünscht: „Krailling" in der Suche fand nichts, nur im
+  Filter „Ort & Umkreis"). Zwei Wege, beide in `buildSearch`
+  (`filter-ui.js`):
+  - **Vorschläge**: ab drei Zeichen bis zu drei Orte aus `places.json`
+    („📍 Krailling · Bayern – Umkreis 25 km"), auch Orte ohne eigenes
+    Event. Die Datei lädt erst beim ersten Tippen.
+  - **Automatisch** (`pruefeOrt`, nach Enter oder 900 ms Tipp-Pause):
+    Trifft der Text **kein** Event und heißt ein Ort genau so
+    (normalisiert wie im Ortsfeld), wird daraus der Ausgangspunkt der
+    Umkreissuche (Regler bleibt bzw. 25 km) und das Suchfeld leert sich.
+    **Nur bei null Treffern** – „Lauf", „Halle", „Wald", „Berg" sind
+    auch Orte; wer das tippt, meint meist das Wort. Doppelte Namen: der
+    größte Ort gewinnt (places.json ist nach Einwohnern sortiert).
+    `state.suche` bleibt reiner Text – nichts davon muss nach
+    `functions/index.js`, das Abo sieht nur `origin`/`radiusKm`.
+
+- **Die Mastersuche sucht in BEIDEN Sprachen** (`sucheHeuhaufen()` in
+  `filters.js`): Wer die Seite auf Deutsch stehen hat, findet mit
+  „Germany", „Munich" oder „running" dieselben Events wie mit
+  „Deutschland", „München", „Laufen" (so vom Nutzer gewünscht).
+  Durchsucht werden Name, Wettbewerb, Ort **und** die Übersetzungen von
+  Land, Sportart, Kategorie und Ort.
+  **Dieselbe Regel steht ein zweites Mal in `functions/index.js`**
+  (`SUCH_UEBERSETZUNGEN` + `sucheHeuhaufen()`), damit ein Abo genau das
+  trifft, was die Suche gezeigt hat. `test_suche_uebersetzungen`
+  vergleicht beide Tabellen Wert für Wert – wird in `filters.js` eine
+  Übersetzung ergänzt, muss die Kopie mit.
+
+- **Der Rauchtest sucht seinen Kartenort aus `events.json`**
+  (`ort_mit_zwei_veranstaltungen()` in `smoke_test_frontend.py`): der
+  alphabetisch erste Ort mit genau zwei künftigen Veranstaltungen (Name +
+  Starttag – die Karte zählt seit dem 21.09.2026 Veranstaltungen, nicht
+  Strecken), für den Marker „2". Vorher stand dort fest „Mosnang" (Schnebelhorn
+  Panoramatrail) – am 19.09.2026 fiel das Event als vergangen aus der
+  Liste, und die Prüfung meldete „0 Boxen", ohne dass sich an der Karte
+  etwas geändert hatte. **Ein roter Rauchtest nach einer Datenänderung
+  kann ein fest eingetragenes Beispiel sein** – dieselbe Lehre wie beim
+  Enter-Fall im zweiten Durchgang. Keine festen Ortsnamen mehr in den
+  Prüfungen.
+
+- **Der Rauchtest zählt die Strecken einer Veranstaltung über Name +
+  Datum + Ort**, nicht über die Suchtreffer zum Namen
+  (`pruefe_gruppierung()`). Nach dem Datenlauf vom 21.09.2026 war die
+  erste aufklappbare Veranstaltung „Fun & Erlebnis Marathons“ – eine
+  Serie mit 17 Zeilen an acht Terminen. Die Mastersuche zeigte 17,
+  aufgeklappt waren es 2, vier CI-Läufe rot („Run failed“-Mails), ohne
+  dass sich an Seite oder Daten etwas geändert hatte. Der Name allein
+  ist kein Schlüssel; der Schlüssel ist derselbe wie beim Zusammenfassen
+  (`groupKey`). Dritte Begegnung mit dieser Fehlerklasse (Enter-Fall,
+  Kartenort, Serie). **Die vierte** (22.09.2026): `pruefe_teilen()`
+  klickte fest die dritte Zeile – nach dem Datenlauf lag dort eine
+  Veranstaltung mit drei Strecken, ein Tippen klappt die nur auf und
+  öffnet das Blatt nicht, der Teilen-Knopf war unsichtbar. Jetzt die
+  erste EINZELNE Strecke (`tr[data-idx]:not([data-klapp])`), wie in den
+  anderen Prüfungen. **Kein fester Zeilenindex in den Prüfungen.**
+  Die fünfte (24.09.2026), gleich dreifach: Nach dem Schwimm-Commit
+  lag in Zeile eins die zweitägige „Gravel Epic Switzerland" mit zwei
+  Strecken – `pruefe_teilen()` (Kopieren ohne Teilen-Dialog) und
+  `pruefe_tastatur()` (Melde-Dialog) klickten `.first`, und
+  `pruefe_kacheln()` maß „die Liste bleibt, wo sie war" an einer Kachel,
+  die jetzt teils unter dem Bildrand lag: Beim Klick auf ein
+  fokussierbares Element holt der BROWSER es ins Bild (46 px) – kein
+  Fehler der Seite; die Kachel wird vorher per
+  `scroll_into_view_if_needed()` ins Bild geholt. Beim Beheben einer
+  solchen Stelle **alle Klicks aller Prüfungen** durchsehen
+  (`grep 'tbody tr[^"]*")\.\(first\|nth\)'` findet sie).
+
+- **Fehlerscan vom 19.10.2026 (neun Befunde, vom Nutzer: „Bitte alle 9
+  Fehler korrigieren")** – was daran nicht zurückgedreht werden soll:
+  - **Das Kalender-Menü liegt im Fluss**, nicht absolut: `.cal-box` ist
+    `display: contents`, das Menü eine volle Rasterzeile UNTER den Knöpfen
+    (`event-detail.css`). Schwebend ragte es auf dem Handy aus dem Blatt,
+    lag am Rechner über der Melde-Box und war auf dem iPad quer
+    abgeschnitten.
+  - **Spaltenbreiten**: Datum 14,5 % (EN „Sat 24 Oct 2026 –" war
+    abgeschnitten), Ort 13 % („Schwarzenbach" brach mitten im Wort), Name
+    20,5 %. **Von 901 bis 1276 px entfällt die Spalte „Land"** (Tabelle
+    792 statt 900 px), sonst lag „Länge" neben der 300-px-Box hinter dem
+    Scrollbalken. `.cell-clamp` trägt `hyphens: auto` (Chromium unter
+    Linux hat keine Wörterbücher – im Rauchtest wirkt es nicht, auf den
+    Geräten schon). Der Rauchtest klickt deshalb `td.col-art2` statt
+    `td.col-land`.
+  - **Filterleiste 901–1276 px enger** (`site.css`), damit „E-Mail-Abo"
+    nicht allein in die zweite Zeile rutscht; das große Datum der Box ist
+    dort 1,35rem.
+  - **Ein neues Event aus der Liste beginnt oben in der Box**
+    (`waehleZeile`, `scrollTop = 0`); die Strecken-Pillen übergeben
+    `behalteScroll`.
+  - **Abo-Dialog**: Die Pillenleiste trägt `filter-btn-bar` (Abstand des
+    Pfeils), `.abo-hint` gilt überall (der Satz unter „Anmelden" war
+    größer als der Rest), `.ee-modal` hat `max-height: 90dvh`.
+  - **Namen ohne Trennzeichen am Rand**: `scraper_lib.bereinige_name()`
+    in `Event.to_dict()` und `clean_events.fix_namensrand()` (VOR den
+    Overrides) – „-25. Laufwochenende Brugg", „… Lauf Cup -";
+    `test_namensrand`.
+- **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
+
+## Tempo (gemessen, nicht geraten)
+
+Die Seite war zäh; unter Handy-Bedingungen (4× gebremste CPU,
+1,6 Mbit/s, gzip wie GitHub Pages) gemessen und behoben – Details und
+Zahlen im README („Tempo der Seite"). Fünf Punkte, die **nicht**
+zurückgedreht werden sollten:
+
+1. **Die Firebase-Skripte tragen `defer`, und Firestore fehlt im HTML.**
+   `firebase-firestore-compat.js` (344 KB) lädt `auth.js` per
+   `ensureDb()` erst nach, wenn geschrieben wird;
+   `EndauranceAuth.prepareFirestore()` stößt es beim Öffnen des
+   Melde-Dialogs und der Abo-Box vorausschauend an. Ohne `defer` wartete
+   `events.json` auf eine halbe Megabyte Firebase.
+2. **`window.EE_AUTH_QUEUE`** ist die Folge davon: Das Inline-Skript
+   läuft vor `auth.js`, kann also noch kein `onAuthChange` registrieren
+   und legt den Listener dort ab. Nicht durch einen direkten Aufruf
+   ersetzen – der liefe ins Leere.
+3. **Die Tabelle entsteht als EIN HTML-String, die Klicks laufen über
+   EINEN Listener am `<tbody>`** (`data-idx` = welches Event, `data-g` =
+   welche Gruppe, `data-klapp` = aufklappbar). Nie wieder pro Zeile
+   `createElement` + `innerHTML` + `addEventListener`: das kostete 605 ms
+   pro Klick, jetzt sind es 14 ms.
+   - `waehleZeile()` zeichnet **nicht** neu, es hängt nur die Markierung
+     um (`markiereAuswahl()`, zwei Zeilen bei Gruppierung) und füllt den
+     Detailbereich. `selectedIndex` steht in keinem Link, also auch kein
+     `writeUrlState()`.
+   - `klappeGruppe()` fügt nur die Unterzeilen dieser einen
+     Veranstaltung ein bzw. entfernt sie. Die Trefferzahl ändert sich
+     dabei nicht.
+   - `gruppenAktuell`/`idxZuGruppe` stehen oben bei `state`: `render()`
+     läuft über `setLanguage()` lange vor der Tabelle – sonst
+     Temporal-Dead-Zone-Fehler (dieselbe Falle wie bei `DATE_PRESETS`).
+4. **`tbody tr { content-visibility: auto }`** überspringt Layout und
+   Zeichnen für Zeilen außerhalb des Bildes. Erlaubt ist das nur wegen
+   `table-layout: fixed`; fielen die festen Spaltenbreiten weg, müsste
+   die Regel mit.
+5. **`preload`/`prefetch`**: `events.html` und `karte.html` fordern
+   `events.json` im Kopf per `preload` an (mit `crossorigin="anonymous"`,
+   sonst lädt der `fetch()` die Datei ein zweites Mal), `index.html`
+   holt `events.html` + `events.json` per `prefetch` vor. Deshalb steht
+   die Liste nach dem Klick auf „Events" in 814 statt 2.112 ms.
+
+Der **Rahmen der Karte sind seit dem 18.10.2026 UNSERE REGIONEN**, nicht
+mehr Europa (vom Nutzer mit zwei Bildern: „Keiner muss so weit raus
+zoomen … maximal so, dass man noch die ganze Karte sieht"; dazu
+„Doppelklicken reinzoomen" auf dem Touchscreen und „die Karte in der
+Mitte fixieren … gerade verschiebt man sie immer beim rein und raus
+zoomen"). Alles in `karte.html`:
+
+- **`REGION_BOUNDS`** ist die Ausdehnung von `laender.json` als
+  Konstante (`test_laender_maske` prüft, dass sie die Umrisse umfasst –
+  kommt ein Land dazu, hier nachziehen). Kleinster Zoom = die Region
+  passt ganz hinein (`setzeMinZoom`, auch bei Fenster- UND
+  Containeränderung über `ResizeObserver` – die Legendenzeile auf dem
+  Handy kommt erst nach dem Laden). **`map.options.minZoom = 0` vor
+  `getBoundsZoom`**: Leaflet klemmt das Ergebnis an den bisherigen
+  kleinsten Zoom, sonst könnte er nur wachsen. Wer ganz draußen war,
+  bleibt es nach einer Größenänderung. `maxBounds` = Region + 25 %.
+- **`zoomSnap: 0.25`**: Mit ganzen Stufen passte die Region auf
+  1440×800 erst bei Zoom 5 – dann stand halb Europa im Bild. Plus/Minus
+  springen weiter um 1. **markercluster kommt mit krummem kleinstem
+  Zoom nicht zurecht** (drei Methoden von `L.MarkerCluster` runden ihn
+  nicht ab, Nickelsdorf fehlte) – `createMarkerLayer()` umhüllt
+  `L.MarkerCluster.prototype._recursively` und rundet dort ab; `vendor/`
+  bleibt unverändert.
+- **Ganz draußen steht die Region mittig** (`zentriereGanzDraussen`,
+  nach jedem `zoomend`); die Mitte wird in der PROJEKTION gerechnet
+  (`regionMitte`) – in Grad ragte Südtirol unten heraus.
+- **Zoomen um die Kartenmitte**: `scrollWheelZoom`, `touchZoom`,
+  `doubleClickZoom` je `'center'`.
+- **Doppeltippen** über einen eigenen Zähler auf `touchstart`/`touchend`
+  (Leaflets Doppelklick aus zwei `click` kommt auf iPhone/iPad nicht
+  zuverlässig an): zwei Tipps mit einem Finger, ≤ 300 ms, ≤ 40 px, kein
+  Wischen; der zweite schluckt seinen Klick (`preventDefault`), damit
+  Leaflet nicht doppelt zoomt; Marker, Bündel, Popups, Knöpfe und die
+  Box zählen nicht. Der Rauchtest (`pruefe_kartenrahmen`) prüft
+  „Region ganz im Bild und groß" und „Doppeltippen = eine Stufe, Mitte
+  bleibt" an zwei Orientierungsorten.
+- **Das erste `setzeMinZoom()` zoomt schon beim Laden** (19.10.2026, vom
+  Nutzer gemeldet: „Ich seh auf dem iPad die Karte nicht mehr", iPhone
+  ging): Wo die Region erst unter Zoom 6 passt (iPad 1366 × 1024, iPad
+  hochkant 820 × 1180), löst das `zoomend` → `aktualisiereFlach()` aus,
+  und das griff auf `referenzLayer` zu, das weiter unten deklariert war –
+  Temporal Dead Zone, das Skript brach ab, die Legende blieb bei „Lade
+  Events…". `referenzLayer` steht jetzt VOR `aktualisiereFlach()`. Alle
+  anderen Prüfungen öffnen die Karte auf 390 px und ändern die Größe
+  erst danach; `pruefe_karte_ipad` öffnet sie deshalb direkt in drei
+  iPad-Größen. **Wer einen `zoomend`-/`moveend`-Zuhörer vor dem ersten
+  `setzeMinZoom()` einhängt, prüft, dass alles, was er anfasst, schon
+  deklariert ist.**
+
+Die Welt steht genau einmal da (vom Nutzer gemeldet: „die Weltkarte
+wird immer dupliziert"); was folgt, ist die Geschichte bis zum
+18.10.2026 – der Europa-Rahmen gilt nicht mehr:
+
+- **`noWrap: true`** an der Kachel-Ebene. Ohne das zeichnet Leaflet die
+  Kacheln links und rechts der Datumsgrenze beliebig oft weiter.
+- **`maxBounds: EUROPA_BOUNDS`** (`maxBoundsViscosity: 1`, harte Kante)
+  begrenzt das Verschieben. Europa statt DACH, damit die Karte bei einer
+  Erweiterung der Länder nicht angefasst werden muss (so vom Nutzer
+  entschieden).
+- **Der kleinste Zoom wird gerechnet, nicht festgelegt**
+  (`setzeMinZoomAufEuropa()`, auch bei `resize`) – und zwar über Europas
+  **Breite**: `map.getBoundsZoom()` auf einen flachen Streifen über
+  Europas Längengrade. Die beiden naheliegenden Varianten waren beide
+  falsch, weil Europa hochkant liegt und ein Fenster quer:
+  „Europa passt ganz ins Bild" ergab auf einem breiten, niedrigen
+  Fenster Zoom 3 (Europa als Briefmarke, daneben Kanada bis China),
+  „das Fenster liegt ganz in Europa" (`getBoundsZoom(…, true)`) ergab
+  Zoom 6 (DACH war nicht mehr am Stück zu sehen). Senkrecht begrenzt
+  `maxBounds`.
+**Alles außerhalb der abgedeckten Länder liegt unter einer grauen
+Maske** (`zeichneMaske()`, vom Nutzer am 18.09.2026 so entschieden:
+eigene Daten, kein fremder Server). Sechs Dinge daran:
+
+- **Ein einziges Polygon**: ein Rechteck über die halbe Welt, mit den
+  Ländern als Aussparungen. Möglich macht das `fill-rule: evenodd`
+  (Leaflet-Voreinstellung) – jeder weitere Ring kehrt die Füllung um.
+  Deshalb wird ein Loch INNERHALB eines Landes von selbst wieder grau;
+  das ist kein Sonderfall für Sonderfälle, Büsingen am Hochrhein ist
+  deutsch und liegt mitten in der Schweiz.
+  **Seit dem 21.09.2026 zeichnet `zeichneMaske()` aus denselben Ringen
+  zusätzlich die LANDFLÄCHE** (Pane `landPane`, z-index 150 unter den
+  Kacheln, `fillRule: nonzero`, hell gefüllt): Sie ist die flache Karte
+  der Übersicht, solange die Kacheln ausgeblendet sind (siehe
+  Frontend-Fallen, „Die Karte ist seit dem 21.09.2026 …“).
+- **Eigene Ebene** (`map.createPane('maskePane')`, z-index **250**):
+  über den Kacheln (200), unter Markern und Umkreis (400). Läge sie
+  oben, wären die Bündel-Zahlen matt und der Ausgangspunkt halb
+  verdeckt.
+- **`pointerEvents: none` am Pane und `interactive: false` am Polygon.**
+  Ohne beides fängt die Maske die Klicks ab und kein Marker öffnet mehr
+  sein Popup. Der Rauchtest prüft es.
+- **Die Umrisse liegen in `laender.json`** (69 KB, 24 KB gezippt),
+  erzeugt von `scripts/build_laender.py` aus **Natural Earth**
+  (`ne_10m_admin_0_countries`, Public Domain, im Impressum genannt).
+  1:10 Mio ist Absicht: Bei 1:50 Mio läge die Maskenkante an Orten wie
+  Basel oder Konstanz sichtbar neben der Grenze. Vereinfacht auf
+  ~100 m, Koordinaten auf vier Stellen.
+- **Die Schlüssel in `laender.json` sind die Länder-Namen aus
+  `EF.LAENDER`** (und damit aus `events.json`). Ein Land dazu heißt:
+  Zeile in `build_laender.py` eintragen, Skript laufen lassen – sonst
+  liegt das neue Land stillschweigend unter dem Schleier.
+  `test_laender_maske` vergleicht beide Listen.
+- **Geladen wird sie NACH den Events** (`ladeMaske()`, ohne `await`,
+  Fehlschlag bleibt still): Die Maske ist Beiwerk, die Marker sind der
+  Zweck. Ohne die Datei ist die Karte vollständig, nur überall gleich
+  hell.
+
+Auf der Karte entstehen die Popups erst beim Öffnen (`bindPopup(fn)`)
+statt ~1.500 Stück im Voraus. Die Marker werden **gebündelt**
+(Leaflet.markercluster): `createMarkerLayer()` fällt ohne das Plugin auf
+`L.layerGroup()` zurück, die Bündel-Zahl ist die **Summe der Events**
+(`options.eeCount`, addiert in `clusterIcon()`), und Ausgangspunkt +
+Umkreis liegen in einer eigenen, **ungebündelten** Ebene
+(`overlayLayer`) – im Bündel wären sie unsichtbar. Marker werden mit
+`addLayers()` in einem Zug eingehängt, nicht einzeln.
+
+6. **Die Tabelle zeichnet nur ein Fenster von 200 Einträgen**
+   (`zeigeMehr()`, siehe Frontend-Fallen). Das ist der Punkt, der den
+   großen Datenlauf überhaupt tragbar macht.
+
+7. **Die Seiten laden `events.web.json`, nicht `events.json`** (seit dem
+   22.09.2026, Fahrplan-Punkt 2): `EF.loadEvents()` in `filters.js` holt
+   die kompakte Fassung (Spalten-Arrays + Wörterbuch je Feld, Index -1 =
+   Feld fehlt; `scripts/build_web_data.py`) und fällt auf `events.json`
+   zurück, wenn sie fehlt. Fünf Dinge daran nicht aufweichen:
+   - **Die Datei wird nie committet** (`.gitignore`); `pages.yml` erzeugt
+     sie vor dem Upload, der Rauchtest und `bench_frontend.py` für sich
+     selbst. Committet wäre sie ein 2-MB-Klotz in jedem Datenlauf.
+   - **Verlustfrei, und geprüft**: `test_web_data` dekodiert den ganzen
+     Bestand in Python UND mit dem echten `EF.decodeWebData()` in node
+     und vergleicht mit `events.json`. „Feld fehlt“ und „Feld ist null“
+     sind zwei verschiedene Dinge (57 echte `null` im Bestand).
+   - **`stand` steht in der Datei** (Tag des letzten Commits an
+     `events.json`, deshalb `fetch-depth: 0` im Pages-Workflow) – der
+     Last-Modified-Header einer erzeugten Datei wäre der Deploy-Tag.
+     Ohne die Datei gilt weiter der Header von `events.json`.
+   - **Alle drei Seiten laden über denselben Aufruf** – die Startseite
+     zählt sonst andere Events als die Liste.
+   - **Die `preload`-Zeile zeigt auf `events.web.json`**; lokal ohne die
+     Datei ist das eine 404 in der Konsole, der Rauchtest baut sie
+     deshalb vorher (und prüft den Rückfall danach, mit der einen
+     erlaubten 404).
+   Gemessen (README, „Vorbereitung auf über 20.000 Events"): beim
+   heutigen Stand 116 statt 155 KB gzip (Ladezeit gleich), beim 5-fachen
+   Stand 249 statt ~830 KB und **3,7 statt 7,0 s bis die Liste steht**.
+   Kurze Schlüssel allein hätten fast nichts gebracht – gzip frisst
+   Wiederholungen ohnehin.
+
+## Liste und Karte teilen die Filter (`filters.js`, `filter-ui.js`)
+
+**Ein Filter gilt für beide Seiten, und beide können ihn setzen.**
+Deshalb liegt alles Gemeinsame in zwei Dateien, die `events.html` und
+`karte.html` einbinden:
+
+- **`filters.js`** (`window.EnduranceFilters`, in den Seiten `EF`) – der
+  Zustand und die Regeln: `createState()`, `matchEvent()`,
+  Distanzkategorien, `readParams()`/`toParams()` (Filter in der
+  Adresse), `buildChips()` samt Chip-Texten und `VALUE_TRANSLATIONS`,
+  die Zeitraum-Knöpfe, `dropPastEvents()`, die Mastersuche
+  (`state.suche`, siehe Frontend-Fallen), `copyState(state,
+  ohneDatum)` (Kopie samt Sets – der Abo-Dialog filtert damit ohne die
+  Liste anzufassen) und die Helfer `escapeHtml()`,
+  `uniqueSorted(values, lang)`, `formatDate(iso, lang)` sowie
+  `formatNumber(wert, lang, stellen)` / `formatKm` / `formatHours`
+  (Dezimaltrennzeichen je Sprache – siehe Frontend-Fallen).
+- **`filter-ui.js`** (`window.EnduranceFilterUI`, in den Seiten `EFU`) +
+  **`filter-ui.css`** – die Bedienung: Filterknöpfe und das schwebende
+  Panel mit allem darin (Häkchenlisten, Datums-Baum, Umkreissuche mit
+  `places.json`, Distanz-Tabs, Von/Bis). `EFU.create({ state,
+  getEvents, t, tv, getLang, onChange, setOrigin, panelParent,
+  alleWerte })` gibt den Bedienteil: `attachButton()` (Liste: eigene
+  Spaltenköpfe), `buildButtonBar(container, { ohne })` (Karte und
+  Abo-Dialog: beschriftete Knopfreihe), `refresh()`,
+  `updateIndicators()`, `close()`, `options()`, `resetTransient()`,
+  `buildSearch(container)` (die Mastersuche, siehe Frontend-Fallen).
+  **Mehrere Bedieneinheiten je Seite sind erlaubt** (Liste + Abo-Dialog)
+  – jede hält ihre eigenen Knöpfe, ihr eigenes Panel und ihren eigenen
+  Zustand.
+
+Die beiden Haken sind der ganze Unterschied zwischen den Seiten:
+`onChange` zeichnet neu (Liste: Tabelle, Karte: Marker), `setOrigin`
+darf mehr tun – die Liste schaltet dort die Entfernungs-Spalte und ihre
+Sortierung mit. `panelParent` (wohin das Panel gehängt wird) und
+`alleWerte` (auch Werte ohne heutige Events anbieten) braucht nur der
+Abo-Dialog; Begründung bei den Abos weiter oben.
+
+- Die Knöpfe „Karte" und „Liste" hängen den Filterzustand an die
+  Adresse (`updateMapLink()` bzw. `linkTo()`), die andere Seite liest
+  ihn mit `readParams()`. Nur so gilt ein Filter über den Seitenwechsel.
+- `sort`/`gruppiert` versteht die Karte nicht, sie reicht sie aber
+  weiter – sonst verliert der Weg Liste → Karte → Liste die Ansicht.
+  `sort=entfernung` verwirft die Liste ohne Ausgangspunkt (die Spalte
+  gibt es dann nicht).
+- **Nichts davon zurück in eine Seite kopieren.** Zwei Kopien derselben
+  Kategorien oder desselben Panels laufen auseinander (eine hier
+  geändert, dort vergessen). In `events.html` bleibt nur, was allein die
+  Liste hat: Spalten, Sortierung, Zusammenfassen, Detailbereich,
+  Kalender, Fehlermeldung.
+- Kurzformen in `events.html`, die auf `state` zugreifen
+  (`matchesDistanceCategory`, `haversineKm`, `dropPastEvents`,
+  `setOrigin`), sind **Funktions-Deklarationen statt `const`**:
+  hochgezogen und damit auch vor ihrer Textstelle aufrufbar
+  (`dropPastEvents()` läuft direkt nach dem `fetch`, weit oberhalb
+  seiner Zeile).
+- Die Texte werden mit
+  `Object.assign(I18N.de, EF.I18N.de, EFU.I18N.de)` in das `I18N` der
+  Seite gemischt, damit `t()` unverändert bleibt. Ein Text, den beide
+  Seiten brauchen, gehört ins Modul – nicht in beide `I18N`-Objekte.
+- **Das Panel per Tastatur**: Escape schließt es und gibt den Fokus an
+  seinen Knopf zurück (`closePanel(true)`), **Enter im Textfeld des
+  Namens-Panels ebenso** – der Filter griff schon beim Tippen, aber das
+  Panel blieb stehen (vom Nutzer am 19.09.2026 gemeldet); das Feld
+  trägt `enterkeyhint="done"`. Pfeil nach unten am Knopf
+  öffnet es und geht hinein, ein `focusout` mit echtem `relatedTarget`
+  schließt es (bei `null` **nicht** – dann hat sich das Panel nur selbst
+  neu gezeichnet). Die Knöpfe tragen `aria-haspopup`/`aria-expanded`
+  (gesetzt in `updateIndicators()`).
+- Das Panel liegt bei `z-index: 1000`: über den Leaflet-Bedienelementen
+  (800), unter Anmelde-Fenster (2000) und Kurzmeldung (3000). Mit den
+  früheren 100 verschwand es auf der Karte hinter Zoom-Knöpfen und
+  Markern.
+- Auf der Karte bleibt die Knopfreihe immer stehen, nur die Chip-Zeile
+  ist ohne Filter leer (`.active-chips:empty { display: none }`) -
+  ausgeblendet wäre die Karte nicht mehr filterbar.
+
+### Die Stempel an den geteilten Dateien (bitter gelernt)
+
+GitHub Pages liefert **jede** Datei mit `Cache-Control: max-age=600`. Ein
+Browser kann deshalb die neue `events.html` mit einer bis zu zehn Minuten
+alten `filters.js` kombinieren. Genau das ist passiert: Die alte Datei
+kannte `EF.uniqueSorted` noch nicht, das Inline-Skript brach in seiner
+ersten Zeile ab (`readUrlState()`) - und die Seite war **leer**, nur
+blauer Kopf. Kein Tippfehler, keine Safari-Eigenheit: ein halber
+Cache-Stand.
+
+Zwei Vorkehrungen, beide nicht wegnehmen:
+
+1. **`?v=<Stempel>`** an `site.css`, `filters.js`, `filter-ui.js`,
+   `filter-ui.css`, `event-detail.js` und `event-detail.css` in allen
+   HTML-Dateien - der Stempel ist die ersten
+   acht Hex-Stellen des SHA-256 über den Dateiinhalt. Ändert sich der
+   Inhalt, ändert sich die Adresse, und der Browser MUSS neu laden.
+   Gesetzt von `scripts/stamp_assets.py`, geprüft von
+   `test_scraper_lib.py` (`test_asset_stempel`) - vergessen kann man es
+   also nicht, aber laufen lassen muss man es.
+2. Die **Notbremse** oben im Inline-Skript beider Seiten: fehlen `EF`,
+   `EFU` oder eine erwartete Funktion, steht im Kopf „Bitte neu laden"
+   samt Hinweis (DE/EN), statt dass die Seite leer bleibt.
+
+## Nichts von fremden Servern (`vendor/`)
+
+Leaflet, Leaflet.markercluster und die Firebase-SDKs liegen **im Repo**
+(`vendor/`, 752 KB), nicht auf unpkg bzw. gstatic.com. Grund: Ein
+CDN-Abruf überträgt die IP-Adresse jedes Besuchers an Dritte, bei JEDEM
+Aufruf – auch wenn sich niemand anmeldet und niemand die Karte öffnet.
+Was die Seite gar nicht an Dritte schickt, muss die
+Datenschutzerklärung auch nicht erklären.
+
+- Es sind die **unveränderten Originale**; ihre SHA-256-Summen stimmen
+  mit den SRI-Werten überein, die vorher im HTML standen.
+- `test_keine_fremden_dateien` hält das fest: kein `src`/`<link href>`
+  auf einen fremden Server, kein nachgeladenes fremdes Skript, und jede
+  `vendor/`-Datei existiert. Ein `<a href>` zählt nicht mit – ein Link
+  überträgt nichts, solange niemand klickt.
+- **Dieselbe Linie bei der grauen Maske**: Ein Kachel-Anbieter mit
+  label-armem Stil hätte sie ohne eigene Daten geliefert – wäre aber
+  ein zweiter fremder Server. Der Nutzer hat deshalb die eigene Datei
+  gewählt (`laender.json`, 69 KB). Nicht umdrehen, ohne zu fragen.
+- **Einzige Ausnahme: die OpenStreetMap-Kacheln** auf `karte.html`.
+  Eine Karte ohne Kartenbilder gibt es nicht; sie stehen deshalb in der
+  Datenschutzerklärung. (Wer strenger sein will: Kacheln erst nach
+  einem Klick laden – vom Nutzer nicht gewünscht, weil die Karte dann
+  nicht mehr sofort da ist.)
+- **Aktualisieren**: neue Version in einen neuen Ordner
+  (`vendor/leaflet-1.9.4` → `…-1.9.5`) und die Verweise umhängen. Der
+  Pfad ist die Versionsangabe; ein Browser-Cache kann damit keinen
+  halben Stand mischen.
+- Nachgeprüft mit blockiertem Netz (jede Anfrage außer 127.0.0.1
+  abgewiesen): alle Seiten laden vollständig, Bündelung und
+  Anmelde-Knopf stehen.
+
+## Besucherstatistik (seit 13.10.2026)
+
+Vom Nutzer gewünscht („ein Analytics Dashboard … wie viele Leute meine
+Webseite besucht haben und alle weiteren Daten tracken, die man so
+trackt. Dafür können wir gerne das Impressum und
+Nutzungsbedingungen/Datenschutz anpassen"). Gebaut als **eigene Zählung
+auf dem vorhandenen Firebase-Projekt**, nicht als fremder Dienst – die
+Linie „nichts von fremden Servern" bleibt, und es braucht kein
+Einwilligungsbanner, weil nichts die Person wiedererkennt. Ausführlich
+im README („Besucherstatistik: selbst gezählt, ohne Cookies"). Was man
+beim Arbeiten wissen muss:
+
+- **Vier Teile**: `stats.js` (Browser) → Function `collect` (prüft,
+  hasht, schreibt `hits`) → Function `aggregateStats` (stündlich, Minute
+  7: `hits` eines Tages → EIN Dokument `stats_daily/<Tag>`, Regeln in
+  `functions/stats_aggregate.js`; löscht `hits` nach 35 Tagen) →
+  `admin.html` (liest nur `stats_daily`).
+- **Keine IP, kein Cookie, kein Tag-übergreifendes Merkmal.** Die
+  Besucher-Kennung ist ein HMAC aus IP + Browser-String mit einem
+  Tagesschlüssel (`stats_meta/salt`), der beim ersten Treffer des neuen
+  Tages ÜBERSCHRIEBEN wird. „Besucher" über einen Zeitraum ist deshalb
+  die SUMME der Tageswerte – so beschriftet die Seite es auch. Nicht
+  „verbessern", indem man die Kennung stabil macht: Genau das wäre das
+  Profil, das die Datenschutzerklärung ausschließt.
+- **Was gezählt wird, steht an drei Stellen gleich**: Ereignisliste in
+  `stats.js` (`EREIGNISSE`) und `functions/index.js`
+  (`STATS_EREIGNISSE`), Seitenliste `STATS_SEITEN`, Zusatzfelder
+  `STATS_PROPS`/`PROP_LAENGE`. Was die Function nicht kennt, verwirft
+  sie STILL (400). `test_statistik` vergleicht die Kopien (seit dem
+  14.10.2026 auch `STATS_PROPS` gegen `PROP_LAENGE`, `AKTIONS_DETAIL`
+  gegen die Ereignisse und die Listennamen gegen `LISTEN_FELDER` in
+  `admin.html`); eine neue Aktion heißt: beide Listen, `STATS_PROPS`,
+  `AKTIONS_DETAIL` in `stats_aggregate.js` (je Aktion eine Liste von
+  `[Feld, Listenname]`), `LISTEN_FELDER` und `ABSCHNITTE` in `admin.html`
+  mit `l_…`-Texten DE/EN – und der Abschnitt „Besucherstatistik" in
+  `datenschutz.html` (DE und EN).
+- **Kennzahlen für Werbekunden (14.10.2026, vom Nutzer: „Erst einmal die
+  6 Punkte einbauen. Wir ändern jetzt nicht die Datenschutzerklärung.")**
+  – Tabelle im README („Kennzahlen für Werbekunden"). Was man beim
+  Arbeiten wissen muss:
+  - **Zielgruppe**: `sport_events`/`sport_veranstalter` (je `sp`) und
+    `sport_region` („Laufen|DE", die Region kommt vom ersten Seitenaufruf
+    derselben Tab-Sitzung, sonst „??"); in `admin.html` die Karten
+    „Zielgruppe" mit Kreuztabelle (`sportRegionHtml`), Sportarten EN über
+    `I18N.en.sport`.
+  - **Monat**: Zeitraum `monat` mit ‹ › (`monat` = YYYY-MM), Vergleich
+    der Vormonat über gleich viele Tage (`vergleichArt`), Karte „Monate"
+    (zwölf Monate ab dem ersten mit Daten, Tabelle = Mediadaten). Beim
+    Öffnen lädt `ladeUndZeichne()` zuerst die letzten zwölf Monate in
+    EINER Abfrage, danach kommt fast alles aus `tageCache`.
+  - **Abos**: `aggregateStats` zählt `filterSubscriptions` per `count()`
+    („alle minus `aktiv == false`", die ältesten Abos haben das Feld
+    nicht) und schreibt `abos_aktiv`/`abos_rhythmus` ins Dokument von
+    HEUTE; `aboStand()` in `admin.html` nimmt den jüngsten Stand. Die
+    Function ist seit dem 14.10.2026, 12:41 deployt (Archiv, Punkt 37);
+    bis zum ersten Lauf danach zeigte die Kachel „–" mit Hinweis, und so
+    zeigt sie es wieder, wenn das jüngste Tagesdokument das Feld nicht
+    trägt.
+  - **Werbeplätze**: `EnduranceStats.anzeige(element, platz)` in
+    `stats.js` (IntersectionObserver, halbe Fläche eine Sekunde, einmal
+    je Seitenaufruf; Klick und mittlere Maustaste), Ereignisse
+    `anzeige_sicht`/`anzeige_klick` mit `platz`, Karte „Werbeplätze" mit
+    Klickrate. **Noch ruft es keine Seite auf** – und bevor die erste
+    Seite es tut, MUSS der Abschnitt „Besucherstatistik" in
+    `datenschutz.html` die Werbeeinblendung nennen (die Erklärung zählt
+    die Aktionen auf; sie wurde am 14.10.2026 bewusst nicht geändert).
+  - **Bericht je Veranstaltung**: Kalender und Teilen schicken seit dem
+    Tag `ev`/`sp` mit (`event-detail.js`; dieselbe Angabe, die „Event
+    geöffnet" und der Veranstalter-Klick schon immer tragen) → Listen
+    `events_kalender`/`events_teilen`; die Karte (`berichtHtml`) rechnet
+    aus den Tageslisten, die je Tag 500 Events führen – ein winziges
+    Event an einem riesigen Tag kann fehlen. Die alte Function (vor dem
+    Deploy) verwirft die zwei Felder nur, kein 400.
+  - **Nicht gebaut** (Datenschutz-Entscheidung): Unique Users je Monat,
+    wiederkehrende Besucher.
+  - **Rauchtest mit Firebase-Attrappe** (`pruefe_statistik_dashboard`,
+    `FIREBASE_ATTRAPPE`): ersetzt die SDKs und `auth.js` per `route()`
+    in einem EIGENEN Browser-Kontext durch ein Skript, das erfundene
+    Tagesdokumente (alle Listen, `abos_aktiv`) liefert und die Anmeldung
+    über `EE_AUTH_QUEUE` durchwinkt – prüft Kennzahlen, Monatswechsel,
+    Wochentag, Kreuztabelle, Bericht-Wechsel, Werbeplätze, „Alles", EN.
+    Ändert sich ein Feldname in `aggregiere()`, dort nachziehen.
+- **Die Haken in den Seiten**: `EED.render()` meldet `detail` und hängt
+  Zuhörer an Veranstalter-Link und Kalender-Links, `teileEvent()`
+  meldet `teilen`; `events.html` meldet Abo/Meldung/Vorschlag nach dem
+  erfolgreichen Speichern und – wie `karte.html` – den Filterzustand aus
+  `writeUrlState()` (`EnduranceStats.filterParams(params)`; stats.js
+  schickt nur die DIFFERENZ je Schlüssel, nach 1,2 s Pause, nie `ort`
+  mit Koordinaten – daraus wird `standort` ohne Wert). Alle Aufrufe
+  stehen hinter `if (window.EnduranceStats)` – ohne die Datei läuft die
+  Seite unverändert.
+- **Lokal und im Rauchtest wird nichts gesendet** (`stumm()`:
+  localhost/127.0.0.1, `navigator.webdriver`, Bot-UA, DNT/GPC,
+  `localStorage` `endurance-stats` = `aus`). Der Schalter dafür steht in
+  der Datenschutzerklärung (`#stats-schalter`, derselbe Eintrag).
+- **Zugang zum Dashboard** über `admins/<uid>` in Firestore (Regel
+  `istAdmin()`), KEINE E-Mail-Adresse in den Regeln (Repo öffentlich);
+  `test_statistik` prüft das. Die Seite zeigt die eigene uid, wenn der
+  Eintrag fehlt.
+- **Deploy ist Handarbeit des Nutzers** (Cloud Shell): `firebase deploy
+  --only functions,firestore:rules`; der Parameter `STATS_ORIGINS`
+  (erlaubte Herkunft, Vorgabe: GitHub Pages + endurance-events.de) wird
+  beim ersten Deploy abgefragt. Die Function-Adresse in `stats.js`
+  (`ENDPOINT`) hängt am Projekt `endurance-5177a`, nicht an der Domain.
+- **Diagrammfarben** (`admin.html`): zwei Reihen, mit dem
+  dataviz-Validator gegen beide Flächen geprüft – dunkel `#3d8fd9` +
+  Signal, hell `#1971c2` (Schwimmen-Blau) + Signal; Navy/Weiß fallen als
+  Reihenfarbe durch (zu wenig Chroma). Balken ≤ 24 px, oben gerundet,
+  Hairline-Raster, Legende mit Linienschlüsseln, Tooltip über Crosshair,
+  Tabelle und CSV als Zweitweg.
+- **Was die Zahlen bedeuten (dem Nutzer am 14.10.2026 erklärt)**: Das
+  Balkendiagramm „Tageszeit" zählt SEITENAUFRUFE je Stunde, keine
+  Besucher. „Besucher" = Kombination IP + Browser je Tag – iCloud
+  Private Relay (wechselnde Apple-Adressen) lässt EIN Gerät mehrfach
+  zählen, ebenso jeder Browser- und Netzwechsel; die Zahl ist eine
+  Obergrenze, „Besuche" (Sitzungen) ist verlässlicher. „Region" kommt
+  aus der ZEITZONE des Browsers (`ld` aus `tz`), nicht aus der IP. Der
+  Bot-Filter in `stumm()` fängt nur, was sich selbst so nennt
+  (bot/crawl/spider/headless/lighthouse/preview …); Scanner mit
+  gewöhnlichem Browserkennzeichen zählen mit – am ersten Abend 6
+  Aufrufe „Amerika"/en-US. Erst mit einigen Tagen Daten entscheiden, ob
+  ein Muster gefiltert werden soll.
+
+## Instagram (seit 14.10.2026)
+
+Vom Nutzer gewünscht: Account „AusdauerMaschine", „bekannte Sportmomente
+clippen", automatische Caption, `endurance-events.de` in der Bio, im
+Dashboard sehen, wie viele über Instagram kommen; „so automatisiert wie
+möglich, alles selber bauen". Ausführlich im README („Instagram").
+
+- **Keine TV-/Stream-Ausschnitte – nicht nachbauen, auch nicht auf
+  Nachfrage ohne Rücksprache**: Rechte der Sender/Veranstalter,
+  Instagram-Rights-Manager sperrt, Account-Löschung, Abmahnung an die
+  Impressum-Anschrift. Momente = FAKTEN über lizenzfreiem Hintergrund;
+  Clips nur aus `clips.json` mit `lizenz` + `urheber`
+  (`insta_video.pruefe_lizenz`, NC/ND abgewiesen). Der Nutzer wurde am
+  14.10.2026 darauf hingewiesen.
+- **Wochenplan** in `insta_inhalte.WOCHENPLAN`, deterministisch je Datum
+  (kein Zustand, keine Commits). **Seit dem 16.10.2026 neu** (vom Nutzer:
+  „Die Leute wollen keine langweiligen Zusammenfassungen sehen" – „Mach
+  ruhig alle 5 Punkte"): Mo `krass` (längstes Rennen der nächsten 2
+  Monate), Di `naehe` (Stadt-Rotation, Teilen-Aufruf), Mi `wuerdest`
+  (Backyard/24 h/Ultra/Hindernis …, Ja/Nein), Do `humor` (`humor.json`,
+  mit Clips `clip`), Fr `wochenende` (Frage + 3 Tipps), Sa `saison`
+  („Speicher dir das", 3–5 Monate voraus), So `moment`; die alten Formate
+  nur noch über `--format`. Jedes Reel: erste Folie `hook`/`satz` ab dem
+  ersten Bild, Rennen einzeln (`event`), Schluss `cta`. Jahrestag ersetzt
+  Di, Mi, Do, So. Ausgeblendete Zeilen (`pruefung_offen`) und
+  Kinder/Junior nie, in den neuen Formaten auch keine vorläufigen Termine
+  (`sicher()`). Rotationen hängen an der Kalenderwoche – ein Test mit
+  festem Datum muss zwei Wochen ansehen. Neue Witze: eigene Texte, kurz,
+  niemanden vorführen, keine Marken/Personen.
+- **Stories** (`stories_fuer`, Bild 1080 × 1920, `rendere_story`): Rennen
+  der nächsten drei Tage + Countdown 100/60/30/14/7 Tage (sonst Hinweis
+  aufs Reel); `media_type STORIES` mit `image_url` aus dem Speicher, im
+  Abendlauf NACH dem Reel, gleiche Freigabe (die Kennung `beitrag_hash`
+  umfasst die Story-Folien, plan.json trägt `stories`, das Dashboard zeigt
+  eine Zeile). Sticker (Link, Umfrage) und Musik gehen über die API nicht.
+- **@-Erwähnung der Veranstalter** (`insta_veranstalter.py`): Name nur von
+  der EIGENEN Veranstalterseite (nie Portal – `PORTAL_DOMAINS` wird aus dem
+  Quelltext von scraper_lib gelesen, weil der Instagram-Workflow kein bs4
+  hat), ein Name gilt, mehrere nur mit Namenswort, sonst keiner;
+  Cache 30 Tage. Kommt NACH der Kennung in die Caption (wie die
+  Namensnennung) – das Dashboard zeigt sie nicht. Erster Test am
+  16.10.2026: gurtenclassic, gantrischtrail, swisscitymarathon gefunden.
+- **Auswertung** (`insta_posten.auswertung`, `insta_lauf.auswertung_text`):
+  jeder Lauf mit Google-Zugang → Zusammenfassung des Laufs (Follower, je
+  Beitrag Likes/Kommentare, mit `instagram_business_manage_insights` auch
+  views/reach/saved/shares, Schnitt je Format über `format_am`). Ohne die
+  Berechtigung nur Likes/Kommentare plus Hinweis. Montags beim
+  Wochen-Check ansehen und mehr von dem machen, was geteilt/gespeichert
+  wird.
+- **Neue Momente**: Fakt an der Quelle prüfen, `quelle` als https-URL,
+  `test_instagram` prüft Pflichtfelder. Lieber weglassen als raten (bei
+  Ironman 1978 steht deshalb keine Siegerzeit).
+- **Video**: Text nur in x 80–960, y 230–1500 (App-Overlays), Emoji fliegen
+  aus dem Videotext (Barlow hat keine), Hintergrund Pexels (Secret
+  `PEXELS_API_KEY` – **am 16.10.2026 noch nicht gesetzt**, dann Fotos
+  mit Zoom, Namensnennung in Caption und Bild). **Seit dem 17.10.2026 ein Pool**
+  (vom Nutzer: „immer das gleiche Hintergrund Bild“ – je Sportart gab es EIN
+  Foto aus `bilder/`): `marketing/instagram/hintergruende/` (14 Commons-Fotos,
+  CC BY/BY-SA, Gruppen von hinten/oben/im Wasser, Quellen in
+  `hintergruende.json`) plus das Startseiten-Foto; `foto_wahl()` läuft eine je
+  Sportart fest gemischte Reihenfolge mit dem Tag ab (nie zweimal
+  hintereinander), `foto_frames()` variiert Ausschnitt, Spiegelung, Zoom-
+  und Schwenkrichtung; Stories tragen den Nachweis jetzt auch im Bild. Neue
+  Fotos: Datei + Eintrag in `hintergruende.json`, Bildregel des Nutzers. Punch-Zoom bei
+  jedem Schnitt. **Ton: eigener Beat** (`insta_musik.py`, reines Python,
+  `array`+`wave`, ~0,6 s für 15 s; Tempo/Tonart je Datum), die Folien
+  liegen auf ganzen Schlägen (`zeitplan(…, schlag=)`); ein lizenziertes
+  Stück aus `musik.json` geht vor. `highlight()` für Clips: RMS je Sekunde
+  (8-kHz-PCM, ohne numpy) ×2 + scdet-Werte.
+- **Posten: Anmeldung über Instagram, KEINE Facebook-Seite** (vom Nutzer
+  am 16.10.2026 gewählt: „Ich würde meinen privaten Facebook Account und
+  die Webseite gerne trennen. Da soll nichts zusammenhängen." – „Wenn Weg
+  A auch irgendwann komplett automatisiert laufen kann, dann machen wir
+  das so"). Nicht auf den Facebook-Weg (Seite, Business-Portfolio,
+  Systemnutzer, Resumable Upload – bis Commit `275d7dc5`) zurückbauen,
+  ohne zu fragen. Was man wissen muss:
+  - Host `graph.instagram.com`, Version `v25.0` (Variable
+    `IG_API_VERSION`), Schlüssel als `Authorization: Bearer`, Konto-Id
+    aus `/me?fields=user_id,username` (`user_id`, nicht `id`).
+  - **Das Video braucht eine öffentliche Adresse** (`video_url`; den
+    Upload der Bytes gibt es laut Meta-Doku nur mit Facebook Login, am
+    16.10.2026 nachgelesen). Es geht nach
+    `gs://endurance-5177a-instagram/reel-<datum>-<16 Hex>.mp4` (Objekte
+    öffentlich lesbar über `legacyObjectReader`, NICHT auflistbar), wird
+    nach dem Veröffentlichen gelöscht (auch bei Fehler, `finally`), eine
+    Lebenszyklus-Regel räumt Reste nach einem Tag weg. Region
+    `us-central1` = kostenloses Kontingent.
+  - **Der Schlüssel liegt im Secret Manager** (`instagram-token`), nie in
+    GitHub; 60 Tage gültig, `pflege_schluessel()` erneuert ihn in JEDEM
+    Lauf mit Google-Zugang, sobald die jüngste Fassung 7 Tage alt ist
+    (`refresh_access_token`, die Antwort ist als NEUER Text behandelt),
+    legt die Fassung an und vernichtet die alten. Ein Fehler dabei macht
+    den Lauf ROT, auch ohne Posten – sonst liefe er still ab.
+  - **Google-Zugang ohne Schlüsseldatei**: `google-github-actions/auth@v3`
+    (Workload Identity, `id-token: write`, `token_format: access_token`,
+    `create_credentials_file: false`, `continue-on-error: true` – vor der
+    Einrichtung bleibt der Lauf grün und rendert nur). Anbieter
+    `projects/939878897826/…/workloadIdentityPools/github/providers/enduranceevents`
+    (die Nummer ist die `messagingSenderId` aus `firebase-config.js`),
+    Dienstkonto `instagram-reel@endurance-5177a.iam.gserviceaccount.com`;
+    die Bedingung am Anbieter lässt NUR `instagram.yml` aus
+    `AntDon930/Enduranceevents` herein. Eingerichtet von
+    `scripts/instagram_google_einrichten.sh` (Cloud Shell, idempotent,
+    `--schluessel` legt nur einen neuen Schlüssel ab, unsichtbare Eingabe,
+    prüft ihn vorher bei Instagram und warnt, wenn er nicht veröffentlichen
+    darf; `--anmelden` holt ihn ohne den Knopf „Token generieren" über einen
+    eigenen Anmeldelink – Code aus der Weiterleitung auf
+    `https://endurance-events.de/` (muss in der App als OAuth-URI stehen) →
+    kurzer → 60-Tage-Schlüssel, App-Geheimcode nur für den Tausch; gebaut am
+    16.10.2026, weil der Knopf jedes Mal neu anmelden ließ und nach der
+    Code-Anmeldung im Feed statt bei „Zulassen" endete). Den Link legt es als
+    `ig.html` in den Video-Speicher (eintippbar, leitet selbst weiter – ein
+    ANGETIPPTER instagram.com-Link öffnet auf dem iPad die Instagram-App, die
+    mit der Anmeldeseite nur „Da ist leider etwas schiefgelaufen" zeigt) und
+    löscht ihn nach dem Tausch).
+  - **Kein Schlüssel ins Log** (öffentliches Repo = öffentliche Logs):
+    `maskiere()` schreibt `::add-mask::` für beide Schlüssel, `_anfrage()`
+    meldet Netzfehler nur mit dem Typ (der Text von requests enthält die
+    Adresse samt `access_token`).
+  - `test_instagram` prüft Lesen, Erneuern, Aufräumen, Posten, Löschen
+    und Schwärzen mit einer Attrappe sowie, dass Workflow,
+    Einrichtungsskript und `insta_posten.py` dieselben Namen tragen.
+- **Freigabe mit einem Klick (14.10.2026, vom Nutzer: „die ersten Videos
+  alle gerne vorher mit einem Klick einfach freigeben")**: zwei Läufe am
+  Tag (`instagram.yml`: 08:47 Vorschau = nur rendern, 17:47 Posten mit
+  `--posten --freigabe`); `pages.yml` schreibt `marketing/instagram/plan.json`
+  (`insta_inhalte.py --plan 14`, gitignored; der Schritt installiert Pillow
+  und trägt `continue-on-error` – am 27.10.2026 hielt ein Plan ohne Pillow
+  in Lauf 419 den ganzen Deploy auf, Instagram darf die Website nie
+  blockieren; `test_insta_freigabe` prüft beides); die Dashboard-Karte
+  `#insta-freigabe-card` zeigt die Tage und schreibt `insta_freigaben/<Datum>`
+  (`status` freigegeben/gesperrt, `hash`, `format`, `geaendert`; Regeln:
+  lesen alle, schreiben/löschen Admins); `insta_freigabe.entscheide()`:
+  gesperrt schlägt alles, dann Freigabe mit passender Kennung
+  (`beitrag_hash` = SHA-256 über Format/Folien/Caption, VOR der
+  Namensnennung gerechnet), dann `INSTAGRAM_AUTOPOST=ja`, sonst nur
+  rendern. Eine veraltete Kennung verfällt von selbst (Datenlauf, Moment
+  korrigiert) und die Karte bittet um einen neuen Klick. **Seit dem
+  16.10.2026 ist die Karte zugeklappt** (eine Zeile mit den Zahlen, Zustand
+  in `localStorage` `endurance-freigabe-offen`; vom Nutzer: „zu groß") **und
+  jede Zeile hat „View"** zwischen Freigeben und Sperren: Der Morgenlauf
+  (ohne `--posten`, `--vorschau-tage`, Vorgabe 7) rendert die Reels der
+  nächsten sieben Tage mit dem Seed ihres späteren Laufs und legt sie über
+  `insta_posten.lade_vorschau()` als `vorschau/<Datum>-<Kennung>.mp4/.jpg`
+  UND `vorschau/<Datum>-aktuell.mp4/.jpg` in den Speicher (öffentlich lesbar,
+  nicht auflistbar; die Lebenszyklus-Regel löscht nach einem Tag, der
+  Morgenlauf legt täglich neu ab – ~35 s je Reel). `admin.html`
+  (`VORSCHAU_BASIS`, `zeigeReel`) spielt erst die Kennung aus plan.json,
+  sonst „aktuell" mit Hinweis, sonst „kommt mit dem Morgenlauf". Kein
+  Änderungsbedarf an `instagram.yml`. `test_insta_freigabe`
+  und der Rauchtest (`pruefe_statistik_dashboard`, Attrappe speichert
+  set/delete) halten es fest; der Rauchtest zählt die Zeilen der Karte
+  gegen die künftigen Beiträge in plan.json, nicht gegen eine feste Zahl
+  (am 27.10.2026 rot mit „6 Tage“, weil der Plan seit den Pausentagen
+  nur noch Post-Tage enthält – fünfte Begegnung mit „fest eingetragenes
+  Beispiel“, siehe Frontend-Fallen). **Beides ist live**: die Regeln seit dem
+  15.10.2026, 12:25 (vom Nutzer aus der Cloud Shell, `firebase deploy
+  --only firestore:rules`; per REST geprüft: `insta_freigaben/<Tag>`
+  antwortet 404 statt 403, `config/wartung` weiter 200), `instagram.yml`
+  seit dem 14.10.2026 abends auf `main` (Commit `e3251fc1`, vom Nutzer
+  freigegeben: „Ja für instagram.yml auf main"), die Fassung mit der
+  Anmeldung über Instagram seit dem 16.10.2026 (Commit `ae5751ef`, „Ja,
+  instagram.yml auf main").
+- **Logo-Reels (27.10.2026, vom Nutzer: „schnelles Video von vielen Event
+  Logos im Monat … XX Events im November 2026 … Check it out! Link in
+  Bio" und „welche Events diesen Monat mit der Registrierung anfangen")**:
+  zwei Formate in `insta_inhalte.py`, die an ihrem Tag ALLES andere
+  schlagen (auch den Jahrestag): **`monat`** am letzten Freitag des Monats
+  (`letzter_freitag`) für den NÄCHSTEN Monat – Hook „375 EVENTS IM
+  NOVEMBER 2026" (Zahl aller sichtbaren Veranstaltungen), dann die bis zu
+  20 größten Events nach `starter` als Folie `logo` mit `blitz` (EIN
+  Schlag je Logo, harter Schnitt ohne Blende – `sichtbarkeit(…, hart)`,
+  `zeitplan` erlaubt bei `logo` einen Schlag), Schluss „Check it out!";
+  ungerader Monat Schwarzweiß (`stil: "sw"`, ganzes Bild in Graustufen),
+  gerader Farbe; unter 6 Events gilt der Wochenplan. **`anmeldung`** am
+  1. des Monats: die Events aus der Liste, deren `anmeldestart` in diesen
+  Monat fällt (genau → „Anmeldung ab 3. Nov", nur Monat → „Anmeldung im
+  November"), mit nächstem Renntermin (`renntermin`: events.json, sonst
+  `termin`), Caption „ohne Gewähr"; unter 3 gilt der Wochenplan.
+  **Größe**: Vom Nutzer erst „5.000+ Starter, Triathlon weniger", dann
+  korrigiert: „die Schwelle war nur dahergesagt … die 10-20 größten
+  Events im Monat". `grosse_events.json` ist deshalb eine recherchierte
+  Liste mit Starterzahl (Finisher oder Anmeldungen, `hinweis` sagt
+  welche, `starter_quelle` Pflicht, `null` nur bei IRONMAN), keine
+  Schwelle im Code. `gross_fuer()` ordnet eine Veranstaltung über
+  `suche` (Teilstrings des Namens) + Land + Sportart zu. **`anmeldestart`
+  gilt für EINE Ausgabe** – einmal im Jahr nachtragen, sonst bleibt das
+  Format leer. **Logos (vom Nutzer gewählt: „Logos von den Webseiten",
+  nach Hinweis auf das Restrisiko – Logo geschützt, Veranstalter freuen
+  sich meist)**: NUR geprüfte Dateien in `marketing/instagram/logos/`;
+  der tägliche Lauf holt NICHTS aus dem Netz (`insta_lauf.logos_holen`
+  meldet nur). Grund: Die automatische Suche traf bei jedem vierten Event
+  ein Sponsorlogo (Garmin beim Ötztaler – vom Nutzer bemerkt –, LBS,
+  Mizuno, Intersport) oder eine geparkte Domain (bonn-marathon.de).
+  Ablauf: `insta_logos.py sammeln --uebersicht bogen.png` (Kandidaten in
+  `.cache/logos/`), Bogen ansehen, `uebernehmen <slug>` bzw. `uebernehmen
+  <slug> --url <Bild oder Datei>`, `bogen geprueft.png` zum Gegenlesen.
+  Seiten mit Logo per JavaScript/Inline-SVG (Ötztaler, Köln Triathlon):
+  Playwright (Node) rendern, Element-Screenshot oder Symbol als SVG.
+  SVG rastert `_rastern_svg` mit Chromium, sonst ffmpeg/librsvg. Logos mit
+  viel Weiß und kaum Schwarz (`ist_hell`) bekommen eine Navy-Karte. Ohne
+  Logo zeigt die Folie den Namen groß auf der Karte. `test_insta_logos`.
+  **Die größten einer Kategorie (`top`, jeder zweite Samstag statt
+  `saison`, gerade Kalenderwoche; vom Nutzer am 27.10.2026: „Top 5
+  Marathons … auf einer Karte … die 5 Logos oben" und gleich danach: „es
+  muss nicht immer Top 5 sein … Top 10, Top 3 … es muss auch nicht
+  bewertet werden wer der beste … Einfach die 5 größten … unterschiedliche
+  Designs")**: die 3/5/7/10 größten Events (`TOP_ANZAHLEN`) einer
+  Kategorie der nächsten 12 Monate (`TOP_KATEGORIEN`: Marathon-, Trail-,
+  Halbmarathon-, Ultra-Events, Radmarathons, Triathlons – Halbmarathon nur
+  OHNE 42,2 km, sonst stand der Hamburg Marathon dort), **nach Datum, ohne
+  Platznummern**, dann die Übersicht und CTA. Gezählt nach `starter` der
+  GANZEN Veranstaltung – deshalb „…-Events" im Titel und „allen
+  Teilnehmenden der Veranstaltung" in der Caption (der Rennsteiglauf ist
+  mit 16.000 kein 16.000-Ultra). Rotation (`datum.toordinal() // 14`) nur
+  über Kategorien mit mindestens drei Events; Kategorie, Anzahl und Design
+  wechseln JEDES Mal (Test am echten Bestand). Vier Designs
+  (`TOP_DESIGNS`, `insta_video._top_folie`): `karte` (Logos oben, eine
+  oder zwei Reihen, Karte unten mit Punkten), `einzeln` (riesiges Datum,
+  Logo groß, kleine Karte; Übersicht als Liste), `raster` (Kacheln füllen
+  sich nacheinander), `zeitleiste` (Monatsachse, Logos am Termin). Die
+  Karte zeichnet `karte_bild()` selbst aus `laender.json` (kein
+  Kartendienst). Zeit je Event nach Anzahl (`TOP_DAUER`). Neues Design =
+  Zweig in `_top_folie` + Name in `TOP_DESIGNS` + der Test zeichnet es
+  mit 3 und 10 Events.
+  **Anlass (`anlass`, am Tag eines großen internationalen Rennens aus
+  `marketing/instagram/anlaesse.json`; vom Nutzer am 27.10.2026: „zu Ehren
+  des Tour de France Starts … die noch anstehenden Radmarathons in diesem
+  Jahr", „London Marathon … alle Marathons in unserer Region … es ist
+  wichtig, dass es sich immer abwechselt")**: geht an seinem Tag ALLEM vor
+  (auch Monat/Anmeldung/Top). Hook „Heute startet die Tour de France“ +
+  Zahl aller sichtbaren Events der Kategorie bis Silvester (zu wenige →
+  „in den nächsten 12 Monaten“), dann die größten davon in einem der
+  Top-Designs. Das große Rennen nur als TEXT – keine Bilder, keine Logos
+  davon (Rechte). `anlaesse.json`: je Eintrag `datum` (bestätigt, sonst
+  null), `kategorie` (Schlüssel aus `TOP_KATEGORIEN`), `anlass_text`,
+  `quelle`; jährlich nachtragen.
+- **Start am 02.11.2026 – vorher wird NICHTS gepostet** (vom Nutzer am
+  27.10.2026: „wir fangen ab dem 2. November (Montag) an … Davor wird jetzt
+  noch nichts gepostet"): `insta_freigabe.POST_START`, `vor_start()` sperrt
+  in `insta_lauf.py` jedes `--posten` (auch Handlauf und Autopost) für
+  Beiträge vor dem Tag. Die Startwoche steht fest in
+  **`marketing/instagram/sonderplan.json`** (`lade_sonderplan()`, geht in
+  `plane()` und `format_am()` allem vor; bei `top` mit `kategorie`/
+  `anzahl`/`design`, bei `duell` mit `paar`): Mo `jahr`, Di `anmeldung`,
+  Mi `laengste`, Do Pause, Fr `top` Marathon/karte/5, Sa Pause, So `duell`
+  Berlin gegen Wien (`"pause": true` im Sonderplan). Der Nutzer sieht jedes
+  Video im Dashboard („View") an, gibt Feedback, dann frei.
+  **Nicht jeden Tag ein Video – „4-5 Videos in der Woche"** (vom Nutzer am
+  27.10.2026): `insta_inhalte.postet_am()` – Dienstag und Donnerstag Pause
+  (`PAUSE_WOCHENTAGE`), außer Anlass, 1. des Monats (Anmeldestart) oder
+  Sonderplan; vor `POST_START` nie (steht auch in `insta_freigabe`, der
+  Test vergleicht). `plan_liste()` (plan.json, Dashboard) zeigt nur
+  Post-Tage, `insta_lauf.py` rendert an Pausentagen nichts, legt im
+  Morgenlauf aber die Vorschauen ab – vor dem Start die Woche ab
+  02.11.2026 plus den Montag danach.
+- **Zwei Formate dazu (27.10.2026)**: **`jahr`** („Dein Rennjahr": je
+  Monat der nächsten zwölf das größte Event, geprüftes Logo vor ohne,
+  Monatsfolien `blitz` im Takt ohne Wisch, Übersicht 3 × 4, mindestens zehn
+  Monate) und **`duell`** (zwei große Events einer Kategorie mit Logo,
+  Größe höchstens Faktor 2 auseinander – `duell_paare()`; animierte Folie:
+  Logos fahren ein, VS, Zeilen Termin/Ort/Am Start/Strecken auf einer
+  Navy-Fläche, der größere Wert in Sonne). Beide nur über Sonderplan oder
+  `--format`, noch nicht im Wochenplan. `gross_fuer()` kennt `nicht`
+  (Ausschlusswörter: L'Hivernale ist nicht Sierre-Zinal).
+- **Der Look seit dem 27.10.2026 („Die Videos sollen nicht so billig
+  aussehen")**: Foto mit Farblook (`farbgrad`: Kontrast, weniger Farbe,
+  Duoton Navy/warm), Tiefenschärfe (Blur 2,6), Vignette, ruhiger Mitte
+  (`rahmen_ebene` 0,46), Filmkorn unter der Schrift (vier fertige Ebenen
+  Rahmen + Korn), warmer Lichtfleck; Folien mit weichem Schatten, Bänder
+  staffeln sich herein (`gestaffelt`: Zeilen von unten, große Flächen
+  „poppen"), alte Folie geht nach oben ab, schräger Wisch in der Sportfarbe
+  an jedem Schnitt, Zahlen zählen hoch, dünner Fortschritt mit Leuchtpunkt;
+  im Ton ein Whoosh je Wisch und ein tiefer Schlag zu Beginn und am CTA
+  (`insta_musik`, `schnitte`/`schlusspunkt`). Lange Listen (Balken,
+  Duell) stehen auf einer Navy-Fläche, sonst ist Text auf manchen Fotos
+  unlesbar. Ein Reel braucht ~70 s Rechenzeit; der Morgenlauf rendert acht
+  (heute + 7 Vorschauen) – bei einem weiteren Effekt das 30-Minuten-Limit
+  von `instagram.yml` im Blick behalten. `foto_sport` am Beitrag wählt das
+  Foto bei gemischten Formaten (laengste: Lauf oder Rad, nie Schwimmen).
+- **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
+  (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
+  aus `stats.js`), Tagesfelder `kanaele`, `instagram`,
+  `instagram_medien/_kampagnen/_einstieg/_aktionen`; `admin.html` Karte
+  `#ig-card` + Abschnitt `s_instagram`. Der Bio-Link steht dreimal gleich:
+  `insta_inhalte.BIO_LINK`, `IG_LINK` in `admin.html`, README – der Test
+  vergleicht. Label-Schlüssel der Kanäle heißen `kn_…`, NICHT `kanal_…`:
+  „kanal_suche:" enthält „l_suche:" und brach den Beschriftungstest.
+
+## Impressum und Datenschutz (vollständig seit dem 05.10.2026)
+
+`impressum.html` und `datenschutz.html` sind gebaut. **Name und
+Anschrift stehen seit dem 17.09.2026 drin** (Anton Donauer,
+Christophstraße 3, 80538 München, Deutschland), **die Kontaktadresse
+seit dem 05.10.2026**: `impressum@endurance-events.de` (vom Nutzer
+eingerichtet und genannt – seine private Adresse steht bewusst nicht
+öffentlich), als `mailto:`-Link im Impressum unter „Kontakt" und in der
+Datenschutzerklärung beim Verantwortlichen. Die gelben Platzhalter
+(`.platzhalter`) und die Hinweiskästen „Es fehlt noch die
+Kontaktadresse" samt `vorlage_titel`/`vorlage_text` sind weg, der
+Platzhalter-Stil aus `seite.css` auch. **Der Rauchtest prüft seitdem
+umgekehrt**: kein `.platzhalter` und kein `.hinweis` mehr, und Name
+und `mailto:`-Link stehen auf beiden Seiten (`smoke_test_frontend.py`,
+die Prüfung bei `stand["platzhalter"]`). Die Adresse steht an genau
+diesen vier Stellen (zwei Seiten, Rauchtest, hier) – ändert sie sich,
+alle vier nachziehen.
+
+- **Die Seite ist ein privates Angebot ohne Gewinnerzielungsabsicht**
+  (so vom Nutzer am 17.09.2026 gesagt). Die Überschrift im Impressum
+  nennt deshalb **§ 18 Abs. 1 MStV** statt § 5 DDG: § 5 DDG gilt für
+  geschäftsmäßige Telemedien, § 18 Abs. 1 MStV dagegen für alle, die
+  „nicht ausschließlich persönlichen oder familiären Zwecken dienen" –
+  und verlangt genauso Namen und Anschrift. **Umsatzsteuer-ID,
+  Registereintrag und Telefonnummer entfallen damit**; die
+  Telefon-Zeile ist raus. Wird die Seite später doch gewerblich
+  (Werbung, Affiliate, Provisionen), muss § 5 DDG samt USt-ID zurück.
+
+- **Beide sind von jeder Seite aus verlinkt** (Fußzeile in
+  `index.html`, `events.html`, `karte.html`) – § 5 DDG verlangt
+  „unmittelbar erreichbar".
+- Die **Datenschutzerklärung beschreibt den echten Stand** der Seite:
+  GitHub Pages (Server-Logs), OpenStreetMap nur auf der Kartenseite,
+  Standort bleibt im Browser, Firebase erst bei der Anmeldung, anonyme
+  Kennung erst beim Absenden einer Fehlermeldung oder eines Hinweises auf
+  ein fehlendes Event, `endurance-lang` und
+  `endurance-gruppiert` im lokalen Speicher, keine Analyse, keine
+  Werbung. Wird an der Seite etwas verändert, das Daten betrifft,
+  **muss dieser Text mit**.
+- Die **GeoNames-Namensnennung ist umgezogen**: Sie stand in der
+  Fußzeile von `index.html` und steht jetzt im Impressum unter
+  „Datenquellen und Lizenzen", zusammen mit OpenStreetMap (ODbL),
+  Leaflet und dem Firebase-SDK. Nicht löschen – CC BY 4.0 verlangt sie.
+- **Seit dem 13.10.2026 hat die Datenschutzerklärung den Abschnitt
+  „Besucherstatistik"** (DE und EN, mit Schalter „Statistik für dieses
+  Gerät abschalten"), Kurzfassung und „Was diese Seite nicht tut" sagen
+  „kein Tracking durch Dritte", der Abschnitt „Speicherung im Browser"
+  nennt `endurance-theme`, `endurance-stats` und die Sitzungskennung;
+  „Stand" 13. Oktober 2026. Das Impressum brauchte nichts Neues (kein
+  neuer Dritter – die Zählung läuft auf dem Firebase-Projekt, das dort
+  schon steht).
+- Keine Rechtsberatung: Vor dem Livegang muss der Nutzer die Texte
+  prüfen (lassen).
+
+## Quellen
+
+Acht geprüft, **vier aktiv**: laufen.de (`laufkalender_scraper.py`,
+größte Quelle), running.life, runningcompany.de, planet-marathon.de.
+
+**Seit dem 22.09.2026 fünf weitere Scraper** (vom Nutzer freigegeben:
+„Bitte alle scrapen! Aber auf ein scraping Verbot achten. Und nichts
+scrapen was verboten ist. Und wirklich überall nachschauen ob es die
+originale Veranstalter Webseite gibt!"): `endure_scraper.py`
+(Radrennen und Triathlons DE/AT/CH/IT, JSON-LD mit Koordinaten und
+`sameAs` = Veranstalterseite), `oelv_scraper.py` (ÖLV-Laufkalender auf
+oelv.athmin.at, ASP.NET-Postbacks, Homepage + Bewerbe je Lauf),
+`sparkasse_scraper.py` (Erste Bank Sparkasse Running, AT),
+`nws_scraper.py` (Laufkalender Nordwestschweiz, Crawl-delay 5 s),
+`lauftermine_scraper.py` (Schweiz; der Kalender steht als `v(…)`-Aufrufe
+im Inline-JavaScript, der Ort wird aus dem Namen gelesen – ohne
+erkennbaren Ort kein Eintrag). Dazu liest running.life die Trail- und
+Hindernislauf-Kalender mit (zwölf Kalender; eine Veranstaltung, die in
+mehreren steht, wird nur einmal gelesen). **Für jede Quelle wurden
+robots.txt UND Nutzungsbedingungen/Impressum live gelesen** – die
+Rechtslage je Quelle steht im README („Quellen für den großen
+Datenlauf"). **Verboten und deshalb nicht gelesen**: runme.at/.ch
+(„automatisiertes Auslesen … nicht zulässig"), finishers.com (Terms
+gegen Scraping), bike-x.de (nur private Nutzung, TDM-Vorbehalt),
+brv-breitensport.de und team-warmduscher.de (Übernahme in andere
+Webseiten untersagt), dsvdaten.dsv.de (`Disallow: /`),
+triathlondeutschland.de (Verwertung auf Internetseiten nur mit
+Zustimmung). `scraper_lib.ort_aus_veranstaltungsort()` schält aus
+Veranstaltungsorten („Aubad Tulln", „Schloßstraße 20, 8020 Graz") den
+Ort; `test_neue_quellen` hält die Parser fest.
+
+**running.life liest seit dem 21.09.2026 alle sechs Kalender** (vom
+Nutzer freigegeben: „Du hast mein Ja"): Laufen und Triathlon je
+Deutschland, Österreich, Schweiz – `KALENDER` in
+`runninglife_scraper.py`, je Kalender mit eigener Sportart-Voreinstellung
+(Triathlon-Kalender → „Triathlon"; `expand_competitions()` nimmt seit
+dem Tag die Kategorie-Liste der Sportart, sonst bekäme ein
+Cross-Triathlon „Trail"). Die Adresse für Österreich heißt
+`/laufkalender/osterreich` (mit oe ist 404). `--max-pages 110` gilt je
+Kalender, die kleinen enden von selbst. Probelauf (eine Seite je
+Kalender, ohne Details): 104 neue Events, davon die ersten Schweizer
+überhaupt. **Der nächste Datenlauf bringt sie** – Workflow auslösen,
+nicht im Chat warten (Laufzeit steigt um grob eine Stunde, das
+`timeout-minutes` reicht – seit dem 27.10.2026 360).
+
+**Schwimmen (24.09.2026)**: Der Nutzer hat drei Links geschickt
+(schwimmkalender.de, openwaterschwimmen.com, swimevents.de) und um weitere
+Schwimm-Kalender gebeten. Gebaut ist **`schwimmkalender_scraper.py`**
+(Freiwasser, 24h-Schwimmen, Winterschwimmen, SwimRun → Triathlon/Swimrun).
+Die Seite bindet ihre **Sitzung an die IP-Adresse** – aus der Sandbox,
+deren Ausgangs-IP je Verbindung wechselt, sah das früher wie eine Sperre
+aus („sperrt den Abruf"); über EINE `requests.Session` (Keep-Alive) und
+GET-Aufrufe geht es, in GitHub Actions ist die IP ohnehin fest. Das
+Skript beginnt bei verlorener Sitzung einmal neu. Im September 2026
+stehen dort nur 21 künftige Termine (die Saison 2027 kommt im Frühjahr),
+davon 18 „24h Halle" (Zeitrennen, `dauer_h` 24/25, Kategorie Becken).
+Die Detailseite nennt Bezeichnung mit Distanz in Klammern („(3k)"),
+Datum, Bundesland/Staat und die Veranstalterseite – **keinen Ort**: Der
+kommt aus der Bezeichnung (hinter dem Komma, hinter „24h", sonst das
+letzte Wort samt Vorsilbe; endet der Name auf ein Schwimmwort, gilt bei
+Stadtstaaten das Land, sonst fällt der Eintrag). **Geocodiert wird MIT
+dem Bundesland** (`SiteConfig.geocoding`, von `--no-geocoding` gesetzt):
+„Freiberg" liegt in Sachsen UND in Baden-Württemberg, „Handorf" in
+Niedersachsen UND in Nordrhein-Westfalen – ohne den Zusatz nahm Nominatim
+beide Male den falschen (Lektion 3 der Einzelprüfung: Koordinaten sind
+Daten). Die Quelle selbst hat Fehler: „24h Friedberg" (Hessen) verlinkt
+`sv-freiberg.de` – so übernommen, Datenregel 2 verbietet das Raten.
+openwaterschwimmen.com
+ist seit 2021 tot, swimevents.de die Seite eines Bochumer Zeitnehmers
+mit Meisterschaften – beide keine Quelle. Was die Websuche sonst fand,
+steht im README („Quellen für den großen Datenlauf", Zeilen vom
+24.09.2026): **Kandidaten** sind der arena Alpen Open Water Cup (eine
+Seite, 9 Rennen 2027 mit Veranstalterlinks), der Freiwassercup Bayern
+und der SwimRun-Kalender von swimrun-advice.com; swim-emotions.ch (Swiss
+OpenWater-Cup) war aus der Sandbox nicht erreichbar. **Kein Scraper ohne
+sein Ja.**
+
+**Radrennen lokal (24.09.2026)**: Der Nutzer hat `turbo-sport.eu/events`
+verlinkt („sehr gut für lokale Rennen") und `ultracyclingchallenges.com`,
+dazu die PDF-Liste (siehe `scripts/eventliste_pdf_geprueft.json`).
+turbo-sport.eu ist **BRV Timing**, die Transponder-Zeitnahme des
+Bayerischen Radsportverbands: eine TYPO3-Seite je Rennen mit der
+Ausschreibungstabelle (Kategorie / Wettbewerb / Runden / Distanz), robots.txt
+404, Impressum ohne Verbot. Gebaut ist **`turbosport_scraper.py`** – drei
+Entscheidungen darin, alle im Modul begründet: (1) **alle Klassen, auch
+die Lizenzklassen** – die erste Fassung nahm nur Jedermann und Hobby (eine
+BDR-Lizenz ist nicht „für jeden"), der Nutzer hat es am selben Tag
+umgedreht („Bitte auch die mit BDR Lizenz aufnehmen"). **Eine Zeile je
+Distanz**, das Label nennt die Klassen („Lizenzklasse / Jedermann 30 km"):
+Zwei Zeilen für Lizenz und Jedermann über dieselbe Distanz gehen nicht,
+weil `dedupe_key()` (Name + Datum + Distanz) und der Kalender-Dateiname
+kein Label kennen – die zweite Zeile fiele beim Einsammeln weg. Umkehrbar
+über `KLASSEN_FILTER = OFFENE_KLASSEN`; (2) **der Ort steht nicht auf der
+Seite** – er kommt aus dem Namen („Obergünzburger" → Obergünzburg, mit
+Adjektivendung), dem Pfad der Rennseite (`/events/schwabacher-…`) oder dem
+Hostnamen der Veranstalterseite (`rfv-prien.de`), jeweils gegen die
+bayerischen Orte in `places.json` (Koordinaten gleich mit, kein Nominatim);
+ein mehrdeutiger Name („Schönberger") zählt nicht, ohne Ort kein Eintrag;
+(3) **vergangene Rennen liefern nichts**, weil die Seite dann Ergebnislisten
+statt der Ausschreibung zeigt – im September 2026 blieben zwei Rennen
+(Obergünzburger Rundstreckenrennen 26.09., nur Lizenz; Großer Fritz Neuser
+Preis Schwabach 03.10., vier Distanzen), die Saison 2027 erscheint im
+Frühjahr. Die Donnerstagsrennen-Serie (München,
+Hobbyklasse) hat keine Rennseite je Termin und wird gemeldet, nicht
+geraten. `turbo-sport.eu` steht in `PORTAL_DOMAINS`; `test_turbosport`
+hält Navigation, Tabelle, Klassenfilter und Ortserkennung fest.
+**Weitere Kalender „für andere Städte"** (gesucht, im README-Abschnitt
+„Quellen für den großen Datenlauf" mit Rechtslage): `radsport-events.de`
+ist inzwischen frei (robots.txt `Allow: /`, Impressum ohne Verbot, JSON-API
+mit Veranstalterlink) – am 21.09.2026 vom Nutzer ausgeschlossen, **am
+24.09.2026 freigegeben** („Ja, radsport-events.de als Quelle nutzen"):
+`radsportevents_scraper.py` liest die API je Kategorie (Straße, MTB,
+Gravel) und Land, Italien nur Südtirol über `in_suedtirol()`, überspringt
+Abgesagtes, virtuelle RTF, Camps, Etappentouren und
+Mannschaftszeitfahren, nimmt Rundenlängen nicht als Distanz und Minuten
+als Dauer; erster Lauf 646 neue Events (Fahrrad 124 → 742), `test_radsportevents`.
+NordCup (9 Radmarathons 2027 in SH), Radsportverband SH,
+RTF-Listen in BW sind Kandidaten; `radmarathon.at` verbietet die
+Wiedergabe, `sport-oesterreich.at` antwortet 403, `mueritzquerung.de` ist
+veraltet. Aus der Prüfung heraus: `_LABEL_GATTUNG_RE` kennt jetzt „gravel"
+und „rtf" (Gravel neben Straße über dieselbe Länge sind zwei
+Wettbewerbe), und die Gravel-Zeilen des Erkelenzer RTF tragen einen
+eigenen Namen, weil die Teilmengen-Regel von `_same_name()` „Erkelenzer
+RTF" + „Gravel Ride 110 km" sonst in der Straßenzeile aufgehen lässt.
+
+**Die Linkliste des Nutzers (24.09.2026)**: 125 Adressen, 91 Domains, jede
+auf robots.txt, Impressum/AGB und Struktur geprüft – die ganze Bilanz im
+README („Die Linkliste des Nutzers"). Daraus drei weitere Scraper, alle
+mit Test: **`cyclingaustria_scraper.py`** (ÖRV-Rennkalender, Joomla;
+Rennseite mit Start/Ziel, Datum, Sparte, „Rennen N"-Blöcken und
+Veranstalterlink; alle Klassen, auch Lizenz – dieselbe Entscheidung wie
+bei BRV Timing; **nicht** Kunstrad/Radball, Downhill/Enduro/E-MTB,
+Madison/Mannschaftszeitfahren, Nachwuchs; ein Cyclocross ohne Kilometer
+ist ein Zeitrennen „40 min"; 62 Events). **Abgesagte Rennen bleiben im ÖRV-Kalender stehen**, nur der
+Kartentitel trägt „- ABGESAGT !!" (Wienenergie Cyclocross 24./25.10.2026,
+vom Nutzer am 20.10.2026 per „Check again" gefunden) – `parse_liste()` setzt
+seitdem `abgesagt`, der Scraper überspringt die Karte (`ABGESAGT`, Test in
+`test_cyclingaustria`), **`swimsports_scraper.py`**
+(Schwimmkalender Schweiz, Drupal; **Adresse ohne `/de/`**, mit Präfix
+„Zugriff verweigert"; Distanzen ohne SUP-Teile; Absagen fallen, außer
+der Name nennt den nächsten Termin; im September nur 2 künftige
+Anlässe) und **`fsieben_scraper.py`** (Triathlon-Kalender Österreich,
+JSON in der Seite; **52 von 94 Bewerben ohne Datum** – „Termin folgt"
+wird nicht geraten; je Format eine Zeile ohne Kilometer, „unbestätigt"
+= vorläufig; Ort über `orte_aus_places()` je Bundesland, weil
+„Pichlingersee, Linz" den See vor den Ort stellt und „Linz" auch in
+Kärnten liegt). `orte_aus_places(land, region)` in `scraper_lib.py` ist
+dafür neu (generisch, `places.json` kennt die Länder als DE/AT/CH/IT).
+Die Stadtzürcher Seeüberquerung 2027 steht in `manual_events.json`
+(seeueberquerung.ch nennt den Termin, swimsports erst 2026). **Kandidaten
+ohne Ja**: `swisstriathlon.ch` (Liste nicht im HTML),
+`dealgrid.de`/`gravel-club.com`/`808project.de` (Gravel), NordCup
+(`datasport.com` stand hier bis zum 30.09.2026 – seit dem Ja des Nutzers
+gibt es den Scraper, siehe unten). **Verboten**: radmarathon.at, rad-net.de, hdsports, suedtirol.info,
+tour-/bike-magazin, DTU, tri2b, triafreunde, mission-triathlon,
+finishers, veloplus u. a. (Liste im README).
+
+**Landesverbände, Zeitnehmer und datasport (30.09.2026)**: Der Nutzer
+vermisst die lokalen Jedermann-Radrennen („Die ganzen Stadtmeisterschaften
+etc.") und die Schwimm-Events; auf seine Frage „Wie müssen wir hier weiter
+vorgehen?" gab es einen Fünf-Punkte-Plan (1 Anfragen an BDR/rad-net und
+DSV – nur der Nutzer; 2 Landesverbände und Zeitnehmer durchsehen; 3
+datasport.com; 4 im März 2027 alles erneut laufen lassen; 5 „Wir haben dein
+Event nicht?"). Sein Auftrag: „Punkt 2 bitte durchführen und du hast meine
+Erlaubnis für Punkt 3, datasport.com." Ergebnis (Tabelle im README,
+„Landesverbände und Zeitnehmer"): **`datasport_scraper.py`** – die
+Listenseite ist Next.js und holt alles über `/api/` (gesperrt), deshalb ist
+die **`sitemap.xml` die Liste**; sie ist sortiert (kommende Ausgaben
+zuerst, dann die vergangenen absteigend), der Scraper hört nach fünf
+vergangenen Seiten in Folge auf (~100 Abrufe, **10 s Pause** – die
+KI-Crawler-Gruppe in robots.txt wünscht sie, auch wenn unser User-Agent
+unter `*` fällt). Jede Seite trägt in den Flight-Daten
+(`self.__next_f.push`) das Objekt der Ausgabe mit `organizerLink`, `town`,
+`regions[].countryCode`, `preciseLocation`, `contests[]` (sportType,
+Disziplin, Altersklassen, Tag, Teilstrecken in Metern). Sportart aus
+`sportType` (Lauf, Rennrad, MTB, Triathlon, Schwimmen; Langlauf, Inline,
+Hyathlon fallen), je Wettbewerb eine Zeile, Länge = Summe der
+Teilstrecken, Nachwuchs (alle Altersklassen bis 17 oder Kids/Junior/U16
+im Namen), Teams (Staffel, Couples, Interentreprise, Famigros) und E-Bike
+raus, Jahreszahl aus dem Namen, und **ein Lauf in einer Veranstaltung mit
+Mehrsport-Namen heißt nach seinem Wettbewerb** („Inferno Halbmarathon",
+„Inferno Trail") – sonst machte `fix_multisport_art1()` daraus einen
+Triathlon, weil es nur den Namen liest. `test_datasport` hält sitemap,
+Flight-Objekt, Wettbewerbe, Summen, Ausschlüsse und Namen fest. **Der
+erste Lauf hat fünf Lücken gezeigt** (nach Punkt 2 des Dreizehnten
+Durchgangs gezählt, dann als Regel gebaut, dann der Lauf wiederholt):
+Serien mit vier Ländern unter EINER Koordinate („HERO UCI Marathon World
+Cup", Ortsfeld „Andorra / Selva Val Gardena / Riva del Garda / …" –
+Ortsfeld mit „ / " → ganze Ausgabe raus), Liechtenstein und Luxemburg
+(bekannter Ländercode außerhalb der vier Regionen → raus; nur OHNE Code
+bleibt das Land offen fürs Reverse-Geocoding), „Stafette"/„Relais"/
+„inscription groupée" als Team, „1 Erw. & 1 Kind U6" als Nachwuchs
+(`\bkind\b`, U6–U18), „Pre-iscrizione / Voranmeldung" als Wettbewerb
+ohne Strecke (Anmeldeart, raus), Provinzkürzel im Ort („Badia (BZ)").
+Dazu zwei Änderungen in `scraper_lib.py`: **„Stafette"** (Schweizer
+Schreibweise) steht in `STAFFEL_LABEL` und `_LABEL_GATTUNG_RE`, und
+**„jedermann" ist keine Label-Gattung mehr** – radsport-events.de
+beschriftet jede Strecke „Jedermannrennen N km", datasport/endure nennen
+den Wettbewerb („106 KM - Corso Medio", „Gran Fondo 138 km"); am Bestand
+nachgezählt trennte das Wort genau vier echte Duplikatpaare (ARBÖ
+Radmarathon ×2, Maratona dles Dolomites, Vredener Triathlon) und kein
+einziges echtes Paar verschiedener Wettbewerbe – die Radquellen führen
+ohnehin EINE Zeile je Distanz, egal ob Lizenz oder Jedermann.
+Nach dem zweiten Lauf kamen dazu: „Warte Liste" in zwei Wörtern
+(Anmeldeart), Italien außerhalb Südtirols schon im Scraper über
+`in_suedtirol()` (sonst räumte clean_events zehn Trentino-Zeilen jede
+Woche wieder heraus) – und **ein Gattungswort, das nur die gemeinsame
+Kategorie wiederholt, trennt nicht mehr** (`_GATTUNG_AUS_KATEGORIE` in
+`_same_name()`: „MTB-Marathon 64 km" gegen „64km KINGMarathon", beide
+art2 Mountainbike; am Bestand sechs Paare, alle echt – KronplatzKing ×2,
+Innsbruck Alpine Trailrun Festival ×4 „Trailmarathon" gegen „43 km" –,
+kein Gegenbeispiel; bei verschiedenem art2 bleibt „MTB 40 km" von
+„Rennrad 40 km" getrennt). `test_duplikate` hält alle Fälle fest.
+**Erster Lauf (30.09.2026)**: 98 Seiten, 92 kommende Ausgaben, 232 Zeilen,
+106 neu in 46 Veranstaltungen (90 CH, 9 AT, 5 Südtirol, 2 DE; 86 Laufen,
+11 Fahrrad, 9 Triathlon), 6.885 → 6.975 Events. Ein Lauf dauert ~18
+Minuten (98 × 10 s), der wöchentliche Workflow wächst entsprechend.
+**Nebenbefund für die CI**: Der Datenlauf vom 28.09. hatte
+`clean_events.py` nicht idempotent gemacht – ein in Durchgang 1
+vereinheitlichter Name traf erst in Durchgang 2 seinen Override
+(„Königsforst-Marathon|2027-03-14|42.2", Koordinaten); jetzt werden die
+Overrides in der Fixpunkt-Schleife auf die gerade UMBENANNTEN Zeilen
+angewendet – nur auf die, ein Versuch mit allen Zeilen traf die
+nachgetragenen aus `manual_events.json` (ASV-Duisburg-Falle, −98 Events). **Zeitnehmer**: `time2win.at` sperrt ClaudeBot
+ausdrücklich (`Disallow: /`) – wie ironman.com nicht als Quelle;
+raceresult sperrt `/RREvents/` (die öffentliche Liste), pentek alles,
+sportident ist eine JS-Anwendung, swiss-cycling.ch sperrt ClaudeBot,
+`computerauswertung.at` (OÖ/NÖ) nennt nur Name und Datum und verlinkt die
+ÖRV-Ausschreibung. **Landesverbände**: kein einziger deutscher LV hat
+einen frei lesbaren, strukturierten Rennkalender – Hessen/RLP/Thüringen/
+Saarland keinen oder nur PDFs, WRSV/Baden/NRW/MV mit Vorbehalt,
+Brandenburg/Niedersachsen/Sachsen-Anhalt 403, Berlin/Bremen/Sachsen ohne
+auffindbare Domain; Hamburg (`radsport-hh.de`) und Schleswig-Holstein
+(`radsport-sh.de`) haben dünne Listen (Name + Datum, SH mit
+Veranstalterlink) und wären Kandidaten. Österreichs LVs verlinken den
+ÖRV-Kalender (schon Quelle), die Schweiz kommt über datasport. **Die
+lokalen deutschen Rennen stehen nur bei rad-net.de** (403 + Verbot) –
+Punkt 1 des Plans bleibt der einzige Weg, ebenso für den DSV.
+
+**Zweite Quellensuche, acht kleine Radquellen (30.09.2026)**: Auf
+„neue Webseiten finden … kleine lokale Rennradrennen" hin rund 60 Domains
+gesichtet (README, „Neue Kalender für Rad und Schwimmen, zweite Suche")
+und auf „bitte alle die es erlauben einbauen" hin **acht Scraper**
+gebaut, je Domain ein Modul (weil `check_robots()` je `base_url` prüft),
+alle Fahrrad, alle in `test_kleine_radquellen`: `stevenscup_scraper.py`
+(Stevens Cyclo-Cross Cup, Norddeutschland; Ort aus der PLZ-Adresse, der
+Cup-Ort „Mölln" fährt in Grambek), `cyclocrosscup_scraper.py` (Cyclocross
+Cup Baden-Württemberg; **eine Zeile je Renndauer** aus dem Zeitplan,
+Nachwuchs und Brumath/F fallen), `crosscup_scraper.py` (GUNSHA Crosscup,
+Mitteldeutschland; Koordinaten und Veranstalterseite aus der Rennseite,
+die „Streckenlänge" ist die Runde), `dsergebnis_scraper.py` (Zeitnehmer
+DS Ergebnisdienst; nur Datum + Name, der Ort kommt aus dem Namen, ohne
+eindeutigen Ort kein Eintrag), `weserems_scraper.py` (Weser-Ems-Cup;
+Kürzel „Os", „Pr. Oldendorf", „Engter" ausgeschrieben), `boe_scraper.py`
+(Swiss Cycling BOE; Kalender des laufenden und des nächsten Jahres, 2027
+noch 404), `fricktal_scraper.py` (Fricktaler Cup, MTB) und
+`radsportsh_scraper.py` (Radsportverband SH: RTF/CTF/Gravelride, Ort aus
+Name oder Hostnamen der Veranstalterseite). Erster Lauf: 6.975 → 7.028
+Events, 57 neue Zeilen (Fahrrad 824 → 876). Drei Dinge daraus, alle in
+`scraper_lib.py`: **`ort_im_text(text, orte, ausnahmen, mehrdeutig_ok)`**
+ist der gemeinsame Ortsfinder für Quellen, die den Ort nur im Namen
+nennen (Zweiwort vor Einwort, Adjektiv nur vor Rennwort, Artikel sperrt,
+Bindestrich-Teile nur hinter Rennwort, mehrdeutig nur mit Flagge –
+Gegenproben „Kometen Schmitter Nacht", „Die Mauer von Kendenich",
+„Main-Spessart Rundfahrt" im Test); **`dedupe_key()` zählt ohne Distanz
+die Dauer mit** (die 30-/40-/60-Minuten-Rennen eines Cyclocross fielen
+sonst beim Einsammeln zusammen – Datenregel 8 galt in `is_same_event()`,
+nicht im Schlüssel); `\bctf\b` ist Mountainbike. **Nicht gebaut**:
+`jedermannmasterradcup.at` (kein Ort; die Rennen stehen über ÖRV/endure
+drin) und `radsport-hh.de` (nur Name + Datum; die Cross-Rennen kommen über
+den Stevens Cup). **Vorbehalt, nicht gelesen**: `zpn-timing.de`
+(Privat-Klausel – die beste Struktur der Suche, eine Anfrage des Nutzers
+wäre der Weg), `s-r-b.de`, `swiss-cyclocross.ch`, `bikeboard.at`. Die
+Lindauer Seequerung (01.08.2027, BSV-Schwaben-Kalender) steht in
+`manual_events.json`. Im Frühjahr 2027 lohnt ein Blick: BOE, Fricktal
+und dsergebnis tragen dann die Saison ein. **Erster Kilometerliebe-Lauf**:
+501 Eventseiten, 336 neue Zeilen, 7.016 → 7.194 Events – und der siebte
+Weg der Namensregel (Datenregel 7).
+
+**Dritte Suche und Linkprüfung (30.09.2026, abends)**: Auf „noch einmal
+nach allen Webseiten schauen … Detailsuche in Ruhe für Österreich und
+jedes Bundesland … nicht auf Sammelwebseiten verlinken" hin (Bilanz im
+README, „Dritte Suche und Linkprüfung"). Drei neue Scraper, alle mit
+Test: **`kilometerliebe_scraper.py`** (Laufkalender Kilometerliebe,
+Deutschland – Monatsseiten mit `<time>` + Link je Karte, weil das JSON-LD
+`ItemList` bei 50 kappt; Eventseite mit JSON-LD `SportsEvent`, Faktenliste
+und dem Knopf „Event-Website"; Wandern/Megamarsch fällt weg; die Seite
+schickt UTF-8 ohne Zeichensatz, `_utf8()` repariert das Mojibake von
+`fetch_page`; ~500 Eventseiten je Lauf, `--max-details`),
+**`lvpfalz_scraper.py`** (Volkslauf-Terminliste des LV Pfalz, Contao, mit
+Veranstalterlink – der Ort kommt aus dem Vereinsnamen, „TSG Maxdorf" →
+Maxdorf) und **`lck_scraper.py`** (Laufkalender des Läuferclubs Kaltern,
+Südtirol – `inc_kalender.php?id=` liefert ein Fenster von vier Terminen
+um jede Seitenleisten-Id; Ort aus Name oder Text gegen die Südtiroler
+Orte, Trentiner Läufe fallen so weg). Nicht gebaut: `laufkalendersachsen.de`
+(zwölf Termine, MEC), `laufkalender-mv.de` (leer); die Landesverbände
+Österreichs verlinken alle den ÖLV-Kalender. **Sammelseiten**: 19 weitere
+Zeitnehmer, Anmelde- und Verbandsportale in `PORTAL_DOMAINS` (ergebnisliste,
+sportchrono, vs-/sp-/performance-timing, lauf-anmeldung, sportanmeldung,
+Athleticon BSV Hamburg, OÖ Radsportverband, KLV, Bayerischer
+Schwimmverband, Swiss Running LaufGuide, Lausitzer Sportevents, swim.de,
+kilometerliebe, lck, lv-pfalz, vss.bz.it). Vor jeder Linkarbeit die
+Hostliste zählen (`is_portal_link` je Host mit ≥ 4 Veranstaltungen) –
+ein Zeitnehmer, der in keiner Liste steht, sieht aus wie ein Veranstalter.
+**Geschwisterzeilen** derselben Serie oder desselben Orts sind die beste
+Kandidatenquelle für `verifizieren` (17 Treffer), die Websuche je
+Vereinslauf liefert nur Portale. In `nennt_den_lauf()` zählt das
+**Ortsadjektiv** („korschenbroicher") nicht mehr als Namenswort. **Zwölf
+Meisterschaften im Rahmen eines Volkslaufs** (DM Marathon = Marathon
+Hannover, DM Halbmarathon = Frankfurter Halbmarathon, SLB-Marathon =
+SAARathon, RLP-Cross = Rennbahncross Herxheim, Nachwuchs: U23-Länder-
+meisterschaft, Junioren-Rundfahrt) per Override ausgeschlossen
+(Datenregel 18). `radsportevents_scraper.py` überspringt Kurse
+(`KEIN_RENNEN`: Fahrtechnikkurs, Training, Camp). `weserems_scraper.py`
+benennt seine Zeilen wie radsport-events.de („Weser-Ems-Cup Rheine",
+Label schlicht „Cyclocross"), sonst stand der Cup doppelt.
+
+**Gravel-Kalender DealGrid (08.10.2026, To-do Punkt 16, „Ja für
+dealgrid")**: `dealgrid_scraper.py` liest die eine Kalenderseite (JSON-LD
+plus Listenzeile), je Distanz eine Zeile, Veranstalterlink je Termin
+(`dealgrid.de` ist Affiliate-Seite und steht in `PORTAL_DOMAINS`).
+Spannen, Rundenlängen, Kinderstrecken und Vorjahreswerte werden nicht
+geraten; Camps, die ganzjährige ORBIT360-Serie, Ausland und Gegenden statt
+Orten („Harz", „Bayerischer Wald" – `ort_im_text` hätte daraus den Ort
+„Wald" gemacht, deshalb hier nur ganzer Name, Teil vor dem Bindestrich
+oder längere/kürzere Form MIT Koordinaten ≤ 15 km) fallen. Erster Lauf:
+80 Termine, 46 neue Zeilen, 6.946 → 6.986 Events. `test_dealgrid`.
+
+**Vier übersprungen** – die Skripte brechen selbst mit `sys.exit(0)` ab und
+rufen die Seite *nicht* ab. Diese Entscheidungen nicht ohne Rückfrage
+umdrehen:
+
+- `ironman_scraper.py` – robots.txt verbietet ClaudeBot ausdrücklich
+- `runnersworld_scraper.py` – Nutzungsbedingungen verbieten automatisiertes Auslesen
+- `ahotu_scraper.py` – Cloudflare-Sperre (403); kein Umgehen
+- `blvsport_scraper.py` – auf Wunsch des Nutzers wegen Datenqualität (liefert
+  weder Distanz noch Link); die recherchierten Events bleiben über
+  `manual_overrides.json` erhalten
+
+laufen.de und running.life rufen **zusätzlich die Detailseite jedes Events**
+ab – nur dort stehen die einzelnen Wettbewerbe, das Land und die offizielle
+Seite. `--no-details` schaltet es ab, `--max-details N` begrenzt es für
+Testläufe.
+
+**Ein vollständiger Lauf dauert ~2 Stunden** (running.life schöpft mit
+`--max-pages 110` den ganzen Kalender aus, ~2020 Detailseiten mit 2 s
+Pause; dazu laufen.de mit ~750). Deshalb niemals im Chat abwarten – den
+Workflow auslösen und später nachsehen. Für Tests immer
+`--max-pages 2 --no-details` o. Ä.
+
+## Automatik
+
+`.github/workflows/ci.yml` läuft bei **jedem Push und jedem Pull Request**
+(zwei Jobs): `test_scraper_lib.py` samt `node --check` und Stempel-Prüfung,
+dazu die Idempotenz von `clean_events.py` (zweimal laufen lassen und die
+zwei Ergebnisse vergleichen – NICHT den committeten Stand gegen den
+ersten Lauf: Aufräumen entfernt vergangene Events, das ändert die Datei
+also jeden Tag zu Recht; mit `--no-geocoding`, damit nicht jeder Push
+Nominatim befragt) und die Frage, ob `kalender/` zu `events.json` passt – und getrennt davon `smoke_test_frontend.py` in
+Chromium. Das Repository ist öffentlich, Actions-Minuten sind kostenlos.
+**Keine Scraper-Läufe in der CI** (Höflichkeit gegenüber den Quellen).
+
+**Deploy-Gate (seit 13.10.2026, vom Nutzer gewünscht: „die sicherste
+Methode, ohne dass die Webseite down gehen kann")**: `pages.yml` ruft
+`ci.yml` als wiederverwendbaren Workflow (`workflow_call`) und deployt
+erst, wenn Regressionstests UND Rauchtest grün sind – drei Jobs
+`aenderung` → `pruefung` → `deploy`. Rot heißt: alte Fassung bleibt
+live, CI-Mail sagt, was fehlschlug. `ci.yml` prüft den Deploy-Branch
+deshalb nicht mehr selbst unter `push` (sonst zweimal je Push, zwei
+Mails), nur noch `claude/website-access-9d9tg1` und `main`;
+`test_wartung` hält beides fest. Rollback: Actions → „Deploy GitHub
+Pages" → älterer grüner Lauf → „Re-run all jobs". Einzelheiten im README
+(„Deploy-Gate und Wartungsmodus").
+
+**Wartungsmodus (14.10.2026, zweite Fassung)**: Der Nutzer wollte einen
+Knopf („dann komme ich auf eine Seite wie admin.html und da gibt es
+einen Button") statt der Datei im Repo vom Vorabend. Ein Knopf im
+Browser kann nichts committen, also liegt der Schalter in Firestore
+(`config/wartung`, Regeln: lesen alle, schreiben nur Admins), die
+Seiten fragen ihn im `<head>` per REST ohne Anmeldung ab (Fail-open),
+`admin.html` legt ihn um. Folgen: eine Firestore-Abfrage je Seitenaufruf
+(kostenlos bis 50.000/Tag), ein Abschnitt in der Datenschutzerklärung,
+und der Rauchtest fängt die Abfrage ab (`route`), sonst blockierte ein
+eingeschalteter Wartungsmodus jeden Deploy. Die Regeln muss der Nutzer
+einmal deployen (`firebase deploy --only firestore:rules`).
+`test_wartung` hält alles fest.
+
+**Ein Push des Datenlaufs löst KEINEN Deploy aus** (gefunden am
+13.10.2026: der Lauf vom 12.10. hatte keinen einzigen Folge-Lauf, weder
+Tests noch Deploy): GitHub unterdrückt Workflow-Läufe aus Pushes mit dem
+`GITHUB_TOKEN`. Bis dahin ging ein Datenlauf erst mit dem nächsten Push
+von Hand live. `update-events.yml` stößt `pages.yml` deshalb nach dem
+Push per `gh workflow run pages.yml --ref …` an (`actions: write`,
+workflow_dispatch ist die erlaubte Ausnahme) – **seit dem 13.10.2026
+auch auf `main`** (Commit `c7344d8`, vom Nutzer freigegeben). **Am
+19.10.2026 nachgesehen: Der Anstoß wirkt** (Lauf 39274388261,
+`workflow_dispatch`, zum Bot-Commit `4c82d702`) – **und der Lauf war rot**:
+`test_manuelle_events` fand eine Strecke doppelt in `manual_events.json`
+(zwei Gedächtnis-Einträge für eine Ausgabe, siehe „Gedächtnis je
+Veranstaltung“), das Deploy-Gate hielt den Datenlauf auf, live blieb der
+Stand vom Vormittag. **Nach jedem Montagslauf den Deploy-Lauf ansehen** –
+ein roter heißt: die neuen Daten warten, bis jemand den Fehler behebt und
+pusht.
+**Workflow-Läufe zu einem Commit immer mit dem VOLLEN SHA abfragen**
+(`actions/runs?head_sha=<40 Zeichen>`): Mit sieben Zeichen liefert die
+API still null Treffer – so entstand am 13.10. erst eine falsche
+Beobachtung („keine Läufe"), die erst die zweite Abfrage mit vollem SHA
+bestätigte.
+
+**Der Zeitplan läuft aus der Fassung auf `main`, nicht aus der auf
+diesem Branch.** GitHub liest `schedule`-Trigger nur aus dem
+Standard-Branch. `main` enthält deshalb genau drei Dateien:
+`.github/workflows/update-events.yml`, `.github/workflows/instagram.yml`
+(seit dem 14.10.2026, Commit `7f6ab3d`, vom Nutzer freigegeben: „Ja, auf
+main pushen"; die Fassung mit Vorschau-Lauf und Freigabeprüfung seit dem
+Abend desselben Tages, Commit `e3251fc1`, „Ja für instagram.yml auf
+main"; die Fassung mit Anmeldung über Instagram seit dem 16.10.2026, Commit
+`ae5751ef`) und `README.md`. Kein `pages.yml` auf `main` – ein Push
+dorthin löst deshalb keinen Deploy aus. Die Skripte holt
+der Workflow vom Entwicklungs-Branch, den er ausdrücklich auscheckt
+(`ref: claude/endurance-events-website-v1wruf`).
+
+**Seit dem 19.09.2026 ist die Datei dort auf dem aktuellen Stand**
+(vom Nutzer freigegeben, Commit `c7af0ba` auf `main`). Vorher war sie
+ein älterer Stand, und jeder der vier Unterschiede hatte Folgen – das
+ist der Grund, warum die beiden Fassungen **nicht auseinanderlaufen
+dürfen**:
+
+| war auf `main` | Folge |
+|---|---|
+| `git add events.json` **ohne `kalender`** | Der Datenlauf ließ die `.ics`-Dateien uncommittet liegen. Der CI-Schritt „kalender/ passt zu events.json" schlug danach bei JEDEM Push fehl, auch bei solchen ohne Datenbezug – am 18.09.2026 viermal hintereinander |
+| täglicher Cron statt wöchentlich montags | Laufzeit und tägliche `events.json`-Diffs von ~450 KB, solange die Seite nicht live ist |
+| kein `timeout-minutes` | Ein Lauf dauert ~2 Stunden; ohne Grenze lässt GitHub sechs zu, eine hängende Quelle verbrennt sie |
+| keine NOTIFY-Secrets | `update_events.py` ruft den Webhook für „Benachrichtige mich" gar nicht erst auf |
+
+**Wird die Workflow-Datei hier geändert, muss sie auf `main` mit** –
+sonst ist die Änderung wirkungslos oder, schlimmer, sie wirkt
+halb. Damals behoben wurden auch die Folge (`build_ics.py` laufen lassen
+und mitcommitten) und die Erkennung (`test_kalenderdateien` vergleicht
+`kalender/` mit `events.json`, siehe „Vor jedem Commit").
+
+**`stage_kalender()` in `update_events.py` bleibt als Gürtel neben den
+Hosenträgern**: Es legt die frisch erzeugten `.ics`-Dateien nach
+`build_ics.py` in den Git-Index – nur in GitHub Actions, lokal nie.
+`git commit` committet den INDEX, nicht nur die Pfade hinter `git add`;
+was dort gestaget ist, geht also mit, auch wenn eine Workflow-Datei das
+`kalender` hinter `git add` einmal wieder verliert. Mit der jetzigen
+Fassung (`git add events.json kalender`) ist der Aufruf ein No-op.
+`test_kalender_staging` hält vor allem die Gegenprobe fest: **lokal darf
+das Skript den Index NIE anfassen.**
+
+**Seit dem 27.10.2026 fragt der Datenlauf danach die Veranstalterseiten
+nach ihren Instagram-Links** (`run_instagram_konten()`: 400 Seiten,
+8 Minuten). **Das Zeitbudget ist knapp**: Der Lauf vom 26.10.2026
+brauchte 262 der damals 300 Minuten. **Seit dem 27.10.2026 steht
+`timeout-minutes` auf 360** (vom Nutzer freigegeben: „Ja, Timeout auf
+main auf 360 anheben“, auf beiden Branches und auf `main`) – das ist das
+Maximum für gehostete Läufer, mehr geht nicht. Reißt ein Lauf die
+Grenze, bricht GitHub ab und es wird NICHTS committet – wer einen
+weiteren Schritt einbaut, rechnet vorher nach; reicht auch 360 nicht,
+muss der Lauf geteilt werden (eigener Workflow für einen Prüfschritt,
+Zeitplan auf `main`).
+
+**Seit dem 05.10.2026 läuft im Datenlauf vor dem Aufräumen
+`veranstalter_seiten.py pruefen`** (`run_naechste_ausgaben()` in
+`update_events.py`: 150 Seiten, 40 Minuten, `--uebernehmen`), und der
+Commit nimmt `scripts/veranstalter_seiten.json`,
+`scripts/veranstalter_seiten_pruefung.json` und
+`scripts/manual_events.json` mit – `git diff --quiet` und `git add` in
+`update-events.yml` nennen sie. **Seit dem 05.10.2026 (abends) steht
+dieselbe Fassung auf `main`** (Commit `d5c5618`, vom Nutzer freigegeben).
+Davor war es unschädlich: `stage_kalender()` staget die drei Dateien in
+Actions, und der Commit committet den Index.
+
+**Die Einzelprüfung geht über mehrere Sitzungen**, deshalb gibt es
+`scripts/geprueft.json`: Wer dort steht, wurde gegen die offizielle
+Ausschreibung geprüft. Ohne dieses Protokoll fängt jede Sitzung von
+vorn an. Fünf Ergebnisse, und der Unterschied ist wichtig:
+
+| `ergebnis` | heißt |
+|---|---|
+| `quelle_ok` | offizielle Seite (oder mehrere unabhängige Kalender) abgerufen, alles richtig |
+| `korrigiert` | Fehler gefunden, Korrektur in `manual_overrides.json` bzw. `manual_events.json` |
+| `label_ok` | **nur am Wettbewerbs-Label entschieden**, ohne Abruf – schwächer |
+| `unklar` | angesehen, aber an der Quelle **nicht zu entscheiden** – die Begründung sagt, was fehlt |
+| `entfernt` | gehört nicht in die Liste (`NICHT_AUSDAUER`) |
+
+`label_ok` nicht mit `quelle_ok` verwechseln: „Halbmarathon 22,8 km"
+nennt seine Distanz selbst, das reicht für diese eine Frage – aber die
+Zeile ist damit nicht vollständig geprüft.
+
+`unklar` blendet `--offen` mit aus – sonst wird derselbe Fall jede
+Sitzung neu recherchiert. Damit er nicht stillschweigend verschwindet,
+nennt `audit_events.py` im Kopf die Zahl der `unklar`-Fälle
+(`zaehle_unklar()`). Offen stehen dort z. B. die Walking-Distanz des
+Freundschaftslaufs Marpingen (Veranstalterseite löst nicht mehr auf) und
+die virtuelle „XMAS-Challenge" des Blauen Landes – **die braucht eine
+Entscheidung des Nutzers**: „Egal wo, egal wann", fünf Wochen lang, ohne
+Ort und ohne Koordinaten. Die Liste ist auf Veranstaltungen an einem Ort
+und an einem Termin gebaut; ob virtuelle Läufe wie HYROX über eine
+eigene Regel herausfallen sollen, entscheidet nicht Claude.
+
+**Nach einem großen Datenlauf** gehört die Einzelprüfung dazu:
+
+```bash
+python3 scripts/audit_events.py --quiet        # welche Kategorien, wie viele
+python3 scripts/audit_events.py --ab 0 --anzahl 200
+```
+
+Sie ändert nichts und ist kein Test (Rückgabewert immer 0) - sie sagt,
+wo man hinsehen sollte. Die scharfen Kategorien zuerst („… aber Distanz
+passt nicht", „Kinderlauf-Label mit Erwachsenendistanz", „Zahl im Label
+weicht ab", „Koordinaten passen nicht zum Land"); Portallinks und
+fehlende Distanzen sind keine Fehler.
+
+**Der Rauchtest-Job braucht `scripts/requirements.txt`** (seit dem
+13.10.2026 in `ci.yml`): `smoke_test_frontend.py` importiert seit dem
+06.10.2026 `scraper_lib.serien_schluessel`, und `scraper_lib` zieht
+`requests`/`bs4` – der Job installierte nur Playwright, und eine Woche
+lang brach er bei jedem Push nach 30 Sekunden mit „No module named
+'requests'" ab (lokal lief der Test, dort sind die Pakete da). Der
+Nutzer bekam zwei Fehler-Mails je Push, weil die CI außerdem auf
+`push` UND `pull_request` lief (PR #1 hängt am Entwicklungs-Branch);
+seitdem nur `push` auf den drei Branches. **Ein roter Rauchtest in
+der CI nach 30 Sekunden ist ein Umgebungsfehler, kein Seitenfehler** –
+erst das Log lesen, dann suchen.
+
+`.github/workflows/update-events.yml` läuft **wöchentlich montags 5:00 UTC**
+(vorher täglich – solange die Seite nicht live ist, bringt ein täglicher
+Lauf nur Laufzeit und große events.json-Diffs): alle Scraper, dann
+`clean_events.py`, dann Commit auf den Branch. Für einen Datenlauf ist
+also **keine Claude-Session nötig** – Workflow manuell auslösen reicht
+(Actions → „Events automatisch aktualisieren" → Run workflow).
+
+## Livegang auf endurance-events.de (13.10.2026)
+
+Vom Nutzer entschieden: „Ich will jetzt schon live gehen, weil es auch
+dauert, dass die Leute die Webseite kennen und dass man dann auch Input
+bekommt. Ich denke, wir müssen am Anfang noch nicht 100 % aller Läufe,
+Radrennen und Schwimmevents haben." Und: „Alle Events, die ich in der
+Excel-Liste noch nicht gecheckt habe, denen vertrau ich noch nicht so
+ganz … bitte alle einmal speichern, aber nicht in der Live-Version auf
+endurance-events.de zeigen. Wir fügen sie nach und nach die nächsten
+Tage dann hinzu" – er prüft täglich ~50 Zeilen.
+
+**Der Schalter ist die Korrekturliste selbst.** Eine Regel, drei Abnehmer:
+- `audit_events.offene_pruefungen(events, heute, protokoll)` sagt, welche
+  Zeilen noch keine Prüfung bestanden haben: Audit-Meldung ohne Eintrag
+  in `geprueft.json`, `datum_vorlaeufig`, frühere Prüfung `unklar`, exakt
+  doppelte Zeile – genau die Auswahl, die `korrekturliste.py export`
+  (`sammle()`) in die Excel-Liste schreibt.
+- `clean_events.mark_pruefung_offen()` setzt an genau diese Zeilen
+  **`pruefung_offen: true`** in `events.json` – als LETZTER Schritt des
+  Aufräumens, nach allen Korrekturen – und nimmt es weg, sobald die Zeile
+  die Liste verlässt. **Eine Ausnahme** (`audit_events.NUR_HINWEIS`,
+  `verbirgt()`): Ein geschätzter Termin ALLEIN blendet nicht aus – die
+  Zeile steht in der Liste, auf der Seite mit Sternchen (vom Nutzer
+  gleich nach dem Livegang entschieden: „Die 165 Zeilen können wir
+  zeigen"; davon haben 122 noch einen zweiten Grund und bleiben
+  ausgeblendet, 43 sind sichtbar). Keine Löschregel: nichts wird entfernt, nur
+  markiert; `kalender/` enthält die Dateien weiter (nicht verlinkt).
+- `EF.loadEvents()` (`dropUnchecked`, `filters.js`) lädt markierte Zeilen
+  nicht – Liste, Karte und die Zähler der Startseite laufen alle darüber,
+  auch der Rückfall auf `events.json`. `abo_meldung.py` meldet sie
+  nicht an die Abo-Function – erst, wenn sie freigegeben sind. Die Rauchtest-Helfer, die Zeilen aus
+  `events.json` auswählen (`anzahl_strecken`, `ort_mit_zwei_veranstaltungen`),
+  übergehen sie ebenfalls. `test_pruefung_offen` hält alles fest.
+
+**Der Tagesablauf des Nutzers**: Excel-Zeilen prüfen → Datei
+zurückschicken → `korrekturliste.py import` (schreibt `geprueft.json`
+und Overrides, räumt auf) → Commit und Push → Pages-Deploy. Mit dem
+Aufräumen fällt das Feld an den geprüften Zeilen, sie sind live.
+Status „Unklar" lässt die Zeile ausgeblendet (sie steht weiter in der
+Liste); „Löschen" entfernt sie, ihre nächste Ausgabe kommt wieder in die
+Liste (Datenregel 18); „Fällt aus" entfernt diese Ausgabe und
+lässt die Veranstaltung im Gedächtnis (Datenregel 18); „Check again"
+lässt sie ausgeblendet, bis Claude sie an der Quelle geprüft hat
+(Korrekturseite, `nochmal.json`); „Stimmt so"/„Korrigiert" geben sie frei.
+
+**Der Rhythmus seit dem Livegang** (vom Nutzer am 13.10.2026 erbeten:
+„Was mach ich, was machst du genau?"):
+- *Täglich, Nutzer*: ~50 Zeilen auf der **Korrekturseite** prüfen
+  (Veranstalterseite ansehen, Zelle korrigieren, Status setzen – jede
+  Eingabe ist sofort gespeichert) und im Chat „Korrekturen übernehmen“
+  schreiben. (Bis zum 19.10.2026 ging die Excel-Datei hin und her; der
+  Weg bleibt möglich.)
+- *Täglich, Claude*: Antworten holen und `korrektur_seite.py einlesen`
+  (Ablauf in „Korrekturseite“), das ruft `korrekturliste.py import`;
+  Zellen, die keine Zahl sind, von Hand (mehrere Distanzen, Runden,
+  Minuten, Höhenmeter); aus Korrekturen Klassen zählen und Regeln bauen
+  (Dreizehnter Durchgang); `clean_events` idempotent, `build_ics`,
+  Tests, Rauchtest bei Frontend-Änderungen; Commit + Push auf beide
+  Branches → Pages-Deploy → die Zeilen sind sichtbar. Rückmeldung: was
+  übernommen, was von Hand, was offen.
+- *Wöchentlich, automatisch (Montag 05:00 UTC)*: `update-events.yml` –
+  alle Scraper, Gedächtnis-Prüfung, `clean_events` (setzt
+  `pruefung_offen` an neue auffällige Zeilen), `build_ics`, Commit →
+  Deploy; saubere neue Zeilen sind sofort live, auffällige warten auf
+  die Liste; nach dem grünen Deploy die Abo-Mails (Job `abo` in
+  `pages.yml`, mit den unter der Woche freigegebenen Zeilen).
+- *Wöchentlich, Claude (Montag/Dienstag)*: Lauf und CI prüfen,
+  `⚠`-Berichte und `audit_events.py` durchsehen,
+  `veranstalter_seiten.py handpruefung` (NEU?/TOT), **die Zeilen der
+  Korrekturseite neu bauen und die Seite neu veröffentlichen** (neue
+  Zeilen aus dem Lauf stehen nur dort; Antworten und Quittungen bleiben
+  erhalten).
+- *Wöchentlich, Nutzer*: in der Firebase-Konsole nachsehen, ob in
+  `errorReports` oder `eventSuggestions` etwas Neues liegt (Claude kann
+  die Sammlungen nicht lesen – die Regeln sperren das), und es hier
+  melden; Claude prüft an der Quelle und schlägt vor, der Nutzer
+  bestätigt.
+- *Bei Bedarf*: Fällt dem Nutzer auf der Seite etwas auf, hier melden;
+  Claude prüft an der Quelle, zählt die Klasse, baut Regel oder Override.
+
+**Die längeren Rhythmen** (vom Nutzer am 27.10.2026 so beschlossen: „Ja
+ich stimme überall zu, bitte so aufnehmen“). Jede Sitzung sieht hier
+nach, ob etwas fällig ist, und sagt es dem Nutzer – das Datum der
+letzten Erledigung steht in Klammern dahinter (beim Erledigen
+nachtragen). Routine geht vor Entwicklung: Reichen die Tokens nicht,
+wartet die Entwicklung, nicht der Wochenablauf.
+- *Monatlich, Claude* – fällig ab dem 1. jedes Monats (zuletzt: –):
+  - Clubs-Korrekturliste durchsehen (Clubs-Branch, `clubs_korrekturliste.py`).
+  - `veranstalter_links.py sammeln --nur-host my.raceresult.com
+    --auch-geprueft --pause 8`, dann `anwenden` – Veranstalter tragen
+    ihre Seite auf der Kontaktseite nach.
+  - `seitenabgleich.py` über alle Veranstalterseiten: DATUM/DISTANZ
+    prüfen, ABGESAGT als „Fällt aus“, BESTAETIGT → Override
+    `datum_vorlaeufig` löschen.
+- *Monatlich, Nutzer*: Statistik-Dashboard und Instagram-Auswertung
+  ansehen.
+- *Quartalsweise, Claude* – nach dem Kalender, fällig ab 01.01., 01.04.,
+  01.07. und 01.10. (vom Nutzer am 27.10.2026 so festgelegt); das
+  laufende Quartal (Q4 2026) ist damit schon fällig (zuletzt: –):
+  - **Neue Quellen suchen – INTENSIV** (Wunsch des Nutzers: „Das neue
+    Quellen suchen soll dann schon sehr intensive sein“): je Sportart
+    (Rad und Schwimmen zuerst, dann Triathlon, Lauf) und je Region
+    (jedes Bundesland in DE und AT, jeder Kanton-Verband in CH,
+    Südtirol) Landesverbände, Cups und Serien, Zeitnehmer,
+    Anmeldeportale, Vereins- und Regionalkalender, Tourismusseiten;
+    dazu die Kandidaten- und Verbotslisten im README („Quellen für den
+    großen Datenlauf“ und folgende) erneut ansehen. Je Fund robots.txt,
+    Impressum, AGB live lesen und wie viele NEUE Events er bringt
+    (gegen `events.json` gezählt). Ergebnis als Tabelle für den Nutzer –
+    **kein Scraper ohne sein Ja**.
+  - Gesperrte Quellen erneut prüfen (robots.txt/Bedingungen geändert?) –
+    nur lesen, nie umgehen; Anfragen an Betreiber gibt es nicht
+    (alt 30, gestrichen).
+  - Geräte-Check (Handy, iPad, Rechner; Rauchtest plus
+    `pruefe_plattformen`) und `vendor/` auf Sicherheits-Updates
+    (Leaflet, markercluster, Firebase).
+- *Quartalsweise, Nutzer*: Impressum und Datenschutzerklärung
+  gegenlesen, sobald sich etwas an Daten, Statistik oder Werbung
+  geändert hat.
+- *Jährlich bzw. fest terminiert*:
+  - Frühjahr (März/April): nachsehen, ob BOE, Fricktaler Cup,
+    dsergebnis, swimsports, BRV Timing und fsieben die neue Saison
+    liefern; von Hand NordCup, Freiwassercup Bayern, RAD RACE (To-do
+    Punkte 3 und 4).
+  - Bis 31.03.2027: Mailversand ohne Firebase Extension (To-do Punkt 5,
+    Erinnerung am 11.01.2027).
+  - Saisonwechsel (Herbst/Winter): Gedächtnis-Funde und „geloescht“-
+    Wiedervorlagen in der Korrekturliste besonders im Blick behalten.
+  - *Nutzer*: Domain bei IONOS verlängern, Firebase-Abrechnung prüfen.
+
+**Stand beim Livegang**: 1.256 von 6.940 Zeilen ausgeblendet (sichtbar
+5.684; vor der Sternchen-Ausnahme 1.299). Die größten Gruppen: Distanz
+fehlt (496), Werktag (253), Portallink (216). **Folge, dem Nutzer
+gesagt**: Jede neue Zeile aus dem Wochenlauf, die eine Audit-Meldung
+trägt, bleibt unsichtbar, bis er sie geprüft hat – das ist gewollt
+(„denen vertrau ich nicht"), aber die Liste wächst mit jedem Datenlauf;
+`korrekturliste.py export` nennt im Blatt „Anleitung", dass jede Zeile
+dort ausgeblendet ist (außer der Sternchen-Ausnahme).
+
+**Domain**: `og:image` in allen drei Seiten, `SITE_URL` in
+`functions/index.js` (Vorgabewert; gilt seit dem Functions-Deploy vom
+13.10.2026), der Hinweis in `firebase-config.js` und die
+User-Agent-Adressen der Scraper zeigen auf `https://endurance-events.de`.
+**Nicht geändert**: die `UID` in `build_ics.py`
+(`…@antdon930.github.io`) – sie ist nur eine Kennung, eine Änderung
+schriebe alle ~6.900 Kalenderdateien neu und bräche die Identität schon
+importierter Termine. `og-image.png` trägt keine Adresse im Bild, muss
+also nicht neu gerendert werden. GitHub Pages (Deploy per Actions aus
+`pages.yml`) braucht KEINE `CNAME`-Datei – bei einem Actions-Deploy wird
+sie ignoriert; die Domain steht in den Repo-Einstellungen (Settings →
+Pages → Custom domain), die alte Adresse `antdon930.github.io/Enduranceevents/`
+leitet danach automatisch um.
+
+**Was nur der Nutzer kann – alles am 13.10.2026 abends erledigt**
+(Schritt für Schritt per Bildschirmfoto begleitet): DNS bei IONOS (die
+„Default Site"-Einträge A/AAAA lassen sich nicht löschen, nur
+bearbeiten – der A-Record auf 185.199.108.153 geändert, der AAAA
+verschwand dabei von selbst; drei weitere A-Records `@` auf
+185.199.109–111.153, dabei jeweils „DNS-Record für www nicht
+hinzufügen" anklicken, sonst legt IONOS einen A-Record für `www` an,
+der mit dem CNAME kollidiert; CNAME `www` → `antdon930.github.io`;
+Mail-Einträge unangetastet), Custom Domain in den Pages-Einstellungen
+(Zertifikat kam nach ~15 Minuten, „Enforce HTTPS" war vorab gesetzt),
+Firebase Authentication → Autorisierte Domains (`endurance-events.de`,
+`www.endurance-events.de`), und `firebase deploy --only functions` aus
+der Cloud Shell (shell.cloud.google.com direkt, die eingebettete Shell
+der Firebase-Konsole hing beim Start; „Deploy complete!", `SITE_URL`
+gilt). Geprüft von hier: https 200 mit Titel, `www` → Apex, alte
+Adresse leitet um, ICS als `text/calendar`. Der letzte Rest kam
+gegen 18:00 UTC von selbst in Ordnung: Fastly hielt für
+`http://endurance-events.de/` (nur die Wurzel, nur http) eine Weile
+die 404 von vor der Domain-Einstellung im Cache (PURGE nicht erlaubt);
+danach stand die Seite unter http noch ohne Umleitung, obwohl „Enforce
+HTTPS" gesetzt war – GitHub prüfte die Domain gerade erneut („DNS Check
+in Progress" in den Pages-Einstellungen). Nach dem Ende der Prüfung
+leitet `http://endurance-events.de/` per 301 auf https um, `www` in
+zwei Schritten (http://www → http://apex → https). **Wer das nächste
+Mal eine Umleitung vermisst, schaut zuerst in Settings → Pages, ob
+dort ein DNS-Check läuft** – solange der läuft, greift „Enforce HTTPS"
+nicht, und es gibt nichts zu tun außer warten.
+
+## Korrekturseite (seit 19.10.2026)
+
+Vom Nutzer gewünscht: „Wir haben jetzt 2 Korrekturlisten … Beide sind in
+Excel, die wir uns immer hin und herschicken müssen. Können wir hier nicht
+einfach eine /korrektur.html Seite bauen die den gleichen Aufbau hat wie
+die Excel … Sobald ein Event dann von mir erledigt ist, dann siehst du
+sofort meinen Output.“
+
+**Adresse: https://claude.ai/artifact/MPZsMjzXMUT6x9tSuRS85T** – ein privates claude.ai-Artifact (nur der Nutzer
+öffnet es; Datenbank-Regel `read`/`write` = `admin` an der Wurzel, mit
+`as_level: "interact"` nachgeprüft: liest nichts). **Bewusst NICHT
+`/korrektur.html` auf endurance-events.de**: Dort speicherte die Seite in
+Firestore, und das kann Claude nicht lesen (Regeln, kein
+Dienstkonto-Schlüssel), und anmelden kann sich Claude dort auch nicht.
+Die Zeilen selbst wären KEIN neues Geheimnis – die ausgeblendeten stehen
+mit `pruefung_offen` ohnehin in der öffentlichen `events.json` (am
+19.10.2026: 1.565 von 7.604); neu öffentlich wären nur die Prüfhinweise
+der Liste. Der Nutzer hat am 19.10.2026 gefragt, warum die Seite nicht
+wie `admin.html` gebaut ist – Antwort: wegen des Lesens, nicht wegen der
+Zeilen.
+
+**Aufbau**: Quelltext `korrektur/korrekturliste.html` (ohne
+`<html>`/`<body>`, das ergänzt das Artifact-Werkzeug), Zeilen als
+veröffentlichte Dateien `daten/events.json` und `daten/clubs.json`
+(lokal `korrektur/daten/`, gitignored, ~1,2 MB), gebaut von
+`scripts/korrektur_seite.py daten events|clubs` aus dem Excel-Export
+(`korrekturliste.py export` bzw. `clubs_korrekturliste.py export` vom
+Clubs-Branch, `--clubs-repo <Checkout>`): dieselben Spalten, Farben (rot
+`F8C9C4` = fehlt, orange `FCE2B0` = fraglich, grau = nicht änderbar – aus
+`SPALTEN` der Skripte), Auswahllisten (Datenprüfung der Excel), fixierten
+Spalten. **Nur das Tabellenblatt** (vom Nutzer am 19.10.2026: „die
+Kopfteile wie bei admin brauchen wir auch nicht. Es kann wirklich nur eine
+Excel-Liste sein, wo ich umschalten kann von Events zu Clubs“): unten
+Blattreiter Events/Clubs wie in Excel (Zahl = Zeilen ohne Status), rechts
+daneben eine einzeilige Statuszeile (nicht gespeichert → speichert → „N
+bereit zur Übernahme“ → Stand der Liste); KEIN Kopf, keine Zähler, keine
+Suche, keine Hilfe – nicht wieder einbauen, ohne zu fragen
+(`test_korrektur_seite` prüft es). **Klein und fürs Handy** (vom Nutzer am
+selben Abend mit Bildschirmfoto: „Ich müsste das mit dem Handy machen,
+weil ich das viel unterwegs anschauen werde … Ich hab auch sehr gute
+Augen, also kann man alles auch bisschen kleiner machen, da die Liste nur
+intern ist“): Tabelle 0,8rem, Fußleiste 36 px; auf Touch-Geräten haben
+Editor und Status-Feld 16 px Schrift, sonst zoomt iOS beim Antippen hinein.
+**Schmal und ohne feste Spalten** (20.10.2026: „die erste Spalte mit
+Nummern … ausblenden … alles bisschen komprimieren, dass ich nicht immer
+nach links und rechts wischen muss … Termin vorläufig einfach in das Datum
+schreiben, zum Beispiel 13.10.26 (vorläufig) … das Fixieren der ersten
+Spalten auflösen. Nur die Zeile mit den Beschriftungen fixiert“): Fest
+steht nur noch die Kopfzeile. Ausgeblendet sind `Nr`, `Termin vorläufig`
+und die Club-`id` (`VERSTECKT` – sie bleiben in Daten und Antwort,
+`data-i` ist weiter der Index der vollen Spaltenliste, der Import
+vergleicht gegen die ganze Zeile). Die Datumsspalten zeigen TT.MM.JJ, beim
+Start steht „(vorläufig)“ darunter, Farbe und Änderung der ausgeblendeten
+Spalte gelten dort; der Editor nimmt „13.10.26 (vorläufig)“ (auch
+„vorl.“, „vorlaeufig“) und speichert `Datum Start` als TT.MM.JJJJ und
+`Termin vorläufig` ja/nein – jeweils nur, wenn es vom Original abweicht.
+`korrekturliste.lies_wert()` liest seitdem auch das zweistellige Jahr.
+Breiten: Excel-Breite × 4,2 + 14 px, 52–180 px (Links höchstens 150),
+Datum 78/64, Status 128 („Check again“ mit 16 px auf dem Handy), Land 42 (als Ländercode DE/AT/CH/IT, gespeichert
+wird der volle Name), Koordinaten 54 (zwei Zeilen); kürzere Kopftexte
+(`KURZ`, voller Name im Tooltip), höchstens vier Zeilen je Zelle, der
+Editor ragt mit mindestens 190 px über die Nachbarzelle. Events 1.554 px
+breit statt ~2.700. Alle Zeilen stehen da, beim Scrollen
+kommen je 100 nach; der Stand einer Zeile steht am Status-Feld (blau =
+bereit, gelb = Check again, grün = übernommen, rot umrandet = nicht
+gespeichert), ein neuer
+Datenbank-Stand zeichnet nur die geänderten Zeilen neu. Eine Zelle antippen = Editor
+(Enter/Tippen daneben übernimmt, Esc verwirft, Tab springt weiter);
+Status als Auswahl in der Zeile; Links öffnen in neuem Tab, geändert über
+✎. Jede Eingabe schreibt sofort `antworten_<liste>/<Zeilen-Id>` (Status,
+geänderte Werte, Anmerkung, `geaendert`, dazu die ganze Zeile
+`zeile`/`kopf` und bei Events `orig` = das `_original` der Excel – der
+Import vergleicht gegen genau das, was der Nutzer gesehen hat).
+**Zeilen-Id**: Clubs die Club-`id`, Events `e` + SHA-1 über `_original`
+(die Felder beim Export, nicht die Nr) – sie bleibt über einen neuen
+Export gleich, solange der Datenlauf die Zeile nicht ändert. Ändert er
+sie, liegt die Antwort verwaist in der Datenbank; `einlesen` übernimmt
+sie trotzdem (sie trägt ihre eigene Zeile mit).
+
+**Status**: Stimmt so / Korrigiert / Löschen / **Fällt aus** (seit dem
+20.10.2026: diese Ausgabe ist abgesagt, die Veranstaltung bleibt im
+Gedächtnis und kommt mit der nächsten Ausgabe wieder – Datenregel 18) /
+Unklar / **Check again** (seit dem 20.10.2026, vom Nutzer: „Ich schreibe
+meine Kommentare dann hinein, und du müsstest das Event noch einmal genau
+anschauen“ – siehe unten); die Auswahl kommt aus der Datenprüfung der
+Excel, neue Werte also in `korrekturliste.STATUS_WERTE` UND
+`korrektur_seite.STATUS_WERTE`, dann `daten events` neu und die Seite neu
+veröffentlichen. „Check again“ hängt `lies_export()` an BEIDE Listen an
+(der Clubs-Import auf dem Clubs-Branch kennt den Wert nicht und braucht
+ihn nicht – die Antwort erreicht ihn nie).
+
+**„Check again“ ist ein Auftrag, keine Antwort.** Weder die Seite noch die
+Excel übernehmen etwas aus der Zeile – auch keine geänderte Zelle
+(`korrekturliste.importiere()` überspringt sie und listet sie unter
+CHECK AGAIN; `korrektur_seite.cmd_einlesen()` nimmt sie vor dem Import
+heraus und schreibt sie nach `<out_dir>/nochmal.json`: Name, Termin, Ort,
+Link, Kommentar, geänderte Zellen, `schluessel` = „Name|Datum“ für
+`geprueft.json`). Die Zeile bleibt ausgeblendet (`pruefung_offen`), bis
+Claude sie geprüft hat. Claude liest den Kommentar, prüft das Event an
+der Veranstalterseite (wie jede Einzelprüfung: an der Quelle, Klasse
+zählen, Regel oder Override), trägt Korrekturen VON HAND ein (Override mit
+`_note`, `manual_events.json`; bei `entfernt`/`abgesagt` auch das
+`exclude`, bei `entfernt` dazu `geloescht: true` wie beim Status
+„Löschen") und schreibt je Eintrag in `nochmal.json` `antwort` (ein bis
+zwei Sätze für den Nutzer: was stimmt, was geändert ist, woher) und
+`ergebnis` (quelle_ok / korrigiert / unklar / entfernt / abgesagt; leer =
+kein Protokoll, die Zeile bleibt ausgeblendet). Dann
+`korrektur_seite.py erledigt events <out_dir>` (`--dry-run` zeigt es
+nur): `geprueft.json`, Aufräumen, und `<out_dir>/quittung-nochmal.json`
+mit `ids` UND `notizen` → `ArtifactData set` wie bei der normalen
+Quittung. Die Seite zeigt die Zeile dann grün, die Antwort als „Claude: …“
+unter der Anmerkung (nicht ausgegraut). Ein zweites `einlesen` behält
+schon geschriebene Antworten (gleiche Zeile, gleicher Stand). Bei Clubs
+gibt es kein `ergebnis` (deren Protokoll liegt auf dem Clubs-Branch) –
+dort nur `antwort`, Korrekturen von Hand im Checkout. Auch im Chat sagen,
+was herauskam. `test_check_again` hält Import, Auftragsliste, `erledigt`
+und die Seite fest.
+
+**Erledigte Zeilen sind ausgeblendet** (seit 20.10.2026, vom Nutzer: „Kann
+man die korrigierten und die ‚stimmt so‘ dann ausblenden … Sonst muss ich
+immer runterscrollen“): Status gesetzt und kein „Check again“ (bereit oder
+übernommen) – beim Laden, wenn Antworten und Quittungen da sind, und beim
+Blattwechsel, nicht sofort beim Setzen. Der Knopf „Erledigte einblenden (N)“
+unten holt sie zurück.
+
+**Übernommen** zeigt die Seite über **Quittungen**, nicht über ein Feld
+an der Antwort: `ArtifactData` schreibt ein vorhandenes Dokument nur mit
+seiner Versionsnummer, und die steht nicht in den Dateien von
+`list … out_dir`. Eine Quittung ist jedes Mal ein NEUES Dokument
+`quittung_<liste>/<JJJJMMTT-hhmmss>` mit `ids`: Zeilen-Id → `geaendert`
+der übernommenen Antwort. Ändert der Nutzer die Zeile danach noch einmal,
+ist sie wieder „bereit“. Die Antworten fasst Claude nie an.
+
+**Ablauf bei „Korrekturen übernehmen“** (Events; Clubs genauso mit
+`clubs`):
+
+1. `ArtifactData list` mit `url` = die Adresse oben, `collection`
+   `antworten_events` und dann `quittung_events`, beide mit demselben
+   `out_dir` (Scratchpad, z. B. `…/korrektur-antworten`) und
+   `query.limit` 1000 (bei mehr: `cursor`).
+2. `python3 scripts/korrektur_seite.py einlesen events <out_dir>
+   --dry-run` – zeigt, was der Import täte (übernommen wird nur, was einen
+   Status und noch keine Quittung hat); Zellen, die keine Zahl sind, wie
+   bisher von Hand.
+3. Ohne `--dry-run`: schreibt Overrides, `geprueft.json`, räumt auf
+   (`clean_events.py --no-geocoding`, `build_ics.py`) und legt
+   `<out_dir>/quittung.json` an. Bei Fehlern im Import KEINE Quittung.
+4. `ArtifactData set` mit `collection` `quittung_events`, `doc_id` wie
+   ausgegeben, `file_path` = die `quittung.json` – die Zeilen werden auf
+   der Seite grün.
+4a. Stand „Check again“ in der Ausgabe: jeden Eintrag aus `nochmal.json`
+   an der Quelle prüfen, korrigieren, `antwort`/`ergebnis` eintragen, dann
+   `korrektur_seite.py erledigt events <out_dir>` und die Quittung
+   `quittung-nochmal.json` genauso mit `ArtifactData set` schreiben (siehe
+   oben).
+5. Tests, Commit, Push auf beide Branches (der Pages-Deploy macht die
+   Zeilen sichtbar).
+6. `korrektur_seite.py daten events` (und `clubs`) neu, dann die Seite
+   neu veröffentlichen: in DERSELBEN Sitzung `Artifact publish` mit
+   `file_path` `korrektur/korrekturliste.html` und `files`
+   `{"daten/events.json": "korrektur/daten/events.json", "daten/clubs.json":
+   "korrektur/daten/clubs.json"}`; aus einer ANDEREN Sitzung zuerst
+   `Artifact read` mit der `url`, dann publish mit `url` (sonst entsteht
+   ein zweites Artifact). `capabilities` weglassen – die gespeicherte
+   Erklärung (db-Regel + user) bleibt.
+
+**Clubs**: `einlesen clubs … --clubs-repo <Checkout von
+claude/clubs-feature-map-kycnmi>` ruft `clubs_korrekturliste.importiere()`
+im Checkout des Clubs-Branches; committet wird dort nur, was der Import
+schreibt, nach `git pull --rebase` (eine parallele Sitzung arbeitet auf
+dem Branch).
+
+**Grenzen**: 25.000 Dokumente je Artifact, 256 KiB je Dokument – eine
+Antwort hat ~2–3 KB, eine Quittung je Lauf. Die Excel-Wege
+(`korrekturliste.py export|import`) bleiben unverändert und laufen
+weiter, falls die Seite einmal nicht geht. `test_korrektur_seite` hält
+Auswahl, Quittung, Excel-Rückweg und die Sammlungsnamen der Seite fest
+(ohne `openpyxl` übersprungen – die CI hat es nicht).
+
+## Wo das Projekt gerade steht
+
+Die Seite geht **am 13.10.2026 live** auf `endurance-events.de` (siehe
+„Livegang"); die DNS- und Firebase-Schritte liegen beim Nutzer. Sparsam
+mit Tokens umgehen: keine Scraper-Läufe „zur Kontrolle", `events.json`
+nicht lesen, für Daten-Änderungen den Workflow auslösen statt im Chat zu
+warten.
+
+**Bewusst ausgeschlossen – die Reserve für „mehr Events" (vom Nutzer am
+07.10.2026: „Bitte die Staffelläufe oder Teamläufe im Hinterkopf
+behalten, falls ich mal frage wie wir mehr Events noch bekommen oder
+welche Events noch fehlen, dann mir bitte sagen.")** Fragt der Nutzer,
+wie wir an mehr Events kommen oder was noch fehlt, IMMER diese Liste
+nennen – sie ist Absicht, keine Lücke, aber zurückholbar:
+- **Staffeln und geteilte Strecken** (Datenregel 16: Staffel, Stafette,
+  SOLA, Paarlauf, Team-Etappen, Staffel-Triathlon) – `filter_staffeln()`
+  beim Einsammeln und `clean_events.drop_staffeln()` herausnehmen; die
+  Overrides mit „geteilte Strecke" im `_note` (Team Challenge Halle,
+  Salzburger Firmen-Triathlon) löschen.
+- **Teamläufe und Firmenläufe mit geteilter Strecke** (dieselbe Regel).
+  Firmenläufe, bei denen jeder die ganze Strecke läuft, sind schon drin.
+- **Hybrid-Fitness** (HYROX, FITLETIX, THE ROX, Deadly Dozen, ATHX,
+  StrongAthlon …, Datenregel 14), **Gehen/Skilanglauf**, **virtuelle
+  Läufe**, **Schwimm-Meisterschaften** (Datenregel 22), **Läufe unter
+  5 km / Schwimmen unter 500 m** (Datenregel 5).
+- Die **gesperrten Quellen** (siehe „Quellen" und README) – nur mit Ja
+  des Betreibers.
+
+**Geplant zum Schluss**: Der Nutzer liefert eine größere Menge Links, aus
+denen dann alle Events herausgesucht werden – erwartet werden **über
+20.000 Events**. Das ist der Moment für einen großen Datenlauf; bis dahin
+ist der Datenstand (~4.150) bewusst nur Arbeitsmaterial.
+
+**Was als Nächstes dran ist, steht unten im „Fahrplan".** Die fünf
+Punkte sind mit dem Nutzer besprochen; Punkt 2 (Vorbereitung auf den
+großen Datenstand) ist zur Hälfte gebaut.
+
+## Fahrplan (Stand 17.09.2026)
+
+Die fünf Punkte, die zuletzt mit dem Nutzer besprochen wurden – in
+dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
+
+1. **Daten für AT/CH, Schwimmen und Rennrad** – der größte inhaltliche
+   Mangel: 4.137 Events in Deutschland, **15** in Österreich, **2** in
+   der Schweiz, fast alles Laufen. **Der Nutzer liefert dafür Listen
+   von Links** (so am 17.09.2026 entschieden) – also ein Scraper je
+   Quelle, und vorher je Quelle robots.txt und Nutzungsbedingungen
+   prüfen. **Kein Scraper ohne sein Ja**; die vier übersprungenen
+   Quellen zeigen, warum.
+   Was dafür vorher fehlte, ist gebaut: `ART2_KEYWORDS_FAHRRAD` (seit
+   Datenregel 12) und `ART2_KEYWORDS_SCHWIMMEN` (21.09.2026, mit
+   „Charity", siehe Datenregel 17); running.life liefert seit dem
+   21.09.2026 AT/CH und Triathlon (siehe „Quellen"). **Triathlon ist seit dem
+   18.09.2026 erledigt** (`ART2_KEYWORDS_TRIATHLON`,
+   `ART2_BY_ART1['Triathlon']`, siehe Datenregel 11) – und mit
+   `guess_art1()` steht auch das Muster, nach dem Fahrrad und Schwimmen
+   erkannt werden könnten. Die Distanzkategorien je Sportart
+   (`DISTANCE_CATEGORIES`) stehen ohnehin schon.
+2. **Vorbereitung auf >20.000 Events** – **beide Hälften gebaut**: Die
+   Tabelle zeichnet nur ein Fenster von 200 Einträgen (siehe
+   Frontend-Fallen und „Tempo"), und seit dem 22.09.2026 laden die
+   Seiten die **kompakte `events.web.json`** (`scripts/build_web_data.py`:
+   Spalten-Arrays + Wörterbuch, im Pages-Workflow erzeugt statt
+   committet, Dekodierer und Loader `EF.loadEvents()` in `filters.js`
+   mit Rückfall auf `events.json`, `test_web_data` prüft den Rückweg,
+   der Rauchtest den Rückfall). `events.json` bleibt die lesbare Quelle.
+   Zahlen im README („Vorbereitung auf über 20.000 Events"). Was danach
+   noch bliebe (deutlich über 40.000 Events): Aufteilen nach Jahr –
+   bewusst nicht gebaut.
+3. **Restliche Datenfälle**
+   - „RET-Team Backyard 80 km": unklar, ob 80 km Zielvorgabe, Runde oder
+     Teamwertung – per Websuche klären und als Override vorschlagen.
+   - Die **Testmeldung** in `errorReports` („TEST - bitte verwerfen",
+     16.09.2026) beim ersten `review_reports.py`-Durchgang mit `reject`
+     verwerfen. Braucht einen Service-Account-Key oder den Nutzer in der
+     Konsole.
+4. **Design** – der Nutzer findet die Seite „noch nicht
+   professionell". Reihenfolge nach seiner Wahl (17.09.2026):
+   **Impressum + Datenschutz zuerst** (erledigt, siehe oben – seit dem
+   05.10.2026 samt Kontaktadresse).
+
+   Am 18.09.2026 sind daraus die Punkte erledigt, die der Nutzer selbst
+   gemeldet hat (siehe Frontend-Fallen): Knöpfe wieder rechts und in
+   einer Reihe, flacherer blauer Kasten, E-Mail-Adresse raus,
+   Bedienhinweis durch eine kurze Beschreibung ersetzt, Liste über die
+   ganze Seitenhöhe, einheitliche Zeilenhöhe und Schrift in der Tabelle,
+   Längen-Spanne statt Marken, Dezimalkomma im Deutschen. **„Fehler
+   melden" bleibt wie es ist** – der Nutzer findet den Knopf so gut
+   (ausdrücklich am 18.09.2026 gesagt).
+
+   Im zweiten Durchgang am 18.09.2026 dazu: **Mastersuche** (ein Feld
+   für Name oder Ort), **zweizeiliges Datum** bei mehrtägigen Rennen,
+   **Events-Knopf im Kopf der Startseite**, kürzere Knopftexte („Filter
+   zurücksetzen", „Events per E-Mail"), **kein ↗** mehr an Links, und
+   der **Kartenrahmen** (keine zweite Weltkarte, Europa als Grenze).
+   Im dritten Durchgang (18.09.2026): der **Anmelden-Knopf** ist nicht
+   mehr weiß gefüllt (er war das Auffälligste auf der Startseite,
+   obwohl das Konto nur Zubehör ist), und die **Spalte „#"** ist weg –
+   an ihrer Stelle steht der Aufklapp-Pfeil.
+
+   Ebenfalls erledigt: die **graue Maske** über allem außerhalb von
+   DACH. Der Nutzer hat sich für die eigene GeoJSON-Datei entschieden
+   und **gegen einen fremden Kachel-Anbieter** (18.09.2026) – siehe
+   „Tempo"/Karte und `scripts/build_laender.py`.
+
+   **Am 21.09.2026 nach der Vorlage des Nutzers umgebaut** (ein Bild
+   der gewünschten Liste, „Können wir die Liste so aufbauen“): Marke und
+   einheitliche Kopfzeile auf allen drei Seiten, dunkles Farbschema,
+   Filterpillen über der Tabelle, Sportart-Symbole, Detail-Box mit großem
+   Datum, Abzeichen, Strecken-Pillen und gestuften Knöpfen, „Stand“ in
+   der Werkzeugleiste, Fußzeile – siehe Frontend-Fallen, erster Punkt.
+   **Am selben Tag die Karte nach der zweiten Vorlage** („Die Map bitte
+   so gut wie möglich in dem Format darstellen“, ein helles Bild): flache
+   Landfläche, Bündel mit Ortsnamen, Nadeln in Sportfarbe, „Mein
+   Standort“, Legende, Entfernung in der Box – und weil die eine Vorlage
+   dunkel und die andere hell war, gibt es seitdem **beide Schemata mit
+   Umschalter** in der Kopfzeile (Voreinstellung: die Systemeinstellung).
+   Siehe Frontend-Fallen, erster und zweiter Punkt.
+
+   Offen, in dieser Wirkung:
+   - ~~**Handy: Karten statt Tabelle.**~~ **gebaut** (22.09.2026, „Yes,
+     bitte bauen"): Unter 700 px ist dieselbe Tabelle ein Stapel von
+     Kacheln, die Detail-Box ein Blatt von unten – siehe Frontend-Fallen,
+     „Handy: Kacheln statt Tabelle". Tablet und Laptop behalten die
+     Tabelle.
+   - Kleinteiliger: ~~`og:image`~~ **gebaut** (21.09.2026: `og-image.png`
+     mit der GitHub-Pages-Adresse; bei einem Domainwechsel in allen drei
+     Seiten nachziehen). ~~Ladezustand~~
+     **gebaut** (21.09.2026: acht Platzhalterzeilen im `<tbody>`, und
+     `render()` lässt sie stehen, bis `events.json` da ist –
+     `eventsGeladen`. Die Sperre ist der eigentliche Teil: Ein früher
+     `render()` aus `onAuthChange` zeigte vorher bei jedem Aufruf „0
+     Events / Keine Events gefunden" samt Abo-Kasten, bis die Daten da
+     waren; der Platzhalter allein wäre sofort überschrieben worden. Das
+     kam erst mit einem Bildschirmfoto bei angehaltenem Abruf heraus –
+     der Rauchtest wartet auf die Daten und sieht diesen Zustand nie);
+     „DACH" und
+     „Beispielprojekt" kommen in sichtbaren Texten nicht mehr vor
+     (nur noch in Code-Kommentaren, geprüft 21.09.2026).
+5. **Live schalten** – GitHub Pages läuft, die CI schützt seit dem
+   16.09. davor, dass etwas Kaputtes deployt. Impressum und Datenschutz
+   sind seit dem 05.10.2026 vollständig (Name, Anschrift,
+   `impressum@endurance-events.de`) – von dieser Seite aus steht dem
+   Livegang nichts mehr im Weg; die Texte selbst muss der Nutzer vor dem
+   Start noch prüfen (lassen), das ist keine Rechtsberatung.
+
+## Offene Punkte / To-dos
+
+### To-do-Liste des Nutzers (Stand 14.10.2026, 00:15 – nach dem Clear)
+
+**Stand beim Clear (14.10.2026, 00:15, Nutzer: „Merk dir alles. Ich
+clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
+
+- **Erledigt am 13.10.**: Punkt 6 (Besucherstatistik: Deploy durch den
+  Nutzer, `admins/Z7lpnvkEmJbVOMifzRO0UdSulw92` angelegt, Dashboard
+  zeigt Zahlen), Punkt 7 (Datenschutzerklärung gelesen, Text vorher gegen
+  den Code gehalten und um `fehlt` ergänzt), Punkt 7 neu (`update-events.yml`
+  auf `main`, Commit `c7344d8`). Dazu gebaut: **Deploy-Gate**
+  (`pages.yml` → `ci.yml` per `workflow_call`, Deploy nur bei grün; der
+  erste Ernstfall war mein eigener Test mit `import yaml`, abgefangen)
+  und **Wartungsmodus** – erst als Datei im Repo, dann (00:30, Wunsch
+  des Nutzers: ein Knopf) als Firestore-Schalter `config/wartung` mit
+  Karte in `admin.html`; `wartung.html?vorschau` zeigt die Pausenseite
+  ohne Rücksprung – README „Deploy-Gate und Wartungsmodus". **Offen beim
+  Nutzer: die Regeln deployen** (Punkt 7 der Liste), vorher meldet der
+  Knopf „Missing or insufficient permissions". Handprüfung zeigt
+  erledigte Fälle nicht mehr (35 → 19).
+- **Entschieden**: Statistik bleibt vorerst stündlich („weil es
+  interessant ist"), Umstellung auf täglich ist Punkt 6 unten.
+- **Beobachtung in der Statistik (14.10., 00:15)**: 13.10. = 14
+  Besucher, 20 Besuche, 37 Seitenaufrufe; davon 6 Aufrufe mit
+  amerikanischer Zeitzone, 8 mit en-US, 2 Italien – nicht der Nutzer,
+  nicht Claude (lokaler Server/Testbrowser sind stumm). Erklärung an
+  den Nutzer: vermutlich Scanner nach dem neuen Zertifikat (CT-Logs),
+  die sich nicht „bot" nennen; echte Besucher nicht ausgeschlossen.
+  Dazu: **iCloud Private Relay** lässt ein Gerät mit wechselnder IP
+  mehrfach als Besucher zählen – „Besuche" ist der verlässlichere Wert.
+  Der Nutzer kann die Treffer selbst ansehen (Firestore `hits`, Filter
+  `ld` == `Amerika`: `br`, `os`, `dv`, `p`, `r`). **Nach ein paar
+  Tagen Daten prüfen**, ob ein Scanner-Muster bleibt (gleiche
+  Browser/OS-Kombination, kein Referrer, nur Startseite) – dann in
+  `stats.js`/`collect` filtern, nicht vorher.
+- ~~**Montag 19.10.2026**: Deploy-Lauf nach dem Datenlauf prüfen~~
+  **erledigt** (19.10.2026): Der `workflow_dispatch`-Lauf steht da, war
+  aber rot (doppelte Gedächtnis-Ausgabe) – behoben, siehe „Automatik“.
+- **Nächste Schritte in Reihenfolge** (Stand 14.10.2026, 16:00: Probe
+  des Wartungsmodus und Functions-Deploy sind durch): Punkt 1
+  (Korrekturliste – die nächste Excel des Nutzers einlesen), Punkt 2
+  (Domain-Verifizierung, Anleitung steht beim Punkt), der Rest ist
+  später.
+- **Stand beim zweiten Clear (14.10.2026, abends, Instagram)**: Der Nutzer
+  will „das mit Instagram fertig machen" und „die ersten Videos alle
+  gerne vorher mit einem Klick einfach freigeben" – gebaut als Karte
+  „Instagram-Freigabe" im Dashboard (siehe „Instagram", Bullet
+  „Freigabe mit einem Klick"). Offen und NUR beim Nutzer war: Punkt 8
+  (Account, Meta-App, Token, Google-Einrichtung – seit 16.10.2026 ohne
+  Facebook-Seite; erledigt am 16.10.2026, jetzt Archiv Punkt 39). Das Ja zu `instagram.yml` auf
+  `main` kam noch am selben Abend (Commit `e3251fc1`), die Regeln hat der
+  Nutzer am 15.10.2026 um 12:25 deployt. Ohne Token postet nichts – die Läufe rendern nur. **Seine Frage, warum andere Accounts Clips von Kona oder
+  der Tour posten dürfen und er nicht**: Sie dürfen es nicht, sie tun es
+  – Fan- und Meme-Accounts laden fremdes Sendematerial hoch, die
+  Rechteinhaber dulden es meist als Reichweite oder lassen über den
+  Rights Manager sperren; Athleten posten eigenes bzw. vom Veranstalter
+  freigegebenes Material. Für einen Account mit Impressum, Automatik
+  und Werbeabsicht ist das Risiko ein anderes (Sperre, Abmahnung an die
+  Anschrift). Was ohne Risiko geht: Beiträge der Athleten/Veranstalter
+  IN Instagram teilen (Story-Teilen, Remix, Collab – das erlaubt die
+  Plattform), Material mit Genehmigung, eigene Aufnahmen, Fakten über
+  lizenzfreiem Hintergrund. Nicht ohne Rücksprache nachbauen: Download
+  und Re-Upload fremder Clips.
+
+- **Stand beim dritten Clear (16.10.2026, ~17:10)**: Instagram läuft
+  end-to-end ohne Facebook-Seite (Anmeldung über Instagram, Schlüssel im
+  Google-Tresor, Workload Identity, Video kurz im Speicher) – erster Beitrag
+  17:02, `instagram.yml` auf `main` (`ae5751ef`). Der Nutzer löscht den
+  Probebeitrag selbst. Gepostet wird ab jetzt nur, was er im Dashboard
+  freigibt (oder `INSTAGRAM_AUTOPOST=ja`). Die Einrichtung war zäh –
+  Lehren im Archiv, Punkt 39, und in „Instagram" (Bullet zum Skript):
+  Passwort-Anmeldung im Meta-Fenster scheiterte, `--anmelden` mit
+  eintippbarer `ig.html` ging. Was jetzt ansteht: neue Liste Punkt 1
+  (Korrekturliste) und 2 (Domain-Verifizierung); Montag 19.10. der
+  Deploy-Check; danach erste Freigaben im Dashboard ansehen (wird das
+  Abendreel gepostet?).
+
+**Regel des Nutzers (13.10.2026): „Immer von neu zählen anfangen."**
+Die Liste zählt ab 1 und enthält NUR Offenes. Erledigtes wandert mit
+Datum in das Archiv darunter (die alte Liste vom 05.10.2026 – dort
+bleiben Begründungen und Entscheidungen stehen, die Nummern dort sind
+die ALTEN). Wird ein Punkt erledigt, die Liste hier neu durchnummerieren;
+Verweise auf alte Nummern stehen in Klammern.
+
+1. **Korrekturliste** (alt 32): täglich ~50 Zeilen prüfen – seit dem
+   19.10.2026 auf der **Korrekturseite** (https://claude.ai/artifact/MPZsMjzXMUT6x9tSuRS85T) statt in der Excel,
+   dann im Chat „Korrekturen übernehmen“ → `korrektur_seite.py einlesen`
+   → Push. Jede geprüfte Zeile wird damit auf endurance-events.de sichtbar
+   (`pruefung_offen`, siehe „Livegang“); am 19.10.2026 nach dem Datenlauf
+   1.606 Event- und 273 Club-Zeilen.
+2. **GitHub-Domain-Verifizierung** (alt 33, kostenlos, freiwillig):
+   (1) github.com → Profilbild → **Settings** (persönlich) → **Pages** →
+   „Add a domain" → `endurance-events.de` → GitHub zeigt einen
+   TXT-Eintrag; (2) IONOS → DNS → „Record hinzufügen" → Typ **TXT**,
+   Hostname nur `_github-pages-challenge-AntDon930`, Wert = der Code,
+   keinen www-Eintrag dazu; (3) bei GitHub „Verify", notfalls nach ein
+   paar Minuten noch einmal. Der TXT-Eintrag bleibt dauerhaft stehen.
+   **Stand 27.10.2026**: noch nicht angelegt (DNS antwortet NXDOMAIN).
+   Sobald der Nutzer Bescheid gibt, prüft Claude den Eintrag:
+   `curl -s "https://dns.google/resolve?name=_github-pages-challenge-antdon930.endurance-events.de&type=TXT"`
+   – `"Status":0` mit einem `Answer` heißt: da, dann „Verify“ bei GitHub.
+3. **Frühjahr 2027** (alt 26): NordCup 2027 (9 Radmarathons SH) beim
+   Veranstalter nachziehen.
+4. **Frühjahr 2027** (alt 27): BOE, Fricktaler Cup, dsergebnis,
+   swimsports, BRV Timing tragen die Saison 2027 erst dann ein – der
+   Wochenlauf holt sie, nur nachsehen. Dazu von Hand: der **Freiwassercup
+   Bayern** (Termine nur auf `bayerischer-schwimmverband.de`, Veranstalter
+   ist der Verband selbst, die Seite steht in `PORTAL_DOMAINS` – 2026:
+   06.06. Lieblsee Parkstetten, 25.07. Wöhrsee Burghausen).
+   Und **RAD RACE** (rad-race.com, Archiv 40): Termine 2027 für Last
+   Wo/Man Standing (Berlin), FIXED 42 und 99LAPS (Essen) nachsehen.
+5. **11.01.2027** (aus alt 2): Erinnerung `trig_013AV7Nn2GVq1m3LgxL3ukcq`
+   zum Ende der Firebase Extensions (31.03.2027) – Versand als eigene
+   Cloud Function bauen, dann `firebase deploy --only functions` aus der
+   Cloud Shell (der Nutzer), Extension deinstallieren.
+6. **Statistik-Auswertung von stündlich auf täglich umstellen** (vom
+   Nutzer am 13.10.2026 entschieden: „Am Anfang lassen wir stündlich,
+   weil es interessant ist. Aber bitte als To-do aufnehmen, dass ich es
+   auf täglich umstelle."). Hintergrund: Die Auswertung kostet keine
+   Tokens, sondern Firestore-Lesezugriffe – jeder Lauf von
+   `aggregateStats` liest alle Treffer von heute UND gestern; stündlich
+   sind das 24 × 2 × Treffer je Tag, kostenlos bis ~1.000 Treffer/Tag
+   (grob 250 Besuche), täglich 2 × Treffer je Tag, kostenlos bis ~25.000.
+   Sobald die Seite mehrere hundert Besuche am Tag hat, oder wenn der
+   Nutzer es sagt: in `functions/index.js` den Zeitplan von
+   `aggregateStats` von `"7 * * * *"` auf `"7 0 * * *"` (00:07 Berlin)
+   setzen, in `admin.html` die Texte `sub` und `keine_daten` (DE und EN,
+   „stündlich" → „täglich"), dazu README („Besucherstatistik", drei
+   Stellen) und CLAUDE.md („Besucherstatistik") nachziehen; danach der
+   Nutzer in der Cloud Shell: `cd Enduranceevents && git pull &&
+   firebase deploy --only functions`. Das Dashboard zeigt dann den
+   laufenden Tag erst am nächsten Morgen („Stand" = Mitternacht).
+
+7. **Vor dem ersten Werbeplatz**: Abschnitt „Besucherstatistik" in
+   `datenschutz.html` (DE und EN) um die Werbeeinblendung ergänzen, dann
+   erst `EnduranceStats.anzeige()` an einen Platz hängen – siehe
+   „Besucherstatistik", Kennzahlen für Werbekunden.
+8. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
+   eigene Aufnahmen – Einträge in `marketing/instagram/clips.json`.
+9. **Instagram: Pexels-Schlüssel und Insights** (16.10.2026, nur der
+    Nutzer, je zwei Minuten): (a) pexels.com/api → kostenlosen Schlüssel →
+    GitHub → Settings → Secrets and variables → Actions → `PEXELS_API_KEY`
+    – erst dann laufen echte Videos statt Standbild-Zoom im Hintergrund;
+    (b) Meta-App → Berechtigungen und Features →
+    `instagram_business_manage_insights` hinzufügen, dann Cloud Shell
+    `cd ~/Enduranceevents && git pull && bash
+    scripts/instagram_google_einrichten.sh --anmelden` (Geheimcode, Link
+    `storage.googleapis.com/endurance-5177a-instagram/ig.html` eintippen,
+    Zulassen, Adresse zurück) – erst dann zeigt die Auswertung
+    Reichweite, Gespeichert und Geteilt.
+10. **Functions deployen für die neue Abo-Mail (den „neuen Newsletter“) –
+    VOR MONTAG 02.11.2026** (eingetragen am 20.10.2026, vom Nutzer: „Bitte
+    deploy auf die to-do liste setzen. Mach ich morgen."; am 26.10.2026
+    noch einmal: „Bitte firebase deploy für den neuen Newsletter auf die
+    to-do Liste nehmen" – die erste Frist, Montag 26.10., ist verstrichen;
+    nur der Nutzer, Cloud Shell):
+    `cd ~/Enduranceevents && git pull && firebase deploy --only functions`
+    (Erwartung: vier Funktionen „Successful update operation", „Deploy
+    complete!"; `STATS_ORIGINS` fragt die CLI nicht, der Wert steht in
+    `functions/.env.endurance-5177a` im Klon dort). Das `git pull` holt
+    auch die Duathlon-Namen vom 26.10.2026 (Commit `ed74477f`). Bis dahin
+    verschickt `checkNewEvents` die ALTE Vorlage – so ging am 26.10.2026
+    die Montagsmail raus (Job `abo`: 574 neu sichtbare Events, 2 Abos
+    geprüft, 1 Mail; die seit dem 19.10. freigegebenen Zeilen waren
+    dabei). Erledigt, sobald die nächste Montagsmail im neuen Aussehen
+    kommt (Log des Jobs `abo` nach dem Datenlauf-Deploy: „E-Mails
+    verschickt: N"). Siehe „Abos sind Filter + Rhythmus“ (Die Mail selbst).
+11. **Instagram-Profile der Clubs automatisch auswerten** (eingetragen am
+    26.10.2026, vom Nutzer: „Und das du die Instagram Profile von den Clubs
+    automatisch auswertest muss auch noch draufstehen“; gebaut auf dem
+    Clubs-Branch `claude/clubs-feature-map-kycnmi`, Commit `b7997db1`, dort
+    To-do 10). **Weg**: Metas offizielle Schnittstelle Business Discovery
+    (kein Scraping) – `scripts/clubs_instagram.py` holt montags 05:17 UTC
+    (neuer Job `clubs-instagram` in `instagram.yml`) die öffentlichen
+    Beiträge der Club-Profile (Text, Bilder) auf den Branch
+    `daten/clubs-instagram`; die Montagsaufgabe
+    `trig_01MvVHbqKGeJjdmGLQ7mBqd3` („Clubs wöchentlich auslesen“, 08:56
+    Berlin, aktiv) liest Texte und Monatspläne und trägt die Termine in
+    `clubs.json` ein, wie bei einem Bildschirmfoto. Private Konten und
+    Konten ohne Business/Creator liefern nichts. **Erst der Nutzer** (er
+    will es diese Woche erledigen: „Ich arbeite das alles diese Woche noch
+    ab“): (a) Facebook-Seite „AusdauerMaschine“ anlegen, (b) dort
+    @ausdauermaschine verknüpfen, (c) in der Meta-App „Instagram API mit
+    Facebook Login“ mit `instagram_basic`, `instagram_manage_insights`,
+    `pages_show_list`, `pages_read_engagement`, (d) Schlüssel im Graph API
+    Explorer, (e) Cloud Shell auf dem Clubs-Branch `bash
+    scripts/instagram_fb_einrichten.sh` (Secret `instagram-fb-token`),
+    (f) Ja für `instagram.yml` auf `main` – Schritt für Schritt in der
+    To-do-Liste des Clubs-Branches. Fehlt `daten/clubs-instagram` oder ist
+    der Stand älter als drei Tage, meldet die Montagsaufgabe das. Das
+    Posten bleibt bei der Anmeldung über Instagram.
+12. **Strava-Clubs beitreten** (26.10.2026, Nutzer, täglich 15; auf dem
+    Clubs-Branch To-do 11): zuerst die 252 Clubs „nur Instagram“ aus
+    `clubs_profile_fehlen.xlsx` – Strava liest die Montagsaufgabe sicher
+    aus; Clubs ohne Termine auf Strava wieder verlassen (die Montagsmeldung
+    nennt sie).
+13. **Montag 02.11.2026: den ersten Datenlauf mit Instagram-Prüfung und
+    360 Minuten ansehen** (Claude, eingetragen am 27.10.2026): (a)
+    Laufzeit des Laufs „Events automatisch aktualisieren“ (Grenze jetzt
+    360 – bleibt er über ~330, den Lauf teilen, siehe „Automatik“);
+    (b) im Log „Instagram-Konten: … Seiten geprüft“ – lief die Prüfung
+    durch, wurde `instagram_konten.json` mitcommittet; (c) die NEU
+    zugeordneten Konten im Abschnitt „Instagram-Konto der Veranstaltung“
+    des Aufräum-Logs durchsehen, Fehltreffer als Regel oder in
+    `KEIN_EVENT_KONTO` (Frontend-Fallen, „Das Instagram-Zeichen großer
+    Veranstaltungen“); (d) der Deploy-Lauf danach grün (sonst warten die
+    Daten hinter dem Gate) und die Abo-Mail im neuen Aussehen (Punkt 10).
+    Dabei kommen fünf Zeilen aus der Liste der großen Events dazu, die die
+    parallele Sitzung am 27.10. ergänzt hat (10 km de Payerne, Spartan
+    Munich, Wings for Life Munich) – kein Fehler, nur noch nicht
+    aufgeräumt.
+
+(Erledigt und im Archiv: Besucherstatistik freischalten (35),
+Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
+(36), Functions-Deploy für die Abo-Kennzahl (37), Probe des
+Wartungsmodus (38) – alle 13./14.10.2026; Instagram einrichten (39) –
+16.10.2026; RADRACE als Veranstalter (40) – 17.10.2026; Timeout des
+Datenlaufs auf 360 Minuten (41) – 27.10.2026.)
+
+Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
+laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
+„women Tour" St. Pölten und Österreichische Cyclocross-Meisterschaft
+(alt 15), „Nordrhein Meisterschaften 10km Straße" und „DM 10km Straße"
+(alt 18), Merkposten Pille „Name" (alt 24). Dazu die 14 PDF-Einträge
+ohne auffindbare Veranstalterseite (Websuche 13.10.2026, Notizen in
+`eventliste_pdf_geprueft.json`): Großer Preis von Eching, Hans-Metzner-
+Schwimmen Lindau, Müritz Extrem, Tollenseseeschwimmen, Schweriner
+Schlossschwimmen, Peeneschwimmen Anklam, Weserschwimmen Rinteln, Open
+Water Stubenbergsee und die fünf Austria Swim Open – kommen nur über eine
+Quelle oder „Wir haben dein Event nicht?" herein.
+
+### Archiv: die To-do-Liste vom 05.10.2026 (alte Nummern)
+
+Vom Nutzer am 05.10.2026 abends diktiert („merke dir alle Punkte ganz
+genau"); seit dem 13.10.2026 nur noch Archiv – die offenen Punkte stehen
+oben mit neuen Nummern.
+
+Der Nutzer arbeitet diese Liste **eins nach dem anderen** ab und fragt
+je Punkt nach einer genauen Anleitung. Wer einen Punkt erledigt, streicht
+ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
+
+**A. Technik und Konten (nur der Nutzer hat Zugang)**
+
+1. ~~**`main`: `.github/workflows/update-events.yml` auf den Stand des
+   Entwicklungs-Branches bringen.**~~ **erledigt** (05.10.2026, abends,
+   vom Nutzer freigegeben: „Ja, auf main pushen" – Commit `d5c5618` auf
+   `main`, nur diese eine Datei; `git diff origin/main
+   origin/claude/website-access-9d9tg1 -- .github/workflows/update-events.yml`
+   ist leer). Bei der nächsten Änderung an der Datei wieder so: Freigabe
+   des Nutzers einholen, dann ein Commit auf `main` mit nur dieser Datei.
+2. ~~**Firebase auf Blaze**: Cloud Function `checkNewEvents` deployen,
+   Extension „Trigger Email" mit SMTP einrichten.~~ **erledigt**
+   (05.10.2026, abends, alle vier Teile): A Blaze; B Deploy aus der
+   Google Cloud Shell auf dem iPad (`firebase login --no-localhost`,
+   Secret per `--data-file`), Function-URL
+   `https://europe-west1-endurance-5177a.cloudfunctions.net/checkNewEvents`,
+   dazu `unsubscribe`; C GitHub-Secrets `NOTIFY_WEBHOOK_URL` und
+   `NOTIFY_WEBHOOK_SECRET`; D Extension
+   `firebase/firestore-send-email@0.2.10` installiert (Cloud Functions
+   `europe-west1`, Firestore `(default)` in `europe-west3`, Auth
+   Username/Passwort, SMTP-URI
+   `smtps://info%40endurance-events.de@smtp.ionos.de:465`, Sammlung
+   `mail`, Absender `Endurance Events <info@endurance-events.de>` – das
+   Postfach liegt bei IONOS). **Die erste Installation scheiterte** an
+   „Permission denied while using the Eventarc Service Agent" (das
+   Dienstkonto war gerade erst angelegt); „Installieren wiederholen" nach
+   fünf Minuten ging durch. Testmail über ein Dokument in `mail` (`to`,
+   `message.subject`, `message.text`): `delivery.state SUCCESS`,
+   „250 Requested", Mail angekommen. Der Versand der Abos läuft damit
+   end-to-end.
+   **ACHTUNG: Firebase Extensions werden am 31.03.2027 eingestellt**
+   (Hinweis in der Konsole: danach keine Installation und keine
+   Bearbeitung mehr; Google empfiehlt „selbstverwaltete Funktions-Kits").
+   Der Nutzer will das frühzeitig auf dem Schirm haben – Routine
+   `trig_013AV7Nn2GVq1m3LgxL3ukcq` erinnert am 11.01.2027 (Push + E-Mail).
+   Dann: den Versand als eigene Cloud Function in `functions/index.js`
+   bauen (Firestore-Trigger auf `mail`, nodemailer über IONOS-SMTP,
+   Passwort als Secret `SMTP_PASSWORD`; das Dokumentformat von
+   `checkNewEvents` bleibt), deployen, danach die Extension
+   deinstallieren. Ein weiteres `firebase deploy --only functions`
+   aus der Cloud Shell reicht dafür.
+3. ~~**Fehlermeldungen lesen, Testmeldung verwerfen.**~~ **erledigt**
+   (05.10.2026, 23:42: beide Dokumente in `errorReports` gelöscht, die
+   Sammlung ist leer – eine neue Meldung fällt sofort auf). KEIN
+   Service-Account-Key nötig (am 05.10.2026 so entschieden: ein Schlüssel
+   wäre ein Geheimnis, das auf dem iPad herumliegt): In der Google Cloud
+   Shell ist der Nutzer als Projektinhaber angemeldet, `firestore.Client()`
+   nimmt diese Anmeldung (`gcloud config set project endurance-5177a`,
+   `pip install google-cloud-firestore`, Repo klonen, dann
+   `review_reports.py fetch` / `show` / `suggestions`). Die Testmeldung
+   `KPuTLNNXVeY7tYoNzokF` („TEST - bitte verwerfen", 16.09.2026) löscht
+   der Nutzer direkt in der Firestore-Konsole (Dokument → Drei-Punkte-Menü
+   → Dokument löschen) – `reject` im Skript verwirft nur VORSCHLÄGE, keine
+   Meldungen; für Meldungen gibt es `mark-done --report-id <id> --status
+   …`. **Am 05.10.2026 lag ein zweites Dokument in `errorReports`
+   (`UOScp4BLcPI1su0ghcbE`, 18.09.2026, „nein das stimmt n…") zum
+   „10. Schnebelhorn Panoramatrail" (Mosnang, 18.09.2026, 8,5 km)** –
+   an panoramatrail.ch/renntag/ geprüft: Der Freitag war der Kindertag,
+   Halbmarathon und Moslig 8000 liefen am Samstag 19.09.2026, der
+   Halbmarathon fehlte ganz. Die Ausgabe war vorbei; die 11. Ausgabe
+   (Sa 18.09.2027, 21,1 und 8,5 km, Trail) steht seit dem 05.10.2026 in
+   `manual_events.json`, Protokoll in `geprueft.json`. Beide Dokumente in
+   `errorReports` kann der Nutzer danach löschen. **Lehre**: Eine Meldung
+   zu einer vergangenen Ausgabe ist nicht erledigt, wenn die Zeile weg ist
+   – die nächste Ausgabe trägt denselben Fehler, wenn niemand die Seite
+   liest.
+4. ~~**Impressum und Datenschutzerklärung prüfen (lassen)**~~ **erledigt**
+   (07.10.2026, vom Nutzer: „Punkt 4 erledigt" – er hat beide Seiten
+   gelesen; Voraussetzung für den Livegang, Punkt 29, ist damit erfüllt).
+   Keine Rechtsberatung von Claude. **Seit dem
+   05.10.2026 nennt die Datenschutzerklärung den E-Mail-Versand** (Abschnitt
+   „E-Mail-Abos": Cloud Function in Belgien, Versand über
+   `info@endurance-events.de` bei IONOS SE, Montabaur; DE und EN, „Stand"
+   5. Oktober 2026) – der frühere Satz „Der E-Mail-Versand ist derzeit noch
+   nicht aktiv" ist weg. Wer am Versand etwas ändert (eigene Mail-Function
+   nach dem Ende der Extensions), zieht den Abschnitt nach.
+5. ~~Anfragen an rad-net.de (BDR), DSV und zpn-timing.de~~ **vom Nutzer
+   am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
+   nicht") – jetzt Punkt 30.
+
+**Stand am 13.10.2026, abends: LIVE auf endurance-events.de (Punkt 29
+vorgezogen, siehe „Livegang"). Was offen blieb (26, 27, 32, 33), steht
+oben in der neuen Liste als 3, 4, 1, 2; 25 ist seit dem 13.10.2026
+erledigt.** **Stand am 08.10.2026 – Punkte 1–4, 6 und 8–24 erledigt (8 und 9–15 in
+zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 25 (Abschnitt D, Frühjahr 2027 – aus C ist nichts mehr offen).**
+(Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
+07.10.2026 abgeschlossen, siehe unten.)
+Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
+morgen genau merken"). Punkte 1–3 sind erledigt, Punkt 5 steht als
+Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
+
+- **Punkt 4** (bei ihm): `impressum.html` und `datenschutz.html` einmal
+  als Besucher lesen, Testmail an `impressum@endurance-events.de`,
+  entscheiden, ob jemand gegenliest. Der Text ist aktuell (Versand seit
+  heute drin). Claude gibt keine Rechtsberatung.
+- ~~**Punkt 6**~~ **erledigt** (07.10.2026, vom Nutzer freigegeben: „Ja
+  die 18 übernehmen, aber bei den Strecken wieder einen * machen"). Die
+  34 NEU?-Fälle hatte Claude am 05.10.2026 an den Veranstalterseiten
+  gelesen (Skript über `veranstalter_links.Abrufer`, Sätze mit
+  2027-Datum); 18 nannten Lauf UND Termin ausdrücklich. **Ergebnis**:
+  **13 Veranstaltungen mit 32 Zeilen** in `manual_events.json`
+  (`gedaechtnis: true`, Strecken der Ausgabe 2026, `_note` nennt den
+  Beleg-Satz), 7.063 → 7.095 Events. **Fünf der 18 standen schon für
+  2027 in `events.json`** (King of the Lake über eine Quelle, La Reine,
+  S3-T Triathlon, Bad Ischler Kaiserlauf, Lions-Monopteros-Lauf) – vor
+  dem Eintragen immer `events.json` nach dem Namen fragen, der Datenlauf
+  und die Parallel-Sitzung sind schneller als die Handprüfung. Bei
+  Rheinhöhenlauf (50-km-Zeile da) und Neuhütten (10-km-Zeile da) nur die
+  fehlenden Strecken ergänzt. **Vorjahresstrecken tragen seitdem ein
+  Sternchen** – siehe Frontend-Fallen, „Das Sternchen erklärt sich
+  selbst" (zweiter Absatz). Die Tabelle bleibt als Protokoll stehen:
+
+  | Veranstaltung (Gedächtnis-Ort) | Termin 2027 | Beleg |
+  |---|---|---|
+  | Asvö King of the Lake am Attersee (zwei Einträge: Attersee / Schörfling, EINE Ausgabe) | Sa 18.09. | „Termin 2027: voraussichtlich 18.09.2027" → `datum_vorlaeufig` |
+  | S3-T Triathlon (Visp) | Sa 25.09. | „S3-T Triathlon Samstag, 25.09.2027 Brigerbad" |
+  | La Reine Women's Gran Fondo (Freiburg; Sportart im Gedächtnis fehlt → Fahrrad) | 24.–25.09. | „Women's Gran Fondo 24 to 25 September 2027" |
+  | Rheinhöhenlauf (Vettelschoß) | 24.–26.09. | „Der Termin steht fest: 24.–26. September 2027" |
+  | 46. → 47. Altkönig-Lauf (zwei Einträge: Kronberg / Kronberg im Taunus) | So 26.09. | „am Sonntag den 26. September 2027 den 47. Altkönig-Lauf" |
+  | Stolpener Basalt-Lauf (10.) | So 26.09. | „10. Stolpener Basalt-Lauf am Sonntag, 26. September 2027" |
+  | 25. Bad Ischler RE/MAX KAISERLAUF Halbmarathon | So 26.09. | „Kaiserlauf So, 26. September 2027" |
+  | Kettwiger Hügeltour (22., Fahrrad; Sportart im Gedächtnis fehlt) | So 26.09. | „am 26.09.2027 … die 22. Kettwiger Hügeltour" |
+  | Lions-Monopteros-Lauf (München; Sportart fehlt → Laufen) | So 26.09. | „am letzten Sonntag im September, also am 26.09.2027" |
+  | Radcross Illnau (15.; Sportart fehlt → Fahrrad) | So 26.09. | „Save the date Sonntag, 26. September 2027" |
+  | Kulmbach Trails | So 26.09. | „Kulmbach Trails 26. September 2027" |
+  | Welser Sparkasse OÖ City Night Run / OÖ City Night Run Wels (zwei Einträge, EINE Ausgabe) | Do 30.09. | „30. September 2027 … Start 20:30" |
+  | Wachau Trail (Krems) | Sa 02.10. | „Samstag 2. Oktober 2027" |
+  | Morat-Fribourg (Freiburg CH) | 02.–03.10. | „rendez-vous du 2 au 3 oct. 2027" |
+  | 39. 10km Lauf Neuhütten | So 03.10. | „am 03. Oktober 2027 ist es soweit" |
+  | Osterfeiner SgH-Dümmerlauf (14., Damme) | So 03.10. | „14. Osterfeiner SgH Dümmerlauf 03.10.2027" |
+  | Trailrun21 Zell am Harmersbach | So 03.10. | „Termin vormerken: 3. Oktober 2027" |
+  | The Quest – Auwald (Elchingen) | So 17.10. | „Termin: Sonntag 17. Oktober 2027" |
+
+  **Nicht übernehmen** (Claude-Vorschlag, der Nutzer kann widersprechen):
+  ohne 2027-Termin auf der Seite – Bärmesener Päädellauf, 8. Bondorflauf,
+  Oberholzer Volkssportlauf, 16. Labertal-Lauf, Bergstraße-Odenwald 50,
+  22. BKK Walking am Baldeneysee, 16. Köhlbrandbrückenlauf (Seite listet
+  nur fremde Hamburger Läufe), Spreewald RTF (2028 nicht angekündigt);
+  Seite zeigt eine ANDERE Veranstaltung – Kosiak Löwe (Karawanken Löwen
+  Trail 30.07.–01.08.2027), VeloTour Dresden-Berlin („Rund um Berlin"
+  02.10.2027); nicht für jeden – R5K Tour Finale Berlin (Kids & Youth),
+  ÖM Obstaclerun im Viennathlon (Meisterschaft im Rahmen); unsicher –
+  GENERALI 5K Berlin (Seite nennt nur den Marathon am 26.09.2027, der 5K
+  liefe am Sa 25.09., Name/Sponsor wechseln 2027 → weglassen, der Scraper
+  bringt ihn). Die Rohdaten (Sätze je Seite) lagen nur im Scratchpad und
+  sind nach dem Clear weg – die Tabelle hier ist die Quelle.
+- ~~**Danach Punkt 7** (Korrekturliste)~~ – **vom Nutzer am 07.10.2026 ans
+  Ende gestellt** („Punkt 7 würde ich gerne auch ganz am Schluss machen,
+  weil nachdem die Liste korrekt ist würde ich die Webseite dann auf
+  endurance-events.de veröffentlichen"), jetzt Punkt 32; weiter mit
+  Punkt 8.
+- **CI**: Routine `trig_01SoYT5iDpwc8zfsJYDSftaY` prüft um 22:00 UTC die
+  Läufe zu `d1d5376`; die heutigen Commits bis `db3a853` (und dieser)
+  laufen danach ebenfalls durch die CI – morgen einmal nachsehen, ob
+  alles grün ist (am Abend des 05.10. gab es eine GitHub-Runner-Störung,
+  Jobs brachen nach 15 Minuten ohne Log ab).
+- **Heute erledigt, zum Nachlesen**: Punkt 2 komplett (Teil D: Extension
+  nach einem Eventarc-Fehlversuch installiert, Testmail SUCCESS); Punkt 3
+  (echte Nutzer-Meldung zum Schnebelhorn Panoramatrail → Ausgabe 2027
+  nachgetragen, `errorReports` geleert); Datenschutzerklärung nennt den
+  Versand (IONOS, Cloud Function); Punkt 5 → Punkt 30.
+
+**B. Datenprüfung (Handarbeit des Nutzers)**
+
+6. ~~**Die 34 NEU?-Fälle** der Gedächtnis-Prüfung durchgehen
+   (`python3 scripts/veranstalter_seiten.py handpruefung`) und Claude
+   sagen, welche Termine stimmen → `manual_events.json`.~~ **erledigt**
+   (07.10.2026: 13 Veranstaltungen / 32 Zeilen übernommen, 5 waren schon
+   da, 16 abgelehnt – Einzelheiten im Stand-Block oben). Die nächste
+   `handpruefung` bringt neue NEU?-Fälle nach dem nächsten Datenlauf.
+7. ~~**Korrekturliste weiter**~~ **ans Ende verschoben** (07.10.2026, vom
+   Nutzer: erst wenn die Liste korrekt ist, geht die Seite auf
+   `endurance-events.de` live – die Korrekturliste ist der letzte Schritt
+   davor), jetzt Punkt 32.
+8. ~~**Walking-Zeilen in Volksläufen**: rein oder raus?~~ **entschieden
+   und gebaut** (07.10.2026: „Nur A raus … C drinnenlassen" – Datenregel
+   23, `ist_walking()`, 87 Zeilen raus). Die Zählung von vorher bleibt
+   als Protokoll stehen. **Am 07.10.2026
+   am Bestand (7.095 Zeilen) nachgezählt** – die „145 Zeilen" von
+   früher waren nur das Stichwort „Nordic Walking", die Klasse ist
+   größer und hat drei Sorten, die verschieden zu behandeln sind:
+   - **A) 96 Zeilen, deren Label NUR Walking/Wandern/Marsch nennt**
+     („7,5 km Walking", „Nordic Walking 5,7 km", „25 km Wandern / Nordic
+     Walking", „Walking Große Schleife"). Das sind eigene
+     Walking-Wettbewerbe neben dem Lauf derselben Veranstaltung; nur
+     bei **7 Veranstaltungen** (Biberacher Genießerlauf, Allschwiler
+     Klausenlauf, Silvesterlauf Bremen, Waldreiterlauf, Enzenbüschlauf,
+     Bieler Lauftage, Schweizer Frauenlauf Bern) steht KEINE Laufzeile
+     daneben – dort hat die Quelle offenbar nur die Walking-Strecke
+     geliefert, der Lauf fehlt (Nachtragen, nicht Löschen).
+   - **B) 64 Zeilen, deren Label Lauf UND Walking nennt** („10 km Lauf
+     und Nordic Walking", „5 km für Läufer und Walker"): dieselbe
+     Strecke für beide – das IST der Lauf, bleibt in jedem Fall.
+   - **C) 75 Zeilen mit Walking nur im Namen**: zum Teil Serien mit
+     Lauf („Lorsbacher Winterlauf- und Walkingserie" 10 Zeilen,
+     „Winterlauf-/Wanderserie Jaderberg" 10, „Run & Walk"), zum Teil
+     **reine Wander-/Marschveranstaltungen ohne Lauf** (Bödefelder
+     Hollenmarsch 8 Strecken bis 101 km, Ultra Walk Magdeburg 10–100 km,
+     Ultramarsch Leipzig, Karwendelmarsch, TeutoMarsch, Walk the Lake,
+     Müglitztal-Wanderung, Schaumburger Wandertag, Karl-Heinz-Hahn Walk,
+     Trochtelfinger Nordic-Walking-Cup) und die **8 „Ahmadiyya Charity
+     Walk"** (Charity-Markierung, 5–7 km).
+   Eine Regel „Walking → raus" braucht deshalb die Verbform wie bei
+   Datenregel 12: Label ohne Laufwort (A) fällt, Label mit Laufwort (B)
+   bleibt; für C entscheidet der Name (Wander-/Marsch-/Walk-Wörter OHNE
+   Laufwort). `displayWettbewerb()` zeigt bei A heute „Walking" unter dem
+   Namen – die Zeilen sind also als Walking erkennbar. Was der Nutzer
+   entscheidet, wird in `scraper_lib.py` als Regel gebaut (Einsammeln +
+   `clean_events`, mit Gegenproben B im Test), nicht per Override.
+
+**C. Entscheidungen Ja/Nein (je eine Zeile Code)**
+
+9. ~~FITLETIX, THE ROX, Deadly Dozen, ATHX in `NICHT_AUSDAUER`? (heute nur
+   per Override draußen); StrongAthlon ungeprüft.~~ **erledigt**
+   (07.10.2026, „Ja bitte für alle 5"): alle fünf Marken in
+   `NICHT_AUSDAUER` (Deadly Dozen samt Deadly Sprint/Gross; StrongAthlon
+   laut running.life Zweierteams, Laufen im Wechsel mit Kraftübungen).
+   Die Overrides hatten nur ihre Termine erwischt – **acht neue Termine
+   (ATHX St. Gallen/Wien, sechsmal Deadly Dozen) standen schon wieder
+   drin**, dazu StrongAthlon: 9 Zeilen raus, 7.095 → 7.086. Gegenproben
+   („Roxheimer", „Strong Viking", „Dozen Hills") in `test_nicht_ausdauer`.
+   Die alten Overrides bleiben als No-op stehen.
+10. ~~„Staffel-Run" als Staffelwort in `ist_staffel()`?~~ **erledigt**
+    (07.10.2026, vom Nutzer: „Keine Staffelläufe einfach rein. Nur
+    Einzelläufe. Staffel kommt irgendwann noch einmal dazu. Wir brauchen
+    erst einmal eine gute Datenlage für die ganzen normalen Läufe."):
+    `ist_staffel()` kennt jetzt „Staffel-Run"/„Staffelrennen", die
+    Schweizer „Stafette" und „SOLA" (= Stafettenlauf) im Namen,
+    **Paarläufe** (zwei Läufer wechseln sich ab – damit ist Punkt 11
+    gleich mit entschieden) und ein Label, das ein Team
+    über Etappen/Abschnitte schickt (Napf-Marathon, WädiLauf „Du & Ich").
+    Gegenproben: Etappenrennen ohne Team, „Einzel- und Teamwertung",
+    „Solarlauf". 14 Zeilen raus, 7.086 → 7.072. **Nicht** mitgenommen
+    (offen, falls „nur Einzelläufe" auch Teams meint): „Teamlauf" ohne
+    Etappe (Löwenlauf Hachenburg 6,3 km – laut Seite der Jedermannslauf
+    „auch als Teamlauf", Remstal-Lauf 25 km), Team Challenge Halle
+    (Firmen- und Behördenmarathon), Berner Team OL, Firmenläufe als
+    Teamwettbewerb.
+11. ~~Paarläufe (Zweier-Teams, 30/60 min) als Staffel → raus? Drei im Bestand.~~
+    **erledigt** mit Punkt 10 (07.10.2026, „Nur Einzelläufe"): sieben
+    Paarlauf-Zeilen raus.
+12. ~~Firmenläufe nur für Teams (Ratingen, Wismar, Neumarkt, Rostock) raus?~~
+    **erledigt** (07.10.2026) – mit der **universalen Regel** des Nutzers
+    (Datenregel 16): jeder läuft die ganze Strecke → bleibt, geteilte
+    Strecke → raus. Damit bleiben alle Firmenläufe (dort läuft jeder die
+    5–8 km selbst), Zehn Freunde Team Triathlon (jeder 380 m / 18 km /
+    4,2 km), Penzberger TeamTrail und UNIQA Team Challenge (gemeinsam),
+    Berner Team OL. Raus per Override (Beleg im `_note`): Team Challenge
+    Halle (Sechser-Staffel), Salzburger Firmen-Triathlon
+    (Staffel-Triathlon), Remstal-Lauf „25 km Teamlauf" (= Summe von
+    5 × 5 km Jedermannlauf); Löwenlauf Hachenburg „6,3 km Teamlauf" heißt
+    jetzt „6,3 km Jedermannslauf". 7.072 → 7.068. **Offen**: OÖ
+    Firmentriathlon Linz (Seite nur per JavaScript, Format nicht lesbar,
+    die Zeile steht mit 3,2 km – beim nächsten Blick klären).
+13. ~~slowUp (12 Zeilen, kein Wettkampf) rein oder raus?~~ **entschieden**
+    (07.10.2026, vom Nutzer: „Ja das bleibt drinnen. Das mag ich."):
+    slowUp bleibt (Fahrrad), obwohl es kein Wettkampf ist und keine
+    Anmeldung braucht. **Nicht** über eine spätere Regel wie „kein
+    Wettkampf" oder „ohne Distanz" herausfallen lassen – wer so eine Regel
+    baut, nimmt slowUp als Gegenprobe in den Test.
+14. ~~IMEXrun Frankfurt (nur Messebesucher?) raus?~~ **erledigt**
+    (07.10.2026, vom Nutzer: „wenn nicht jeder sich anmelden kann, sondern
+    nur Messebesucher dann bitte rausnehmen"): Die Seite sagt „Open to all
+    IMEX participants" – Programmpunkt der Fachmesse, nur für registrierte
+    Teilnehmer. Per Override raus (Datenregel 18), 6.981 → 6.980. Lehre
+    für neue Fälle: Ein Lauf im Programm einer Messe oder Tagung ist
+    nicht öffentlich, solange die Seite nicht ausdrücklich „für alle"
+    sagt.
+15. ~~UCI-Teamrennen (Oberösterreich Rundfahrt, keine Einzelanmeldung) raus?~~
+    **erledigt** (07.10.2026, vom Nutzer: „Ja die UCI Rennen dann bitte
+    raus … Wenn sich jeder anmelden kann, dann bitte drinnen lassen, auch
+    wenn es ein Teamevent ist."). **Die allgemeine Regel dahinter: Es
+    bleibt, wofür sich jeder selbst anmelden kann** (mit Lizenz, wo die
+    Klasse eine verlangt – Datenregel „alle Klassen, auch Lizenz" aus dem
+    BRV-/ÖRV-Scraper gilt weiter); raus, wofür man eingeladen werden oder
+    sich qualifizieren muss. Umsetzung: UCI-Klasse 1.x/2.x im Namen steht
+    in `NICHT_AUSDAUER` (GP Vorarlberg UCI 1.2); per Override mit Beleg
+    die Oberösterreich Rundfahrt (UCI 2.2 laut ooe-classics.at) und die
+    Alpe Adria Tour (Nachwuchs-Etappenrennen für Teams). 6.980 → 6.977.
+    **Bleiben**: UCI C1/C2 (Querfeldein GP Gunskirchen, KTM Kamptal Trophy
+    XCO – jeder Lizenzfahrer meldet selbst), UCI Gran Fondo World Series,
+    Pöstlingberg Classics (Jedermann, „für lizenzierte und unlizenzierte"),
+    Kriterien (Lizenzrennen), offene MTB-Etappenrennen (Alpentour,
+    Dunkelwald, Swiss Epic, RiderMan). **Offen**: „women Tour" (St. Pölten,
+    02.–06.06.2027, ÖRV-Kalender) – keine eigene Seite gefunden, der
+    uci.ch-Link stammt nur aus unserer Linkprüfung (Wort „women" auf der
+    Startseite) und ist kein Beleg; nicht geraten, bleibt bis zur Klärung.
+    Die Österreichische Cyclocross-Meisterschaft (10.01.2027) steht noch
+    drin – Meisterschaft, Startrecht nach Nation/Lizenz, beim nächsten
+    Blick prüfen.
+16. ~~Gravel-Listen (dealgrid.de, gravel-club.com, 808project.de) als Quelle?~~
+    **erledigt** (08.10.2026, „Ja für dealgrid"): `dealgrid_scraper.py`,
+    siehe „Quellen" (Gravel-Kalender). gravel-club.com und 808project.de
+    bleiben draußen (international bzw. Wix, wenig Neues für unsere
+    Regionen – Empfehlung, vom Nutzer so übernommen).
+17. ~~fsieben „Termin folgt" (52 Bewerbe): mit Vorjahrestermin als
+    vorläufig oder bis Frühjahr 2027 warten?~~ **erledigt** (08.10.2026,
+    vom Nutzer: „Ja aufnehmen, und in den Stern halt noch schreiben das es
+    to be confirmed noch sein muss. Aber dann können die Leute sich drauf
+    vorbereiten") – Datenregel 19, Absatz „Geschätzt aus dem Vorjahr".
+18. ~~Meisterschaften im Rahmen eines Volkslaufs weiter draußen lassen?~~
+    **entschieden** (08.10.2026, vom Nutzer: „Ja … draußen lassen. Sonst
+    haben wir es wieder 2x drinnen" – Datenregel 18). Am Bestand
+    nachgesehen (Meisterschaft im Namen + andere Veranstaltung am selben
+    Tag ≤ 15 km): vier weitere Fälle per Override raus – Hessische
+    Meisterschaften Marathon (= Frankfurt Marathon), Schwindegger 6
+    Stundenlauf DUV (= SV Schwindegg Ultralauf), Panoramatrail Waischenfeld
+    18 km (= 14-km-Panoramatrail der Wiesent Challenge), Kärntner
+    Marathonmeisterschaften (= Marathon des Graz Marathon, der dort fehlte
+    und in `manual_events.json` nachgetragen ist). **Bleiben**: eigenständige
+    Meisterschaften ohne Volkslauf daneben (Kreis-/Landes-Crossläufe – wer
+    startberechtigt ist, meldet sich dort an). **Offen**, Seite nicht
+    lesbar: „Nordrhein Meisterschaften 10km Straße" (Essen, 21.11.2026,
+    gleicher Tag wie der Blumensaatlauf) und „DM 10km Straße" (Tübingen,
+    07.03.2027, Ausrichterlauf nicht gefunden). Neue Fälle kommen mit jedem
+    Datenlauf; dieselbe Suche lohnt nach jedem großen Lauf.
+19. ~~Duplikate unter zwei Namen zusammenführen: Nikolaus Volkslauf
+    Mingolsheim = Nikolauslauf Bad Schönborn; Uchter Wald- und Crosslauf =
+    Uchter Volkslauf.~~ **erledigt** (09.10.2026, „Ja weiter mit Punkt
+    19"): Bad Schönborn hatte der achte Weg (Datenregel 7) schon
+    zusammengeführt; Uchte nicht, weil die eine Quelle `http://scuchte.de`,
+    die andere `https://www.scuchte.de/` lieferte. **Als Klasse gezählt**:
+    `_seite_vergleichbar()` vergleicht die Seite jetzt ohne Schema und
+    „www." – am Bestand genau sechs neue Paare, alle an der Seite geprüft
+    und echt (Uchte, Geilenkirchen/Kartoffellauf, Kärnten Marathon ×2,
+    Marchethon Fribourg ×2), Gegenprobe „anderer Pfad = zwei" in
+    `test_duplikate`. Per Override die falschen Zeilen raus bzw.
+    korrigiert, damit beim Zusammenführen nicht die falsche Zahl bleibt:
+    Kärnten Marathon lief bei uns komplett am Samstag – laut Seite nur der
+    City Run (6 statt 5 km), alles andere am Sonntag 25.10., Kombi 16,5
+    statt 15,5 km über beide Tage; die Zweitquelle „Kärnten Marathon" und
+    der alte laufen.de-Eintrag „9. Internationaler …" raus. Marchethon:
+    die Zeilen mit 8/15 km raus (Seite: 7,5/14,5 km). Geilenkirchen: die
+    „47./34."-Zeile raus (Seite: 46. Kartoffellauf, 33. Halbmarathon).
+20. ~~Tippfehler-Namen aus laufen.de: „Maritn Dufter" (Bad Reichenhall),
+    „Brüder-Grimn-Lauf" (Hanau) – was ist das, wie heißt es richtig?~~
+    **erledigt** (09.10.2026): Beide sind Duplikate, per Override raus.
+    „Maritn Dufter" (18 km, 05.06.2027) ist ein Personenname im
+    laufen.de-Feld für den Namen, die Weiterleitung führt auf eine tote
+    time2win-Seite; gleicher Tag und Ort wie die Alpenstadt City&Trail,
+    deren Hochstaufen-Trailrun in Kalendern mit 18/19 km steht. Der
+    „41. Internationaler Brüder-Grimn-Lauf" ist der Brüder-Grimm-Lauf
+    (11.–13.06.2027, 82 km, 5 Etappen Hanau → Steinau, mkk.de); die
+    verbleibende Zeile stand in Bad Orb (Etappenort) und steht jetzt am
+    Start in Hanau. Lehre: Eine Zeile mit Personennamen oder Tippfehler
+    im Namen ist bei laufen.de fast immer ein Zweiteintrag – erst nach
+    derselben Veranstaltung am selben Tag suchen.
+21. ~~„4. Backnanger Kindercrossduathlon" (Kinderrennen ohne Distanz) raus?~~
+    **erledigt** (09.10.2026, „Ja rausnehmen bitte"): per Override raus.
+    **Die Klasse ist größer** (gezählt am Bestand, noch nicht entschieden):
+    reine Kinder-/Jugendwettbewerbe stehen vor allem bei Triathlon und
+    Fahrrad drin, weil die 5-km-Grenze nur fürs Laufen gilt – Dirty Kids
+    Cross 1 km, Sparefroh Kids Run 300 m, Swim & Run Schüler/Kids,
+    TriZell Kinderbewerb, O-SEE X'Kids, Finteler Schülertriathlon,
+    Altenberger Cross Duathlon (Kinder U6–U12, Jugendlauf U14–U18),
+    YOKI Kidsrun, NÖ Kinder- und Jugendlauf Strasshof, Kidstrail
+    Salzburg. Eine Regel „Label nennt nur Kinder/Jugend/Schüler/U-Klasse,
+    kein Erwachsenenwort“ (Gegenproben: „Jugend und Erwachsene“, „ab
+    Jugend U14“, „pro kids Lauf mit 5km Jedermannlauf“, „MyEifelRide
+    Kids“ mit 209 km) – **am selben Tag entschieden** („Ja Kinderrennen
+    raus") und als Regel gebaut: Datenregel 24.
+22. ~~Wings for Life World Run mit Charity-Herz (23 Zeilen) so lassen?~~
+    **entschieden** (09.10.2026, „Ja das kann so bleiben"): Die Overrides
+    mit `charity: true` bleiben.
+23. ~~Farbschema-Voreinstellung: dunkel, hell oder Systemeinstellung?~~
+    **entschieden** (09.10.2026, „Systemeinstellung"): bleibt wie gebaut –
+    ohne gespeicherte Wahl folgt die Seite `prefers-color-scheme`, der
+    Knopf überschreibt dauerhaft. Nicht auf ein festes Schema umstellen.
+24. ~~Pille „Name" in der Filterleiste behalten oder weg?~~
+    **entschieden** (09.10.2026, „Behalten. Vielleicht später umbauen.
+    Merken wir uns mal"): Die Pille bleibt. **Merkposten**: Der Nutzer
+    will sie eventuell später umbauen – wie, ist offen (Vorschlag damals:
+    weg, weil die Mastersuche Name UND Ort abdeckt). Bei der nächsten
+    Design-Runde an der Filterleiste ansprechen.
+
+**D. Später (Frühjahr 2027)**
+
+25. Die 72 „existiert, Termin offen"-Einträge der PDF-Liste erneut prüfen
+    (`scripts/eventliste_pdf_geprueft.json`). → **erledigt 13.10.2026**
+    (die 45 mit Seite ins Gedächtnis, die 28 ohne Seite per Websuche –
+    siehe „Gedächtnis je Veranstaltung")
+26. NordCup 2027 (9 Radmarathons SH) beim Veranstalter nachziehen.
+    → **neue Liste, Punkt 3**
+27. BOE, Fricktaler Cup, dsergebnis, swimsports, BRV Timing tragen die
+    Saison 2027 erst im Frühjahr ein – der Wochenlauf holt sie.
+    → **neue Liste, Punkt 4**
+
+**E. Zum Schluss**
+
+28. ~~Die große Linkliste für die 20.000+ Events liefern~~ **erledigt**
+    (09.10.2026, vom Nutzer: „das habe ich schon gemacht") – die Listen
+    vom 24.09. und 30.09.2026 waren es, daraus die Scraper der Abschnitte
+    „Quellen". Stand 09.10.2026: 6.978 Zeilen ≈ 4.000 Veranstaltungen
+    (DE 4.926, AT 1.052, CH 974, Südtirol 25). Die 20.000 waren eine
+    Schätzung vom 17.09.; warum es weniger sind: gesperrte Quellen
+    (rad-net, DSV, runme, finishers, time2win …), die Ausschlüsse
+    (Staffeln, Walking, Kinder, Hybrid, unter 5 km, Meisterschaften im
+    Rahmen, Duplikate) und vor allem das ZEITFENSTER – die Kalender
+    tragen 2027 erst nach und nach ein (Okt. 2026: 1.114 Zeilen, Sept.
+    2027: 422). Die Zahl wächst bis zum Frühjahr 2027 von selbst über den
+    Wochenlauf und das Gedächtnis.
+29. ~~Livegang freigeben, nachdem Punkt 4 erledigt ist (erledigt) **und
+    Punkt 32 durch ist**~~ **vorgezogen** (13.10.2026, vom Nutzer: „Ich
+    will jetzt schon live gehen" – statt auf Punkt 32 zu warten, sind
+    die ungeprüften Zeilen der Korrekturliste ausgeblendet, siehe
+    „Livegang auf endurance-events.de"). Domain-Verweise im Code
+    umgestellt (`og:image`, `SITE_URL`, User-Agent); DNS, Pages-Custom-
+    Domain, Firebase-Domains und Functions-Deploy macht der Nutzer.
+30. ~~**Anfragen an rad-net.de (BDR), DSV und zpn-timing.de**~~ **gestrichen**
+    (13.10.2026, vom Nutzer: „Punkt 30 machen wir nicht, die Webseite soll
+    von sowas nicht abhängig sein, falls die es sich dann anders
+    überlegen."). Keine Quelle, die nur mit Erlaubnis des Betreibers
+    läuft – nicht wieder vorschlagen; die gesperrten Quellen bleiben
+    gesperrt.
+32. **Korrekturliste zu Ende** → **neue Liste, Punkt 1** (`korrekturliste.py export` → ausfüllen →
+    `import`; die ersten 24 Zeilen sind durch) – vom Nutzer am 07.10.2026
+    hierher gestellt: der letzte Schritt vor dem Livegang auf
+    `endurance-events.de` (Punkt 29).
+    **13.10.2026: vor dem Versand selbst durchgesehen** (der Nutzer: „bitte
+    die Liste noch einmal durchsehen und eine aktuelle schicken"): die
+    scharfen Kategorien abgearbeitet, 1.389 → 1.326 Zeilen. Korrigiert
+    per Override/`manual_events.json`: Regensteinlauf 139 → 13,9 km (+9,5 km),
+    SUNSET Wattenmeer (Team-Staffel) raus, Eifellauf Echternach (Luxemburg)
+    raus, Grand Prix Winterthur „Half marathon" mit 42,2 km raus,
+    MYTRANSALP mit Platzhalter-Koordinaten 1/2, Höllenberg MTB-Strecken als
+    Fahrrad, Pönitz zum dritten Mal in Sachsen (jetzt auch im Gedächtnis
+    korrigiert), Rhyschwümme „2026" am 08.08.2027, Morat-Fribourg doppelt
+    (Gedächtnis-Kopie unter Murten), 17 Zeilen ohne Kartenposition (Ort
+    als Adresse). Drei Regeln daraus: `clear_rundenlaenge_bei_zeitrennen()`
+    (Datenregel 8), Walking/Kinder auch in `add_manual_events()`
+    (Datenregel 23/24, „teens" ist Kinderwort) und `merge_duplicates()`
+    verkettet nicht mehr über eine Zeile ohne Distanz (Datenregel 7). 25
+    geprüfte Fehlalarme (Ultra-Distanzen, lange Namen) als `label_ok` in
+    `geprueft.json`. Die Liste ging als `korrekturliste.xlsx` an den
+    Nutzer; als Nächstes kommt sein `import`. **Seit dem Livegang ist
+    jede Zeile dieser Liste auf der Seite ausgeblendet, bis sie geprüft
+    ist** (`pruefung_offen`, siehe „Livegang") – Punkt 32 läuft damit
+    täglich weiter (~50 Zeilen), nicht mehr vor dem Livegang.
+    **13.10.2026, abends: erste Rückgabe eingelesen** (27 Zeilen: 7
+    Korrekturen, 5 Löschungen, Rest bestätigt). Von Hand, weil die Zelle
+    keine Zahl war: Geschriebenstein 102/55/36/23/7 km (Start in Bozsok,
+    Ungarn – nachgefragt), Deißlingen „10 Runden à 5,62 km" = 56,2 km,
+    King of Pirates 40–45 und 60 min, ALTIMATE Berlin „Frühling 2027"
+    (vorläufig auf 15.04.2027), Staufenlauf Dornbirn „1.000hm". Daraus
+    gebaut: **„Open End"** für jeden Backyard und jede Backyard-Distanz
+    raus (Datenregel 9), **Minuten unter einer Stunde** („40–60min",
+    `EF.minutenVon`; `Event.to_dict()` rundet `dauer_h` seitdem auf zwei
+    Stellen, sonst wären 40 min 0,7 h = 42 min – seit dem 18.10.2026
+    IMMER Minuten, siehe Datenregel 8),
+    und das Feld **`hoehenmeter`** (Override/manual_events; die
+    Länge-Spalte zeigt „1.000hm", wenn weder Distanz noch Dauer da ist).
+    **Zurückgehalten**: fünf Links, die der Nutzer auf eine Anmelde- bzw.
+    Zeitnehmerseite gesetzt hat (Krummenseelauf → berlin-timing,
+    Benediktbeurer Kirta Lauf und Nattheimer Maultaschenlauf →
+    raceresult) – Datenregel 2, `apply_overrides()` blockt das; beim
+    Nutzer nachgefragt. Die Vereinsseiten nennen den Lauf 2026 nicht
+    (skiclub-bb.com zeigt zuletzt 2023). **Antwort am selben Abend: „Ja
+    dann ist die Anmeldeseite besser"** → `portal_erlaubt` im Override
+    (Datenregel 2), die fünf Links sind drin, der Import setzt das Flag
+    künftig selbst. Und **Geschriebenstein bleibt** trotz Start in
+    Ungarn („Ja aufnehmen", Datenregel 4).
+**F. Nach dem Livegang (13.10.2026)**
+
+33. GitHub-Domain-Verifizierung → **jetzt Punkt 2 der neuen Liste**
+    (schützt davor, dass nach einem Löschen des Repositories jemand
+    anderes die Domain auf sein Pages-Projekt zeigen lässt).
+34. ~~**Datenschutzerklärung erneut lesen** – Abschnitt „Besucherstatistik"
+    (DE und EN) samt Schalter.~~ **erledigt** (13.10.2026, vom Nutzer:
+    „Punkt 7 ist erledigt"). Vorab von Claude gegen den Code gehalten:
+    Jede Angabe stimmt mit `stats.js` und der Function überein (Felder,
+    Aktionen, @-Regel, keine Koordinaten, Tagesschlüssel, 35 Tage,
+    Belgien/Frankfurt, DNT/GPC, Schalter); eine Lücke geschlossen – der
+    Hinweis auf ein fehlendes Event (`fehlt`) fehlte in der Aufzählung,
+    dazu steht jetzt, dass ein Abo nur mit dem Rhythmus und eine
+    Fehlermeldung nur mit der Kategorie gezählt wird (Markup, DE, EN;
+    Commit 0d51635). Wer die Statistik ändert (neue Aktion, neues Feld),
+    zieht den Abschnitt nach – siehe „Besucherstatistik".
+35. ~~**Besucherstatistik deployen und freischalten**~~ **erledigt**
+    (13.10.2026, abends): Deploy aus der Cloud Shell durch den Nutzer
+    (`firebase deploy --only functions,firestore:rules`; von hier geprüft:
+    `collect` antwortet mit erlaubtem Origin 204, ohne Origin 403),
+    `hits`, `stats_daily` und `stats_meta` lagen in Firestore, danach das
+    Dokument `admins/Z7lpnvkEmJbVOMifzRO0UdSulw92` (Feld `name`) in der
+    Konsole angelegt – per Bildschirmfoto begleitet: Projektverknüpfungen
+    → Firestore → Daten → „+ Sammlung erstellen" → `admins` → Dokument-ID
+    = die uid von `admin.html`. Das Dashboard zeigt seitdem Zahlen (erster
+    Tag: 7 Besucher, 10 Besuche, 13 Seitenaufrufe, Stand 23:07 – fast
+    alles eigene Aufrufe beim Einrichten). Wer ein zweites Konto
+    freischalten will: ein weiteres Dokument `admins/<uid>`, sonst nichts.
+36. ~~**`main`: `update-events.yml` nachziehen** (Pages-Deploy nach dem
+    Push anstoßen).~~ **erledigt** (13.10.2026, vom Nutzer: „Ja bitte auf
+    main pushen" – Commit `c7344d8` auf `main`, nur diese eine Datei;
+    `git diff origin/main origin/claude/website-access-9d9tg1 --
+    .github/workflows/update-events.yml` ist leer). Hintergrund: Ein Push
+    mit dem `GITHUB_TOKEN` löst keinen Workflow aus; der Datenlauf vom
+    12.10.2026 hatte deshalb keinen Deploy (mit dem vollen SHA nachgesehen:
+    nur ein `pull_request`-Lauf mit `action_required`, kein `push`-Lauf,
+    kein „Deploy GitHub Pages"). Jetzt stößt der Workflow `pages.yml` per
+    `gh workflow run` an, und der läuft durch das Deploy-Gate. Beim
+    nächsten Montagslauf (19.10.2026) prüfen: Nach dem Bot-Commit muss ein
+    Lauf „Deploy GitHub Pages" mit Ereignis `workflow_dispatch` stehen.
+    Bei der nächsten Änderung an der Datei wieder so: Freigabe einholen,
+    ein Commit auf `main` mit nur dieser Datei.
+37. ~~**Function deployen für die Abo-Kennzahl**~~ **erledigt**
+    (14.10.2026, 12:41, vom Nutzer in der Cloud Shell: `cd
+    ~/Enduranceevents && git pull && firebase deploy --only functions` –
+    alle vier Funktionen `collect`, `aggregateStats`, `checkNewEvents`,
+    `unsubscribe` mit „Successful update operation", „Deploy complete!").
+    Die CLI hat den Parameter `STATS_ORIGINS` NICHT erneut gefragt: Sie
+    liest ihn aus `functions/.env.endurance-5177a` im Klon der Cloud
+    Shell (`/home/anton_donauer/Enduranceevents`) – die Datei ist
+    gitignored und lebt nur dort; wer den Klon löscht, bekommt die Frage
+    wieder (Vorgabewert übernehmen). Seitdem schreibt `aggregateStats`
+    stündlich um Minute 7 den Stand der aktiven E-Mail-Abos ins
+    Tagesdokument, die Kachel „Aktive E-Mail-Abos" zeigt ab dem ersten
+    Lauf danach (13:07 Berlin) eine Zahl; `collect` kennt Event und
+    Sportart an Kalender/Teilen und die Werbeplatz-Ereignisse. Die
+    Function-Adressen stehen jetzt auch als `*.a.run.app` da – die
+    `cloudfunctions.net`-Adressen in `stats.js` (`ENDPOINT`) und in den
+    GitHub-Secrets gelten unverändert weiter.
+38. ~~**Probe des Wartungsmodus**~~ **erledigt** (14.10.2026, vom
+    Nutzer: „Ich hab den Wartungsmodus gecheckt. Er funktioniert." –
+    alle vier Schritte: einschalten im Dashboard, Pausenseite im zweiten
+    Tab, ausschalten, Rücksprung zur Startseite). Von hier per REST
+    nachgesehen: Das Dokument `config/wartung` existiert seitdem (`aktiv`
+    false, `geaendert` 14.10.2026 15:58 Berlin, `von` = die Admin-uid,
+    Vorgabetext DE). Die Regeln waren seit 00:50 deployt. Damit ist der
+    Wartungsmodus einsatzbereit: Knopf in `admin.html` ganz unten,
+    Wirkung binnen einer Minute auf Startseite, Liste und Karte, kein
+    Deploy nötig – siehe README „Deploy-Gate und Wartungsmodus".
+
+39. ~~**Instagram einrichten**~~ **erledigt** (16.10.2026, 17:02 erster Beitrag https://www.instagram.com/reel/DejzwABAmIT/ – vom Nutzer zum Probieren gewünscht, er löscht ihn von Hand; „Okay sehr nice, es funktioniert!“; bis dahin Punkt 8 der neuen Liste, eingetragen am 14.10.2026, nur der Nutzer): Account
+   `ausdauermaschine` als professionelles Konto, Bio-Link
+   `https://endurance-events.de/?utm_source=instagram&utm_medium=bio`
+   (+ Impressum als zweiter Link), **seit dem 16.10.2026 ohne
+   Facebook-Seite** (Anmeldung über Instagram, siehe „Instagram" →
+   Posten): Dialog „Facebook-Seite verknüpfen" überspringen, Meta-Entwickler-
+   konto, App mit Anwendungsfall „Nachrichten und Inhalte auf Instagram
+   verwalten" ohne Business-Portfolio, „API-Einrichtung mit
+   Instagram-Business-Login" → Konto hinzufügen → Token generieren, dann
+   in der Cloud Shell `bash scripts/instagram_google_einrichten.sh` (legt
+   den Schlüssel in den Google-Tresor), danach **die neue `instagram.yml`
+   auf `main`** (Ja des Nutzers einholen, nur diese Datei); GitHub-Secrets
+   für Instagram braucht es keine mehr, optional `PEXELS_API_KEY` –
+   Schritt für Schritt im README („Instagram", Einrichtung). Stand
+   16.10.2026, 10:50: Der Nutzer stand am Dialog „Facebook-Seite
+   verknüpfen" und hat ihn nicht bestätigt. **Mittags dann: eigenes
+   Facebook-Profil auf `info@endurance-events.de`** („Ich mache jetzt ein
+   eigenes Facebook Profil dafür! … Wähle jetzt bitte den besten weg") –
+   Weg A bleibt (Anmeldung über Instagram, gebaut und getestet; das
+   Projektprofil ist nur das Meta-Entwicklerkonto, KEINE Seite, nicht mit
+   Instagram verknüpfen). Anmelden im privaten Browserfenster, sonst nimmt
+   Meta das private Profil der Facebook-App. Risiko dem Nutzer gesagt:
+   Meta erlaubt ein persönliches Profil je Person. **Nachmittags (16:55)
+   EINGERICHTET**: Meta-App „AusdauerMaschine Content" (Instagram-App-ID
+   2082109586511982, Berechtigungen basic + content_publish „Bereit zum
+   Testen", ausdauermaschine = Instagram-Tester, Konto-Id
+   17841433983155724, OAuth-URI `https://endurance-events.de/`), Cloud-Shell-
+   Skript Schritte 1–5 durch, Schlüssel über `--anmelden` im Tresor
+   (Fassung 1, „darf Beiträge veröffentlichen"). „Token generieren" ging
+   NICHT: Instagram nahm das Passwort im Anmeldefenster nie an, nach der
+   Anmeldung per Code landete man im Feed; ein angetippter
+   instagram.com-Link öffnete die Instagram-App („Da ist leider etwas
+   schiefgelaufen"). Probelauf ohne Posten: Run 38919848461, grün, Log
+   „Instagram-Schlüssel: 0 Tage alt" – Workload Identity und Tresor laufen.
+   `instagram.yml` steht seit 17:05 auf `main` (Commit `ae5751ef`, „Ja,
+   instagram.yml auf main", Diff zum Entwicklungs-Branch leer). **Erster
+   echter Beitrag 17:02** (vom Nutzer gewünscht: „Poste jetzt einmal was …
+   Ich kann es dann einfach manuell wieder löschen"; Handlauf mit Haken
+   „posten", Run 38920457036): Video 5,2 MB in den Speicher, Instagram hat
+   es abgeholt, veröffentlicht als https://www.instagram.com/reel/DejzwABAmIT/
+   (Format „Wochenende"); Limit 100 Beiträge je 24 h. Damit ist der ganze
+   Weg einmal echt gelaufen. ~~Danach noch einmal `cd Enduranceevents
+   && git pull && firebase deploy --only functions`~~ **erledigt**
+   (16.10.2026, vormittags, „Deploy completed" – der Deploy vom 14.10.,
+   12:41 war VOR der Instagram-Zählung in `aggregateStats`; das Dashboard
+   zeigte deshalb „Kanäle 0" neben einem Klick über l.instagram.com.
+   `aggregateStats` rechnet nur heute und gestern neu – der 14.10. bleibt
+   ohne Kanäle). Die Referrer `facebook.com`/`m.facebook.com` (4 Aufrufe
+   bis 16.10.) sind vermutlich der Nutzer selbst beim Einrichten der
+   Meta-App/Facebook-Seite oder ein geteilter Link – kein Fehler. Erst Reels als Artefakt ansehen, dann
+   Variable `INSTAGRAM_AUTOPOST=ja`. `instagram.yml` steht seit dem
+   14.10.2026 auf `main` (Commit `7f6ab3d`, abends `e3251fc1` mit
+   Vorschau-Lauf und Freigabeprüfung) – beide Zeitpläne laufen; ändert
+   sich die Datei, muss sie wieder mit (Freigabe des Nutzers).
+   Profilbild: `marketing/instagram/profil/profilbild.png`.
+   ~~`cd Enduranceevents && git pull && firebase deploy --only
+   firestore:rules` für die Freigabe-Dokumente `insta_freigaben`~~
+   **erledigt** (15.10.2026, 12:25, „Deploy complete!"; von hier per REST
+   geprüft: 404 statt 403). ~~Die neue Fassung von `instagram.yml` auf `main`~~
+   **erledigt** (14.10.2026 abends, „Ja für instagram.yml auf main",
+   Commit `e3251fc1`, nur diese eine Datei, Diff zum Entwicklungs-Branch
+   leer). Die Karte
+   „Instagram-Freigabe" im Dashboard zeigt die nächsten 14 Tage, sobald
+   der nächste Pages-Deploy `plan.json` gebaut hat.
+
+40. ~~**RADRACE als Veranstalter anschauen**~~ **erledigt** (17.10.2026,
+    vom Nutzer: „Falls du Events von Radrace findest dann bitte
+    aufnehmen"; eingetragen am 14.10.2026, bis dahin Punkt 9 der neuen
+    Liste). rad-race.com (Squarespace, robots.txt sperrt nur /config,
+    /search, /api; die AGB regeln nur die Teilnahme) von Hand gelesen,
+    kein Scraper. **RAD RACE ONE TWENTY** (Oberallgäu, Sonthofen, mit
+    808 Events/808project.de) stand schon drin, aber in drei Zeilen –
+    radsport-events lieferte beide Strecken als Spanne 12.–13.06.2027.
+    Jetzt: Mountain Team Time Trial 7 km / 340 hm am Sa 12.06. (Override),
+    Road Race 126 km / 2.230 hm am So 13.06. (`geprueft.json` – die
+    Großbuchstaben sind der Eigenname, die Zeile war deshalb
+    ausgeblendet), die doppelte 126-km-Zeile vom 12.06. per `exclude`.
+    Anmeldung auch einzeln, jeder fährt die ganze Strecke (Datenregel 16).
+    **Nicht aufgenommen**: 96 HOURS (Rom–Pescara), Tour de Friends
+    (Japan), RAD RACE 150 (Medellín) – außerhalb unserer Regionen; Sprint
+    Battle (29.08.2026 vorbei, 100-m-Sprint), Summercamp und Dopamine
+    Delivery Tours (nur Rückblicke 2026), Silent Run Club (wöchentlicher
+    Gemeinschaftslauf in Hamburg, kein Wettkampf). **Ohne Termin 2027**
+    (neue Liste Punkt 4): Last Wo/Man Standing (Fixed-Gear-
+    Ausscheidungsrennen auf der Kartbahn Berlin, März, „Everyone can sign
+    up", Warteliste 2027), FIXED 42 („prayin' for 2027"), 99LAPS (Zeche
+    Zollverein Essen, „Summer 2027", 99 Runden = 118,8 km, last athlete
+    standing; Startplätze per Los oder Qualifier, „aus den stärksten
+    Bewerbern" – vor der Aufnahme klären, ob das „für jeden" ist), New
+    Balance Midnight Miles (newbalance.de antwortet 403).
+41. ~~**Timeout des Datenlaufs auf 360 Minuten**~~ **erledigt**
+    (27.10.2026, vom Nutzer: „Ja, Timeout auf main auf 360 anheben“):
+    `timeout-minutes: 360` in `update-events.yml` auf beiden
+    Entwicklungs-Branches und auf `main` (Commit `a202d26f`, nur diese
+    Datei), Diff zwischen
+    `main` und Entwicklungs-Branch leer. Anlass: Der Lauf vom 26.10.2026
+    brauchte 262 von 300 Minuten, dazu kam die Instagram-Prüfung. 360 ist
+    das Maximum für gehostete Läufer.
+31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
+    Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
+    Termin – rein oder raus?~~ **erledigt** (09.10.2026, vom Nutzer: „Ne
+    rausnehmen den Sternsteintrail"): per Override raus, wie virtuelle
+    Läufe – eine Challenge mit freiem Startzeitpunkt über Wochen ist kein
+    Termin. 6.978 → 6.976 Events.
+
+
+### Was der Nutzer noch entscheiden muss (Stand 19.09.2026)
+
+Gesammelt aus der Einzelprüfung und dem Design-Durchgang. **Jeder Punkt
+wartet auf ein Ja/Nein des Nutzers** – nichts davon entscheidet Claude
+allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
+
+1. ~~Virtuelle Läufe – rein oder raus?~~ **entschieden** (21.09.2026:
+   „rausnehmen") – Regel in `NICHT_AUSDAUER`, prüft auch den Ort; siehe
+   Datenregel 14.
+2. ~~Abgesagte Veranstaltungen~~ **entschieden** (21.09.2026: „nicht
+   aufführen") – per Override mit Beleg, `seitenabgleich.py` meldet
+   ABGESAGT; siehe Datenregel 18.
+3. ~~Staffeln~~ **entschieden** (21.09.2026: „Erst einmal keine Staffeln
+   aufnehmen") – Datenregel 16.
+4. ~~Die 5-km-Grenze bei „5 km" mit 4,8 km~~ **entschieden** (19.09.2026):
+   Läufe unter 5 km bleiben draußen, auch die als „5 km" beworbenen. Sedus
+   (4,80 km), Bramfelder Winterlaufserie (4,66-km-Runde), Hochplatten
+   (4,6 km) und Herbstcross Saalfeld (4,8 km) stehen mit ihrer echten
+   Länge im Override und sind heraus – siehe Datenregel 5.
+5. **Meisterschaften im Rahmen eines Volkslaufs** stehen NICHT mehr
+   doppelt (7 Fälle entfernt, z. B. Bayerische Halbmarathon-
+   Meisterschaften = Aschaffenburger Halbmarathon). Umkehrbar, falls
+   die Meisterschaft als eigener Eintrag gewünscht ist.
+6. ~~Zahl der Strecken am aufgeklappten Block?~~ **entschieden**
+   (21.09.2026: „nicht relevant") – keine Zahl.
+7. ~~`runninglife_scraper.py` auf alle sechs Kalender ausweiten~~
+   **gebaut** (21.09.2026, „Du hast mein Ja") – siehe „Quellen"; die
+   Events kommen mit dem nächsten Datenlauf.
+8. **Die Quellenliste für die 20.000+** steht seit dem 21.09.2026 im
+   README („Quellen für den großen Datenlauf": 19 Kandidaten mit
+   robots.txt-Stand; die Recherche vom 18.09. war nie im Repo gelandet).
+   Gesperrte Quellen stehen auf Wunsch des Nutzers nicht in der Liste
+   (radsport-events.de, schwimmkalender.de, tri2b.com, triafreunde.com,
+   hdsports.org, datasport.com, alpen-open-watercup.de, rad-net.de,
+   swiss-cycling.ch, ahotu.com – radsport-events.de, schwimmkalender.de,
+   alpen-open-watercup.de und datasport.com sind seit dem 24./30.09.2026
+   mit seinem Ja Quellen). Der Nutzer sieht die Liste durch; kein
+   Scraper ohne sein Ja.
+9. ~~Backyard Ultra TRIATHLON – eigene Kategorie „Backyard"?~~
+   **entschieden** (19.09.2026): Laufen und Triathlon tragen denselben
+   Wert „Backyard Ultra" (siehe Datenregel 9); der „Backyardman
+   Würzburg" steht so in der Liste.
+10. ~~raceresult-Kontaktseiten auswerten~~ **gebaut** (19.09.2026, vom
+   Nutzer freigegeben): `scripts/veranstalter_links.py` – für ALLE
+   Zeitnehmer-, Anmelde- und Portallinks, nicht nur raceresult. Kein
+   `pending_overrides.json`-Umweg: Übernommen wird nur, was die
+   Zielseite am Namen des Laufs belegt; alles andere steht als `unklar`
+   im Linkprotokoll. Ergebnisse siehe „Neunter Durchgang".
+
+12. **Ergebnisse der Linkprüfung** (19.09.2026, siehe „Vierter
+   Durchgang"): sechs Duplikate unter zwei Namen zusammenführen oder
+   ausschließen? Dazu aus dem neunten Durchgang: „Rennbahncross in
+   Herxheim" / „Rennbahncross mit rheinland-pfälzischen
+   Crosslaufmeisterschaften" (15.11.2026, dieselbe Seite). Bordesholmer SEE&RUN 2026 (abgesagt), Wiehenläufer und
+   Crosslauf Jüchen ausschließen? Und `raceresult_kontakt.py` (Punkt 10)
+   lohnt sich: Von 47 Kontaktseiten nannten 24 eine brauchbare
+   Organizer-URL.
+
+21. **Aus der Radrennen-Prüfung vom 24.09.2026**:
+   - ~~`radsport-events.de` als Scraper-Quelle?~~ **entschieden**
+     (24.09.2026: „Ja, radsport-events.de als Quelle nutzen") –
+     `radsportevents_scraper.py`, siehe „Quellen".
+   - ~~Lizenzrennen (BRV Timing)?~~ **entschieden** (24.09.2026: „Bitte
+     auch die mit BDR Lizenz aufnehmen") – alle Klassen, eine Zeile je
+     Distanz mit den Klassen im Label; siehe „Quellen".
+   - **Die 72 „existiert, Termin offen"-Einträge** des PDFs (Protokoll
+     `scripts/eventliste_pdf_geprueft.json`) im Frühjahr 2027 erneut
+     prüfen – viele davon kommen dann über endure/running.life von
+     selbst; wer das früher will, braucht die Quelle aus dem ersten Punkt.
+   - **NordCup 2027** (9 Termine mit Veranstalterlink): einzeln beim
+     Veranstalter nachziehen, sobald Strecken und Startorte stehen.
+
+22. **Aus der Linkliste vom 24.09.2026** – je ein Ja/Nein:
+   - ~~**`datasport.com` als Quelle?**~~ **entschieden** (30.09.2026: „du
+     hast meine Erlaubnis für Punkt 3, datasport.com") –
+     `datasport_scraper.py`, siehe „Quellen".
+   - ~~Hamburg und Schleswig-Holstein~~ **entschieden** (30.09.2026:
+     „bitte alle die es erlauben einbauen") – `radsportsh_scraper.py`
+     gebaut; Hamburg nicht (nur Name + Datum, die Rennen kommen über den
+     Stevens Cup). Dazu die sieben anderen Quellen der zweiten Suche,
+     siehe „Quellen". Offen bleibt **zpn-timing.de** (Privat-Klausel im
+     Impressum): Eine Anfrage des Betreibers durch den Nutzer wäre der
+     Weg zu den ostdeutschen Cross-Cups und MTB-Marathons.
+   - **slowUp** (12 Zeilen, `slowup.ch`): autofreie Erlebnistage in der
+     Schweiz – Rad, Inline, zu Fuß, ohne Wettkampf und Anmeldung. Rein
+     oder raus? Heute drin (Fahrrad). **Entschieden 07.10.2026: bleibt**
+     (To-do Punkt 13). Und **IMEXrun** (Frankfurt, im
+     Rahmen der Messe IMEX) – wahrscheinlich nur für Messebesucher.
+   - **UCI-Rennen** wie die Oberösterreich Rundfahrt (2.2) stehen als
+     Fahrrad in der Liste; dort kann sich niemand einzeln anmelden
+     (Teams). „Auch mit BDR-Lizenz aufnehmen" deckt das nicht ganz.
+   - ~~**Gravel-Listen**~~ **entschieden** (08.10.2026): nur `dealgrid.de`
+     (`dealgrid_scraper.py`), gravel-club.com und 808project.de nicht.
+   - ~~**fsieben „Termin folgt"**~~ **entschieden** (08.10.2026): mit
+     geschätztem Termin aufnehmen, siehe Datenregel 19.
+
+23. **Aus der Linkprüfung vom 05.10.2026 (Achtzehnter Durchgang)** – je ein Ja/Nein:
+   - **FITLETIX** (Graz, Salzburg, Eisenstadt, Raedbox Challenge, LakeSide
+     Challenge) steht per Override draußen (Fitness-Challenge mit
+     Kraftstationen). In `NICHT_AUSDAUER` aufnehmen (`fitletix`)? Dann
+     bleiben neue Termine von selbst draußen. Gleiche Frage für
+     **StrongAthlon** (Enge-Sande, 14.08.2027, 6 km, Fri Ööwingsfloose
+     e.V.) – der Name klingt nach Kraft plus Lauf, geprüft ist es nicht.
+   - **BriggYard Staffel-Run** (Nottuln, 18.06.2027) per Override draußen
+     (Staffel, Datenregel 16). Soll `ist_staffel()` „Staffel-Run"/„Staffel
+     Run" lernen?
+   - **Meisterschaft im Rahmen** (Punkt 5): ~~„Bayerische Marathon
+     Meisterschaften" (11.10.2026) läuft im München Marathon~~ **raus**
+     (07.10.2026, vom Nutzer: „Das ist der Brooks Marathon einfach" –
+     Override, Datenregel 18; daraus wurde der achte Weg der
+     Duplikat-Erkennung, Datenregel 7); „DM 10km
+     Straße" (07.03.2027, Tübingen) in einem Tübinger Lauf steht weiter
+     als eigene Zeile mit laufen.de-Link.
+   - **Duplikat unter zwei Namen**: „49. Nat. Nikolaus Volkslauf"
+     (Mingolsheim) = „Nikolauslauf Bad Schönborn" (06.12.2026, beide
+     sg-badschoenborn.de); „Uchter Wald- und Crosslauf" (14.11.2026) heißt
+     beim SC Uchte „Uchter Volkslauf" am selben Tag.
+   - **Tippfehler aus laufen.de im Namen**: „Maritn Dufter" (Bad
+     Reichenhall, 05.06.2027 – was ist das?), „41. Internationaler
+     Brüder-Grimn-Lauf" (Hanau, Etappenlauf über drei Tage).
+   - **Firmenläufe nur für Teams** (Punkt 19 weiter): Wismarer Firmenlauf,
+     Firmenlauf Neumarkt, Rostocker Firmenlauf stehen mit Agentur-Veranstalter
+     auf raceresult; „4. Backnanger Kindercrossduathlon" ist ein
+     Kinderrennen ohne Distanz (kilometerliebe) – raus?
+
+20. **Farbschema und Pillen (21.09.2026, aus dem Kartenumbau)** – drei
+   Kleinigkeiten, die ein Ja/Nein brauchen:
+   - **Voreinstellung hell oder dunkel?** Heute folgt die Seite der
+     Systemeinstellung (`prefers-color-scheme` im Kopf-Skript), der
+     Knopf überschreibt sie dauerhaft. Soll IMMER dunkel (Vorlage der
+     Liste) oder IMMER hell (Vorlage der Karte) die Voreinstellung sein,
+     ist es eine Zeile im Kopf-Skript aller drei Seiten.
+   - **Die Pille „Name"** steht weiter ganz rechts in der Filterleiste
+     (beide Vorlagen zeigen sie nicht; die Mastersuche deckt Name und
+     Ort ab). Weg damit hieße: `'name'` aus `FILTER_ORDER` in beiden
+     Seiten streichen und die Rauchtest-Prüfung des Namens-Panels
+     umziehen.
+   - **Das Raster der Karte** steht fest (CSS-Hintergrund) und wandert
+     beim Schieben nicht mit – wie Papier. Ein echtes Gradnetz wäre eine
+     eigene Ebene aus Linien; nur, wenn es stört.
+
+11. ~~Weg zurück zur Startseite~~ **gebaut** (21.09.2026, mit dem
+   Umbau nach der Vorlage): Die Marke „Endurance Events" im Kopf ist ein
+   Link auf `index.html` (übliche Konvention). Falls der Nutzer das
+   nicht will, ist es ein `href` in `site.css`-Markup aller drei Seiten.
+
+13. ~~Treppenläufe – rein oder raus?~~ **entschieden** (21.09.2026: „als
+   Trail aufnehmen", Datenregel 6). Ursprünglich: Sieben Zeilen sind Towerruns
+   (ADAC Charity Treppenlauf München: „472 Stufen, 22 Etagen“, TK
+   Elevator Towerrun, ALTIMATE Treppenlauf Berlin, Teltschikturm,
+   Monschau, Lotto Thüringen Treppenlauf). Das ist ein eigenes Format
+   ohne Laufdistanz – dieselbe Frage wie bei HYROX, nur ist es Laufen.
+   Der Idar-Obersteiner Felsenkirche Treppenlauf ist KEIN Towerrun,
+   sondern ein Berglauf über 5,4 / 8,1 km mit Treppen im Kurs – der
+   bleibt in jedem Fall (stand fälschlich mit 42,2 km, korrigiert).
+   Vorschlag: raus, per `NICHT_AUSDAUER`-Zeile `treppenlauf|towerrun`,
+   mit dem Idar-Obersteiner als Gegenprobe im Test.
+
+14. ~~Spenden-, Schul- und Fitnessformate ohne Wettkampfdistanz~~
+   **entschieden** (21.09.2026): Spenden- und Spaßformate bleiben und
+   bekommen die Kategorie „Charity" (Datenregel 17), Schul-Events
+   fliegen per Override (Bonner Friedenslauf), Runworx und Black Forest
+   Team Battle stehen in `NICHT_AUSDAUER`. Ursprünglich: Beim
+   Durchgehen der Zeilen ohne Maßzahl (19.09.2026) kamen drei Sorten
+   zusammen, alle im Protokoll als `unklar`:
+   - **Runden-Spendenläufe mit frei gewählter Dauer** (Sterntaler
+     Spendenlauf Mannheim, STELP Spendenlauf Stuttgart, ProSana
+     Gesundheitslauf Schramberg) und ein **Schul-Spendenlauf** (Bonner
+     Friedenslauf, „hunderte Schüler*innen"). Wo die Dauer FEST ist
+     (Waschmühle 6 h, Rotary Albstadt 1 h, Meißen 1 h, Rastenberg 4 h),
+     stehen sie jetzt als Zeitrennen – das ist Datenregel 8. Ohne feste
+     Dauer bleibt nur „–", oder sie fliegen raus.
+   - ~~Fitness-Rennen mit Kraftstationen~~ **entschieden** (19.09.2026,
+     „Ja HYROX ausschließen"): Gymrace und Decathlon Hybrid Series stehen
+     in `NICHT_AUSDAUER`, drei Zeilen sind heraus. Die Spenden-, Schul-
+     und Spaßformate darunter und darüber bleiben offen.
+     **Nachzügler (19.09.2026, neunter Durchgang)**: „Runworx" in
+     Vogtei (31.10.2026) ist laut runworx.de ein 5-km-Hindernislauf mit
+     anschließendem Kraft-WOD im Gym – dieselbe Klasse; steht als
+     `unklar` im Protokoll, weil eine weitere `NICHT_AUSDAUER`-Zeile
+     ohne Ja des Nutzers nicht dazukommt. Der „Klaar Kiming Throwdown"
+     (Bredstedt, 24.04.2027) ist dagegen ein reiner CrossFit-Wettkampf
+     ohne Lauf und per `exclude` heraus.
+   - **Spaßformate**: Schweiger Tragathlon (Bierkasten-Tragen in
+     Viererteams), The Quest Auwald (Checkpoint-Jagd über 2/3 h,
+     Strecke frei), Pace Race Nürnberg („Social Racing"-Arena).
+
+15. ~~Scraper-Ergänzung: die laufen.de-Weiterleitung mitnehmen~~
+   **gebaut** (19.09.2026, vom Nutzer freigegeben):
+   `veranstalter_link_aus_weiterleitung()` in `laufkalender_scraper.py`;
+   `enrich_from_details()` ruft die Detailseite mit
+   `allow_redirects=False` ab und nimmt bei einem 302 das Ziel als
+   `veranstalter_url`, außer es liegt auf laufen.de, einem Anmeldeportal
+   (lanet3, raceresult, datasport, racepedia), einem sozialen Netz oder
+   einer `PORTAL_DOMAINS`-Adresse (`WEITERLEITUNG_KEIN_VERANSTALTER`).
+   Bei einer Weiterleitung gibt es keine Detailseite zum Parsen –
+   Wettbewerbe und Land bleiben dann auf dem Stand der Ergebnisliste,
+   wie vorher auch (die Veranstalterseite lieferte nie welche).
+   `test_laufen_weiterleitung` prüft Helfer und Abrufschleife mit einer
+   Fake-Session. Die 120 Overrides aus dem achten Durchgang bleiben
+   stehen; beim nächsten Datenlauf sind sie für diese Events ein No-op.
+
+16. ~~Vereinsinterne Leichtathletik-Veranstaltungen~~ **zurückgenommen**
+   (19.09.2026, am selben Tag): Der „4. Zülpicher Seepark Nikolauslauf"
+   war kurz per `exclude` draußen, weil der Veranstalter die
+   Leichtathletik-Abteilung des TuS Zülpich ist. Die Seite zeigt aber
+   einen offenen Volkslauf (Jedermannlauf, Firmenstaffel, 9,5-km-
+   Hauptlauf mit Online-Anmeldung), und der Nutzer hat ihn zurückgeholt.
+   Dabei fiel auf, dass der **Chlodwiglauf 2027** (14.03.2027, ca. 10 km
+   Eifelcup + ca. 5 km Jedermannlauf) ganz fehlte – nachgetragen in
+   `manual_events.json`; die Ausschreibung 2027 ist noch nicht
+   erschienen, die Distanzen stehen dort als „ca.". Lehre wie bei
+   Punkt 4 der Einzelprüfung: **Der Hostname („leichtathletik") sagt
+   nichts über die Offenheit** – 17 Domains, 34 Zeilen, fast alles
+   Volksläufe, die ein LA-Verein ausrichtet. Nie am Domainnamen
+   entscheiden.
+
+17. **Funde des zehnten Durchgangs (20.09.2026)** – alles nur notiert:
+   - **Duplikat unter zwei Namen**: „32. FT Jahn Nikolauslauf“ und
+     „Nikolauslauf Landsberg a. Lech“ (06.12.2026) sind derselbe Lauf
+     der FT Jahn Landsberg; beide zeigen jetzt auf ftjahn-landsberg.de,
+     `report_gleiche_seite_gleiche_distanz()` meldet sie.
+   - **HYROX-/Treppenlauf-Klasse** (Punkte 13/14): „Black Forest Team
+     Battle“ (Oberreichenbach, 5×1 km plus Kraftstationen in
+     Zweierteams – laut Veranstalter „functional fitness competition“),
+     „Bad Wildbader Stäffeleslauf“ (1.987 Stufen, 720 m) und „X-Mas
+     StairRun Oberhof“ (701 Stufen der Schanze, **nur für Feuerwehr und
+     Polizei** mit Atemschutz – für Läufer gar nicht buchbar). Dazu
+     „Weinathlon“ (Mücheln, 8,5 km mit sieben Weinstationen, „kein
+     klassischer Wettkampf“) und „Die Ha(a)rd Winter“ (laut raceresult
+     eine **Backyard-Wanderveranstaltung**, 02.–04.01.2027).
+   - **Ortsfehler?** „Cross- und Waldlaufmeisterschaften“ (31.10.2026)
+     steht bei uns in Rheine; laut LG Emsdetten findet die Kreis-Cross-
+     und Waldlaufmeisterschaft 2026 in Ibbenbüren-Dickenberg statt (SV
+     Dickenberg). Nicht geändert – ladv.de nennt Rheine.
+   - **Private Ultras mit ~20 Plätzen** wie „Rund um Schloß Holte“ (50 km,
+     GPX-Navigation, mindestens drei Anmeldungen) gehören zur Uwe-Laig-
+     Klasse: nur raceresult, keine Seite, keine Websuche wert.
+
+18. **Funde des elften Durchgangs (21.09.2026)** – Belege in
+   `geprueft.json` (`am` = 2026-09-21), nichts davon entschieden:
+   - **Duplikate unter zwei Namen**: „25. Altstadtfestlauf in Lauf"
+     (10 km) und „Altstadtfestlauf in Lauf" (5 km) sind ein Lauf des
+     Skiclubs Lauf; „TEAG – Legend of Cross" steht mit zwei Terminsätzen
+     (31.10./01.11.); Altwarmbüchen unter zwei Namen. Die 12,5-km-Zeile
+     des „31. Griesheimer Silvesterlaufs" steht in Flörsheim-Weilbach mit
+     TG-Weilbach-Link – wohl der Weilbacher Silvesterlauf, zusammengeführt
+     unter dem falschen Namen (Seite nennt 2026 noch nicht).
+   - **Nicht öffentliche Läufe**: Der „67. Panorama Marathon" (Running
+     Paule, 24.10.2026) ist laut Ausschreibung ein „gemeinsamer, nicht
+     öffentlicher Trainingsmarathon" – dieselbe Klasse wie die privaten
+     Ultra-Serien. Rein oder raus?
+   - **Staffeln** (Punkt 3 weiter): Landkreislauf Schwandorf (10 Läufer,
+     49,5 km / 3 Walker, 12,5 km), Weeze 3×5 km, Dinkelsbühl 4×3 km,
+     Firmenstaffel Sachsen-Anhalt 5×3 km – stehen mit der
+     Team-Gesamtstrecke und sagen es im Label.
+   - **Zeitrennen neben Distanz-Zeilen fehlen** (Rokathon 24 h, 24 Stunden
+     van Halen, Winterloop 6/12 h) – braucht eine Code-Änderung an
+     `_compatible_distance()`, siehe Elfter Durchgang.
+   - ~~Termine, die wahrscheinlich falsch sind~~ **entschieden**
+     (21.09.2026): als vorläufig markiert („Juni 2027*", Datenregel 19) –
+     Mittsommernachtslauf Hannover, Haasower Waldlauf, LST Super Sunday,
+     Wolfhager Volkslauf, Gläserner Mönch Lauf, Triathlon Offenburg,
+     Ibbenbürener Klippenlauf und 49 weitere Prognosen.
+   - **Sonstiges**: ClimAid Plant a Tree Run ist nur für 2024 belegt;
+     Teltowkanal 14 km, Bremer Kuhcross, Warendorfer Garagen-Backyard,
+     Neunkirchner Sommerlauf 2026 abgesagt, Belgershainer Crosslauf
+     möglicherweise eingestellt, Distanzen von Kulmbach Trails / Zötler /
+     Marienhagen nicht prüfbar (siehe Notizen).
+   - **Umkehrbar**: Internationaler Kammlauf Klingenthal (Skilanglauf)
+     ist per `exclude` heraus.
+   - **Aus den Portal- und laufen.de-Seiten** (Nachtrag, 21.09.2026):
+     weitere Duplikate unter zwei Namen – „49. Herbstlauf Ready4Run
+     Niederwangen" (5,4 km) = „Herbstlauf Niederwangen" (5 / 10,5 km),
+     „Schwollener Crosslauf – 2. Lauf der OIE-Serie" (6,4 km) = „Lauf
+     der Nahe-Crosslauf-Serie in Schwollen" (6 km), „2. Potsdamer Cross
+     im Rahmen der 22. DPM" (5,5 km) = wohl „Crosslauf in den
+     Ravensbergen" (5/7/9 km, gleicher Tag). Ausgeschlossen, weil die
+     Seite es belegt: „30. Braunsteichlauf Weißwasser" (= Spendenlauf am
+     Braunsteich), „Crosslauf-Kreismeisterschaften" (im Oelder Berg- und
+     Crosslauf), die 90-km-Zeile des SCC Cross Country (Tippfehler für
+     9 km). Und **„Lusatian Race Walking"** (24.10.2026, 42,2 km) ist
+     Gehen, keine Laufveranstaltung – dieselbe Frage wie beim Kammlauf.
+
+19. **Stand nach den Entscheidungen vom 21.09.2026 – was offen bleibt:**
+   - ~~**Walking-Strecken innerhalb von Volksläufen**~~ **entschieden**
+     (07.10.2026, Datenregel 23: Label nur Walking → raus, „Lauf und
+     Walking" und Walking im Namen bleiben). Ursprünglich: (145 Zeilen, „5 km
+     Nordic Walking" neben dem Hauptlauf) und reine Wanderformate: Der
+     Nutzer hat Gehen (Race Walking) und Skilanglauf ausgeschlossen;
+     ob Nordic Walking dazugehört, ist nicht entschieden. Die Walking-
+     Zeilen stehen als `art1` Laufen in der Liste. Die „Ahmadiyya
+     Charity Walks" sind als Charity MARKIERT und behalten seit dem
+     Umbau vom 21.09.2026 ihre Kategorie (siehe Datenregel 17).
+     **Der Zusatz unter dem Namen macht einen Teil davon sichtbar**:
+     Seit die Anzeige die Maßzahlen herausschneidet, steht dort bei
+     **76 Zeilen** „Walking" bzw. „Nordic Walking" (aus „5 km Walking,
+     Jahrgang 2012 und älter" wird „Walking, Jahrgang 2012 und älter") –
+     genau der Fall, den der Nutzer als Beispiel für einen guten Zusatz
+     genannt hat. Die 18 „Ahmadiyya Charity Walk" gehören NICHT dazu:
+     Ihr Label ist schlicht „5 km", die Gattung steht nur im Namen. Wer
+     die Walking-Zeilen zählen will, darf sich also nicht auf den Zusatz
+     verlassen.
+   - ~~Duplikate unter zwei Namen~~ **abgearbeitet** (21.09.2026, nach
+     Belegen): FT Jahn Nikolauslauf, Altstadtfestlauf in Lauf (10 km
+     unter den anderen Namen umgezogen), Niederwangen, Schwollen, TEAG
+     Legend of Cross (Mühlberg = Drei Gleichen; zusammengeführt über
+     drei gleiche Label-Overrides, weil `_same_name()` zwei
+     verschiedene Labels für zwei Wettbewerbe hält und der
+     Override-Schlüssel nicht nach Ort oder Link unterscheidet). Zwei
+     **Meisterschaft-im-Rahmen**-Fälle dazu, umkehrbar wie die sieben
+     anderen (Punkt 5): Potsdamer Cross (Polizeimeisterschaft) und die
+     rheinland-pfälzischen Crosslaufmeisterschaften in Herxheim. Die
+     übrigen Paare der Liste waren durch die Datenläufe seit dem 19.09.
+     schon verschwunden (Zons, Grengel, Altwarmbüchen, Bordesholm,
+     Wiehenläufer, Jüchen, Wertach, Kriegsheim, Fleckenberg,
+     Staffelläufe). Offen: Rellinger Citylauf (17,3 km UND 1 h, Seite
+     503).
+   - **Neu aus dem Vierzehnten Durchgang (21.09.2026), je ein Ja/Nein:**
+     - **Paarläufe** (Zweier-Teams über 30/60 Minuten) – Staffel im
+       Sinne von Datenregel 16, also raus? Drei im Bestand.
+     - **Firmenläufe nur für Teams** (Firmenlauf Ratingen: „Teams von
+       Unternehmen, Institutionen, Vereinen", keine Einzelstarter) –
+       rein oder raus? „Es soll jeder die Chance haben sich anzumelden"
+       spräche für raus. **Stichprobe von 8 der 28 Firmenläufe
+       (21.09.2026, Veranstalterseiten)**: Essen lässt Einzelstarter
+       ausdrücklich zu (Solo im „bunert Essen Team"), Gießen und
+       Sauerland nennen nur Teams (Sauerland: auch Einzelunternehmer),
+       Bonn, Landshut, Bamberg, Ludwigsburg und Soest sagen es nicht
+       (Bamberg: hybrid mit 4-wöchiger Sammelphase). Die Klasse ist also
+       gemischt; eine Regel „Firmenlauf = raus" träfe auch offene.
+     - **THE ROX, Deadly Dozen, ATHX** in `NICHT_AUSDAUER` aufnehmen?
+       Heute per Override draußen (sieben Zeilen); mit der Liste blieben
+       sie beim nächsten Datenlauf von selbst draußen.
+     - **Wings for Life World Run** trägt jetzt `charity` per Override
+       (100 % Startgeld für Rückenmarksforschung, belegt) – 23 Zeilen.
+       Falls nicht gewünscht: die Overrides tragen `"charity": true`,
+       ein `false` schaltet es ab.
+   - ~~2027-Termine, die Prognosen sind~~ **entschieden** (21.09.2026):
+     „Juni 2027*" mit Fußnote, Datenregel 19.
+   - ~~Zeitrennen neben Distanz-Zeilen~~ **gebaut** (21.09.2026):
+     `_compatible_distance()` trennt Distanz und Dauer, die vier Zeilen
+     (Rokathon 24 h, van Halen 24 h, Winterloop 6/12 h) stehen in
+     `manual_events.json` – Datenregel 8.
+   - ~~Cross- und Waldlaufmeisterschaften Rheine/Ibbenbüren~~ **erledigt**
+     (Websuche 21.09.2026: lg-emsdetten.de nennt Ibbenbüren/Dickenberg,
+     Ausrichter SV Dickenberg – Override mit Koordinaten des Ortsteils).
+     ~~Zahl der Strecken am Block~~ **entschieden** (21.09.2026: nein).
+     ~~Quellenliste~~ **steht jetzt im README** („Quellen für den großen
+     Datenlauf", 21.09.2026, ohne die gesperrten Quellen) – der Nutzer
+     sieht sie durch; kein Scraper ohne sein Ja.
+
+Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: `og:image`
+sobald die Domain steht, und die Testmeldung in `errorReports`
+verwerfen. (Die E-Mail-Adresse für Impressum/Datenschutz steht seit dem
+05.10.2026, der E-Mail-Versand läuft seit demselben Abend – siehe
+To-do-Liste, Punkt 2.)
+
+
+- ~~`og:image` nachtragen~~ **erledigt** (21.09.2026): `og-image.png`
+  mit der Adresse `antdon930.github.io/Enduranceevents/`; bei einem
+  Domainwechsel die Adresse in allen drei Seiten ändern.
+
+- ~~GeoNames-Namensnennung ins Impressum~~ **erledigt** (17.09.2026):
+  Sie steht jetzt in `impressum.html` unter „Datenquellen und
+  Lizenzen", zusammen mit OpenStreetMap, Leaflet und dem
+  Firebase-SDK; `footer_places` ist aus `index.html` entfernt. Nicht
+  löschen – CC BY 4.0 verlangt die Nennung mit Link.
+- ~~**E-Mail-Versand für „Benachrichtige mich" braucht Blaze**~~
+  **läuft seit dem 05.10.2026** (Blaze, `checkNewEvents` und
+  `unsubscribe` deployt in `europe-west1`, Extension „Trigger Email"
+  mit IONOS-SMTP, Testmail angekommen – Einzelheiten in der To-do-Liste
+  des Nutzers, Punkt 2; die Extension endet am 31.03.2027, Erinnerung
+  steht). Login und Firestore laufen (Projekt `endurance-5177a`), Abos
+  landen in `filterSubscriptions`.
+  **Code-seitig**: `firebase.json` und `.firebaserc`
+  liegen im Repo (`firebase init` also nicht nötig), das Shared Secret
+  läuft über `defineSecret`, und ohne gesetztes `NOTIFY_WEBHOOK_SECRET`
+  antwortet die Function mit 503 statt offen zu stehen. Deploy-Befehle im
+  Kopf von `functions/index.js` und im README.
+  Vorhandene Abos bleiben mit `notified: false` gültig, werden aber
+  **nicht rückwirkend** gegen die schon vorhandenen Events geprüft – die
+  Function sieht nur, was `update_events.py` ihr als neu meldet.
+- **Apple-Login: gelöscht** (05.10.2026, vom Nutzer: „Apple-Login bitte
+  löschen"). Bis dahin stand in `auth.js` nur eine ausgeblendete Hülle
+  (Button fest `disabled`, Icon, Schalter `SHOW_APPLE_SIGNIN`), nie eine
+  `signInWithApple()`. Jetzt ist nichts mehr davon da – auch keine
+  I18N-Texte. Wer ihn je will: Developer-Konto (99 $/Jahr) und eine
+  `signInWithApple()` analog zu `signInWithGoogle()`, siehe README.
+- ~~Popup-Fallback für den Google-Login~~ **erledigt**: `signInWithPopup`
+  schaltet bei blockiertem Popup auf `signInWithRedirect` um,
+  `handleRedirectResult()` wertet die Rückkehr aus. In-App-Browser
+  (Instagram etc.) bleiben ein Sonderfall – dort blockt der
+  Speicherschutz auch die Weiterleitung; der Nutzer bekommt dann im
+  Klartext den Hinweis, die Seite im normalen Browser zu öffnen. Details
+  im README („Google-Login: Popup, Weiterleitung, In-App-Browser").
+- ~~Anbieter „Anonym" + `firestore.rules` veröffentlichen~~
+  **erledigt** (16.09.2026, vom Nutzer in der Konsole). Gegen das echte
+  Projekt `endurance-5177a` nachgeprüft:
+  - anonyme Anmeldung funktioniert (vorher
+    `auth/admin-restricted-operation`),
+  - eine echte Meldung aus `events.html` wird angenommen – „Fehler zu
+    diesem Event melden" läuft damit **end-to-end**,
+  - die Regeln weisen ab: zu kurze Beschreibung, erfundene Kategorie,
+    manipulierter `status`, fremde `uid`, Zusatzfeld, selbst gesetzter
+    Zeitstempel, Lesen der Meldungen, Abo ohne E-Mail.
+
+  In `errorReports` steht eine **Testmeldung vom 16.09.2026** („TEST -
+  bitte verwerfen", Kategorie `sonstiges`, Event „16. AOK Firmenlauf
+  Waiblingen") – beim ersten `review_reports.py`-Durchgang einfach mit
+  `reject` verwerfen.
+
+  Zu wissen fürs nächste Mal: Der **Erfolgsfall lässt sich nicht per
+  REST** testen. Die Regel verlangt `createdAt == request.time`, und
+  einen Server-Zeitstempel kann nur das SDK erzeugen – der Echttest
+  läuft also über den Browser (Playwright gegen `events.html`). Die
+  Negativfälle gehen dagegen gut per REST mit einem anonymen ID-Token.
+  Zum **Lesen** der Meldungen braucht es einen Service-Account-Key
+  (Projekteinstellungen → Dienstkonten) oder den Reiter „Daten" in der
+  Konsole; die Regeln sperren das Lesen für alle Clients.
+- ~~5 Seed-Links~~ **erledigt** (16.09.2026 recherchiert, vom Nutzer
+  entschieden):
+  1. *Bodensee-Schwimmen* → als „Bodensee Openwater" aufgenommen:
+     Konstanz 26.06.2027 (5/10 km), Friedrichshafen 31.07.2027 (11 km),
+     Wallhausen 28.08.2027 (2,5/5 km) – fünf Einträge, je Strecke einer.
+     **Das sind die ersten Schwimm-Events überhaupt** (`art1`
+     „Schwimmen", `art2` „Freiwasser“); vorher bestand `events.json` zu
+     100 % aus Laufveranstaltungen. Die 2,5-km-Strecke überlebt die
+     Mindestdistanz korrekt, weil Regel 5 nur für `art1 == "Laufen"`
+     gilt. Die eigenständige „Bodenseequerung" wurde nicht verfolgt.
+  2. *Engadin Bike Giro* → **eingestellt**, nicht aufgenommen. Letzte
+     (8.) Austragung 2023, abgesagt bei nur ~200 Teilnehmenden; die
+     angekündigte „Wiederbelebung 2025" kam nie, die offizielle Seite
+     antwortet mit HTTP 503.
+  3. *Basel Marathon* → **entfernt**. Der IWB Basel Marathon wurde 2018
+     eingestellt (der Kanton strich 80.000 CHF Swisslos-Förderung), die
+     hinterlegte `basel-marathon.ch` löst nicht mehr auf. Der Eintrag
+     vom 09.05.2027 stand trotzdem in `events.json` und steht jetzt mit
+     `"exclude": true` in `manual_overrides.json`. Woher sein Termin
+     stammt, blieb offen – er passt zum 3Länderlauf (Marathon ab
+     Marktplatz Basel, Mitte Mai), das wäre aber geraten gewesen.
+  4. *Silvesterlauf Salzburg* → Der Lauf in der Stadt (1998–2004) ist
+     eingestellt; stattdessen der **Leimüller Silvesterlauf** in
+     Seekirchen am Wallersee aufgenommen (31.12.2026, 5,4 km). Nordic
+     Walking und Junior-Race bewusst weggelassen.
+  5. *Swiss Athletics Bahnmeeting* → **nicht aufgenommen**. Kein
+     einzelnes Event, sondern ein Wettkampfkalender, und Bahnmeetings
+     umfassen Sprint, Wurf und Sprung – das passt nicht zum
+     Ausdauersport-Zuschnitt der Seite.
+
+## Sprache
+
+Code-Kommentare, Docstrings, README, Commit-Messages und Antworten an den
+Nutzer: **Deutsch**. Die Webseite ist zweisprachig (DE/EN) über `I18N`-Objekte
+in den HTML-Dateien – Textänderungen immer in *beiden* Sprachen.

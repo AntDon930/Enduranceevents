@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-rudelsburglauf-bad-kosen-10km-naumburg-saale@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Rudelsburglauf - Bad Kösen
+LOCATION:Naumburg (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lg-rudels
+ burg.de/?page_id=60
+TRANSP:TRANSPARENT
+URL:https://www.lg-rudelsburg.de/?page_id=60
+END:VEVENT
+END:VCALENDAR

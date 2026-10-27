@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-shades-of-speed-shades-of-gravel-x-bad-feilnbach@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270726
+SUMMARY:Shades of Speed\, Shades of Gravel
+LOCATION:Bad Feilnbach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: -\nhttps://www.shades-of-sp
+ eed.eu/
+TRANSP:TRANSPARENT
+URL:https://www.shades-of-speed.eu/
+END:VEVENT
+END:VCALENDAR

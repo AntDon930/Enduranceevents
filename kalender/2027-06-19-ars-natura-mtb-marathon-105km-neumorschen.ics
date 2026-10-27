@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-ars-natura-mtb-marathon-105km-neumorschen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Ars Natura MTB-Marathon – MTB-Marathon 105 km
+LOCATION:Neumorschen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 105 km\nhttp://www.ts
+ v-neumorschen.de/
+TRANSP:TRANSPARENT
+URL:http://www.tsv-neumorschen.de/
+END:VEVENT
+END:VCALENDAR

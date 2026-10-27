@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-39-oggersheimer-berglauf-10-5km-ludwigshafen-oggersheim@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:39. Oggersheimer Berglauf – Berglauf
+LOCATION:Ludwigshafen-Oggersheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.5 km\nhttps://www.tgo1880.
+ de/index.php/leichtathletik/tgo-berglauf
+TRANSP:TRANSPARENT
+URL:https://www.tgo1880.de/index.php/leichtathletik/tgo-berglauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-chiemsee-rundfahrt-300km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Chiemsee-Rundfahrt – Brevet 300 km
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 300 km\nhttps://aramuc.de/b
+ revets/300-km-chiemsee-rundfahrt-2027
+TRANSP:TRANSPARENT
+URL:https://aramuc.de/brevets/300-km-chiemsee-rundfahrt-2027
+END:VEVENT
+END:VCALENDAR

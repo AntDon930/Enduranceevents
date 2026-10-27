@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-injoy-triathlon-hagen-x-hagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Injoy Triathlon Hagen – Triathlon
+LOCATION:Hagen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.injoy-tria
+ thlon-hagen.de/
+TRANSP:TRANSPARENT
+URL:https://www.injoy-triathlon-hagen.de/
+END:VEVENT
+END:VCALENDAR

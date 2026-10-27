@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-krampuslauf-ried-im-traunkreis-8km-ried-im-traunkreis@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Krampuslauf Ried im Traunkreis
+LOCATION:Ried im Traunkreis\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://krampuslauf-ri
+ ed.at/
+TRANSP:TRANSPARENT
+URL:https://krampuslauf-ried.at/
+END:VEVENT
+END:VCALENDAR

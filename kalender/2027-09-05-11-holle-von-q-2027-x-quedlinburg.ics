@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-11-holle-von-q-2027-x-quedlinburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:11. Hölle von Q 2027 – Mitteldistanz
+LOCATION:Quedlinburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.hoelle-von
+ -q.de/
+TRANSP:TRANSPARENT
+URL:https://www.hoelle-von-q.de/
+END:VEVENT
+END:VCALENDAR

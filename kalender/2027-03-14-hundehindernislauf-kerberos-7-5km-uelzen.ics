@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-hundehindernislauf-kerberos-7-5km-uelzen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Hundehindernislauf Kerberos – Persephone
+LOCATION:Uelzen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 7.5 km\nhttps://heraklide
+ nschlacht.de/hundehindernislauf/
+TRANSP:TRANSPARENT
+URL:https://heraklidenschlacht.de/hundehindernislauf/
+END:VEVENT
+END:VCALENDAR

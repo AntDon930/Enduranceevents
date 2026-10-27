@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-13-wisent-run-9km-springe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270813
+DTEND;VALUE=DATE:20270814
+SUMMARY:Wisent-RUN
+LOCATION:Springe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttp://www.vfvconcordi
+ a.de/laufen/wisentrun
+TRANSP:TRANSPARENT
+URL:http://www.vfvconcordia.de/laufen/wisentrun
+END:VEVENT
+END:VCALENDAR

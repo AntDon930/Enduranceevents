@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-turm-zu-turm-lauf-10km-georgsmarienhutte@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Turm zu Turm Lauf
+LOCATION:Georgsmarienhütte\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tvg-sport
+ .de/sportangebot/laufsport-triathlon/turm-zu-turmlauf.html
+TRANSP:TRANSPARENT
+URL:https://www.tvg-sport.de/sportangebot/laufsport-triathlon/turm-zu-turm
+ lauf.html
+END:VEVENT
+END:VCALENDAR

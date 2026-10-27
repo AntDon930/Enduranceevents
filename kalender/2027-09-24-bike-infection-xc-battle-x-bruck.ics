@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-24-bike-infection-xc-battle-x-bruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270924
+DTEND;VALUE=DATE:20270925
+SUMMARY:BIKE INFECTION XC-BATTLE – Cycling 4 All\, Eliminator
+LOCATION:Bruck\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.bikein
+ fection.at
+TRANSP:TRANSPARENT
+URL:https://www.bikeinfection.at
+END:VEVENT
+END:VCALENDAR

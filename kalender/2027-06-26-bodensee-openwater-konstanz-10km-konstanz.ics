@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-bodensee-openwater-konstanz-10km-konstanz@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Bodensee Openwater Konstanz – Q10
+LOCATION:Konstanz\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 10 km\nhttps://www.bo
+ densee-openwater.com/
+TRANSP:TRANSPARENT
+URL:https://www.bodensee-openwater.com/
+END:VEVENT
+END:VCALENDAR

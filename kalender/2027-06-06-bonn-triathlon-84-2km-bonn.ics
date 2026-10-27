@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-bonn-triathlon-84-2km-bonn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Bonn Triathlon – 84\,2 km (4\,2 km Schwimmen / 65 km Rad / 15 km L
+ aufen)
+LOCATION:Bonn\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 84.2 km\nhttps://www.bonn
+ -triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.bonn-triathlon.de/
+END:VEVENT
+END:VCALENDAR

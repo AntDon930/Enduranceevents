@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-wolfsburg-run-5km-wolfsburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Wolfsburg Run – 5 km Lauf ab 10 Jahren\, Jahrgang 2017 und älter
+LOCATION:Wolfsburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/421651/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/421651/
+END:VEVENT
+END:VCALENDAR

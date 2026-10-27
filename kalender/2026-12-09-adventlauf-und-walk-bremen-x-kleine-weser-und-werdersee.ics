@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-09-adventlauf-und-walk-bremen-x-kleine-weser-und-werdersee@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261209
+DTEND;VALUE=DATE:20261210
+SUMMARY:Adventlauf und Walk - Bremen
+LOCATION:Kleine Weser und Werdersee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://atsbuntentor.de/v
+ eranstaltungen/adventlauf-und-walk.html
+TRANSP:TRANSPARENT
+URL:https://atsbuntentor.de/veranstaltungen/adventlauf-und-walk.html
+END:VEVENT
+END:VCALENDAR

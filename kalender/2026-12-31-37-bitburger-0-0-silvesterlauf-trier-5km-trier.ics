@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-37-bitburger-0-0-silvesterlauf-trier-5km-trier@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:37. Bitburger-0\,0%-Silvesterlauf Trier
+LOCATION:Trier\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://silvesterlauf.
+ de/event/silvesterlauf/
+TRANSP:TRANSPARENT
+URL:https://silvesterlauf.de/event/silvesterlauf/
+END:VEVENT
+END:VCALENDAR

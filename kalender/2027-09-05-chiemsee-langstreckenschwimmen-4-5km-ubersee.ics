@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-chiemsee-langstreckenschwimmen-4-5km-ubersee@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Chiemsee Langstreckenschwimmen – 4\,5 km Fraueninsel – Übersee
+LOCATION:Übersee\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 4.5 km\nhttps://chiem
+ see-langstreckenschwimmen.de/
+TRANSP:TRANSPARENT
+URL:https://chiemsee-langstreckenschwimmen.de/
+END:VEVENT
+END:VCALENDAR

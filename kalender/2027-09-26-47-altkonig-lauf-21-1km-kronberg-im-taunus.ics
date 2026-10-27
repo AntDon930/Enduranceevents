@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-26-47-altkonig-lauf-21-1km-kronberg-im-taunus@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:47. Altkönig-Lauf – 21\,1 km Halbmarathon\, hügelig\, ca. 350 Höhe
+ nmeter
+LOCATION:Kronberg im Taunus\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttps://mtv-kronberg
+ .de/events/altkoenig-lauf/
+TRANSP:TRANSPARENT
+URL:https://mtv-kronberg.de/events/altkoenig-lauf/
+END:VEVENT
+END:VCALENDAR

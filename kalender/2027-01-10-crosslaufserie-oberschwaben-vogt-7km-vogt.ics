@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-crosslaufserie-oberschwaben-vogt-7km-vogt@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Crosslaufserie Oberschwaben - Vogt
+LOCATION:Vogt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://www.crosslaufse
+ rie-oberschwaben.de/veranstaltungsorte/10-01-2027-vogt/
+TRANSP:TRANSPARENT
+URL:https://www.crosslaufserie-oberschwaben.de/veranstaltungsorte/10-01-20
+ 27-vogt/
+END:VEVENT
+END:VCALENDAR

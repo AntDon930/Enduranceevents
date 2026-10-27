@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-30-oberaudorf-trail-festival-100km-oberaudorf@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270930
+DTEND;VALUE=DATE:20271004
+SUMMARY:Oberaudorf Trail Festival
+LOCATION:Oberaudorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 100 km\nhttps://saltytrailrun
+ ning.com/en-de/pages/otf
+TRANSP:TRANSPARENT
+URL:https://saltytrailrunning.com/en-de/pages/otf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-48-wernigeroder-silvesterlauf-7-6km-wernigerode@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:48. Wernigeröder Silvesterlauf
+LOCATION:Wernigerode\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.6 km\nhttps://harz-gebirgs
+ lauf.de/event/49-wernigeroeder-silvesterlauf.html
+TRANSP:TRANSPARENT
+URL:https://harz-gebirgslauf.de/event/49-wernigeroeder-silvesterlauf.html
+END:VEVENT
+END:VCALENDAR

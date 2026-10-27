@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-triathlon-de-cup-munchen-25-5km-oberschleissheim@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:triathlon.de CUP München – Volks-Triathlon 25\,5 km (500 m Schwimm
+ en / 20 km Rad / 5 km Laufen)
+LOCATION:Oberschleißheim\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.5 km\nhttps://triathlo
+ n.de/pages/triathlon-de-cup-muenchen-2026
+TRANSP:TRANSPARENT
+URL:https://triathlon.de/pages/triathlon-de-cup-muenchen-2026
+END:VEVENT
+END:VCALENDAR

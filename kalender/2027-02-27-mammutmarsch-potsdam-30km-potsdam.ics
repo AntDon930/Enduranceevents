@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-mammutmarsch-potsdam-30km-potsdam@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:Mammutmarsch Potsdam
+LOCATION:Potsdam\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 30 km\nhttps://mammutmarsch.
+ de/events/mammutmarsch-potsdam
+TRANSP:TRANSPARENT
+URL:https://mammutmarsch.de/events/mammutmarsch-potsdam
+END:VEVENT
+END:VCALENDAR

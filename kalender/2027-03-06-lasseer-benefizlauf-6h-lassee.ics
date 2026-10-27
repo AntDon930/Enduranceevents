@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-lasseer-benefizlauf-6h-lassee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:Lasseer Benefizlauf
+LOCATION:Lassee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 6 h\nhttps://www.l
+ asseer-benefizlauf.at/
+TRANSP:TRANSPARENT
+URL:https://www.lasseer-benefizlauf.at/
+END:VEVENT
+END:VCALENDAR

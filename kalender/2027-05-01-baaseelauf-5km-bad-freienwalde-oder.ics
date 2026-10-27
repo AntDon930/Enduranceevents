@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-baaseelauf-5km-bad-freienwalde-oder@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Baaseelauf
+LOCATION:Bad Freienwalde (Oder)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://athleticon1997
+ .de/baaseelauf.php
+TRANSP:TRANSPARENT
+URL:https://athleticon1997.de/baaseelauf.php
+END:VEVENT
+END:VCALENDAR

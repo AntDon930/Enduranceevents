@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-berlin-triathlon-17-3km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:Berlin Triathlon – Fitnesstriathlon 17\,3 km (400 m Schwimmen / 14
+ \,1 km Rad / 2\,8 km Laufen)
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 17.3 km\nhttps://berlin-t
+ riathlon.de/
+TRANSP:TRANSPARENT
+URL:https://berlin-triathlon.de/
+END:VEVENT
+END:VCALENDAR

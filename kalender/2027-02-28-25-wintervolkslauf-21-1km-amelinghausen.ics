@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-25-wintervolkslauf-21-1km-amelinghausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:25. Wintervolkslauf
+LOCATION:Amelinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.mtv-lauf
+ treff.de
+TRANSP:TRANSPARENT
+URL:http://www.mtv-lauftreff.de
+END:VEVENT
+END:VCALENDAR

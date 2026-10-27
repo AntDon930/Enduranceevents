@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-30-dsw-swim-run-6-2km-darmstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:DSW Swim & Run – Swim & Run 6\,2 km (700 m Schwimmen / 5.500 m Lau
+ fen)
+LOCATION:Darmstadt\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 6.2 km\nhttps://www.tria
+ thlon-darmstadt.de/events-specials/swimrun/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-darmstadt.de/events-specials/swimrun/
+END:VEVENT
+END:VCALENDAR

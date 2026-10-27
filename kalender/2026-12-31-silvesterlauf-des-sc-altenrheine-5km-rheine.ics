@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-des-sc-altenrheine-5km-rheine@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf des SC Altenrheine
+LOCATION:Rheine\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sc-altenrh
+ eine.de/ausdauer/silvesterlauf
+TRANSP:TRANSPARENT
+URL:https://www.sc-altenrheine.de/ausdauer/silvesterlauf
+END:VEVENT
+END:VCALENDAR

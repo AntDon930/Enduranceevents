@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-jedermanntriathlon-0-6km-neustrelitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Jedermanntriathlon – 600 m Schwimmen im klaren See.
+LOCATION:Neustrelitz\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 0.6 km\nhttps://jedermann
+ -triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://jedermann-triathlon.de/
+END:VEVENT
+END:VCALENDAR

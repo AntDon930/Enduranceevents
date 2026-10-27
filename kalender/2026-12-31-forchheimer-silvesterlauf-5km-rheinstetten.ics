@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-forchheimer-silvesterlauf-5km-rheinstetten@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Forchheimer Silvesterlauf
+LOCATION:Rheinstetten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sportfreun
+ de-forchheim.de/leichtathletik/silvesterlauf/infos-anmeldung.html
+TRANSP:TRANSPARENT
+URL:https://www.sportfreunde-forchheim.de/leichtathletik/silvesterlauf/inf
+ os-anmeldung.html
+END:VEVENT
+END:VCALENDAR

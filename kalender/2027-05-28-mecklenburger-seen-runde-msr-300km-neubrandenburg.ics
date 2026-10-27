@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-mecklenburger-seen-runde-msr-300km-neubrandenburg@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270529
+SUMMARY:Mecklenburger Seen Runde (MSR) – Radmarathon 300 km
+LOCATION:Neubrandenburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 300 km\nhttp://www.mecklenb
+ urger-seen-runde.de/
+TRANSP:TRANSPARENT
+URL:http://www.mecklenburger-seen-runde.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-09-dorpener-nordland-lauf-5km-dorpen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270409
+DTEND;VALUE=DATE:20270410
+SUMMARY:Dörpener Nordland-Lauf – 5\,0 km DIGI Lauf und Office Walk
+LOCATION:Dörpen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/428334/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/428334/
+END:VEVENT
+END:VCALENDAR

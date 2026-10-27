@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-saalfelder-winterlauf-15km-saalfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Saalfelder Winterlauf
+LOCATION:Saalfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.saalfelde
+ r-lv.de/winterlauf_2026_ausschreibung
+TRANSP:TRANSPARENT
+URL:https://www.saalfelder-lv.de/winterlauf_2026_ausschreibung
+END:VEVENT
+END:VCALENDAR

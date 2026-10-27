@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-stettener-volkslauf-5-3km-kernen-im-remstal@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Stettener Volkslauf – 5\,3 km Einsteigerlauf
+LOCATION:Kernen im Remstal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttps://www.tv-stett
+ en.de/volkslauf-in-stetten/
+TRANSP:TRANSPARENT
+URL:https://www.tv-stetten.de/volkslauf-in-stetten/
+END:VEVENT
+END:VCALENDAR

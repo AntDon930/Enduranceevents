@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-swiss-marathonis-backyard-marathon-x-zurzach@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:Swiss Marathonis Backyard Marathon
+LOCATION:Zurzach\, Schweiz
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: Open End\nhttps://my
+ .raceresult.com/431256/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/431256/
+END:VEVENT
+END:VCALENDAR

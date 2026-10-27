@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-nationales-quer-durch-zug-x-zug@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Nationales Quer durch Zug
+LOCATION:Zug\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.querdurchzug.
+ ch/
+TRANSP:TRANSPARENT
+URL:https://www.querdurchzug.ch/
+END:VEVENT
+END:VCALENDAR

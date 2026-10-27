@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-three-kings-ultra-trail-43km-reichenbach@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Three Kings Ultra Trail – Three Kings Half Way Trail
+LOCATION:Reichenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 43 km\nhttps://tkut.runfellow
+ s.com/
+TRANSP:TRANSPARENT
+URL:https://tkut.runfellows.com/
+END:VEVENT
+END:VCALENDAR

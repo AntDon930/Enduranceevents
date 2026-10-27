@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-frankfurt-city-triathlon-33-8km-frankfurt-am-main@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Frankfurt City Triathlon – Sprint Distanz
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 33.8 km\nhttps://www.fran
+ kfurt-city-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.frankfurt-city-triathlon.de/
+END:VEVENT
+END:VCALENDAR

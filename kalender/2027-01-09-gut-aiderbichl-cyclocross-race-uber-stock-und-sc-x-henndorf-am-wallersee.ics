@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-gut-aiderbichl-cyclocross-race-uber-stock-und-sc-x-henndorf
+ -am-wallersee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Gut Aiderbichl Cyclocross Race "Über Stock und SChwein" – Cyclocro
+ ss
+LOCATION:Henndorf am Wallersee\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.lrv-salz
+ burg.at
+TRANSP:TRANSPARENT
+URL:https://www.lrv-salzburg.at
+END:VEVENT
+END:VCALENDAR

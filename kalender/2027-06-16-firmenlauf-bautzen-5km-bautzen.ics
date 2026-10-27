@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-16-firmenlauf-bautzen-5km-bautzen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270616
+DTEND;VALUE=DATE:20270617
+SUMMARY:Firmenlauf Bautzen
+LOCATION:Bautzen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.firmenlauf
+ -bautzen.de/
+TRANSP:TRANSPARENT
+URL:https://www.firmenlauf-bautzen.de/
+END:VEVENT
+END:VCALENDAR

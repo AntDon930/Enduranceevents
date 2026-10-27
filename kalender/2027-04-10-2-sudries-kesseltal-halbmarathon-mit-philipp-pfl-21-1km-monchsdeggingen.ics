@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-2-sudries-kesseltal-halbmarathon-mit-philipp-pfl-21-1km-mon
+ chsdeggingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:2. Südries-Kesseltal Halbmarathon mit Philipp Pflieger
+LOCATION:Mönchsdeggingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://tsvmoenchsd
+ eggingen.de/halbmarathon/
+TRANSP:TRANSPARENT
+URL:https://tsvmoenchsdeggingen.de/halbmarathon/
+END:VEVENT
+END:VCALENDAR

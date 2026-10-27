@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-33-ifa-nonstop-triathlon-bamberg-x-rattelsdorf@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:33. IfA Nonstop Triathlon Bamberg – Sprint
+LOCATION:Rattelsdorf\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://triathlon.de/p
+ ages/veranstaltungskalender/32-if-a-nonstop-triathlon
+TRANSP:TRANSPARENT
+URL:https://triathlon.de/pages/veranstaltungskalender/32-if-a-nonstop-tria
+ thlon
+END:VEVENT
+END:VCALENDAR

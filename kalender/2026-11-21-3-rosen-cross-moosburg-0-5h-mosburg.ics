@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-3-rosen-cross-moosburg-0-5h-mosburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:3 Rosen Cross Moosburg – Cyclocross 30 min
+LOCATION:Mosburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 30 min\nhttps://turbo-s
+ port.eu/veranstaltungen/3rosen-cross
+TRANSP:TRANSPARENT
+URL:https://turbo-sport.eu/veranstaltungen/3rosen-cross
+END:VEVENT
+END:VCALENDAR

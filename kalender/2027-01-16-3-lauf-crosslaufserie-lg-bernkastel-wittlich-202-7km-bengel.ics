@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-3-lauf-crosslaufserie-lg-bernkastel-wittlich-202-7km-bengel
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:3. Lauf Crosslaufserie LG Bernkastel Wittlich 2026/27
+LOCATION:Bengel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://lg-bernkastel-w
+ ittlich.de/crossanmeldung
+TRANSP:TRANSPARENT
+URL:https://lg-bernkastel-wittlich.de/crossanmeldung
+END:VEVENT
+END:VCALENDAR

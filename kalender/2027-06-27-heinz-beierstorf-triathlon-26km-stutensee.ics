@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-heinz-beierstorf-triathlon-26km-stutensee@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Heinz Beierstorf Triathlon
+LOCATION:Stutensee\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 26 km\nhttps://tsg-blanke
+ nloch.de/Veranstaltungen/StutenseeTriathlon/
+TRANSP:TRANSPARENT
+URL:https://tsg-blankenloch.de/Veranstaltungen/StutenseeTriathlon/
+END:VEVENT
+END:VCALENDAR

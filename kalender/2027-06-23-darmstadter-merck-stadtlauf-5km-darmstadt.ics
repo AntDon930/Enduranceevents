@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-23-darmstadter-merck-stadtlauf-5km-darmstadt@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270623
+DTEND;VALUE=DATE:20270624
+SUMMARY:Darmstädter Merck Stadtlauf
+LOCATION:Darmstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.darmstadt-l
+ aeuft.de
+TRANSP:TRANSPARENT
+URL:http://www.darmstadt-laeuft.de
+END:VEVENT
+END:VCALENDAR

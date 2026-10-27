@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-triathlon-d-aubonne-x-aubonne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Triathlon d'Aubonne
+LOCATION:Aubonne\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.triathlona
+ ubonne.ch/
+TRANSP:TRANSPARENT
+URL:https://www.triathlonaubonne.ch/
+END:VEVENT
+END:VCALENDAR

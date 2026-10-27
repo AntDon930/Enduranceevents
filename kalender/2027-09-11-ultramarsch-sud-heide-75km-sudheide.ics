@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-ultramarsch-sud-heide-75km-sudheide@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270913
+SUMMARY:Ultramarsch Süd-Heide
+LOCATION:Südheide\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 75 km\nhttps://www.ultramars
+ ch.de/p/2027-ticket-ultramarsch-sued-heide
+TRANSP:TRANSPARENT
+URL:https://www.ultramarsch.de/p/2027-ticket-ultramarsch-sued-heide
+END:VEVENT
+END:VCALENDAR

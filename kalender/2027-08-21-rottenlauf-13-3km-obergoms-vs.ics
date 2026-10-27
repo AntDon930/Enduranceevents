@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-rottenlauf-13-3km-obergoms-vs@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Rottenlauf – 13.3 km für Junioren sowie Damen und Herren.
+LOCATION:Obergoms VS\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13.3 km\nhttps://rottenlauf.
+ ch/
+TRANSP:TRANSPARENT
+URL:https://rottenlauf.ch/
+END:VEVENT
+END:VCALENDAR

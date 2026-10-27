@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-05-kat100-by-utmb-169km-fieberbrunn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270805
+DTEND;VALUE=DATE:20270808
+SUMMARY:KAT100 by UTMB – 100 Miles
+LOCATION:Fieberbrunn\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 169 km\nhttps://kat.utmb.wor
+ ld
+TRANSP:TRANSPARENT
+URL:https://kat.utmb.world
+END:VEVENT
+END:VCALENDAR

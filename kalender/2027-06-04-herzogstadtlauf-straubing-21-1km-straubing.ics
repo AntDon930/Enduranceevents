@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-herzogstadtlauf-straubing-21-1km-straubing@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270607
+SUMMARY:Herzogstadtlauf Straubing – 21\,1 km BMW-Halbmarathon\, Am Hagen
+LOCATION:Straubing\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.herzogs
+ tadtlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.herzogstadtlauf.de/
+END:VEVENT
+END:VCALENDAR

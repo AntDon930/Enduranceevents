@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-eichberglauf-glottertal-10km-glottertal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Eichberglauf Glottertal
+LOCATION:Glottertal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://eichberglauf.d
+ e/
+TRANSP:TRANSPARENT
+URL:https://eichberglauf.de/
+END:VEVENT
+END:VCALENDAR

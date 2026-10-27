@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-37-westerwinkellauf-5km-ascheberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:37. Westerwinkellauf – 5 km Laufen und Walking für alle Altersklas
+ sen
+LOCATION:Ascheberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.svh-herber
+ n.de/laufen/westerwinkellauf/
+TRANSP:TRANSPARENT
+URL:https://www.svh-herbern.de/laufen/westerwinkellauf/
+END:VEVENT
+END:VCALENDAR

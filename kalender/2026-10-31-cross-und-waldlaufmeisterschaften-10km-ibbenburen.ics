@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-cross-und-waldlaufmeisterschaften-10km-ibbenburen@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Cross- und Waldlaufmeisterschaften
+LOCATION:Ibbenbüren\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://ladv.de/aussch
+ reibung/detail/48772/Cross-und-Waldlaufmeisterschaften-2026-Ibbenb%C3%BCr
+ en.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/48772/Cross-und-Waldlaufmeistersc
+ haften-2026-Ibbenb%C3%BCren.htm
+END:VEVENT
+END:VCALENDAR

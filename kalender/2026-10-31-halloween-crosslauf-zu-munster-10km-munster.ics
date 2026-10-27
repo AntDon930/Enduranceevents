@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-halloween-crosslauf-zu-munster-10km-munster@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Halloween Crosslauf zu Munster
+LOCATION:Munster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.eintracht-
+ munster.de/index.php/sparten/leichtathletik
+TRANSP:TRANSPARENT
+URL:https://www.eintracht-munster.de/index.php/sparten/leichtathletik
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-3b-bike-beer-barbecue-gravel-ride-90km-mainz@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:3B  Bike Beer & Barbecue Gravel Ride – Gravel Tour 90 km
+LOCATION:Mainz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 90 km\nhttps://mrsv.de/even
+ ts/bike-beer-barbecue-gravel-ride-2026/
+TRANSP:TRANSPARENT
+URL:https://mrsv.de/events/bike-beer-barbecue-gravel-ride-2026/
+END:VEVENT
+END:VCALENDAR

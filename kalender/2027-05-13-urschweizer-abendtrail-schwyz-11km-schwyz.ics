@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-13-urschweizer-abendtrail-schwyz-11km-schwyz@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270513
+DTEND;VALUE=DATE:20270514
+SUMMARY:Urschweizer Abendtrail Schwyz
+LOCATION:Schwyz\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11 km\nhttps://www.urschweize
+ r-abendtrails.ch/schwyz
+TRANSP:TRANSPARENT
+URL:https://www.urschweizer-abendtrails.ch/schwyz
+END:VEVENT
+END:VCALENDAR

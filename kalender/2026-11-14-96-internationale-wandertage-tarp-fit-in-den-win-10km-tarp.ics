@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-96-internationale-wandertage-tarp-fit-in-den-win-10km-tarp@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261116
+SUMMARY:96. Internationale Wandertage Tarp – Fit in den Winter
+LOCATION:Tarp\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 10 km\nhttps://volkswandergr
+ uppe-tarp.de/
+TRANSP:TRANSPARENT
+URL:https://volkswandergruppe-tarp.de/
+END:VEVENT
+END:VCALENDAR

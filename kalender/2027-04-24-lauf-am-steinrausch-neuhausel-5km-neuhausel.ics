@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-lauf-am-steinrausch-neuhausel-5km-neuhausel@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Lauf am Steinrausch Neuhäusel
+LOCATION:Neuhäusel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://sgneuhaeusel.d
+ e/?page_id=49
+TRANSP:TRANSPARENT
+URL:https://sgneuhaeusel.de/?page_id=49
+END:VEVENT
+END:VCALENDAR

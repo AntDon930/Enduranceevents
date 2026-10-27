@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-brm-200-barn-to-explore-204km-bern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:BRM 200 BÄRN TO EXPLORE – Gravel Brevet 204 km
+LOCATION:Bern\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 204 km\nhttps://www.audaxsu
+ isse.ch/brevets/
+TRANSP:TRANSPARENT
+URL:https://www.audaxsuisse.ch/brevets/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-24-tullner-lauftage-100km-tulln-an-der-donau@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270924
+DTEND;VALUE=DATE:20270927
+SUMMARY:Tullner Lauftage
+LOCATION:Tulln an der Donau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://my.raceresul
+ t.com/429918/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/429918/
+END:VEVENT
+END:VCALENDAR

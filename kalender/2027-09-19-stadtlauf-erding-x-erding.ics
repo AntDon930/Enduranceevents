@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-stadtlauf-erding-x-erding@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Stadtlauf Erding
+LOCATION:Erding\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://trisport-erding.d
+ e/stadtlauf/info-stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://trisport-erding.de/stadtlauf/info-stadtlauf/
+END:VEVENT
+END:VCALENDAR

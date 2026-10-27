@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-crosslauf-freistadt-7-5km-galgenau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Crosslauf Freistadt
+LOCATION:Galgenau\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.5 km\nhttps://www.tripowerf
+ reistadt.at/crosslauf-staatsmeisterschaft-2026/
+TRANSP:TRANSPARENT
+URL:https://www.tripowerfreistadt.at/crosslauf-staatsmeisterschaft-2026/
+END:VEVENT
+END:VCALENDAR

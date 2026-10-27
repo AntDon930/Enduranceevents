@@ -1,0 +1,154 @@
+name: Tests
+
+# Prüft bei jedem Push und jedem Pull Request das, was vor einem Commit
+# ohnehin laufen soll (siehe CLAUDE.md "Vor jedem Commit"). Vorher lief
+# beim Push nur der Pages-Deploy: eine kaputte events.html wäre
+# unbemerkt live gegangen.
+#
+# Zwei Jobs, damit man auf einen Blick sieht, WAS kaputt ist:
+#
+#   tests  - Regressionstests + node --check + ?v=-Stempel. Wenige
+#            Sekunden, kein Netz, kein Browser.
+#   rauchtest - die drei Seiten in Chromium auf Handybreite. Braucht
+#            Playwright samt Chromium (~1 Minute Einrichtung), läuft
+#            deshalb getrennt.
+#
+# Das Repository ist öffentlich, Actions-Minuten sind dafür kostenlos.
+# Kein Scraper-Lauf in der CI: die Quellen sollen nicht bei jedem Push
+# abgerufen werden (Höflichkeit und robots.txt), Daten aktualisiert
+# allein update-events.yml.
+
+# Nur `push`, kein `pull_request`: Der Entwicklungs-Branch hängt an
+# PR #1, und mit beiden Auslösern lief jeder Push ZWEIMAL - zwei
+# Durchgänge, zwei Fehler-Mails an den Nutzer (13.10.2026: "Außerdem
+# bekomme ich immer so viele von diesen E-Mails"). Die Push-Läufe
+# erscheinen als Checks am selben Commit auch im Pull Request.
+#
+# Seit dem 13.10.2026 ist diese Datei auch das DEPLOY-GATE: pages.yml ruft
+# sie als wiederverwendbaren Workflow (workflow_call) auf und deployt
+# erst, wenn beide Jobs grün sind. Der Entwicklungs-Branch
+# claude/endurance-events-website-v1wruf steht deshalb NICHT mehr unter
+# `push` - seine Tests laufen innerhalb von pages.yml (sonst liefen sie
+# je Push zweimal, und jede rote Runde brächte zwei Mails). Der zweite
+# Name desselben Stands (claude/website-access-9d9tg1) deployt nicht und
+# wird hier weiter direkt geprüft.
+on:
+  push:
+    branches:
+      - claude/website-access-9d9tg1
+      - main
+  workflow_call: {}
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+# Ein neuer Push auf denselben Branch bricht den laufenden Durchgang ab -
+# das Ergebnis des alten Stands interessiert dann nicht mehr.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Regressionstests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # node braucht test_scraper_lib.py zweimal: für die Gegenprobe der
+      # Kalender-Dateinamen (es läuft der echte JS-Code aus events.html)
+      # und für `node --check` über die Inline-Skripte.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # scraper_lib importiert requests und bs4 - ohne die läuft der Test
+      # gar nicht an (genau daran ist der erste CI-Lauf gescheitert).
+      # Dieselbe Liste nutzt update-events.yml.
+      - name: Python-Abhängigkeiten
+        run: pip install --quiet -r scripts/requirements.txt
+
+      # Dieselben Prüfungen wie vor jedem Commit: Datenregeln, Dedupe,
+      # Zeitrennen, Kalender-Dateinamen, JS-Syntax und die ?v=-Stempel an
+      # den geteilten Dateien (filters.js, filter-ui.js, filter-ui.css).
+      # Ein vergessener Stempel hat die Seite schon einmal leer gemacht.
+      - name: Regressionstests
+        run: python3 scripts/test_scraper_lib.py
+
+      # Aufräumen muss idempotent sein: der ZWEITE Lauf über dieselbe
+      # Datei darf nichts mehr ändern. Sonst wächst der wöchentliche
+      # Commit ins Unendliche.
+      #
+      # Verglichen werden bewusst erster und zweiter Lauf, NICHT der
+      # committete Stand mit dem ersten Lauf. Letzteres war der erste
+      # Versuch und schlug schon am nächsten Tag fehl: `clean_events.py`
+      # entfernt vergangene Events (Datenregel 10), also ändert es die
+      # committete Datei, sobald ein Tag vergangen ist. Das ist richtig
+      # so und darf die CI nicht rot machen.
+      #
+      # `--no-geocoding` ist Absicht: Ohne das fragte jeder Push
+      # Nominatim nach Ländern zu Koordinaten (der Cache liegt nicht im
+      # Repo) - unhöflich gegenüber einem fremden Dienst und langsam.
+      # Geprüft wird damit genau der Teil, der ohne Netz entscheidet.
+      - name: clean_events.py ist idempotent
+        run: |
+          python3 scripts/clean_events.py --no-geocoding --quiet
+          cp events.json /tmp/erster-lauf.json
+          python3 scripts/clean_events.py --no-geocoding --quiet
+          if ! diff -q /tmp/erster-lauf.json events.json; then
+            echo "::error::Ein zweiter Lauf von clean_events.py ändert noch etwas - nicht idempotent."
+            diff /tmp/erster-lauf.json events.json | head -40
+            exit 1
+          fi
+          # Den committeten Stand zurückholen: Der nächste Schritt prüft
+          # kalender/ gegen GENAU diese Datei, nicht gegen eine, die der
+          # Lauf oben gerade um vergangene Events gekürzt hat.
+          git checkout -- events.json
+
+      # Die .ics-Dateien liegen fertig im Repo (Safari übergibt einen
+      # Termin nur an den Kalender, wenn der Server text/calendar
+      # schickt). Sie müssen also zu events.json passen.
+      - name: kalender/ passt zu events.json
+        run: |
+          python3 scripts/build_ics.py
+          if [ -n "$(git status --porcelain kalender)" ]; then
+            echo "::error::kalender/ ist nicht aktuell - python3 scripts/build_ics.py ausführen und mit committen."
+            git status --porcelain kalender | head -20
+            exit 1
+          fi
+
+  rauchtest:
+    name: Rauchtest im Browser
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # Auch hier die Python-Abhängigkeiten: smoke_test_frontend.py
+      # importiert seit dem 06.10.2026 scraper_lib (serien_schluessel,
+      # der Python-Zwilling der Serien-Gruppierung), und scraper_lib
+      # importiert requests und bs4. Ohne diese Zeile brach der Rauchtest
+      # eine Woche lang nach 30 Sekunden mit "No module named 'requests'"
+      # ab - bei jedem Push eine Fehler-Mail, bis es am 13.10.2026 auffiel.
+      - name: Python-Abhängigkeiten
+        run: pip install --quiet -r scripts/requirements.txt
+
+      - name: Playwright und Chromium
+        run: |
+          python3 -m pip install --quiet playwright
+          python3 -m playwright install --with-deps chromium
+
+      # Das Skript startet selbst einen Server auf einem freien Port und
+      # prüft die drei Seiten auf Handybreite (390 px). Ohne Playwright
+      # bricht es mit Hinweis und Rückgabewert 0 ab - hier ist es
+      # installiert, ein Fehlschlag ist also echt.
+      - name: Rauchtest
+        run: python3 scripts/smoke_test_frontend.py

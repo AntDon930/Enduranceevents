@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-24-cross-sam-massagno-x-vezia@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270124
+DTEND;VALUE=DATE:20270125
+SUMMARY:Cross SAM Massagno
+LOCATION:Vezia\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.endu.net/it/ev
+ ents/cross-sam
+TRANSP:TRANSPARENT
+URL:https://www.endu.net/it/events/cross-sam
+END:VEVENT
+END:VCALENDAR

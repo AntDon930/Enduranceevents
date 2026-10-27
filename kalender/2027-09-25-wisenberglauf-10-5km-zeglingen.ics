@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-wisenberglauf-10-5km-zeglingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Wisenberglauf – 10.5 km Berglauf\, 600 m Höhendifferenz\, Ziel Wis
+ enbergturm.
+LOCATION:Zeglingen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.5 km\nhttps://www.wisenber
+ glauf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.wisenberglauf.ch/
+END:VEVENT
+END:VCALENDAR

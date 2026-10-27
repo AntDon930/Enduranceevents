@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-09-purgstaller-marktlauf-moststrasse-laufcup-5-1km-purgstall-a
+ n-der-erlauf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271009
+DTEND;VALUE=DATE:20271010
+SUMMARY:Purgstaller Marktlauf (Moststraße Laufcup)
+LOCATION:Purgstall an der Erlauf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.1 km\nhttps://purgstall.sp
+ ortunion.at/marktlauf-2026/
+TRANSP:TRANSPARENT
+URL:https://purgstall.sportunion.at/marktlauf-2026/
+END:VEVENT
+END:VCALENDAR

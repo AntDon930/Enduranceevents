@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-winterlauf-amelinghausen-5km-amelinghausen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:Winterlauf Amelinghausen
+LOCATION:Amelinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.mtv-lauftr
+ eff.de/unsere-volksl%C3%A4ufe
+TRANSP:TRANSPARENT
+URL:https://www.mtv-lauftreff.de/unsere-volksl%C3%A4ufe
+END:VEVENT
+END:VCALENDAR

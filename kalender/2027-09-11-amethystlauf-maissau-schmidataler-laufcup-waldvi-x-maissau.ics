@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-amethystlauf-maissau-schmidataler-laufcup-waldvi-x-maissau@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Amethystlauf Maissau (Schmidataler Laufcup\, Waldviertelcup)
+LOCATION:Maissau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.lurs.at
+TRANSP:TRANSPARENT
+URL:http://www.lurs.at
+END:VEVENT
+END:VCALENDAR

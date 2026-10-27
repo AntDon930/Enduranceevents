@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvester-ultramarathon-breuna-22-8km-breuna@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvester-Ultramarathon Breuna – Halbmarathon
+LOCATION:Breuna\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 22.8 km\nhttps://my.raceresu
+ lt.com/422344/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/422344/
+END:VEVENT
+END:VCALENDAR

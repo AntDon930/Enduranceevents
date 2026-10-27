@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-tagitri-45-4km-wettingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:TägiTri – Triathlon Lang 45.4 km (1 km Schwimmen / 36.8 km Rad / 7
+ .6 km Laufen)
+LOCATION:Wettingen\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 45.4 km\nhttps://taegit
+ ri.ch/home
+TRANSP:TRANSPARENT
+URL:https://taegitri.ch/home
+END:VEVENT
+END:VCALENDAR

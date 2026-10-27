@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-29-berlin-munich-berlin-850km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270729
+DTEND;VALUE=DATE:20270804
+SUMMARY:Berlin-Munich-Berlin – Brevet 850 km
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 850 km\nhttps://berlin-muni
+ ch-berlin.org/
+TRANSP:TRANSPARENT
+URL:https://berlin-munich-berlin.org/
+END:VEVENT
+END:VCALENDAR

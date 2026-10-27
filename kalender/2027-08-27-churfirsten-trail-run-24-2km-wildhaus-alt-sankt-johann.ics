@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-27-churfirsten-trail-run-24-2km-wildhaus-alt-sankt-johann@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270827
+DTEND;VALUE=DATE:20270830
+SUMMARY:Churfirsten Trail Run – CT25 Panorama Trail
+LOCATION:Wildhaus-Alt Sankt Johann\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 24.2 km\nhttps://www.churfirs
+ tentrailrun.ch/
+TRANSP:TRANSPARENT
+URL:https://www.churfirstentrailrun.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-27-10-sparkassen-abendlauf-10km-recklinghausen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270827
+DTEND;VALUE=DATE:20270828
+SUMMARY:10. Sparkassen-Abendlauf
+LOCATION:Recklinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/10-sparkassen-abendlauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/10-sparkassen-abendlauf
+END:VEVENT
+END:VCALENDAR

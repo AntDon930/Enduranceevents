@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-rostocker-triathlon-25-8km-rostock@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Rostocker Triathlon – Sprintdistanz 25\,8 km (750 m Schwimmen / 20
+  km Rad / 5 km Laufen)
+LOCATION:Rostock\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.8 km\nhttps://tc-fiko.
+ de/rostocker-triathlon/
+TRANSP:TRANSPARENT
+URL:https://tc-fiko.de/rostocker-triathlon/
+END:VEVENT
+END:VCALENDAR

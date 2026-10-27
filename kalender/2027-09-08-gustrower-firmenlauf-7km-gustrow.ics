@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-08-gustrower-firmenlauf-7km-gustrow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270908
+DTEND;VALUE=DATE:20270909
+SUMMARY:Güstrower Firmenlauf
+LOCATION:Güstrow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.guestrower
+ -firmenlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.guestrower-firmenlauf.de/
+END:VEVENT
+END:VCALENDAR

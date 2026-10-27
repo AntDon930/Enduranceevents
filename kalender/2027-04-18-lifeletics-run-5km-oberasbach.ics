@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-lifeletics-run-5km-oberasbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Lifeletics Run – 5 Kilometer \, 250 Startplätze\, Startgebühr 12\,
+ 00 EUR\, m/f
+LOCATION:Oberasbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/430804/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/430804/
+END:VEVENT
+END:VCALENDAR

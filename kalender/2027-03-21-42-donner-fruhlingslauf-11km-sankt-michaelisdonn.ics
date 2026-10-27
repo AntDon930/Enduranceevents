@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-42-donner-fruhlingslauf-11km-sankt-michaelisdonn@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:42. Donner Frühlingslauf
+LOCATION:Sankt Michaelisdonn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://www.mtv-st-mic
+ haelisdonn.de
+TRANSP:TRANSPARENT
+URL:http://www.mtv-st-michaelisdonn.de
+END:VEVENT
+END:VCALENDAR

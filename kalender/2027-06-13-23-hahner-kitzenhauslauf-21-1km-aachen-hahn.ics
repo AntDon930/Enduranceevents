@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-23-hahner-kitzenhauslauf-21-1km-aachen-hahn@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:23. Hahner Kitzenhauslauf
+LOCATION:Aachen-Hahn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.indehah
+ n.de
+TRANSP:TRANSPARENT
+URL:https://www.indehahn.de
+END:VEVENT
+END:VCALENDAR

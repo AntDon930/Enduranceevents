@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-alpelelauf-9km-feldkirch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Älpelelauf
+LOCATION:Feldkirch\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://lsv-feldkirch.
+ at/Aelpelelauf.php
+TRANSP:TRANSPARENT
+URL:https://lsv-feldkirch.at/Aelpelelauf.php
+END:VEVENT
+END:VCALENDAR

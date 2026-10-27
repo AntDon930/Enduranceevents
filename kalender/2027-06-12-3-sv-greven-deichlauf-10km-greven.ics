@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-3-sv-greven-deichlauf-10km-greven@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:3. SV Greven Deichlauf
+LOCATION:Greven\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sv-greven.
+ de/deichlauf
+TRANSP:TRANSPARENT
+URL:http://www.sv-greven.de/deichlauf
+END:VEVENT
+END:VCALENDAR

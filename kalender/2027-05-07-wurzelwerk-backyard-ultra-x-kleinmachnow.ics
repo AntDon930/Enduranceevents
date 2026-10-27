@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-wurzelwerk-backyard-ultra-x-kleinmachnow@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:WurzelWerk Backyard Ultra
+LOCATION:Kleinmachnow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: Open End\nhttps://my
+ .raceresult.com/425008/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/425008/
+END:VEVENT
+END:VCALENDAR

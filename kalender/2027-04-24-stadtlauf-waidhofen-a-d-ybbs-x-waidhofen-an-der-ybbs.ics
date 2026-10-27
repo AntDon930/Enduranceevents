@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-stadtlauf-waidhofen-a-d-ybbs-x-waidhofen-an-der-ybbs@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Stadtlauf Waidhofen a/d Ybbs
+LOCATION:Waidhofen an der Ybbs\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://waidhofen.sportun
+ ion.at/events/42-int-waidhofner-sparkassen-stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://waidhofen.sportunion.at/events/42-int-waidhofner-sparkassen-st
+ adtlauf/
+END:VEVENT
+END:VCALENDAR

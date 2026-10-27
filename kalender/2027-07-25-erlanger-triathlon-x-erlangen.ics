@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-erlanger-triathlon-x-erlangen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Erlanger Triathlon
+LOCATION:Erlangen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.tv48-erlan
+ gen.de/de/Veranstaltungen-Geselligkeit/erlanger-triathlon/
+TRANSP:TRANSPARENT
+URL:https://www.tv48-erlangen.de/de/Veranstaltungen-Geselligkeit/erlanger-
+ triathlon/
+END:VEVENT
+END:VCALENDAR

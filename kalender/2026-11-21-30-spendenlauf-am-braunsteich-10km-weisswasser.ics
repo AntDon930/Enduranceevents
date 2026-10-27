@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-30-spendenlauf-am-braunsteich-10km-weisswasser@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:30. Spendenlauf am Braunsteich
+LOCATION:Weißwasser\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 10 km\nhttps://lau
+ fbewegung-wsw.de/
+TRANSP:TRANSPARENT
+URL:https://laufbewegung-wsw.de/
+END:VEVENT
+END:VCALENDAR

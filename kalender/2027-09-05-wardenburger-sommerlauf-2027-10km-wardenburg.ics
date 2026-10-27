@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-wardenburger-sommerlauf-2027-10km-wardenburg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Wardenburger Sommerlauf 2027
+LOCATION:Wardenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.wardenbur
+ ger-sommerlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.wardenburger-sommerlauf.de/
+END:VEVENT
+END:VCALENDAR

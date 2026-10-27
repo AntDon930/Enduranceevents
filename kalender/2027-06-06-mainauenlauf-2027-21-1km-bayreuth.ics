@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-mainauenlauf-2027-21-1km-bayreuth@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Mainauenlauf 2027
+LOCATION:Bayreuth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.mainaue
+ nlauf.de/de/anmeldung/
+TRANSP:TRANSPARENT
+URL:https://www.mainauenlauf.de/de/anmeldung/
+END:VEVENT
+END:VCALENDAR

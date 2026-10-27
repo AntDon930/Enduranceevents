@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-30-vienna-halloween-run-5km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:Vienna Halloween Run – 5 km Big Scare Run
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.vienna-hal
+ loween-run.at/
+TRANSP:TRANSPARENT
+URL:https://www.vienna-halloween-run.at/
+END:VEVENT
+END:VCALENDAR

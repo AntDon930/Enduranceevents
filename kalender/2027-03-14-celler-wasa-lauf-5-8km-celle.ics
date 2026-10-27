@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-celler-wasa-lauf-5-8km-celle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Celler Wasa-Lauf – Staffellauf mit Strecken von 4\,2 km \, 5 km \,
+  5 km und 5\,8 km
+LOCATION:Celle\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.8 km\nhttps://www.celler-w
+ asa-lauf.de/cgi-bin/wasa/pages.pl
+TRANSP:TRANSPARENT
+URL:https://www.celler-wasa-lauf.de/cgi-bin/wasa/pages.pl
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-enni-triathlon-48km-moers@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Enni-Triathlon – Kurzdistanz 48 km (1 km Schwimmen / 37 km Rad / 1
+ 0 km Laufen)
+LOCATION:Moers\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 48 km\nhttps://www.enni-t
+ riathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.enni-triathlon.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-40-mesumer-adventslauf-10km-rheine@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:40. Mesumer Adventslauf – 10 km Lauf für Altersklassen U14 bis M/W
+  80
+LOCATION:Rheine\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tv-mesum.
+ de/own_pages/view/52
+TRANSP:TRANSPARENT
+URL:https://www.tv-mesum.de/own_pages/view/52
+END:VEVENT
+END:VCALENDAR

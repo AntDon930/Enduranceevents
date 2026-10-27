@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-sauerland-rodeo-2027-200km-brilon-altenburen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Sauerland Rodeo 2027 – Gravel Ride 200 km
+LOCATION:Brilon-Altenbüren\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 200 km\nhttps://www.natureh
+ olix.de/sauerland-rodeo
+TRANSP:TRANSPARENT
+URL:https://www.natureholix.de/sauerland-rodeo
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-dietiker-neujahrslauf-6-7km-dietikon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Dietiker Neujahrslauf – Run for Fun 6.7km
+LOCATION:Dietikon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.7 km\nhttps://www.zuerilau
+ fcup.ch/12-laeufe-2023/dietiker-neujahrslauf
+TRANSP:TRANSPARENT
+URL:https://www.zuerilaufcup.ch/12-laeufe-2023/dietiker-neujahrslauf
+END:VEVENT
+END:VCALENDAR

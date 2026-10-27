@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-freiburg-marathon-21-1km-freiburg-im-breisgau@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Freiburg Marathon – Halbmarathon
+LOCATION:Freiburg im Breisgau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://mein-freibu
+ rgmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://mein-freiburgmarathon.de/
+END:VEVENT
+END:VCALENDAR

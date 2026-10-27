@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-7-jaidhofer-leopoldilauf-9km-schlosspark-jaidhof@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:7. Jaidhofer Leopoldilauf
+LOCATION:Schlosspark Jaidhof\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttp://www.leopoldilau
+ f.at
+TRANSP:TRANSPARENT
+URL:http://www.leopoldilauf.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-4-holtsee-lauf-5km-holtsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:4. Holtsee Lauf – 5 km Kurzstrecke\, ab Jahrgang 2017
+LOCATION:Holtsee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.davengo.co
+ m/event/overview/4-holtsee-lauf-2027
+TRANSP:TRANSPARENT
+URL:https://www.davengo.com/event/overview/4-holtsee-lauf-2027
+END:VEVENT
+END:VCALENDAR

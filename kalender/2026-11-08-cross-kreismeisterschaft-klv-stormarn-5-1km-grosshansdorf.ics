@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-cross-kreismeisterschaft-klv-stormarn-5-1km-grosshansdorf@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Cross Kreismeisterschaft KLV Stormarn – Männer\, Senioren und MJ U
+ 20/U18 - 5100 m
+LOCATION:Großhansdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.1 km\nhttps://www.klv-storm
+ arn.de/
+TRANSP:TRANSPARENT
+URL:https://www.klv-stormarn.de/
+END:VEVENT
+END:VCALENDAR

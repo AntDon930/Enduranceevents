@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-09-woamfoahn-sudsteririscher-rennradauftakt-120km-gamlitz@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270409
+DTEND;VALUE=DATE:20270413
+SUMMARY:WOAMFOAHN - Südsteririscher Rennradauftakt
+LOCATION:Gamlitz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 120 km\nhttps://www.woamfoa
+ hn.at
+TRANSP:TRANSPARENT
+URL:https://www.woamfoahn.at
+END:VEVENT
+END:VCALENDAR

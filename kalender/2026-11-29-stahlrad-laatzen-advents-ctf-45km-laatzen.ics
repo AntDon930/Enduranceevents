@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-stahlrad-laatzen-advents-ctf-45km-laatzen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Stahlrad Laatzen Advents-CTF – CTF 45 km
+LOCATION:Laatzen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 45 km\nhttps://stahlr
+ adlaatzen.de/termin/stahlrad-advents-ctf-2/
+TRANSP:TRANSPARENT
+URL:https://stahlradlaatzen.de/termin/stahlrad-advents-ctf-2/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-fruhlingsrennen-hindelbank-4-46km-hindelbank@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Frühlingsrennen Hindelbank #4 – Hobbyrennen 46 km
+LOCATION:Hindelbank\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 46 km\nhttps://rversigen.ch
+ /fruehlingsrennen/
+TRANSP:TRANSPARENT
+URL:https://rversigen.ch/fruehlingsrennen/
+END:VEVENT
+END:VCALENDAR

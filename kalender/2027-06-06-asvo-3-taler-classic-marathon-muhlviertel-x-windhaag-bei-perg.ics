@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-asvo-3-taler-classic-marathon-muhlviertel-x-windhaag-bei-pe
+ rg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:ASVÖ 3 Täler Classic Marathon Mühlviertel – Marathon
+LOCATION:Windhaag bei Perg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.mtb-wi
+ ndhaag.com
+TRANSP:TRANSPARENT
+URL:https://www.mtb-windhaag.com
+END:VEVENT
+END:VCALENDAR

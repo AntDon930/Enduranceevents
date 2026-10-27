@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-stadtpark-cross-reichenbach-6km-reichenbach-im-vogtland@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Stadtpark-Cross Reichenbach
+LOCATION:Reichenbach im Vogtland\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://lav-reichenbach
+ .de/
+TRANSP:TRANSPARENT
+URL:https://lav-reichenbach.de/
+END:VEVENT
+END:VCALENDAR

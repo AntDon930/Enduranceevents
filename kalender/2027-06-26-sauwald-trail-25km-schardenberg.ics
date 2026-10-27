@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-sauwald-trail-25km-schardenberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Sauwald Trail – 25 km - Frauscher 3 Berg Trail
+LOCATION:Schardenberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 25 km\nhttps://www.sauwaldtra
+ il.at/
+TRANSP:TRANSPARENT
+URL:https://www.sauwaldtrail.at/
+END:VEVENT
+END:VCALENDAR

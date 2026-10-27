@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-alten-busecker-winterlaufserie-5km-buseck@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Alten-Busecker Winterlaufserie – 5 km Jedermannslauf und 5 km Walk
+ ing/Nordic Walking
+LOCATION:Buseck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tsg-alten-
+ buseck.com
+TRANSP:TRANSPARENT
+URL:https://www.tsg-alten-buseck.com
+END:VEVENT
+END:VCALENDAR

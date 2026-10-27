@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-volkslauf-rund-um-den-winterstein-10km-friedberg-hessen@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Volkslauf Rund um den Winterstein
+LOCATION:Friedberg (Hessen)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://asc-marathon-
+ friedberg.jimdofree.com/volkslauf-rund-um-den-winterstein/
+TRANSP:TRANSPARENT
+URL:https://asc-marathon-friedberg.jimdofree.com/volkslauf-rund-um-den-win
+ terstein/
+END:VEVENT
+END:VCALENDAR

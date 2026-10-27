@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-hamburger-halbmarathon-durch-das-alte-land-21-1km-hamburg@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Hamburger Halbmarathon durch das Alte Land – Halbmarathon
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.hntonli
+ ne.de/hamburger-halbmarathon/
+TRANSP:TRANSPARENT
+URL:https://www.hntonline.de/hamburger-halbmarathon/
+END:VEVENT
+END:VCALENDAR

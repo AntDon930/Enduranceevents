@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-gornergrat-zermatt-marathon-22km-zermatt@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Gornergrat Zermatt Marathon – TOP20RUN 22 km
+LOCATION:Zermatt\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 22 km\nhttp://www.zermattmar
+ athon.ch/index.php?id=163
+TRANSP:TRANSPARENT
+URL:http://www.zermattmarathon.ch/index.php?id=163
+END:VEVENT
+END:VCALENDAR

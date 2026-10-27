@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-defi-de-leysin-6km-aigle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Défi de Leysin
+LOCATION:Aigle\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://in.sptiming.co
+ m/defi-de-leysin-2026
+TRANSP:TRANSPARENT
+URL:https://in.sptiming.com/defi-de-leysin-2026
+END:VEVENT
+END:VCALENDAR

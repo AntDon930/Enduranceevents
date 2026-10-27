@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-niederosterreichische-landesmeisterschaften-im-c-x-pfaffsta
+ tten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Niederösterreichische Landesmeisterschaften im Crosslauf
+LOCATION:Pfaffstätten\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://pfaffstaetten.spor
+ tunion.at/news/2026/10/08/crosslauf-landesmeisterschaften-erstmals-in-pfa
+ ffstaetten/
+TRANSP:TRANSPARENT
+URL:https://pfaffstaetten.sportunion.at/news/2026/10/08/crosslauf-landesme
+ isterschaften-erstmals-in-pfaffstaetten/
+END:VEVENT
+END:VCALENDAR

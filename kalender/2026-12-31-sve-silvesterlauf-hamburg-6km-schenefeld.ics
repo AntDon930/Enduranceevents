@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-sve-silvesterlauf-hamburg-6km-schenefeld@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:SVE Silvesterlauf Hamburg
+LOCATION:Schenefeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://lauftreff.sve-
+ hamburg.de/6-sve-silvesterlauf/
+TRANSP:TRANSPARENT
+URL:https://lauftreff.sve-hamburg.de/6-sve-silvesterlauf/
+END:VEVENT
+END:VCALENDAR

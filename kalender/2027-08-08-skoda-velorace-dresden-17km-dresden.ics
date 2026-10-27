@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-skoda-velorace-dresden-17km-dresden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:SKODA Velorace Dresden – Jedermannrennen 17 km
+LOCATION:Dresden\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 17 km\nhttps://www.velorace
+ -dresden.de
+TRANSP:TRANSPARENT
+URL:https://www.velorace-dresden.de
+END:VEVENT
+END:VCALENDAR

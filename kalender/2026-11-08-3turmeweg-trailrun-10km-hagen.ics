@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-3turmeweg-trailrun-10km-hagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:3TürmeWEG Trailrun
+LOCATION:Hagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://3tuermetrail.d
+ e/
+TRANSP:TRANSPARENT
+URL:https://3tuermetrail.de/
+END:VEVENT
+END:VCALENDAR

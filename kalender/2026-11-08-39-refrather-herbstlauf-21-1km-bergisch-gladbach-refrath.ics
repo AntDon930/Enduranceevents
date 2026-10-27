@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-39-refrather-herbstlauf-21-1km-bergisch-gladbach-refrath@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:39. Refrather Herbstlauf
+LOCATION:Bergisch Gladbach-Refrath\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.refrathe
+ r-herbstlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.refrather-herbstlauf.de
+END:VEVENT
+END:VCALENDAR

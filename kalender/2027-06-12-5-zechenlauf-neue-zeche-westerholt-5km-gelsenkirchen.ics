@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-5-zechenlauf-neue-zeche-westerholt-5km-gelsenkirchen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:5. Zechenlauf - Neue Zeche Westerholt
+LOCATION:Gelsenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.zechenlauf
+ .de
+TRANSP:TRANSPARENT
+URL:https://www.zechenlauf.de
+END:VEVENT
+END:VCALENDAR

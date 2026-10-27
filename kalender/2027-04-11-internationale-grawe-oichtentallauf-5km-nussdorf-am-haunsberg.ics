@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-internationale-grawe-oichtentallauf-5km-nussdorf-am-haunsbe
+ rg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Internationale Grawe Oichtentallauf – 5 km Erdbau Strasser Straßen
+ lauf\, Jahrgang 2017 und älter
+LOCATION:Nußdorf am Haunsberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/430395/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/430395/
+END:VEVENT
+END:VCALENDAR

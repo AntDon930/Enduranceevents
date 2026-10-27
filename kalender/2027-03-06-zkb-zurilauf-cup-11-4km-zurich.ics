@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-zkb-zurilauf-cup-11-4km-zurich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:ZKB Zürilauf Cup – Laufsporttag Winterthur 2026
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.4 km\nhttps://www.zuerila
+ ufcup.ch/12-laeufe-2023/laufsporttag-winterthur
+TRANSP:TRANSPARENT
+URL:https://www.zuerilaufcup.ch/12-laeufe-2023/laufsporttag-winterthur
+END:VEVENT
+END:VCALENDAR

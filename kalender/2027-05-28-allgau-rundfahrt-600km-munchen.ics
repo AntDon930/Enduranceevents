@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-allgau-rundfahrt-600km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270529
+SUMMARY:Allgäu-Rundfahrt – Brevet 600 km
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 600 km\nhttps://aramuc.de/b
+ revets/600-km-allgaeu-rundfahrt-2027
+TRANSP:TRANSPARENT
+URL:https://aramuc.de/brevets/600-km-allgaeu-rundfahrt-2027
+END:VEVENT
+END:VCALENDAR

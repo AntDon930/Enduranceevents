@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-24-innbachtallauf-pichl-bei-wels-traunviertler-l-x-pichl@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:24. Innbachtallauf Pichl bei Wels (Traunviertler Laufcup)
+LOCATION:Pichl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.traunviertler
+ -laufcup.at/laufe/innbachtallauf-pichl-bei-wels/
+TRANSP:TRANSPARENT
+URL:https://www.traunviertler-laufcup.at/laufe/innbachtallauf-pichl-bei-we
+ ls/
+END:VEVENT
+END:VCALENDAR

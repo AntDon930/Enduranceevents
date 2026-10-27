@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-5-boa-querfeldein-gp-uci-c2-gunskirchen-um-das-s-0-8h-gunsk
+ irchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:5. BOA Querfeldein GP UCI C2 Gunskirchen um das Sportzentrum – Cyc
+ locross 50 min
+LOCATION:Gunskirchen\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 50 min\nhttps://www.rc-
+ lambach.com
+TRANSP:TRANSPARENT
+URL:https://www.rc-lambach.com
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-hakro-stadtlauf-6km-schrozberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Hakro-Stadtlauf – 6 km Hobbylauf
+LOCATION:Schrozberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://laufgemeinscha
+ ft-tauberfranken.de/21-hakro-stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://laufgemeinschaft-tauberfranken.de/21-hakro-stadtlauf/
+END:VEVENT
+END:VCALENDAR

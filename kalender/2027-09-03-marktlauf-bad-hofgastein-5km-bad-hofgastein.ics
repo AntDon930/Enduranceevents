@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-03-marktlauf-bad-hofgastein-5km-bad-hofgastein@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270903
+DTEND;VALUE=DATE:20270904
+SUMMARY:Marktlauf Bad Hofgastein
+LOCATION:Bad Hofgastein\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.wsv-badhof
+ gastein.at/verein/marktlauf
+TRANSP:TRANSPARENT
+URL:https://www.wsv-badhofgastein.at/verein/marktlauf
+END:VEVENT
+END:VCALENDAR

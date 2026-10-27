@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-30-bernburger-stundenlauf-1h-bernburg-saale@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:Bernburger Stundenlauf
+LOCATION:Bernburg (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 1 h\nhttps://lauf.psv-bernburg
+ .de/stundenlauf/
+TRANSP:TRANSPARENT
+URL:https://lauf.psv-bernburg.de/stundenlauf/
+END:VEVENT
+END:VCALENDAR

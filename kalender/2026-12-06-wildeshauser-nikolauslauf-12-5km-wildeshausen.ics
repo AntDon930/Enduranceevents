@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-wildeshauser-nikolauslauf-12-5km-wildeshausen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Wildeshauser Nikolauslauf
+LOCATION:Wildeshausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.5 km\nhttps://www.wildesh
+ auser-lauftreff.de/
+TRANSP:TRANSPARENT
+URL:https://www.wildeshauser-lauftreff.de/
+END:VEVENT
+END:VCALENDAR

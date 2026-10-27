@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-mendelrace-hillclimb-14-5km-eppan-a-d-w@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:MendelRace Hillclimb – Bergzeitfahren 14.5 km
+LOCATION:Eppan a.d.W.\, Italien (Südtirol)
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 14.5 km\nhttps://www.me
+ ndelrace.it
+TRANSP:TRANSPARENT
+URL:https://www.mendelrace.it
+END:VEVENT
+END:VCALENDAR

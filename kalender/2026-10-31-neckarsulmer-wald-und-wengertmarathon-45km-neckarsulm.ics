@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-neckarsulmer-wald-und-wengertmarathon-45km-neckarsulm@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Neckarsulmer Wald- und Wengertmarathon
+LOCATION:Neckarsulm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45 km\nhttps://ultras.prospe
+ ctum.com/events/2026_04_NWWM/
+TRANSP:TRANSPARENT
+URL:https://ultras.prospectum.com/events/2026_04_NWWM/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-57-augsburger-aok-strassenlauf-10km-augsburg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:57. Augsburger AOK-Straßenlauf
+LOCATION:Augsburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://tgva.de/aok-s
+ trassenlauf/
+TRANSP:TRANSPARENT
+URL:https://tgva.de/aok-strassenlauf/
+END:VEVENT
+END:VCALENDAR

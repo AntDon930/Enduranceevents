@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-internationaler-biesfelder-dorflauf-5km-kurten@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Internationaler Biesfelder Dorflauf
+LOCATION:Kürten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://union-biesfeld
+ -triathlon.de/internationaler-biesfelder-dorflauf/
+TRANSP:TRANSPARENT
+URL:https://union-biesfeld-triathlon.de/internationaler-biesfelder-dorflau
+ f/
+END:VEVENT
+END:VCALENDAR

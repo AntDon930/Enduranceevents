@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-slowup-vallee-de-joux-23km-l-orient@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:slowUp Vallée de Joux – Volksradfahren 23 km
+LOCATION:L'Orient\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 23 km\nhttps://www.sl
+ owup.ch/valleedejoux/fr
+TRANSP:TRANSPARENT
+URL:https://www.slowup.ch/valleedejoux/fr
+END:VEVENT
+END:VCALENDAR

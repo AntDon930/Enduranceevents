@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-ingelheimer-triathlon-der-kleine-karl-25-5km-ingelheim-am-r
+ hein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Ingelheimer Triathlon - Der kleine Karl – Sprintdistanz 25.5 km
+LOCATION:Ingelheim am Rhein\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.5 km\nhttps://www.derk
+ leinekarl.de/
+TRANSP:TRANSPARENT
+URL:https://www.derkleinekarl.de/
+END:VEVENT
+END:VCALENDAR

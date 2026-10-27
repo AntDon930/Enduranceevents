@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-gettingtough-5-elements-oberhof-17km-oberhof@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:GettingTough 5 Elements Oberhof – 17 km Lauf\, presented by LOTTO 
+ Thüringen
+LOCATION:Oberhof\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17 km\nhttps://gettingtough.
+ de/oberhof
+TRANSP:TRANSPARENT
+URL:https://gettingtough.de/oberhof
+END:VEVENT
+END:VCALENDAR

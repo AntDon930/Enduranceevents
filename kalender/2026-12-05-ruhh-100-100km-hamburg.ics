@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-ruhh-100-100km-hamburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261207
+SUMMARY:RuHH 100
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://www.feinerla
+ uf.de/05-12-2027-ueberraschung-es-zieht-uns-in-den-norden-deutschlands-da
+ s-geheimnis-lueften-wir-am-18-05/
+TRANSP:TRANSPARENT
+URL:https://www.feinerlauf.de/05-12-2027-ueberraschung-es-zieht-uns-in-den
+ -norden-deutschlands-das-geheimnis-lueften-wir-am-18-05/
+END:VEVENT
+END:VCALENDAR

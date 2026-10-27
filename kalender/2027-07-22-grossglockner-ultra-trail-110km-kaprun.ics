@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-22-grossglockner-ultra-trail-110km-kaprun@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270722
+DTEND;VALUE=DATE:20270726
+SUMMARY:Grossglockner Ultra-Trail – GGUT
+LOCATION:Kaprun\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 110 km\nhttps://www.ultratrai
+ l.at/de
+TRANSP:TRANSPARENT
+URL:https://www.ultratrail.at/de
+END:VEVENT
+END:VCALENDAR

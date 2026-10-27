@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-schlosstriathlon-kossenblatt-36km-tauche@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Schlosstriathlon Kossenblatt
+LOCATION:Tauche\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 36 km\nhttps://multisport
+ -los.de/ausschreibung-cross-triathlon-kossenblatt/
+TRANSP:TRANSPARENT
+URL:https://multisport-los.de/ausschreibung-cross-triathlon-kossenblatt/
+END:VEVENT
+END:VCALENDAR

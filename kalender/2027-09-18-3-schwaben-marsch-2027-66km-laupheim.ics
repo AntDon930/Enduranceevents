@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-3-schwaben-marsch-2027-66km-laupheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:3. Schwaben-Marsch 2027
+LOCATION:Laupheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 66 km\nhttps://www.schwaben-
+ marsch.de
+TRANSP:TRANSPARENT
+URL:https://www.schwaben-marsch.de
+END:VEVENT
+END:VCALENDAR

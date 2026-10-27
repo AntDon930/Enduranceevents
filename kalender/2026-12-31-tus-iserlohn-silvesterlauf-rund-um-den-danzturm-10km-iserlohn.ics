@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-tus-iserlohn-silvesterlauf-rund-um-den-danzturm-10km-iserlo
+ hn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Tus Iserlohn Silvesterlauf „Rund um den Danzturm“ – 10 km Silveste
+ rlauf
+LOCATION:Iserlohn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.silvester
+ lauf.nrw/
+TRANSP:TRANSPARENT
+URL:https://www.silvesterlauf.nrw/
+END:VEVENT
+END:VCALENDAR

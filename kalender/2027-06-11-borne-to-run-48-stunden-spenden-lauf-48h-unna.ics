@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-borne-to-run-48-stunden-spenden-lauf-48h-unna@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270614
+SUMMARY:Borne to Run 48-Stunden-Spenden-Lauf
+LOCATION:Unna\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 48 h\nhttps://www.
+ borne-run.de/
+TRANSP:TRANSPARENT
+URL:https://www.borne-run.de/
+END:VEVENT
+END:VCALENDAR

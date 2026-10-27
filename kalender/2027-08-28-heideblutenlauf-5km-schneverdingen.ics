@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-heideblutenlauf-5km-schneverdingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Heideblütenlauf – 5 km Lauf und 5 km Firmenlauf
+LOCATION:Schneverdingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tvjahn.de/
+ sport/lauftreff/heidebluetenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.tvjahn.de/sport/lauftreff/heidebluetenlauf/
+END:VEVENT
+END:VCALENDAR

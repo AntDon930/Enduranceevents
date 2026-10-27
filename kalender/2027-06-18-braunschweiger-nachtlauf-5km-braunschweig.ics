@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-braunschweiger-nachtlauf-5km-braunschweig@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:Braunschweiger Nachtlauf
+LOCATION:Braunschweig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.mtv-bs.de/
+ de/nachtlauf/
+TRANSP:TRANSPARENT
+URL:https://www.mtv-bs.de/de/nachtlauf/
+END:VEVENT
+END:VCALENDAR

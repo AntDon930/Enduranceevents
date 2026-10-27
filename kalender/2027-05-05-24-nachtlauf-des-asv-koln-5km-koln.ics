@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-24-nachtlauf-des-asv-koln-5km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:24. Nachtlauf des ASV Köln
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://asv-koeln.de/e
+ vents/nachtlauf
+TRANSP:TRANSPARENT
+URL:https://asv-koeln.de/events/nachtlauf
+END:VEVENT
+END:VCALENDAR

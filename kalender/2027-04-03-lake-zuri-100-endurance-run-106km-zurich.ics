@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-lake-zuri-100-endurance-run-106km-zurich@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:Lake Züri 100 Endurance Run
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 106 km\nhttps://www.lz100.ch
+ /
+TRANSP:TRANSPARENT
+URL:https://www.lz100.ch/
+END:VEVENT
+END:VCALENDAR

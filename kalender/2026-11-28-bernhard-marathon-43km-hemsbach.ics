@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-bernhard-marathon-43km-hemsbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Bernhard Marathon
+LOCATION:Hemsbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43 km\nhttps://my.raceresult
+ .com/416674/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/416674/
+END:VEVENT
+END:VCALENDAR

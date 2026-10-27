@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-neckar-run-mannheim-5km-mannheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Neckar Run Mannheim – 5 km Monnemer Fünfer (Jg. 2017 und älter)
+LOCATION:Mannheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.soprema-tr
+ iathlon-team.de/soprema-neckar-run/
+TRANSP:TRANSPARENT
+URL:https://www.soprema-triathlon-team.de/soprema-neckar-run/
+END:VEVENT
+END:VCALENDAR

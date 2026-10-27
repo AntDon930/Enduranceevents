@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-36-schwarzwald-ultra-radmarathon-150km-alpirsbach@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:36. Schwarzwald Ultra Radmarathon – Radmarathon 150 km
+LOCATION:Alpirsbach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 150 km\nhttps://www.surm.de
+TRANSP:TRANSPARENT
+URL:https://www.surm.de
+END:VEVENT
+END:VCALENDAR

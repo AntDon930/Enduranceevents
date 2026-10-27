@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-essen-200-ara-ruhrgebiet-208km-essen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:Essen 200 - ARA Ruhrgebiet – Brevet 208 km
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 208 km\nhttps://ara-ruhrgeb
+ iet.de/brevets-2027/
+TRANSP:TRANSPARENT
+URL:https://ara-ruhrgebiet.de/brevets-2027/
+END:VEVENT
+END:VCALENDAR

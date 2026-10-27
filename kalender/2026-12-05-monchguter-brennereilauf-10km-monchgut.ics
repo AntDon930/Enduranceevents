@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-monchguter-brennereilauf-10km-monchgut@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Mönchguter Brennereilauf – 10 km Strecke mit acht Probierstationen
+ .
+LOCATION:Mönchgut\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
+ .com/372700/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/372700/
+END:VEVENT
+END:VCALENDAR

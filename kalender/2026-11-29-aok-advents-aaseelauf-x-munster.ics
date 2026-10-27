@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-aok-advents-aaseelauf-x-munster@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:AOK Advents-Aaseelauf
+LOCATION:Münster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.advents-aasee
+ lauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.advents-aaseelauf.de/
+END:VEVENT
+END:VCALENDAR

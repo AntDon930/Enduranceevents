@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-dunenlauf-sandhausen-x-sandhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Dünenlauf Sandhausen
+LOCATION:Sandhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.duenenlauf-sa
+ ndhausen.de/startseite.html
+TRANSP:TRANSPARENT
+URL:https://www.duenenlauf-sandhausen.de/startseite.html
+END:VEVENT
+END:VCALENDAR
