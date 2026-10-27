@@ -5238,22 +5238,29 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   SVG rastert `_rastern_svg` mit Chromium, sonst ffmpeg/librsvg. Logos mit
   viel Weiß und kaum Schwarz (`ist_hell`) bekommen eine Navy-Karte. Ohne
   Logo zeigt die Folie den Namen groß auf der Karte. `test_insta_logos`.
-  **Top 5 (`top`, jeder zweite Samstag statt `saison`, gerade
-  Kalenderwoche; vom Nutzer am 27.10.2026: „Top 5 Marathons … auf einer
-  Karte … die 5 Logos oben … immer unterschiedliche Designs“)**: die 5
-  größten Events einer Kategorie der nächsten 12 Monate
-  (`TOP_KATEGORIEN`: Marathon-, Trail-, Halbmarathon-, Ultra-Events,
-  Radmarathons, Triathlons – Halbmarathon nur OHNE 42,2 km, sonst stand
-  der Hamburg Marathon dort), Countdown 5 → 1, Übersicht, CTA. Gerankt
-  nach `starter` der GANZEN Veranstaltung – deshalb „…-Events“ im Titel
-  und „allen Teilnehmenden der Veranstaltung“ in der Caption (der
-  Rennsteiglauf ist mit 16.000 kein 16.000-Ultra). Rotation nur über
-  Kategorien mit fünf Events (`datum.toordinal() // 14`), Design
-  (`TOP_DESIGNS`: `karte` = Logos oben, Karte unten mit Punkten;
-  `countdown` = riesige Platznummer, Logo groß, kleine Karte) wechselt mit
-  jeder Runde. Die Karte zeichnet `insta_video.karte_bild()` selbst aus
-  `laender.json` (kein Kartendienst). Neues Design = Zweig in `_top_folie`
-  + Name in `TOP_DESIGNS`.
+  **Die größten einer Kategorie (`top`, jeder zweite Samstag statt
+  `saison`, gerade Kalenderwoche; vom Nutzer am 27.10.2026: „Top 5
+  Marathons … auf einer Karte … die 5 Logos oben" und gleich danach: „es
+  muss nicht immer Top 5 sein … Top 10, Top 3 … es muss auch nicht
+  bewertet werden wer der beste … Einfach die 5 größten … unterschiedliche
+  Designs")**: die 3/5/7/10 größten Events (`TOP_ANZAHLEN`) einer
+  Kategorie der nächsten 12 Monate (`TOP_KATEGORIEN`: Marathon-, Trail-,
+  Halbmarathon-, Ultra-Events, Radmarathons, Triathlons – Halbmarathon nur
+  OHNE 42,2 km, sonst stand der Hamburg Marathon dort), **nach Datum, ohne
+  Platznummern**, dann die Übersicht und CTA. Gezählt nach `starter` der
+  GANZEN Veranstaltung – deshalb „…-Events" im Titel und „allen
+  Teilnehmenden der Veranstaltung" in der Caption (der Rennsteiglauf ist
+  mit 16.000 kein 16.000-Ultra). Rotation (`datum.toordinal() // 14`) nur
+  über Kategorien mit mindestens drei Events; Kategorie, Anzahl und Design
+  wechseln JEDES Mal (Test am echten Bestand). Vier Designs
+  (`TOP_DESIGNS`, `insta_video._top_folie`): `karte` (Logos oben, eine
+  oder zwei Reihen, Karte unten mit Punkten), `einzeln` (riesiges Datum,
+  Logo groß, kleine Karte; Übersicht als Liste), `raster` (Kacheln füllen
+  sich nacheinander), `zeitleiste` (Monatsachse, Logos am Termin). Die
+  Karte zeichnet `karte_bild()` selbst aus `laender.json` (kein
+  Kartendienst). Zeit je Event nach Anzahl (`TOP_DAUER`). Neues Design =
+  Zweig in `_top_folie` + Name in `TOP_DESIGNS` + der Test zeichnet es
+  mit 3 und 10 Events.
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,

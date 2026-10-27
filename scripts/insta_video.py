@@ -524,92 +524,209 @@ def _starter_text(n: int | None) -> str:
     return f"ca. {gerundet:,} am Start".replace(",", ".")
 
 
-def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
-    """Top 5 einer Kategorie (Format „top", insta_inhalte). Zwei Designs,
-    damit sich die Reels nicht gleichen (vom Nutzer: „immer
-    unterschiedliche Designs einfallen lassen"):
+def _raster(n: int, x0: int, y0: int, x1: int, y1: int, spalten: int, luecke: int = 18,
+            max_h: int = 180) -> list[tuple[int, int, int, int]]:
+    """n Kästen in `spalten` Spalten, zeilenweise, mittig in der Fläche."""
+    zeilen = (n + spalten - 1) // spalten
+    w = (x1 - x0 - (spalten - 1) * luecke) // spalten
+    h = min(max_h, (y1 - y0 - (zeilen - 1) * luecke) // zeilen, int(w * 0.62))
+    boxen = []
+    for i in range(n):
+        z, sp = divmod(i, spalten)
+        rest = n - z * spalten
+        in_zeile = min(spalten, rest)
+        versatz = (spalten - in_zeile) * (w + luecke) // 2      # letzte Zeile mittig
+        bx = x0 + versatz + sp * (w + luecke)
+        by = y0 + z * (h + luecke)
+        boxen.append((bx, by, bx + w, by + h))
+    return boxen
 
-      karte       oben die fünf Logos in einer Reihe (das aktive hervor-
-                  gehoben), darunter Datum/Name/Teilnehmende, die untere
-                  Hälfte eine Karte mit fünf nummerierten Punkten
-      countdown   eine riesige Platznummer, das Logo groß, die Angaben und
-                  eine kleine Karte mit dem einen Punkt; die Übersicht als
-                  Rangliste mit Logos
-    """
+
+def _gedaempft(img: Image.Image, box: tuple, radius: int) -> None:
+    """Navy über eine Karte legen (nicht durchsichtig machen – sonst scheint
+    das Foto durch und das Logo wirkt verwaschen)."""
+    schleier = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(schleier).rounded_rectangle(box, radius=radius, fill=NAVY + (150,))
+    img.alpha_composite(schleier)
+
+
+def _event_text(d: ImageDraw.ImageDraw, e: dict, x: int, y: int, breite_px: int, gross: int = 76) -> int:
+    """Datum (orange), Name, Ort · Teilnehmende; gibt das neue y zurück."""
+    d.text((x, y), ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(gross), fill=SONNE)
+    y += int(gross * 1.08)
+    for z in umbrechen(ohne_emoji(e["name"]), kondensiert(58, False), breite_px, 2):
+        d.text((x, y), z, font=kondensiert(58, False), fill=WEISS)
+        y += 60
+    info = " · ".join(t for t in (e.get("ort"), _starter_text(e.get("starter"))) if t)
+    for z in umbrechen(ohne_emoji(info), text_schrift(36), breite_px, 2):
+        d.text((x, y + 4), z, font=text_schrift(36), fill=KREIDE)
+        y += 46
+    return y
+
+
+def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
+    """Die größten Events einer Kategorie (Format „top", insta_inhalte) –
+    keine Rangfolge, nach Datum. Vier Designs, damit sich die Reels nicht
+    gleichen (vom Nutzer: „unterschiedliche Designs in der Darstellung"):
+
+      karte       oben die Logos (eine oder zwei Reihen, das aktive
+                  hervorgehoben), darunter die Angaben, unten die Karte
+      einzeln     das Datum riesig, das Logo groß, Angaben und eine kleine
+                  Karte; die Übersicht als Liste mit Logos
+      raster      die Logos füllen nacheinander ein Raster in zwei Spalten,
+                  das neue umrandet, darunter seine Angaben
+      zeitleiste  eine Achse von oben nach unten über die zwölf Monate,
+                  die Logos hängen nacheinander an ihrem Termin
+
+    `aktiv` = das gerade vorgestellte Event (Index), None = Übersicht."""
     eintraege = folie.get("eintraege") or []
+    n = len(eintraege)
     aktiv = folie.get("aktiv")
+    design = folie.get("variante")
     farbe = SPORTFARBE.get(folie.get("sport"), SIGNAL)
-    punkte = [(e.get("lat"), e.get("lon"), str(e["rang"])) for e in eintraege]
-    if folie.get("variante") == "countdown":
+    titel = ohne_emoji(folie.get("titel", "")).upper()
+    punkte = [(e.get("lat"), e.get("lon"), str(i + 1)) for i, e in enumerate(eintraege)]
+
+    if design == "einzeln":
         if aktiv is None:
-            y = 260
-            pille(d, RAND_X, y, ohne_emoji(folie.get("titel", "")).upper(), kondensiert(46, False), farbe)
-            y += 100
-            for e in sorted(eintraege, key=lambda e: e["rang"]):
-                d.text((RAND_X, y + 70), str(e["rang"]), font=kondensiert(130), fill=SONNE, anchor="lm")
-                logo_karte(img, d, (RAND_X + 110, y, RAND_X + 330, y + 140), e.get("logo_id"), e["name"],
-                           radius=22, rand=16)
-                tx = RAND_X + 360
-                zeilen = umbrechen(ohne_emoji(e["name"]), kondensiert(52, False), 960 - tx, 2)
-                ty = y + 70 - len(zeilen) * 27 - 18
-                for z in zeilen:
-                    d.text((tx, ty), z, font=kondensiert(52, False), fill=WEISS)
-                    ty += 54
-                d.text((tx, ty + 4), ohne_emoji(e.get("datum", "")), font=text_schrift(34), fill=GRAU)
-                y += 172
+            pille(d, RAND_X, 250, titel, kondensiert(46, False), farbe)
+            zeile_h = min(172, 1180 // max(1, n))
+            y = 350
+            for e in eintraege:
+                kh = zeile_h - 22
+                logo_karte(img, d, (RAND_X, y, RAND_X + int(kh * 1.6), y + kh), e.get("logo_id"), e["name"],
+                           radius=max(10, kh // 6), rand=max(6, kh // 9))
+                tx = RAND_X + int(kh * 1.6) + 28
+                g = max(30, min(52, kh // 2 - 4))
+                d.text((tx, y + kh // 2 - g // 2 - 4),
+                       umbrechen(ohne_emoji(e["name"]), kondensiert(g, False), 960 - tx, 1)[0],
+                       font=kondensiert(g, False), fill=WEISS, anchor="lm")
+                d.text((tx, y + kh // 2 + g // 2 + 4), ohne_emoji(e.get("datum", "")),
+                       font=text_schrift(max(24, g * 2 // 3)), fill=SONNE, anchor="lm")
+                y += zeile_h
             return
         e = eintraege[aktiv]
-        d.text((RAND_X - 10, 230), f"#{e['rang']}", font=kondensiert(340), fill=SONNE)
-        pille(d, RAND_X + 330, 300, ohne_emoji(folie.get("titel", "")).upper(), kondensiert(42, False), farbe)
-        logo_karte(img, d, (RAND_X, 640, 960, 1010), e.get("logo_id"), e["name"], radius=40, rand=60)
-        y = 1050
-        d.text((RAND_X, y), ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(92), fill=SONNE)
-        y += 100
-        for z in umbrechen(ohne_emoji(e["name"]), kondensiert(58, False), 540, 2):
-            d.text((RAND_X, y), z, font=kondensiert(58, False), fill=WEISS)
-            y += 60
+        pille(d, RAND_X, 250, f"{titel} · {aktiv + 1}/{n}", kondensiert(42, False), farbe)
+        tag, _, rest = ohne_emoji(e.get("datum", "")).upper().partition(" ")
+        d.text((RAND_X - 8, 330), tag, font=kondensiert(300), fill=SONNE)
+        d.text((RAND_X + 10 + breite(kondensiert(300), tag), 400), rest, font=kondensiert(110), fill=WEISS)
+        logo_karte(img, d, (RAND_X, 680, 960, 1030), e.get("logo_id"), e["name"], radius=40, rand=60)
+        y = 1070
+        for z in umbrechen(ohne_emoji(e["name"]), kondensiert(62, False), 540, 2):
+            d.text((RAND_X, y), z, font=kondensiert(62, False), fill=WEISS)
+            y += 64
         for z in (e.get("ort", ""), _starter_text(e.get("starter"))):
             if z:
                 d.text((RAND_X, y + 6), ohne_emoji(z), font=text_schrift(38), fill=KREIDE)
                 y += 52
-        inset = karte_bild(330, 360, [punkte[aktiv]], 0, farbe)
-        img.alpha_composite(inset, (630, 1110))
+        img.alpha_composite(karte_bild(330, 380, [punkte[aktiv]], 0, farbe), (630, 1090))
         return
+
+    if design == "raster":
+        pille(d, RAND_X, 250, titel, kondensiert(46, False), farbe)
+        spalten = 2 if n <= 8 else 3
+        unten = 1180 if aktiv is not None else 1460
+        boxen = _raster(n, RAND_X, 350, 960, unten, spalten, max_h=230)
+        sichtbar = n if aktiv is None else aktiv + 1
+        for i in range(sichtbar):
+            r = max(14, (boxen[i][3] - boxen[i][1]) // 7)
+            logo_karte(img, d, boxen[i], eintraege[i].get("logo_id"), eintraege[i]["name"], radius=r,
+                       rand=max(10, (boxen[i][3] - boxen[i][1]) // 8),
+                       rahmen=SONNE if i == aktiv else None)
+            if aktiv is not None and i != aktiv:
+                _gedaempft(img, boxen[i], r)
+        for i in range(sichtbar, n):                       # leere Plätze, die noch kommen
+            r = max(14, (boxen[i][3] - boxen[i][1]) // 7)
+            d.rounded_rectangle(boxen[i], radius=r, outline=(255, 255, 255, 90), width=4)
+        if aktiv is not None:
+            _event_text(d, eintraege[aktiv], RAND_X, max(boxen[-1][3] + 40, 1210), TEXT_BREITE, gross=70)
+        return
+
+    if design == "zeitleiste":
+        pille(d, RAND_X, 250, titel, kondensiert(46, False), farbe)
+        y0, y1, ax = 360, 1470, RAND_X + 70
+        d.line([(ax, y0), (ax, y1)], fill=(255, 255, 255, 170), width=6)
+        start = folie.get("start")                        # erster Monat der 12 (YYYY-MM)
+        try:
+            j, m = (int(t) for t in str(start).split("-")[:2])
+        except ValueError:
+            j, m = 2027, 1
+        monate = ["JAN", "FEB", "MÄR", "APR", "MAI", "JUN", "JUL", "AUG", "SEP", "OKT", "NOV", "DEZ"]
+        for k in range(13):
+            yy = y0 + (y1 - y0) * k / 12
+            d.line([(ax - 14, yy), (ax + 14, yy)], fill=(255, 255, 255, 170), width=4)
+            if k < 12:
+                d.text((ax - 26, yy + (y1 - y0) / 24), monate[(m - 1 + k) % 12], font=kondensiert(30, False),
+                       fill=GRAU, anchor="rm")
+        kh = min(150, (y1 - y0 - (n - 1) * 12) // n)
+        kw = int(kh * 1.7)
+        x_k = ax + 70
+
+        def y_termin(e: dict) -> float:
+            try:
+                ej, em = (int(t) for t in str(e.get("monat_iso", "")).split("-")[:2])
+                tag = int(e.get("tag") or 15)
+            except ValueError:
+                return (y0 + y1) / 2
+            k = (ej - j) * 12 + (em - m) + (tag - 1) / 31
+            return y0 + (y1 - y0) * max(0.0, min(12.0, k)) / 12
+
+        # Karten der Reihe nach, ohne Überlappung, so nah wie möglich am Termin
+        lagen, naechst = [], y0
+        for i, e in enumerate(eintraege):
+            ziel = y_termin(e) - kh / 2
+            lagen.append(max(naechst, min(ziel, y1 - (n - i) * (kh + 12) + 12)))
+            naechst = lagen[-1] + kh + 12
+        sichtbar = n if aktiv is None else aktiv + 1
+        for i in range(sichtbar):
+            e, ky = eintraege[i], int(lagen[i])
+            punkt_y = y_termin(e)
+            linie = SONNE if (aktiv is None or i == aktiv) else (255, 255, 255, 120)
+            d.line([(ax, punkt_y), (x_k - 10, ky + kh / 2)], fill=linie, width=4)
+            d.ellipse([ax - 12, punkt_y - 12, ax + 12, punkt_y + 12], fill=linie)
+            box = (x_k, ky, x_k + kw, ky + kh)
+            r = max(12, kh // 6)
+            logo_karte(img, d, box, e.get("logo_id"), e["name"], radius=r, rand=max(8, kh // 9),
+                       rahmen=SONNE if i == aktiv else None)
+            if aktiv is not None and i != aktiv:
+                _gedaempft(img, box, r)
+            tx = x_k + kw + 24
+            if aktiv is None or i == aktiv:
+                g = max(28, min(46, kh // 3))
+                d.text((tx, ky + kh / 2 - g * 0.6), umbrechen(ohne_emoji(e["name"]), kondensiert(g, False),
+                                                               960 - tx, 1)[0],
+                       font=kondensiert(g, False), fill=WEISS, anchor="lm")
+                d.text((tx, ky + kh / 2 + g * 0.6), ohne_emoji(e.get("datum", "")),
+                       font=text_schrift(max(22, g * 2 // 3)), fill=SONNE, anchor="lm")
+        return
+
     # Design „karte"
-    pille(d, RAND_X, 250, ohne_emoji(folie.get("titel", "")).upper(), kondensiert(44, False), farbe)
-    breite_k, luecke = 164, 15
+    pille(d, RAND_X, 250, titel, kondensiert(44, False), farbe)
+    boxen = _raster(n, RAND_X, 350, 960, 350 + (150 if n <= 5 else 290), min(n, 5), luecke=14, max_h=150)
     for i, e in enumerate(eintraege):
-        x0 = RAND_X + i * (breite_k + luecke)
-        box = (x0, 360, x0 + breite_k, 490)
+        r = max(14, (boxen[i][3] - boxen[i][1]) // 6)
+        logo_karte(img, d, boxen[i], e.get("logo_id"), e["name"], radius=r,
+                   rand=max(10, (boxen[i][3] - boxen[i][1]) // 9),
+                   rahmen=SONNE if (aktiv is not None and i == aktiv) else None)
         if aktiv is not None and i != aktiv:
-            # gedämpft: Navy über die Karte, nicht durchsichtig (sonst
-            # scheint das Foto durch und das Logo wirkt verwaschen)
-            logo_karte(img, d, box, e.get("logo_id"), e["name"], radius=20, rand=14)
-            schleier = Image.new("RGBA", img.size, (0, 0, 0, 0))
-            ImageDraw.Draw(schleier).rounded_rectangle(box, radius=20, fill=NAVY + (150,))
-            img.alpha_composite(schleier)
-        else:
-            logo_karte(img, d, box, e.get("logo_id"), e["name"], radius=20, rand=14,
-                       rahmen=SONNE if aktiv is not None else None)
-        d.ellipse([x0 - 14, 346, x0 + 34, 394], fill=SONNE if (aktiv is None or i == aktiv) else GRAU)
-        d.text((x0 + 10, 370), str(e["rang"]), font=kondensiert(36), fill=NAVY, anchor="mm")
-    y = 530
+            _gedaempft(img, boxen[i], r)
+    y = boxen[-1][3] + 36
     if aktiv is None:
         for z in umbrechen(ohne_emoji(folie.get("schluss", "")).upper(), kondensiert(84), TEXT_BREITE, 2):
             d.text((RAND_X, y), z, font=kondensiert(84), fill=WEISS)
             y += 84
     else:
         e = eintraege[aktiv]
-        d.text((RAND_X, y), f"#{e['rang']}  " + ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(76),
-               fill=SONNE)
-        y += 82
-        d.text((RAND_X, y), umbrechen(ohne_emoji(e["name"]), kondensiert(60, False), TEXT_BREITE, 1)[0],
-               font=kondensiert(60, False), fill=WEISS)
-        y += 66
+        d.text((RAND_X, y), ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(70), fill=SONNE)
+        y += 74
+        d.text((RAND_X, y), umbrechen(ohne_emoji(e["name"]), kondensiert(56, False), TEXT_BREITE, 1)[0],
+               font=kondensiert(56, False), fill=WEISS)
+        y += 62
         info = " · ".join(t for t in (e.get("ort"), _starter_text(e.get("starter"))) if t)
-        d.text((RAND_X, y), ohne_emoji(info), font=text_schrift(36), fill=KREIDE)
-    karte = karte_bild(TEXT_BREITE, 680, punkte, aktiv, farbe)
-    img.alpha_composite(karte, (RAND_X, 790))
+        d.text((RAND_X, y), ohne_emoji(info), font=text_schrift(34), fill=KREIDE)
+    oben = boxen[-1][3] + 250
+    hoehe = 1490 - oben
+    img.alpha_composite(karte_bild(TEXT_BREITE, hoehe, punkte, aktiv, farbe), (RAND_X, oben))
 
 
 def _logo_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
@@ -651,8 +768,8 @@ def credit_ebene(text: str | None) -> Image.Image | None:
 def folien_dauer(f: dict) -> float:
     if f.get("typ") == "logo" and f.get("blitz"):
         return DAUER_BLITZ
-    if f.get("typ") == "top" and f.get("aktiv") is None:
-        return DAUER_TOP_UEBERSICHT
+    if f.get("typ") == "top":
+        return DAUER_TOP_UEBERSICHT if f.get("aktiv") is None else float(f.get("dauer") or DAUER["top"])
     if f.get("typ") == "event" and f.get("schnell"):
         return DAUER_SCHNELL
     if f.get("pointe"):

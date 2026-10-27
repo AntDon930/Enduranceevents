@@ -47,11 +47,13 @@ Fehlen dafür Events (monat: unter 6, anmeldung: unter 3), gilt der
 normale Wochenplan.
 
 Dazu jeden zweiten Samstag (gerade Kalenderwoche) statt „saison" das
-Format **top**: die 5 größten Marathons / Halbmarathons / Ultras /
-Trailruns / Radmarathons / Triathlons der nächsten 12 Monate (Kategorie
-wechselt), als Countdown 5 → 1 mit Logo und Karte, zwei Designs im
-Wechsel (vom Nutzer am 27.10.2026: „Top 5 Marathons im Jahr … auf einer
-Karte … die 5 Logos oben … unterschiedliche Designs").
+Format **top**: die 3/5/7/10 größten Marathon-, Halbmarathon-, Ultra-,
+Trail-Events, Radmarathons oder Triathlons der nächsten 12 Monate, nach
+Datum, ohne Rangfolge; Kategorie, Anzahl und Design (Karte, einzeln,
+Raster, Zeitleiste) wechseln (vom Nutzer am 27.10.2026: „Top 5 Marathons
+im Jahr … auf einer Karte … die 5 Logos oben" und „es muss nicht immer
+Top 5 sein … nicht bewertet werden wer der beste … unterschiedliche
+Designs in der Darstellung").
 
 Die alten Formate (wochenvorschau, spotlight, region) bleiben über
 --format erreichbar, der Plan nutzt sie nicht mehr.
@@ -855,8 +857,9 @@ TOP_KATEGORIEN = (
     ("ultra", "Ultra-Events", "Laufen", lambda km, art2, n: any(k > 42.3 for k in km) and "Marsch" not in art2),
     ("triathlon", "Triathlons", "Triathlon", lambda km, art2, n: True),
 )
-TOP_ANZAHL = 5
-TOP_DESIGNS = ("karte", "countdown")
+TOP_ANZAHLEN = (5, 3, 7, 10)    # „es muss nicht immer Top 5 sein … Top 10, Top 3" (Nutzer, 27.10.2026)
+TOP_DESIGNS = ("karte", "einzeln", "raster", "zeitleiste")
+TOP_DAUER = {3: 2.6, 5: 2.3, 7: 1.8, 10: 1.4}    # Sekunden je Event, mehr Events = schneller
 
 
 def top_kandidaten(datum: dt.date, events: list[dict], grosse: list[dict], kategorie: tuple) -> list[dict]:
@@ -883,50 +886,57 @@ def top_kandidaten(datum: dt.date, events: list[dict], grosse: list[dict], kateg
 
 def format_top(datum: dt.date, events: list[dict], rng: random.Random,
                grosse: list[dict] | None = None) -> dict | None:
-    """„Die 5 größten Marathons" – Countdown 5 → 1, je Event Logo, Datum,
-    Ort, Teilnehmende und ein Punkt auf der Karte, am Ende alle fünf.
-    Kategorie und Design wechseln mit der Woche."""
+    """„Die 7 größten Trail-Events" – die größten Events einer Kategorie in
+    den nächsten 12 Monaten, OHNE Rangfolge (vom Nutzer: „es muss auch
+    nicht bewertet werden wer der beste … Einfach die 5 größten"), nach
+    Datum vorgestellt, am Ende alle zusammen. Kategorie, Anzahl (3/5/7/10)
+    und Design wechseln von Mal zu Mal."""
     grosse = grosse if grosse is not None else lade_grosse()
-    # Nur Kategorien mit fünf Events rotieren - sonst sprang eine leere
-    # Kategorie auf die nächste, und die kam zweimal hintereinander.
-    moeglich = [(k, t[:TOP_ANZAHL]) for k in TOP_KATEGORIEN
-                for t in [top_kandidaten(datum, events, grosse, k)] if len(t) >= TOP_ANZAHL]
+    kandidaten = [(k, top_kandidaten(datum, events, grosse, k)) for k in TOP_KATEGORIEN]
+    # Nur Kategorien rotieren, die mindestens drei Events haben - sonst
+    # sprang eine leere Kategorie auf die nächste, und die kam zweimal.
+    moeglich = [(k, t) for k, t in kandidaten if len(t) >= min(TOP_ANZAHLEN)]
     if not moeglich:
         return None
     runde = datum.toordinal() // 14            # ein Top-Reel alle zwei Wochen
-    kat, top = moeglich[runde % len(moeglich)]
+    kat, liste = moeglich[runde % len(moeglich)]
+    # Design und Anzahl wechseln jedes Mal (nie zweimal dasselbe hintereinander)
+    wunsch = TOP_ANZAHLEN[(runde + runde // len(TOP_ANZAHLEN)) % len(TOP_ANZAHLEN)]
+    anzahl = max(n for n in TOP_ANZAHLEN if n <= len(liste) and n <= max(wunsch, min(TOP_ANZAHLEN)))
+    design = TOP_DESIGNS[runde % len(TOP_DESIGNS)]
     schluessel, name, sport, _ = kat
     import insta_logos
-    # Das Design wechselt mit jeder Runde durch die Kategorien, damit nicht
-    # jede Kategorie immer gleich aussieht.
-    design = TOP_DESIGNS[(runde // len(moeglich) + runde) % len(TOP_DESIGNS)]
+    auswahl = sorted(liste[:anzahl], key=lambda e: (e["v"]["datum"], e["g"]["name"]))
     eintraege = []
-    for rang, e in zip(range(TOP_ANZAHL, 0, -1), reversed(top)):
+    for e in auswahl:
         v, g = e["v"], e["g"]
-        eintraege.append({"rang": rang, "logo_id": insta_logos.slug(g["name"]), "name": g["name"],
-                          "datum": datum_kurz(dt.date.fromisoformat(v["datum"]), jahr=True),
+        tag = dt.date.fromisoformat(v["datum"])
+        eintraege.append({"logo_id": insta_logos.slug(g["name"]), "name": g["name"],
+                          "datum": datum_kurz(tag, jahr=True), "monat_iso": v["datum"][:7], "tag": tag.day,
                           "ort": f"{v['ort']} {LAND_KURZ.get(v['land'], '')}".strip(),
                           "starter": g.get("starter"), "lat": v.get("lat"), "lon": v.get("lon"),
                           "url": g.get("webseite") or v.get("url")})
-    titel = f"Top 5 {name}"
-    basis = {"typ": "top", "variante": design, "sport": sport, "titel": titel, "eintraege": eintraege}
+    titel = f"Die {anzahl} größten {name}"
+    basis = {"typ": "top", "variante": design, "sport": sport, "titel": titel, "eintraege": eintraege,
+             "start": datum.isoformat()[:7], "dauer": TOP_DAUER.get(anzahl, 2.0)}
     folien = [
-        {"typ": "hook", "ueber": "Die nächsten 12 Monate", "zahl": "TOP 5",
+        {"typ": "hook", "ueber": "Die nächsten 12 Monate", "zahl": str(anzahl),
          "titel": f"DIE GRÖSSTEN {name.upper()}", "zeilen": ["Deutschland · Österreich · Schweiz · Südtirol"]},
-        *[dict(basis, aktiv=i) for i in range(TOP_ANZAHL)],
-        dict(basis, aktiv=None, schluss=f"Welcher ist deiner?"),
+        *[dict(basis, aktiv=i) for i in range(anzahl)],
+        dict(basis, aktiv=None, schluss="Wo bist du dabei?"),
         cta_folie("Check it out!", f"Alle {name} mit Termin", SEITE, "Link in der Bio"),
     ]
-    zeilen = "\n".join(f"{e['rang']}. {e['name']} – {e['datum']}, {e['ort']}"
+    zeilen = "\n".join(f"• {e['datum']}: {e['name']}, {e['ort']}"
                        + (f" ({_starter_kurz(e['starter'])})" if e.get("starter") else "")
-                       for e in reversed(eintraege))
+                       for e in eintraege)
     caption = caption_bauen([
-        f"🏆 Die 5 größten {name} der nächsten 12 Monate in Deutschland, Österreich, der Schweiz und Südtirol:",
+        f"🗓️ Die {anzahl} größten {name} der nächsten 12 Monate in Deutschland, Österreich, der Schweiz "
+        "und Südtirol – nach Datum:",
         zeilen,
-        "Gezählt nach allen Teilnehmenden der Veranstaltung, letzte Ausgabe (Angaben der Veranstalter, gerundet). "
-        "Welchen läufst du? 👇 Speichern nicht vergessen.",
-    ], hashtags(sport, rng=rng, extra=[f"#{schluessel}", "#top5"]), rng, len(events))
-    return _beitrag("top", datum, folien, caption, sport, kategorie=schluessel, design=design)
+        "Gezählt nach allen Teilnehmenden der Veranstaltung, letzte Ausgabe (Angaben der Veranstalter, "
+        "gerundet). Wo bist du dabei? 👇 Speichern nicht vergessen.",
+    ], hashtags(sport, rng=rng, extra=[f"#{schluessel}", "#rennkalender"]), rng, len(events))
+    return _beitrag("top", datum, folien, caption, sport, kategorie=schluessel, design=design, anzahl=anzahl)
 
 
 def _starter_kurz(n: int) -> str:

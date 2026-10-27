@@ -2576,6 +2576,16 @@ python3 scripts/insta_logos.py uebernehmen <slug> --url <Bild>  # anderes Bild
 python3 scripts/insta_logos.py bogen geprueft.png               # alle geprüften, Lücken rot
 ```
 
+**Die größten einer Kategorie** (`top`, jeder zweite Samstag statt
+„Speicher dir das"): die 3, 5, 7 oder 10 größten Marathon-, Halbmarathon-,
+Ultra-, Trail-Events, Radmarathons oder Triathlons der nächsten 12 Monate –
+nach Datum, ohne Rangfolge, gezählt nach allen Teilnehmenden der
+Veranstaltung. Kategorie, Anzahl und Design wechseln jedes Mal; vier
+Designs: Karte (Logos oben, Karte mit Punkten unten), einzeln (großes
+Datum, Logo, kleine Karte), Raster (Kacheln füllen sich) und Zeitleiste
+(Monatsachse, Logos am Termin). Die Karte zeichnet das Skript selbst aus
+`laender.json`.
+
 Fehlt ein Logo, zeigt die Folie den Namen groß auf einer Karte. Will ein
 Veranstalter sein Logo nicht im Reel, die Datei löschen.
 

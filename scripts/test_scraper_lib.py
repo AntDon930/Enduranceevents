@@ -6517,30 +6517,34 @@ def test_insta_logos() -> None:
           [e["g"]["name"] for e in I.top_kandidaten(_dt.date(2026, 11, 14), tev, tgross, kat["halbmarathon"])],
           ["Golf Halbmarathon"])
     t = I.format_top(_dt.date(2026, 11, 14), tev, _random.Random(1), tgross)
-    ranglog = [(f["aktiv"], f["eintraege"][f["aktiv"]]["rang"]) for f in t["folien"]
-               if f["typ"] == "top" and f["aktiv"] is not None]
-    check("top: Countdown 5 → 1, dann die Übersicht, Schluss „Check it out“",
-          ([r for _, r in ranglog], [f["typ"] for f in t["folien"]][-2:], t["folien"][-2]["aktiv"]),
-          ([5, 4, 3, 2, 1], ["top", "cta"], None))
-    check("top: die fünf größten, Caption sagt, wie gezählt wird",
-          ([e["name"] for e in t["folien"][1]["eintraege"]][::-1],
-           "allen Teilnehmenden der Veranstaltung" in t["caption"]),
-          (["Alpha Marathon", "Bravo Marathon", "Charlie Marathon", "Delta Marathon", "Echo Marathon"], True))
+    n = t["anzahl"]
+    namen = [f["eintraege"][f["aktiv"]]["name"] for f in t["folien"] if f["typ"] == "top" and f["aktiv"] is not None]
+    erwartet = sorted(["Alpha Marathon", "Bravo Marathon", "Charlie Marathon", "Delta Marathon", "Echo Marathon",
+                       "Foxtrot Marathon"][:n], key=lambda x: "ABCDEF".index(x[0]))
+    check("top: die n größten (3/5/7/10), vorgestellt nach DATUM, ohne Rangfolge, dann Übersicht und CTA",
+          (n in I.TOP_ANZAHLEN, namen, [f["typ"] for f in t["folien"]][-2:], t["folien"][-2]["aktiv"],
+           any("rang" in e for e in t["folien"][1]["eintraege"])),
+          (True, erwartet, ["top", "cta"], None, False))
+    check("top: Caption sagt, wie gezählt wird", "allen Teilnehmenden der Veranstaltung" in t["caption"], True)
     samstage = [_dt.date(2026, 10, 31) + _dt.timedelta(days=14 * i) for i in range(4)]
     check("top: jeder zweite Samstag, sonst „saison“",
           [I.format_am(_dt.date(2026, 10, 31) + _dt.timedelta(days=7 * i)) for i in range(4)],
           ["top", "saison", "top", "saison"])
     ganz = I.lade_grosse()
     ev_echt = I.lade_events()
-    kats = [I.format_top(d, ev_echt, _random.Random(1), ganz) for d in samstage]
-    kats = [k["kategorie"] for k in kats if k]
-    check("top: am echten Bestand keine Kategorie zweimal hintereinander",
-          all(a != b for a, b in zip(kats, kats[1:])), True)
+    tops = [b for b in (I.format_top(d, ev_echt, _random.Random(1), ganz) for d in samstage) if b]
+    paare = list(zip(tops, tops[1:]))
+    check("top: am echten Bestand wechseln Kategorie, Design und Anzahl jedes Mal",
+          all(a["kategorie"] != b["kategorie"] and a["design"] != b["design"] and a["anzahl"] != b["anzahl"]
+              for a, b in paare), True)
     for design in I.TOP_DESIGNS:
         for aktiv in (0, None):
-            bild = V.folie_bild(dict(t["folien"][1], variante=design, aktiv=aktiv), "Laufen")
-            check(f"top: Design {design} zeichnet ({'aktiv' if aktiv == 0 else 'Übersicht'})",
-                  bild.getchannel("A").getbbox() is not None, True)
+            for menge in (3, 10):
+                f = dict(t["folien"][1], variante=design, aktiv=aktiv,
+                         eintraege=(t["folien"][1]["eintraege"] * 4)[:menge])
+                bild = V.folie_bild(f, "Laufen")
+                check(f"top: Design {design} zeichnet {menge} Events ({'eins' if aktiv == 0 else 'Übersicht'})",
+                      bild.getchannel("A").getbbox() is not None, True)
     karte = V.karte_bild(400, 400, [(52.52, 13.40, "1")], 0)
     check("Karte: Länderfläche aus laender.json und Punkt Berlin im Nordosten",
           (karte.getpixel((200, 250))[3] > 0, karte.getpixel((5, 5))[3]), (True, 0))
