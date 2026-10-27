@@ -5413,7 +5413,7 @@ Kalender, die kleinen enden von selbst. Probelauf (eine Seite je
 Kalender, ohne Details): 104 neue Events, davon die ersten Schweizer
 überhaupt. **Der nächste Datenlauf bringt sie** – Workflow auslösen,
 nicht im Chat warten (Laufzeit steigt um grob eine Stunde, das
-`timeout-minutes: 300` reicht).
+`timeout-minutes` reicht – seit dem 27.10.2026 360).
 
 **Schwimmen (24.09.2026)**: Der Nutzer hat drei Links geschickt
 (schwimmkalender.de, openwaterschwimmen.com, swimevents.de) und um weitere
@@ -5824,11 +5824,14 @@ das Skript den Index NIE anfassen.**
 **Seit dem 27.10.2026 fragt der Datenlauf danach die Veranstalterseiten
 nach ihren Instagram-Links** (`run_instagram_konten()`: 400 Seiten,
 8 Minuten). **Das Zeitbudget ist knapp**: Der Lauf vom 26.10.2026
-brauchte 262 der 300 Minuten (`timeout-minutes` in `update-events.yml`
-auf `main`). Reißt er die Grenze, bricht GitHub ab und es wird NICHTS
-committet – wer einen weiteren Schritt einbaut, rechnet vorher nach;
-die Grenze auf 360 Minuten (das Maximum für gehostete Läufer)
-anzuheben, braucht ein Ja des Nutzers für `main`.
+brauchte 262 der damals 300 Minuten. **Seit dem 27.10.2026 steht
+`timeout-minutes` auf 360** (vom Nutzer freigegeben: „Ja, Timeout auf
+main auf 360 anheben“, auf beiden Branches und auf `main`) – das ist das
+Maximum für gehostete Läufer, mehr geht nicht. Reißt ein Lauf die
+Grenze, bricht GitHub ab und es wird NICHTS committet – wer einen
+weiteren Schritt einbaut, rechnet vorher nach; reicht auch 360 nicht,
+muss der Lauf geteilt werden (eigener Workflow für einen Prüfschritt,
+Zeitplan auf `main`).
 
 **Seit dem 05.10.2026 läuft im Datenlauf vor dem Aufräumen
 `veranstalter_seiten.py pruefen`** (`run_naechste_ausgaben()` in
@@ -6455,6 +6458,10 @@ Verweise auf alte Nummern stehen in Klammern.
    Hostname nur `_github-pages-challenge-AntDon930`, Wert = der Code,
    keinen www-Eintrag dazu; (3) bei GitHub „Verify", notfalls nach ein
    paar Minuten noch einmal. Der TXT-Eintrag bleibt dauerhaft stehen.
+   **Stand 27.10.2026**: noch nicht angelegt (DNS antwortet NXDOMAIN).
+   Sobald der Nutzer Bescheid gibt, prüft Claude den Eintrag:
+   `curl -s "https://dns.google/resolve?name=_github-pages-challenge-antdon930.endurance-events.de&type=TXT"`
+   – `"Status":0` mit einem `Answer` heißt: da, dann „Verify“ bei GitHub.
 3. **Frühjahr 2027** (alt 26): NordCup 2027 (9 Radmarathons SH) beim
    Veranstalter nachziehen.
 4. **Frühjahr 2027** (alt 27): BOE, Fricktaler Cup, dsergebnis,
@@ -6550,12 +6557,28 @@ Verweise auf alte Nummern stehen in Klammern.
     `clubs_profile_fehlen.xlsx` – Strava liest die Montagsaufgabe sicher
     aus; Clubs ohne Termine auf Strava wieder verlassen (die Montagsmeldung
     nennt sie).
+13. **Montag 02.11.2026: den ersten Datenlauf mit Instagram-Prüfung und
+    360 Minuten ansehen** (Claude, eingetragen am 27.10.2026): (a)
+    Laufzeit des Laufs „Events automatisch aktualisieren“ (Grenze jetzt
+    360 – bleibt er über ~330, den Lauf teilen, siehe „Automatik“);
+    (b) im Log „Instagram-Konten: … Seiten geprüft“ – lief die Prüfung
+    durch, wurde `instagram_konten.json` mitcommittet; (c) die NEU
+    zugeordneten Konten im Abschnitt „Instagram-Konto der Veranstaltung“
+    des Aufräum-Logs durchsehen, Fehltreffer als Regel oder in
+    `KEIN_EVENT_KONTO` (Frontend-Fallen, „Das Instagram-Zeichen großer
+    Veranstaltungen“); (d) der Deploy-Lauf danach grün (sonst warten die
+    Daten hinter dem Gate) und die Abo-Mail im neuen Aussehen (Punkt 10).
+    Dabei kommen fünf Zeilen aus der Liste der großen Events dazu, die die
+    parallele Sitzung am 27.10. ergänzt hat (10 km de Payerne, Spartan
+    Munich, Wings for Life Munich) – kein Fehler, nur noch nicht
+    aufgeräumt.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
 (36), Functions-Deploy für die Abo-Kennzahl (37), Probe des
 Wartungsmodus (38) – alle 13./14.10.2026; Instagram einrichten (39) –
-16.10.2026; RADRACE als Veranstalter (40) – 17.10.2026.)
+16.10.2026; RADRACE als Veranstalter (40) – 17.10.2026; Timeout des
+Datenlaufs auf 360 Minuten (41) – 27.10.2026.)
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
@@ -7200,6 +7223,13 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     standing; Startplätze per Los oder Qualifier, „aus den stärksten
     Bewerbern" – vor der Aufnahme klären, ob das „für jeden" ist), New
     Balance Midnight Miles (newbalance.de antwortet 403).
+41. ~~**Timeout des Datenlaufs auf 360 Minuten**~~ **erledigt**
+    (27.10.2026, vom Nutzer: „Ja, Timeout auf main auf 360 anheben“):
+    `timeout-minutes: 360` in `update-events.yml` auf beiden
+    Entwicklungs-Branches und auf `main` (nur diese Datei), Diff zwischen
+    `main` und Entwicklungs-Branch leer. Anlass: Der Lauf vom 26.10.2026
+    brauchte 262 von 300 Minuten, dazu kam die Instagram-Prüfung. 360 ist
+    das Maximum für gehostete Läufer.
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
     Termin – rein oder raus?~~ **erledigt** (09.10.2026, vom Nutzer: „Ne

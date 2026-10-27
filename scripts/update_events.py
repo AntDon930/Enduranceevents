@@ -259,8 +259,9 @@ def run_instagram_konten(events_json: Path) -> bool:
 # Je Woche kommen ~150 neue Seiten; dazu wird jede Seite alle 90 Tage
 # noch einmal gelesen (~3.900 Seiten → ~300 je Woche, neue zuerst). Eine
 # Seite kostet 1–3 s, meist ohne Wartezeit (lauter verschiedene Hosts).
-# Knapp gehalten: Der Wochenlauf brauchte am 26.10.2026 schon 262 der 300
-# Minuten (timeout-minutes in update-events.yml auf `main`).
+# Knapp gehalten: Der Wochenlauf brauchte am 26.10.2026 schon 262 der
+# damals 300 Minuten; seit dem 27.10.2026 sind es 360 (timeout-minutes in
+# update-events.yml auf `main`, das Maximum).
 INSTAGRAM_MAX = 400
 INSTAGRAM_ZEITLIMIT = 8 * 60
 
@@ -274,8 +275,9 @@ INSTAGRAM_ZEITLIMIT = 8 * 60
 # ~40 Minuten. Das ZEITLIMIT ist die eigentliche Grenze: Das Skript hört
 # dann selbst auf, übernimmt die Funde und speichert - der harte TIMEOUT
 # darunter ist nur noch die Notbremse gegen eine hängende Seite, und er
-# verlöre alles, was dieser Lauf gefunden hat. Der Wochenlauf hat 300
-# Minuten (update-events.yml), die Scraper brauchen ~210.
+# verlöre alles, was dieser Lauf gefunden hat. Der Wochenlauf hat 360
+# Minuten (update-events.yml, seit dem 27.10.2026; vorher 300), die
+# Scraper brauchen ~210.
 NAECHSTE_AUSGABEN_MAX = 600
 NAECHSTE_AUSGABEN_ZEITLIMIT = 40 * 60
 NAECHSTE_AUSGABEN_TIMEOUT = 50 * 60

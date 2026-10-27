@@ -1766,7 +1766,8 @@ Grobe Verteilung: running.life ~71 Minuten (~2020 Detailseiten),
 laufen.de ~26 Minuten (~750), Rest wenige Minuten, plus Geocoding neuer
 Orte beim ersten Lauf.
 
-Das ist der Grund, warum der Workflow `timeout-minutes: 300` setzt – und
+Das ist der Grund, warum der Workflow `timeout-minutes: 360` setzt (seit
+dem 27.10.2026, vorher 300; 360 ist das Maximum für gehostete Läufer) – und
 warum man einen Datenlauf besser über „Actions → Run workflow" auslöst
 als ihn lokal abzuwarten. Für schnelle Tests eines Scrapers:
 `--max-pages 2 --no-details`.
