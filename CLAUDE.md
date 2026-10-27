@@ -5315,9 +5315,17 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   **`marketing/instagram/sonderplan.json`** (`lade_sonderplan()`, geht in
   `plane()` und `format_am()` allem vor; bei `top` mit `kategorie`/
   `anzahl`/`design`, bei `duell` mit `paar`): Mo `jahr`, Di `anmeldung`,
-  Mi `laengste`, Do `top` Marathon/karte/5, Fr `wochenende`, Sa `top`
-  Triathlon/raster/7, So `duell` Berlin gegen Wien. Der Nutzer sieht jedes
+  Mi `laengste`, Do Pause, Fr `top` Marathon/karte/5, Sa Pause, So `duell`
+  Berlin gegen Wien (`"pause": true` im Sonderplan). Der Nutzer sieht jedes
   Video im Dashboard („View") an, gibt Feedback, dann frei.
+  **Nicht jeden Tag ein Video – „4-5 Videos in der Woche"** (vom Nutzer am
+  27.10.2026): `insta_inhalte.postet_am()` – Dienstag und Donnerstag Pause
+  (`PAUSE_WOCHENTAGE`), außer Anlass, 1. des Monats (Anmeldestart) oder
+  Sonderplan; vor `POST_START` nie (steht auch in `insta_freigabe`, der
+  Test vergleicht). `plan_liste()` (plan.json, Dashboard) zeigt nur
+  Post-Tage, `insta_lauf.py` rendert an Pausentagen nichts, legt im
+  Morgenlauf aber die Vorschauen ab – vor dem Start die Woche ab
+  02.11.2026 plus den Montag danach.
 - **Zwei Formate dazu (27.10.2026)**: **`jahr`** („Dein Rennjahr": je
   Monat der nächsten zwölf das größte Event, geprüftes Logo vor ohne,
   Monatsfolien `blitz` im Takt ohne Wisch, Übersicht 3 × 4, mindestens zehn

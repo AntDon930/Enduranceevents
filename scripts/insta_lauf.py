@@ -82,6 +82,18 @@ def main() -> int:
 
     datum = dt.date.fromisoformat(a.datum) if a.datum else dt.datetime.now(ZoneInfo("Europe/Berlin")).date()
     ziel = a.ausgabe or AUSGABE / datum.isoformat()
+    if not a.format and not inhalte.postet_am(datum):
+        # Pausentag oder vor dem Start: kein Beitrag - aber die Vorschauen
+        # der nächsten Post-Tage legt der Morgenlauf trotzdem ab.
+        grund = "vor dem Start" if datum < inhalte.POST_START else "Pausentag"
+        print(f"{datum}: {grund} - heute kein Beitrag")
+        zusammenfassung(f"## Instagram {datum}: {grund}, kein Beitrag\n")
+        if not a.posten and not a.vorschau:
+            import insta_posten as posten
+            z = posten.zugang()
+            if z:
+                vorschauen(datum, a.vorschau_tage if a.vorschau_tage is not None else 7, ziel, None, z)
+        return 0
     beitrag = inhalte.plane(datum, format_=a.format)
     # Kennung des Inhalts VOR dem Rendern (die Namensnennung des
     # Hintergrunds kommt erst danach in die Caption) - dieselbe, die
@@ -212,7 +224,7 @@ def logos_holen(beitrag: dict) -> None:
         print(f"  Logos: {n} geprüft" + (f", Namenskarte für: {', '.join(ohne)}" if ohne else ""))
 
 
-def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str, z: dict) -> None:
+def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str | None, z: dict) -> None:
     """Die Reels der nächsten Tage rendern und als Vorschau ablegen
     (insta_posten.lade_vorschau) – der „View"-Knopf der Freigabe-Karte in
     admin.html spielt sie ab. Heute ist schon gerendert; die übrigen Tage
@@ -221,11 +233,18 @@ def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str, z: dic
     Fehler hier lässt den Lauf grün – die Vorschau ist Beiwerk."""
     import tempfile
     import insta_posten as posten
-    ok = 0
+    ok, soll = 0, 0
+    # Vor dem Start zeigt die Vorschau die erste Woche ab dem Start (+1 Tag,
+    # damit auch der Montag danach dabei ist)
+    if datum < inhalte.POST_START:
+        datum, tage, kennung_heute = inhalte.POST_START, tage + 1, None
     for i in range(tage):
         tag = datum + dt.timedelta(days=i)
+        if not inhalte.postet_am(tag):
+            continue
+        soll += 1
         try:
-            if i == 0:
+            if i == 0 and kennung_heute:
                 ordner, kennung = ziel, kennung_heute
             else:
                 b = inhalte.plane(tag)
@@ -237,8 +256,8 @@ def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str, z: dic
             ok += 1
         except Exception as e:                               # noqa: BLE001 - Vorschau ist Beiwerk
             print(f"  Vorschau {tag}: nicht abgelegt ({type(e).__name__}: {str(e)[:120]})")
-    print(f"  Vorschauen für das Dashboard: {ok} von {tage} Tagen abgelegt")
-    zusammenfassung(f"Vorschauen für das Dashboard: {ok} von {tage} Tagen\n")
+    print(f"  Vorschauen für das Dashboard: {ok} von {soll} Post-Tagen abgelegt")
+    zusammenfassung(f"Vorschauen für das Dashboard: {ok} von {soll} Post-Tagen\n")
 
 
 def auswertung_text(daten: dict) -> str:

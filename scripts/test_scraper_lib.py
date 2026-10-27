@@ -5155,6 +5155,7 @@ def test_insta_freigabe() -> None:
     print("\nInstagram-Freigabe (insta_freigabe, plan.json, Dashboard):")
     import insta_inhalte as I
     I.SONDERPLAN_DATEI = Path("/gibt-es-nicht/sonderplan.json")   # Plan-Tests ohne die feste Startwoche
+    _postet_echt, I.postet_am = I.postet_am, (lambda *a, **k: True)   # Plan-Tests: jeder Tag ein Post-Tag
     import insta_freigabe as F
     wurzel = Path(__file__).resolve().parent.parent
     heute = _dt.date(2026, 10, 19)
@@ -5236,6 +5237,7 @@ def test_insta_freigabe() -> None:
     lauf = (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8")
     check("insta_lauf.py: --freigabe fragt insta_freigabe, Kennung vor dem Rendern",
           ("--freigabe" in lauf, "freigabe.darf_posten(" in lauf, 'beitrag["hash"] = inhalte.beitrag_hash(beitrag)' in lauf), (True, True, True))
+    I.postet_am = _postet_echt
 
 
 def test_instagram() -> None:
@@ -6728,9 +6730,19 @@ def test_insta_logos() -> None:
     check("Sonderplan: Kategorie, Anzahl und Design fest", (tb["format"], tb.get("kategorie"), tb.get("design"),
                                                             tb.get("anzahl")), ("top", "triathlon", "raster", 7))
     start = I.lade_sonderplan(wurzel / "marketing" / "instagram" / "sonderplan.json")
-    check("sonderplan.json: die Startwoche 02.–08.11.2026, nur bekannte Formate",
-          (sorted(start), all(t["format"] in I.FORMATE for t in start.values())),
+    check("sonderplan.json: die Startwoche 02.–08.11.2026, nur bekannte Formate oder Pause",
+          (sorted(start), all(t.get("pause") or t.get("format") in I.FORMATE for t in start.values())),
           ([f"2026-11-0{k}" for k in range(2, 9)], True))
+    woche = [_dt.date(2026, 11, 2) + _dt.timedelta(days=k) for k in range(7)]
+    check("Startwoche: 4-5 Videos (vom Nutzer), nichts vor dem 02.11.",
+          (4 <= sum(I.postet_am(t, start) for t in woche) <= 5, I.postet_am(_dt.date(2026, 11, 1), start)), (True, False))
+    regel = [_dt.date(2026, 11, 9) + _dt.timedelta(days=k) for k in range(7)]
+    check("Ab der zweiten Woche: Di und Do Pause, ein Anlass postet trotzdem",
+          ([t.weekday() for t in regel if I.postet_am(t, {}, [])],
+           I.postet_am(_dt.date(2026, 11, 10), {}, [{"datum": "2026-11-10", "kategorie": "marathon"}])),
+          ([0, 2, 4, 5, 6], True))
+    import insta_freigabe as _F
+    check("POST_START gleich in insta_inhalte und insta_freigabe", I.POST_START.isoformat(), _F.POST_START)
 
     # --- Anmeldung: was am Tag des Beitrags schon offen ist, heißt „seit"
     seit = I.format_anmeldung(_dt.date(2026, 11, 1), ev, _random.Random(1), grosse, heute=_dt.date(2026, 11, 5))

@@ -1402,6 +1402,26 @@ def lade_sonderplan(pfad: Path | None = None) -> dict[str, dict]:
         return {}
 
 
+# Gepostet wird ab dem 02.11.2026 und nicht jeden Tag: „4-5 Videos in der
+# Woche" (Nutzer, 27.10.2026). Dienstag und Donnerstag sind Pause, außer
+# ein Anlass, der Anmeldestart am 1. oder der Sonderplan sagen etwas anderes.
+POST_START = dt.date(2026, 11, 2)
+PAUSE_WOCHENTAGE = {1, 3}
+
+
+def postet_am(datum: dt.date, sonderplan: dict[str, dict] | None = None,
+              anlaesse: list[dict] | None = None) -> bool:
+    """Ob an `datum` ein Beitrag erscheint."""
+    if datum < POST_START:
+        return False
+    sonder = (sonderplan if sonderplan is not None else lade_sonderplan()).get(datum.isoformat())
+    if sonder:
+        return not sonder.get("pause")
+    if anlass_am(datum, anlaesse) or datum.day == 1:
+        return True
+    return datum.weekday() not in PAUSE_WOCHENTAGE
+
+
 # ------------------------------------------------------------------ Stories
 
 COUNTDOWN_TAGE = (100, 60, 30, 14, 7)
@@ -1665,6 +1685,8 @@ def plan_liste(start: dt.date, tage: int, events: list[dict] | None = None,
     aus = []
     for i in range(tage):
         tag = start + dt.timedelta(days=i)
+        if not postet_am(tag):                 # Pausentage und vor dem Start: nichts zur Freigabe
+            continue
         b = plane(tag, events, momente=momente, clips=clips, grosse=grosse)
         eintrag = {"datum": b["datum"], "wochentag": WOCHENTAGE[tag.weekday()],
                    "format": b["format"], "hash": beitrag_hash(b),

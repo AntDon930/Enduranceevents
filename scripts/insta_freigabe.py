@@ -92,7 +92,7 @@ def autopost_aktiv(umgebung: dict | None = None) -> bool:
 # fangen ab dem 2. November (Montag) an … Davor wird jetzt noch nichts
 # gepostet"). Gilt für JEDEN Weg – Freigabe, Autopost und den Haken „posten"
 # im Handlauf –, gemessen am heutigen Tag UND am Tag des Beitrags.
-POST_START = "2026-11-02"
+POST_START = "2026-11-02"            # wie insta_inhalte.POST_START (Test vergleicht)
 
 
 def vor_start(datum: str, heute: str) -> bool:
