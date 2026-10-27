@@ -3513,6 +3513,11 @@ Bernard, `wtcshamburg`). Dafür gibt es den Override
 `"instagram": "<konto>"` in `manual_overrides.json`;
 `"instagram": null` schaltet ein Zeichen ab.
 
+**Die großen Events sind recherchiert**: Für die 127 Events in
+`marketing/instagram/grosse_events.json` (die Liste der Logo-Reels, mit
+Starterzahlen und Quellen) gilt das dort eingetragene Konto vor der
+Erkennung. Rangfolge: Override, dann diese Liste, dann die Erkennung.
+
 **Ablauf**: Der Wochenlauf fragt vor dem Aufräumen bis zu 400 Seiten in
 acht Minuten (neue zuerst), `clean_events.fix_instagram()` setzt danach
 das Feld `instagram` an jede Zeile, deren Seite ein Event-Konto nennt,

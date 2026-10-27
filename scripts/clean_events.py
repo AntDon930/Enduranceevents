@@ -2203,7 +2203,7 @@ def merge_duplicates(events: list[dict]) -> tuple[list[dict], list[str]]:
 
 
 def fix_instagram(events: list[dict], konten: dict | None = None,
-                  overrides: dict | None = None) -> list[str]:
+                  overrides: dict | None = None, grosse: list[dict] | None = None) -> list[str]:
     """Setzt `instagram` (Kontoname ohne @) an jede Zeile, deren EIGENE
     Veranstalterseite ein Konto der Veranstaltung selbst verlinkt, und
     nimmt es weg, sobald das nicht mehr gilt (seit 27.10.2026, vom Nutzer
@@ -2212,18 +2212,30 @@ def fix_instagram(events: list[dict], konten: dict | None = None,
     dem Event gehört, entscheidet instagram_konten.event_konto() - also
     nie der Verein, der Sponsor oder die Agentur. Ein Override
     `"instagram": "<name>"` setzt es von Hand, `"instagram": null`
-    schaltet es ab. Idempotent."""
+    schaltet es ab. Dazwischen steht die Liste der großen Events
+    (marketing/instagram/grosse_events.json, für die Logo-Reels am
+    27.10.2026 einzeln recherchiert): Gehört die Zeile zu einem davon
+    (insta_inhalte.gross_fuer - Suchwort im Namen, Land und Sportart) und
+    nennt es ein Konto, gilt dieses - recherchiert schlägt erkannt.
+    Idempotent."""
     import instagram_konten
+    import insta_inhalte
     if konten is None:
         konten = instagram_konten.lade()
     if overrides is None:
         overrides = load_manual_overrides()
+    if grosse is None:
+        grosse = insta_inhalte.lade_grosse()
     changes: list[str] = []
     for e in events:
         override = find_override(overrides, e.get("name"), e.get("datum_start"),
                                  e.get("laenge_km"), e.get("wettbewerb"))
+        gross = insta_inhalte.gross_fuer({"name": e.get("name") or "", "land": e.get("land"),
+                                          "sport": e.get("art1")}, grosse) if grosse else None
         if override and "instagram" in override:
             soll = (override.get("instagram") or "").lower().lstrip("@") or None
+        elif gross and gross.get("instagram"):
+            soll = str(gross["instagram"]).lower().lstrip("@")
         else:
             soll = None
             url = e.get("veranstalter_url")

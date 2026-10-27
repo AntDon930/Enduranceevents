@@ -5075,11 +5075,21 @@ def test_instagram_konten() -> None:
              "veranstalter_url": "https://my.raceresult.com/1/"}]
     ov = {"Kleiner Lauf|2027-05-01": {"instagram": "@KleinerLauf", "_note": "von Hand"},
           "Leipzig Marathon|2027-04-18|10": {"instagram": None, "_note": "abgeschaltet"}}
-    aend = fix_instagram(rows, konten, ov)
+    aend = fix_instagram(rows, konten, ov, grosse=[])
     check("je Zeile: Event-Konto, Override aus, Verein nie, von Hand, Portal nie",
           [r.get("instagram") for r in rows], ["leipzigmarathon", None, None, "kleinerlauf", None])
     check("Änderungen werden gemeldet (gesetzt, entfernt, von Hand)", len(aend), 3)
-    check("idempotent", fix_instagram(rows, konten, ov), [])
+    check("idempotent", fix_instagram(rows, konten, ov, grosse=[]), [])
+    # Die recherchierte Liste der großen Events (grosse_events.json) schlägt
+    # die Erkennung, der Override schlägt beide.
+    gross = [{"name": "Portal-Lauf", "suche": ["portal-lauf"], "land": None, "sport": None,
+              "instagram": "portallauf_official"},
+             {"name": "Leipzig", "suche": ["leipzig marathon"], "land": None, "sport": None,
+              "instagram": "leipzig_recherchiert"}]
+    fix_instagram(rows, konten, ov, grosse=gross)
+    check("große Events: recherchiertes Konto, auch hinter einem Portallink; Override gewinnt",
+          [r.get("instagram") for r in rows],
+          ["leipzig_recherchiert", None, None, "kleinerlauf", "portallauf_official"])
     check("ohne Konto kein Feld in events.json", "instagram" in rows[2], False)
     ik_datei = json.loads((SCRIPTS_DIR / "instagram_konten.json").read_text(encoding="utf-8")) \
         if (SCRIPTS_DIR / "instagram_konten.json").exists() else {}

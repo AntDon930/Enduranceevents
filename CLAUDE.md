@@ -3983,7 +3983,13 @@ sagt es).
   ist zugleich der Filter „nur die großen“ – kleine Vereinsläufe haben
   kein eigenes Konto. Abkürzungen sieht die Regel nicht (`trailvsb`,
   `wtcshamburg`) – dafür der Override `"instagram": "<name>"`,
-  abschalten mit `"instagram": null`. `fix_instagram()` läuft als
+  abschalten mit `"instagram": null`. **Vor der Erkennung steht die
+  recherchierte Liste** `marketing/instagram/grosse_events.json` (127
+  große Events für die Logo-Reels, am 27.10.2026 von einer parallelen
+  Sitzung einzeln recherchiert, 101 mit Konto): Gehört die Zeile zu einem
+  davon (`insta_inhalte.gross_fuer` – Suchwort im Namen, Land, Sportart),
+  gilt dessen Konto, auch hinter einem Portallink. Rangfolge also
+  Override > große Events > Erkennung. `fix_instagram()` läuft als
   vorletzter Schritt von `clean_events.py` (vor `mark_pruefung_offen`,
   nach allen Korrekturen an Name, Ort und Link), idempotent; der
   Wochenlauf fragt vorher bis zu 400 Seiten in 8 Minuten
