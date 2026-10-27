@@ -8852,5 +8852,21 @@
     "exclude": true,
     "_note": "Korrekturliste des Nutzers: Das ist das gleiche Event wie „ 15. Salzburg Trailrunning Festival - Kidstrail, Festungs- und Panoramatrail“.",
     "geloescht": true
+  },
+  "Montreux Trail Festival|2027-07-24|390": {
+    "exclude": true,
+    "_note": "27.10.2026 (Prüfung „längste Rennen“ fürs Instagram-Reel): Die 390 km sind „Crossing Switzerland“ – Start in Vaduz (Liechtenstein) mit eigenem Termin einige Tage vor dem Festival, also nicht in unseren Regionen; längste Festivalstrecke ist MXTREME 100 km (montreuxtrailfestival.com)."
+  },
+  "24 H Burgenland Extrem|2027-01-21|360": {
+    "exclude": true,
+    "_note": "27.10.2026: Die 360 km sind das Rad-Format „Bike 224 Meilen“ (eigene Zeile); zu Fuß höchstens 120 km (24stundenburgenland.com). Die Lauf-Zeile mit 360 km war ein Doppel."
+  },
+  "Stoppelfeld-Ultra|2027-07-10": {
+    "art2": "Backyard Ultra",
+    "_note": "27.10.2026: Backyard Ultra mit höchstens 30 Runden à 6,706 km – die 201 km sind die Obergrenze, keine Strecke (Datenregel 9: Open End)."
+  },
+  "Meer Bjerge|2027-03-05": {
+    "exclude": true,
+    "_note": "27.10.2026: Laut Seite „keine Veranstaltung … erst recht kein Rennen“ – selbst organisierte Fahrt ohne Anmeldung (Datenregel 18: nicht öffentlich anmeldbar)."
   }
 }

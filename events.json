@@ -26671,20 +26671,6 @@
   },
   {
     "land": "Österreich",
-    "name": "24 H Burgenland Extrem",
-    "standort": "Oggau am Neusiedler See",
-    "lat": 47.8325492,
-    "lon": 16.6652783,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-21",
-    "datum_ende": "2027-01-22",
-    "laenge_km": 360.0,
-    "veranstalter_url": "https://www.24stundenburgenland.com/",
-    "instagram": "burgenlandextrem"
-  },
-  {
-    "land": "Österreich",
     "name": "Bike 224 Meilen",
     "standort": "Oggau am Neusiedler See",
     "lat": 47.8498655,
@@ -31693,19 +31679,6 @@
     "veranstalter_url": "https://alohasport.at/event/winterlauf-linz"
   },
   {
-    "land": "Deutschland",
-    "name": "Meer Bjerge",
-    "standort": "Altona",
-    "lat": 53.565155,
-    "lon": 9.8019377,
-    "art1": "Fahrrad",
-    "art2": "Gravel",
-    "datum_start": "2027-03-05",
-    "datum_ende": "2027-03-05",
-    "laenge_km": 1242.0,
-    "veranstalter_url": "https://buchstabenfahrt.wordpress.com/meer-bjerge/"
-  },
-  {
     "land": "Schweiz",
     "name": "Run The Sun Ascona-Locarno Marathon",
     "standort": "Locarno",
@@ -32521,7 +32494,8 @@
     "datum_ende": "2027-03-07",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://10kmpayerne.ch/"
+    "veranstalter_url": "https://10kmpayerne.ch/",
+    "instagram": "10kmpayerne"
   },
   {
     "land": "Schweiz",
@@ -32535,7 +32509,8 @@
     "datum_ende": "2027-03-07",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://10kmpayerne.ch/"
+    "veranstalter_url": "https://10kmpayerne.ch/",
+    "instagram": "10kmpayerne"
   },
   {
     "land": "Deutschland",
@@ -40295,7 +40270,7 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://www.spartan.com/en/race/detail/10907/overview",
-    "instagram": "spartanrace"
+    "instagram": "spartanracedach"
   },
   {
     "land": "Deutschland",
@@ -40310,7 +40285,7 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.spartan.com/en/race/detail/10907/overview",
-    "instagram": "spartanrace"
+    "instagram": "spartanracedach"
   },
   {
     "land": "Österreich",
@@ -55185,7 +55160,8 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/niederaula",
-    "charity": true
+    "charity": true,
+    "instagram": "wingsforlifeworldrun"
   },
   {
     "land": "Deutschland",
@@ -85105,25 +85081,11 @@
     "lat": 50.8747592,
     "lon": 6.6883728,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Backyard Ultra",
     "datum_start": "2027-07-10",
     "datum_ende": "2027-07-11",
-    "laenge_km": 201.0,
+    "laenge_km": null,
     "wettbewerb": "201 km",
-    "veranstalter_url": "https://www.svblatzheim.de/events/stoppelfeld-ultra-2027/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stoppelfeld-Ultra",
-    "standort": "Kerpen",
-    "lat": 50.8747592,
-    "lon": 6.6883728,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-07-10",
-    "datum_ende": "2027-07-11",
-    "laenge_km": 7.0,
-    "wettbewerb": "7 km",
     "veranstalter_url": "https://www.svblatzheim.de/events/stoppelfeld-ultra-2027/"
   },
   {
@@ -89355,20 +89317,6 @@
     "wettbewerb": "50 km",
     "veranstalter_url": "https://www.megamarsch.de/ruhrgebiet-bei-nacht",
     "instagram": "megamarsch"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Montreux Trail Festival",
-    "standort": "Montreux",
-    "lat": 46.4312213,
-    "lon": 6.9106799,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-07-24",
-    "datum_ende": "2027-07-25",
-    "laenge_km": 390.0,
-    "wettbewerb": "390 km",
-    "veranstalter_url": "https://www.montreux-trail.ch/"
   },
   {
     "land": "Schweiz",

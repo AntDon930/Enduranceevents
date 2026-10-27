@@ -1,4 +1,10 @@
 {
+ "20km-de-lausanne": {
+  "geprueft": "2026-10-27",
+  "notiz": "Logo '20KM Lausanne' (418×418).",
+  "quelle": "https://www.20km.ch/images26/logo20km.png",
+  "seite": "https://www.20km.ch"
+ },
  "adac-cyclassics-hamburg": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.cyclassics-hamburg.de/apple-touch-icon.png",
@@ -18,6 +24,18 @@
   "geprueft": "2026-10-27",
   "quelle": "https://alpenbrevet.ch/wp-content/uploads/Alpenbrevet-Logo.svg",
   "seite": "https://www.alpenbrevet.ch/"
+ },
+ "arlberg-giro": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo (SVG, blau).",
+  "quelle": "https://arlberg-giro.com/files/upload/47d9_955134017e.svg",
+  "seite": "https://www.arlberg-giro.com/"
+ },
+ "audi-triathlon-ingolstadt": {
+  "geprueft": "2026-10-27",
+  "notiz": "Logo 2027 'Triathlon Ingolstadt powered by Büchl' (Audi nicht mehr Namensgeber); WEISS, nur auf dunklem Grund.",
+  "quelle": "https://triathlon-ingolstadt.de/wp-content/uploads/2026/10/RZ_Triathlon_Ingolstadt_Logo_2027_RGB_quer_white.png",
+  "seite": "https://www.triathlon-ingolstadt.de/"
  },
  "austria-triathlon-podersdorf": {
   "geprueft": "2026-10-27",
@@ -39,6 +57,12 @@
   "quelle": "https://www.bmw-berlin-marathon.com/fileadmin/media/eventlogos/BM27_MiniMarathon_Logo_Color_LINES.svg",
   "seite": "https://www.bmw-berlin-marathon.com"
  },
+ "berlin-triathlon": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo 'Berlin Triathlon sponsored by S-Bahn Berlin' (595×419, transparent).",
+  "quelle": "https://berlin-triathlon.de/.cm4all/uproc.php/0/.sbahn-bt-logo-removebg-preview.png/picture-1200?_=19c70471a90",
+  "seite": "https://berlin-triathlon.de/"
+ },
  "berliner-frauenlauf": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.berliner-frauenlauf.de/fileadmin/media/eventlogos/logo-berliner-frauenlauf-color.svg",
@@ -58,6 +82,12 @@
   "geprueft": "2026-10-27",
   "quelle": "https://www.ultra-bike.de/clips/logo_grey.png",
   "seite": "https://www.ultra-bike.de/"
+ },
+ "bonn-marathon": {
+  "geprueft": "2026-10-27",
+  "notiz": "bonn-marathon.de ist eine verkaufte Parkdomain! Offizielle Seite: deutschepostmarathonbonn.de. Logo 'Post Marathon Bonn' weiß/gelb, transparent – nur auf dunklem Grund.",
+  "quelle": "https://www.deutschepostmarathonbonn.de/wp-content/uploads/2025/06/PP_Post_Marathon_Logo_cmyk_C__Yellow_White_Ohne-Datum.png",
+  "seite": "https://bonn-marathon.de"
  },
  "challenge-kaiserwinkl-walchsee": {
   "geprueft": "2026-10-27",
@@ -79,6 +109,12 @@
   "quelle": "https://www.challenge-roth.com/apple-touch-icon.png",
   "seite": "https://www.challenge-roth.com/de/"
  },
+ "dolomitenradrundfahrt-supergirodolomiti": {
+  "geprueft": "2026-10-27",
+  "notiz": "Logo 'Dolomiten Radrundfahrt since 1950' (dunkelgrau, transparent – auf dunklem Grund schwach); SuperGiroDolomiti hat kein eigenes Logo auf der Seite.",
+  "quelle": "https://www.dolomitensport.at/images/DRRF_Logo_2026.png",
+  "seite": "https://www.dolomitensport.at/de/events/dolomitenradrundfahrt"
+ },
  "dreilaendergiro": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.dreilaendergiro.at/Assets_dreil%C3%A4ndergiro.com/Logos/56698/image-thumb__56698__regions-item/Girodays%20Logos%202022_2_1@2x.png",
@@ -88,6 +124,18 @@
   "geprueft": "2026-10-27",
   "quelle": "https://dresdner-nachtlauf.de/typo3conf/ext/customer/Resources/Public/Images/Logos/dresdner-nachtlauf-logo-2022.png",
   "seite": "https://dresdner-nachtlauf.de"
+ },
+ "duesseldorf-marathon": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo 'uniper | Düsseldorf Marathon' (SVG).",
+  "quelle": "https://www.uniper-duesseldorfmarathon.de/_assets/7bfcc9ff9e3508b56d038716b0a594c2/images/logos/logo-duesseldorfmarathon-colored.svg",
+  "seite": "https://www.uniper-duesseldorfmarathon.de"
+ },
+ "eiger-ultra-trail": {
+  "geprueft": "2026-10-27",
+  "notiz": "Logo 'Eiger Ultra Trail by UTMB' (Positivfassung, 1200 px).",
+  "quelle": "https://img.utmb.world/image/upload/f_png/c_scale,w_1200/v1/eiger/Eigerultratrail_By_UTMB_pos_efdbd6813d_e2699f3a81",
+  "seite": "https://eiger.utmb.world"
  },
  "einstein-marathon-ulm": {
   "geprueft": "2026-10-27",
@@ -119,6 +167,24 @@
   "quelle": "https://www.frankfurter-halbmarathon.de/images/Logo%20HM/Logo_Halbmarathon_RGB.png",
   "seite": "https://www.frankfurter-halbmarathon.de"
  },
+ "freiburg-marathon": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo 'Mein Freiburg Marathon' (SVG).",
+  "quelle": "https://mein-freiburgmarathon.de/wp-content/themes/dev-theme/assets/img/logo.svg",
+  "seite": "https://mein-freiburgmarathon.de"
+ },
+ "geneve-marathon": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo 'Generali Genève Marathon' (300×153).",
+  "quelle": "https://www.generaligenevemarathon.com/_media/de5a6d_2d0294a7316549409bb1328b3d355ee6~mv2.png",
+  "seite": "https://www.generaligenevemarathon.com"
+ },
+ "geneve-triathlon": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo 'Genève Triathlon' (2465 px, transparent, Schrift dunkel).",
+  "quelle": "https://www.genevetriathlon.ch/_media/eee0dc_01b1f601f2be4531810b011b8681c27a~mv2.png",
+  "seite": "https://www.genevetriathlon.ch/"
+ },
  "glocknerkoenig": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.glocknerkoenig.com/static/images/app_icons/glocknerkoenig/apple-touch-icon.png",
@@ -149,15 +215,33 @@
   "quelle": "https://greifenseelauf.ch/wp-content/uploads/2017/05/Greifenseelauf_White.png",
   "seite": "https://greifenseelauf.ch"
  },
+ "grossglockner-ultra-trail": {
+  "geprueft": "2026-10-27",
+  "notiz": "Eigene Seite ist ultratrail.at (nicht die Tourismusseite). Logo 'The North Face GGUT Zell am See-Kaprun / Kals' schwarz (SVG).",
+  "quelle": "https://www.ultratrail.at/logos/events/ggut/ggut-logo-rgb-thenorthface-location-black.svg",
+  "seite": "https://www.zellamsee-kaprun.com/en/event/the-north-face-grossglockner-ultra-trail~10867"
+ },
  "gutenberg-halbmarathon-mainz": {
   "geprueft": "2026-10-27",
   "quelle": "https://halbmarathon-mainz.de/wp-content/uploads/2023/11/Logo_GHMMainz_4c-1-300x300.png",
   "seite": "https://www.halbmarathon-mainz.de"
  },
+ "hallwilerseelauf": {
+  "geprueft": "2026-10-27",
+  "notiz": "Inline-SVG aus dem Seitenkopf; Schrift WEISS (nur auf dunklem Grund), Zeichen blau.",
+  "quelle": "https://www.hallwilerseelauf.ch",
+  "seite": "https://www.hallwilerseelauf.ch"
+ },
  "hamburg-marathon": {
   "geprueft": "2026-10-27",
   "quelle": "https://haspa-marathon-hamburg.de/wp-content/uploads/2026/04/Haspa-Marathon-Logo-2026-2027.png",
   "seite": "https://haspa-marathon-hamburg.de"
+ },
+ "hamburg-wasser-world-triathlon-wtcs-finals-hamburg": {
+  "geprueft": "2026-10-27",
+  "notiz": "Veranstaltungslogo 'Suzuki World Triathlon Championship Finals Hamburg 2027 presented by Hamburg Wasser'; nur 290×80 px.",
+  "quelle": "https://www.hamburgtriathlon.com/media/site/3e4c9520bf-1788930630/hamburg-2027-veranstaltungslogo-lang-rgb-x80.png",
+  "seite": "https://www.hamburgtriathlon.com/"
  },
  "hannover-marathon": {
   "geprueft": "2026-10-27",
@@ -189,6 +273,72 @@
   "quelle": "https://assets.innsbruckalpine.at/innsbruckalpine/2026/01/IATF26-Logo-RGB-negativ-1.png",
   "seite": "https://www.innsbruckalpine.at"
  },
+ "ironman-70-3-duisburg": {
+  "geprueft": "2026-10-27",
+  "notiz": "Allgemeines IRONMAN-Markenlogo (Wikimedia Commons, 'Public domain – PD-textlogo, unterhalb der Schöpfungshöhe', Hinweis 'may still be subject to other restrictions'; eingetragene Marke der World Triathlon Corporation). ironman.com nicht abgerufen (robots.txt). Keine eigene lokale Rennseite gefunden. Ein eigenes IRONMAN-70.3-Logo gibt es auf Commons nicht – daher das allgemeine IRONMAN-Logo.",
+  "quelle": "https://commons.wikimedia.org/wiki/File:Ironman_logo.gif",
+  "seite": "https://www.ironman.com/races/im703-duisburg"
+ },
+ "ironman-70-3-erkner": {
+  "geprueft": "2026-10-27",
+  "notiz": "Allgemeines IRONMAN-Markenlogo (Wikimedia Commons, 'Public domain – PD-textlogo, unterhalb der Schöpfungshöhe', Hinweis 'may still be subject to other restrictions'; eingetragene Marke der World Triathlon Corporation). ironman.com nicht abgerufen (robots.txt). Keine eigene lokale Rennseite gefunden. Ein eigenes IRONMAN-70.3-Logo gibt es auf Commons nicht – daher das allgemeine IRONMAN-Logo.",
+  "quelle": "https://commons.wikimedia.org/wiki/File:Ironman_logo.gif",
+  "seite": "https://www.ironman.com/races/im703-erkner"
+ },
+ "ironman-70-3-kraichgau": {
+  "geprueft": "2026-10-27",
+  "notiz": "Allgemeines IRONMAN-Markenlogo (Wikimedia Commons, 'Public domain – PD-textlogo, unterhalb der Schöpfungshöhe', Hinweis 'may still be subject to other restrictions'; eingetragene Marke der World Triathlon Corporation). ironman.com nicht abgerufen (robots.txt). Keine eigene lokale Rennseite gefunden. Ein eigenes IRONMAN-70.3-Logo gibt es auf Commons nicht – daher das allgemeine IRONMAN-Logo.",
+  "quelle": "https://commons.wikimedia.org/wiki/File:Ironman_logo.gif",
+  "seite": "https://www.ironman.com/races/im703-kraichgau"
+ },
+ "ironman-70-3-leipzig": {
+  "geprueft": "2026-10-27",
+  "notiz": "Allgemeines IRONMAN-Markenlogo (Wikimedia Commons, 'Public domain – PD-textlogo, unterhalb der Schöpfungshöhe', Hinweis 'may still be subject to other restrictions'; eingetragene Marke der World Triathlon Corporation). ironman.com nicht abgerufen (robots.txt). Keine eigene lokale Rennseite gefunden. Ein eigenes IRONMAN-70.3-Logo gibt es auf Commons nicht – daher das allgemeine IRONMAN-Logo.",
+  "quelle": "https://commons.wikimedia.org/wiki/File:Ironman_logo.gif",
+  "seite": "https://www.ironman.com/races/im703-leipzig"
+ },
+ "ironman-70-3-st-poelten": {
+  "geprueft": "2026-10-27",
+  "notiz": "Allgemeines IRONMAN-Markenlogo (Wikimedia Commons, 'Public domain – PD-textlogo, unterhalb der Schöpfungshöhe', Hinweis 'may still be subject to other restrictions'; eingetragene Marke der World Triathlon Corporation). ironman.com nicht abgerufen (robots.txt). Keine eigene lokale Rennseite gefunden. Ein eigenes IRONMAN-70.3-Logo gibt es auf Commons nicht – daher das allgemeine IRONMAN-Logo.",
+  "quelle": "https://commons.wikimedia.org/wiki/File:Ironman_logo.gif",
+  "seite": "https://www.ironman.com/races/im703-st-poelten"
+ },
+ "ironman-70-3-switzerland-rapperswil-jona": {
+  "geprueft": "2026-10-27",
+  "notiz": "Allgemeines IRONMAN-Markenlogo (Wikimedia Commons, 'Public domain – PD-textlogo, unterhalb der Schöpfungshöhe', Hinweis 'may still be subject to other restrictions'; eingetragene Marke der World Triathlon Corporation). ironman.com nicht abgerufen (robots.txt). Keine eigene lokale Rennseite gefunden. Ein eigenes IRONMAN-70.3-Logo gibt es auf Commons nicht – daher das allgemeine IRONMAN-Logo.",
+  "quelle": "https://commons.wikimedia.org/wiki/File:Ironman_logo.gif",
+  "seite": "https://www.ironman.com/races/im703-switzerland"
+ },
+ "ironman-70-3-zell-am-see-kaprun": {
+  "geprueft": "2026-10-27",
+  "notiz": "Allgemeines IRONMAN-Markenlogo (Wikimedia Commons, 'Public domain – PD-textlogo, unterhalb der Schöpfungshöhe', Hinweis 'may still be subject to other restrictions'; eingetragene Marke der World Triathlon Corporation). ironman.com nicht abgerufen (robots.txt). Keine eigene lokale Rennseite gefunden. Ein eigenes IRONMAN-70.3-Logo gibt es auf Commons nicht – daher das allgemeine IRONMAN-Logo.",
+  "quelle": "https://commons.wikimedia.org/wiki/File:Ironman_logo.gif",
+  "seite": "https://www.ironman.com/races/im703-zell-am-see"
+ },
+ "ironman-frankfurt": {
+  "geprueft": "2026-10-27",
+  "notiz": "Allgemeines IRONMAN-Markenlogo (Wikimedia Commons, 'Public domain – PD-textlogo, unterhalb der Schöpfungshöhe', Hinweis 'may still be subject to other restrictions'; eingetragene Marke der World Triathlon Corporation). ironman.com nicht abgerufen (robots.txt). Keine eigene lokale Rennseite gefunden.",
+  "quelle": "https://commons.wikimedia.org/wiki/File:Ironman_logo.gif",
+  "seite": "https://www.ironman.com/races/im-frankfurt"
+ },
+ "ironman-hamburg": {
+  "geprueft": "2026-10-27",
+  "notiz": "Rennspezifisches Logo 'IRONMAN Hamburg European Championship' (Commons, PD-textlogo, als Marke gekennzeichnet; 960-px-PNG-Vorschau).",
+  "quelle": "https://commons.wikimedia.org/wiki/File:IRONMAN_Hamburg_European_Championship_logo.webp",
+  "seite": "https://www.ironman.com/races/im-hamburg"
+ },
+ "ironman-kaernten-klagenfurt": {
+  "geprueft": "2026-10-27",
+  "notiz": "Allgemeines IRONMAN-Markenlogo (Wikimedia Commons, 'Public domain – PD-textlogo, unterhalb der Schöpfungshöhe', Hinweis 'may still be subject to other restrictions'; eingetragene Marke der World Triathlon Corporation). ironman.com nicht abgerufen (robots.txt). Keine eigene lokale Rennseite gefunden.",
+  "quelle": "https://commons.wikimedia.org/wiki/File:Ironman_logo.gif",
+  "seite": "https://www.ironman.com/races/im-austria"
+ },
+ "ironman-switzerland-thun": {
+  "geprueft": "2026-10-27",
+  "notiz": "Allgemeines IRONMAN-Markenlogo (Wikimedia Commons, 'Public domain – PD-textlogo, unterhalb der Schöpfungshöhe', Hinweis 'may still be subject to other restrictions'; eingetragene Marke der World Triathlon Corporation). ironman.com nicht abgerufen (robots.txt). Keine eigene lokale Rennseite gefunden.",
+  "quelle": "https://commons.wikimedia.org/wiki/File:Ironman_logo.gif",
+  "seite": "https://www.ironman.com/races/im-switzerland"
+ },
  "jungfrau-marathon": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.jungfrau-marathon.ch/files/themes/hb2/dist/images/logo-jungfrau-marathon-2.png",
@@ -204,6 +354,12 @@
   "quelle": "https://kassel-marathon.de/wp-content/uploads/2023/11/Kassel-Marathon-350x100-Web-1.png",
   "seite": "https://kassel-marathon.de"
  },
+ "kerzerslauf": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo 'Kerzerslauf – Swiss Season Opening' mit Datum 20. März 2027.",
+  "quelle": "https://kerzerslauf.ch/wp-content/uploads/2020/05/Kerzerslauf_Datum_2027_d.png",
+  "seite": "https://www.kerzerslauf.ch"
+ },
  "kiel-lauf": {
   "geprueft": "2026-10-27",
   "quelle": "https://le-de.cdn-website.com/5c292ffd45b540148760994915409c47/dms3rep/multi/opt/Logo_freigestellt_2027-520w.png",
@@ -213,6 +369,12 @@
   "geprueft": "2026-10-27",
   "quelle": "https://kitzbueheler-radmarathon.at/wp-content/uploads/2020/10/HAH_Radmarathon_Logo_2zeilig.png",
   "seite": "https://kitzbueheler-radmarathon.at/"
+ },
+ "koeln-marathon": {
+  "geprueft": "2026-10-27",
+  "notiz": "Inline-SVG aus dem Seitenkopf, 'Generali Köln Marathon' (rot).",
+  "quelle": "https://generali-koeln-marathon.de",
+  "seite": "https://generali-koeln-marathon.de"
  },
  "koeln-triathlon": {
   "geprueft": "2026-10-27",
@@ -238,6 +400,12 @@
   "geprueft": "2026-10-27",
   "quelle": "https://www.linzmarathon.at/redx/tools/mb_image.php/ct.apaWsw/cid.y78d049c6a4b13e43/Marathon-Logo-2027-Datum_weiss_quer.jpg?2846786",
   "seite": "https://www.linzmarathon.at"
+ },
+ "luzerner-stadtlauf": {
+  "geprueft": "2026-10-27",
+  "notiz": "Logo 'Luzerner Stadtlauf' (SVG, Wimpelform mit weißem Grund).",
+  "quelle": "https://www.luzernerstadtlauf.ch/fileadmin/templates/img-source/luzerner-stadtlauf-logo.svg",
+  "seite": "https://www.luzernerstadtlauf.ch"
  },
  "maratona-dles-dolomites": {
   "geprueft": "2026-10-27",
@@ -283,6 +451,12 @@
   "geprueft": "2026-10-27",
   "quelle": "https://www.oberelbe-marathon.de/wp-content/uploads/2026/05/Dein-Abschnittstext-1181-x-354-px1-1.png",
   "seite": "https://www.oberelbe-marathon.de"
+ },
+ "oesterreichischer-frauenlauf": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo 'asics | Österreichischer Frauenlauf' (SVG).",
+  "quelle": "https://www.oesterreichischer-frauenlauf.at/themes/custom/oefl/logo.svg",
+  "seite": "https://www.oesterreichischer-frauenlauf.at"
  },
  "oetztaler-radmarathon": {
   "geprueft": "2026-10-27",
@@ -334,15 +508,33 @@
   "quelle": "https://berlin-laeuft.de/s25berlin/wp-content/uploads/sites/2/logos/s25-logo-negativ.svg",
   "seite": "https://berlin-laeuft.de/s25berlin/"
  },
+ "salzburg-marathon": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo des Salzburg Marathon (Datei 'SM_Logo'), Wortmarke heißt jetzt 'Lauffestspiele der Mozartstadt' – Dachmarke des Laufwochenendes; dunkelblau.",
+  "quelle": "https://salzburg-marathon.at/wp-content/uploads/2026/02/SM_Logo_RGB_Lauffestspiele.png",
+  "seite": "https://www.salzburg-marathon.at"
+ },
  "salzkammergut-trophy": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.salzkammergut-trophy.at/images/design/trophy_logo_21.png",
   "seite": "https://www.salzkammergut-trophy.at/"
  },
+ "schlosstriathlon-moritzburg": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo (Schloss-Silhouette + schloss-triathlon-moritzburg.de), aus AVIF in PNG; nur 153×67 px, keine größere Fassung auf der Seite.",
+  "quelle": "https://schlosstriathlon.de/app/uploads/2020/10/logo-png.avif",
+  "seite": "https://www.schlosstriathlon.de/"
+ },
  "schweizer-frauenlauf-bern": {
   "geprueft": "2026-10-27",
   "quelle": "https://www.frauenlauf.ch/wp-content/uploads/2017/03/Frauenlauf_White.png",
   "seite": "https://www.frauenlauf.ch"
+ },
+ "sierre-zinal": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo; Schrift WEISS (nur auf dunklem Grund), keine farbige Fassung gefunden.",
+  "quelle": "https://www.sierre-zinal.com/template/image/sierre-zinal-logo-v3.svg",
+  "seite": "https://www.sierre-zinal.com"
  },
  "silvesterlauf-werl-soest": {
   "geprueft": "2026-10-27",
@@ -359,6 +551,12 @@
   "quelle": "https://trisport-erding.de/wp-content/uploads/2019/03/cropped-trisportlogo-_-rgb-_-25-x-14-1-180x180.jpg",
   "seite": "https://trisport-erding.de/stadttriathlon/information-stadttriathlon/"
  },
+ "stadtzuercher-seeueberquerung": {
+  "geprueft": "2026-10-27",
+  "notiz": "Inline-SVG aus dem Seitenkopf; Schrift WEISS (Fill ergänzt, nur auf dunklem Grund).",
+  "quelle": "https://www.seeueberquerung.ch/",
+  "seite": "https://www.seeueberquerung.ch/"
+ },
  "stuttgart-lauf": {
   "geprueft": "2026-10-27",
   "quelle": "https://stuttgart-lauf.de/fileadmin/stuttgart-lauf/images/logos/2027/SL_2027_Logo_Outline_ohne_Datum_3D_mit_Kontur.svg",
@@ -368,6 +566,12 @@
   "geprueft": "2026-10-27",
   "quelle": "https://www.swisscitymarathon.ch/_assets/1f4f58cb8ec7ef7ef807190874a5a8cd/img/scml-logo-red.svg",
   "seite": "https://www.swisscitymarathon.ch"
+ },
+ "tour-d-energie": {
+  "geprueft": "2026-10-27",
+  "notiz": "Header-Logo '20 Jahre TDE' (Kürzel der Tour d'Energie); nur 198×90 px, keine größere Fassung gefunden.",
+  "quelle": "https://www.tourdenergie.de/files/tourdeenergie/images/Jubil%C3%A4um_HP_Header.png",
+  "seite": "https://www.tourdenergie.de/"
  },
  "trumer-triathlon": {
   "geprueft": "2026-10-27",
@@ -383,6 +587,18 @@
   "geprueft": "2026-10-27",
   "quelle": "https://www.viennanightrun.at/wp-content/uploads/2023/04/xcropped-logo_croppedd.png.pagespeed.ic.dMY8IaxWzB.png",
   "seite": "https://www.viennanightrun.at"
+ },
+ "vr-bank-triathlon-heilbronn": {
+  "geprueft": "2026-10-27",
+  "notiz": "Logo 'VR Bank Heilbronn Schwäbisch Hall eG Triathlon Heilbronn powered by Audi' (5000 px, weißer Grund).",
+  "quelle": "http://www.triathlon-heilbronn.de/media/pages/home/94e75a18ce-1731583198/heilbronn-logo-homepage.png",
+  "seite": "https://www.triathlon-heilbronn.de/"
+ },
+ "wachau-radmarathon": {
+  "geprueft": "2026-10-27",
+  "notiz": "Inline-SVG aus dem Seitenkopf, Farben aufgelöst; schwarze Schrift 'presented by Sportland NÖ'.",
+  "quelle": "https://www.wachau-radmarathon.at/",
+  "seite": "https://www.wachau-radmarathon.at/"
  },
  "wachaumarathon": {
   "geprueft": "2026-10-27",

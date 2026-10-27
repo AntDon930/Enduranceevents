@@ -67,7 +67,7 @@ GUELTIG_TAGE = 30
 MAX_BILD_BYTES = 4_000_000
 MAX_KANTE = 900
 MIN_KANTE = 110             # längere Seite nach dem Zuschneiden
-MAX_SEITENVERHAELTNIS = 7.0
+MAX_SEITENVERHAELTNIS = 10.0      # Schriftzüge: Sierre-Zinal 7,5 : 1, Frauenlauf 9,1 : 1
 
 IMG_RE = re.compile(r"<img\b[^>]*>", re.I | re.S)
 ATTR_RE = re.compile(r"""([a-zA-Z_:][\w:.-]*)\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)""")

@@ -995,31 +995,54 @@ def format_anlass(datum: dt.date, events: list[dict], rng: random.Random, anlass
 # ---------------------------------------------- Die längsten (Balken)
 
 LAENGSTE_VARIANTEN = ("gemischt", "Laufen", "Fahrrad")
-# Von Hand geprüft und KEIN Rennen bzw. falsche Länge in den Daten – fliegt
-# aus der Grafik (die Zeile auf der Seite bleibt, das klärt die Korrektur).
-LAENGSTE_AUSNAHMEN: set[str] = set()
+# Am 27.10.2026 an der Quelle geprüft: auf der Seite richtig, aber KEIN Rennen
+# bzw. Länge unbelegt – in der Grafik („die längsten Rennen") nicht zeigen.
+# Echte Datenfehler stehen als Override in manual_overrides.json.
+LAENGSTE_AUSNAHMEN = {
+    "Chainreaction - Bikeconvoy for Ukraine",      # Hilfskonvoi nach Przemyśl, kein Wettkampf
+    "Three Peaks Bike Race",                       # Route frei, Seite nennt keine Länge
+    "Hackenpedder Bikepacking", "Hackenpedder Route",      # laut Veranstalter kein Rennen
+    "Bayrisch-Böhmisches Biere und Bäder Brevet",  # Randonnée ohne Wertung
+}
 
 
 def laengste_kandidaten(datum: dt.date, events: list[dict], sport: str, n: int) -> list[dict]:
     """Die n längsten Veranstaltungen einer Sportart in den nächsten 12
-    Monaten (je Veranstaltung die längste Strecke). Märsche, Zeitrennen
-    ohne Kilometer und Kinderläufe zählen nicht; dieselbe Veranstaltung
-    unter zwei Namen am selben Tag und Ort nur einmal."""
-    beste: dict[tuple, dict] = {}
-    for v in sicher(veranstaltungen(events, datum, datum + dt.timedelta(days=365))):
-        if v["sport"] != sport or not v["km"] or v.get("art2") == "Marsch":
+    Monaten (je Veranstaltung die längste Strecke DIESER Sportart).
+    Gerechnet über die Zeilen, nicht über `veranstaltungen()`: die fasst
+    Lauf- und Radzeilen einer Veranstaltung zusammen, und der Lausitzer
+    Seenland100 stand mit der Länge seines Radmarathons als 201-km-Lauf
+    da. Märsche, Zeitrennen ohne Kilometer und Kinderläufe zählen nicht;
+    dieselbe Strecke unter zwei Namen am selben Tag und Ort nur einmal."""
+    bis = datum + dt.timedelta(days=365)
+    je_name: dict[tuple, dict] = {}
+    for e in events:
+        if e.get("pruefung_offen") or e.get("art1") != sport or e.get("art2") == "Marsch":
             continue
-        if v["name"] in LAENGSTE_AUSNAHMEN:
+        if e.get("datum_vorlaeufig") or NICHT_HIGHLIGHT_RE.search(e.get("name", "")):
             continue
-        schluessel = (v["datum"], v["ort"].lower(), round(v["km"][-1]))
-        if schluessel not in beste:
-            beste[schluessel] = v
-    # je Name nur die längste Ausgabe/Strecke
-    je_name: dict[str, dict] = {}
-    for v in beste.values():
-        if v["name"] not in je_name or v["km"][-1] > je_name[v["name"]]["km"][-1]:
-            je_name[v["name"]] = v
-    return sorted(je_name.values(), key=lambda v: (-v["km"][-1], v["datum"]))[:n]
+        km = e.get("laenge_km")
+        if not isinstance(km, (int, float)) or e.get("name") in LAENGSTE_AUSNAHMEN:
+            continue
+        try:
+            tag = dt.date.fromisoformat(e["datum_start"])
+        except (KeyError, ValueError):
+            continue
+        if not (datum <= tag <= bis):
+            continue
+        schluessel = (e["name"], e.get("standort", ""))
+        if schluessel not in je_name or km > je_name[schluessel]["km"][-1]:
+            je_name[schluessel] = {"name": e["name"], "ort": e.get("standort", ""), "land": e.get("land", ""),
+                                   "sport": sport, "art2": e.get("art2"), "datum": e["datum_start"], "km": [km],
+                                   "url": e.get("veranstalter_url")}
+    gesehen, aus = set(), []
+    for v in sorted(je_name.values(), key=lambda v: (-v["km"][-1], v["datum"])):
+        doppel = (v["datum"], v["ort"].lower(), round(v["km"][-1]))
+        if doppel in gesehen:
+            continue
+        gesehen.add(doppel)
+        aus.append(v)
+    return aus[:n]
 
 
 def _balken_zeile(v: dict) -> dict:
@@ -1057,7 +1080,8 @@ def format_laengste(datum: dt.date, events: list[dict], rng: random.Random) -> d
     wort = {"gemischt": "RENNEN", "Laufen": "LÄUFE", "Fahrrad": "RADRENNEN"}[variante]
     anzahl = sum(len(f["zeilen"]) for f in felder)
     folien = [
-        {"typ": "hook", "ueber": "Würdest du das schaffen?", "zahl": f"{fmt_km(laengste)} KM",
+        {"typ": "hook", "ueber": "Würdest du das schaffen?",
+         "zahl": f"{laengste:,.0f} KM".replace(",", ".") if laengste >= 1000 else f"{fmt_km(laengste)} KM",
          "titel": f"DIE {anzahl} LÄNGSTEN {wort} BEI UNS", "zeilen": ["in den nächsten 12 Monaten"]},
         {"typ": "balken", "titel": f"Die längsten {wort.capitalize()}", "felder": felder,
          "dauer": 1.2 + 0.55 * anzahl},
@@ -1068,7 +1092,8 @@ def format_laengste(datum: dt.date, events: list[dict], rng: random.Random) -> d
     zeilen = "\n".join(f"{SPORT_EMOJI.get(f['sport'], '•')} {z['km_text']}: {z['name']} ({z['datum']}, {z['ort']})"
                        for f in felder for z in f["zeilen"])
     caption = caption_bauen([
-        f"🤯 {fmt_km(laengste)} km am Stück – die längsten Rennen in Deutschland, Österreich, der Schweiz "
+        f"🤯 Bis zu {_balken_zeile({'name': '', 'km': [laengste], 'datum': '2000-01-01', 'ort': '', 'land': '', 'sport': ''})['km_text']}"
+        " – die längsten Rennen in Deutschland, Österreich, der Schweiz "
         "und Südtirol in den nächsten 12 Monaten:",
         zeilen,
         "Welches würdest du schaffen? Schreib's in die Kommentare 👇",
