@@ -46,6 +46,13 @@ Anmeldestart samt Quelle) und deren geprüfte LOGOS (insta_logos.py):
 Fehlen dafür Events (monat: unter 6, anmeldung: unter 3), gilt der
 normale Wochenplan.
 
+Dazu jeden zweiten Samstag (gerade Kalenderwoche) statt „saison" das
+Format **top**: die 5 größten Marathons / Halbmarathons / Ultras /
+Trailruns / Radmarathons / Triathlons der nächsten 12 Monate (Kategorie
+wechselt), als Countdown 5 → 1 mit Logo und Karte, zwei Designs im
+Wechsel (vom Nutzer am 27.10.2026: „Top 5 Marathons im Jahr … auf einer
+Karte … die 5 Logos oben … unterschiedliche Designs").
+
 Die alten Formate (wochenvorschau, spotlight, region) bleiben über
 --format erreichbar, der Plan nutzt sie nicht mehr.
 
@@ -94,7 +101,7 @@ WOCHENPLAN = {0: "krass", 1: "naehe", 2: "wuerdest", 3: "humor",
               4: "wochenende", 5: "saison", 6: "moment"}
 JAHRESTAG_ERLAUBT = {1, 2, 3, 6}
 FORMATE = ("krass", "naehe", "wuerdest", "humor", "wochenende", "saison", "moment", "clip",
-           "monat", "anmeldung", "wochenvorschau", "spotlight", "region")
+           "monat", "anmeldung", "top", "wochenvorschau", "spotlight", "region")
 MONAT_MIN_LOGOS = 6           # darunter gilt der Wochenplan
 MONAT_MAX_LOGOS = 20          # „die 10-20 größten Events im Monat" (Nutzer, 27.10.2026)
 ANMELDUNG_MIN = 3
@@ -834,6 +841,99 @@ def format_monat(datum: dt.date, events: list[dict], rng: random.Random,
                     stil="sw" if monat % 2 else "farbe")
 
 
+# Kategorien für „top": Schlüssel, Name (Mehrzahl), Sportart, Prüfung über
+# die Zeilen einer großen Veranstaltung (km = alle Distanzen, art2, Name).
+TOP_KATEGORIEN = (
+    ("marathon", "Marathon-Events", "Laufen", lambda km, art2, n: any(42.0 <= k <= 42.3 for k in km)),
+    ("trail", "Trail-Events", "Laufen", lambda km, art2, n: "Trail" in art2),
+    ("radmarathon", "Radmarathons", "Fahrrad",
+     lambda km, art2, n: (max(km, default=0) >= 100 or "radmarathon" in n) and "Mountainbike" not in art2),
+    # nur Veranstaltungen ohne Marathon - sonst stand der Hamburg Marathon
+    # unter den Halbmarathons, weil er auch einen anbietet
+    ("halbmarathon", "Halbmarathon-Events", "Laufen",
+     lambda km, art2, n: any(21.0 <= k <= 21.2 for k in km) and not any(42.0 <= k <= 42.3 for k in km)),
+    ("ultra", "Ultra-Events", "Laufen", lambda km, art2, n: any(k > 42.3 for k in km) and "Marsch" not in art2),
+    ("triathlon", "Triathlons", "Triathlon", lambda km, art2, n: True),
+)
+TOP_ANZAHL = 5
+TOP_DESIGNS = ("karte", "countdown")
+
+
+def top_kandidaten(datum: dt.date, events: list[dict], grosse: list[dict], kategorie: tuple) -> list[dict]:
+    """Die großen Events einer Kategorie in den nächsten 12 Monaten,
+    größte zuerst: je großes Event die früheste Ausgabe, Distanzen und
+    Kategorien aller seiner Zeilen zusammen."""
+    _, _, sport, pruefe = kategorie
+    je_name: dict[str, dict] = {}
+    for v in sicher(veranstaltungen(events, datum, datum + dt.timedelta(days=365))):
+        if v["sport"] != sport:
+            continue
+        g = gross_fuer(v, grosse)
+        if not g:
+            continue
+        e = je_name.setdefault(g["name"], {"g": g, "v": v, "km": set(), "art2": set()})
+        if v["datum"] < e["v"]["datum"]:
+            e["v"] = v
+        e["km"].update(v["km"])
+        if v.get("art2"):
+            e["art2"].add(v["art2"])
+    treffer = [e for e in je_name.values() if pruefe(sorted(e["km"]), e["art2"], e["g"]["name"].lower())]
+    return sorted(treffer, key=lambda e: (-(e["g"].get("starter") or 0), e["g"]["name"]))
+
+
+def format_top(datum: dt.date, events: list[dict], rng: random.Random,
+               grosse: list[dict] | None = None) -> dict | None:
+    """„Die 5 größten Marathons" – Countdown 5 → 1, je Event Logo, Datum,
+    Ort, Teilnehmende und ein Punkt auf der Karte, am Ende alle fünf.
+    Kategorie und Design wechseln mit der Woche."""
+    grosse = grosse if grosse is not None else lade_grosse()
+    # Nur Kategorien mit fünf Events rotieren - sonst sprang eine leere
+    # Kategorie auf die nächste, und die kam zweimal hintereinander.
+    moeglich = [(k, t[:TOP_ANZAHL]) for k in TOP_KATEGORIEN
+                for t in [top_kandidaten(datum, events, grosse, k)] if len(t) >= TOP_ANZAHL]
+    if not moeglich:
+        return None
+    runde = datum.toordinal() // 14            # ein Top-Reel alle zwei Wochen
+    kat, top = moeglich[runde % len(moeglich)]
+    schluessel, name, sport, _ = kat
+    import insta_logos
+    # Das Design wechselt mit jeder Runde durch die Kategorien, damit nicht
+    # jede Kategorie immer gleich aussieht.
+    design = TOP_DESIGNS[(runde // len(moeglich) + runde) % len(TOP_DESIGNS)]
+    eintraege = []
+    for rang, e in zip(range(TOP_ANZAHL, 0, -1), reversed(top)):
+        v, g = e["v"], e["g"]
+        eintraege.append({"rang": rang, "logo_id": insta_logos.slug(g["name"]), "name": g["name"],
+                          "datum": datum_kurz(dt.date.fromisoformat(v["datum"]), jahr=True),
+                          "ort": f"{v['ort']} {LAND_KURZ.get(v['land'], '')}".strip(),
+                          "starter": g.get("starter"), "lat": v.get("lat"), "lon": v.get("lon"),
+                          "url": g.get("webseite") or v.get("url")})
+    titel = f"Top 5 {name}"
+    basis = {"typ": "top", "variante": design, "sport": sport, "titel": titel, "eintraege": eintraege}
+    folien = [
+        {"typ": "hook", "ueber": "Die nächsten 12 Monate", "zahl": "TOP 5",
+         "titel": f"DIE GRÖSSTEN {name.upper()}", "zeilen": ["Deutschland · Österreich · Schweiz · Südtirol"]},
+        *[dict(basis, aktiv=i) for i in range(TOP_ANZAHL)],
+        dict(basis, aktiv=None, schluss=f"Welcher ist deiner?"),
+        cta_folie("Check it out!", f"Alle {name} mit Termin", SEITE, "Link in der Bio"),
+    ]
+    zeilen = "\n".join(f"{e['rang']}. {e['name']} – {e['datum']}, {e['ort']}"
+                       + (f" ({_starter_kurz(e['starter'])})" if e.get("starter") else "")
+                       for e in reversed(eintraege))
+    caption = caption_bauen([
+        f"🏆 Die 5 größten {name} der nächsten 12 Monate in Deutschland, Österreich, der Schweiz und Südtirol:",
+        zeilen,
+        "Gezählt nach allen Teilnehmenden der Veranstaltung, letzte Ausgabe (Angaben der Veranstalter, gerundet). "
+        "Welchen läufst du? 👇 Speichern nicht vergessen.",
+    ], hashtags(sport, rng=rng, extra=[f"#{schluessel}", "#top5"]), rng, len(events))
+    return _beitrag("top", datum, folien, caption, sport, kategorie=schluessel, design=design)
+
+
+def _starter_kurz(n: int) -> str:
+    gerundet = round(n, -3) if n >= 10000 else round(n, -2)
+    return f"ca. {gerundet:,} am Start".replace(",", ".")
+
+
 def anmeldestart(g: dict) -> tuple[dt.date, bool] | None:
     """(Datum, genau?) aus `anmeldestart` - „YYYY-MM-DD" oder „YYYY-MM"."""
     wert = str(g.get("anmeldestart") or "")
@@ -1035,6 +1135,8 @@ def plane(datum: dt.date, events: list[dict] | None = None, format_: str | None 
             beitrag = format_anmeldung(datum, events, rng, grosse)
         elif letzter_freitag(datum):
             beitrag = format_monat(datum, events, rng, grosse)
+        elif datum.weekday() == 5 and datum.isocalendar()[1] % 2 == 0:
+            beitrag = format_top(datum, events, rng, grosse)
     if beitrag is None and format_ is None and datum.weekday() in JAHRESTAG_ERLAUBT:
         m = jahrestag(datum, momente)
         if m:
@@ -1059,6 +1161,8 @@ def plane(datum: dt.date, events: list[dict] | None = None, format_: str | None 
                 beitrag = format_monat(datum, events, rng, grosse)
             elif wunsch == "anmeldung":
                 beitrag = format_anmeldung(datum, events, rng, grosse)
+            elif wunsch == "top":
+                beitrag = format_top(datum, events, rng, grosse)
         if beitrag is None:
             beitrag = format_moment(datum, events, rng, momente)
     beitrag["stories"] = stories_fuer(datum, events, beitrag, random.Random(datum.toordinal() + 1))
@@ -1075,6 +1179,8 @@ def format_am(datum: dt.date, momente: list[dict] | None = None) -> str:
         return "anmeldung"
     if letzter_freitag(datum):
         return "monat"
+    if datum.weekday() == 5 and datum.isocalendar()[1] % 2 == 0:
+        return "top"
     if datum.weekday() in JAHRESTAG_ERLAUBT and jahrestag(datum, momente):
         return "moment"
     return WOCHENPLAN[datum.weekday()]

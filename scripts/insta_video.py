@@ -86,7 +86,8 @@ SPORTFARBE = {"Laufen": (232, 89, 12), "Fahrrad": (61, 181, 90),
 # wird auf ganze Schläge gerundet (zeitplan()).
 DAUER = {"titel": 3.6, "liste": 6.5, "moment": 3.4, "moment_text": 5.0,
          "cta": 2.6, "clip_titel": 5.0, "hook": 2.6, "event": 2.1, "satz": 2.4,
-         "logo": 1.0}
+         "logo": 1.0, "top": 2.4}
+DAUER_TOP_UEBERSICHT = 3.6
 DAUER_BLITZ = 0.5            # Folie „logo" mit blitz=True: ein Schlag je Logo (Format „monat")
 DAUER_SCHNELL = 1.5          # Folie „event" mit schnell=True (Saison-Listen)
 DAUER_POINTE = 2.9           # Pointe beim Humor: einen Takt länger
@@ -390,6 +391,9 @@ def folie_bild(folie: dict, sport: str | None) -> Image.Image:
     elif typ == "logo":
         _logo_folie(img, d, folie)
 
+    elif typ == "top":
+        _top_folie(img, d, folie)
+
     elif typ == "cta":
         y = 700
         titel = ohne_emoji(folie.get("titel", "")).upper()
@@ -417,38 +421,207 @@ def folie_bild(folie: dict, sport: str | None) -> Image.Image:
 KARTE = (100, 560, 940, 1060)       # die Logo-Karte (x0, y0, x1, y1), in der sicheren Zone
 
 
+def logo_karte(img: Image.Image, d: ImageDraw.ImageDraw, box: tuple, logo_id: str | None, name: str,
+               radius: int = 44, rand: int = 70, rahmen=None) -> bool:
+    """Das Logo eines Events auf einer Karte in `box` - weiß, bei hellen
+    Logos Navy (insta_logos.ist_hell). Ohne geprüftes Logo steht der Name
+    groß auf der Karte. Gibt zurück, ob ein Logo gezeichnet wurde."""
+    import insta_logos
+    x0, y0, x1, y1 = box
+    logo = insta_logos.logo_bild(logo_id) if logo_id else None
+    hell = bool(logo and logo[1])
+    d.rounded_rectangle(box, radius=radius, fill=NAVY if hell else WEISS,
+                        outline=rahmen, width=8 if rahmen else 0)
+    if logo:
+        bild = logo[0]
+        f = min((x1 - x0 - 2 * rand) / bild.width, (y1 - y0 - 2 * rand) / bild.height, 3.0)
+        bild = bild.resize((max(1, int(bild.width * f)), max(1, int(bild.height * f))), Image.LANCZOS)
+        img.alpha_composite(bild, ((x0 + x1 - bild.width) // 2, (y0 + y1 - bild.height) // 2))
+        return True
+    text = ohne_emoji(name).upper()
+    breit = x1 - x0 - 2 * max(16, rand // 2)
+    g = min(120, int((y1 - y0) * 0.42))
+    zeilen = umbrechen(text, kondensiert(g), breit, 3)
+    while g > 18 and (zeilen[-1].endswith("…") or len(zeilen) * g * 0.98 > y1 - y0 - 2 * max(10, rand // 3)
+                      or any(breite(kondensiert(g), z) > breit for z in zeilen)):
+        g -= 2
+        zeilen = umbrechen(text, kondensiert(g), breit, 3)
+    ty = (y0 + y1) / 2 - len(zeilen) * g * 0.98 / 2
+    for z in zeilen:
+        d.text(((x0 + x1) / 2, ty), z, font=kondensiert(g), fill=NAVY, anchor="ma")
+        ty += g * 0.98
+    return False
+
+
+# ------------------------------------------------------------- Karte
+
+KARTE_GRENZEN = (5.8, 45.75, 17.25, 55.1)      # lon0, lat0, lon1, lat1: DE, AT, CH, Südtirol
+_umrisse: list | None = None
+
+
+def _laender_umrisse() -> list:
+    """Die Ringe aus laender.json (Natural Earth, Public Domain) – dieselbe
+    Datei wie die Maske auf karte.html."""
+    global _umrisse
+    if _umrisse is None:
+        try:
+            daten = json.loads((WURZEL / "laender.json").read_text(encoding="utf-8"))["laender"]
+            _umrisse = [ring for ringe in daten.values() for ring in ringe]
+        except (OSError, ValueError, KeyError):
+            _umrisse = []
+    return _umrisse
+
+
+def karte_bild(w: int, h: int, punkte: list[tuple[float, float, str]], aktiv: int | None,
+               farbe=SIGNAL) -> Image.Image:
+    """Eine flache Karte der vier Regionen (w × h, transparent) mit
+    nummerierten Punkten [(lat, lon, Beschriftung)]. Der aktive Punkt ist
+    groß und in `farbe`, die anderen klein und weiß; ohne aktiven Punkt
+    sind alle gleich groß. Gezeichnet doppelt so groß und verkleinert –
+    so werden die Kanten glatt."""
+    s2 = 2
+    W, H = w * s2, h * s2
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    lon0, lat0, lon1, lat1 = KARTE_GRENZEN
+    kx = math.cos(math.radians((lat0 + lat1) / 2))
+    bw, bh = (lon1 - lon0) * kx, lat1 - lat0
+    f = min(W / bw, H / bh) * 0.96
+    ox, oy = (W - bw * f) / 2, (H - bh * f) / 2
+
+    def xy(lat: float, lon: float) -> tuple[float, float]:
+        return ox + (lon - lon0) * kx * f, oy + (lat1 - lat) * f
+
+    for ring in _laender_umrisse():
+        if len(ring) > 2:
+            d.polygon([xy(lat, lon) for lon, lat in ring], fill=TIEFE + (235,), outline=(160, 180, 210, 255))
+    for ring in _laender_umrisse():
+        if len(ring) > 2:
+            d.line([xy(lat, lon) for lon, lat in ring] + [xy(ring[0][1], ring[0][0])],
+                   fill=(170, 190, 220, 255), width=3)
+    reihenfolge = [i for i in range(len(punkte)) if i != aktiv] + ([aktiv] if aktiv is not None else [])
+    for i in reihenfolge:
+        lat, lon, text = punkte[i]
+        if lat is None or lon is None:
+            continue
+        x, y = xy(lat, lon)
+        gross = aktiv is None or i == aktiv
+        r = (34 if i == aktiv else 26 if aktiv is None else 16) * s2
+        if i == aktiv:
+            d.ellipse([x - r * 1.8, y - r * 1.8, x + r * 1.8, y + r * 1.8], fill=farbe[:3] + (70,))
+        d.ellipse([x - r, y - r, x + r, y + r], fill=farbe if i == aktiv or aktiv is None else WEISS,
+                  outline=WEISS, width=3 * s2)
+        if gross and text:
+            d.text((x, y + 1), text, font=kondensiert(int(r * 1.15)), anchor="mm",
+                   fill=WEISS if (i == aktiv or aktiv is None) else NAVY)
+    return img.resize((w, h), Image.LANCZOS)
+
+
+def _starter_text(n: int | None) -> str:
+    if not n:
+        return ""
+    gerundet = round(n, -3) if n >= 10000 else round(n, -2)
+    return f"ca. {gerundet:,} am Start".replace(",", ".")
+
+
+def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
+    """Top 5 einer Kategorie (Format „top", insta_inhalte). Zwei Designs,
+    damit sich die Reels nicht gleichen (vom Nutzer: „immer
+    unterschiedliche Designs einfallen lassen"):
+
+      karte       oben die fünf Logos in einer Reihe (das aktive hervor-
+                  gehoben), darunter Datum/Name/Teilnehmende, die untere
+                  Hälfte eine Karte mit fünf nummerierten Punkten
+      countdown   eine riesige Platznummer, das Logo groß, die Angaben und
+                  eine kleine Karte mit dem einen Punkt; die Übersicht als
+                  Rangliste mit Logos
+    """
+    eintraege = folie.get("eintraege") or []
+    aktiv = folie.get("aktiv")
+    farbe = SPORTFARBE.get(folie.get("sport"), SIGNAL)
+    punkte = [(e.get("lat"), e.get("lon"), str(e["rang"])) for e in eintraege]
+    if folie.get("variante") == "countdown":
+        if aktiv is None:
+            y = 260
+            pille(d, RAND_X, y, ohne_emoji(folie.get("titel", "")).upper(), kondensiert(46, False), farbe)
+            y += 100
+            for e in sorted(eintraege, key=lambda e: e["rang"]):
+                d.text((RAND_X, y + 70), str(e["rang"]), font=kondensiert(130), fill=SONNE, anchor="lm")
+                logo_karte(img, d, (RAND_X + 110, y, RAND_X + 330, y + 140), e.get("logo_id"), e["name"],
+                           radius=22, rand=16)
+                tx = RAND_X + 360
+                zeilen = umbrechen(ohne_emoji(e["name"]), kondensiert(52, False), 960 - tx, 2)
+                ty = y + 70 - len(zeilen) * 27 - 18
+                for z in zeilen:
+                    d.text((tx, ty), z, font=kondensiert(52, False), fill=WEISS)
+                    ty += 54
+                d.text((tx, ty + 4), ohne_emoji(e.get("datum", "")), font=text_schrift(34), fill=GRAU)
+                y += 172
+            return
+        e = eintraege[aktiv]
+        d.text((RAND_X - 10, 230), f"#{e['rang']}", font=kondensiert(340), fill=SONNE)
+        pille(d, RAND_X + 330, 300, ohne_emoji(folie.get("titel", "")).upper(), kondensiert(42, False), farbe)
+        logo_karte(img, d, (RAND_X, 640, 960, 1010), e.get("logo_id"), e["name"], radius=40, rand=60)
+        y = 1050
+        d.text((RAND_X, y), ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(92), fill=SONNE)
+        y += 100
+        for z in umbrechen(ohne_emoji(e["name"]), kondensiert(58, False), 540, 2):
+            d.text((RAND_X, y), z, font=kondensiert(58, False), fill=WEISS)
+            y += 60
+        for z in (e.get("ort", ""), _starter_text(e.get("starter"))):
+            if z:
+                d.text((RAND_X, y + 6), ohne_emoji(z), font=text_schrift(38), fill=KREIDE)
+                y += 52
+        inset = karte_bild(330, 360, [punkte[aktiv]], 0, farbe)
+        img.alpha_composite(inset, (630, 1110))
+        return
+    # Design „karte"
+    pille(d, RAND_X, 250, ohne_emoji(folie.get("titel", "")).upper(), kondensiert(44, False), farbe)
+    breite_k, luecke = 164, 15
+    for i, e in enumerate(eintraege):
+        x0 = RAND_X + i * (breite_k + luecke)
+        box = (x0, 360, x0 + breite_k, 490)
+        if aktiv is not None and i != aktiv:
+            # gedämpft: Navy über die Karte, nicht durchsichtig (sonst
+            # scheint das Foto durch und das Logo wirkt verwaschen)
+            logo_karte(img, d, box, e.get("logo_id"), e["name"], radius=20, rand=14)
+            schleier = Image.new("RGBA", img.size, (0, 0, 0, 0))
+            ImageDraw.Draw(schleier).rounded_rectangle(box, radius=20, fill=NAVY + (150,))
+            img.alpha_composite(schleier)
+        else:
+            logo_karte(img, d, box, e.get("logo_id"), e["name"], radius=20, rand=14,
+                       rahmen=SONNE if aktiv is not None else None)
+        d.ellipse([x0 - 14, 346, x0 + 34, 394], fill=SONNE if (aktiv is None or i == aktiv) else GRAU)
+        d.text((x0 + 10, 370), str(e["rang"]), font=kondensiert(36), fill=NAVY, anchor="mm")
+    y = 530
+    if aktiv is None:
+        for z in umbrechen(ohne_emoji(folie.get("schluss", "")).upper(), kondensiert(84), TEXT_BREITE, 2):
+            d.text((RAND_X, y), z, font=kondensiert(84), fill=WEISS)
+            y += 84
+    else:
+        e = eintraege[aktiv]
+        d.text((RAND_X, y), f"#{e['rang']}  " + ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(76),
+               fill=SONNE)
+        y += 82
+        d.text((RAND_X, y), umbrechen(ohne_emoji(e["name"]), kondensiert(60, False), TEXT_BREITE, 1)[0],
+               font=kondensiert(60, False), fill=WEISS)
+        y += 66
+        info = " · ".join(t for t in (e.get("ort"), _starter_text(e.get("starter"))) if t)
+        d.text((RAND_X, y), ohne_emoji(info), font=text_schrift(36), fill=KREIDE)
+    karte = karte_bild(TEXT_BREITE, 680, punkte, aktiv, farbe)
+    img.alpha_composite(karte, (RAND_X, 790))
+
+
 def _logo_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
     """Ein Event als Logo (Formate „monat" und „anmeldung", insta_inhalte):
     das Logo groß auf einer Karte - weiß, bei hellen Logos Navy -, darunter
     Datum, Name und Ort. Liegt kein Logo im Cache (insta_logos.py), steht
     der Name groß auf der Karte."""
-    import insta_logos
     x0, y0, x1, y1 = KARTE
     y = y0 - 110
     if folie.get("ueber"):
         pille(d, RAND_X + 20, y, ohne_emoji(folie["ueber"]).upper(), kondensiert(46, False), SIGNAL)
-    logo = insta_logos.logo_bild(folie["logo_id"]) if folie.get("logo_id") else None
-    hell = bool(logo and logo[1])
-    d.rounded_rectangle(KARTE, radius=44, fill=NAVY if hell else WEISS)
-    if logo:
-        bild = logo[0]
-        rand = 70
-        f = min((x1 - x0 - 2 * rand) / bild.width, (y1 - y0 - 2 * rand) / bild.height, 3.0)
-        bild = bild.resize((max(1, int(bild.width * f)), max(1, int(bild.height * f))), Image.LANCZOS)
-        img.alpha_composite(bild, ((x0 + x1 - bild.width) // 2, (y0 + y1 - bild.height) // 2))
-        name_unten = True
-    else:
-        name = ohne_emoji(folie.get("name", "")).upper()
-        g = 120
-        zeilen = umbrechen(name, kondensiert(g), x1 - x0 - 100, 3)
-        while g > 60 and (zeilen[-1].endswith("…") or len(zeilen) * g * 0.98 > y1 - y0 - 80):
-            g -= 6
-            zeilen = umbrechen(name, kondensiert(g), x1 - x0 - 100, 3)
-        ty = (y0 + y1) / 2 - len(zeilen) * g * 0.98 / 2
-        for z in zeilen:
-            d.text(((x0 + x1) / 2, ty), z, font=kondensiert(g), fill=NAVY, anchor="ma")
-            ty += g * 0.98
-        name_unten = False
+    name_unten = logo_karte(img, d, KARTE, folie.get("logo_id"), folie.get("name", ""), radius=44, rand=70)
     y = y1 + 44
     if folie.get("datum"):
         d.text((RAND_X + 20, y), ohne_emoji(folie["datum"]).upper().rstrip("."), font=kondensiert(104), fill=SONNE)
@@ -478,6 +651,8 @@ def credit_ebene(text: str | None) -> Image.Image | None:
 def folien_dauer(f: dict) -> float:
     if f.get("typ") == "logo" and f.get("blitz"):
         return DAUER_BLITZ
+    if f.get("typ") == "top" and f.get("aktiv") is None:
+        return DAUER_TOP_UEBERSICHT
     if f.get("typ") == "event" and f.get("schnell"):
         return DAUER_SCHNELL
     if f.get("pointe"):

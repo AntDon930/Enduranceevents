@@ -6493,7 +6493,57 @@ def test_insta_logos() -> None:
     check("anmeldung: Caption sagt „ohne Gewähr“", "ohne Gewähr" in a["caption"], True)
     check("anmeldung: unter drei Events gilt der Wochenplan",
           I.plane(_dt.date(2026, 12, 1), ev, momente=I.lade_momente(), clips=[], grosse=grosse)["format"] != "anmeldung", True)
-    check("Formate monat und anmeldung über --format wählbar", {"monat", "anmeldung"} <= set(I.FORMATE), True)
+    check("Formate monat, anmeldung und top über --format wählbar", {"monat", "anmeldung", "top"} <= set(I.FORMATE), True)
+
+    # --- Top 5 (jeder zweite Samstag): Kategorie, Rangfolge, Rotation, Karte
+    def top_zeilen(name, ort, tag, km, sport="Laufen", art2="Straße", land="Deutschland"):
+        return dict(zeile(name, ort, tag, sport, km), art2=art2, land=land)
+    tev = []
+    tgross = []
+    for i, (n, st) in enumerate([("Alpha", 9000), ("Bravo", 7000), ("Charlie", 5000), ("Delta", 3000),
+                                 ("Echo", 2000), ("Foxtrot", 1000)]):
+        tev.append(top_zeilen(f"{n} Marathon", f"Ort{i}", f"2027-0{i + 3}-1{i}", 42.195))
+        tev.append(top_zeilen(f"{n} Marathon", f"Ort{i}", f"2027-0{i + 3}-1{i}", 10.0))
+        tgross.append({"name": f"{n} Marathon", "suche": [n.lower() + " marathon"], "land": "Deutschland",
+                       "sport": "Laufen", "starter": st})
+    tev.append(top_zeilen("Golf Halbmarathon", "OrtG", "2027-05-02", 21.1))
+    tgross.append({"name": "Golf Halbmarathon", "suche": ["golf halbmarathon"], "land": "Deutschland",
+                   "sport": "Laufen", "starter": 99999})
+    kat = {k[0]: k for k in I.TOP_KATEGORIEN}
+    check("top: Marathon-Kategorie, größte zuerst, nur Veranstaltungen mit 42,2 km",
+          [e["g"]["name"] for e in I.top_kandidaten(_dt.date(2026, 11, 14), tev, tgross, kat["marathon"])][:3],
+          ["Alpha Marathon", "Bravo Marathon", "Charlie Marathon"])
+    check("top: Halbmarathon-Kategorie ohne Veranstaltungen mit Marathon",
+          [e["g"]["name"] for e in I.top_kandidaten(_dt.date(2026, 11, 14), tev, tgross, kat["halbmarathon"])],
+          ["Golf Halbmarathon"])
+    t = I.format_top(_dt.date(2026, 11, 14), tev, _random.Random(1), tgross)
+    ranglog = [(f["aktiv"], f["eintraege"][f["aktiv"]]["rang"]) for f in t["folien"]
+               if f["typ"] == "top" and f["aktiv"] is not None]
+    check("top: Countdown 5 → 1, dann die Übersicht, Schluss „Check it out“",
+          ([r for _, r in ranglog], [f["typ"] for f in t["folien"]][-2:], t["folien"][-2]["aktiv"]),
+          ([5, 4, 3, 2, 1], ["top", "cta"], None))
+    check("top: die fünf größten, Caption sagt, wie gezählt wird",
+          ([e["name"] for e in t["folien"][1]["eintraege"]][::-1],
+           "allen Teilnehmenden der Veranstaltung" in t["caption"]),
+          (["Alpha Marathon", "Bravo Marathon", "Charlie Marathon", "Delta Marathon", "Echo Marathon"], True))
+    samstage = [_dt.date(2026, 10, 31) + _dt.timedelta(days=14 * i) for i in range(4)]
+    check("top: jeder zweite Samstag, sonst „saison“",
+          [I.format_am(_dt.date(2026, 10, 31) + _dt.timedelta(days=7 * i)) for i in range(4)],
+          ["top", "saison", "top", "saison"])
+    ganz = I.lade_grosse()
+    ev_echt = I.lade_events()
+    kats = [I.format_top(d, ev_echt, _random.Random(1), ganz) for d in samstage]
+    kats = [k["kategorie"] for k in kats if k]
+    check("top: am echten Bestand keine Kategorie zweimal hintereinander",
+          all(a != b for a, b in zip(kats, kats[1:])), True)
+    for design in I.TOP_DESIGNS:
+        for aktiv in (0, None):
+            bild = V.folie_bild(dict(t["folien"][1], variante=design, aktiv=aktiv), "Laufen")
+            check(f"top: Design {design} zeichnet ({'aktiv' if aktiv == 0 else 'Übersicht'})",
+                  bild.getchannel("A").getbbox() is not None, True)
+    karte = V.karte_bild(400, 400, [(52.52, 13.40, "1")], 0)
+    check("Karte: Länderfläche aus laender.json und Punkt Berlin im Nordosten",
+          (karte.getpixel((200, 250))[3] > 0, karte.getpixel((5, 5))[3]), (True, 0))
 
     # --- Folie ohne Logo im Cache: Namenskarte statt Absturz
     bild = V.folie_bild(dict(logos[0], logo_id="gibt-es-nicht"), "Laufen")

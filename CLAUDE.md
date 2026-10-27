@@ -5238,6 +5238,22 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   SVG rastert `_rastern_svg` mit Chromium, sonst ffmpeg/librsvg. Logos mit
   viel Weiß und kaum Schwarz (`ist_hell`) bekommen eine Navy-Karte. Ohne
   Logo zeigt die Folie den Namen groß auf der Karte. `test_insta_logos`.
+  **Top 5 (`top`, jeder zweite Samstag statt `saison`, gerade
+  Kalenderwoche; vom Nutzer am 27.10.2026: „Top 5 Marathons … auf einer
+  Karte … die 5 Logos oben … immer unterschiedliche Designs“)**: die 5
+  größten Events einer Kategorie der nächsten 12 Monate
+  (`TOP_KATEGORIEN`: Marathon-, Trail-, Halbmarathon-, Ultra-Events,
+  Radmarathons, Triathlons – Halbmarathon nur OHNE 42,2 km, sonst stand
+  der Hamburg Marathon dort), Countdown 5 → 1, Übersicht, CTA. Gerankt
+  nach `starter` der GANZEN Veranstaltung – deshalb „…-Events“ im Titel
+  und „allen Teilnehmenden der Veranstaltung“ in der Caption (der
+  Rennsteiglauf ist mit 16.000 kein 16.000-Ultra). Rotation nur über
+  Kategorien mit fünf Events (`datum.toordinal() // 14`), Design
+  (`TOP_DESIGNS`: `karte` = Logos oben, Karte unten mit Punkten;
+  `countdown` = riesige Platznummer, Logo groß, kleine Karte) wechselt mit
+  jeder Runde. Die Karte zeichnet `insta_video.karte_bild()` selbst aus
+  `laender.json` (kein Kartendienst). Neues Design = Zweig in `_top_folie`
+  + Name in `TOP_DESIGNS`.
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,
