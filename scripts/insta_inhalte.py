@@ -757,10 +757,10 @@ def monats_grenzen(jahr: int, monat: int) -> tuple[dt.date, dt.date]:
 
 def gross_fuer(v: dict, grosse: list[dict]) -> dict | None:
     """Das große Event, zu dem eine Veranstaltung gehört: ein Suchwort aus
-    `suche` steckt im Namen, das Land stimmt."""
+    `suche` steckt im Namen, Land und Sportart stimmen."""
     name = v["name"].lower()
     for g in grosse:
-        if g.get("land") and g["land"] != v["land"]:
+        if g.get("land") and g["land"] != v["land"] or g.get("sport") and g["sport"] != v["sport"]:
             continue
         if any(s and s.lower() in name for s in g.get("suche") or []):
             return g

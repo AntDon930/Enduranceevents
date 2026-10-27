@@ -6339,8 +6339,13 @@ def test_insta_logos() -> None:
             fehler.append(f"{n}: suche")
         if g.get("land") not in I.LAND_KURZ or g.get("sport") not in I.SPORTARTEN:
             fehler.append(f"{n}: land/sport")
-        if not isinstance(g.get("starter"), int) or not str(g.get("starter_quelle", "")).startswith("https://"):
+        if g.get("starter") is None:
+            if "ironman" not in n.lower():
+                fehler.append(f"{n}: starter fehlt (nur bei IRONMAN ohne veröffentlichte Zahl erlaubt)")
+        elif not isinstance(g["starter"], int) or not str(g.get("starter_quelle", "")).startswith("https://"):
             fehler.append(f"{n}: starter/quelle")
+        if g.get("logo_datei") and not (wurzel / "marketing" / "instagram" / "logos" / g["logo_datei"]).is_file():
+            fehler.append(f"{n}: logo_datei fehlt")
         if g.get("anmeldestart") is not None:
             if not _re.fullmatch(r"\d{4}-\d{2}(-\d{2})?", str(g["anmeldestart"])) or not I.anmeldestart(g):
                 fehler.append(f"{n}: anmeldestart")

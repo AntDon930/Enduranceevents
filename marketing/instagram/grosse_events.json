@@ -1,5 +1,2298 @@
 {
  "stand": "2026-10-27",
- "hinweis": "Große Events für die Logo-Reels (insta_inhalte monat/anmeldung): Starterzahl und Anmeldestart je mit Quelle; suche = Teilstrings des Namens in events.json; logo_url überstimmt die Logo-Suche, logo:false schaltet das Logo ab.",
- "events": []
+ "hinweis": "Große Events für die Logo-Reels (insta_inhalte monat/anmeldung), recherchiert am 27.10.2026: Laufen/Rad ab ca. 5.000 bzw. 3.000 Startenden, Triathlon ab ca. 1.000 oder Marke (IRONMAN/Challenge), Kultrennen auch darunter; keine Firmen-/Businessläufe. starter = Anmeldungen oder Finisher der jüngsten Ausgabe (hinweis sagt, welche), null nur bei IRONMAN ohne veröffentlichte Zahl. anmeldestart = Öffnung der Anmeldung für die NÄCHSTE Ausgabe (YYYY-MM-DD oder YYYY-MM), jährlich nachtragen. suche = Teilstrings des Namens in events.json (klein). logo_datei (marketing/instagram/logos/) schlägt logo_url schlägt die Logo-Suche; logo:false schaltet das Logo ab.",
+ "events": [
+  {
+   "name": "ADAC Cyclassics Hamburg",
+   "suche": [
+    "cyclassics"
+   ],
+   "ort": "Hamburg",
+   "land": "Deutschland",
+   "sport": "Fahrrad",
+   "termin": "2027-08-15",
+   "monat": 8,
+   "starter": 10000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.cyclassics-hamburg.de/fileadmin/Content/4_CH/Pressemeldungen_2025/PM_Englisch/PM_ADAC_Cyclassics_Anmeldung26__EN.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.cyclassics-hamburg.de/",
+   "instagram": "cyclassics",
+   "hinweis": "Bisher nur 'Voranmeldung 2027'. Anmeldung 2026 war im Nov. 2025 gestartet (Muster). Starterzahl = Veranstalter-Erwartung '>10.000' für 2026."
+  },
+  {
+   "name": "ADAC Velotour Eschborn–Frankfurt",
+   "suche": [
+    "velotour eschborn",
+    "eschborn–frankfurt jedermann"
+   ],
+   "ort": "Eschborn",
+   "land": "Deutschland",
+   "sport": "Fahrrad",
+   "termin": "2027-05-01",
+   "monat": 5,
+   "starter": 12000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.eschborn-frankfurt.de/de/aktuelles/2026/so-gross-wie-nie-12-000-teilnehmende-bei-der-adac-velotour/61",
+   "anmeldestart": null,
+   "webseite": "https://www.eschborn-frankfurt.de/",
+   "instagram": "eschbornfrankfurt",
+   "hinweis": "Jedermannrennen von Eschborn–Frankfurt (früher 'Rund um den Finanzplatz'/Velotour). Anmeldung 2027 laut timeto 'jetzt geöffnet', Startdatum nicht gefunden. 2026 am 26.02. mit 12.000 ausverkauft."
+  },
+  {
+   "name": "ALB EXTREM",
+   "suche": [
+    "alb extrem"
+   ],
+   "ort": "Ottenbach",
+   "land": "Deutschland",
+   "sport": "Fahrrad",
+   "monat": 6,
+   "starter": 3500,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://albextrem.de/",
+   "anmeldestart": null,
+   "webseite": "https://albextrem.de/",
+   "instagram": "alb_extrem_radmarathon",
+   "hinweis": "3.500 Startplätze 2026. Website zeigt noch 2026 (Anmeldung lief 01.02.–26.06.2026); Termin 2027 nicht offiziell bestätigt (events.json: 2027-06-27)."
+  },
+  {
+   "name": "Black Forest ULTRA Bike Marathon",
+   "suche": [
+    "black forest ultra bike"
+   ],
+   "ort": "Kirchzarten",
+   "land": "Deutschland",
+   "sport": "Fahrrad",
+   "termin": "2027-07-25",
+   "monat": 7,
+   "starter": 3650,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.ultra-bike.de/de/news/show.php?id=276",
+   "anmeldestart": null,
+   "webseite": "https://www.ultra-bike.de/",
+   "instagram": "ultra_bike",
+   "hinweis": "Wochenende 23.–25.07.2027. 2026: knapp 2.400 MTB-Marathon + ~600 Gravel, Gesamt 3.650 (inkl. Kids). Anmeldung 2027 noch nicht angekündigt."
+  },
+  {
+   "name": "Rad am Ring",
+   "suche": [
+    "rad am ring"
+   ],
+   "ort": "Nürburgring",
+   "land": "Deutschland",
+   "sport": "Fahrrad",
+   "termin": "2027-07-23",
+   "monat": 7,
+   "starter": 12152,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.tour-magazin.de/event/jedermann-rennen/rad-am-ring-2026/",
+   "anmeldestart": "2026-10-08",
+   "anmeldestart_quelle": "https://www.tour-magazin.de/event/jedermann-rennen/rad-am-ring-2027-anmeldung-gestartet/",
+   "webseite": "https://www.radamring.de/",
+   "instagram": "radamring",
+   "hinweis": "23.–25.07.2027. Anmeldung öffnete 08.10.2026, 18 Uhr; 24h-Startplätze laut Veranstalter (12.10.2026) rasch erschöpft – andere Disziplinen prüfen."
+  },
+  {
+   "name": "Rund um Köln",
+   "suche": [
+    "rund um köln"
+   ],
+   "ort": "Köln",
+   "land": "Deutschland",
+   "sport": "Fahrrad",
+   "termin": "2027-05-23",
+   "monat": 5,
+   "starter": 9500,
+   "starter_jahr": 2027,
+   "starter_quelle": "https://www.tour-magazin.de/event/jedermann-rennen/rund-um-koln-2027-boom/",
+   "anmeldestart": "2026-07-07",
+   "anmeldestart_quelle": "https://www.tour-magazin.de/event/jedermann-rennen/rund-um-koln-2027-boom/",
+   "webseite": "https://www.rundumkoeln.de/",
+   "instagram": "rundumkoelnradklassiker",
+   "hinweis": "Startplätze 2027: Velodom 120 = 5.000, Velodom 60 = 4.500. Startseite meldet 'Ausgebucht!' (Startplatzbörse vorhanden)."
+  },
+  {
+   "name": "Sparkassen Münsterland Giro",
+   "suche": [
+    "münsterland giro"
+   ],
+   "ort": "Münster",
+   "land": "Deutschland",
+   "sport": "Fahrrad",
+   "termin": "2027-10-03",
+   "monat": 10,
+   "starter": 8500,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://muensterland-giro.de/rekordnachfrage-beim-leezencup/",
+   "anmeldestart": "2026-10",
+   "anmeldestart_quelle": "https://muensterland-giro.de/rekordnachfrage-beim-leezencup/",
+   "webseite": "https://muensterland-giro.de/",
+   "instagram": "muensterlandgiro",
+   "hinweis": "Jedermann = LeezenCup. Anmeldung 2027 direkt nach dem Rennen (03.10.2026) geöffnet; am 05.10. bereits halb ausgebucht. Exakter Tag nicht explizit genannt."
+  },
+  {
+   "name": "Tour d'Energie",
+   "suche": [
+    "tour d'energie",
+    "tour d’energie"
+   ],
+   "ort": "Göttingen",
+   "land": "Deutschland",
+   "sport": "Fahrrad",
+   "monat": 4,
+   "starter": 4000,
+   "starter_quelle": "https://www.goesf.de/goesf-events/tour-denergie",
+   "anmeldestart": null,
+   "webseite": "https://www.tourdenergie.de/",
+   "hinweis": "Nicht in events.json. GoeSF: 'mit knapp 4.000 Teilnehmer:innen' (ohne Jahr). Termin 2027 nur als 'Ende April' gelistet (finishers.com); offizielle Seite war nicht erreichbar."
+  },
+  {
+   "name": "HERO Südtirol Dolomites",
+   "suche": [
+    "hero südtirol"
+   ],
+   "ort": "Wolkenstein in Gröden",
+   "land": "Italien (Südtirol)",
+   "sport": "Fahrrad",
+   "termin": "2027-06-12",
+   "monat": 6,
+   "starter": 3000,
+   "starter_quelle": "https://www.fassa.com/en/events/hero-sudtirol-dolomites",
+   "anmeldestart": "2026-06-17",
+   "anmeldestart_quelle": "https://www.herodolomites.com/de/multimedia/news/anmeldung-early-bird-fuer-den-hero-dolomites-2027",
+   "webseite": "https://www.herodolomites.com/",
+   "instagram": "herodolomites",
+   "hinweis": "MTB-Marathon. Early-Bird-Anmeldung 2027 ab 17.06.2026. Starterzahl 'mehr als 3.000' (Tourismusseite, Jahr unklar)."
+  },
+  {
+   "name": "Maratona dles Dolomites",
+   "suche": [
+    "maratona dles dolomites"
+   ],
+   "ort": "La Villa (Alta Badia)",
+   "land": "Italien (Südtirol)",
+   "sport": "Fahrrad",
+   "termin": "2027-07-04",
+   "monat": 7,
+   "starter": 8000,
+   "starter_jahr": 2027,
+   "starter_quelle": "https://www.tour-magazin.de/event/jedermann-rennen/maratona-dles-dolomites-feiert-40-ausgabe/",
+   "anmeldestart": "2026-10-14",
+   "anmeldestart_quelle": "https://www.tour-magazin.de/event/jedermann-rennen/maratona-dles-dolomites-feiert-40-ausgabe/",
+   "webseite": "https://www.maratona.it/",
+   "instagram": "maratonadolomites",
+   "hinweis": "40. Ausgabe. Start La Villa, Ziel Corvara (beide Alta Badia, Südtirol). Losverfahren: Voranmeldung 14.10.–10.11.2026 (laut maratona.it 'offen bis 10. November 2026'), Ziehung 2. Novemberhälfte; nur 4.000 der 8.000 Plätze gehen in die Verlosung."
+  },
+  {
+   "name": "Alpenbrevet",
+   "suche": [
+    "alpenbrevet"
+   ],
+   "ort": "Andermatt",
+   "land": "Schweiz",
+   "sport": "Fahrrad",
+   "termin": "2027-09-04",
+   "monat": 9,
+   "starter": 3250,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.tour-magazin.de/en/event/everyman-race/racing-bike-boom-alpenbrevet-2026-sold-out-in-record-time/",
+   "anmeldestart": null,
+   "webseite": "https://www.alpenbrevet.ch/",
+   "instagram": "alpenbrevet",
+   "hinweis": "Offizielle Seite: 'Die Anmeldung öffnet im Herbst 2026' (kein Datum). 2026: 3.250 Plätze in 60 Stunden ausverkauft (Anmeldung Sept. 2025)."
+  },
+  {
+   "name": "Grand Raid BCVS",
+   "suche": [
+    "grand raid"
+   ],
+   "ort": "Verbier – Grimentz",
+   "land": "Schweiz",
+   "sport": "Fahrrad",
+   "termin": "2027-08-21",
+   "monat": 8,
+   "starter": 2500,
+   "starter_quelle": "https://trainerday.com/events/ch/grand-raid-bcvs",
+   "anmeldestart": null,
+   "webseite": "https://grand-raid-bcvs.ch/",
+   "instagram": "grandraidbcvs",
+   "hinweis": "MTB-Klassiker (125 km Verbier–Grimentz). Starterzahl nur aus Aggregator ('rund 2.500'), nicht offiziell bestätigt. Offizielle Seite nennt auch einmal '21 juin 2027' – Banner/Countdown sagt 21.08.2027."
+  },
+  {
+   "name": "Arlberg Giro",
+   "suche": [
+    "arlberg giro"
+   ],
+   "ort": "St. Anton am Arlberg",
+   "land": "Österreich",
+   "sport": "Fahrrad",
+   "termin": "2027-08-01",
+   "monat": 8,
+   "starter": 1500,
+   "starter_jahr": 2027,
+   "starter_quelle": "https://www.stantonamarlberg.com/de/die-region-st-anton-am-arlberg/blog/news/sommer/arlberg-giro-2027-ausverkauft",
+   "anmeldestart": null,
+   "webseite": "https://www.arlberg-giro.com/",
+   "instagram": "arlberg_giro",
+   "hinweis": "15. Ausgabe; alle 1.500 Startplätze bereits vergeben ('so früh ausverkauft wie noch nie', Meldung 23.10.2026). Anmeldestart-Datum nicht gefunden."
+  },
+  {
+   "name": "Dolomitenradrundfahrt & SuperGiroDolomiti",
+   "suche": [
+    "dolomitenradrundfahrt"
+   ],
+   "ort": "Lienz",
+   "land": "Österreich",
+   "sport": "Fahrrad",
+   "termin": "2027-06-13",
+   "monat": 6,
+   "starter": 3000,
+   "starter_jahr": 2027,
+   "starter_quelle": "https://www.dolomitensport.at/de/events/dolomitenradrundfahrt",
+   "anmeldestart": "2026-08-25",
+   "anmeldestart_quelle": "https://www.dolomitensport.at/de/events/dolomitenradrundfahrt",
+   "webseite": "https://www.dolomitensport.at/de/events/dolomitenradrundfahrt",
+   "instagram": "dolomitensport_lienz",
+   "hinweis": "Anmeldung freigeschaltet 25.08.2026, 12 Uhr. Startplätze 2027: 2.000 Dolomitenradrundfahrt + 1.000 SuperGiroDolomiti; 2026 >2.000 Teilnehmende."
+  },
+  {
+   "name": "Dreiländergiro",
+   "suche": [
+    "dreiländergiro"
+   ],
+   "ort": "Nauders",
+   "land": "Österreich",
+   "sport": "Fahrrad",
+   "termin": "2027-06-27",
+   "monat": 6,
+   "starter": 3000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.tour-magazin.de/en/event/everyman-race/2026-three-country-giro-up-to-3-000-participants-expected-in-nauders-on-28-june/",
+   "anmeldestart": "2026-10-01",
+   "anmeldestart_quelle": "https://www.dreilaendergiro.at/de/Dein-Dreilaendergiro",
+   "webseite": "https://www.dreilaendergiro.at/",
+   "instagram": "dreilaendergiro",
+   "hinweis": "Anmeldung öffnete 01.10.2026 um Mitternacht; Startseite meldet 'Wir sind ausverkauft!'. Startgeld 2027 einheitlich 162,50 €."
+  },
+  {
+   "name": "Glocknerkönig",
+   "suche": [
+    "glocknerkönig"
+   ],
+   "ort": "Bruck an der Großglocknerstraße",
+   "land": "Österreich",
+   "sport": "Fahrrad",
+   "termin": "2027-06-06",
+   "monat": 6,
+   "starter": 3000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.tour-magazin.de/en/event/everyman-race/glockner-king-2026-three-course-records-and-record-participation/",
+   "anmeldestart": "2026-12",
+   "anmeldestart_quelle": "https://www.glocknerkoenig.com/de/rennen/anmeldung",
+   "webseite": "https://www.glocknerkoenig.com/de",
+   "instagram": "glocknerkoenig",
+   "hinweis": "30. Jubiläumsausgabe. 'Die Anmeldung zum 30. Glocknerkönig startet Anfang Dezember 2026' – genauer Tag folgt via Social Media/Newsletter."
+  },
+  {
+   "name": "Kitzbüheler Radmarathon",
+   "suche": [
+    "kitzbüheler radmarathon"
+   ],
+   "ort": "Kitzbühel",
+   "land": "Österreich",
+   "sport": "Fahrrad",
+   "termin": "2027-09-05",
+   "monat": 9,
+   "starter": 1800,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://kitzbueheler-radmarathon.at/krm-news/",
+   "anmeldestart": null,
+   "webseite": "https://kitzbueheler-radmarathon.at/",
+   "instagram": "der_kitzbueheler_radmarathon",
+   "hinweis": "1.800 Nennungen 2026 (ausverkauft). Anmeldung 2026 öffnete 01.12.2025 – Termin für 2027 noch nicht bekanntgegeben."
+  },
+  {
+   "name": "Mondsee 5-Seen Radmarathon",
+   "suche": [
+    "mondsee 5"
+   ],
+   "ort": "Mondsee",
+   "land": "Österreich",
+   "sport": "Fahrrad",
+   "termin": "2027-06-20",
+   "monat": 6,
+   "starter": 2500,
+   "starter_quelle": "https://www.mondsee-radmarathon.com/",
+   "anmeldestart": null,
+   "webseite": "https://www.mondsee-radmarathon.com/",
+   "instagram": "mondsee5seenradmarathon",
+   "hinweis": "Veranstalter: 'Jahr für Jahr 2.500 Teilnehmerinnen und Teilnehmer'. Ausschreibung 2027 online, Anmeldung über RaceTimePro; Öffnungsdatum nicht gefunden."
+  },
+  {
+   "name": "Neusiedler See Radmarathon",
+   "suche": [
+    "neusiedler see radmarathon",
+    "neusiedlersee radmarathon"
+   ],
+   "ort": "Mörbisch am See",
+   "land": "Österreich",
+   "sport": "Fahrrad",
+   "termin": "2027-04-25",
+   "monat": 4,
+   "starter": 2500,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://ucigranfondoworldseries.com/en/?p=8678",
+   "anmeldestart": "2026-10-25",
+   "anmeldestart_quelle": "https://www.neusiedlersee-radmarathon.com/news",
+   "webseite": "https://www.neusiedlersee-radmarathon.com/",
+   "instagram": "neusiedlerseeradmarathon",
+   "hinweis": "35. Ausgabe, UCI Gran Fondo World Series. Laut Newsletter vom 24.09.2026 öffnet das Anmeldeportal am Pannonia-Gravel-Wochenende (25.10.2026). 2026: über 2.500 Teilnehmende aus 45 Nationen."
+  },
+  {
+   "name": "Salzkammergut Trophy",
+   "suche": [
+    "salzkammergut trophy"
+   ],
+   "ort": "Bad Goisern",
+   "land": "Österreich",
+   "sport": "Fahrrad",
+   "termin": "2027-07-17",
+   "monat": 7,
+   "starter": 5000,
+   "starter_quelle": "https://www.salzkammergut.at/oesterreich-veranstaltung/detail/48220006/salzkammergut-mountainbike-trophy.html?type=2026",
+   "anmeldestart": null,
+   "webseite": "https://www.salzkammergut-trophy.at/",
+   "instagram": "salzkammerguttrophy",
+   "hinweis": "MTB-Marathon, 30. Ausgabe. Anmeldung 2027 'ab sofort und für kurze Zeit zu den Tarifen von 2026' möglich (Öffnungsdatum nicht genannt). 5.000 = Tourismus-Angabe ohne Jahr; eine Pressemeldung nennt für 2026 >4.200 Nennungen (nicht verifiziert)."
+  },
+  {
+   "name": "Wachau Radmarathon",
+   "suche": [
+    "wachau radmarathon"
+   ],
+   "ort": "Mautern an der Donau",
+   "land": "Österreich",
+   "sport": "Fahrrad",
+   "termin": "2027-07-18",
+   "monat": 7,
+   "starter": 2000,
+   "starter_quelle": "https://www.wachau-radmarathon.at/",
+   "anmeldestart": null,
+   "webseite": "https://www.wachau-radmarathon.at/",
+   "hinweis": "Früher 'Wachauer Radtage'. Veranstalter: 'Massenstart der über 2.000 Teilnehmer:innen'. Anmeldung offen ('Jetzt anmelden'), Startdatum unbekannt."
+  },
+  {
+   "name": "Ötztaler Radmarathon",
+   "suche": [
+    "ötztaler radmarathon"
+   ],
+   "ort": "Sölden",
+   "land": "Österreich",
+   "sport": "Fahrrad",
+   "termin": "2027-08-29",
+   "monat": 8,
+   "starter": 4000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.soelden.com/de/events-freizeittipps/events/oetztaler-radmarathon",
+   "anmeldestart": null,
+   "webseite": "https://www.soelden.com/de/events-freizeittipps/events/oetztaler-radmarathon",
+   "instagram": "oetztalerradmarathon",
+   "hinweis": "Anmeldefenster 2027 noch nicht veröffentlicht. Für 2026 galt: Registrierung nur 01.–31.01.2026, Verlosung Mitte Februar (2. Verlosung Anfang April); max. 4.000 Startplätze. Muster lässt Januar 2027 erwarten (unbestätigt).",
+   "logo_datei": "oetztaler-radmarathon.svg"
+  },
+  {
+   "name": "Baden-Marathon Karlsruhe",
+   "suche": [
+    "baden-marathon"
+   ],
+   "ort": "Karlsruhe",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-09-19",
+   "monat": 9,
+   "starter": 15417,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.badenmarathon.de",
+   "instagram": "badenmarathon",
+   "hinweis": "Save the Date 19.09.2027 auf offizieller Seite"
+  },
+  {
+   "name": "Berlin-Marathon",
+   "suche": [
+    "berlin marathon",
+    "berlin-marathon"
+   ],
+   "ort": "Berlin",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-09-26",
+   "monat": 9,
+   "starter": 49831,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.marathons.com/de/termin-vormerken/berlin-marathon-2025-setzt-historische-massstabe_n083",
+   "anmeldestart": "2026-10-01",
+   "anmeldestart_quelle": "https://marathonhandbook.com/berlin-marathon-2027-lottery/",
+   "webseite": "https://www.bmw-berlin-marathon.com",
+   "instagram": "berlinmarathon",
+   "hinweis": "Lotterie 01.10.–12.11.2026, Ergebnis 03.12.2026; ab 2027 Generali als Titelsponsor; Starterzahl = Finisher aller Disziplinen 2025"
+  },
+  {
+   "name": "Berliner Frauenlauf",
+   "suche": [
+    "frauenlauf berlin",
+    "berliner frauenlauf"
+   ],
+   "ort": "Berlin",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-05-22",
+   "monat": 5,
+   "starter": 12455,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.berliner-frauenlauf.de",
+   "instagram": "frauenlaufberlin",
+   "hinweis": "Nur für Frauen; inkl. Walking"
+  },
+  {
+   "name": "Berliner Halbmarathon",
+   "suche": [
+    "berliner halbmarathon"
+   ],
+   "ort": "Berlin",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-04-04",
+   "monat": 4,
+   "starter": 42563,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.generali-berliner-halbmarathon.de/en/news-media/news/detail/biggest-generali-berlin-half-marathon-ever",
+   "anmeldestart": "2026-04-02",
+   "anmeldestart_quelle": "https://www.generali-berliner-halbmarathon.de/anmelden/",
+   "webseite": "https://www.generali-berliner-halbmarathon.de",
+   "instagram": "berlinerhalbmarathon",
+   "hinweis": "Läufer-Lotterie 02.04.–28.05.2026 (beendet); Skater/Rollstuhl noch bis 11.03.2027"
+  },
+  {
+   "name": "Bonn Marathon",
+   "suche": [
+    "marathon bonn",
+    "bonn marathon"
+   ],
+   "ort": "Bonn",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-04-11",
+   "monat": 4,
+   "starter": 22222,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.runnersworld.de/news-fotos/bonn-marathon-2026/",
+   "anmeldestart": null,
+   "webseite": "https://bonn-marathon.de",
+   "hinweis": "Anmeldestart laut Portalen 'nach den Sommerferien' (ohne Datum)"
+  },
+  {
+   "name": "City Night Berlin",
+   "suche": [
+    "berlin city night"
+   ],
+   "ort": "Berlin",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-07-31",
+   "monat": 7,
+   "starter": 14056,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.berlin-citynight.de",
+   "instagram": "scc_events",
+   "hinweis": "adidas Runners City Night (5 km/10 km + Inline); IG ist der SCC-Events-Account"
+  },
+  {
+   "name": "Citylauf Dresden",
+   "suche": [
+    "citylauf dresden"
+   ],
+   "ort": "Dresden",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-03-21",
+   "monat": 3,
+   "starter": 6002,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://citylauf-dresden.de/news/detail/citylaufdresden-1",
+   "anmeldestart": "2026-03-23",
+   "anmeldestart_quelle": "https://citylauf-dresden.de/news/detail/anmeldung-fuer-2026",
+   "webseite": "https://citylauf-dresden.de",
+   "instagram": "laufszene.events",
+   "hinweis": "Teilnehmerrekord 6.002 (2026); Anmeldung 2027 seit 23.03.2026 offen"
+  },
+  {
+   "name": "Dresden Marathon",
+   "suche": [
+    "dresden-marathon",
+    "dresdner marathon"
+   ],
+   "ort": "Dresden",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-10-31",
+   "monat": 10,
+   "starter": 14410,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.dresden-marathon.com",
+   "instagram": "dresdenmarathon",
+   "hinweis": "Starter = Anmeldungen 2025 aller Wettbewerbe (GRR); 'Anmeldung 2027' auf Webseite aktiv"
+  },
+  {
+   "name": "Dresdner Nachtlauf",
+   "suche": [
+    "dresdner nachtlauf"
+   ],
+   "ort": "Dresden",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-08-20",
+   "monat": 8,
+   "starter": 6800,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://dresdner-nachtlauf.de/news/detail/dresdnernachtlauf-2026",
+   "anmeldestart": "2026-08-15",
+   "anmeldestart_quelle": "https://dresdner-nachtlauf.de/news/detail/anmeldung-fuer-2027-1",
+   "webseite": "https://dresdner-nachtlauf.de",
+   "instagram": "laufszene.events",
+   "hinweis": "knapp 6.800 Teilnehmende 2026 (Melderekord); IG = Veranstalter Laufszene Events"
+  },
+  {
+   "name": "Düsseldorf Marathon",
+   "suche": [
+    "düsseldorf marathon"
+   ],
+   "ort": "Düsseldorf",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-04-18",
+   "monat": 4,
+   "starter": 24000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.runnersworld.de/news-fotos/duesseldorf-marathon-2026/",
+   "anmeldestart": null,
+   "webseite": "https://www.uniper-duesseldorfmarathon.de",
+   "instagram": "duesseldorfmarathon",
+   "hinweis": "'Jetzt für 2027 anmelden' auf der Webseite"
+  },
+  {
+   "name": "EVL-Halbmarathon Leverkusen",
+   "suche": [
+    "evl-halbmarathon"
+   ],
+   "ort": "Leverkusen",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-06-13",
+   "monat": 6,
+   "starter": 6078,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": "2026-12-13",
+   "anmeldestart_quelle": "https://www.leverkusen-halbmarathon.de/",
+   "webseite": "https://www.leverkusen-halbmarathon.de",
+   "instagram": "evl.halbmarathon",
+   "hinweis": "'Die Anmeldung öffnet am 13. Dezember 2026'"
+  },
+  {
+   "name": "Einstein-Marathon Ulm",
+   "suche": [
+    "einstein"
+   ],
+   "ort": "Ulm/Neu-Ulm",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "monat": 9,
+   "starter": 22758,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://einsteinmarathon.de",
+   "instagram": "einsteinmarathon",
+   "hinweis": "inkl. Firmenläufe/Rahmenwettbewerbe; Termin 2027 noch nicht veröffentlicht (2026: 27.09.)"
+  },
+  {
+   "name": "Flensburg liebt dich Marathon",
+   "suche": [
+    "flensburg liebt dich"
+   ],
+   "ort": "Flensburg",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-09-05",
+   "monat": 9,
+   "starter": 5023,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://flensburg-marathon.de",
+   "instagram": "flensburgliebtdichmarathon"
+  },
+  {
+   "name": "Frankfurt Marathon",
+   "suche": [
+    "frankfurt marathon"
+   ],
+   "ort": "Frankfurt am Main",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-10-31",
+   "monat": 10,
+   "starter": 30000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.leinetal24.de/sport/frankfurt-marathon-jagt-den-deutschen-rekord-zr-94313394.html",
+   "anmeldestart": null,
+   "webseite": "https://www.frankfurt-marathon.com",
+   "instagram": "frankfurtmarathon",
+   "hinweis": "2026: 19.676 Marathon-Anmeldungen, >30.000 Starter am Wochenende erwartet; 2025: 24.455 Finisher aller Wettbewerbe (hdsports); 'Anmeldung 2027' auf Webseite aktiv; Veranstalterfrage ab 2027/2029 politisch umstritten"
+  },
+  {
+   "name": "Frankfurter Halbmarathon",
+   "suche": [
+    "frankfurt halbmarathon",
+    "halbmarathon frankfurt"
+   ],
+   "ort": "Frankfurt am Main",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-03-21",
+   "monat": 3,
+   "starter": 10553,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.frankfurter-halbmarathon.de/",
+   "anmeldestart": "2026-09-28",
+   "anmeldestart_quelle": "https://www.frankfurter-halbmarathon.de/",
+   "webseite": "https://www.frankfurter-halbmarathon.de",
+   "instagram": "frankfurterhalbmarathon",
+   "hinweis": "10.553 Finisher 2026 (Rekord); Anmeldung öffnete 28.09.2026 10 Uhr – Vorjahr nach 12 h ausgebucht, daher Status offen/ausgebucht unklar"
+  },
+  {
+   "name": "Freiburg Marathon",
+   "suche": [
+    "freiburg marathon"
+   ],
+   "ort": "Freiburg im Breisgau",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-04-04",
+   "monat": 4,
+   "starter": 14841,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/wettkampf/grossten-laufveranstaltungen-deutschland",
+   "anmeldestart": null,
+   "webseite": "https://mein-freiburgmarathon.de",
+   "instagram": "meinfreiburgmarathon",
+   "hinweis": "Offizielle Seite: Save the Date 4. April 2027, Anmeldung offen; Vorjahr öffnete die Anmeldung am 01.09.2025; GRR 2025: 14.144 Anmeldungen"
+  },
+  {
+   "name": "Gutenberg Halbmarathon Mainz",
+   "suche": [
+    "halbmarathon mainz",
+    "gutenberg"
+   ],
+   "ort": "Mainz",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-05-02",
+   "monat": 5,
+   "starter": 17500,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.halbmarathon-mainz.de/wp-content/uploads/2026/05/PM03_2026__GHM_Pre_Race.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.halbmarathon-mainz.de",
+   "hinweis": "seit 2024 Halbmarathon statt Marathon; 17.500 Anmeldungen 2026 (Rekord); offizielle Seite: Save the Date 2. Mai 2027"
+  },
+  {
+   "name": "Hamburg Marathon",
+   "suche": [
+    "haspa marathon",
+    "marathon hamburg"
+   ],
+   "ort": "Hamburg",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-04-25",
+   "monat": 4,
+   "starter": 46000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://haspa-marathon-hamburg.de/en/news/",
+   "anmeldestart": null,
+   "webseite": "https://haspa-marathon-hamburg.de",
+   "instagram": "haspamarathonhamburg",
+   "hinweis": "Starter = >46.000 Anmeldungen 2026 (alle Wettbewerbe); 2027 komplett ausverkauft (alle 20.000 Marathon-Plätze, HM und Staffel vergeben) laut offizieller Seite; Anmeldestart-Datum nicht gefunden"
+  },
+  {
+   "name": "Hannover Marathon",
+   "suche": [
+    "marathon hannover"
+   ],
+   "ort": "Hannover",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-04-11",
+   "monat": 4,
+   "starter": 34000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.adac.de/der-adac/regionalclubs/niedersachsen-sachsen-anhalt/adac-marathon-2026/",
+   "anmeldestart": null,
+   "webseite": "https://www.marathon-hannover.de",
+   "instagram": "adac_marathon",
+   "hinweis": "Anmeldung 2027 auf der Webseite verlinkt (offen), Startdatum unbekannt"
+  },
+  {
+   "name": "Heilbronner Trollinger Marathon",
+   "suche": [
+    "trollinger"
+   ],
+   "ort": "Heilbronn",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-04-25",
+   "monat": 4,
+   "starter": 9504,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": "2026-11",
+   "anmeldestart_quelle": "https://www.trollinger-marathon.de/",
+   "webseite": "https://www.trollinger-marathon.de",
+   "instagram": "trollingermarathon",
+   "hinweis": "'Anmeldungen sind ab November möglich'"
+  },
+  {
+   "name": "Hella Halbmarathon Hamburg",
+   "suche": [
+    "hamburg halbmarathon",
+    "hella"
+   ],
+   "ort": "Hamburg",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "monat": 6,
+   "starter": 18600,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.hamburg-halbmarathon.de",
+   "instagram": "dielaufgesellschaft",
+   "hinweis": "Ausgabe 2026 wegen Hitze von Juni auf 25.10.2026 verlegt; 'Anmeldung 2027' auf der Webseite verlinkt, Termin 2027 nicht gefunden; IG ist der Veranstalter-Account"
+  },
+  {
+   "name": "Kassel Marathon",
+   "suche": [
+    "kassel marathon"
+   ],
+   "ort": "Kassel",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "monat": 9,
+   "starter": 18159,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://kassel-marathon.de/",
+   "anmeldestart": null,
+   "webseite": "https://kassel-marathon.de",
+   "instagram": "kasselmarathonofficial",
+   "hinweis": "18.159 Anmeldungen 2026 (inkl. Firmenlauf u. a.); Termin 2027 noch nicht auf der Webseite"
+  },
+  {
+   "name": "Kiel.Lauf",
+   "suche": [
+    "kiel.lauf",
+    "kiel lauf"
+   ],
+   "ort": "Kiel",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-09-12",
+   "monat": 9,
+   "starter": 11842,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.kiellauf.de",
+   "hinweis": "'Sichere dir jetzt deinen Startplatz' – Anmeldung 2027 offen"
+  },
+  {
+   "name": "Köln Marathon",
+   "suche": [
+    "köln marathon"
+   ],
+   "ort": "Köln",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-10-03",
+   "monat": 10,
+   "starter": 39449,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://generali-koeln-marathon.de/en/press/",
+   "anmeldestart": null,
+   "webseite": "https://generali-koeln-marathon.de",
+   "instagram": "generalikoelnmarathon",
+   "hinweis": "Starter = Anmeldungen 2026 (Stand Sept.); Termin 2027 nur aus eigener Datenbank, offiziell noch nicht bestätigt"
+  },
+  {
+   "name": "Leipzig Marathon",
+   "suche": [
+    "leipzig marathon"
+   ],
+   "ort": "Leipzig",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-04-18",
+   "monat": 4,
+   "starter": 14000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.runnersworld.de/news-fotos/leipzig-marathon-2026/",
+   "anmeldestart": "2026-10-03",
+   "anmeldestart_quelle": "https://www.leipzigmarathon.de/",
+   "webseite": "https://www.leipzigmarathon.de",
+   "instagram": "leipzigmarathon",
+   "hinweis": "49. Leipzig Marathon am 18.04.2027 (offizielle Seite); >14.000 Gemeldete 2026 über alle Distanzen"
+  },
+  {
+   "name": "Leipzig Run",
+   "suche": [
+    "leipzig run"
+   ],
+   "ort": "Leipzig",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-10-17",
+   "monat": 10,
+   "starter": 5000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.l-iz.de/melder/wortmelder/2026/10/mehr-als-5-000-laeufer-erwartet-leipzig-run-schlaegt-die-bruecke-zwischen-historie-und-leipziger-neuseenland-672248",
+   "anmeldestart": "2026-10-11",
+   "anmeldestart_quelle": "https://leipzigrun.maximalpuls.com/",
+   "webseite": "https://leipzigrun.maximalpuls.com",
+   "instagram": "leipzigrun_official",
+   "hinweis": "Grenzfall: ehem. Halbmarathon Leipzig; 2026 'mehr als 5.000 erwartet' (Vorab-Zahl, 10 Tage vorher 4.400 gemeldet); Early-Bird ab 11.10.2026"
+  },
+  {
+   "name": "Lübeck Marathon",
+   "suche": [
+    "lübeck marathon",
+    "luebeck marathon"
+   ],
+   "ort": "Lübeck",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "monat": 10,
+   "starter": 7862,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.stadtwerke-luebeck-marathon.de",
+   "hinweis": "Stadtwerke Lübeck Marathon; Webseite blockt Abruf (403), Termin 2027 nicht ermittelt; GRR-Zahl identisch mit Oberelbe (7.862) – evtl. Tabellenfehler"
+  },
+  {
+   "name": "Metropolmarathon Fürth",
+   "suche": [
+    "metropolmarathon"
+   ],
+   "ort": "Fürth/Nürnberg",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-06-20",
+   "monat": 6,
+   "starter": 11500,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.runnersworld.de/news-fotos/metropolmarathon-fuerth-2026/",
+   "anmeldestart": null,
+   "webseite": "https://metropolmarathon.de",
+   "instagram": "sparkassen_metropolmarathon",
+   "hinweis": "Von der Kaiserburg (Nürnberg) zum Kleeblatt (Fürth); 'Anmeldung 2027' im Menü"
+  },
+  {
+   "name": "München Marathon",
+   "suche": [
+    "münchen marathon",
+    "marathon münchen by"
+   ],
+   "ort": "München",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "monat": 10,
+   "starter": 37800,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.muenchen.de/veranstaltungen/sport/muenchen-marathon-2026",
+   "anmeldestart": null,
+   "webseite": "https://marathonmuenchen.org",
+   "instagram": "marathonmuenchen",
+   "hinweis": "Veranstalter für 2027/28 wird von der Stadt neu vergeben (Antragsfrist 15.07.2026), Termin/Anmeldung offen; 2026 Rekord 40.930 Anmeldungen, 37.800 Teilnehmende"
+  },
+  {
+   "name": "Münster Marathon",
+   "suche": [
+    "münster marathon",
+    "münster-marathon"
+   ],
+   "ort": "Münster",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-09-12",
+   "monat": 9,
+   "starter": 11961,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": "2026-11-02",
+   "anmeldestart_quelle": "https://www.volksbank-muenster-marathon.de/",
+   "webseite": "https://www.volksbank-muenster-marathon.de",
+   "instagram": "muenstermarathon",
+   "hinweis": "Starter = Anmeldungen 2025 (GRR); 10.300 Finisher 2025 laut hdsports; Webseite: 'Anmeldung öffnet am 02.11.2026' (Marathon), Staffel etc. teils 01./09.12.2026"
+  },
+  {
+   "name": "Nikolauslauf Tübingen",
+   "suche": [
+    "nikolauslauf tübingen"
+   ],
+   "ort": "Tübingen",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2026-12-06",
+   "monat": 12,
+   "starter": 4834,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": "2026-09",
+   "anmeldestart_quelle": "https://nikolauslauf-tuebingen.de/",
+   "webseite": "https://nikolauslauf-tuebingen.de",
+   "instagram": "nikolauslauf_tuebingen",
+   "hinweis": "knapp unter 5.000 (Anmeldungen 2025); Anmeldestart laut Newsletter 2026/09; 'Endspurt bei der Anmeldung'"
+  },
+  {
+   "name": "Oberelbe-Marathon",
+   "suche": [
+    "oberelbe"
+   ],
+   "ort": "Königstein–Dresden",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-04-25",
+   "monat": 4,
+   "starter": 7862,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.oberelbe-marathon.de",
+   "instagram": "oberelbe_marathon",
+   "hinweis": "Termin 2027 nur aus eigener Datenbank; Anmeldung offen ('Jetzt anmelden')"
+  },
+  {
+   "name": "Paderborner Osterlauf",
+   "suche": [
+    "paderborner osterlauf"
+   ],
+   "ort": "Paderborn",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-03-27",
+   "monat": 3,
+   "starter": 15070,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.paderborner-osterlauf.de/",
+   "anmeldestart": null,
+   "webseite": "https://www.paderborner-osterlauf.de",
+   "instagram": "paderborner_osterlauf",
+   "hinweis": "Rekord 15.070 Starter 2026; Anmeldung 2027 offen"
+  },
+  {
+   "name": "Regensburg Marathon",
+   "suche": [
+    "regensburg marathon"
+   ],
+   "ort": "Regensburg",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-05-09",
+   "monat": 5,
+   "starter": 7200,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.regensburger-nachrichten.de/sport-und-freizeit/99676-regensburg-im-lauf-fieber-ueber-7-200-sportler-feierten-marathon-wochenende",
+   "anmeldestart": null,
+   "webseite": "https://www.regensburg-marathon.de",
+   "hinweis": "35. Regensburg Marathon am 09.05.2027 (offizielle Seite); Veranstalter LLC Marathon Regensburg e.V."
+  },
+  {
+   "name": "Rennsteiglauf",
+   "suche": [
+    "rennsteiglauf"
+   ],
+   "ort": "Schmiedefeld am Rennsteig",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-05-22",
+   "monat": 5,
+   "starter": 16016,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/wettkampf/grossten-laufveranstaltungen-deutschland",
+   "anmeldestart": null,
+   "webseite": "https://www.rennsteiglauf.de",
+   "instagram": "rennsteiglauf",
+   "hinweis": "54. GutsMuths-Rennsteiglauf am 22.05.2027; 'Anmeldung 2027' über mika:timing auf der Seite; Starter = Finisher aller Wettbewerbe inkl. Wandern 2025"
+  },
+  {
+   "name": "Rhein-Ruhr-Marathon Duisburg",
+   "suche": [
+    "rhein-ruhr-marathon"
+   ],
+   "ort": "Duisburg",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-05-02",
+   "monat": 5,
+   "starter": 7979,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.rhein-ruhr-marathon.de",
+   "instagram": "rheinruhrmarathon_duisburg",
+   "hinweis": "Anmeldung offen (Early-Bird bis 31.08.2026 laut Instagram-Feed auf der Seite); genaues Startdatum nicht belegt"
+  },
+  {
+   "name": "S 25 Berlin",
+   "suche": [
+    "s 25 berlin"
+   ],
+   "ort": "Berlin",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-04-18",
+   "monat": 4,
+   "starter": 14523,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": "2026-07-10",
+   "anmeldestart_quelle": "https://berlin-laeuft.de/s25berlin/",
+   "webseite": "https://berlin-laeuft.de/s25berlin/",
+   "instagram": "berlinlaeuft",
+   "hinweis": "25 km rund ums Olympiastadion (ehem. BIG 25)"
+  },
+  {
+   "name": "Silvesterlauf Werl-Soest",
+   "suche": [
+    "silvesterlauf werl"
+   ],
+   "ort": "Werl/Soest",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2026-12-31",
+   "monat": 12,
+   "starter": 7824,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.silvesterlauf.com",
+   "hinweis": "45. Sparkassen Silvesterlauf; 'Anmeldung 2026' verlinkt, Status nicht eindeutig"
+  },
+  {
+   "name": "Stuttgart-Lauf",
+   "suche": [
+    "stuttgart-lauf"
+   ],
+   "ort": "Stuttgart",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-06-05",
+   "monat": 6,
+   "starter": 18000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.stuttgart.de/service/aktuelle-meldungen/2026/mai/stuttgart-laeuft-mehr-als-18.000-meldungen-zum-33.stuttgart-lauf.php",
+   "anmeldestart": null,
+   "webseite": "https://stuttgart-lauf.de",
+   "instagram": "stuttgartlauf",
+   "hinweis": "34. Stuttgart-Lauf am 5./6. Juni 2027; Meldestart laut Veranstalter 'folgt in Kürze'"
+  },
+  {
+   "name": "Würzburg Marathon",
+   "suche": [
+    "marathon würzburg"
+   ],
+   "ort": "Würzburg",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-05-23",
+   "monat": 5,
+   "starter": 6100,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.runnersworld.de/news-fotos/wuerzburg-marathon-2026/",
+   "anmeldestart": "2026-07-05",
+   "anmeldestart_quelle": "https://www.wuerzburg-marathon.de/",
+   "webseite": "https://www.wuerzburg-marathon.de",
+   "instagram": "wuerzburgmarathon",
+   "hinweis": "2026: ca. 7.200 Anmeldungen, ca. 6.100 Starter"
+  },
+  {
+   "name": "Würzburger Residenzlauf",
+   "suche": [
+    "würzburger residenzlauf"
+   ],
+   "ort": "Würzburg",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-04-25",
+   "monat": 4,
+   "starter": 8972,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.residenzlauf.de",
+   "hinweis": "10-km-Straßenlauf; Termin aus eigener Datenbank"
+  },
+  {
+   "name": "run&fun Tuttlingen",
+   "suche": [
+    "run + fun",
+    "run&fun"
+   ],
+   "ort": "Tuttlingen",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-06-05",
+   "monat": 6,
+   "starter": 5000,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://germanroadraces.de/wp-content/uploads/2026/01/Teilnehmerzahlen-2024-2025-Endstand.pdf",
+   "anmeldestart": null,
+   "webseite": "https://runundfun.de",
+   "instagram": "runundfun_tuttlingen",
+   "hinweis": "Grenzfall (genau 5.000 Anmeldungen 2025, inkl. Firmen/Staffeln); 22. Auflage 05./06.06.2027, Online-Anmeldung freigeschaltet"
+  },
+  {
+   "name": "swb-Marathon Bremen",
+   "suche": [
+    "swb-marathon",
+    "swb marathon"
+   ],
+   "ort": "Bremen",
+   "land": "Deutschland",
+   "sport": "Laufen",
+   "termin": "2027-10-03",
+   "monat": 10,
+   "starter": 15000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://swb-marathon.com/",
+   "anmeldestart": null,
+   "webseite": "https://swb-marathon.com",
+   "instagram": "swb_marathon",
+   "hinweis": "Rekord 15.000 Teilnehmende 2026 (Grußwort Sportsenatorin); erste Preisstufe bis 30.09.2026 → Anmeldung läuft"
+  },
+  {
+   "name": "20KM de Lausanne",
+   "suche": [
+    "20km de lausanne"
+   ],
+   "ort": "Lausanne",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-04-25",
+   "monat": 4,
+   "starter": 32725,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/laufen/20-km-de-lausanne",
+   "anmeldestart": "2027-01",
+   "anmeldestart_quelle": "https://www.20km.ch/",
+   "webseite": "https://www.20km.ch",
+   "instagram": "20kmlausanne",
+   "hinweis": "32.725 Finisher 2025 (36.626 Anmeldungen); 2026 >38.500 erwartet. Wochenende 24./25.04.2027. 'Les inscriptions 2027 ouvriront mi-janvier'."
+  },
+  {
+   "name": "Basler Stadtlauf",
+   "suche": [
+    "basler stadtlauf"
+   ],
+   "ort": "Basel",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2026-11-21",
+   "monat": 11,
+   "starter": 10311,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/laufen/basler-stadtlauf",
+   "anmeldestart": null,
+   "webseite": "https://www.baslerstadtlauf.ch",
+   "instagram": "basler_stadtlauf_official",
+   "hinweis": "10.311 Finisher 2025. 43. Ausgabe am 21.11.2026 ist ausgebucht, Anmeldung geschlossen."
+  },
+  {
+   "name": "Bieler Lauftage (100 km von Biel)",
+   "suche": [
+    "bieler lauftage"
+   ],
+   "ort": "Biel/Bienne",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-06-11",
+   "monat": 6,
+   "starter": 4000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.j3l.ch/en/P42414",
+   "anmeldestart": "2026-11",
+   "anmeldestart_quelle": "https://www.100km.ch/",
+   "webseite": "https://www.100km.ch",
+   "instagram": "bielerlauftage_100km",
+   "hinweis": "Kult-Ultra ('Nacht der Nächte'), rund 4.000 Läufer über alle Distanzen. 11.–12.06.2027; 'Die Anmeldung wird im November geöffnet'."
+  },
+  {
+   "name": "Course de l'Escalade",
+   "suche": [
+    "escalade"
+   ],
+   "ort": "Genf",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2026-12-05",
+   "monat": 12,
+   "starter": 59712,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://escalade.ch/wp-content/uploads/2026/07/Rapport-annuel-47e-Course-de-lEscalade.pdf",
+   "anmeldestart": "2026-09-14",
+   "anmeldestart_quelle": "https://www.radiolac.ch/?p=458989",
+   "webseite": "https://escalade.ch",
+   "hinweis": "Größter Lauf der Schweiz: 59.712 Anmeldungen / 50.702 Finisher 2025. 48. Ausgabe 05.–06.12.2026; Anmeldung öffnete Mo 14.09.2026 (einzelne Kategorien ggf. bereits voll, Startnummernbörse)."
+  },
+  {
+   "name": "Eiger Ultra Trail",
+   "suche": [
+    "eiger ultra trail"
+   ],
+   "ort": "Grindelwald",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-07-14",
+   "monat": 7,
+   "starter": 3200,
+   "starter_jahr": 2024,
+   "starter_quelle": "https://www.hdsports.org/laufen/eiger-ultra-trail",
+   "anmeldestart": null,
+   "webseite": "https://eiger.utmb.world",
+   "instagram": "eigerultratrail",
+   "hinweis": "Kult-Trail (UTMB World Series), Veranstalter nennt knapp 4.000 Teilnehmende; 3.200 Finisher 2024 (hdsports). Event 14.–18.07.2027; Anmeldung offen für E250/E16/Trail Surprise, Hauptdistanzen derzeit geschlossen."
+  },
+  {
+   "name": "Genève Marathon",
+   "suche": [
+    "genève marathon"
+   ],
+   "ort": "Genf",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-05-09",
+   "monat": 5,
+   "starter": 19784,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/laufen/geneve-marathon-for-unicef",
+   "anmeldestart": null,
+   "webseite": "https://www.generaligenevemarathon.com",
+   "instagram": "geneve_marathon",
+   "hinweis": "19.784 Finisher 2025 (25.428 Anmeldungen); 2026 ca. 27.500 Anmeldungen erwartet (Rekord). Event 08.–09.05.2027; 'Les inscriptions 2027 sont officiellement ouvertes', Öffnungsdatum unbekannt."
+  },
+  {
+   "name": "Gornergrat Zermatt Marathon",
+   "suche": [
+    "zermatt marathon"
+   ],
+   "ort": "St. Niklaus – Zermatt",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-07-03",
+   "monat": 7,
+   "starter": 2876,
+   "starter_jahr": 2023,
+   "starter_quelle": "https://www.hdsports.org/laufen/gornergrat-zermatt-marathon",
+   "anmeldestart": null,
+   "webseite": "https://www.zermattmarathon.ch",
+   "instagram": "gornergratzermattmarathon",
+   "hinweis": "Kult-Bergmarathon: 2.876 Finisher 2023 (hdsports); Feld 2026 auf 2.222 Startplätze limitiert. Event 02./03.07.2027."
+  },
+  {
+   "name": "Grand Prix von Bern",
+   "suche": [
+    "grand prix bern"
+   ],
+   "ort": "Bern",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-05-15",
+   "monat": 5,
+   "starter": 34387,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.hdsports.org/laufen/grand-prix-von-bern",
+   "anmeldestart": null,
+   "webseite": "https://www.gpbern.ch",
+   "hinweis": "34.387 Klassierte 2026 (37.870 Anmeldungen, Rekord). Anmeldung 2027 offen, Öffnungsdatum unbekannt."
+  },
+  {
+   "name": "Greifenseelauf",
+   "suche": [
+    "greifenseelauf"
+   ],
+   "ort": "Uster",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-09-18",
+   "monat": 9,
+   "starter": 12842,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.hdsports.org/laufen/greifenseelauf",
+   "anmeldestart": null,
+   "webseite": "https://greifenseelauf.ch",
+   "instagram": "greifenseelauf",
+   "hinweis": "12.842 Finisher 2026 (Rekord). Anmeldung 2027 offen."
+  },
+  {
+   "name": "Hallwilerseelauf",
+   "suche": [
+    "hallwilerseelauf"
+   ],
+   "ort": "Beinwil am See",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-10-09",
+   "monat": 10,
+   "starter": 8181,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/laufen/hallwilerseelauf",
+   "anmeldestart": "2026-10-10",
+   "anmeldestart_quelle": "https://www.hallwilerseelauf.ch/",
+   "webseite": "https://www.hallwilerseelauf.ch",
+   "instagram": "hallwilerseelauf.ch",
+   "hinweis": "8.181 Finisher 2025. Anmeldestart = Datum der News 'Early Bird Aktion 2027' (10.10.2026) – abgeleitet, nicht explizit als Öffnung bestätigt."
+  },
+  {
+   "name": "Jungfrau-Marathon",
+   "suche": [
+    "jungfrau"
+   ],
+   "ort": "Interlaken",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-09-11",
+   "monat": 9,
+   "starter": 4000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.plattformj.ch/artikel/241184/",
+   "anmeldestart": "2027-02-14",
+   "anmeldestart_quelle": "https://www.jungfrau-marathon.ch/",
+   "webseite": "https://www.jungfrau-marathon.ch",
+   "instagram": "jungfraumarathon",
+   "hinweis": "Kult-Bergmarathon: 4.000 Startplätze 2026 innerhalb von <4 Wochen ausgebucht (2025: 3.452 Finisher). Wochenende 10./11.09.2027; Anmeldung öffnet 14.02.2027, 08:00 Uhr."
+  },
+  {
+   "name": "Kerzerslauf",
+   "suche": [
+    "kerzerslauf"
+   ],
+   "ort": "Kerzers",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-03-20",
+   "monat": 3,
+   "starter": 6452,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/laufen/kerzerslauf",
+   "anmeldestart": null,
+   "webseite": "https://www.kerzerslauf.ch",
+   "instagram": "kerzerslauf",
+   "hinweis": "6.452 Finisher 2025 (Zahl 2026 nicht gefunden). 49. Ausgabe 20.03.2027, 'Anmelden sofort online möglich', Anmeldeschluss 08.03.2027."
+  },
+  {
+   "name": "Lausanne Marathon",
+   "suche": [
+    "lausanne marathon"
+   ],
+   "ort": "Lausanne",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-10-24",
+   "monat": 10,
+   "starter": 11941,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/laufen/lausanne-marathon",
+   "anmeldestart": null,
+   "webseite": "https://www.lausanne-marathon.com",
+   "instagram": "lausanne_marathon",
+   "hinweis": "11.941 Finisher 2025 (hdsports); für 2026 ca. 13.600 erwartet. Anmeldung 2027: 'Inscriptions bientôt' (Vorregistrierung möglich)."
+  },
+  {
+   "name": "Luzerner Stadtlauf",
+   "suche": [
+    "luzerner stadtlauf"
+   ],
+   "ort": "Luzern",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-04-24",
+   "monat": 4,
+   "starter": 14172,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/laufen/luzerner-stadtlauf",
+   "anmeldestart": null,
+   "webseite": "https://www.luzernerstadtlauf.ch",
+   "instagram": "luzernerstadtlauf",
+   "hinweis": "14.172 Finisher 2025; 2026 lt. Presse >15.500 Anmeldungen (Rekord). Anmeldung 2027 offen (Earlybird bis 31.01.)."
+  },
+  {
+   "name": "Morat-Fribourg (Murtenlauf)",
+   "suche": [
+    "morat-fribourg"
+   ],
+   "ort": "Murten – Freiburg",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-10-03",
+   "monat": 10,
+   "starter": 14304,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/laufen/morat-fribourg-murtenlauf",
+   "anmeldestart": null,
+   "webseite": "https://www.morat-fribourg.ch",
+   "instagram": "moratfribourg",
+   "hinweis": "14.304 Finisher 2025 (über 16.400 Anmeldungen inkl. Nebenläufe); 2026 lt. Presse >17.000 übers Wochenende (nicht verifiziert). 93. Ausgabe 02.–03.10.2027; Anmeldung 2027 noch nicht offen."
+  },
+  {
+   "name": "Schweizer Frauenlauf Bern",
+   "suche": [
+    "schweizer frauenlauf bern"
+   ],
+   "ort": "Bern",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-06-13",
+   "monat": 6,
+   "starter": 11152,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/laufen/schweizer-frauenlauf",
+   "anmeldestart": null,
+   "webseite": "https://www.frauenlauf.ch",
+   "instagram": "frauenlaufbern",
+   "hinweis": "11.152 Finisherinnen 2025 (Zahl 2026 nicht gefunden). Anmeldung 2027 offen."
+  },
+  {
+   "name": "Sierre-Zinal",
+   "suche": [
+    "sierre-zinal"
+   ],
+   "ort": "Sierre – Zinal",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-08-07",
+   "monat": 8,
+   "starter": 6850,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.sierre-zinal.com/data/documents/MEDIA_PRESSE/Communique_de_presse_2026.08.06.pdf",
+   "anmeldestart": null,
+   "webseite": "https://www.sierre-zinal.com",
+   "instagram": "sierrezinal_officiel",
+   "hinweis": "Kult-Berglauf: 6.850 Teilnehmende 2026 (Pressemitteilung), Vergabe per Losverfahren. Suchstring trifft auch 'L'Hivernale Sierre-Zinal' (März, Winterlauf)."
+  },
+  {
+   "name": "SwissCityMarathon Lucerne",
+   "suche": [
+    "swisscitymarathon"
+   ],
+   "ort": "Luzern",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-10-31",
+   "monat": 10,
+   "starter": 13044,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.hdsports.org/laufen/swisscitymarathon-sm-marathon",
+   "anmeldestart": null,
+   "webseite": "https://www.swisscitymarathon.ch",
+   "instagram": "swisscitymarathon",
+   "hinweis": "13.044 Finisher 2026 (hdsports). Anmeldung 2027 offen ('Register Now'), Öffnungsdatum unbekannt."
+  },
+  {
+   "name": "Zürcher Silvesterlauf",
+   "suche": [
+    "zürcher silvesterlauf"
+   ],
+   "ort": "Zürich",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2026-12-13",
+   "monat": 12,
+   "starter": 24940,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/laufen/zuercher-silvesterlauf",
+   "anmeldestart": null,
+   "webseite": "https://www.silvesterlauf.ch",
+   "instagram": "zuerchersilvesterlauf",
+   "hinweis": "24.940 Finisher 2025 (hdsports). 50. Jubiläumsausgabe am 13.12.2026, Anmeldung offen; Öffnungsdatum unbekannt."
+  },
+  {
+   "name": "Zürich Marathon",
+   "suche": [
+    "zürich mara"
+   ],
+   "ort": "Zürich",
+   "land": "Schweiz",
+   "sport": "Laufen",
+   "termin": "2027-04-11",
+   "monat": 4,
+   "starter": 18200,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.hdsports.org/laufen/zuerich-marathon-cityrun",
+   "anmeldestart": null,
+   "webseite": "https://www.zuerichmarathon.ch",
+   "instagram": "zuerich_marathon",
+   "hinweis": "18.200 Finisher 2026 (hdsports; 2025: 19.930 Teilnehmende lt. nau.ch). Marathon und Halbmarathon 2027 bereits SOLD OUT, nur Z10 (10 km) noch offen. DB-Name enthält weiche Trennzeichen ('Zürich Mara\\xadthon')."
+  },
+  {
+   "name": "Graz Marathon",
+   "suche": [
+    "graz marathon"
+   ],
+   "ort": "Graz",
+   "land": "Österreich",
+   "sport": "Laufen",
+   "termin": "2027-10-10",
+   "monat": 10,
+   "starter": 15000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.grazmarathon.at/",
+   "anmeldestart": null,
+   "webseite": "https://www.grazmarathon.at",
+   "hinweis": "15.000 Anmeldungen 2026 (laut News auf Veranstalterseite); 2025: 13.851 Finisher (hdsports). Event 08.–10.10.2027, Marathon-Sonntag 10.10. Anmeldestart 2027 nicht gefunden."
+  },
+  {
+   "name": "Großglockner Ultra-Trail",
+   "suche": [
+    "grossglockner ultra-trail"
+   ],
+   "ort": "Kaprun",
+   "land": "Österreich",
+   "sport": "Laufen",
+   "termin": "2027-07-23",
+   "monat": 7,
+   "starter": 2400,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://media.zellamsee-kaprun.com/en/presse/successful-debut-for-the-north-face-grossglockner-ultra-trail-2026~2874",
+   "anmeldestart": null,
+   "webseite": "https://www.zellamsee-kaprun.com/en/event/the-north-face-grossglockner-ultra-trail~10867",
+   "hinweis": "Kult-Trail: >2.400 Anmeldungen 2026 (knapp 2.000 am Start). Termin 2027 lt. hdsports vom Veranstalter bestätigt. Offizielle Domain nicht abrufbar, Tourismus-Eventseite als Webseite."
+  },
+  {
+   "name": "Innsbruck Alpine Trailrun Festival",
+   "suche": [
+    "innsbruck alpine"
+   ],
+   "ort": "Innsbruck",
+   "land": "Österreich",
+   "sport": "Laufen",
+   "termin": "2027-05-05",
+   "monat": 5,
+   "starter": 9000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.tt.com/artikel/30945002/trailrun-festival-knackt-die-10-000er-marke-und-geht-jetzt-auch-neuen-weg",
+   "anmeldestart": "2026-09-09",
+   "anmeldestart_quelle": "https://www.innsbruckalpine.at/",
+   "webseite": "https://www.innsbruckalpine.at",
+   "instagram": "innsbruckalpine",
+   "hinweis": "Über 9.000 Teilnehmende 2026; 2027 (05.–08.05.) >10.000 erwartet, ab 2027 World Trail Major. Anmeldestart 09.09.2026, 09:09 Uhr."
+  },
+  {
+   "name": "Kärnten Läuft",
+   "suche": [
+    "wörthersee halbmarathon"
+   ],
+   "ort": "Klagenfurt/Velden am Wörthersee",
+   "land": "Österreich",
+   "sport": "Laufen",
+   "termin": "2027-08-29",
+   "monat": 8,
+   "starter": 10000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.kaerntenlaeuft.at/",
+   "anmeldestart": null,
+   "webseite": "https://www.kaerntenlaeuft.at",
+   "instagram": "kaerntenlaeuft",
+   "hinweis": "Event 27.–29.08.2027; ca. 10.000 Läufer 2026 (Jubiläum). Laut News vom 31.08.2026 startet Anmeldung 2027 'in Kürze' (Datum unbekannt). In DB als 'Wörthersee Halbmarathon'."
+  },
+  {
+   "name": "Linz Donau Marathon",
+   "suche": [
+    "linz donau marathon"
+   ],
+   "ort": "Linz",
+   "land": "Österreich",
+   "sport": "Laufen",
+   "termin": "2027-04-11",
+   "monat": 4,
+   "starter": 21401,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.linzmarathon.at/en",
+   "anmeldestart": "2026-06-03",
+   "anmeldestart_quelle": "https://www.tips.at/nachrichten/ooe/sport/723695-25-oberbank-linz-donau-marathon-anmeldestart-am-3-juni",
+   "webseite": "https://www.linzmarathon.at",
+   "instagram": "linzmarathon",
+   "hinweis": "Startplatzkontingente, alle Bewerbe limitiert."
+  },
+  {
+   "name": "Salzburg Marathon",
+   "suche": [
+    "salzburg marathon"
+   ],
+   "ort": "Salzburg",
+   "land": "Österreich",
+   "sport": "Laufen",
+   "termin": "2027-05-23",
+   "monat": 5,
+   "starter": 14000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.salzburg24.at/sport/sportmix/eva-wutti-gewinnt-salzburg-marathon-mit-rekord-lukas-hollaus-quaelt-sich-mit-schmerzen-zum-heimsieg-art-326007",
+   "anmeldestart": "2026-08-25",
+   "anmeldestart_quelle": "https://www.salzburg-marathon.at/",
+   "webseite": "https://www.salzburg-marathon.at",
+   "instagram": "salzburgmarathon",
+   "hinweis": "Über 14.000 Teilnehmende aller Bewerbe der Eventwoche 2026 (inkl. Frauenlauf/Junior); hdsports: 10.257 Finisher. Anmeldung 2027 laut News vom 25.08.2026 geöffnet (= spätestens-Datum)."
+  },
+  {
+   "name": "Vienna City Marathon",
+   "suche": [
+    "vienna city marathon"
+   ],
+   "ort": "Wien",
+   "land": "Österreich",
+   "sport": "Laufen",
+   "termin": "2027-04-18",
+   "monat": 4,
+   "starter": 49379,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.vienna.at/vienna-city-marathon-soll-2027-weiter-wachsen/10121012",
+   "anmeldestart": null,
+   "webseite": "https://www.vienna-marathon.com",
+   "instagram": "vienna_city_marathon",
+   "hinweis": "49.379 Anmeldungen alle Bewerbe 2026 (Rekord). Anmeldung 2027 lief bereits im Mai 2026 (genaues Datum unbekannt); Marathon/HM/Staffel seit September 2026 voll (Warteliste), Nebenbewerbe (10K, 5K) noch offen."
+  },
+  {
+   "name": "Vienna Night Run",
+   "suche": [
+    "vienna night run"
+   ],
+   "ort": "Wien",
+   "land": "Österreich",
+   "sport": "Laufen",
+   "termin": "2027-09-16",
+   "monat": 9,
+   "starter": 17541,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.hdsports.org/laufen/vienna-night-run",
+   "anmeldestart": null,
+   "webseite": "https://www.viennanightrun.at",
+   "instagram": "viennanightrun",
+   "hinweis": "17.541 Finisher 2025 (hdsports; Zahl 2026 nicht gefunden). Anmeldung 2027 offen (Nenngeldstufe bis 31.12.2026), Öffnungsdatum unbekannt."
+  },
+  {
+   "name": "Wachaumarathon",
+   "suche": [
+    "wachaumarathon"
+   ],
+   "ort": "Krems an der Donau",
+   "land": "Österreich",
+   "sport": "Laufen",
+   "termin": "2027-09-26",
+   "monat": 9,
+   "starter": 8200,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://wachaumarathon.com/",
+   "anmeldestart": null,
+   "webseite": "https://wachaumarathon.com",
+   "instagram": "wachaumarathon",
+   "hinweis": "Mehr als 8.200 Teilnehmende 2026. Anmeldestart 2027 nicht veröffentlicht."
+  },
+  {
+   "name": "Wolfgangseelauf",
+   "suche": [
+    "wolfgangsee"
+   ],
+   "ort": "St. Wolfgang im Salzkammergut",
+   "land": "Österreich",
+   "sport": "Laufen",
+   "termin": "2027-10-17",
+   "monat": 10,
+   "starter": 6087,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.tips.at/nachrichten/gmunden/sport/738352-wolfgangseelauf-2026-steuert-auf-neuen-teilnehmerrekord-zu",
+   "anmeldestart": null,
+   "webseite": "https://www.wolfgangseelauf.at",
+   "instagram": "wolfgangseelauf",
+   "hinweis": "6.087 Anmeldungen kurz vor dem Event 2026 (Rekord 2025: knapp 7.000 laut Veranstalter). Termin 2027 lt. hdsports vom Veranstalter bestätigt (3. Okt.-Wochenende, 16./17.10.). Anmeldung 2026 öffnete am 1.1.2026 – 2027 vermutlich wieder zum Jahresbeginn (nicht bestätigt)."
+  },
+  {
+   "name": "Österreichischer Frauenlauf",
+   "suche": [
+    "frauenlauf wien",
+    "österreichischer frauenlauf"
+   ],
+   "ort": "Wien",
+   "land": "Österreich",
+   "sport": "Laufen",
+   "monat": 5,
+   "starter": 31113,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.oesterreichischer-frauenlauf.at/",
+   "anmeldestart": null,
+   "webseite": "https://www.oesterreichischer-frauenlauf.at",
+   "instagram": "oesterreichischer_frauenlauf",
+   "hinweis": "31.113 Starterinnen 2026 (Prater). Termin 2027 noch nicht offiziell (hdsports-Prognose 30.05.2027, nicht fixiert)."
+  },
+  {
+   "name": "Stadtzürcher Seeüberquerung",
+   "suche": [
+    "stadtzürcher seeüberquerung"
+   ],
+   "ort": "Zürich",
+   "land": "Schweiz",
+   "sport": "Schwimmen",
+   "termin": "2027-07-07",
+   "monat": 7,
+   "starter": 9196,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.tagesanzeiger.ch/9196-schwimmerinnen-und-schwimmer-an-der-seeueberquerung-643435944483",
+   "anmeldestart": null,
+   "webseite": "https://www.seeueberquerung.ch/",
+   "hinweis": "Achtung: 'seeüberquerung' trifft auch ASVÖ Atterseeüberquerung – besser 'stadtzürcher'. Max. 9.000 Tickets (2026 ausverkauft); Ticketverkauf über Ticketcorner erst am Montag(mittag) vor dem Event; Ersatzdaten 14.07./25.08.2027; findet nur bei ≥21 °C statt."
+  },
+  {
+   "name": "Allgäu Triathlon",
+   "suche": [
+    "allgäu triathlon"
+   ],
+   "ort": "Immenstadt im Allgäu",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-08-22",
+   "monat": 8,
+   "starter": 3500,
+   "starter_quelle": "https://trainerday.com/events/de/allg-u-triathlon",
+   "anmeldestart": null,
+   "webseite": "https://www.808project.de/allgaeutriathlon",
+   "hinweis": "Webseite: Warteliste/'für 2027 vormerken' – Anmeldung noch nicht offen; Anmeldestart nicht genannt."
+  },
+  {
+   "name": "Audi Triathlon Ingolstadt",
+   "suche": [
+    "triathlon ingolstadt"
+   ],
+   "ort": "Ingolstadt",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-06-06",
+   "monat": 6,
+   "starter": 2500,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.festivalsindeutschland.de/festival/audi-triathlon-ingolstadt",
+   "anmeldestart": null,
+   "webseite": "https://www.triathlon-ingolstadt.de/",
+   "instagram": "triathloningolstadt",
+   "hinweis": "Anmeldestart 01.10.2026 wurde laut News vom 29.09.2026 verschoben, neues Datum nicht genannt."
+  },
+  {
+   "name": "Berlin Triathlon",
+   "suche": [
+    "berlin triathlon",
+    "berlintriathlon"
+   ],
+   "ort": "Berlin",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-06-05",
+   "monat": 6,
+   "starter": 2500,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.runnersworld.de/laufkalender/berlin-triathlon/",
+   "anmeldestart": null,
+   "webseite": "https://berlin-triathlon.de/",
+   "instagram": "berlintriathlon",
+   "hinweis": "5./6.06.2027, inkl. Berliner Spreeschwimmen."
+  },
+  {
+   "name": "DATEV Challenge Roth",
+   "suche": [
+    "datev challenge roth"
+   ],
+   "ort": "Roth",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-07-04",
+   "monat": 7,
+   "starter": 3500,
+   "starter_jahr": 2027,
+   "starter_quelle": "https://endurance.biz/2026/industry-news/gone-in-less-than-20-seconds-datev-challenge-roth-2027-sells-out-online-in-record-time/",
+   "anmeldestart": "2026-07-13",
+   "anmeldestart_quelle": "https://endurance.biz/2026/industry-news/coordinating-with-ironman-in-germany-datev-challenge-roth-confirms-date-for-2027-event/",
+   "webseite": "https://www.challenge-roth.com/de/",
+   "instagram": "challengeroth",
+   "hinweis": "3.500 Einzelstarter + 700 Staffeln. Vor-Ort-Anmeldung 06.07.2026 (Tag nach dem Rennen), Online-Anmeldung 13.07.2026 10:00 – in ~15 Sek. ausverkauft. Late Entry Draw bis 09.11.2026 (Tickets 10 €)."
+  },
+  {
+   "name": "Frankfurt City Triathlon",
+   "suche": [
+    "frankfurt city triathlon"
+   ],
+   "ort": "Frankfurt am Main / Langener Waldsee",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-08-01",
+   "monat": 8,
+   "starter": 3000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.runnersworld.de/news-fotos/frankfurt-city-triathlon-2026/",
+   "anmeldestart": "2026-11-02",
+   "anmeldestart_quelle": "https://www.frankfurt-city-triathlon.de/",
+   "webseite": "https://www.frankfurt-city-triathlon.de/",
+   "instagram": "frankfurtcitytriathlon",
+   "hinweis": "Anmeldung öffnet 02.11.2026 12:00. 2026 Teilnehmerrekord."
+  },
+  {
+   "name": "Hamburg Wasser World Triathlon / WTCS Finals Hamburg",
+   "suche": [
+    "world triathlon"
+   ],
+   "ort": "Hamburg",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-09-08",
+   "monat": 7,
+   "starter": 10000,
+   "starter_quelle": "https://web.de/magazine/gesundheit/groesste-triathlon-welt-weltelite-hamburg-42484526",
+   "anmeldestart": null,
+   "webseite": "https://www.hamburgtriathlon.com/",
+   "instagram": "wtcshamburg",
+   "hinweis": "2027 Sonderausgabe: WM-Finale 8.–12.09.2027 statt üblichem Juli-Termin; >16.000 Teilnehmende in der Eventwoche erwartet. AK-WM-Anmeldung lt. World Triathlon ab Sept. 2026, Jedermann/Open Races 'Herbst 2026' (kein Datum): https://triathlon.org/events/de/2027-world-triathlon-age-group-championships-hamburg"
+  },
+  {
+   "name": "IRONMAN 70.3 Duisburg",
+   "suche": [
+    "ironman 70.3 duisburg"
+   ],
+   "ort": "Duisburg",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-08-29",
+   "monat": 8,
+   "starter": 2500,
+   "starter_quelle": "https://www.finishers.com/course/ironman-de-duisbourg",
+   "anmeldestart": null,
+   "webseite": "https://www.ironman.com/races/im703-duisburg",
+   "hinweis": "'üblicherweise ca. 2.500' laut finishers.com."
+  },
+  {
+   "name": "IRONMAN 70.3 Erkner",
+   "suche": [
+    "ironman 70.3 erkner"
+   ],
+   "ort": "Erkner",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-09-12",
+   "monat": 9,
+   "starter": 3000,
+   "starter_quelle": "https://trainerday.com/events/de/ironman-70-3-erkner-2026",
+   "anmeldestart": null,
+   "webseite": "https://www.ironman.com/races/im703-erkner",
+   "hinweis": "'über 3.000' laut Aggregator (nicht offiziell)."
+  },
+  {
+   "name": "IRONMAN 70.3 Kraichgau",
+   "suche": [
+    "ironman 70.3 kraichgau"
+   ],
+   "ort": "Ubstadt-Weiher",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-05-23",
+   "monat": 5,
+   "starter": 2500,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://trainerday.com/events/de/ironman-70-3-de-kraichgau-2026",
+   "anmeldestart": null,
+   "webseite": "https://www.ironman.com/races/im703-kraichgau",
+   "hinweis": "Termin uneinheitlich: 23.05.2027 (sportpress.international, werun/finishers), 30.05.2027 (unsere DB), 06.06.2027 (strtln.de). Starterzahl ~2.500 ist Vorab-Schätzung."
+  },
+  {
+   "name": "IRONMAN 70.3 Leipzig",
+   "suche": [
+    "ironman 70.3 leipzig"
+   ],
+   "ort": "Leipzig",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-08-08",
+   "monat": 8,
+   "starter": 2500,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://endurance.biz/?p=90911",
+   "anmeldestart": null,
+   "webseite": "https://www.ironman.com/races/im703-leipzig",
+   "hinweis": "2. Ausgabe; Pro Series. Für 2026 öffnete die Anmeldung am 30.10.2025 (Vorjahresmuster)."
+  },
+  {
+   "name": "IRONMAN Frankfurt",
+   "suche": [
+    "ironman frankfurt",
+    "mainova ironman"
+   ],
+   "ort": "Frankfurt am Main",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-06-27",
+   "monat": 6,
+   "starter": null,
+   "anmeldestart": null,
+   "webseite": "https://www.ironman.com/races/im-frankfurt",
+   "hinweis": "European Championship (Männer + Frauen). Laut we-up.club am 02.10.2026 ausverkauft, keine Warteliste: https://we-up.club/blog/ironman-frankfurt ; Termin: https://www.hessenschau.de/sport/mehr-sport/frankfurt-bekommt-ironman-em-der-frauen-und-der-maenner-v1,ironman-em-ffm-100.html"
+  },
+  {
+   "name": "IRONMAN Hamburg",
+   "suche": [
+    "ironman hamburg"
+   ],
+   "ort": "Hamburg",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-06-06",
+   "monat": 6,
+   "starter": 3000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.hamburg-magazin.de/artikel/ironman-in-hamburg",
+   "anmeldestart": null,
+   "webseite": "https://www.ironman.com/races/im-hamburg",
+   "hinweis": "Reguläre Anmeldung laut we-up.club (Stand 10/2026) ausverkauft. Starterzahl 'rund 3.000' (andere Quelle: 2.500)."
+  },
+  {
+   "name": "Köln Triathlon",
+   "suche": [
+    "köln triathlon"
+   ],
+   "ort": "Köln",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-09-05",
+   "monat": 9,
+   "starter": 4185,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.stadt-koeln.de/politik-und-verwaltung/presse/mitteilungen/28626/index.html",
+   "anmeldestart": "2026-11-25",
+   "anmeldestart_quelle": "https://www.koeln-triathlon.com/",
+   "webseite": "https://www.koeln-triathlon.com/",
+   "instagram": "koelntriathlon",
+   "hinweis": "4.185 Anmeldungen 2026 (Rekord)."
+  },
+  {
+   "name": "RYZON Bonn Triathlon",
+   "suche": [
+    "bonn triathlon"
+   ],
+   "ort": "Bonn",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-06-06",
+   "monat": 6,
+   "starter": 1600,
+   "starter_quelle": "https://www.bonn-triathlon.de/",
+   "anmeldestart": null,
+   "webseite": "https://www.bonn-triathlon.de/",
+   "instagram": "bonn_triathlon",
+   "hinweis": "Laut News vom 26.10.2026 für 2027 bereits ausgebucht (Startplatzbörse). 2025: 1.200 Teilnehmende (bonn.de)."
+  },
+  {
+   "name": "Schlosstriathlon Moritzburg",
+   "suche": [
+    "moritzburg"
+   ],
+   "ort": "Moritzburg",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-06-12",
+   "monat": 6,
+   "starter": 1800,
+   "starter_jahr": 2023,
+   "starter_quelle": "https://triathlon.de/en/blogs/triathlon-regional/anmeldestart-schlosstriathlon-moritzburg-2023",
+   "anmeldestart": "2027-01",
+   "anmeldestart_quelle": "https://www.schlosstriathlon.de/",
+   "webseite": "https://www.schlosstriathlon.de/",
+   "instagram": "schlosstriathlon_moritzburg",
+   "hinweis": "12./13.06.2027; Online-Anmeldung 'Anfang Januar 2027'."
+  },
+  {
+   "name": "Sparda Münster City Triathlon",
+   "suche": [
+    "münster city triathlon"
+   ],
+   "ort": "Münster",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-06-20",
+   "monat": 6,
+   "starter": 3150,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://ms-aktuell.de/freizeit/teilnehmerrekord-am-stadthafen-muenster-city/",
+   "anmeldestart": null,
+   "webseite": "https://muenster-triathlon.de/",
+   "instagram": "muenstertriathlon",
+   "hinweis": "3.150 = erwarteter Rekord 2026."
+  },
+  {
+   "name": "Stadttriathlon Erding",
+   "suche": [
+    "stadttriathlon erding"
+   ],
+   "ort": "Erding",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-06-13",
+   "monat": 6,
+   "starter": 1600,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://trisport-erding.de/wp-content/uploads/2026/06/Athleteninfo_2026_final.pdf",
+   "anmeldestart": null,
+   "webseite": "https://trisport-erding.de/stadttriathlon/information-stadttriathlon/",
+   "instagram": "trisport.erding",
+   "hinweis": "Anmeldung 2027: '(folgt)'."
+  },
+  {
+   "name": "VR Bank Triathlon Heilbronn",
+   "suche": [
+    "triathlon heilbronn"
+   ],
+   "ort": "Heilbronn",
+   "land": "Deutschland",
+   "sport": "Triathlon",
+   "termin": "2027-06-13",
+   "monat": 6,
+   "starter": 2500,
+   "starter_jahr": 2019,
+   "starter_quelle": "https://challengefamily.com/news/excellent-starter-field-on-19th-of-may-2019-challenge-heilbronn-and-title-sponsor-hep-present-their-athletes/",
+   "anmeldestart": null,
+   "webseite": "https://www.triathlon-heilbronn.de/",
+   "instagram": "vrbanktriathlonheilbronn",
+   "hinweis": "Ex-Challenge Heilbronn; 2026 früh ausverkauft. News 'Registrierung für 2027 startet' vom 14.06.2026 ohne Datum."
+  },
+  {
+   "name": "Genève Triathlon",
+   "suche": [
+    "genève triathlon"
+   ],
+   "ort": "Genf",
+   "land": "Schweiz",
+   "sport": "Triathlon",
+   "termin": "2027-07-03",
+   "monat": 7,
+   "starter": 5400,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://endurance.biz/?p=93953",
+   "anmeldestart": null,
+   "webseite": "https://www.genevetriathlon.ch/",
+   "instagram": "triathlondegeneve",
+   "hinweis": "3./4.07.2027; 'Les inscriptions 2027 sont ouvertes'. 5.400 = Rekord-Erwartung 2026."
+  },
+  {
+   "name": "IRONMAN 70.3 Switzerland Rapperswil-Jona",
+   "suche": [
+    "ironman 70.3 switzerland"
+   ],
+   "ort": "Rapperswil-Jona",
+   "land": "Schweiz",
+   "sport": "Triathlon",
+   "termin": "2027-06-06",
+   "monat": 6,
+   "starter": null,
+   "anmeldestart": null,
+   "webseite": "https://www.ironman.com/races/im703-switzerland",
+   "hinweis": "20. Ausgabe; 'mehrere tausend Athleten' (zuerich.com), keine genaue Zahl."
+  },
+  {
+   "name": "IRONMAN Switzerland Thun",
+   "suche": [
+    "ironman switzerland thun"
+   ],
+   "ort": "Thun",
+   "land": "Schweiz",
+   "sport": "Triathlon",
+   "termin": "2027-07-04",
+   "monat": 7,
+   "starter": 2000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://madeinbern.com/en/experiences/year-round/events/top-sports-events/ironman-switzerland",
+   "anmeldestart": null,
+   "webseite": "https://www.ironman.com/races/im-switzerland",
+   "hinweis": "Starterzahl = Erwartung der Tourismusseite (~2.000)."
+  },
+  {
+   "name": "Inferno Triathlon",
+   "suche": [
+    "inferno triathlon"
+   ],
+   "ort": "Thun → Schilthorn (Mürren)",
+   "land": "Schweiz",
+   "sport": "Triathlon",
+   "termin": "2027-08-21",
+   "monat": 8,
+   "starter": 333,
+   "starter_quelle": "https://www.faernresorts.com/wengen/events-and-packages-wengen/inferno-triathlon",
+   "anmeldestart": "2026-11-11",
+   "anmeldestart_quelle": "https://www.inferno.ch/",
+   "webseite": "https://www.inferno.ch/",
+   "instagram": "infernotriathlon",
+   "hinweis": "Kultstatus trotz kleinem Feld (Einzel; plus Teams). Anmeldung öffnet 11.11.2026 11:11."
+  },
+  {
+   "name": "Powerman Zofingen",
+   "suche": [
+    "powerman"
+   ],
+   "ort": "Zofingen",
+   "land": "Schweiz",
+   "sport": "Triathlon",
+   "termin": "2027-09-05",
+   "monat": 9,
+   "starter": 1000,
+   "starter_jahr": 2013,
+   "starter_quelle": "https://www.srf.ch/news/aargau-solothurn-etwas-vom-alten-glanz-ist-zurueck-am-powerman-zofingen",
+   "anmeldestart": null,
+   "webseite": "https://www.powerman.ch/",
+   "instagram": "powerman_zofingen",
+   "hinweis": "Duathlon (Langdistanz-WM). Termin laut unserer DB (4./5.09.2027), Webseite nennt nur 'Anfang September'. Starterzahl 'über 1000' ist alt (2013)."
+  },
+  {
+   "name": "Zurich City Triathlon",
+   "suche": [
+    "zurich city triathlon"
+   ],
+   "ort": "Zürich",
+   "land": "Schweiz",
+   "sport": "Triathlon",
+   "termin": "2027-06-27",
+   "monat": 6,
+   "starter": 6000,
+   "starter_quelle": "https://www.zurichcitytriathlon.ch/",
+   "anmeldestart": "2026-10",
+   "anmeldestart_quelle": "https://www.zurichcitytriathlon.ch/",
+   "webseite": "https://www.zurichcitytriathlon.ch/",
+   "instagram": "zurichcitytriathlon",
+   "hinweis": "Anmeldung Sprint/Olympic ab ca. 08.–10.10.2026 (Seite widersprüchlich); Sprint + Olympic bereits ausverkauft, Team-Kategorien noch offen. '6000+' ist Eigenangabe."
+  },
+  {
+   "name": "Austria Triathlon Podersdorf",
+   "suche": [
+    "podersdorf"
+   ],
+   "ort": "Podersdorf am See",
+   "land": "Österreich",
+   "sport": "Triathlon",
+   "termin": "2027-09-04",
+   "monat": 9,
+   "starter": 2800,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.austria-triathlon.at/",
+   "anmeldestart": "2026-09-22",
+   "anmeldestart_quelle": "https://www.austria-triathlon.at/",
+   "webseite": "https://www.austria-triathlon.at/",
+   "instagram": "austria_triathlon",
+   "hinweis": "3.–5.09.2027 (Langdistanz/Halb am Samstag 04.09.). Anmeldung seit 22.09.2026 20:00, Distanzen teils schon gut gefüllt."
+  },
+  {
+   "name": "Challenge Kaiserwinkl-Walchsee",
+   "suche": [
+    "kaiserwinkl-walchsee"
+   ],
+   "ort": "Walchsee",
+   "land": "Österreich",
+   "sport": "Triathlon",
+   "termin": "2027-06-27",
+   "monat": 6,
+   "starter": 1800,
+   "starter_quelle": "https://www.runnersworld.de/laufkalender/challenge-kaiserwinkl-walchsee-triathlon/",
+   "anmeldestart": null,
+   "webseite": "https://www.challenge-walchsee.com/",
+   "instagram": "challengekaiserwinklwalchsee",
+   "hinweis": "Mitteldistanz 2026 Anfang Juni ausverkauft; Webseite zeigt 'Enter now' + Warteliste."
+  },
+  {
+   "name": "IRONMAN 70.3 St. Pölten",
+   "suche": [
+    "ironman 70.3 st. pölten"
+   ],
+   "ort": "St. Pölten",
+   "land": "Österreich",
+   "sport": "Triathlon",
+   "termin": "2027-05-23",
+   "monat": 5,
+   "starter": 2800,
+   "starter_jahr": 2027,
+   "starter_quelle": "https://noe.gv.at/noe/IRONMAN_2027_in_St._Poelten_ist_ausverkauft.html",
+   "anmeldestart": "2026-06-18",
+   "anmeldestart_quelle": "https://www.5min.at/niederoesterreich/5202606021935/ironman-kehrt-nach-st-poelten-zurueck-termin-fixiert/",
+   "webseite": "https://www.ironman.com/races/im703-st-poelten",
+   "hinweis": "Comeback als IRONMAN 70.3; ca. 10 Wochen nach Anmeldestart (Sept. 2026) mit 2.800 Anmeldungen ausverkauft."
+  },
+  {
+   "name": "IRONMAN 70.3 Zell am See-Kaprun",
+   "suche": [
+    "ironman 70.3 zell"
+   ],
+   "ort": "Zell am See",
+   "land": "Österreich",
+   "sport": "Triathlon",
+   "termin": "2027-08-29",
+   "monat": 8,
+   "starter": 2500,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.salzburg24.at/sport/sportmix/ironman-703-in-zell-am-see-kaerntnerin-lisa-perterer-holt-zweiten-platz-art-300788",
+   "anmeldestart": null,
+   "webseite": "https://www.ironman.com/races/im703-zell-am-see"
+  },
+  {
+   "name": "IRONMAN Kärnten-Klagenfurt",
+   "suche": [
+    "klagenfurt-austria"
+   ],
+   "ort": "Klagenfurt am Wörthersee",
+   "land": "Österreich",
+   "sport": "Triathlon",
+   "termin": "2027-06-13",
+   "monat": 6,
+   "starter": 3000,
+   "starter_jahr": 2026,
+   "starter_quelle": "https://www.meinbezirk.at/tag/ironman",
+   "anmeldestart": null,
+   "webseite": "https://www.ironman.com/races/im-austria",
+   "hinweis": "'über 3.000 Teilnehmer' 2026 laut MeinBezirk (Nebenbemerkung). Anmeldestart nicht verlässlich gefunden (spoferan nennt 13.12.2026 – wirkt wie Platzhalter)."
+  },
+  {
+   "name": "Trumer Triathlon",
+   "suche": [
+    "trumer triathlon"
+   ],
+   "ort": "Obertrum am See",
+   "land": "Österreich",
+   "sport": "Triathlon",
+   "termin": "2027-07-16",
+   "monat": 7,
+   "starter": 2400,
+   "starter_jahr": 2025,
+   "starter_quelle": "https://www.salzburg24.at/sport/sportmix/salzburger-philip-pertl-nach-lebensmittelvergiftung-100-prozent-fit-fuer-trumer-triathlon-art-296604",
+   "anmeldestart": "2026-08-26",
+   "anmeldestart_quelle": "https://www.trumer-triathlon.at/de/",
+   "webseite": "https://www.trumer-triathlon.at/de/",
+   "instagram": "trumertriathlon",
+   "hinweis": "16.–18.07.2027 inkl. Trumer Seecrossing (Schwimmen). Achtung: 'trumer triathlon' trifft auch 'Charity Run Trumer Triathlon' (Laufen). 2026 erneut Teilnehmerrekord (ohne Zahl)."
+  }
+ ]
 }
