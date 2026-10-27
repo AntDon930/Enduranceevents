@@ -6040,7 +6040,7 @@ nach, ob etwas fällig ist, und sagt es dem Nutzer – das Datum der
 letzten Erledigung steht in Klammern dahinter (beim Erledigen
 nachtragen). Routine geht vor Entwicklung: Reichen die Tokens nicht,
 wartet die Entwicklung, nicht der Wochenablauf.
-- *Monatlich, Claude* (zuletzt: –):
+- *Monatlich, Claude* – fällig ab dem 1. jedes Monats (zuletzt: –):
   - Clubs-Korrekturliste durchsehen (Clubs-Branch, `clubs_korrekturliste.py`).
   - `veranstalter_links.py sammeln --nur-host my.raceresult.com
     --auch-geprueft --pause 8`, dann `anwenden` – Veranstalter tragen
@@ -6050,7 +6050,9 @@ wartet die Entwicklung, nicht der Wochenablauf.
     `datum_vorlaeufig` löschen.
 - *Monatlich, Nutzer*: Statistik-Dashboard und Instagram-Auswertung
   ansehen.
-- *Quartalsweise, Claude* (zuletzt: –):
+- *Quartalsweise, Claude* – nach dem Kalender, fällig ab 01.01., 01.04.,
+  01.07. und 01.10. (vom Nutzer am 27.10.2026 so festgelegt); das
+  laufende Quartal (Q4 2026) ist damit schon fällig (zuletzt: –):
   - **Neue Quellen suchen – INTENSIV** (Wunsch des Nutzers: „Das neue
     Quellen suchen soll dann schon sehr intensive sein“): je Sportart
     (Rad und Schwimmen zuerst, dann Triathlon, Lauf) und je Region
