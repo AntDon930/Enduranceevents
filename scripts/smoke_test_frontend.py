@@ -1979,6 +1979,75 @@ def pruefe_teilen(ctx, basis):
     seite.close()
 
 
+def event_fuer_instagram(mit_konto: bool) -> tuple[str, str | None] | None:
+    """(Name, Konto) der ersten künftigen, sichtbaren Zeile mit eigener
+    Veranstalterseite, die ein Instagram-Konto trägt (bzw. keines) - aus
+    events.json gewählt, nicht fest eingetragen (siehe CLAUDE.md: kein
+    festes Beispiel in den Prüfungen). Nur Namen, die die Mastersuche
+    eindeutig findet: kein anderer sichtbarer Name enthält ihn."""
+    import datetime
+    import json
+    heute = datetime.date.today().isoformat()
+    pfad = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "events.json")
+    with open(pfad, encoding="utf-8") as f:
+        events = json.load(f)
+    sichtbar = [e for e in events
+                if not e.get("pruefung_offen")
+                and (e.get("datum_ende") or e.get("datum_start") or "") >= heute]
+    namen = [(e.get("name") or "").lower() for e in sichtbar]
+    for e in sichtbar:
+        name = e.get("name") or ""
+        if bool(e.get("instagram")) != mit_konto or not e.get("veranstalter_url") or len(name) < 10:
+            continue
+        if sum(1 for n in namen if name.lower() in n) != sum(1 for n in namen if n == name.lower()):
+            continue
+        return name, e.get("instagram")
+    return None
+
+
+def pruefe_instagram(ctx, basis):
+    """Das Instagram-Zeichen großer Veranstaltungen (seit 27.10.2026): klein
+    rechts neben dem Veranstalter-Knopf, verlinkt auf das Konto des Events,
+    gleich hoch wie der Knopf - und bei einem Event ohne eigenes Konto
+    gar nicht da."""
+    print("\nInstagram-Konto in der Detail-Box")
+    for mit_konto in (True, False):
+        wahl = event_fuer_instagram(mit_konto)
+        if not wahl:
+            print("  (kein passendes Event %s Instagram-Konto im Bestand - übersprungen)"
+                  % ("mit" if mit_konto else "ohne"))
+            continue
+        name, konto = wahl
+        seite, probleme = seite_oeffnen(ctx, basis + "/events.html?s=" + urllib.parse.quote(name), "tbody tr[data-idx]")
+        seite.wait_for_timeout(500)
+        seite.locator("tbody tr[data-idx]").first.click()
+        seite.wait_for_timeout(800)
+        info = seite.evaluate("""() => {
+            const p = document.getElementById('detail-panel');
+            const a = p.querySelector('.detail-insta'), l = p.querySelector('.detail-link');
+            const r = (el) => el ? el.getBoundingClientRect() : null;
+            return {name: (p.querySelector('h2') || {}).textContent || '',
+                    href: a ? a.getAttribute('href') : null,
+                    titel: a ? a.getAttribute('aria-label') : null,
+                    insta: r(a), link: r(l)}; }""")
+        pruefe(not probleme, "Seite lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+        if mit_konto:
+            pruefe(info["href"] == "https://www.instagram.com/%s/" % konto,
+                   "%s: Zeichen verlinkt @%s (%s)" % (name, konto, info["href"]))
+            pruefe(bool(info["titel"]) and ("@" + konto) in info["titel"],
+                   "Beschriftung nennt das Konto (%s)" % info["titel"])
+            if info["insta"] and info["link"]:
+                pruefe(abs(info["insta"]["top"] - info["link"]["top"]) < 2
+                       and abs(info["insta"]["height"] - info["link"]["height"]) < 3
+                       and info["insta"]["left"] > info["link"]["right"]
+                       and info["insta"]["width"] < 60,
+                       "klein, rechts neben dem Veranstalter-Knopf, gleich hoch (%dx%d)"
+                       % (info["insta"]["width"], info["insta"]["height"]))
+        else:
+            pruefe(info["href"] is None, "%s: ohne eigenes Konto kein Zeichen" % name)
+        seite.close()
+
+
 def pruefe_fenster(ctx, basis):
     """Die Tabelle zeichnet nur ein Fenster, filtert aber über alles.
 
@@ -3025,6 +3094,7 @@ def main() -> int:
                 pruefe_gruppierung(ctx, basis)
                 pruefe_fenster(ctx, basis)
                 pruefe_teilen(ctx, basis)
+                pruefe_instagram(ctx, basis)
                 pruefe_fehlendes_event(ctx, basis)
                 pruefe_rechtsseiten(ctx, basis)
                 pruefe_statistik(ctx, basis)

@@ -3461,6 +3461,64 @@ die Filter unangetastet (wer ein Event teilt, teilt nicht seine Suche)
 und **scrollt auf Handybreite zur Box** – sonst sähe der Empfänger nur
 eine Liste. Der Rauchtest prüft genau diesen Rückweg.
 
+## Das Instagram-Konto großer Veranstaltungen (seit 27.10.2026)
+
+Vom Nutzer gewünscht: „die größeren Events mit einem Instagram Account
+verknüpfen … das Instagram Logo irgendwo klein hin auf dem Profil von dem
+Event … Das muss nicht für jedes Event gemacht werden, aber für die
+großen wär das schon gut, die auch einen eigenen Instagram Account
+haben.“
+
+**Wie es aussieht**: ein kleines quadratisches Instagram-Zeichen rechts
+neben „Zur Veranstalterseite“, in der Box der Liste und der Karte. Es
+führt auf `instagram.com/<konto>`; die Beschriftung nennt das Konto
+(„@leipzigmarathon auf Instagram“). Das Zeichen ist eingebettet, nichts
+wird von Instagram geladen – ein Link überträgt erst etwas, wenn jemand
+klickt.
+
+**Woher das Konto kommt** (`scripts/instagram_konten.py`):
+
+1. *Sammeln*: Die eigene Veranstalterseite jedes künftigen Events (nie
+   ein Kalenderportal oder Zeitnehmer) wird gelesen, und jedes
+   Instagram-Konto, auf das sie verlinkt, landet je Adresse in
+   `scripts/instagram_konten.json` – ohne Urteil. Nennt die Unterseite
+   keines, wird die Startseite gelesen (der Link steht meist im Fuß).
+   robots.txt, höchstens ein Abruf alle 2 s je Host, acht Hosts
+   gleichzeitig; jede Seite alle 90 Tage neu, nach einem Fehler nach drei
+   Wochen.
+2. *Entscheiden* (`event_konto`): Nur ein Konto, dessen Name aus dem
+   Namen der Veranstaltung besteht, gilt – mindestens 60 % seiner
+   Buchstaben aus Wörtern von Name und Ort, und dazu ein Wort, das die
+   Veranstaltung unterscheidet (kein Allerweltswort wie „marathon“,
+   kein Vereinskürzel, nicht nur der Ort). Ort plus Veranstaltungswort
+   („leipzigmarathon“) reicht auch, ebenso ein Name ganz aus zwei
+   Namenswörtern („cityundtrail“).
+
+Das ist zugleich der Filter „nur die großen“: Kleine Vereinsläufe
+verlinken das Konto ihres Vereins, und das fällt durch.
+
+| Konto auf der Seite | Veranstaltung | Ergebnis |
+|---|---|---|
+| `leipzigmarathon` | Leipzig Marathon | ✓ |
+| `oetztalerradmarathon` | Ötztaler Radmarathon | ✓ |
+| `temposport.einsiedelntriathlon` | Einsiedeln Triathlon | ✓ (unter sieben Konten der Seite) |
+| `lsvham`, `tsvpenzberg` | Vereinsläufe | ✗ Verein |
+| `alohasport.at` | Welser Halbmarathon | ✗ Agentur |
+| `brooksrunning` | Brooks München Marathon | ✗ Sponsor |
+| `pitztal` | Pitz Alpine Snow Trail | ✗ Tourismusverband |
+| `erlentriathlon` | Einsiedeln Triathlon | ✗ Schwesterrennen |
+
+Abkürzungen sieht die Regel nicht (`trailvsb` für den Trail Verbier St
+Bernard, `wtcshamburg`). Dafür gibt es den Override
+`"instagram": "<konto>"` in `manual_overrides.json`;
+`"instagram": null` schaltet ein Zeichen ab.
+
+**Ablauf**: Der Wochenlauf fragt vor dem Aufräumen bis zu 400 Seiten in
+acht Minuten (neue zuerst), `clean_events.fix_instagram()` setzt danach
+das Feld `instagram` an jede Zeile, deren Seite ein Event-Konto nennt,
+und nimmt es weg, wenn nicht mehr. Nachschlagen:
+`python3 scripts/instagram_konten.py zeigen <Suchwort>`.
+
 ## Seitensymbol und Vorschau beim Teilen
 
 `favicon.svg` (498 Byte) ist das Symbol für Tab und Lesezeichen,

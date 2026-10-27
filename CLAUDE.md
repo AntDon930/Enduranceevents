@@ -92,6 +92,7 @@ in `robots.txt` entfernen.
 | `scripts/veranstalter_seiten.py` | **Gedächtnis je Veranstaltung OHNE Datum** (seit 05.10.2026, vom Nutzer gewünscht): Schlüssel `<Kern des Namens>\|<Ort>`, merkt Veranstalterseite, Koordinaten, Sportart und Strecken der jüngsten Ausgabe; `lernen`/`anwenden`/`abgleich_vorjahr` laufen in `clean_events.py`, `pruefen` ruft die Seiten VERGANGENER Veranstaltungen ab und sucht die nächste Ausgabe (wöchentlich in `update_events.py`, `--uebernehmen` schreibt eindeutige Funde nach `manual_events.json`); siehe „Gedächtnis je Veranstaltung" |
 | `scripts/veranstalter_seiten.json` | **~2 MB, 4.371 Veranstaltungen (4.151 mit Seite) – nie komplett lesen**; eine Zeile je Eintrag, nach Schlüssel sortiert; geschrieben von `clean_events.py`, vom Datenlauf mitcommittet. Nachschlagen: `python3 scripts/veranstalter_seiten.py zeigen <Suchwort>` |
 | `scripts/veranstalter_seiten_pruefung.json` | Bericht von `pruefen` (je Veranstaltung Flag NEU/NEU?/LEER/NICHTS/FEHLER, gefundene Termine); entsteht im Datenlauf, wird mitcommittet |
+| `scripts/instagram_konten.py`, `scripts/instagram_konten.json` | **Das eigene Instagram-Konto großer Veranstaltungen** (seit 27.10.2026, vom Nutzer gewünscht): `pruefen` liest die EIGENE Veranstalterseite künftiger Events (nie Portal; robots.txt, 2 s je Host, 8 Hosts gleichzeitig, Startseite als Rückfall) und legt je Adresse die verlinkten Konten ab (eine Zeile je Adresse, ohne Urteil, alle 90 Tage neu, nach Fehler nach 21); `event_konto()` entscheidet, welches dem Event selbst gehört; `clean_events.fix_instagram()` setzt das Feld `instagram` – siehe Frontend-Fallen „Das Instagram-Zeichen großer Veranstaltungen“. Nachschlagen: `python3 scripts/instagram_konten.py zeigen <Suchwort>` |
 | `scripts/korrekturliste.py` | **Excel-Korrekturliste für den Nutzer** (seit 05.10.2026): `export` schreibt alle Strecken mit fehlender/fraglicher Angabe (Audit-Meldungen ohne Eintrag in `geprueft.json`, vorläufige Termine, „unklar“-Fälle) als `.xlsx`, Zellen rot = fehlt, orange = fraglich; `import datei.xlsx [--dry-run]` liest die korrigierte Fassung zurück (Vergleich gegen das ausgeblendete Blatt `_original`), schreibt `manual_overrides.json` + `geprueft.json` und lässt `clean_events.py --no-geocoding` und `build_ics.py` laufen. Braucht `openpyxl`. Die `.xlsx` wird nicht committet. **Seit dem Livegang (13.10.2026) ist die Liste der Schalter: Jede Zeile, die in ihr steht, trägt in `events.json` `pruefung_offen: true` und ist auf der Seite ausgeblendet** (siehe „Livegang") |
 | `korrektur/korrekturliste.html`, `scripts/korrektur_seite.py` | **Die Korrekturseite** (seit 19.10.2026, statt die zwei Excel-Listen hin- und herzuschicken): privates claude.ai-Artifact mit Datenbank, gleiche Spalten, Farben und Auswahllisten wie die Excel; `korrektur_seite.py daten events\|clubs` baut die Zeilen aus dem Excel-Export (`korrektur/daten/*.json`, nicht committet), `einlesen` schickt die Antworten durch den VORHANDENEN Import – siehe „Korrekturseite“ |
 | `vorschau-sperre.js` | **Anmeldesperre der Clubs-Vorschau** (seit 19.10.2026): `pages.yml` kopiert sie nach `vorschau/` und setzt sie in jede Vorschau-Seite; nur Konten in `admins/<uid>` sehen die Seiten – siehe „Vorschau-Branch für die Clubs“ oben |
@@ -3949,6 +3950,50 @@ sagt es).
   `pruefeNachladen()` am Ende, und weiter unten deklariert gab es
   „Cannot access 'nachladeFrame' before initialization" (der Rauchtest
   hat es gemeldet – dieselbe Falle wie bei `DATE_PRESETS`).
+- **Das Instagram-Zeichen großer Veranstaltungen** (seit 27.10.2026, vom
+  Nutzer: „die größeren Events mit einem Instagram Account verknüpfen …
+  das Instagram Logo irgendwo klein hin … Das muss nicht für jedes Event
+  gemacht werden, aber für die großen wär das schon gut, die auch einen
+  eigenen Instagram Account haben.“). Ein kleines quadratisches Zeichen
+  (`a.detail-insta`, Konturicon `INSTA_SVG`, 48 × so hoch wie der Knopf)
+  RECHTS neben „Zur Veranstalterseite“ in `.detail-link-zeile` – in der
+  Liste und auf der Karte (dieselbe Box), Link
+  `https://www.instagram.com/<name>/`, Beschriftung „@name auf
+  Instagram“ (`detail_instagram`, DE/EN). Nichts wird von Instagram
+  geladen (inline-SVG, ein Link überträgt nichts) – deshalb keine
+  Änderung an der Datenschutzerklärung; ein Klick wird NICHT gezählt (das
+  wäre eine neue Aktion in der Statistik samt Datenschutz-Text und
+  Functions-Deploy). **Woher das Konto kommt, ist der ganze Punkt**:
+  nur von der eigenen Veranstalterseite, und nur, wenn der Kontoname aus
+  dem Namen der Veranstaltung besteht (`instagram_konten.event_konto`):
+  mindestens 60 % seiner Buchstaben aus Namens-/Ortswörtern UND ein
+  unterscheidendes Namenswort (kein Allerweltswort wie marathon/lauf/
+  trail, kein Vereinskürzel, nicht der Ort) – oder Ort plus
+  Veranstaltungswort („leipzigmarathon“) oder der Name ganz aus zwei
+  Namenswörtern („cityundtrail“). So fallen Verein (`lsvham`,
+  `tsvpenzberg`), Agentur (`alohasport.at`), Sponsor (`brooksrunning`),
+  Tourismus (`pitztal`) und Schwesterrennen (`erlentriathlon`) weg. Die
+  Durchsicht der ersten 128 Treffer fand zwei weitere Klassen, beide
+  jetzt Regel: der **Verein im Namen des Laufs** (`tuswasserstrasse`,
+  `alvmainz`, `scc.la` – Kürzel vorn im Kontonamen, `VEREIN_VORN`/
+  `VEREIN_KUERZEL`, und Vereinswörter wie athletik/laufclub/jeunesse) und
+  die **Ausgabe derselben Serie in einer anderen Stadt**
+  (`halloweenrunbremen` beim Lauf in Rotenburg: ein Ort ab 10.000
+  Einwohnern aus `places.json` im nicht abgedeckten Rest des Namens); das
+  ist zugleich der Filter „nur die großen“ – kleine Vereinsläufe haben
+  kein eigenes Konto. Abkürzungen sieht die Regel nicht (`trailvsb`,
+  `wtcshamburg`) – dafür der Override `"instagram": "<name>"`,
+  abschalten mit `"instagram": null`. `fix_instagram()` läuft als
+  vorletzter Schritt von `clean_events.py` (vor `mark_pruefung_offen`,
+  nach allen Korrekturen an Name, Ort und Link), idempotent; der
+  Wochenlauf fragt vorher bis zu 400 Seiten in 8 Minuten
+  (`run_instagram_konten()` in `update_events.py`, neue Seiten zuerst),
+  `stage_kalender()` nimmt `instagram_konten.json` mit in den Commit (die
+  Workflow-Datei auf `main` kennt sie nicht und muss dafür nicht
+  geändert werden). Tests: `test_instagram_konten` (Regel mit den Fällen
+  der Stichprobe vom 27.10.2026, Sammeln mit Attrappe, Zuordnung),
+  Rauchtest `pruefe_instagram` (Zeichen, Link, Lage neben dem Knopf; Event
+  ohne Konto ohne Zeichen).
 - **Ein Event teilen: Link, kein PDF.** Der Knopf oben rechts in der Box
   gibt `navigator.share()` Titel, die Angaben aus der Box und einen
   **absoluten Link auf genau dieses Event** (`?event=<eventSlug>`);
@@ -5660,6 +5705,15 @@ was dort gestaget ist, geht also mit, auch wenn eine Workflow-Datei das
 Fassung (`git add events.json kalender`) ist der Aufruf ein No-op.
 `test_kalender_staging` hält vor allem die Gegenprobe fest: **lokal darf
 das Skript den Index NIE anfassen.**
+
+**Seit dem 27.10.2026 fragt der Datenlauf danach die Veranstalterseiten
+nach ihren Instagram-Links** (`run_instagram_konten()`: 400 Seiten,
+8 Minuten). **Das Zeitbudget ist knapp**: Der Lauf vom 26.10.2026
+brauchte 262 der 300 Minuten (`timeout-minutes` in `update-events.yml`
+auf `main`). Reißt er die Grenze, bricht GitHub ab und es wird NICHTS
+committet – wer einen weiteren Schritt einbaut, rechnet vorher nach;
+die Grenze auf 360 Minuten (das Maximum für gehostete Läufer)
+anzuheben, braucht ein Ja des Nutzers für `main`.
 
 **Seit dem 05.10.2026 läuft im Datenlauf vor dem Aufräumen
 `veranstalter_seiten.py pruefen`** (`run_naechste_ausgaben()` in

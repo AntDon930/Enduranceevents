@@ -182,6 +182,30 @@
   font-weight: 600;
 }
 .detail-link:hover { opacity: 0.92; }
+/* Veranstalter-Knopf und – bei großen Veranstaltungen mit eigenem Konto –
+   das Instagram-Zeichen in EINER Zeile: das Zeichen klein und quadratisch
+   rechts daneben, so hoch wie der Knopf (seit 27.10.2026). */
+.detail-link-zeile {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 10px;
+}
+.detail-link-zeile .detail-link { flex: 1 1 auto; width: auto; margin: 0; }
+.detail-insta {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  min-height: 46px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-ctl, 10px);
+  background: var(--panel-2, var(--panel));
+  color: var(--text);
+  text-decoration: none;
+}
+.detail-insta:hover { border-color: var(--border-strong, var(--accent)); }
+.detail-insta:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .detail-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;

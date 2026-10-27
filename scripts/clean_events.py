@@ -2202,6 +2202,48 @@ def merge_duplicates(events: list[dict]) -> tuple[list[dict], list[str]]:
     return result, report
 
 
+def fix_instagram(events: list[dict], konten: dict | None = None,
+                  overrides: dict | None = None) -> list[str]:
+    """Setzt `instagram` (Kontoname ohne @) an jede Zeile, deren EIGENE
+    Veranstalterseite ein Konto der Veranstaltung selbst verlinkt, und
+    nimmt es weg, sobald das nicht mehr gilt (seit 27.10.2026, vom Nutzer
+    gewünscht: das Instagram-Symbol für die großen Events mit eigenem
+    Konto). Die Konten je Seite sammelt instagram_konten.py, welches davon
+    dem Event gehört, entscheidet instagram_konten.event_konto() - also
+    nie der Verein, der Sponsor oder die Agentur. Ein Override
+    `"instagram": "<name>"` setzt es von Hand, `"instagram": null`
+    schaltet es ab. Idempotent."""
+    import instagram_konten
+    if konten is None:
+        konten = instagram_konten.lade()
+    if overrides is None:
+        overrides = load_manual_overrides()
+    changes: list[str] = []
+    for e in events:
+        override = find_override(overrides, e.get("name"), e.get("datum_start"),
+                                 e.get("laenge_km"), e.get("wettbewerb"))
+        if override and "instagram" in override:
+            soll = (override.get("instagram") or "").lower().lstrip("@") or None
+        else:
+            soll = None
+            url = e.get("veranstalter_url")
+            if url and not is_portal_link(url):
+                eintrag = konten.get(url) or {}
+                soll = instagram_konten.event_konto(eintrag.get("konten"), e.get("name") or "",
+                                                    e.get("standort") or "")
+        if soll and not instagram_konten.NAME_RE.match(soll):
+            soll = None
+        if soll == e.get("instagram"):
+            continue
+        changes.append(f"{e.get('name')} ({e.get('datum_start')}): "
+                       f"{('@' + e['instagram']) if e.get('instagram') else '–'} -> {('@' + soll) if soll else '–'}")
+        if soll:
+            e["instagram"] = soll
+        else:
+            e.pop("instagram", None)
+    return changes
+
+
 def mark_pruefung_offen(events: list[dict], today: str | None = None,
                         gedaechtnis=None) -> tuple[list[str], list[str]]:
     """Setzt `pruefung_offen: true` an jede Zeile, die in der Korrekturliste
@@ -2471,6 +2513,10 @@ def main() -> None:
     section("Laufserie: Datum aus dem Termin-Label übernommen", series_fixes)
     section("Namens-Formatierung bereinigt", tidy_fixes)
     section("Namen innerhalb einer Veranstaltung vereinheitlicht", name_fixes)
+
+    # Das eigene Instagram-Konto großer Veranstaltungen - nach allen
+    # Korrekturen an Name, Ort und Link, denn die Regel liest alle drei.
+    section("Instagram-Konto der Veranstaltung gesetzt/geändert/entfernt", fix_instagram(events))
 
     # Ganz zum Schluss: Was noch in der Korrekturliste steht, bleibt auf
     # der Seite ausgeblendet (pruefung_offen) - erst nach allen

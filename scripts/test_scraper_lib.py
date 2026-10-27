@@ -4949,6 +4949,153 @@ def _insta_testevents(heute):
     return ev
 
 
+def test_instagram_konten() -> None:
+    """Das eigene Instagram-Konto großer Veranstaltungen (seit 27.10.2026):
+    die Regel (nur Konten, deren Name aus dem Namen der Veranstaltung
+    besteht - nie Verein, Agentur, Sponsor, Tourismus, Schwesterrennen),
+    das Sammeln (eigene Seite, Startseite als Rückfall, Fehler behält
+    das Alte) und die Zuordnung in clean_events (Override setzt und
+    schaltet ab, Portallink zählt nicht, idempotent)."""
+    print("\ntest_instagram_konten")
+    import datetime as _dt
+    import json
+    SCRIPTS_DIR = Path(__file__).resolve().parent
+    import instagram_konten as ik
+    from clean_events import fix_instagram
+
+    k = ik.event_konto
+    # Fälle aus der Stichprobe vom 27.10.2026 (41 Veranstalterseiten).
+    for konten, name, ort, soll in [
+        (["leipzigmarathon"], "Leipzig Marathon", "Leipzig", "leipzigmarathon"),
+        (["wachaumarathon"], "WACHAUmarathon", "Krems an der Donau", "wachaumarathon"),
+        (["oetztalerradmarathon"], "Ötztaler Radmarathon", "Sölden", "oetztalerradmarathon"),
+        (["viking.triathlon"], "6. Viking-Triathlon", "Schleswig", "viking.triathlon"),
+        (["neujahrsmarathon.ch"], "Neujahrsmarathon Schlieren", "Schlieren", "neujahrsmarathon.ch"),
+        (["evl.halbmarathon"], "EVL-HalbMarathon", "Leverkusen", "evl.halbmarathon"),
+        (["cityundtrail"], "Alpenstadt City&Trail", "Bad Reichenhall", "cityundtrail"),
+        (["3kings3hills"], "3Kings3Hills Trail Festival 2027", "Haidmühle", "3kings3hills"),
+        (["rennsteiglauf.official"], "Rennsteiglauf", "Schmiedefeld am Rennsteig", "rennsteiglauf.official"),
+        (["berlinmarathon2027"], "BMW Berlin-Marathon", "Berlin", "berlinmarathon2027"),
+        (["brooksrunning", "muenchenmarathon"], "Brooks München Marathon", "München", "muenchenmarathon"),
+        (["temposport.erlentriathlon", "temposport.einsiedelntriathlon", "erlentriathlon"],
+         "Einsiedeln Triathlon", "Höfe", "temposport.einsiedelntriathlon"),
+        (["lhivernalle", "lagueuleduloup_"], "L'Hivern'Alle", "Alle", "lhivernalle"),
+        (["halloweenrunbremen"], "Halloween Run Bremen", "Bremen", "halloweenrunbremen"),
+        (["algemarin_sv3sathlon"], "Algemarin SV3sathlon", "Mühltal-Traisa", "algemarin_sv3sathlon"),
+        (["schwebebahnlauf"], "Schwebebahnlauf Wuppertal 2027", "Wuppertal", "schwebebahnlauf"),
+        (["der_frauenfelder"], "Frauenfelder (Halb-)Marathon Wil", "Wil", "der_frauenfelder"),
+    ]:
+        check(f"Event-Konto: {name}", k(konten, name, ort), soll)
+    for konten, name, ort, warum in [
+        (["lsvham"], "Lufthansa-Technik-Halbmarathon", "Bramfelder See", "Verein"),
+        (["tsvpenzberg"], "TSV Penzberg Volkslauf", "Penzberg", "Verein mit Ort"),
+        (["hnt_hamburg"], "Süderelbe Halbmarathon durch das Alte Land", "Hamburg Neugrab", "nur der Ort"),
+        (["alohasport.at"], "34. Welser Halbmarathon", "Wels", "Agentur"),
+        (["pitztal"], "Pitz Alpine Snow Trail", "Jerzens", "Tourismus"),
+        (["brooksrunning"], "Brooks München Marathon", "München", "Sponsor"),
+        (["erlentriathlon"], "Einsiedeln Triathlon", "Höfe", "Schwesterrennen (nur 'triathlon')"),
+        (["stadtlauf"], "Stadtlauf Erding", "Erding", "ein Allerweltswort"),
+        (["exil_ev"], "Lauf gegen Rassismus", "Osnabrück", "Verein"),
+        # Durchsicht der ersten 128 Treffer (27.10.2026): der Verein im Namen des Laufs ...
+        (["tuswasserstrasse"], "Oktoberlauf mit Mühlenkreisserie - TUS Wasserstraße", "Petershagen", "Verein im Namen"),
+        (["alvmainz"], "Nikolauslauf des ALV Mainz", "Mainz", "Vereinskürzel im Namen"),
+        (["scc.la"], "62. SCC Cross Country", "Berlin", "Vereinskürzel im Namen"),
+        (["rc1886villingen"], "Gravelrennen des RC 1886 Villingen", "Mönchweiler", "Vereinskürzel im Namen"),
+        (["llg_wustweiler"], "Freundschaftslauf Wustweiler", "Illingen (Saar)", "Kürzel als erstes Glied"),
+        (["tsgaltenbuseck"], "Alten-Busecker Winterlaufserie", "Buseck", "TSG vorn"),
+        (["athletik_waldniel"], "Athletik Waldniel Jahresendlauf", "Schwalmtal", "Vereinswort"),
+        (["jeunesse_de_fey"], "Cross de la Jeunesse de Fey", "Fey", "Vereinswort"),
+        # ... und dieselbe Serie in einer anderen Stadt.
+        (["halloweenrunbremen"], "1. Halloween-Run-Rotenburg", "Rotenburg (Wümme)", "fremder großer Ort"),
+        (["laufen", "muenchen"], "Halbmarathon München", "München", "zu kurz/nur Ort"),
+        ([], "Leipzig Marathon", "Leipzig", "keine Konten"),
+        (None, "Leipzig Marathon", "Leipzig", "Seite nie gelesen"),
+        (["Bad Name!"], "Leipzig Marathon", "Leipzig", "kein gültiger Kontoname"),
+    ]:
+        check(f"kein Event-Konto ({warum}): {konten}", k(konten, name, ort), None)
+    check("Gleichstand zweier Konten heißt keines",
+          k(["leipzigmarathon", "marathonleipzig"], "Leipzig Marathon", "Leipzig"), None)
+
+    # Sammeln mit einer Attrappe statt des Netzes.
+    seiten = {
+        "https://a.de/lauf": '<a href="https://www.instagram.com/alauf/">',
+        "https://b.de/sub": "<p>nichts</p>",
+        "https://b.de/": '<footer><a href="https://instagram.com/bmarathon">x</a></footer>',
+        "https://d.de/": '<a href="https://instagram.com/p/xyz">Beitrag</a>',
+    }
+
+    class Attrappe:
+        def _darf(self, url):
+            return "c.de" not in url
+
+        def holen(self, url):
+            return seiten.get(url)
+
+    heute = _dt.date(2026, 10, 27)
+    evs = [{"name": "A-Lauf", "datum_start": "2026-11-01", "veranstalter_url": "https://a.de/lauf"},
+           {"name": "B Marathon", "datum_start": "2026-12-01", "veranstalter_url": "https://b.de/sub"},
+           {"name": "C", "datum_start": "2026-12-01", "veranstalter_url": "https://c.de/"},
+           {"name": "D", "datum_start": "2026-12-02", "veranstalter_url": "https://d.de/"},
+           {"name": "E", "datum_start": "2026-12-02", "veranstalter_url": "https://e.de/tot"},
+           {"name": "alt", "datum_start": "2026-01-01", "veranstalter_url": "https://alt.de/"},
+           {"name": "Portal", "datum_start": "2026-12-01", "veranstalter_url": "https://my.raceresult.com/1/"}]
+    daten = {"https://e.de/tot": {"geprueft": "2026-01-01", "konten": ["ealt"]}}
+    z = ik.pruefen(evs, daten, heute, 100, 60, abrufer_fabrik=Attrappe, parallel=3)
+    check("gesammelt: Konto der Seite", daten["https://a.de/lauf"]["konten"], ["alauf"])
+    check("gesammelt: Startseite als Rückfall",
+          (daten["https://b.de/sub"]["konten"], daten["https://b.de/sub"].get("quelle")), (["bmarathon"], "startseite"))
+    check("robots.txt verbietet: leer, kein Abruf", daten["https://c.de/"]["konten"], [])
+    check("Beitrag ist kein Konto", daten["https://d.de/"]["konten"], [])
+    check("nicht lesbar: altes Ergebnis bleibt, als Fehler markiert",
+          (daten["https://e.de/tot"]["konten"], daten["https://e.de/tot"].get("fehler")), (["ealt"], True))
+    check("vergangene Events und Portale werden nicht gelesen",
+          ("https://alt.de/" in daten, any("raceresult" in u for u in daten)), (False, False))
+    check("Zählung", (z["geprueft"], z["mit_konto"], z["fehler"], z["offen"]), (5, 2, 1, 0))
+    z2 = ik.pruefen(evs, daten, heute, 100, 60, abrufer_fabrik=Attrappe, parallel=1)
+    check("frisch geprüft: nichts fällig, nur der Fehler kommt früher wieder",
+          z2["geprueft"], 0)
+    check("Fehler nach drei Wochen wieder fällig",
+          ik.faellig(daten["https://e.de/tot"], heute + _dt.timedelta(days=21)), True)
+    check("gelesene Seite nach 90 Tagen wieder fällig",
+          (ik.faellig(daten["https://a.de/lauf"], heute + _dt.timedelta(days=89)),
+           ik.faellig(daten["https://a.de/lauf"], heute + _dt.timedelta(days=90))), (False, True))
+
+    # Zuordnung (clean_events.fix_instagram).
+    konten = {"https://www.leipzigmarathon.de/": {"konten": ["leipzigmarathon"], "geprueft": "2026-10-27"},
+              "https://tsv.de/": {"konten": ["tsvpenzberg"], "geprueft": "2026-10-27"}}
+    rows = [{"name": "Leipzig Marathon", "datum_start": "2027-04-18", "laenge_km": 42.2,
+             "standort": "Leipzig", "veranstalter_url": "https://www.leipzigmarathon.de/"},
+            {"name": "Leipzig Marathon", "datum_start": "2027-04-18", "laenge_km": 10,
+             "standort": "Leipzig", "veranstalter_url": "https://www.leipzigmarathon.de/"},
+            {"name": "TSV Penzberg Volkslauf", "datum_start": "2027-05-01", "laenge_km": 10,
+             "standort": "Penzberg", "veranstalter_url": "https://tsv.de/", "instagram": "veraltet"},
+            {"name": "Kleiner Lauf", "datum_start": "2027-05-01", "laenge_km": 10,
+             "standort": "Penzberg", "veranstalter_url": "https://tsv.de/"},
+            {"name": "Portal-Lauf", "datum_start": "2027-05-01", "laenge_km": 10, "standort": "X",
+             "veranstalter_url": "https://my.raceresult.com/1/"}]
+    ov = {"Kleiner Lauf|2027-05-01": {"instagram": "@KleinerLauf", "_note": "von Hand"},
+          "Leipzig Marathon|2027-04-18|10": {"instagram": None, "_note": "abgeschaltet"}}
+    aend = fix_instagram(rows, konten, ov)
+    check("je Zeile: Event-Konto, Override aus, Verein nie, von Hand, Portal nie",
+          [r.get("instagram") for r in rows], ["leipzigmarathon", None, None, "kleinerlauf", None])
+    check("Änderungen werden gemeldet (gesetzt, entfernt, von Hand)", len(aend), 3)
+    check("idempotent", fix_instagram(rows, konten, ov), [])
+    check("ohne Konto kein Feld in events.json", "instagram" in rows[2], False)
+    ik_datei = json.loads((SCRIPTS_DIR / "instagram_konten.json").read_text(encoding="utf-8")) \
+        if (SCRIPTS_DIR / "instagram_konten.json").exists() else {}
+    falsch = [u for u, v in ik_datei.items()
+              if not isinstance(v, dict) or "geprueft" not in v
+              or not all(ik.NAME_RE.match(n) for n in v.get("konten") or [])]
+    check("instagram_konten.json: jeder Eintrag mit Datum und gültigen Namen", falsch[:3], [])
+    ev = json.loads((SCRIPTS_DIR.parent / "events.json").read_text(encoding="utf-8"))
+    ungueltig = [e["name"] for e in ev if "instagram" in e and not ik.NAME_RE.match(e["instagram"] or "")]
+    check("events.json: jedes instagram-Feld ist ein gültiger Kontoname", ungueltig[:3], [])
+    js = (SCRIPTS_DIR.parent / "event-detail.js").read_text(encoding="utf-8")
+    check("Box: Zeichen nur mit gültigem Namen, Link auf instagram.com, DE und EN",
+          ("/^[a-z0-9._]{1,30}$/.test(e.instagram" in js, "https://www.instagram.com/${encodeURIComponent(insta)}/" in js,
+           js.count("detail_instagram:")), (True, True, 2))
+
+
 def test_insta_freigabe() -> None:
     """Instagram-Freigabe mit einem Klick (14.10.2026): die Kennung des
     Inhalts, der Freigabe-Plan, die Entscheidung des Abendlaufs mit einer
@@ -6366,7 +6513,7 @@ def test_insta_logos() -> None:
 
 
 def main() -> int:
-    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_insta_freigabe, test_insta_logos,
+    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_instagram_konten, test_insta_freigabe, test_insta_logos,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung, test_namensrand,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien, test_web_data,

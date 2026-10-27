@@ -34,6 +34,7 @@
       detail_ort: 'Ort',
       detail_strecken_titel: 'Strecken dieser Veranstaltung',
       detail_link: 'Zur Veranstalterseite',
+      detail_instagram: (h) => `@${h} auf Instagram`,
       detail_map: 'Auf der Karte',
       detail_list: 'In der Liste',
       detail_entfernung: 'Entfernung',
@@ -76,6 +77,7 @@
       detail_ort: 'Place',
       detail_strecken_titel: 'Races of this event',
       detail_link: 'Organizer website',
+      detail_instagram: (h) => `@${h} on Instagram`,
       detail_map: 'On the map',
       detail_list: 'In the list',
       detail_entfernung: 'Distance',
@@ -770,6 +772,12 @@
   const EXT_SVG = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"'
     + ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
     + '<path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6"/></svg>';
+  // Das Instagram-Zeichen als Kontur wie alle Symbole der Seite (1,8 px,
+  // runde Enden) - inline, nichts wird von Instagram geladen.
+  const INSTA_SVG = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"'
+    + ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/>'
+    + '<circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>';
   const CARET_SVG = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"'
     + ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
 
@@ -1001,6 +1009,11 @@
     // Bei einem Triathlon ist "die Länge" das FORMAT ("Super-Sprint"),
     // siehe formatLength/triathlonFormat.
     const strecke = formatLength(e, lang);
+    // Das eigene Instagram-Konto großer Veranstaltungen (seit 27.10.2026,
+    // vom Nutzer gewünscht): klein neben dem Veranstalter-Knopf. Gesetzt
+    // nur, wenn die Veranstalterseite ein Konto des Events SELBST verlinkt
+    // (scripts/instagram_konten.py) - nie der Verein oder ein Sponsor.
+    const insta = /^[a-z0-9._]{1,30}$/.test(e.instagram || '') ? e.instagram : null;
     container.innerHTML = `
       <div class="detail-head">
         <div class="detail-head-text">
@@ -1028,7 +1041,11 @@
             ? `<a class="detail-host" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hostVon(e.veranstalter_url))}</a>`
             : '–'}</dd></div></div>`}
       </dl>
-      ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(t('detail_link'))}</span>${EXT_SVG}</a>` : ''}
+      ${e.veranstalter_url || insta ? `<div class="detail-link-zeile">
+        ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(t('detail_link'))}</span>${EXT_SVG}</a>` : ''}
+        ${insta ? `<a class="detail-insta" href="https://www.instagram.com/${encodeURIComponent(insta)}/" target="_blank" rel="noopener noreferrer"
+             title="${escapeHtml(t('detail_instagram', insta))}" aria-label="${escapeHtml(t('detail_instagram', insta))}">${INSTA_SVG}</a>` : ''}
+      </div>` : ''}
       <div class="detail-actions">
         <div class="cal-box">
           <button type="button" class="cal-btn cal-open-btn" aria-expanded="false">

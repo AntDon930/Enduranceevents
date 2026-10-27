@@ -182,8 +182,10 @@ def stage_kalender() -> None:
     # jedem Lauf fort, und was dort steht, muss den Datenlauf überleben -
     # sonst ist mit der vergangenen Zeile auch ihre Seite weg.
     pfade = ["kalender"]
+    # Seit dem 27.10.2026 auch die Instagram-Konten der Veranstalterseiten
+    # (scripts/instagram_konten.json) - die Datei auf `main` nennt sie nicht.
     for rel in ("scripts/veranstalter_seiten.json", "scripts/veranstalter_seiten_pruefung.json",
-                "scripts/manual_events.json"):
+                "scripts/manual_events.json", "scripts/instagram_konten.json"):
         if (REPO_ROOT / rel).exists():
             pfade.append(rel)
     try:
@@ -226,6 +228,41 @@ def run_naechste_ausgaben(events_json: Path) -> bool:
     if result.returncode != 0:
         print(f"⚠ Die Prüfung der nächsten Ausgaben endete mit Rückgabewert {result.returncode}.")
     return result.returncode == 0
+
+
+def run_instagram_konten(events_json: Path) -> bool:
+    """Fragt die eigenen Veranstalterseiten künftiger Events nach ihren
+    Instagram-Links (scripts/instagram_konten.py pruefen): ungeprüfte
+    zuerst, dann jede Seite nach PRUEF_ABSTAND_TAGE wieder - höchstens
+    INSTAGRAM_MAX Seiten und INSTAGRAM_ZEITLIMIT Sekunden je Lauf. Neue
+    Events bekommen so in der Woche, in der sie auftauchen, ihr
+    Instagram-Symbol. Ein Fehlschlag hält den Datenlauf nicht auf."""
+    script = SCRIPTS_DIR / "instagram_konten.py"
+    if not script.exists():
+        return True
+    print(f"\n{'=' * 70}\nInstagram-Konten der Veranstalterseiten\n{'=' * 70}")
+    cmd = [sys.executable, str(script), "--events-json", str(events_json), "pruefen",
+           "--max", str(INSTAGRAM_MAX), "--zeitlimit", str(INSTAGRAM_ZEITLIMIT)]
+    try:
+        result = subprocess.run(cmd, cwd=REPO_ROOT, timeout=INSTAGRAM_ZEITLIMIT + 5 * 60)
+    except subprocess.TimeoutExpired:
+        print("⚠ Die Instagram-Prüfung hat zu lange gedauert - abgebrochen, der Datenlauf geht weiter.")
+        return False
+    except OSError as exc:
+        print(f"⚠ Die Instagram-Prüfung ließ sich nicht starten ({exc}).")
+        return False
+    if result.returncode != 0:
+        print(f"⚠ Die Instagram-Prüfung endete mit Rückgabewert {result.returncode}.")
+    return result.returncode == 0
+
+
+# Je Woche kommen ~150 neue Seiten; dazu wird jede Seite alle 90 Tage
+# noch einmal gelesen (~3.900 Seiten → ~300 je Woche, neue zuerst). Eine
+# Seite kostet 1–3 s, meist ohne Wartezeit (lauter verschiedene Hosts).
+# Knapp gehalten: Der Wochenlauf brauchte am 26.10.2026 schon 262 der 300
+# Minuten (timeout-minutes in update-events.yml auf `main`).
+INSTAGRAM_MAX = 400
+INSTAGRAM_ZEITLIMIT = 8 * 60
 
 
 # Wie viele Seiten je Wochenlauf, und wie lange. Gerechnet (05.10.2026):
@@ -336,6 +373,9 @@ def main():
         # Erst die nächsten Ausgaben vergangener Veranstaltungen (schreibt
         # manual_events.json), dann das Aufräumen, das sie aufnimmt.
         run_naechste_ausgaben(args.events_json)
+        # Die Instagram-Konten der Veranstalterseiten (instagram_konten.json),
+        # die clean_events.fix_instagram() gleich zuordnet.
+        run_instagram_konten(args.events_json)
         # Aufräumen VOR dem Vorher-/Nachher-Vergleich: sonst würden Events
         # gemeldet, die die Duplikat-Zusammenführung gleich wieder entfernt.
         run_cleanup(args.events_json)
