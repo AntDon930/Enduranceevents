@@ -5203,7 +5203,10 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   alle gerne vorher mit einem Klick einfach freigeben")**: zwei Läufe am
   Tag (`instagram.yml`: 08:47 Vorschau = nur rendern, 17:47 Posten mit
   `--posten --freigabe`); `pages.yml` schreibt `marketing/instagram/plan.json`
-  (`insta_inhalte.py --plan 14`, gitignored); die Dashboard-Karte
+  (`insta_inhalte.py --plan 14`, gitignored; der Schritt installiert Pillow
+  und trägt `continue-on-error` – am 27.10.2026 hielt ein Plan ohne Pillow
+  in Lauf 419 den ganzen Deploy auf, Instagram darf die Website nie
+  blockieren; `test_insta_freigabe` prüft beides); die Dashboard-Karte
   `#insta-freigabe-card` zeigt die Tage und schreibt `insta_freigaben/<Datum>`
   (`status` freigegeben/gesperrt, `hash`, `format`, `geaendert`; Regeln:
   lesen alle, schreiben/löschen Admins); `insta_freigabe.entscheide()`:

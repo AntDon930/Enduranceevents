@@ -78,8 +78,19 @@ jobs:
       # Der Freigabe-Plan für Instagram (die Beiträge der nächsten 14 Tage
       # mit Kennung des Inhalts) - das Dashboard (admin.html, Karte
       # „Instagram-Freigabe") liest ihn von hier; nie committet.
+      # Pillow braucht der Plan seit dem 27.10.2026 (er schaut nach, welche
+      # Events ein geprüftes Logo haben); ohne es brach der Schritt mit
+      # „No module named 'PIL'" ab und hielt den ganzen Deploy auf (Lauf
+      # 419). Instagram darf die Website nie aufhalten: schlägt der Plan
+      # fehl, geht die Seite trotzdem raus, und die Warnung steht im Lauf
+      # (die Freigabe-Karte im Dashboard bleibt dann leer, bis der nächste
+      # Deploy den Plan wieder baut).
       - name: Instagram-Plan erzeugen
-        run: python3 scripts/insta_inhalte.py --plan 14 --json marketing/instagram/plan.json
+        continue-on-error: true
+        run: |
+          pip install --quiet "pillow>=10"
+          python3 scripts/insta_inhalte.py --plan 14 --json marketing/instagram/plan.json \
+            || { echo "::warning::Instagram-Plan nicht erzeugt – die Website geht trotzdem raus"; exit 1; }
 
       # Die VORSCHAU (seit dem 19.10.2026, vom Nutzer gewünscht: „erst
       # alles bauen und dann in einem launchen"): Der Stand des

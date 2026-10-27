@@ -5216,6 +5216,11 @@ def test_insta_freigabe() -> None:
           (True, True, True, True))
     pages = (wurzel / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
     check("pages.yml erzeugt den Plan", "insta_inhalte.py --plan 14 --json marketing/instagram/plan.json" in pages, True)
+    # Lauf 419 (27.10.2026): Der Plan liest die Logos mit Pillow, der
+    # Deploy-Job hatte es nicht – und ein roter Plan hielt die Website auf.
+    plan_schritt = pages.split("- name: Instagram-Plan erzeugen", 1)[1].split("- name:", 1)[0]
+    check("pages.yml: der Plan bekommt Pillow und hält den Deploy nicht auf",
+          ('pip install --quiet "pillow' in plan_schritt, "continue-on-error: true" in plan_schritt), (True, True))
     check(".gitignore kennt plan.json", "marketing/instagram/plan.json" in (wurzel / ".gitignore").read_text(encoding="utf-8"), True)
     regeln = (wurzel / "firestore.rules").read_text(encoding="utf-8")
     # Bis zur delete-Regel schneiden - ein schlichtes "}" träfe die
