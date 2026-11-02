@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-wwbt-9-rsv-lippe-23-lunen-45km-lunen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:WWBT #9 - RSV Lippe 23 Lünen – CTF 45 km
+LOCATION:Lünen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 45 km\nhttps://westfa
+ len-winter-bike-trophy.org/westfalen-winterbike-trophy-des-rsv-lippe-23-l
+ uenen/
+TRANSP:TRANSPARENT
+URL:https://westfalen-winter-bike-trophy.org/westfalen-winterbike-trophy-d
+ es-rsv-lippe-23-luenen/
+END:VEVENT
+END:VCALENDAR

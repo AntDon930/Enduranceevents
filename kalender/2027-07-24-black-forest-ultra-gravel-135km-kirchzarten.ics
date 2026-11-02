@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-black-forest-ultra-gravel-135km-kirchzarten@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270725
+SUMMARY:Black Forest Ultra Gravel – Gravel Tour 135 km
+LOCATION:Kirchzarten\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 135 km\nhttps://www.ultra-g
+ ravel.de
+TRANSP:TRANSPARENT
+URL:https://www.ultra-gravel.de
+END:VEVENT
+END:VCALENDAR

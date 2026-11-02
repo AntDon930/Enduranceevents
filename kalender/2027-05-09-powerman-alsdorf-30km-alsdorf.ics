@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-powerman-alsdorf-30km-alsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:POWERMAN Alsdorf – POWERMAN Sprint 30 km (5 km Laufen / 20 km Rad 
+ / 5 km Laufen)
+LOCATION:Alsdorf\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 30 km\nhttps://www.powe
+ rman-alsdorf.de
+TRANSP:TRANSPARENT
+URL:https://www.powerman-alsdorf.de
+END:VEVENT
+END:VCALENDAR

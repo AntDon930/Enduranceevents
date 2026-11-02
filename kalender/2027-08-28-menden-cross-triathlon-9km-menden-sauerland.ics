@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270828
 DTEND;VALUE=DATE:20270829
 SUMMARY:Menden Cross-Triathlon
 LOCATION:Menden (Sauerland)\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Cross\nLänge: 9 km\nhttps://my.raceresul
- t.com/429269/
+DESCRIPTION:Sportart: Triathlon / Cross\nLänge: 9 km\nhttps://www.menden-c
+ rosstriathlon.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/429269/
+URL:https://www.menden-crosstriathlon.de/
 END:VEVENT
 END:VCALENDAR

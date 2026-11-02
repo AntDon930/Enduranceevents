@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-dreikirchener-systemceram-triathlon-x-dreikirchen-hundsange
+ n@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Dreikirchener systemceram Triathlon
+LOCATION:Dreikirchen / Hundsangen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttps://www.sc-dreik
+ irchen.de/triathlon/systemceram-triathlon-duathlon/
+TRANSP:TRANSPARENT
+URL:https://www.sc-dreikirchen.de/triathlon/systemceram-triathlon-duathlon
+ /
+END:VEVENT
+END:VCALENDAR

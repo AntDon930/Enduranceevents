@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-wyfelder-xathlon-x-weinfelden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Wyfelder Xathlon
+LOCATION:Weinfelden\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Cross\nLänge: -\nhttps://mumagesi-triath
+ lon.ch/wyfelder-xathlon/
+TRANSP:TRANSPARENT
+URL:https://mumagesi-triathlon.ch/wyfelder-xathlon/
+END:VEVENT
+END:VCALENDAR

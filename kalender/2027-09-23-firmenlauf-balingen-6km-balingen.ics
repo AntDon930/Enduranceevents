@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-23-firmenlauf-balingen-6km-balingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270923
+DTEND;VALUE=DATE:20270924
+SUMMARY:Firmenlauf Balingen
+LOCATION:Balingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://balingen.bw-ru
+ nning.de/home
+TRANSP:TRANSPARENT
+URL:https://balingen.bw-running.de/home
+END:VEVENT
+END:VCALENDAR

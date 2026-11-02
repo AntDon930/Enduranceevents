@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-kn-forde-triathlon-kiel-27-5km-kiel-dusternbrook@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:KN Förde-Triathlon Kiel – Sprintdistanz 27.5 km
+LOCATION:Kiel-Düsternbrook\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 27.5 km\nhttps://www.kiel
+ -triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.kiel-triathlon.de/
+END:VEVENT
+END:VCALENDAR

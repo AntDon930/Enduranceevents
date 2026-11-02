@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-stuiben-trailrun-13km-umhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270531
+SUMMARY:Stuiben Trailrun
+LOCATION:Umhausen\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 13 km\nhttps://www.oetztal-tr
+ ailrunning.at/die-running-events/stuiben-trailrun-alpine-race/
+TRANSP:TRANSPARENT
+URL:https://www.oetztal-trailrunning.at/die-running-events/stuiben-trailru
+ n-alpine-race/
+END:VEVENT
+END:VCALENDAR

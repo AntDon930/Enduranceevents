@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:Stadttriathlon Knittelfeld
 LOCATION:Knittelfeld\, Österreich
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 52 km\nhttps://time2win.a
- t/event/1151
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 52 km\nhttps://www.tri-te
+ am-murtal.at/
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1151
+URL:https://www.tri-team-murtal.at/
 END:VEVENT
 END:VCALENDAR

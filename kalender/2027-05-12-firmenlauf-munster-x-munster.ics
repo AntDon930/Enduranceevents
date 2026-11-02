@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270512
 DTEND;VALUE=DATE:20270513
 SUMMARY:Firmenlauf Münster
 LOCATION:Münster\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /430934/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://aok-firmenlauf-mu
+ enster.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/430934/
+URL:https://aok-firmenlauf-muenster.de/
 END:VEVENT
 END:VCALENDAR

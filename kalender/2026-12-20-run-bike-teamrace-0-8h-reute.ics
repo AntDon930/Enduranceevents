@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-run-bike-teamrace-0-8h-reute@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Run & Bike Teamrace – Cyclocross 45 min
+LOCATION:Reute\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Cyclecross\nLänge: 45 min\nhttps://www.r
+ vc-reute.de/veranstaltungen/run-bike/
+TRANSP:TRANSPARENT
+URL:https://www.rvc-reute.de/veranstaltungen/run-bike/
+END:VEVENT
+END:VCALENDAR

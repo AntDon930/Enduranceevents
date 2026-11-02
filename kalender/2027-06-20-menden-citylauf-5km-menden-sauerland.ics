@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270620
 DTEND;VALUE=DATE:20270621
 SUMMARY:Menden-Citylauf
 LOCATION:Menden (Sauerland)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/429263/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.menden-cit
+ ylauf.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/429263/
+URL:https://www.menden-citylauf.de
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-rund-um-das-stadttheater-giessen-x-giessen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:Rund um das Stadttheater Gießen
+LOCATION:Gießen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.dsergebnis.d
+ e/
+TRANSP:TRANSPARENT
+URL:https://www.dsergebnis.de/
+END:VEVENT
+END:VCALENDAR

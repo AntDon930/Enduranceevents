@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-tri-x-aquathlon-kufstein-3-4km-kufstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Tri-X-Aquathlon Kufstein
+LOCATION:Kufstein\, Österreich
+DESCRIPTION:Sportart: Triathlon / Aquathlon\nLänge: 3.4 km\nhttps://tri-x-
+ kufstein.at/
+TRANSP:TRANSPARENT
+URL:https://tri-x-kufstein.at/
+END:VEVENT
+END:VCALENDAR

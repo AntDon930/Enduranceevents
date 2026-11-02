@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-09-brocken-marathon-beim-harz-gebirgslauf-42-2km-wernigerode@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271009
+DTEND;VALUE=DATE:20271010
+SUMMARY:Brocken-Marathon beim Harz-Gebirgslauf
+LOCATION:Wernigerode\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttp://www.harz-gebi
+ rgslauf.de
+TRANSP:TRANSPARENT
+URL:http://www.harz-gebirgslauf.de
+END:VEVENT
+END:VCALENDAR

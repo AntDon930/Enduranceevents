@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-eichwalder-silvesterlauf-10km-eichwalde@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Eichwalder Silvesterlauf
+LOCATION:Eichwalde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://eichwalde2000
+ .de/sportangebote/laufveranstaltungen/silvesterlauf/
+TRANSP:TRANSPARENT
+URL:https://eichwalde2000.de/sportangebote/laufveranstaltungen/silvesterla
+ uf/
+END:VEVENT
+END:VCALENDAR

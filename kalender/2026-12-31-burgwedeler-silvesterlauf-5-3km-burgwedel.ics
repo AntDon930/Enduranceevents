@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Burgwedeler-Silvesterlauf
 LOCATION:Burgwedel\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttps://my.raceresul
- t.com/417189/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttps://www.sv-burgw
+ edel.de/triathlon/burgwedeler-silvesterlauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/417189/
+URL:https://www.sv-burgwedel.de/triathlon/burgwedeler-silvesterlauf/
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-einsiedeln-triathlon-22-3km-einsiedeln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Einsiedeln Triathlon
+LOCATION:Einsiedeln\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 22.3 km\nhttps://mumagesi
+ -triathlon.ch/einsiedeln-triathlon/
+TRANSP:TRANSPARENT
+URL:https://mumagesi-triathlon.ch/einsiedeln-triathlon/
+END:VEVENT
+END:VCALENDAR

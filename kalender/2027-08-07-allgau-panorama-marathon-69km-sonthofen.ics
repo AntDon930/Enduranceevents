@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270807
 DTEND;VALUE=DATE:20270809
 SUMMARY:Allgäu Panorama Marathon – Ultra
 LOCATION:Sonthofen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 69 km\nhttps://www.datasport.
- de/anmeldeservice/apm2027
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 69 km\nhttps://www.allgaeu-pa
+ norama-marathon.de/
 TRANSP:TRANSPARENT
-URL:https://www.datasport.de/anmeldeservice/apm2027
+URL:https://www.allgaeu-panorama-marathon.de/
 END:VEVENT
 END:VCALENDAR
