@@ -764,10 +764,10 @@
   "stadt": "Berlin",
   "art": "Fahrrad",
   "strava": "https://www.strava.com/clubs/bike-pivo",
-  "letzter_beleg": null,
-  "grund": "Strava beigetreten 27.10.2026: nur ein Einzelevent (WinterGravelGlühen 05.12.2026 im Erzgebirge, Anmeldung folgt), kein fester Treff.",
+  "letzter_beleg": "2026-11-02",
+  "grund": "Strava: nur Einzelevents (Himmelpfort 28.11., WinterGravelGlühen 05.12.), kein fester Treff.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-02"
  },
  {
   "schluessel": "ig:blackwomenrunberlin",
@@ -1439,18 +1439,6 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "strava:trekberlin",
-  "name": "Trek Bicycle Berlin",
-  "stadt": "Berlin",
-  "art": "Fahrrad",
-  "strava": "https://www.strava.com/clubs/trekberlin",
-  "webseite": "https://www.trekbikes.com/de/de_DE/stores/berlin/",
-  "letzter_beleg": null,
-  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
  },
  {
   "schluessel": "ig:ycc.rides",
@@ -2755,6 +2743,17 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
+  "schluessel": "club:hamburg-gruppetto-hamburg",
+  "name": "Gruppetto Hamburg",
+  "stadt": "Hamburg",
+  "art": "Fahrrad",
+  "letzter_beleg": "2026-10-30",
+  "geprueft": "2026-11-02",
+  "grund": "War Club mit Einzelterminen; seit dem letzten keine weiteren auf Strava (nur virtuelle Zwift-Termine o. Ä.). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 02.11.2026",
+  "strava": "https://www.strava.com/clubs/716641"
+ },
+ {
   "schluessel": "ig:arab_run_club_hamburg",
   "name": "Hamburg Arab Running Club",
   "stadt": "Hamburg",
@@ -3320,6 +3319,18 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:koeln-sportscheck-community",
+  "name": "SportScheck Community Köln",
+  "stadt": "Köln",
+  "art": "Laufen",
+  "letzter_beleg": "2026-10-28",
+  "geprueft": "2026-11-02",
+  "grund": "War Club mit Einzelterminen; seit dem letzten keine weiteren auf Strava (nur virtuelle Zwift-Termine o. Ä.). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 02.11.2026",
+  "strava": "https://www.strava.com/clubs/260630",
+  "webseite": "https://www.sportscheck.com/"
  },
  {
   "schluessel": "ig:trailrunning_cologne",
@@ -3940,6 +3951,17 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:muenchen-dsrc",
+  "name": "DSRC",
+  "stadt": "München",
+  "art": "Laufen",
+  "letzter_beleg": "2026-10-29",
+  "geprueft": "2026-11-02",
+  "grund": "War Club mit Einzelterminen; seit dem letzten keine weiteren auf Strava (nur virtuelle Zwift-Termine o. Ä.). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 02.11.2026",
+  "strava": "https://www.strava.com/clubs/1065107"
  },
  {
   "schluessel": "ig:easy.runningclub",

@@ -221,7 +221,8 @@
    "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-26"
+  "geprueft": "2026-11-02",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "hamburg-kraft-runners",
@@ -301,7 +302,8 @@
    "https://rundedrehen.de/grouprides/hamburg"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-02",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "hamburg-radcrew-raceteam-training",
@@ -335,11 +337,12 @@
    "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-26",
+  "geprueft": "2026-11-02",
   "pace": {
    "von": 28,
    "bis": 40
-  }
+  },
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "berlin-parkrun-hasenheide",
@@ -14283,6 +14286,13 @@
      7,
      10
     ]
+   },
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:15",
+    "ab": "2026-10-31",
+    "bezeichnung": "Saturday Legends Run, 7 km am Main (~6:00 min/km), ab Kunstverein Familie Montez, danach Kaffee und Kuchen"
    }
   ],
   "pace": {
@@ -14299,11 +14309,11 @@
   "quelle": [
    "https://socialrunclubs.de/frankfurt-am-main/local-legends-run-club/",
    "https://www.strava.com/clubs/1647549",
-   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
   "art": "Laufen",
-  "geprueft": "2026-10-26",
+  "geprueft": "2026-11-02",
   "sprachen": [
    "de"
   ],
@@ -14311,7 +14321,8 @@
    7,
    10
   ],
-  "strava": "https://www.strava.com/clubs/1647549"
+  "strava": "https://www.strava.com/clubs/1647549",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "frankfurt-main-runners",
@@ -14793,14 +14804,15 @@
   ],
   "land": "Deutschland",
   "art": "Laufen",
-  "geprueft": "2026-10-26",
+  "geprueft": "2026-11-02",
   "sprachen": [
    "de"
   ],
   "strava": "https://www.strava.com/clubs/MeenzRunners",
   "merkmale": [
    "anfaengerfreundlich"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "mainz-ag-run-club",
@@ -19116,9 +19128,9 @@
    },
    {
     "rhythmus": "einmalig",
-    "datum": "2026-10-28",
-    "uhrzeit": "19:00",
-    "bezeichnung": "Olympia Hill Sprints (mit SOYL)"
+    "datum": "2026-11-19",
+    "uhrzeit": "18:30",
+    "bezeichnung": "Trail Lab Olympia: Bergintervalle vor der ZHS (Start einer wöchentlichen Reihe)"
    }
   ],
   "strava": "https://www.strava.com/clubs/1313031",
@@ -19126,16 +19138,17 @@
   "beschreibung_en": "Munich community with Wednesday intervals and a Sunday social run with coffee.",
   "quelle": [
    "https://www.strava.com/clubs/1313031",
-   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers",
-   "Instagram-Profil @runandchill.club (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
+   "Instagram-Profil @runandchill.club (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026",
+   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-11-02",
   "merkmale": [
    "kaffee"
   ],
   "instagram": "https://www.instagram.com/runandchill.club/",
   "anmeldung": "empfohlen",
-  "anmeldung_ueber": "Strava"
+  "anmeldung_ueber": "Strava",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "muenchen-run-and-chill-mermaid-swim",
@@ -19161,9 +19174,10 @@
    "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers",
    "Instagram-Profil @runandchill.club (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-02",
   "pruefung_offen": true,
-  "pruefung_grund": "Instagram-Kalender nennt montags „swim hangout“, Highlight „eisbach dips“ – Ort (Eisbach oder Bad am Olympiapark) und Saison klären; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "pruefung_grund": "Instagram-Kalender nennt montags „swim hangout“, Highlight „eisbach dips“ – Ort (Eisbach oder Bad am Olympiapark) und Saison klären; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "muenchen-bold-coffee-run",
@@ -19189,12 +19203,13 @@
    "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers",
    "https://www.strava.com/clubs/boldrunningclub"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-02",
   "merkmale": [
    "kaffee"
   ],
   "pruefung_offen": true,
-  "pruefung_grund": "Treffpunkt Wiener Platz und Montag aus der Strava-Clubbeschreibung („every monday seven am“); Strava-Termin nennt 06:45 – ob 06:45 Treffen und 07:00 Start, bestätigen; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "pruefung_grund": "Treffpunkt Wiener Platz und Montag aus der Strava-Clubbeschreibung („every monday seven am“); Strava-Termin nennt 06:45 – ob 06:45 Treffen und 07:00 Start, bestätigen; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "muenchen-pas-normal-studios",
@@ -19226,12 +19241,13 @@
    "https://www.strava.com/clubs/1149891",
    "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-11-02",
   "rad_typ": "Rennrad",
   "sprachen": [
    "de",
    "en"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "muenchen-cato-interval-session",
@@ -19256,9 +19272,10 @@
    "https://www.strava.com/clubs/1074516",
    "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-02",
   "pruefung_offen": true,
-  "pruefung_grund": "Treffpunkt im Strava-Termin nur als Postleitzahl 80539 angegeben; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "pruefung_grund": "Treffpunkt im Strava-Termin nur als Postleitzahl 80539 angegeben; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "muenchen-runningsociety",
@@ -19304,63 +19321,11 @@
    "https://runningsociety.de/",
    "https://urbansportsclub.com/de/venues/munich-running-society"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-02",
   "pruefung_offen": true,
   "pruefung_grund": "Webseite runningsociety.de: Mo+Mi 18:30, Fr 18:30, So 10:00, ohne Orte; Urban Sports Club nennt Oberanger 6 (Top4Running) plus Sachsenstraße 2 und Leopoldstraße 67, Buchung über USC/Eversports/Wellpass (kostenpflichtig); runningcrews.com-Snippet nennt Mo 18:30 'ELBGYM Hofstatt' – widersprüchlich, und kein kostenloser offener Treff erkennbar: ob aufnehmen, entscheiden",
-  "webseite": "https://runningsociety.de/"
- },
- {
-  "id": "koeln-sportscheck-community",
-  "name": "SportScheck Community Köln",
-  "art": "Laufen",
-  "stadt": "Köln",
-  "land": "Deutschland",
-  "treffpunkt": "SportScheck, Schildergasse 38",
-  "lat": 50.93678,
-  "lon": 6.95471,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-28",
-    "uhrzeit": "17:30",
-    "bezeichnung": "Community Run powered by ASICS"
-   }
-  ],
-  "strava": "https://www.strava.com/clubs/260630",
-  "webseite": "https://www.sportscheck.com/",
-  "beschreibung_de": "Community-Läufe von SportScheck in Köln – einzelne Termine, keine feste Wiederholung.",
-  "beschreibung_en": "SportScheck community runs in Cologne – individual dates, no fixed schedule.",
-  "quelle": [
-   "https://www.strava.com/clubs/260630",
-   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
-  ],
-  "geprueft": "2026-10-19"
- },
- {
-  "id": "muenchen-dsrc",
-  "name": "DSRC",
-  "art": "Laufen",
-  "stadt": "München",
-  "land": "Deutschland",
-  "treffpunkt": "Gudrunstraße 3, 80634 München",
-  "lat": 48.15289,
-  "lon": 11.53059,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-29",
-    "uhrzeit": "16:00",
-    "bezeichnung": "DSRC x La Marzocco Roadshow"
-   }
-  ],
-  "strava": "https://www.strava.com/clubs/1065107",
-  "beschreibung_de": "Münchner Running Club mit einzelnen Community-Läufen.",
-  "beschreibung_en": "Munich running club with individual community runs.",
-  "quelle": [
-   "https://www.strava.com/clubs/1065107",
-   "Strava-Club-Termine, abgerufen am 19.10.2026 über das Strava-Konto des Betreibers"
-  ],
-  "geprueft": "2026-10-19"
+  "webseite": "https://runningsociety.de/",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "land": "Schweiz",
@@ -23136,12 +23101,13 @@
    "https://www.strava.com/clubs/1061597",
    "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-26",
+  "geprueft": "2026-11-02",
   "pace": {
    "von": "5:30",
    "bis": "6:15"
   },
-  "dauer_min": 45
+  "dauer_min": 45,
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "stuttgart-runningclub-stuttgart-degerloch",
@@ -23346,7 +23312,7 @@
    "https://www.strava.com/clubs/1260886",
    "https://socialrunclubs.de/muenchen/bwrc/"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-02",
   "strava": "https://www.strava.com/clubs/1260886",
   "distanz_km": [
    8,
@@ -23357,7 +23323,8 @@
    "betrag_eur": null,
    "text": "Kaffee danach inklusive"
   },
-  "anmeldung": "nein"
+  "anmeldung": "nein",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "muenchen-moovcrew-odeonsplatz",
@@ -23489,6 +23456,16 @@
     "wochentag": 4,
     "uhrzeit": "19:00",
     "bezeichnung": "Intervalle"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Sunday Social Run, 6 km (6:15–6:20 min/km) ab Ryzon Store, Auenstraße 29, an der Isar",
+    "distanz_km": [
+     6,
+     6
+    ]
    }
   ],
   "instagram": "https://www.instagram.com/munichmove/",
@@ -23498,9 +23475,10 @@
   "beschreibung_en": "Wednesdays at 7 pm a social run from the Hofgarten archway through the English Garden to Kleinhesseloher See and back (6.5–7 km, 6:15–6:20 min/km); Thursdays at 7 pm intervals from the same spot.",
   "quelle": [
    "https://www.strava.com/clubs/1515602",
-   "https://socialrunclubs.de/muenchen/munich-move/"
+   "https://socialrunclubs.de/muenchen/munich-move/",
+   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-02",
   "distanz_km": [
    6.5,
    7
@@ -23508,7 +23486,8 @@
   "pace": {
    "von": "6:15",
    "bis": "6:20"
-  }
+  },
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "muenchen-munich-run-collective",
@@ -23820,7 +23799,7 @@
    "https://www.strava.com/clubs/1745571",
    "https://socialrunclubs.de/muenchen/sendling-running-club/"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-02",
   "kosten": {
    "gratis": true,
    "betrag_eur": null,
@@ -23833,7 +23812,8 @@
   "pace": {
    "von": "5:30",
    "bis": "6:30"
-  }
+  },
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "muenchen-sunday-runday",
@@ -29021,7 +29001,8 @@
   "quelle": [
    "https://www.strava.com/clubs/1487714"
   ],
-  "geprueft": "2026-10-20"
+  "geprueft": "2026-11-02",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "muenchen-early-birds-friday-intervals",
@@ -29054,11 +29035,12 @@
   "quelle": [
    "https://www.strava.com/clubs/1215180"
   ],
-  "geprueft": "2026-10-20"
+  "geprueft": "2026-11-02",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "land": "Deutschland",
-  "geprueft": "2026-10-26",
+  "geprueft": "2026-11-02",
   "anmeldung": "nein",
   "sprachen": [
    "de"
@@ -29094,11 +29076,12 @@
   "quelle": [
    "https://www.strava.com/clubs/1151845",
    "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "land": "Deutschland",
-  "geprueft": "2026-10-26",
+  "geprueft": "2026-11-02",
   "anmeldung": "nein",
   "sprachen": [
    "de"
@@ -29123,6 +29106,12 @@
     "datum": "2026-12-12",
     "uhrzeit": "08:30",
     "bezeichnung": "GravelGranFondo Dezember, 100 km+"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-02",
+    "uhrzeit": "17:30",
+    "bezeichnung": "Tornesch: Anstieg? Abfahrt! – Abendrunde ab Hamburger Straße 8, Tornesch (~25 km/h, kein Warten)"
    }
   ],
   "distanz_km": [
@@ -29134,43 +29123,13 @@
   "beschreibung_en": "Monthly long gravel ride of the Gravel Hamburg community, 100 km and more from Volksdorf; details are posted shortly before in the Strava club.",
   "quelle": [
    "https://www.strava.com/clubs/1129282",
-   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
-  ]
+   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "land": "Deutschland",
-  "geprueft": "2026-10-26",
-  "anmeldung": "nein",
-  "sprachen": [
-   "de"
-  ],
-  "id": "hamburg-gruppetto-hamburg",
-  "name": "Gruppetto Hamburg",
-  "art": "Fahrrad",
-  "stadt": "Hamburg",
-  "treffpunkt": "Friedhof Ohlsdorf, Haupteingang (Talstraße)",
-  "lat": 53.6222,
-  "lon": 10.0476,
-  "rad_typ": "Rennrad",
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-30",
-    "uhrzeit": "15:00",
-    "bezeichnung": "Sachsenwald Spin, in Kleingruppen à 8 Personen"
-   }
-  ],
-  "strava": "https://www.strava.com/clubs/716641",
-  "beschreibung_de": "Große Hamburger Rennrad-Community mit wechselnden Ausfahrten, die einzeln im Strava-Club angekündigt werden – gefahren wird in Kleingruppen.",
-  "beschreibung_en": "Large Hamburg road cycling community with changing rides announced one by one in its Strava club – ridden in small groups.",
-  "quelle": [
-   "https://www.strava.com/clubs/716641",
-   "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
-  ]
- },
- {
-  "land": "Deutschland",
-  "geprueft": "2026-10-26",
+  "geprueft": "2026-11-02",
   "anmeldung": "nein",
   "sprachen": [
    "de"
@@ -29204,7 +29163,8 @@
   "quelle": [
    "https://www.strava.com/clubs/467041",
    "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "land": "Deutschland",
@@ -29251,7 +29211,7 @@
  },
  {
   "land": "Deutschland",
-  "geprueft": "2026-10-26",
+  "geprueft": "2026-11-02",
   "anmeldung": "empfohlen",
   "sprachen": [
    "de"
@@ -29281,7 +29241,8 @@
   "quelle": [
    "https://www.strava.com/clubs/149903",
    "Strava-Club-Termine, abgerufen am 26.10.2026 über das Strava-Konto des Betreibers"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "art": "Fahrrad",
@@ -30239,6 +30200,12 @@
     "wochentag": 7,
     "uhrzeit": "17:30",
     "bezeichnung": "10K Brückenlauf (statt des Shakeout Runs), Start 18:00"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-22",
+    "uhrzeit": "12:00",
+    "bezeichnung": "Butter Brunch Run, 5 km in drei Pacegruppen mit Lauf-ABC am Rhein (statt des Shakeout Runs)"
    }
   ],
   "distanz_km": [
@@ -30254,10 +30221,13 @@
   "beschreibung_en": "Sunday community run from a bar on Jülicher Straße: meet and bag drop at 5:30 pm, start at 6 pm over 5 km; on the first Sunday of the month 10 km across the bridges.",
   "quelle": [
    "https://www.strava.com/clubs/2233427",
-   "Strava-Club-Termine, abgerufen am 27.10.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-27",
-  "zuletzt_aktiv": "2026-10-27"
+  "geprueft": "2026-11-02",
+  "zuletzt_aktiv": "2026-11-02",
+  "ausfaelle": [
+   "2026-11-22"
+  ]
  },
  {
   "id": "bamberg-running-club-bamberg",
@@ -30288,8 +30258,8 @@
    "https://www.strava.com/clubs/2127261",
    "Strava-Club-Termine, abgerufen am 27.10.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-27",
-  "zuletzt_aktiv": "2026-10-27"
+  "geprueft": "2026-11-02",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "boeblingen-the-vibe-run",
@@ -30388,8 +30358,8 @@
    "https://www.strava.com/clubs/1234371",
    "Strava-Club-Termine, abgerufen am 27.10.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-27",
-  "zuletzt_aktiv": "2026-10-27"
+  "geprueft": "2026-11-02",
+  "zuletzt_aktiv": "2026-11-02"
  },
  {
   "id": "bielefeld-cycling-bats",
@@ -30404,9 +30374,9 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-01",
-    "uhrzeit": "10:00",
-    "bezeichnung": "CB Gravel Ride, 44,6 km / 390 hm, No Drop, Helm Pflicht"
+    "datum": "2026-11-02",
+    "uhrzeit": "18:45",
+    "bezeichnung": "CB x active: gemeinsamer Lauf 45 min (5:30–7:00 min/km) ab Niederwall 8"
    }
   ],
   "distanz_km": [
@@ -30422,10 +30392,10 @@
   "beschreibung_en": "Cycling group from Bielefeld with announced rides; next up a 44.6 km no-drop gravel ride from Siegfriedplatz.",
   "quelle": [
    "https://www.strava.com/clubs/1098712",
-   "Strava-Club-Termine, abgerufen am 27.10.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-27",
-  "zuletzt_aktiv": "2026-10-27",
+  "geprueft": "2026-11-02",
+  "zuletzt_aktiv": "2026-11-02",
   "pruefung_offen": true,
   "pruefung_grund": "Bisher nur Einzeltermine auf Strava; prüfen, ob es einen festen Rhythmus gibt (Instagram)."
  },
@@ -30442,9 +30412,9 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-10-28",
+    "datum": "2026-11-02",
     "uhrzeit": "18:00",
-    "bezeichnung": "Graviér Petit, Feierabend-Gravelrunde mit Licht"
+    "bezeichnung": "Graviér Petit „Against the Novemberblues“, No Drop"
    }
   ],
   "strava": "https://www.strava.com/clubs/gravel-braunschweig",
@@ -30452,11 +30422,97 @@
   "beschreibung_en": "Gravel community from Braunschweig with announced rides, such as the after-work loop “Graviér Petit” from Marienstraße.",
   "quelle": [
    "https://www.strava.com/clubs/1049586",
-   "Strava-Club-Termine, abgerufen am 27.10.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-27",
-  "zuletzt_aktiv": "2026-10-27",
+  "geprueft": "2026-11-02",
+  "zuletzt_aktiv": "2026-11-02",
   "pruefung_offen": true,
-  "pruefung_grund": "Bisher nur ein Einzeltermin auf Strava; prüfen, ob „Graviér Petit“ regelmäßig stattfindet."
+  "pruefung_grund": "Bisher nur Einzeltermine auf Strava (28.10., 02.11.); prüfen, ob „Graviér Petit“ einen festen Rhythmus hat."
+ },
+ {
+  "id": "berlin-trek-gravel-einsteigerrunde",
+  "name": "Trek Bicycle Berlin",
+  "art": "Fahrrad",
+  "rad_typ": "Gravel",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "Trek Store Adlershof, Dörpfeldstraße 5",
+  "lat": 52.43571,
+  "lon": 13.5424,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-07",
+    "uhrzeit": "10:30",
+    "bezeichnung": "Gravel-Einsteigerrunde, ca. 40 km, ~18 km/h, No Drop, Treffen 10:15, danach Kaffee im Store"
+   }
+  ],
+  "distanz_km": [
+   40,
+   40
+  ],
+  "pace": {
+   "von": 18,
+   "bis": 18
+  },
+  "stufen": [
+   "anfaenger"
+  ],
+  "merkmale": [
+   "no_drop",
+   "kaffee",
+   "anfaengerfreundlich"
+  ],
+  "strava": "https://www.strava.com/clubs/trekberlin",
+  "beschreibung_de": "Der Trek Store Adlershof lädt zu Gravelrunden ein, als Nächstes eine einsteigerfreundliche Runde über rund 40 km in gemäßigtem Tempo ohne Zurücklassen, danach Kaffee im Laden.",
+  "beschreibung_en": "Trek Store Adlershof hosts gravel rides; next up a beginner-friendly no-drop loop of about 40 km at a moderate pace, with coffee at the store afterwards.",
+  "quelle": [
+   "https://www.strava.com/clubs/1030482",
+   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-02",
+  "zuletzt_aktiv": "2026-11-02",
+  "pruefung_offen": true,
+  "pruefung_grund": "Bisher nur ein Einzeltermin auf Strava; prüfen, ob es regelmäßige Ausfahrten gibt."
+ },
+ {
+  "id": "muenchen-peopleon-bikes-social-run",
+  "name": "peopleon bikes After Work Social Run",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Professor-Huber-Platz, am Ostbrunnen (Maxvorstadt)",
+  "lat": 48.15085,
+  "lon": 11.58196,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-03",
+    "uhrzeit": "17:30",
+    "bezeichnung": "After Work Social Run, 5 km (6:30–7:00 min/km)"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "7:00"
+  },
+  "stufen": [
+   "anfaenger"
+  ],
+  "strava": "https://www.strava.com/clubs/1542628",
+  "beschreibung_de": "Lockerer After-Work-Lauf über 5 km im Tempo 6:30–7:00 min/km, der Treffpunkt wechselt von Termin zu Termin.",
+  "beschreibung_en": "Easy 5 km after-work run at 6:30–7:00 min/km; the meeting point changes from run to run.",
+  "quelle": [
+   "https://www.strava.com/clubs/1542628",
+   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-02",
+  "zuletzt_aktiv": "2026-11-02",
+  "pruefung_offen": true,
+  "pruefung_grund": "Einzeltermine mit wechselndem Treffpunkt und Wochentag (29.10. Lerchenauer Straße, 03.11. Professor-Huber-Platz); prüfen, ob es einen festen Rhythmus gibt."
  }
 ]
