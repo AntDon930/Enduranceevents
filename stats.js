@@ -122,6 +122,8 @@
   }
 
   function seite() {
+    // Beiträge (blog/<slug>.html) zählen als Seite „blog“.
+    if (/\/blog\/[^/]+$/.test(global.location.pathname || '')) return 'blog';
     var p = (global.location.pathname || '').split('/').pop() || 'index.html';
     p = p.replace(/\.html?$/i, '').toLowerCase();
     return p || 'index';

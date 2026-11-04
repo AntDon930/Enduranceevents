@@ -2972,6 +2972,41 @@ def pruefe_datenrueckfall(ctx, basis, web_daten):
         os.rename(web_daten + ".weg", web_daten)
 
 
+def pruefe_blog(ctx, basis):
+    """Blog (04.11.2026): blog.html zeigt jeden Beitrag aus blog.json als
+    Kachel, ein Klick öffnet die Beitragsseite unter blog/, die ohne
+    Fehler und 404 lädt (Pfade eine Ebene höher), und „Alle Beiträge"
+    führt zurück. Die Kopfzeile bleibt auf 390 px in zwei Reihen."""
+    print("\nBlog (blog.html, blog/<slug>.html):")
+    with open(os.path.join(WURZEL, "blog.json"), encoding="utf-8") as f:
+        beitraege = json.load(f)
+    if not beitraege:
+        ueberspringe("blog.json ist leer")
+        return
+    seite, probleme = seite_oeffnen(ctx, basis + "/blog.html", warten=".blog-karte")
+    pruefe_kopf(seite, "blog.html")
+    pruefe(not probleme, "blog.html: lädt ohne Fehler (%s)" % ("; ".join(probleme[:3]) or "keine"))
+    pruefe(seite.locator(".blog-karte").count() == len(beitraege),
+           "blog.html: jeder Beitrag eine Kachel (%d von %d)" % (seite.locator(".blog-karte").count(), len(beitraege)))
+    nav = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link')).map(a => a.textContent.trim())")
+    pruefe(nav == ["Events", "Clubs", "Karte", "Blog"], "blog.html: Navigation Events – Clubs – Karte – Blog (%s)" % " – ".join(nav))
+    reihen = seite.evaluate("() => Math.round(document.querySelector('.site-nav').getBoundingClientRect().top - document.querySelector('.brand').getBoundingClientRect().top)")
+    pruefe(abs(reihen) <= 8, "blog.html: Menü steht neben der Marke, keine eigene Zeile (%+d px)" % reihen)
+    seite.close()
+    erster = sorted(beitraege, key=lambda b: b["datum"], reverse=True)[0]
+    seite, probleme = seite_oeffnen(ctx, basis + "/blog/%s.html" % erster["slug"], warten=".beitrag h1")
+    pruefe_kopf(seite, "Beitrag")
+    pruefe(not probleme, "Beitrag: lädt ohne Fehler und ohne 404 (%s)" % ("; ".join(probleme[:3]) or "keine"))
+    titel = seite.locator(".beitrag h1").inner_text().strip()
+    pruefe(titel == erster["titel"], "Beitrag: Überschrift aus blog.json (%s)" % titel)
+    hell = seite.evaluate("() => getComputedStyle(document.body).backgroundColor")
+    pruefe(hell not in ("", "rgba(0, 0, 0, 0)"), "Beitrag: site.css geladen (Hintergrund %s)" % hell)
+    seite.click("#blog-zurueck")
+    seite.wait_for_selector(".blog-karte", timeout=15000)
+    pruefe(seite.url.endswith("/blog.html"), "Beitrag: „Alle Beiträge“ führt zur Übersicht")
+    seite.close()
+
+
 def pruefe_clubs(ctx, basis):
     """Clubs (19.10.2026): clubs.html und der Schalter auf der Karte.
 
@@ -2998,7 +3033,7 @@ def pruefe_clubs(ctx, basis):
     karten = seite.locator(".club-karte").count()
     pruefe(karten == len(clubs), "clubs.html: jeder Club eine Kachel (%d von %d)" % (karten, len(clubs)))
     nav = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link')).map(a => a.textContent.trim())")
-    pruefe(nav == ["Events", "Clubs", "Karte"], "clubs.html: Navigation Events – Clubs – Karte (%s)" % " – ".join(nav))
+    pruefe(nav == ["Events", "Clubs", "Karte", "Blog"], "clubs.html: Navigation Events – Clubs – Karte – Blog (%s)" % " – ".join(nav))
     erster = seite.locator(".club-karte").first
     name = erster.locator(".ck-name").inner_text().strip()
     erster.click()
@@ -3117,6 +3152,7 @@ def main() -> int:
                 pruefe_farbschema(ctx, basis)
                 pruefe_wartung(ctx, basis)
                 pruefe_clubs(ctx, basis)
+                pruefe_blog(ctx, basis)
                 pruefe_datenrueckfall(ctx, basis, web_daten)
             finally:
                 browser.close()

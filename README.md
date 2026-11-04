@@ -3854,6 +3854,41 @@ Merge nach.
   kennt `clubs` erst damit, vorher verwirft sie die Aufrufe der
   Clubs-Seite still).
 
+## Blog (seit 04.11.2026, noch in der Vorschau)
+
+Vom Nutzer gewünscht: „neben der Karte einen Reiter für unsere
+Blogeinträge … Der Reiter soll einfach ‚Blog‘ heißen. Hier sammeln wir dann
+alle Blogeinträge.“ Gebaut auf dem Clubs-Branch, geht mit dem Launch live.
+
+- **Navigation**: „Blog“ steht in jeder Seite hinter „Karte“ (Startseite,
+  Liste, Clubs, Karte, Dashboard, Blog). Damit vier Menüpunkte auf dem
+  Handy neben der Marke Platz haben, sind Marke und Menüschrift bis 440 px
+  etwas kleiner (`site.css`); vorher rutschte das Menü in eine eigene Zeile.
+- **`blog.html`** zeigt die Beiträge aus **`blog.json`** als Kacheln
+  (neueste zuerst): `slug`, `titel`, `teaser`, `datum`, `sportart`,
+  `kategorie`, `lesezeit_min`, `bild`, `bild_klein`, `bild_alt`.
+- **Jeder Beitrag ist eine eigene Seite** `blog/<slug>.html`, damit
+  Suchmaschinen ihn finden (Titel, Beschreibung, Open Graph, `canonical`,
+  JSON-LD `BlogPosting`). Die Seite wird von **`scripts/build_blog.py`**
+  erzeugt – aus dem Eintrag in `blog.json` und dem Text in
+  **`scripts/blog_texte/<slug>.html`** (nur der Inhalt, ohne Kopf).
+  Kopfzeile, Kopf-Skripte und `?v=`-Stempel übernimmt das Skript von
+  `blog.html`, mit Pfaden eine Ebene höher; `stamp_assets.py` ruft es nach
+  dem Stempeln auf. Erzeugte Seiten nicht von Hand ändern.
+- **Neuer Beitrag**: Eintrag in `blog.json`, Text nach
+  `scripts/blog_texte/<slug>.html`, dann `python3 scripts/build_blog.py`.
+  Bilder nur mit freier Lizenz und Namensnennung unter dem Bild; Bildregel
+  des Nutzers (keine Einzelpersonen, keine erkennbaren Gesichter).
+- **Sprache**: Die Beiträge sind deutsch, die Bedienung schaltet DE/EN um;
+  `blog.html` sagt auf Englisch, dass die Beiträge deutsch sind.
+- **Statistik**: Beiträge zählen als Seite `blog` (`stats.js`,
+  `STATS_SEITEN` in `functions/index.js` – wirkt erst nach dem
+  Functions-Deploy beim Launch).
+- **Tests**: `test_blog` (Felder, Bilder, Texte, erzeugte Seiten aktuell,
+  alle `../`-Verweise vorhanden, Reiter in jeder Seite) und im Rauchtest
+  `pruefe_blog` (Kacheln, Beitrag ohne Fehler und 404, Rückweg, Menü neben
+  der Marke).
+
 ## Lokal testen
 
 Da `events.html` die Datei `events.json` per `fetch` lädt, funktioniert

@@ -1,0 +1,14 @@
+[
+ {
+  "slug": "erster-triathlon",
+  "titel": "Dein erster Triathlon: So findest du das passende Rennen",
+  "teaser": "Welche Distanz passt zum Einstieg, woran erkennst du ein einsteigerfreundliches Rennen, und wie kommst du in zwölf Wochen gut vorbereitet an den Start? Ein Leitfaden mit Checkliste.",
+  "datum": "2026-11-04",
+  "sportart": "Triathlon",
+  "kategorie": "Einsteiger",
+  "lesezeit_min": 7,
+  "bild": "bilder/triathlon.webp",
+  "bild_klein": "bilder/triathlon-480.webp",
+  "bild_alt": "Schwimmstart eines Triathlons: viele Athleten mit Badekappen im Wasser"
+ }
+]

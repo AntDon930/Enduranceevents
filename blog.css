@@ -1,0 +1,142 @@
+/* blog.css – Übersicht (blog.html) und Beiträge (blog/<slug>.html).
+   Farben, Schriften und Radien kommen aus site.css (Style Guide des
+   Nutzers); hier steht nur, was der Blog zusätzlich braucht. */
+
+.blog-main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px var(--seite-rand) 48px;
+  min-height: calc(100vh - 230px);
+}
+.blog-kopf h2 {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0 0 8px;
+}
+.blog-kopf p { color: var(--text-muted); font-size: 1.05rem; margin: 0 0 24px; max-width: 46rem; }
+.blog-hinweis-sprache { font-size: 0.9rem; color: var(--text-muted); margin: -12px 0 22px; }
+
+/* Übersicht: Kacheln */
+.blog-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.blog-karte {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.blog-karte:hover { border-color: var(--border-strong, var(--accent)); transform: translateY(-2px); }
+.blog-karte a { color: inherit; text-decoration: none; display: flex; flex-direction: column; height: 100%; }
+.blog-karte img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; background: var(--panel-2); }
+.blog-karte-text { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.blog-karte h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; line-height: 1.15; margin: 0; }
+.blog-karte p { margin: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+.blog-weiter { margin-top: auto; padding-top: 6px; font-weight: 600; font-size: 0.92rem; color: var(--link, var(--accent)); }
+
+.blog-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); }
+.blog-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: var(--accent-bg);
+  color: var(--text);
+}
+.blog-tag.sport-triathlon { background: var(--sport-triathlon-bg); color: var(--sport-triathlon-fg); }
+.blog-tag.sport-laufen { background: var(--sport-laufen-bg); color: var(--sport-laufen-fg); }
+.blog-tag.sport-fahrrad { background: var(--sport-fahrrad-bg); color: var(--sport-fahrrad-fg); }
+.blog-tag.sport-schwimmen { background: var(--sport-schwimmen-bg); color: var(--sport-schwimmen-fg); }
+.blog-leer { color: var(--text-muted); }
+
+/* Beitrag */
+.beitrag { max-width: 760px; margin: 0 auto; }
+.beitrag-zurueck {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
+  color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.92rem;
+}
+.beitrag-zurueck:hover { color: var(--text); }
+.beitrag h1 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 10px 0 14px;
+}
+.beitrag-lead { font-size: 1.2rem; line-height: 1.55; color: var(--text); margin: 0 0 22px; }
+.beitrag-bild { margin: 0 0 30px; }
+.beitrag-bild img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-card); display: block; }
+.beitrag-bild figcaption { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+.beitrag-bild figcaption a { color: inherit; }
+.beitrag-text { font-size: 1.04rem; line-height: 1.7; }
+.beitrag-text h2 {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 38px 0 12px;
+}
+.beitrag-text h3 { font-size: 1.1rem; margin: 24px 0 8px; }
+.beitrag-text p { margin: 0 0 16px; }
+.beitrag-text ul, .beitrag-text ol { margin: 0 0 18px; padding-left: 1.3em; }
+.beitrag-text li { margin: 0 0 8px; }
+.beitrag-text a { color: var(--link, var(--accent)); }
+.beitrag-text strong { font-weight: 600; }
+
+.beitrag-tabelle-huelle { overflow-x: auto; margin: 0 0 18px; }
+.beitrag-text table { border-collapse: collapse; width: 100%; font-size: 0.95rem; min-width: 520px; }
+.beitrag-text th, .beitrag-text td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.beitrag-text th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); font-weight: 600; }
+.beitrag-text tr.empfohlen td { background: var(--accent-bg); }
+.beitrag-text td:nth-child(2), .beitrag-text td:nth-child(3), .beitrag-text td:nth-child(4) { white-space: nowrap; }
+
+.beitrag-kasten {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand);
+  background: var(--panel);
+  border-radius: var(--radius-ctl);
+  padding: 14px 18px;
+  margin: 0 0 20px;
+}
+.beitrag-kasten p:last-child { margin-bottom: 0; }
+
+.beitrag-cta {
+  margin: 40px 0 10px;
+  padding: 24px;
+  border-radius: var(--radius-card);
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+.beitrag-cta h2 { margin-top: 0; }
+.beitrag-cta .cta-knoepfe { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.cta-knopf {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px;
+  border-radius: var(--radius-ctl); font-weight: 600; text-decoration: none;
+  background: var(--accent); color: var(--on-accent);
+}
+.cta-knopf.leise { background: transparent; color: var(--text); border: 1px solid var(--border); }
+/* Gewinnt gegen .beitrag-text a (Linkfarbe), sonst stand im Dunkeln
+   helle Schrift auf hellem Knopf. */
+.beitrag-text a.cta-knopf { color: var(--on-accent); text-decoration: none; }
+.beitrag-text a.cta-knopf.leise { color: var(--text); }
+
+@media (max-width: 900px) {
+  .blog-kopf h2 { font-size: 2.1rem; }
+  .beitrag h1 { font-size: 2.2rem; }
+  .beitrag-lead { font-size: 1.08rem; }
+  .beitrag-text h2 { font-size: 1.6rem; }
+}

@@ -565,6 +565,17 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
     .top-actions { gap: 6px; }
     .lang-btn { padding: 7px 10px; }
   }
+  /* Vier Menüpunkte (… – Blog, seit 04.11.2026): Bis 440 px rutschte die
+     Navigation sonst in eine eigene Zeile, die Kopfzeile wurde 46 px
+     höher (gemessen auf 360/390/412 px). Etwas kleinere Marke und
+     Menüschrift halten Marke und Menü in einer Reihe. */
+  @media (max-width: 440px) {
+    .site-header { column-gap: 10px; }
+    .brand { gap: 8px; }
+    .brand-name { font-size: 1rem; }
+    .site-nav { gap: 9px; }
+    .nav-link { font-size: 0.88rem; }
+  }
   .reset-btn { min-height: 44px; }
   /* Chips klein (vom Nutzer am 18.10.2026: „einfach kleiner darstellen
      … kleinere Schrift … Das darf nicht so groß werden"; vorher 40 px

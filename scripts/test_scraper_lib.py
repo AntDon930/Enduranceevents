@@ -1101,7 +1101,7 @@ def test_ortsverzeichnis() -> None:
 # Alle HTML-Seiten des Projekts. Zwei Tests laufen darüber (JS-Syntax
 # und "keine fremden Dateien"); eine neue Seite hier eintragen, nicht an
 # zwei Stellen.
-SEITEN = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "admin.html", "clubs.html")
+SEITEN = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "admin.html", "clubs.html", "blog.html")
 
 
 def test_js_syntax() -> None:
@@ -2062,6 +2062,55 @@ def test_clubs_instagram() -> None:
     check("instagram.yml: das Reel läuft nicht im Clubs-Termin", "github.event.schedule != '17 5 * * 1'" in wf, True)
 
 
+def test_blog() -> None:
+    """Blog (04.11.2026, vom Nutzer: „neben der Karte einen Reiter für
+    unsere Blogeinträge … Blog“): blog.json, die erzeugten Beitragsseiten
+    (scripts/build_blog.py) und der Reiter in jeder Seite."""
+    import json as _json
+    import re as _re
+    import build_blog
+
+    print("\nBlog (blog.html, blog/<slug>.html):")
+    wurzel = Path(__file__).resolve().parent.parent
+    beitraege = build_blog.beitraege()
+    pflicht = ("slug", "titel", "teaser", "datum", "lesezeit_min", "bild", "bild_alt")
+    fehler = []
+    for b in beitraege:
+        for f in pflicht:
+            if not b.get(f):
+                fehler.append(f"{b.get('slug')}: {f} fehlt")
+        if not _re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", b.get("slug") or ""):
+            fehler.append(f"{b.get('slug')}: slug nur a-z, 0-9 und -")
+        if b.get("sportart") and b["sportart"] not in build_blog.SPORT_KLASSE:
+            fehler.append(f"{b['slug']}: unbekannte Sportart {b['sportart']}")
+        for f in ("bild", "bild_klein"):
+            if b.get(f) and not (wurzel / b[f]).exists():
+                fehler.append(f"{b['slug']}: {b[f]} fehlt")
+        if not (build_blog.TEXTE / f"{b.get('slug')}.html").exists():
+            fehler.append(f"{b.get('slug')}: Text in scripts/blog_texte fehlt")
+    check("blog.json: jeder Beitrag vollständig, mit Bild und Text", fehler, [])
+    check("blog.json: Slugs eindeutig", len({b["slug"] for b in beitraege}), len(beitraege))
+    check("Beitragsseiten passen zu blog.json, Text und Stempeln (sonst build_blog.py)", build_blog.veraltet(), [])
+    seiten = {p.stem for p in (wurzel / "blog").glob("*.html")}
+    check("keine Beitragsseite ohne Eintrag in blog.json", sorted(seiten - {b["slug"] for b in beitraege}), [])
+    for b in beitraege:
+        html = (wurzel / "blog" / f"{b['slug']}.html").read_text(encoding="utf-8")
+        verweise = _re.findall(r'(?:src|href)="\.\./([^"?#]+)', html)
+        fehlend = sorted({v for v in verweise if not (wurzel / v).exists()})
+        check(f"blog/{b['slug']}.html: alle ../-Verweise zeigen auf vorhandene Dateien", fehlend, [])
+        check(f"blog/{b['slug']}.html: Wartungs-Schnipsel führt eine Ebene höher",
+              "location.replace('../wartung.html')" in html, True)
+        check(f"blog/{b['slug']}.html: lädt nichts von fremden Servern",
+              _re.findall(r'\ssrc="(https?://[^"]+)"', html), [])
+    nav = {}
+    for name in ("index.html", "events.html", "karte.html", "clubs.html", "admin.html", "blog.html"):
+        html = (wurzel / name).read_text(encoding="utf-8")
+        nav[name] = 'href="blog.html"' in html and _re.search(r'<nav class="site-nav".*?href="blog\.html"', html, _re.S) is not None
+    check("Reiter „Blog“ in der Navigation jeder Seite", [n for n, ok in nav.items() if not ok], [])
+    stats = (wurzel / "stats.js").read_text(encoding="utf-8")
+    check("stats.js zählt Beiträge als Seite „blog“", "return 'blog'" in stats, True)
+
+
 def test_farbschema_skript() -> None:
     """Hell und Dunkel: das Skript im <head>, das `data-theme` setzt, steht
     in allen drei Seiten WORTGLEICH.
@@ -2079,7 +2128,7 @@ def test_farbschema_skript() -> None:
     print("\nFarbschema-Skript (hell/dunkel) in den Seiten:")
     wurzel = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
     fassungen: dict[str, str | None] = {}
-    for name in ("index.html", "events.html", "karte.html", "admin.html", "clubs.html"):
+    for name in ("index.html", "events.html", "karte.html", "admin.html", "clubs.html", "blog.html", "blog/erster-triathlon.html"):
         with open(os.path.join(wurzel, name), encoding="utf-8") as f:
             html = f.read()
         m = re.search(r"<script>\n\(function \(\) \{\n  var wahl = null;.*?</script>", html, re.S)
@@ -5763,7 +5812,7 @@ def main() -> int:
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,
                  test_keine_fremden_dateien, test_laender_maske,
-                 test_asset_stempel, test_farbschema_skript, test_wartung, test_clubs, test_clubs_instagram,
+                 test_asset_stempel, test_farbschema_skript, test_wartung, test_clubs, test_clubs_instagram, test_blog,
                  test_lauf_im_triathlonkalender,
                  test_wettbewerb_zusatz, test_triathlon_format, test_charity_merkmal,
                  test_triathlon_format_kopie):
