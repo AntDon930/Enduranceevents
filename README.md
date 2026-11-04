@@ -3877,7 +3877,7 @@ Eingriff.
 Kleinigkeit am Rande: Ein `favicon.ico` gibt es nicht, jeder
 Seitenaufruf holt sich dafür eine 404.
 
-## Clubs: Run Clubs, Social Rides, Schwimm-Treffs (seit 19.10.2026, noch in der Vorschau)
+## Clubs: Run Clubs, Social Rides, Schwimm-Treffs (seit 19.10.2026, live seit 04.11.2026)
 
 Vom Nutzer gewünscht: „Falls der User mal an einem Wochenende in Hamburg
 ist, sieht er auf meiner Karte, wo am Wochenende überall Run Clubs oder
@@ -3987,6 +3987,13 @@ Beleg) und rechnet `clubs.js` an festen Daten nach; der Rauchtest
 
 ### Vorschau und Launch
 
+**Launch am 04.11.2026** (vom Nutzer: „So, wir pushen jetzt auch die Clubs
+auf Live … ‚Coming soon‘ … zu einem ‚new‘“): Clubs-Branch in den
+Entwicklungs-Branch gemerged, Vorschau (`vorschau.yml`,
+`vorschau-sperre.js`, die Schritte in `pages.yml`, `Disallow: /vorschau/`)
+entfernt, Menüpunkt „Clubs“ mit Schildchen „new“ (`.nav-neu`), `clubs.html`
+in der Sitemap. Was unten über die Vorschau steht, ist Geschichte.
+
 Die Clubs entstehen auf dem Branch `claude/clubs-feature-map-kycnmi`,
 die Live-Seite bleibt auf `claude/endurance-events-website-v1wruf` und
 nimmt weiter jede schnelle Korrektur an. Der Clubs-Branch holt sie per
@@ -4010,7 +4017,7 @@ Vom Nutzer gewünscht: „neben der Karte einen Reiter für unsere
 Blogeinträge … Der Reiter soll einfach ‚Blog‘ heißen. Hier sammeln wir dann
 alle Blogeinträge.“ Gebaut auf dem Clubs-Branch; **am 04.11.2026 vorab live geschaltet** (vom
 Nutzer: „Ja, bitte veröffentliche den Blog“ – damit Google die Beiträge
-früh findet), die Clubs bleiben bis zum Launch in der Vorschau. Beide
+früh findet), die Clubs folgten am selben Abend. Beide
 Branches tragen dieselben Blogdateien; der einzige Unterschied ist der
 Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` und
 `build_blog.py` lassen ihn dann beim Sprachwechsel in Ruhe).
@@ -4038,7 +4045,7 @@ Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` un
   des Nutzers (keine Einzelpersonen, keine erkennbaren Gesichter).
 - **Ton** (04.11.2026, vom Nutzer: „Wir wollen den Leuten keine Angst machen sondern sie zum laufen motivieren!“): keine Angstthemen – keine Herzstillstand-, Ertrinkungs- oder Verletzungsstatistiken als Aufhänger, keine Warnkästen, keine Haftungsfloskeln. Sicherheitswissen positiv formulieren („so startest du gut vorbereitet“); ein Arztbesuch höchstens als kurzer, freundlicher Satz.
 - **Lesbarkeit** (04.11.2026, vom Nutzer: „Generell muss nicht alles wissenschaftlich bewiesen sein … nur bei Schlüsselthemen ist es wichtig um Glaubwürdigkeit zu schaffen. Die Texte sollen auch nicht allzu wissenschaftlich sein“): Ergebnis statt Studiendesign (keine Teilnehmerzahlen, Konfidenzintervalle, „Meta-Analyse aus 27 Studien“), kurze Sätze, praktische Tipps vorn. Fußnoten nur bei Schlüsselthemen (Gesundheit, Ernährung, Sicherheit, Regeln); lockere Themen ohne.
-- **Montags und donnerstags ein neuer Beitrag** (04.11.2026, erst nur montags, gleich darauf „2x in der Woche … Donnerstag und Montag“): Themenplan in `scripts/blog_themen.md` (Typ Q/L/E), die geplante Aufgabe „Blog-Artikel am Montag und Donnerstag“ (06:37 Berlin) schreibt das oberste offene Thema, hakt es ab und pusht auf die Live-Branches (`claude/endurance-events-website-v1wruf` und `claude/website-access-9d9tg1`, derselbe Commit) und holt den Stand per Merge in den Clubs-Branch.
+- **Montags und donnerstags ein neuer Beitrag** (04.11.2026, erst nur montags, gleich darauf „2x in der Woche … Donnerstag und Montag“): Themenplan in `scripts/blog_themen.md` (Typ Q/L/E), die geplante Aufgabe „Blog-Artikel am Montag und Donnerstag“ (06:37 Berlin) schreibt das oberste offene Thema, hakt es ab und pusht auf die Live-Branches (`claude/endurance-events-website-v1wruf` und `claude/website-access-9d9tg1`, derselbe Commit).
 - **Quellen** (04.11.2026, Wunsch des Nutzers: „sehr gut recherchieren … schön zitieren … nur aus seriösen Quellen“): Jede Aussage, die man nachprüfen muss, trägt eine Fußnote `<sup class="q"><a href="#qN">[N]</a></sup>`, am Ende steht `<section class="beitrag-quellen">` (NACH dem Abschlusskasten, damit sie nicht ins Inhaltsverzeichnis rutscht) mit Abrufdatum. Nur Verbände, Behörden, Rettungsorganisationen, Fachgesellschaften und begutachtete Studien; jede Studie über Europe PMC (Titel, Band, Seiten, Abstract) gegengeprüft, jede Verbandsstelle im Wortlaut gelesen. Was nur Erfahrung ist, sagt der Text auch so. Titelbilder liegen in `bilder/blog/` (aus dem Instagram-Pool `marketing/instagram/hintergruende/`, Nachweis in `blog.json`).
 - **Magazin-Aufbau** (04.11.2026, Vorlagen des Nutzers: ahotu Magazin,
   Spartan Life, STYRKR Hub): Die Übersicht hat einen **Aufmacher** (der

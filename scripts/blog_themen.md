@@ -6,7 +6,7 @@ veröffentlichen wir immer montags einen Blog Artikel!“, kurz darauf: „lass 
 Donnerstag (06:37 Berlin) schreibt die geplante Aufgabe „Blog-Artikel am
 Montag und Donnerstag“ (`trig_015LFqPsP972Ny6SzfzezXw2`) das nächste offene Thema
 (oberste Zeile mit `[ ]`), hakt es ab (`[x]` + Slug) und veröffentlicht es
-auf der Live-Seite (Entwicklungs-Branch, beide Live-Namen) und holt den Stand per Merge in den Clubs-Branch. Seit dem 04.11.2026 ist der Blog live (vom Nutzer: „Ja, bitte veröffentliche den Blog … und schreib noch ein paar weitere Artikel dazu“) – die ersten drei Themen sind am selben Tag erschienen.
+auf der Live-Seite (Entwicklungs-Branch, beide Live-Namen). Seit dem 04.11.2026 ist der Blog live (vom Nutzer: „Ja, bitte veröffentliche den Blog … und schreib noch ein paar weitere Artikel dazu“) – die ersten drei Themen sind am selben Tag erschienen.
 
 **Regeln (README „Blog“):**
 - Leicht lesbar, motivierend, du-Form, kurze Sätze, keine Angstthemen.

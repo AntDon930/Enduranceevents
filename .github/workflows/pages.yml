@@ -92,61 +92,12 @@ jobs:
           python3 scripts/insta_inhalte.py --plan 14 --json marketing/instagram/plan.json \
             || { echo "::warning::Instagram-Plan nicht erzeugt – die Website geht trotzdem raus"; exit 1; }
 
-      # Die VORSCHAU (seit dem 19.10.2026, vom Nutzer gewünscht: „erst
-      # alles bauen und dann in einem launchen"): Der Stand des
-      # Clubs-Branches liegt unter /vorschau/ – nirgends verlinkt, noindex,
-      # robots.txt sperrt den Ordner, stats.js schweigt dort. Die Daten
-      # (events.json, kalender/) kommen vom Live-Stand, damit die Vorschau
-      # nicht hinter dem täglichen Datenlauf herhinkt. Schlägt hier etwas
-      # fehl, geht die Live-Seite trotzdem raus (continue-on-error).
-      # Nach dem Launch: diese zwei Schritte und vorschau.yml löschen.
-      - name: Vorschau holen (Clubs-Branch)
-        id: vorschau
-        continue-on-error: true
-        uses: actions/checkout@v4
-        with:
-          ref: claude/clubs-feature-map-kycnmi
-          path: vorschau
-          fetch-depth: 1
-
-      - name: Vorschau vorbereiten
-        if: steps.vorschau.outcome == 'success'
-        continue-on-error: true
-        run: |
-          # Lieber keine Vorschau als eine ohne Anmeldesperre: Bricht hier
-          # ein Befehl ab, fliegt der ganze Ordner aus dem Upload.
-          trap 'rm -rf vorschau' ERR
-          rm -rf vorschau/.git vorschau/.github vorschau/scripts vorschau/functions vorschau/marketing vorschau/kalender vorschau/korrektur
-          cp events.json events.web.json vorschau/
-          cp -r kalender vorschau/kalender
-          # Die Anmeldesperre (seit 19.10.2026, vom Nutzer gewünscht): nur wer
-          # in Firestore unter admins/<uid> steht, sieht die Seiten – wie
-          # admin.html. Erstes Skript im <head>, Pfad absolut, damit er auch
-          # aus Unterordnern stimmt. Sichtschutz, kein Tresor (siehe Datei).
-          cp vorschau-sperre.js vorschau/
-          find vorschau -name '*.html' -print0 | while IFS= read -r -d '' f; do
-            sed -i 's#<head>#<head>\n<script src="/vorschau/vorschau-sperre.js"></script>\n<meta name="robots" content="noindex, nofollow">#' "$f"
-          done
-
       # Die Korrekturseite ist ein privates claude.ai-Artifact (CLAUDE.md,
       # „Korrekturseite“): Ihr Quelltext lädt Google-Schriften und ohne das
       # Artifact keine Daten – auf endurance-events.de hat er nichts verloren
       # (nichts von fremden Servern).
       - name: Nur-Artifact-Dateien weglassen
         run: rm -rf korrektur
-
-      # Letzte Sicherung vor dem Upload, auch wenn ein Vorschau-Schritt mit
-      # continue-on-error halb lief (z. B. nur der Checkout): Trägt EINE
-      # Seite unter vorschau/ die Anmeldesperre nicht, geht keine Vorschau raus.
-      - name: Vorschau nur mit Anmeldesperre
-        run: |
-          if [ -d vorschau ]; then
-            ohne=$(find vorschau -name '*.html' -exec grep -L 'src="/vorschau/vorschau-sperre.js"' {} + || true)
-            if [ -n "$ohne" ] || [ ! -f vorschau/vorschau-sperre.js ]; then
-              echo "::warning::Vorschau ohne Anmeldesperre – wird nicht ausgeliefert: $ohne"
-              rm -rf vorschau
-            fi
-          fi
 
       - name: Setup Pages
         id: pages

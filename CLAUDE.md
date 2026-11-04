@@ -23,62 +23,26 @@ demselben Commit gehalten** (vom Nutzer am 21.09.2026 so entschieden:
 „die beiden Branches zusammenführen") – jeder Push geht auf beide. Wer
 nur einen sieht, sieht trotzdem alles.
 
-**Vorschau-Branch für die Clubs** (seit dem 19.10.2026, vom Nutzer
-gewünscht: „erst einmal alles bauen und dann in einem launchen"): Die
-Clubs (Run-/Rad-/Schwimm-Treffs, Seite `clubs.html`, Schalter auf der
-Karte) entstehen auf **`claude/clubs-feature-map-kycnmi`**. Schnelle
-Korrekturen an der Live-Seite gehen weiter direkt auf den
-Entwicklungs-Branch oben; der Clubs-Branch holt sie per **Merge** nach
-(nie umgekehrt vor dem Launch). `pages.yml` legt bei jedem Deploy den
-Clubs-Stand unter **`/vorschau/`** (noindex, robots.txt gesperrt, Daten
-vom Live-Stand); ein Push auf den Clubs-Branch stößt den Deploy über
-`vorschau.yml` an. **Seit dem 19.10.2026 mit Anmeldesperre** (vom Nutzer
-gewünscht, nachdem er gefragt hatte, ob die Vorschau geschützt ist – sie
-war es nicht, jede/r mit der Adresse kam drauf): `pages.yml` setzt
-`vorschau-sperre.js` als erstes Skript in jede Vorschau-Seite; sie zeigt
-die Seite nur, wenn das angemeldete Konto unter `admins/<uid>` steht (wie
-`admin.html`, REST mit ID-Token), sonst „Mit Google anmelden“ bzw. „kein
-Zugang“ mit der Konto-ID. Fail-closed: bis zur Bestätigung ist alles
-dahinter `opacity:0` + `inert`, und der Schritt „Vorschau nur mit
-Anmeldesperre“ wirft vor dem Upload die ganze Vorschau heraus, wenn EINE
-Seite die Sperre nicht trägt. **Grenze, dem Nutzer gesagt: Sichtschutz,
-kein Tresor** – GitHub Pages liefert die Dateien (HTML, Daten) an jeden
-aus, der sie direkt abruft. Ein Firebase-Update in `vendor/` muss
-`FIREBASE_PFAD` in der Datei mitnehmen (`test_vorschau_sperre` prüft den
-Pfad). **Launch**: Clubs-Branch in den Entwicklungs-Branch mergen, dann
-die drei Vorschau-Schritte in `pages.yml` (holen, vorbereiten, Wächter),
-`vorschau.yml`, `vorschau-sperre.js` und die Zeile `Disallow: /vorschau/`
-in `robots.txt` entfernen.
-
-**Ankündigung auf der Live-Seite (seit dem 04.11.2026, vom Nutzer: „Auf
-der Live Webseite können wir … die Clubs schon einmal ankündigen … neben
-der Events Spalte die ‚Clubs‘ hinzufügen und dann darunter hinzuschreiben
-‚coming soon‘ … und dann vielleicht noch so ein süßer Bauarbeiter mit Under
-Construction“)**: Im Menü von Startseite, Liste und Karte steht „Clubs“
-zwischen Events und Karte (dieselbe Reihenfolge und dieselben Ids
-`nav-clubs` wie auf dem Clubs-Branch) mit dem Schildchen
-`<span class="nav-bald-text">coming soon</span>` (Klasse `.nav-bald` in
-`site.css`, absolut unter dem Wort – sonst rutschte das Menü auf 360 px in
-eine eigene Zeile). Es führt auf die Ankündigung **`clubs.html`**: eigener
-Bauarbeiter als Inline-SVG, Schild „Coming soon“, ein Satz (DE/EN). Die
-Datei steht in denselben Seitenlisten wie auf dem Clubs-Branch
-(`SEITEN`, `HTML_FILES`, Wartung, Farbschema, TDM, `STATS_SEITEN` – gezählt
-wird die Seite erst nach dem nächsten Functions-Deploy). **Beim Merge des
-Entwicklungs-Branches in den Clubs-Branch**: `clubs.html` ist auf beiden
-Seiten neu (add/add) – die Fassung des Clubs-Branches nehmen; in den drei
-Menüzeilen ebenfalls dessen Zeile (ohne Schildchen). **Beim Launch** dazu
-die Regel `.nav-bald`/`.nav-bald-text` aus `site.css` und
-`pruefe_clubs_bald` aus dem Rauchtest nehmen. Die Adresse `clubs.html`
-bleibt, geteilte Links gelten weiter.
-
-**Der Blog ist seit dem 04.11.2026 vorab LIVE** (vom Nutzer: „Ja, bitte
-veröffentliche den Blog (A) … Die Clubs noch nicht launchen“): Blogdateien,
-Reiter „Blog“, `sitemap.xml` stehen auf dem Entwicklungs-Branch. Auf dem
-Clubs-Branch dieselben Dateien; beim Merge in den Clubs-Branch dort in
-`blog.html` (und damit in den erzeugten `blog/*.html`) die Clubs-Zeile OHNE
-Schildchen nehmen und `build_blog.py` laufen lassen. **Neue Beiträge gehen
-auf den Entwicklungs-Branch** (beide Live-Namen), dann per Merge in den
-Clubs-Branch – README „Blog“.
+**Die Clubs sind seit dem 04.11.2026 LIVE** (vom Nutzer: „So, wir pushen
+jetzt auch die Clubs auf Live. Das ‚Coming soon‘ soll dann bitte zu einem
+‚new‘ umgewandelt werden.“). Bis dahin entstanden sie auf dem
+Vorschau-Branch `claude/clubs-feature-map-kycnmi` (unter `/vorschau/` mit
+Anmeldesperre); beim Launch ist er in den Entwicklungs-Branch gemerged,
+`vorschau.yml`, `vorschau-sperre.js`, die drei Vorschau-Schritte in
+`pages.yml`, `test_vorschau_sperre` und `Disallow: /vorschau/` sind weg.
+**Seitdem gibt es nur noch den Entwicklungs-Branch** (beide Live-Namen) –
+auch Clubs-Arbeit geht dorthin, der Clubs-Branch wird nicht mehr
+gepflegt. Der Menüpunkt „Clubs“ trägt auf jeder Seite mit Menü
+(Startseite, Liste, Karte, Clubs, Blog samt Beiträgen) das Schildchen
+`<span class="nav-neu-text">new</span>` (`.nav-neu` in `site.css`, absolut
+unter dem Wort, damit das Menü auf 360 px in der Zeile der Marke bleibt);
+der Sprachwechsel setzt nur den Textknoten (`firstChild.nodeValue`), sonst
+wäre das Schildchen weg. Rauchtest `pruefe_clubs_neu`. Soll es wieder weg:
+Klasse und `<span>` in den Seiten und in `blog.html` löschen, die Regel
+in `site.css` auch, dann `build_blog.py`. `clubs.html` steht in der
+`sitemap.xml`. Der Job `clubs-instagram` in `instagram.yml` holt seitdem
+den Entwicklungs-Branch (auf `main` steht er erst mit dem Ja des Nutzers,
+To-do Punkt 11).
 
 ## Dateien
 
@@ -95,8 +59,7 @@ Clubs-Branch – README „Blog“.
 | `favicon.svg`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `manifest.webmanifest` | das Zeichen des Style Guides (Navy-Kachel, weiße Route, oranger Punkt); die PNGs entstehen aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 bzw. 192/512 px, randvoll ohne Rundung), `cairosvg` gibt es in der Sandbox nicht. Das **Manifest** (seit 13.10.2026, in allen sechs Seiten verlinkt) macht aus „Zum Home-Bildschirm" eine App mit Namen, Navy-Farbe und eigenem Fenster (`display: standalone`) |
 | `vendor/fonts/` | **Barlow und Barlow Condensed** als woff2 (SIL OFL, Lizenztexte daneben), eingebunden über `vendor/fonts/barlow.css` in allen fünf Seiten – selbst gehostet, nichts von Google-Servern; ohne Stempel wie alles in `vendor/` |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
-| `clubs.html` | **Ankündigung der Clubs** („coming soon“, Bauarbeiter, ein Satz DE/EN; seit 04.11.2026) – wird beim Launch durch die Clubs-Seite vom Vorschau-Branch ersetzt, siehe „Vorschau-Branch für die Clubs“ |
-| `blog.html`, `blog.json`, `blog.css`, `blog/<slug>.html`, `scripts/build_blog.py`, `scripts/blog_texte/` | **Blog** (seit 04.11.2026, LIVE – vorab vor den Clubs; Menüpunkt „Clubs“ live mit „coming soon“): Reiter „Blog“ hinter „Karte“ in jeder Seite, Übersicht aus `blog.json`, je Beitrag eine erzeugte Seite unter `blog/` (Text in `scripts/blog_texte/<slug>.html`, dann `python3 scripts/build_blog.py`; `stamp_assets.py` ruft es mit auf; schreibt auch `sitemap.xml`, in `robots.txt` genannt) – README „Blog“; `test_blog` + Rauchtest `pruefe_blog`; **montags und donnerstags ein neuer Beitrag** aus `scripts/blog_themen.md` (geplante Aufgabe „Blog-Artikel am Montag und Donnerstag“, `trig_015LFqPsP972Ny6SzfzezXw2`, 06:37 Berlin, pusht auf beide Live-Branches und merged in den Clubs-Branch), Ton motivierend und leicht lesbar, Fußnoten nur bei Schlüsselthemen |
+| `blog.html`, `blog.json`, `blog.css`, `blog/<slug>.html`, `scripts/build_blog.py`, `scripts/blog_texte/` | **Blog** (seit 04.11.2026, LIVE): Reiter „Blog“ hinter „Karte“ in jeder Seite, Übersicht aus `blog.json`, je Beitrag eine erzeugte Seite unter `blog/` (Text in `scripts/blog_texte/<slug>.html`, dann `python3 scripts/build_blog.py`; `stamp_assets.py` ruft es mit auf; schreibt auch `sitemap.xml`, in `robots.txt` genannt) – README „Blog“; `test_blog` + Rauchtest `pruefe_blog`; **montags und donnerstags ein neuer Beitrag** aus `scripts/blog_themen.md` (geplante Aufgabe „Blog-Artikel am Montag und Donnerstag“, `trig_015LFqPsP972Ny6SzfzezXw2`, 06:37 Berlin, pusht auf beide Live-Branches), Ton motivierend und leicht lesbar, Fußnoten nur bei Schlüsselthemen |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
 | `site.css` | **Farben (ZWEI Schemata: dunkel = `:root`, hell = `:root[data-theme="light"]`), Kopfzeile (Marke, Navigation, Hell/Dunkel-Knopf, DE/EN, Anmelden), Filterleiste, Werkzeugleiste, Fußzeile** – geteilt von Liste, Karte und Startseite; seit dem Umbau vom 21.09.2026 nach den Vorlagen des Nutzers (Liste dunkel, Karte hell) |
 | `filter-ui.js`, `filter-ui.css` | die Filterknöpfe (**Pillen mit gesetztem Wert**, `buildButtonBar` mit `order`) + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |
@@ -127,7 +90,6 @@ Clubs-Branch – README „Blog“.
 | `scripts/instagram_konten.py`, `scripts/instagram_konten.json` | **Das eigene Instagram-Konto großer Veranstaltungen** (seit 27.10.2026, vom Nutzer gewünscht): `pruefen` liest die EIGENE Veranstalterseite künftiger Events (nie Portal; robots.txt, 2 s je Host, 8 Hosts gleichzeitig, Startseite als Rückfall) und legt je Adresse die verlinkten Konten ab (eine Zeile je Adresse, ohne Urteil, alle 90 Tage neu, nach Fehler nach 21); `event_konto()` entscheidet, welches dem Event selbst gehört; `clean_events.fix_instagram()` setzt das Feld `instagram` – siehe Frontend-Fallen „Das Instagram-Zeichen großer Veranstaltungen“. Nachschlagen: `python3 scripts/instagram_konten.py zeigen <Suchwort>` |
 | `scripts/korrekturliste.py` | **Excel-Korrekturliste für den Nutzer** (seit 05.10.2026): `export` schreibt alle Strecken mit fehlender/fraglicher Angabe (Audit-Meldungen ohne Eintrag in `geprueft.json`, vorläufige Termine, „unklar“-Fälle) als `.xlsx`, Zellen rot = fehlt, orange = fraglich; `import datei.xlsx [--dry-run]` liest die korrigierte Fassung zurück (Vergleich gegen das ausgeblendete Blatt `_original`), schreibt `manual_overrides.json` + `geprueft.json` und lässt `clean_events.py --no-geocoding` und `build_ics.py` laufen. Braucht `openpyxl`. Die `.xlsx` wird nicht committet. **Seit dem Livegang (13.10.2026) ist die Liste der Schalter: Jede Zeile, die in ihr steht, trägt in `events.json` `pruefung_offen: true` und ist auf der Seite ausgeblendet** (siehe „Livegang") |
 | `korrektur/korrekturliste.html`, `scripts/korrektur_seite.py` | **Die Korrekturseite** (seit 19.10.2026, statt die zwei Excel-Listen hin- und herzuschicken): privates claude.ai-Artifact mit Datenbank, gleiche Spalten, Farben und Auswahllisten wie die Excel; `korrektur_seite.py daten events\|clubs` baut die Zeilen aus dem Excel-Export (`korrektur/daten/*.json`, nicht committet), `einlesen` schickt die Antworten durch den VORHANDENEN Import – siehe „Korrekturseite“ |
-| `vorschau-sperre.js` | **Anmeldesperre der Clubs-Vorschau** (seit 19.10.2026): `pages.yml` kopiert sie nach `vorschau/` und setzt sie in jede Vorschau-Seite; nur Konten in `admins/<uid>` sehen die Seiten – siehe „Vorschau-Branch für die Clubs“ oben |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
@@ -144,7 +106,7 @@ Clubs-Branch – README „Blog“.
 | `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `humor.json` (eigene Läuferwitze für das Format „humor"), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` (dort auch `instagram_namen.json`) nicht im Repo |
 | `scripts/insta_logos.py`, `marketing/instagram/grosse_events.json`, `marketing/instagram/logos/` | **Logo-Reels** (seit 27.10.2026): die großen Events mit Starterzahl und Anmeldestart (je mit Quelle) und ihre GEPRÜFTEN Logos (`logos/<slug>.png`, Quelle in `logos/logos.json`); `insta_logos.py sammeln|uebernehmen|bogen` – siehe „Instagram", Bullet „Logo-Reels" |
 | `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort auf diesem Stand (seit dem 27.10.2026 Commit `9461aba6`: Formate monat/anmeldung im Handlauf, vom Nutzer: „Ja bitte auf main“; davor `ae5751ef`, Anmeldung über Instagram) |
-| `clubs.json`, `clubs.js`, `clubs.css`, `clubs.html` | **Clubs** (seit 19.10.2026, Vorschau-Branch): wiederkehrende Treffs, Termine aus der Regel gerechnet (nie eingetragen), Stufe aus dem Tempo; Liste `clubs.html`, auf der Karte der Schalter Events / Clubs / Beide (`?ebene=`, `?wann=`) – Format und Launch in README „Clubs“; `test_clubs` + Rauchtest `pruefe_clubs` |
+| `clubs.json`, `clubs.js`, `clubs.css`, `clubs.html` | **Clubs** (seit 19.10.2026, LIVE seit 04.11.2026): wiederkehrende Treffs, Termine aus der Regel gerechnet (nie eingetragen), Stufe aus dem Tempo; Liste `clubs.html`, auf der Karte der Schalter Events / Clubs / Beide (`?ebene=`, `?wann=`) – Format und Launch in README „Clubs“; `test_clubs` + Rauchtest `pruefe_clubs` |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer

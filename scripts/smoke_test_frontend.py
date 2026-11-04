@@ -1567,49 +1567,34 @@ def pruefe_rechtsseiten(ctx, basis):
 
 
 
-def pruefe_clubs_bald(ctx, basis):
-    """Die Clubs-Ankündigung (04.11.2026): Menüpunkt „Clubs – coming soon“
-    auf Startseite, Liste und Karte, die Seite clubs.html mit Bauarbeiter
-    und Text in DE und EN. Auf 360 px (Android) bleibt die Navigation in
-    der Zeile der Marke – das Schildchen hängt absolut unter dem Wort.
-    """
-    print("\nClubs – coming soon")
-    for haupt in ("index.html", "events.html", "karte.html"):
+def pruefe_clubs_neu(ctx, basis):
+    """Launch der Clubs (04.11.2026): Menüpunkt „Clubs“ mit Schildchen
+    „new“ auf jeder Seite mit Menü, hinter Events; das Schildchen bleibt
+    nach dem Sprachwechsel stehen, und auf 360 px (Android) steht das Menü
+    weiter in der Zeile der Marke."""
+    print("\nClubs – new")
+    for haupt in ("index.html", "events.html", "karte.html", "clubs.html", "blog.html"):
         seite, _ = seite_oeffnen(ctx, basis + "/" + haupt)
+        if haupt == "clubs.html":
+            seite.wait_for_timeout(300)
+        seite.click('.lang-btn[data-lang="en"]')
+        seite.click('.lang-btn[data-lang="de"]')
         menue = seite.evaluate("""() => {
-            const a = document.querySelector('.site-nav a[href="clubs.html"]');
+            const a = document.querySelector('.site-nav a[href^="clubs.html"]');
             const reihe = Array.from(document.querySelectorAll('.site-nav .nav-link')).map(x => x.firstChild.textContent.trim());
-            return { da: !!a, schild: a ? (a.querySelector('.nav-bald-text') || {}).textContent || '' : '', reihe }; }""")
-        pruefe(menue["da"] and menue["schild"].lower() == "coming soon" and menue["reihe"][:3] == ["Events", "Clubs", menue["reihe"][2]],
-               "%s: Menüpunkt Clubs mit „coming soon“ hinter Events (%s)" % (haupt, menue["reihe"]))
+            return { da: !!a, schild: a ? (a.querySelector('.nav-neu-text') || {}).textContent || '' : '', reihe }; }""")
+        pruefe(menue["da"] and menue["schild"].lower() == "new" and menue["reihe"][:2] == ["Events", "Clubs"],
+               "%s: Menüpunkt Clubs mit „new“ hinter Events, auch nach DE/EN (%s)" % (haupt, menue["reihe"]))
+        if haupt == "clubs.html":
+            seite.set_viewport_size({"width": 360, "height": 800})
+            seite.wait_for_timeout(200)
+            zeile = seite.evaluate("""() => {
+                const m = document.querySelector('.brand').getBoundingClientRect();
+                const n = document.querySelector('.site-nav').getBoundingClientRect();
+                return { marke: Math.round(m.top + m.height / 2), menue: Math.round(n.top + n.height / 2) }; }""")
+            pruefe(abs(zeile["marke"] - zeile["menue"]) <= 6,
+                   "360 px: das Menü steht in der Zeile der Marke (Mitte %d / %d px)" % (zeile["marke"], zeile["menue"]))
         seite.close()
-
-    seite, probleme = seite_oeffnen(ctx, basis + "/clubs.html")
-    seite.wait_for_timeout(300)
-    stand = seite.evaluate("""() => ({
-        text: (document.getElementById('bald-text') || {}).textContent || '',
-        illu: !!document.querySelector('svg.bald-illu'),
-        aktiv: (document.querySelector('.site-nav [aria-current="page"]') || {}).id || '',
-        ueberlauf: document.documentElement.scrollWidth - window.innerWidth })""")
-    pruefe(not probleme, "clubs.html lädt ohne Fehler (%s)" % ("; ".join(probleme) or "keine"))
-    pruefe(stand["illu"] and "Clubs ganz in deiner Nähe" in stand["text"],
-           "clubs.html: Bauarbeiter und Text der Ankündigung")
-    pruefe(stand["aktiv"] == "nav-clubs", "clubs.html: Clubs ist im Menü markiert (%s)" % stand["aktiv"])
-    pruefe(stand["ueberlauf"] <= 0, "clubs.html: kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
-    seite.click('.lang-btn[data-lang="en"]')
-    englisch = seite.evaluate("() => document.getElementById('bald-text').textContent")
-    pruefe("clubs near you" in englisch, "clubs.html: EN schaltet den Text um")
-    seite.click('.lang-btn[data-lang="de"]')
-    seite.set_viewport_size({"width": 360, "height": 800})
-    seite.wait_for_timeout(200)
-    zeile = seite.evaluate("""() => {
-        const m = document.querySelector('.brand').getBoundingClientRect();
-        const n = document.querySelector('.site-nav').getBoundingClientRect();
-        return { marke: Math.round(m.top + m.height / 2), menue: Math.round(n.top + n.height / 2) }; }""")
-    pruefe(abs(zeile["marke"] - zeile["menue"]) <= 6,
-           "360 px: das Menü steht in der Zeile der Marke (Mitte %d / %d px)" % (zeile["marke"], zeile["menue"]))
-    seite.close()
-
 
 def pruefe_statistik(ctx, basis):
     """Besucherstatistik (13.10.2026): admin.html lädt und bleibt ohne
@@ -3119,7 +3104,7 @@ def pruefe_blog(ctx, basis):
     pruefe(not probleme, "blog.html: lädt ohne Fehler (%s)" % ("; ".join(probleme[:3]) or "keine"))
     pruefe(seite.locator(".blog-karte").count() == len(beitraege),
            "blog.html: jeder Beitrag eine Kachel (%d von %d)" % (seite.locator(".blog-karte").count(), len(beitraege)))
-    nav = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link')).map(a => a.textContent.trim())")
+    nav = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link')).map(a => a.firstChild.textContent.trim())")
     pruefe(nav == ["Events", "Clubs", "Karte", "Blog"], "blog.html: Navigation Events – Clubs – Karte – Blog (%s)" % " – ".join(nav))
     reihen = seite.evaluate("() => Math.round(document.querySelector('.site-nav').getBoundingClientRect().top - document.querySelector('.brand').getBoundingClientRect().top)")
     pruefe(abs(reihen) <= 8, "blog.html: Menü steht neben der Marke, keine eigene Zeile (%+d px)" % reihen)
@@ -3163,7 +3148,7 @@ def pruefe_clubs(ctx, basis):
     pruefe(not probleme, "clubs.html: lädt ohne Fehler (%s)" % ("; ".join(probleme[:3]) or "keine"))
     karten = seite.locator(".club-karte").count()
     pruefe(karten == len(clubs), "clubs.html: jeder Club eine Kachel (%d von %d)" % (karten, len(clubs)))
-    nav = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link')).map(a => a.textContent.trim())")
+    nav = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link')).map(a => a.firstChild.textContent.trim())")
     pruefe(nav == ["Events", "Clubs", "Karte", "Blog"], "clubs.html: Navigation Events – Clubs – Karte – Blog (%s)" % " – ".join(nav))
     erster = seite.locator(".club-karte").first
     name = erster.locator(".ck-name").inner_text().strip()
@@ -3284,6 +3269,7 @@ def main() -> int:
                 pruefe_farbschema(ctx, basis)
                 pruefe_wartung(ctx, basis)
                 pruefe_clubs(ctx, basis)
+                pruefe_clubs_neu(ctx, basis)
                 pruefe_blog(ctx, basis)
                 pruefe_datenrueckfall(ctx, basis, web_daten)
             finally:

@@ -163,10 +163,10 @@ jobs:
       contents: write
       id-token: write
     steps:
-      - name: Checkout (Clubs-Branch)
+      - name: Checkout (Entwicklungs-Branch, seit dem Clubs-Launch am 04.11.2026)
         uses: actions/checkout@v4
         with:
-          ref: claude/clubs-feature-map-kycnmi
+          ref: claude/endurance-events-website-v1wruf
 
       - uses: actions/setup-python@v5
         with:

@@ -230,8 +230,8 @@ def seite(b: dict) -> str:
     try {{ localStorage.setItem('endurance-lang', lang); }} catch (e) {{ /* ignorieren */ }}
     var t = T[lang];
     document.getElementById('nav-events').textContent = t.events;
-    var clubs = document.getElementById('nav-clubs');
-    if (!clubs.querySelector('.nav-bald-text')) clubs.textContent = t.clubs;
+    // Nur den Text setzen – das Schildchen „new“ bleibt stehen.
+    document.getElementById('nav-clubs').firstChild.nodeValue = t.clubs;
     document.getElementById('nav-map').textContent = t.map;
     document.getElementById('nav-blog').textContent = t.blog;
     document.getElementById('blog-zurueck').textContent = t.back;
@@ -281,11 +281,11 @@ def ziel(b: dict) -> Path:
 
 # Die Sitemap für Suchmaschinen (seit 04.11.2026, mit dem Livegang des
 # Blogs): die öffentlichen Seiten plus jeder Beitrag. Bewusst NICHT darin:
-# clubs.html (bis zum Launch nur „coming soon“), admin.html, wartung.html.
+# admin.html, wartung.html (clubs.html seit dem Launch am 04.11.2026 drin).
 # Ohne lastmod bei den festen Seiten – sonst änderte sich die Datei mit
 # jedem Datenlauf ohne Inhalt; bei Beiträgen ist es ihr Datum.
 SITEMAP = WURZEL / "sitemap.xml"
-SITEMAP_SEITEN = ("", "events.html", "karte.html", "blog.html", "impressum.html", "datenschutz.html")
+SITEMAP_SEITEN = ("", "events.html", "karte.html", "clubs.html", "blog.html", "impressum.html", "datenschutz.html")
 
 
 def sitemap() -> str:

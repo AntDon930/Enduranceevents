@@ -60,7 +60,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Dein erster Triathlon: So findest du das passende Rennen", "description": "Welche Distanz passt zum Einstieg, woran erkennst du ein einsteigerfreundliches Rennen, und wie kommst du in zwölf Wochen gut vorbereitet an den Start? Ein Leitfaden mit Checkliste.", "datePublished": "2026-11-04", "inLanguage": "de", "image": "https://endurance-events.de/bilder/triathlon.webp", "mainEntityOfPage": "https://endurance-events.de/blog/erster-triathlon.html", "publisher": {"@type": "Organization", "name": "Endurance Events", "url": "https://endurance-events.de"}}</script>
 <link rel="stylesheet" href="../vendor/fonts/barlow.css">
-<link rel="stylesheet" href="../site.css?v=bbba0ffa">
+<link rel="stylesheet" href="../site.css?v=8fe729d6">
 <link rel="stylesheet" href="../blog.css?v=13e54636">
 </head>
 <body>
@@ -78,7 +78,7 @@
   </a>
   <nav class="site-nav" aria-label="Seiten">
     <a class="nav-link" href="../events.html" id="nav-events">Events</a>
-    <a class="nav-link" href="../clubs.html" id="nav-clubs">Clubs</a>
+    <a class="nav-link nav-neu" href="../clubs.html" id="nav-clubs">Clubs<span class="nav-neu-text">new</span></a>
     <a class="nav-link" href="../karte.html" id="nav-map">Karte</a>
     <a class="nav-link active" href="../blog.html" id="nav-blog" aria-current="page">Blog</a>
   </nav>
@@ -287,8 +287,8 @@
     try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
     var t = T[lang];
     document.getElementById('nav-events').textContent = t.events;
-    var clubs = document.getElementById('nav-clubs');
-    if (!clubs.querySelector('.nav-bald-text')) clubs.textContent = t.clubs;
+    // Nur den Text setzen – das Schildchen „new“ bleibt stehen.
+    document.getElementById('nav-clubs').firstChild.nodeValue = t.clubs;
     document.getElementById('nav-map').textContent = t.map;
     document.getElementById('nav-blog').textContent = t.blog;
     document.getElementById('blog-zurueck').textContent = t.back;

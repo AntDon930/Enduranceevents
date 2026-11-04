@@ -246,19 +246,16 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   padding: 0;
 }
 .nav-link:hover, .nav-link.active { color: var(--text); }
-/* „Clubs – coming soon“ (04.11.2026, vom Nutzer: „neben der Events
-   Spalte die ‚Clubs‘ hinzufügen und dann darunter hinzuschreiben ‚coming
-   soon‘“): Der Menüpunkt führt auf die Ankündigung clubs.html, bis die
-   Clubs vom Vorschau-Branch live gehen. Das Schildchen steht UNTER dem
-   Wort, in Tonfläche und Textfarbe der Sportfarbe Laufen (wie die
-   Sport-Abzeichen, gut lesbar in beiden Schemata); die 44 px Höhe des
-   Menüpunkts bleiben. Es hängt ABSOLUT unter dem Wort: So bleibt „Clubs“
-   auf einer Linie mit „Events“ und „Karte“, und der Menüpunkt ist nicht
-   breiter als das Wort – sonst rutschte die Navigation auf 360 px
-   (Android) in eine eigene Zeile. Beim Launch fallen Klasse und
-   Schildchen weg. */
-.nav-link.nav-bald { position: relative; }
-.nav-bald-text {
+/* Menüpunkt „Clubs“ mit Schildchen „new“ (seit 04.11.2026, Launch der
+   Clubs, vom Nutzer: „Das ‚Coming soon‘ soll dann bitte zu einem ‚new‘
+   umgewandelt werden“; vorher „coming soon“). Das Schildchen steht UNTER
+   dem Wort, in Tonfläche und Textfarbe der Sportfarbe Laufen; es hängt
+   ABSOLUT, damit „Clubs“ auf einer Linie mit „Events“ und „Karte“ bleibt
+   und die Navigation auf 360 px nicht in eine eigene Zeile rutscht. Wenn
+   es weg soll: Klasse und <span> in den Seiten und in blog.html löschen,
+   diese Regel auch, dann build_blog.py. */
+.nav-link.nav-neu { position: relative; }
+.nav-neu-text {
   position: absolute;
   left: 50%;
   top: calc(50% + 9px);
