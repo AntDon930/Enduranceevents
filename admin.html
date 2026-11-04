@@ -188,6 +188,7 @@
   .chart-tip .tip-datum { color: var(--text-muted); margin-bottom: 4px; }
   .chart-tip .tip-zeile { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
   .chart-tip .tip-zeile b { font-variant-numeric: tabular-nums; }
+  .chart-tip .tip-zeile span { white-space: nowrap; }
   .chart-tip .key { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 6px; border-radius: 1px; }
   .chart-legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted); margin: 0 0 8px; }
   .chart-legend .key { display: inline-block; width: 18px; height: 2px; vertical-align: middle; margin-right: 6px; border-radius: 1px; }
@@ -1481,10 +1482,18 @@
         `<div class="tip-zeile"><span><i class="key key-2"></i>${escapeHtml(t('kpi_pv'))}</span><b>${fmtInt(werte2[i])}</b></div>` +
         (tg.doc ? `<div class="tip-zeile"><span>${escapeHtml(t('kpi_besuche'))}</span><b>${fmtInt(tg.doc.besuche || 0)}</b></div>` : '');
       tip.style.display = 'block';
+      // Der Kasten steht NEBEN dem Strich, nicht darüber: oben mittig
+      // deckte er am letzten Tag genau den höchsten Punkt (die Seitenaufrufe)
+      // zu - der Kasten wird am rechten Rand festgehalten, und der Wert des
+      // Tages liegt fast immer oben im Bild.
       const r = wrap.getBoundingClientRect();
-      const links = clientX - r.left;
+      const sr = svg.getBoundingClientRect();
+      const strich = sr.left - r.left + x(i) * (sr.width / W);
       const breite = tip.offsetWidth || 160;
-      tip.style.left = `${Math.min(Math.max(0, links - breite / 2), r.width - breite)}px`;
+      const abstand = 12;
+      let links = strich + abstand;
+      if (links + breite > r.width) links = strich - abstand - breite;
+      tip.style.left = `${Math.max(0, links)}px`;
       tip.style.top = '8px';
     }
     function verstecke() {
