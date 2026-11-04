@@ -893,6 +893,65 @@ def top_kandidaten(datum: dt.date, events: list[dict], grosse: list[dict], kateg
     return sorted(treffer, key=lambda e: (-(e["g"].get("starter") or 0), e["g"]["name"]))
 
 
+GEDAECHTNIS_DATEI = WURZEL / "scripts" / "veranstalter_seiten.json"
+
+
+def lade_gedaechtnis(pfad: Path | None = None) -> list[dict]:
+    """Die Einträge des Gedächtnisses je Veranstaltung (veranstalter_seiten.py)
+    – direkt aus der Datei, ohne das Modul (es zieht scraper_lib mit bs4,
+    das der Instagram-Workflow nicht installiert)."""
+    try:
+        daten = json.loads((pfad or GEDAECHTNIS_DATEI).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+    return [e for k, e in daten.items() if not k.startswith("_") and isinstance(e, dict)]
+
+
+def top_kandidaten_letzte(datum: dt.date, events: list[dict], grosse: list[dict], kategorie: tuple,
+                          gedaechtnis: list[dict] | None = None) -> list[dict]:
+    """Die großen Events einer Kategorie NACH DER LETZTEN AUSGABE (vom Nutzer
+    am 04.11.2026 gewählt, als der München Marathon fehlte: 40.930
+    Anmeldungen 2026, aber für 2027 noch kein Veranstalter): erst die mit
+    sicherem Termin (top_kandidaten, 15 Monate), dann jedes große Event,
+    dessen nächste Ausgabe noch keinen sicheren Termin hat – aus dem
+    Gedächtnis je Veranstaltung (Strecken der jüngsten Ausgabe entscheiden
+    die Kategorie), mit `termin_offen`. Größte zuerst."""
+    _, _, sport, pruefe = kategorie
+    bis = datum + dt.timedelta(days=450)
+    liste = top_kandidaten(datum, events, grosse, kategorie, bis)
+    # Wer eine sichere nächste Ausgabe hat (in IRGENDEINER Kategorie), kommt
+    # nicht aus dem Gedächtnis - sonst stand der Hamburg Marathon über eine
+    # alte Halbmarathon-Zeile unter den Halbmarathons.
+    mit_termin = {g["name"] for g in (gross_fuer(v, grosse) for v in sicher(veranstaltungen(events, datum, bis))
+                                      if v["sport"] == sport) if g}
+    # Je großes Event alle Einträge des Gedächtnisses zusammen (eine
+    # Veranstaltung steht oft unter mehreren Namen); die jüngste Ausgabe
+    # liefert Ort und Koordinaten.
+    je_name: dict[str, dict] = {}
+    for m in (gedaechtnis if gedaechtnis is not None else lade_gedaechtnis()):
+        if m.get("art1") != sport or m.get("quelle") == "tot" or not m.get("name"):
+            continue
+        g = gross_fuer({"name": m["name"], "land": m.get("land", ""), "sport": sport}, grosse)
+        if not g or g["name"] in mit_termin:
+            continue
+        e = je_name.setdefault(g["name"], {"g": g, "km": set(), "art2": set(), "zuletzt": None, "m": m})
+        strecken = m.get("strecken") or []
+        e["km"].update(s["laenge_km"] for s in strecken if isinstance(s.get("laenge_km"), (int, float)))
+        e["art2"].update(s["art2"] for s in strecken if s.get("art2"))
+        if (m.get("datum") or "") > (e["zuletzt"] or ""):
+            e["zuletzt"], e["m"] = m.get("datum"), m
+    offen = []
+    for e in je_name.values():
+        if not pruefe(sorted(e["km"]), e["art2"], e["g"]["name"].lower()):
+            continue
+        m = e.pop("m")
+        e["termin_offen"] = True
+        e["v"] = {"name": m["name"], "ort": m.get("standort", ""), "land": m.get("land", ""), "sport": sport,
+                  "datum": None, "lat": m.get("lat"), "lon": m.get("lon"), "url": m.get("url"), "km": sorted(e["km"])}
+        offen.append(e)
+    return sorted(liste + offen, key=lambda e: (-(e["g"].get("starter") or 0), e["g"]["name"]))
+
+
 def top_eintraege(auswahl: list[dict], countdown: bool = True) -> list[dict]:
     """Die Einträge der Folien „top": Logo, Name, Datum, Ort, Teilnehmende,
     Koordinaten, Seite.
@@ -910,18 +969,21 @@ def top_eintraege(auswahl: list[dict], countdown: bool = True) -> list[dict]:
         rang = sorted(auswahl, key=lambda e: (-(e["g"].get("starter") or 0), e["g"]["name"]))
         folge = [(len(rang) - i, e) for i, e in enumerate(reversed(rang))]
     else:
-        folge = [(None, e) for e in sorted(auswahl, key=lambda e: (e["v"]["datum"], e["g"]["name"]))]
+        folge = [(None, e) for e in sorted(auswahl, key=lambda e: (e["v"]["datum"] or "9999", e["g"]["name"]))]
     aus = []
     for platz, e in folge:
         v, g = e["v"], e["g"]
-        tag = dt.date.fromisoformat(v["datum"])
+        tag = dt.date.fromisoformat(v["datum"]) if v.get("datum") else None
         eintrag = {"logo_id": insta_logos.slug(g["name"]), "name": g["name"],
-                   "datum": datum_kurz(tag, jahr=True), "monat_iso": v["datum"][:7], "tag": tag.day,
+                   "datum": datum_kurz(tag, jahr=True) if tag else "Termin folgt",
+                   "monat_iso": v["datum"][:7] if tag else None, "tag": tag.day if tag else None,
                    "ort": f"{v['ort']} {LAND_KURZ.get(v['land'], '')}".strip(),
                    "starter": g.get("starter"), "lat": v.get("lat"), "lon": v.get("lon"),
                    "url": g.get("webseite") or v.get("url")}
         if platz:
             eintrag["platz"] = platz
+        if not tag:
+            eintrag["termin_offen"] = True
         aus.append(eintrag)
     return aus
 
@@ -1150,13 +1212,17 @@ def format_laengste(datum: dt.date, events: list[dict], rng: random.Random) -> d
 def format_top(datum: dt.date, events: list[dict], rng: random.Random,
                grosse: list[dict] | None = None, kategorie: str | None = None,
                anzahl: int | None = None, design: str | None = None) -> dict | None:
-    """„Die 7 größten Trail-Events" – die größten Events einer Kategorie in
-    den nächsten 12 Monaten als COUNTDOWN nach Teilnehmerzahl: erst Platz n,
-    zuletzt Platz 1 (vom Nutzer am 04.11.2026, siehe top_eintraege; bis
-    dahin ohne Rangfolge nach Datum), am Ende alle zusammen. Kategorie,
-    Anzahl (3/5/7/10) und Design wechseln von Mal zu Mal."""
+    """„Die 7 größten Trail-Events" – die größten Events einer Kategorie
+    NACH DER LETZTEN AUSGABE (top_kandidaten_letzte; bis zum 04.11.2026:
+    nur die mit Termin in den nächsten 12 Monaten – dann fehlte München) als
+    COUNTDOWN nach Teilnehmerzahl: erst Platz n, zuletzt Platz 1 (vom Nutzer
+    am 04.11.2026, siehe top_eintraege; bis dahin ohne Rangfolge nach
+    Datum), am Ende alle zusammen. Ohne sicheren nächsten Termin steht
+    „Termin folgt“. Kategorie, Anzahl (3/5/7/10) und Design wechseln von Mal
+    zu Mal."""
     grosse = grosse if grosse is not None else lade_grosse()
-    kandidaten = [(k, top_kandidaten(datum, events, grosse, k)) for k in TOP_KATEGORIEN]
+    gedaechtnis = lade_gedaechtnis()
+    kandidaten = [(k, top_kandidaten_letzte(datum, events, grosse, k, gedaechtnis)) for k in TOP_KATEGORIEN]
     # Nur Kategorien rotieren, die mindestens drei Events haben - sonst
     # sprang eine leere Kategorie auf die nächste, und die kam zweimal.
     moeglich = [(k, t) for k, t in kandidaten if len(t) >= min(TOP_ANZAHLEN)]
@@ -1176,19 +1242,21 @@ def format_top(datum: dt.date, events: list[dict], rng: random.Random,
     basis = {"typ": "top", "variante": design, "sport": sport, "titel": titel, "eintraege": eintraege,
              "start": datum.isoformat()[:7], "dauer": TOP_DAUER.get(anzahl, 2.0)}
     folien = [
-        {"typ": "hook", "ueber": "Die nächsten 12 Monate", "zahl": str(anzahl),
+        {"typ": "hook", "ueber": "Nach Teilnehmenden", "zahl": str(anzahl),
          "titel": f"DIE GRÖSSTEN {name.upper()}", "zeilen": ["Deutschland · Österreich · Schweiz · Südtirol"]},
         *top_folien(basis, anzahl),
         dict(basis, aktiv=None, schluss="Wo bist du dabei?"),
         cta_folie("Check it out!", f"Alle {name} mit Termin", SEITE, "Link in der Bio"),
     ]
     zeilen = "\n".join(top_zeile(e) for e in eintraege)
+    offen = any(e.get("termin_offen") for e in eintraege)
     caption = caption_bauen([
-        f"🏆 Die {anzahl} größten {name} der nächsten 12 Monate in Deutschland, Österreich, der Schweiz "
-        f"und Südtirol – der Countdown von Platz {anzahl} bis Platz 1:",
+        f"🏆 Die {anzahl} größten {name} in Deutschland, Österreich, der Schweiz und Südtirol – "
+        f"der Countdown von Platz {anzahl} bis Platz 1:",
         zeilen,
         "Gezählt nach allen Teilnehmenden der Veranstaltung, letzte Ausgabe (Angaben der Veranstalter, "
-        "gerundet). Wo bist du dabei? 👇 Speichern nicht vergessen.",
+        "gerundet)." + (" „Termin folgt“: Der Termin der nächsten Ausgabe steht noch nicht fest." if offen else "")
+        + " Wo bist du dabei? 👇 Speichern nicht vergessen.",
     ], hashtags(sport, rng=rng, extra=[f"#{schluessel}", "#rennkalender"]), rng, len(events))
     return _beitrag("top", datum, folien, caption, sport, kategorie=schluessel, design=design, anzahl=anzahl)
 

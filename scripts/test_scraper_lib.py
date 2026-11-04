@@ -6650,6 +6650,36 @@ def test_insta_logos() -> None:
     check("top ohne Countdown (Anlass „die nächsten großen“): nach Datum, ohne Platz",
           ([e["name"] for e in vorher], any("platz" in e for e in vorher)), (["B", "A"], False))
     check("top: Caption sagt, wie gezählt wird", "allen Teilnehmenden der Veranstaltung" in t["caption"], True)
+    # Nach letzter Ausgabe (vom Nutzer am 04.11.2026): ein großes Event ohne sicheren nächsten Termin
+    # kommt aus dem Gedächtnis (Strecken der jüngsten Ausgabe) und trägt „Termin folgt"
+    ged = [{"name": "Kilo Marathon by Sponsor", "standort": "Kilo", "land": "Deutschland", "art1": "Laufen",
+            "datum": "2026-10-11", "lat": 48.1, "lon": 11.6, "strecken": [{"laenge_km": 21.1}, {"laenge_km": 42.2}]},
+           {"name": "Kilo Marathon", "standort": "Kilo", "land": "Deutschland", "art1": "Laufen",
+            "datum": "2025-10-12", "strecken": [{"laenge_km": 10.0}]},
+           {"name": "Alpha Marathon", "standort": "Ort0", "land": "Deutschland", "art1": "Laufen",
+            "datum": "2026-03-10", "strecken": [{"laenge_km": 21.1}]},
+           {"name": "Lima Lauf", "standort": "L", "land": "Deutschland", "art1": "Laufen", "quelle": "tot",
+            "datum": "2026-05-01", "strecken": [{"laenge_km": 42.2}]}]
+    tgross2 = tgross + [{"name": "Kilo Marathon", "suche": ["kilo marathon"], "land": "Deutschland", "sport": "Laufen",
+                         "starter": 8000},
+                        {"name": "Lima Lauf", "suche": ["lima lauf"], "land": "Deutschland", "sport": "Laufen",
+                         "starter": 99000}]
+    letzte = I.top_kandidaten_letzte(_dt.date(2026, 11, 14), tev, tgross2, kat["marathon"], ged)
+    check("top nach letzter Ausgabe: Event ohne Termin aus dem Gedächtnis (Strecken aller Einträge zusammen), "
+          "keins doppelt, keins mit toter Seite",
+          [(e["g"]["name"], bool(e.get("termin_offen"))) for e in letzte][:3],
+          [("Alpha Marathon", False), ("Kilo Marathon", True), ("Bravo Marathon", False)])
+    check("top: ohne Termin steht „Termin folgt“ (Folie und Caption)",
+          [(e["name"], e["datum"], e.get("termin_offen")) for e in I.top_eintraege(letzte[1:2])],
+          [("Kilo Marathon", "Termin folgt", True)])
+    halb = I.top_kandidaten_letzte(_dt.date(2026, 11, 14), tev, tgross2, kat["halbmarathon"], ged)
+    check("top Halbmarathon: ein Event mit sicherem Termin kommt nicht über eine alte HM-Zeile aus dem Gedächtnis",
+          "Alpha Marathon" in [e["g"]["name"] for e in halb], False)
+    for design in I.TOP_DESIGNS:
+        eintr = I.top_eintraege(letzte[:3])
+        f = dict(t["folien"][1], variante=design, aktiv=len(eintr) - 2, eintraege=eintr)
+        check(f"top: Design {design} zeichnet einen Platz mit „Termin folgt“",
+              V.folie_bild(f, "Laufen").getchannel("A").getbbox() is not None, True)
     samstage = [_dt.date(2026, 10, 31) + _dt.timedelta(days=14 * i) for i in range(4)]
     check("top: jeder zweite Samstag, sonst „saison“",
           [I.format_am(_dt.date(2026, 10, 31) + _dt.timedelta(days=7 * i)) for i in range(4)],

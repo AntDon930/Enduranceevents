@@ -690,6 +690,8 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
         pille(d, RAND_X, 250, f"{titel} · " + (f"PLATZ {e['platz']}" if countdown else f"{aktiv + 1}/{n}"),
               kondensiert(42, False), farbe)
         tag, _, rest = ohne_emoji(e.get("datum", "")).upper().partition(" ")
+        if e.get("termin_offen"):                         # „Termin folgt": ein großes „?"
+            tag, rest = "?", "TERMIN FOLGT"
         d.text((RAND_X - 8, 330), tag, font=kondensiert(300), fill=SONNE)
         d.text((RAND_X + 10 + breite(kondensiert(300), tag), 400), rest, font=kondensiert(110), fill=WEISS)
         logo_karte(img, d, (RAND_X, 680, 960, 1030), e.get("logo_id"), e["name"], radius=40, rand=60)
@@ -749,6 +751,8 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
         x_k = ax + 70
 
         def y_termin(e: dict) -> float:
+            if e.get("termin_offen") or not e.get("monat_iso"):
+                return float(y1)                           # ohne Termin: ans Ende der Achse
             try:
                 ej, em = (int(t) for t in str(e.get("monat_iso", "")).split("-")[:2])
                 tag = int(e.get("tag") or 15)

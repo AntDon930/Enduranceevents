@@ -5342,7 +5342,20 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   80.000 Gemeldeten – vorher stand dort 49.831 = Finisher nur über
   42,195 km, und Berlin lag hinter Wien). Wer eine Zahl nachträgt, sagt im
   `hinweis`, was sie zählt. München und Köln fehlen in der Liste, solange
-  ihr Termin 2027 fehlt bzw. vorläufig ist (`sicher()`). Rotation (`datum.toordinal() // 14`) nur
+  ihr Termin 2027 fehlt bzw. vorläufig ist (`sicher()`). **Seit dem
+  04.11.2026 zählt `top` NACH DER LETZTEN AUSGABE** (vom Nutzer gewählt,
+  als München fehlte: „Aber München hat doch 50.000 Teilnehmer, dann würde
+  Frankfurt rausfliegen" – belegt sind 40.930 Anmeldungen):
+  `top_kandidaten_letzte()` nimmt erst die Events mit sicherem Termin in 15
+  Monaten, dann jedes große Event ohne sicheren nächsten Termin aus dem
+  Gedächtnis (`veranstalter_seiten.json`, direkt gelesen – das Modul zöge
+  bs4; Strecken aller Einträge eines Events zusammen entscheiden die
+  Kategorie; `quelle: tot` nie; wer irgendeine sichere Ausgabe hat, nie aus
+  dem Gedächtnis). Solche Plätze zeigen „Termin folgt" (`termin_offen`;
+  Design `einzeln`: großes „?", `zeitleiste`: ans Ende der Achse), die
+  Caption erklärt es. Am 04.11.2026: Berlin, Wien, Hamburg, München, Köln
+  – Hannover und Frankfurt fielen heraus. Der Anlass bleibt bei
+  `top_kandidaten` (dort geht es um Rennen, die anstehen). Rotation (`datum.toordinal() // 14`) nur
   über Kategorien mit mindestens drei Events; Kategorie, Anzahl und Design
   wechseln JEDES Mal (Test am echten Bestand). Vier Designs
   (`TOP_DESIGNS`, `insta_video._top_folie`): `karte` (Logos oben, eine
