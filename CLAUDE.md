@@ -5320,11 +5320,29 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Designs")**: die 3/5/7/10 größten Events (`TOP_ANZAHLEN`) einer
   Kategorie der nächsten 12 Monate (`TOP_KATEGORIEN`: Marathon-, Trail-,
   Halbmarathon-, Ultra-Events, Radmarathons, Triathlons – Halbmarathon nur
-  OHNE 42,2 km, sonst stand der Hamburg Marathon dort), **nach Datum, ohne
-  Platznummern**, dann die Übersicht und CTA. Gezählt nach `starter` der
+  OHNE 42,2 km, sonst stand der Hamburg Marathon dort), **als COUNTDOWN
+  nach Teilnehmerzahl: erst Platz n, zuletzt Platz 1** (vom Nutzer am
+  04.11.2026, gegen „ohne Platznummern" vom 27.10.: „Bei solchen Videos
+  bitte immer mit der Nummer 5 anfangen und dann den Spannungsbogen zu
+  Nummer 1 machen. Und die Größe sollte an der Teilnehmerzahl gemessen
+  werden"), dann die Übersicht und CTA. `top_eintraege()` ordnet vom
+  kleinsten zum größten und setzt `platz`; jede Logo-Karte trägt ihren
+  Platz (Kreis in Sonne), was noch kommt, bleibt verdeckt (`#2` im
+  leeren Rahmen, auch kein Punkt auf der Karte) – in `karte`/`raster`
+  liegt Platz 1 vorn, die Plätze füllen sich von hinten; Platz 1 steht
+  0,8 s länger (`TOP_PLATZ1_EXTRA`); die Caption zählt mit 5️⃣ … 1️⃣
+  (ein „#5" wäre auf Instagram ein Hashtag). Gilt auch für den Anlass in
+  der Variante „die größten"; „die nächsten großen" bleibt nach Datum.
+  Gezählt nach `starter` der
   GANZEN Veranstaltung – deshalb „…-Events" im Titel und „allen
   Teilnehmenden der Veranstaltung" in der Caption (der Rennsteiglauf ist
-  mit 16.000 kein 16.000-Ultra). Rotation (`datum.toordinal() // 14`) nur
+  mit 16.000 kein 16.000-Ultra). **Für eine Rangfolge muss `starter`
+  vergleichbar sein**: Anmeldungen aller Wettbewerbe der jüngsten Ausgabe
+  (so Wien, Hamburg, Köln, München; Berlin seit dem 04.11.2026 mit knapp
+  80.000 Gemeldeten – vorher stand dort 49.831 = Finisher nur über
+  42,195 km, und Berlin lag hinter Wien). Wer eine Zahl nachträgt, sagt im
+  `hinweis`, was sie zählt. München und Köln fehlen in der Liste, solange
+  ihr Termin 2027 fehlt bzw. vorläufig ist (`sicher()`). Rotation (`datum.toordinal() // 14`) nur
   über Kategorien mit mindestens drei Events; Kategorie, Anzahl und Design
   wechseln JEDES Mal (Test am echten Bestand). Vier Designs
   (`TOP_DESIGNS`, `insta_video._top_folie`): `karte` (Logos oben, eine

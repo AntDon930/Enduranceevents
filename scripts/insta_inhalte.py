@@ -893,20 +893,58 @@ def top_kandidaten(datum: dt.date, events: list[dict], grosse: list[dict], kateg
     return sorted(treffer, key=lambda e: (-(e["g"].get("starter") or 0), e["g"]["name"]))
 
 
-def top_eintraege(auswahl: list[dict]) -> list[dict]:
-    """Die Einträge der Folien „top" (nach Datum): Logo, Name, Datum,
-    Ort, Teilnehmende, Koordinaten, Seite."""
+def top_eintraege(auswahl: list[dict], countdown: bool = True) -> list[dict]:
+    """Die Einträge der Folien „top": Logo, Name, Datum, Ort, Teilnehmende,
+    Koordinaten, Seite.
+
+    COUNTDOWN (vom Nutzer am 04.11.2026: „Bei solchen Videos bitte immer mit
+    der Nummer 5 anfangen und dann den Spannungsbogen zu Nummer 1 machen.
+    Und die Größe sollte an der Teilnehmerzahl gemessen werden" – das löst
+    „ohne Rangfolge, nach Datum" vom 27.10.2026 ab): Reihenfolge vom
+    KLEINSTEN zum größten, je Eintrag `platz` (n … 1), gemessen an
+    `starter` aus grosse_events.json. Das Reel stellt also erst Platz n vor
+    und zuletzt Platz 1. Ohne Countdown (Anlass „die nächsten großen")
+    nach Datum, ohne Platz."""
     import insta_logos
+    if countdown:
+        rang = sorted(auswahl, key=lambda e: (-(e["g"].get("starter") or 0), e["g"]["name"]))
+        folge = [(len(rang) - i, e) for i, e in enumerate(reversed(rang))]
+    else:
+        folge = [(None, e) for e in sorted(auswahl, key=lambda e: (e["v"]["datum"], e["g"]["name"]))]
     aus = []
-    for e in sorted(auswahl, key=lambda e: (e["v"]["datum"], e["g"]["name"])):
+    for platz, e in folge:
         v, g = e["v"], e["g"]
         tag = dt.date.fromisoformat(v["datum"])
-        aus.append({"logo_id": insta_logos.slug(g["name"]), "name": g["name"],
-                    "datum": datum_kurz(tag, jahr=True), "monat_iso": v["datum"][:7], "tag": tag.day,
-                    "ort": f"{v['ort']} {LAND_KURZ.get(v['land'], '')}".strip(),
-                    "starter": g.get("starter"), "lat": v.get("lat"), "lon": v.get("lon"),
-                    "url": g.get("webseite") or v.get("url")})
+        eintrag = {"logo_id": insta_logos.slug(g["name"]), "name": g["name"],
+                   "datum": datum_kurz(tag, jahr=True), "monat_iso": v["datum"][:7], "tag": tag.day,
+                   "ort": f"{v['ort']} {LAND_KURZ.get(v['land'], '')}".strip(),
+                   "starter": g.get("starter"), "lat": v.get("lat"), "lon": v.get("lon"),
+                   "url": g.get("webseite") or v.get("url")}
+        if platz:
+            eintrag["platz"] = platz
+        aus.append(eintrag)
     return aus
+
+
+TOP_PLATZ1_EXTRA = 0.8      # Sekunden mehr für Platz 1 - der Höhepunkt des Countdowns
+
+
+def top_folien(basis: dict, anzahl: int) -> list[dict]:
+    """Je Eintrag eine Folie; beim Countdown steht Platz 1 länger."""
+    countdown = any(e.get("platz") for e in basis["eintraege"])
+    return [dict(basis, aktiv=i, dauer=basis["dauer"] + (TOP_PLATZ1_EXTRA if countdown and i == anzahl - 1 else 0))
+            for i in range(anzahl)]
+
+
+PLATZ_EMOJI = {1: "1️⃣", 2: "2️⃣", 3: "3️⃣", 4: "4️⃣", 5: "5️⃣", 6: "6️⃣", 7: "7️⃣", 8: "8️⃣", 9: "9️⃣", 10: "🔟"}
+
+
+def top_zeile(e: dict, mit_teilnehmern: bool = True) -> str:
+    """Eine Zeile der Caption: beim Countdown mit Platz als Zahl-Emoji (ein
+    „#5" machte Instagram zum Hashtag), sonst mit Punkt."""
+    kopf = f"{PLATZ_EMOJI.get(e['platz'], str(e['platz']) + '.')} " if e.get("platz") else "• "
+    rest = f"{e['name']}, {e['ort']} – {e['datum']}" if e.get("platz") else f"{e['datum']}: {e['name']}, {e['ort']}"
+    return kopf + rest + (f" ({_starter_kurz(e['starter'])})" if mit_teilnehmern and e.get("starter") else "")
 
 
 # ------------------------------------------------- Anlässe (große Rennen)
@@ -969,7 +1007,7 @@ def format_anlass(datum: dt.date, events: list[dict], rng: random.Random, anlass
         auswahl = sorted(liste, key=lambda e: e["v"]["datum"])[:anzahl]
     else:
         auswahl = liste[:anzahl]
-    eintraege = top_eintraege(auswahl)
+    eintraege = top_eintraege(auswahl, countdown=not naechste)
     wort = KATEGORIE_WORT.get(schluessel, name)
     titel = f"Die nächsten {anzahl} großen {name}" if naechste else f"Die {anzahl} größten {name}"
     basis = {"typ": "top", "variante": design, "sport": sport, "titel": titel, "eintraege": eintraege,
@@ -980,14 +1018,15 @@ def format_anlass(datum: dt.date, events: list[dict], rng: random.Random, anlass
          "zeilen": ["Deutschland · Österreich · Schweiz · Südtirol"]},
         {"typ": "satz", "ueber": anlass["name"], "titel": "UND WO STARTEST DU?",
          "zeilen": [f"Die nächsten großen {wort} bei uns" if naechste else f"Die größten {wort} bei uns"]},
-        *[dict(basis, aktiv=i) for i in range(anzahl)],
+        *top_folien(basis, anzahl),
         dict(basis, aktiv=None, schluss="Wo bist du dabei?"),
         cta_folie("Check it out!", f"Alle {len(alle)} {wort} mit Termin", SEITE, "Link in der Bio"),
     ]
-    zeilen = "\n".join(f"• {e['datum']}: {e['name']}, {e['ort']}" for e in eintraege)
+    zeilen = "\n".join(top_zeile(e, mit_teilnehmern=not naechste) for e in eintraege)
     caption = caption_bauen([
         f"🏁 {anlass['anlass_text']}! Und bei uns? {len(alle)} {wort} {wann} in Deutschland, "
-        "Österreich, der Schweiz und Südtirol. " + ("Die nächsten großen:" if naechste else "Die größten davon:"),
+        "Österreich, der Schweiz und Südtirol. " + ("Die nächsten großen:" if naechste
+                                                   else "Die größten davon, gezählt nach Teilnehmenden:"),
         zeilen,
         "Wo startest du? 👇",
     ], hashtags(sport, rng=rng, extra=[anlass.get("hashtag") or "", f"#{schluessel}"]), rng, len(events))
@@ -1112,10 +1151,10 @@ def format_top(datum: dt.date, events: list[dict], rng: random.Random,
                grosse: list[dict] | None = None, kategorie: str | None = None,
                anzahl: int | None = None, design: str | None = None) -> dict | None:
     """„Die 7 größten Trail-Events" – die größten Events einer Kategorie in
-    den nächsten 12 Monaten, OHNE Rangfolge (vom Nutzer: „es muss auch
-    nicht bewertet werden wer der beste … Einfach die 5 größten"), nach
-    Datum vorgestellt, am Ende alle zusammen. Kategorie, Anzahl (3/5/7/10)
-    und Design wechseln von Mal zu Mal."""
+    den nächsten 12 Monaten als COUNTDOWN nach Teilnehmerzahl: erst Platz n,
+    zuletzt Platz 1 (vom Nutzer am 04.11.2026, siehe top_eintraege; bis
+    dahin ohne Rangfolge nach Datum), am Ende alle zusammen. Kategorie,
+    Anzahl (3/5/7/10) und Design wechseln von Mal zu Mal."""
     grosse = grosse if grosse is not None else lade_grosse()
     kandidaten = [(k, top_kandidaten(datum, events, grosse, k)) for k in TOP_KATEGORIEN]
     # Nur Kategorien rotieren, die mindestens drei Events haben - sonst
@@ -1139,16 +1178,14 @@ def format_top(datum: dt.date, events: list[dict], rng: random.Random,
     folien = [
         {"typ": "hook", "ueber": "Die nächsten 12 Monate", "zahl": str(anzahl),
          "titel": f"DIE GRÖSSTEN {name.upper()}", "zeilen": ["Deutschland · Österreich · Schweiz · Südtirol"]},
-        *[dict(basis, aktiv=i) for i in range(anzahl)],
+        *top_folien(basis, anzahl),
         dict(basis, aktiv=None, schluss="Wo bist du dabei?"),
         cta_folie("Check it out!", f"Alle {name} mit Termin", SEITE, "Link in der Bio"),
     ]
-    zeilen = "\n".join(f"• {e['datum']}: {e['name']}, {e['ort']}"
-                       + (f" ({_starter_kurz(e['starter'])})" if e.get("starter") else "")
-                       for e in eintraege)
+    zeilen = "\n".join(top_zeile(e) for e in eintraege)
     caption = caption_bauen([
-        f"🗓️ Die {anzahl} größten {name} der nächsten 12 Monate in Deutschland, Österreich, der Schweiz "
-        "und Südtirol – nach Datum:",
+        f"🏆 Die {anzahl} größten {name} der nächsten 12 Monate in Deutschland, Österreich, der Schweiz "
+        f"und Südtirol – der Countdown von Platz {anzahl} bis Platz 1:",
         zeilen,
         "Gezählt nach allen Teilnehmenden der Veranstaltung, letzte Ausgabe (Angaben der Veranstalter, "
         "gerundet). Wo bist du dabei? 👇 Speichern nicht vergessen.",

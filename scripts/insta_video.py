@@ -607,10 +607,38 @@ def _event_text(d: ImageDraw.ImageDraw, e: dict, x: int, y: int, breite_px: int,
     return y
 
 
+def _platz_marke(d: ImageDraw.ImageDraw, box: tuple, platz: int, r: int | None = None) -> None:
+    """Der Platz im Countdown als Kreis in Sonne an der linken oberen Ecke
+    einer Logo-Karte."""
+    x0, y0, x1, y1 = box
+    r = r or int(max(22, min(52, (y1 - y0) * 0.26)))
+    cx, cy = x0 + r * 0.15, y0 + r * 0.15
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=SONNE, outline=NAVY, width=max(3, r // 9))
+    d.text((cx, cy + 1), str(platz), font=kondensiert(int(r * (1.25 if platz < 10 else 1.0))),
+           fill=NAVY, anchor="mm")
+
+
+def _platz_leer(d: ImageDraw.ImageDraw, box: tuple, platz: int | None, radius: int) -> None:
+    """Ein Platz, der im Countdown noch kommt: nur der Rahmen und „#n"."""
+    x0, y0, x1, y1 = box
+    d.rounded_rectangle(box, radius=radius, outline=(255, 255, 255, 110), width=4)
+    if platz:
+        g = int(max(30, min(110, (y1 - y0) * 0.5)))
+        d.text(((x0 + x1) / 2, (y0 + y1) / 2), f"#{platz}", font=kondensiert(g),
+               fill=(255, 255, 255, 150), anchor="mm")
+
+
 def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
     """Die größten Events einer Kategorie (Format „top", insta_inhalte) –
-    keine Rangfolge, nach Datum. Vier Designs, damit sich die Reels nicht
-    gleichen (vom Nutzer: „unterschiedliche Designs in der Darstellung"):
+    seit dem 04.11.2026 als COUNTDOWN: Die Einträge kommen in der
+    Reihenfolge Platz n … Platz 1 (Feld `platz`), jede Logo-Karte trägt
+    ihren Platz, und was noch kommt, bleibt verdeckt („#2") – sonst stünde
+    Platz 1 schon in der ersten Sekunde da. In Karte und Raster liegt
+    Platz 1 vorn (links oben), die Plätze füllen sich also von hinten nach
+    vorn; die Zeitleiste ordnet nach Termin. Ohne `platz` (Anlass „die
+    nächsten großen") wie früher nach Datum. Vier Designs, damit sich die
+    Reels nicht gleichen (vom Nutzer: „unterschiedliche Designs in der
+    Darstellung"):
 
       karte       oben die Logos (eine oder zwei Reihen, das aktive
                   hervorgehoben), darunter die Angaben, unten die Karte
@@ -628,17 +656,27 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
     design = folie.get("variante")
     farbe = SPORTFARBE.get(folie.get("sport"), SIGNAL)
     titel = ohne_emoji(folie.get("titel", "")).upper()
-    punkte = [(e.get("lat"), e.get("lon"), str(i + 1)) for i, e in enumerate(eintraege)]
+    countdown = all(e.get("platz") for e in eintraege) and n > 0
+
+    def verdeckt(i: int) -> bool:                 # kommt im Countdown erst noch
+        return countdown and aktiv is not None and i > aktiv
+
+    # Lage auf dem Raster: beim Countdown Platz 1 vorn, sonst die Reihenfolge
+    pos = [(e["platz"] - 1) if countdown else i for i, e in enumerate(eintraege)]
+    punkte = [(None, None, "") if verdeckt(i) else (e.get("lat"), e.get("lon"), str(e.get("platz") or i + 1))
+              for i, e in enumerate(eintraege)]
 
     if design == "einzeln":
         if aktiv is None:
             pille(d, RAND_X, 250, titel, kondensiert(46, False), farbe)
             zeile_h = min(172, 1180 // max(1, n))
             y = 350
-            for e in eintraege:
+            for e in (sorted(eintraege, key=lambda e: e["platz"]) if countdown else eintraege):
                 kh = zeile_h - 22
                 logo_karte(img, d, (RAND_X, y, RAND_X + int(kh * 1.6), y + kh), e.get("logo_id"), e["name"],
                            radius=max(10, kh // 6), rand=max(6, kh // 9))
+                if countdown:
+                    _platz_marke(d, (RAND_X, y, RAND_X + int(kh * 1.6), y + kh), e["platz"])
                 tx = RAND_X + int(kh * 1.6) + 28
                 g = max(30, min(52, kh // 2 - 4))
                 d.text((tx, y + kh // 2 - g // 2 - 4),
@@ -649,11 +687,14 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
                 y += zeile_h
             return
         e = eintraege[aktiv]
-        pille(d, RAND_X, 250, f"{titel} · {aktiv + 1}/{n}", kondensiert(42, False), farbe)
+        pille(d, RAND_X, 250, f"{titel} · " + (f"PLATZ {e['platz']}" if countdown else f"{aktiv + 1}/{n}"),
+              kondensiert(42, False), farbe)
         tag, _, rest = ohne_emoji(e.get("datum", "")).upper().partition(" ")
         d.text((RAND_X - 8, 330), tag, font=kondensiert(300), fill=SONNE)
         d.text((RAND_X + 10 + breite(kondensiert(300), tag), 400), rest, font=kondensiert(110), fill=WEISS)
         logo_karte(img, d, (RAND_X, 680, 960, 1030), e.get("logo_id"), e["name"], radius=40, rand=60)
+        if countdown:
+            _platz_marke(d, (RAND_X, 680, 960, 1030), e["platz"], r=74)
         y = 1070
         for z in umbrechen(ohne_emoji(e["name"]), kondensiert(62, False), 540, 2):
             d.text((RAND_X, y), z, font=kondensiert(62, False), fill=WEISS)
@@ -671,16 +712,18 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
         unten = 1180 if aktiv is not None else 1460
         boxen = _raster(n, RAND_X, 350, 960, unten, spalten, max_h=230)
         sichtbar = n if aktiv is None else aktiv + 1
-        for i in range(sichtbar):
-            r = max(14, (boxen[i][3] - boxen[i][1]) // 7)
-            logo_karte(img, d, boxen[i], eintraege[i].get("logo_id"), eintraege[i]["name"], radius=r,
-                       rand=max(10, (boxen[i][3] - boxen[i][1]) // 8),
-                       rahmen=SONNE if i == aktiv else None)
+        for i in range(n):
+            box = boxen[pos[i]]
+            r = max(14, (box[3] - box[1]) // 7)
+            if i >= sichtbar:                              # Plätze, die noch kommen
+                _platz_leer(d, box, eintraege[i].get("platz"), r)
+                continue
+            logo_karte(img, d, box, eintraege[i].get("logo_id"), eintraege[i]["name"], radius=r,
+                       rand=max(10, (box[3] - box[1]) // 8), rahmen=SONNE if i == aktiv else None)
             if aktiv is not None and i != aktiv:
-                _gedaempft(img, boxen[i], r)
-        for i in range(sichtbar, n):                       # leere Plätze, die noch kommen
-            r = max(14, (boxen[i][3] - boxen[i][1]) // 7)
-            d.rounded_rectangle(boxen[i], radius=r, outline=(255, 255, 255, 90), width=4)
+                _gedaempft(img, box, r)
+            if countdown:
+                _platz_marke(d, box, eintraege[i]["platz"])
         if aktiv is not None:
             _event_text(d, eintraege[aktiv], RAND_X, max(boxen[-1][3] + 40, 1210), TEXT_BREITE, gross=70)
         return
@@ -714,12 +757,13 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
             k = (ej - j) * 12 + (em - m) + (tag - 1) / 31
             return y0 + (y1 - y0) * max(0.0, min(12.0, k)) / 12
 
-        # Karten der Reihe nach, ohne Überlappung, so nah wie möglich am Termin
-        lagen, naechst = [], y0
-        for i, e in enumerate(eintraege):
-            ziel = y_termin(e) - kh / 2
-            lagen.append(max(naechst, min(ziel, y1 - (n - i) * (kh + 12) + 12)))
-            naechst = lagen[-1] + kh + 12
+        # Karten nach Termin, ohne Überlappung, so nah wie möglich am Termin
+        # (beim Countdown kommen sie in der Reihenfolge der Plätze dazu)
+        lagen, naechst = [0.0] * n, y0
+        for k, i in enumerate(sorted(range(n), key=lambda i: (y_termin(eintraege[i]), i))):
+            ziel = y_termin(eintraege[i]) - kh / 2
+            lagen[i] = max(naechst, min(ziel, y1 - (n - k) * (kh + 12) + 12))
+            naechst = lagen[i] + kh + 12
         sichtbar = n if aktiv is None else aktiv + 1
         for i in range(sichtbar):
             e, ky = eintraege[i], int(lagen[i])
@@ -733,6 +777,8 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
                        rahmen=SONNE if i == aktiv else None)
             if aktiv is not None and i != aktiv:
                 _gedaempft(img, box, r)
+            if countdown:
+                _platz_marke(d, box, e["platz"])
             tx = x_k + kw + 24
             if aktiv is None or i == aktiv:
                 g = max(28, min(46, kh // 3))
@@ -747,12 +793,18 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
     pille(d, RAND_X, 250, titel, kondensiert(44, False), farbe)
     boxen = _raster(n, RAND_X, 350, 960, 350 + (150 if n <= 5 else 290), min(n, 5), luecke=14, max_h=150)
     for i, e in enumerate(eintraege):
-        r = max(14, (boxen[i][3] - boxen[i][1]) // 6)
-        logo_karte(img, d, boxen[i], e.get("logo_id"), e["name"], radius=r,
-                   rand=max(10, (boxen[i][3] - boxen[i][1]) // 9),
+        box = boxen[pos[i]]
+        r = max(14, (box[3] - box[1]) // 6)
+        if verdeckt(i):
+            _platz_leer(d, box, e.get("platz"), r)
+            continue
+        logo_karte(img, d, box, e.get("logo_id"), e["name"], radius=r,
+                   rand=max(10, (box[3] - box[1]) // 9),
                    rahmen=SONNE if (aktiv is not None and i == aktiv) else None)
         if aktiv is not None and i != aktiv:
-            _gedaempft(img, boxen[i], r)
+            _gedaempft(img, box, r)
+        if countdown:
+            _platz_marke(d, box, e["platz"])
     y = boxen[-1][3] + 36
     if aktiv is None:
         for z in umbrechen(ohne_emoji(folie.get("schluss", "")).upper(), kondensiert(84), TEXT_BREITE, 2):
@@ -763,8 +815,11 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
         # das vorgestellte Event groß: Logo-Karte über die ganze Breite
         e = eintraege[aktiv]
         name_unten = logo_karte(img, d, (RAND_X, y, 960, y + 250), e.get("logo_id"), e["name"], radius=36, rand=44)
+        if countdown:
+            _platz_marke(d, (RAND_X, y, 960, y + 250), e["platz"], r=62)
         y += 276
-        d.text((RAND_X, y), ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(76), fill=SONNE)
+        d.text((RAND_X, y), (f"PLATZ {e['platz']} · " if countdown else "")
+               + ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(76), fill=SONNE)
         y += 80
         if name_unten:
             d.text((RAND_X, y), umbrechen(ohne_emoji(e["name"]), kondensiert(56, False), TEXT_BREITE, 1)[0],

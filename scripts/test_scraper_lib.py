@@ -6623,12 +6623,23 @@ def test_insta_logos() -> None:
     t = I.format_top(_dt.date(2026, 11, 14), tev, _random.Random(1), tgross)
     n = t["anzahl"]
     namen = [f["eintraege"][f["aktiv"]]["name"] for f in t["folien"] if f["typ"] == "top" and f["aktiv"] is not None]
-    erwartet = sorted(["Alpha Marathon", "Bravo Marathon", "Charlie Marathon", "Delta Marathon", "Echo Marathon",
-                       "Foxtrot Marathon"][:n], key=lambda x: "ABCDEF".index(x[0]))
-    check("top: die n größten (3/5/7/10), vorgestellt nach DATUM, ohne Rangfolge, dann Übersicht und CTA",
-          (n in I.TOP_ANZAHLEN, namen, [f["typ"] for f in t["folien"]][-2:], t["folien"][-2]["aktiv"],
-           any("rang" in e for e in t["folien"][1]["eintraege"])),
-          (True, erwartet, ["top", "cta"], None, False))
+    erwartet = ["Alpha Marathon", "Bravo Marathon", "Charlie Marathon", "Delta Marathon", "Echo Marathon",
+                "Foxtrot Marathon"][:n][::-1]
+    plaetze = [f["eintraege"][f["aktiv"]]["platz"] for f in t["folien"] if f["typ"] == "top" and f["aktiv"] is not None]
+    check("top: die n größten (3/5/7/10) als Countdown nach Teilnehmenden – Platz n zuerst, Platz 1 zuletzt "
+          "(vom Nutzer am 04.11.2026), dann Übersicht und CTA",
+          (n in I.TOP_ANZAHLEN, namen, plaetze, [f["typ"] for f in t["folien"]][-2:], t["folien"][-2]["aktiv"]),
+          (True, erwartet, list(range(n, 0, -1)), ["top", "cta"], None))
+    einzel = [f for f in t["folien"] if f["typ"] == "top" and f["aktiv"] is not None]
+    check("top: Platz 1 steht länger, die Caption zählt von Platz n bis 1",
+          (einzel[-1]["dauer"] > einzel[0]["dauer"],
+           [z.split()[0] for z in t["caption"].splitlines() if "Marathon," in z]),
+          (True, [I.PLATZ_EMOJI[k] for k in range(n, 0, -1)]))
+    vorher = I.top_eintraege([{"g": {"name": "B", "starter": 5}, "v": {"datum": "2027-01-01", "ort": "x", "land": ""}},
+                              {"g": {"name": "A", "starter": 9}, "v": {"datum": "2027-05-01", "ort": "y", "land": ""}}],
+                             countdown=False)
+    check("top ohne Countdown (Anlass „die nächsten großen“): nach Datum, ohne Platz",
+          ([e["name"] for e in vorher], any("platz" in e for e in vorher)), (["B", "A"], False))
     check("top: Caption sagt, wie gezählt wird", "allen Teilnehmenden der Veranstaltung" in t["caption"], True)
     samstage = [_dt.date(2026, 10, 31) + _dt.timedelta(days=14 * i) for i in range(4)]
     check("top: jeder zweite Samstag, sonst „saison“",
@@ -6644,11 +6655,18 @@ def test_insta_logos() -> None:
     for design in I.TOP_DESIGNS:
         for aktiv in (0, None):
             for menge in (3, 10):
-                f = dict(t["folien"][1], variante=design, aktiv=aktiv,
-                         eintraege=(t["folien"][1]["eintraege"] * 4)[:menge])
+                eintr = [dict(e, platz=menge - k) for k, e in enumerate((t["folien"][1]["eintraege"] * 4)[:menge])]
+                f = dict(t["folien"][1], variante=design, aktiv=aktiv, eintraege=eintr)
                 bild = V.folie_bild(f, "Laufen")
                 check(f"top: Design {design} zeichnet {menge} Events ({'eins' if aktiv == 0 else 'Übersicht'})",
                       bild.getchannel("A").getbbox() is not None, True)
+    # Countdown: Platz 1 ist auf der ersten Folie verdeckt, auf der letzten zu sehen
+    erste, letzte = einzel[0], einzel[-1]
+    for design in ("karte", "raster"):
+        a = V.folie_bild(dict(erste, variante=design), "Laufen").convert("RGB")
+        b = V.folie_bild(dict(letzte, variante=design), "Laufen").convert("RGB")
+        check(f"top Countdown ({design}): die Folien von Platz {n} und Platz 1 unterscheiden sich",
+              a.tobytes() != b.tobytes(), True)
     karte = V.karte_bild(400, 400, [(52.52, 13.40, "1")], 0)
     check("Karte: Länderfläche aus laender.json und Punkt Berlin im Nordosten",
           (karte.getpixel((200, 250))[3] > 0, karte.getpixel((5, 5))[3]), (True, 0))
