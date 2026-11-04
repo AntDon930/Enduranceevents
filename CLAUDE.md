@@ -5351,7 +5351,13 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Gedächtnis (`veranstalter_seiten.json`, direkt gelesen – das Modul zöge
   bs4; Strecken aller Einträge eines Events zusammen entscheiden die
   Kategorie; `quelle: tot` nie; wer irgendeine sichere Ausgabe hat, nie aus
-  dem Gedächtnis). **Ihr Termin wird GESCHÄTZT** (vom Nutzer am
+  dem Gedächtnis); was weder Kalender noch Gedächtnis kennt (Kassel
+  Marathon, Jungfrau-Marathon), kommt aus `grosse_events.json` selbst –
+  nur wenn der NAME die Kategorie sagt (Marathon/Halbmarathon), Monat aus
+  `termin` bzw. `monat` der Liste (vom Nutzer: „alle, die 2026
+  stattgefunden haben oder noch stattfinden werden … der 2. größte
+  Marathon in der Region fehlt – das kann nicht passieren"). **Ihr Termin
+  wird GESCHÄTZT** (vom Nutzer am
   04.11.2026: „immer dann das letzte Event nehmen und davon ausgehen, dass
   es nächstes Jahr gleich stattfindet. Das ist nicht so schlimm, falls es
   sich dann in der Zukunft ändert"): `naechste_ausgabe_geschaetzt()` –

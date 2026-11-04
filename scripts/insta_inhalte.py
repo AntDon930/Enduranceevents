@@ -981,6 +981,37 @@ def top_kandidaten_letzte(datum: dt.date, events: list[dict], grosse: list[dict]
                   "datum": termin.isoformat(), "lat": m.get("lat"), "lon": m.get("lon"), "url": m.get("url"),
                   "km": sorted(e["km"])}
         offen.append(e)
+    # Was weder der Kalender noch das Gedächtnis kennt (Kassel Marathon,
+    # Jungfrau-Marathon), kommt aus der recherchierten Liste selbst – nur, wo
+    # der NAME die Kategorie sagt (Marathon, Halbmarathon), mit `termin` bzw.
+    # dem Monat der Liste (vom Nutzer: „alle, die 2026 stattgefunden haben
+    # oder noch stattfinden werden … wir können München nicht einfach
+    # vernachlässigen").
+    bekannt = {e["g"]["name"] for e in liste + offen} | set(je_name)
+    for g in grosse:
+        if g["name"] in bekannt or g.get("sport") != sport or g["name"] in mit_termin:
+            continue
+        n = g["name"].lower()
+        km = [21.1] if re.search(r"halbmarathon|half", n) else [42.2] if "marathon" in n else []
+        if not km or not pruefe(km, set(), n):
+            continue
+        termin = None
+        if g.get("termin"):
+            try:
+                termin = dt.date.fromisoformat(g["termin"])
+            except ValueError:
+                termin = None
+        if (not termin or termin < datum) and g.get("monat"):
+            jahr = datum.year if int(g["monat"]) > datum.month else datum.year + 1
+            termin, geschaetzt = dt.date(jahr, int(g["monat"]), 1), True
+        else:
+            geschaetzt = False
+        if not termin or termin < datum:
+            continue
+        offen.append({"g": g, "km": set(km), "art2": set(), "geschaetzt": geschaetzt or None,
+                      "v": {"name": g["name"], "ort": g.get("ort", ""), "land": g.get("land", ""), "sport": sport,
+                            "datum": termin.isoformat(), "lat": None, "lon": None, "url": g.get("webseite"),
+                            "km": km}})
     return sorted(liste + offen, key=lambda e: (-(e["g"].get("starter") or 0), e["g"]["name"]))
 
 

@@ -6680,6 +6680,16 @@ def test_insta_logos() -> None:
            I.naechste_ausgabe_geschaetzt("2028-10-01", _dt.date(2026, 11, 8)),
            I.naechste_ausgabe_geschaetzt("2024-02-29", _dt.date(2026, 11, 8))),
           (_dt.date(2027, 10, 10), _dt.date(2027, 10, 3), _dt.date(2027, 2, 25)))
+    tgross3 = tgross2 + [{"name": "Mike Marathon", "suche": ["mike marathon"], "land": "Deutschland", "sport": "Laufen",
+                          "starter": 7500, "termin": None, "monat": 9},
+                         {"name": "November Trail", "suche": ["november trail"], "land": "Deutschland",
+                          "sport": "Laufen", "starter": 9999, "monat": 5}]
+    liste3 = I.top_kandidaten_letzte(_dt.date(2026, 11, 14), tev, tgross3, kat["marathon"], ged)
+    check("top: was weder Kalender noch Gedächtnis kennt, kommt aus grosse_events (nur wenn der Name „Marathon“ "
+          "sagt), Monat aus der Liste",
+          [(e["g"]["name"], e["v"]["datum"], bool(e.get("geschaetzt"))) for e in liste3
+           if e["g"]["name"] in ("Mike Marathon", "November Trail")],
+          [("Mike Marathon", "2027-09-01", True)])
     halb = I.top_kandidaten_letzte(_dt.date(2026, 11, 14), tev, tgross2, kat["halbmarathon"], ged)
     check("top Halbmarathon: ein Event mit sicherem Termin kommt nicht über eine alte HM-Zeile aus dem Gedächtnis",
           "Alpha Marathon" in [e["g"]["name"] for e in halb], False)
