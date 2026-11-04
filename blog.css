@@ -282,6 +282,23 @@
   .beitrag-cta { padding: 22px 20px; }
 }
 
+/* Quellen: Fußnoten im Text ([1] hochgestellt) und die Liste am Ende. */
+.beitrag-text sup.q { font-size: 0.7em; line-height: 0; margin-left: 1px; }
+.beitrag-text sup.q a { text-decoration: none; font-weight: 600; }
+.beitrag-quellen {
+  margin: 34px 0 0; padding: 18px 22px;
+  border: 1px solid var(--border); border-radius: var(--radius-card); background: var(--panel);
+}
+.beitrag-quellen h2 {
+  font-family: var(--font-text) !important; font-size: 0.78rem !important; font-weight: 700 !important;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 10px !important;
+}
+.beitrag-quellen ol { margin: 0; padding-left: 1.6em; font-size: 0.86rem; line-height: 1.5; color: var(--text-muted); }
+.beitrag-quellen li { margin: 0 0 7px; scroll-margin-top: 20px; overflow-wrap: anywhere; }
+.beitrag-quellen li:target { color: var(--text); }
+.beitrag-quellen p { font-size: 0.82rem; color: var(--text-muted); margin: 10px 0 0; }
+.beitrag-stand { font-size: 0.82rem; color: var(--text-muted); }
+
 /* Im dunklen Schema ist die Seite selbst Navy – die beiden Kästen heben
    sich dort über die Fläche und eine Linie ab. */
 :root:not([data-theme="light"]) .blog-abo,
