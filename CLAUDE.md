@@ -5175,7 +5175,22 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   und Schwenkrichtung; Stories tragen den Nachweis jetzt auch im Bild. Neue
   Fotos: Datei + Eintrag in `hintergruende.json`, Bildregel des Nutzers. Punch-Zoom bei
   jedem Schnitt. **Ton: eigener Beat** (`insta_musik.py`, reines Python,
-  `array`+`wave`, ~0,6 s für 15 s; Tempo/Tonart je Datum), die Folien
+  `array`+`wave`, 1–3 s für 20 s), seit dem 04.11.2026 in **sechs Stilen**
+  (pop, trap, lofi, synthwave, dembow, dnb – je eigener Rhythmus auf 16
+  Schritten, eigene Instrumente, eine Melodie aus der Moll-Pentatonik je
+  Video) – vom Nutzer: „Die Musik ist bei jedem Video gleich und die
+  Einspielungen auch. Das ist zu monoton.“ Stil, Geräusch am Schnitt
+  (`UEBERGAENGE`: whoosh, bloop, riser, zap, swish, reverse), Schlussklang
+  (`SCHLUSS`: boom, glocke, drop, crash, akkord), Bild-Übergang
+  (`insta_video.UEBERGANG_ARTEN`: diagonal, vertikal, kreis, streifen,
+  blitz) und Einstieg der Folien (`EINSTIEG_ARTEN`: unten, seite, zoom,
+  maske) rotieren mit dem Tag (`insta_musik.rotation`, Schritt teilerfremd
+  zur Länge – Nachbartage nie gleich, derselbe Tag immer gleich, also
+  Vorschau = gepostetes Reel); `einstieg`/`uebergang` am Beitrag
+  überschreiben. Pegel je Stil angeglichen. Bei Drum & Bass (174 BPM) steht
+  ein Logo mindestens 0,4 s (`zeitplan`). Wer einen Stil ergänzt: Eintrag
+  in `STILE` und `STIL_FOLGE`, Zweig in `_spiele()`, der Test zählt die
+  Stile. Die Folien
   liegen auf ganzen Schlägen (`zeitplan(…, schlag=)`); ein lizenziertes
   Stück aus `musik.json` geht vor. `highlight()` für Clips: RMS je Sekunde
   (8-kHz-PCM, ohne numpy) ×2 + scdet-Werte.
@@ -5475,7 +5490,8 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   staffeln sich herein (`gestaffelt`: Zeilen von unten, große Flächen
   „poppen"), alte Folie geht nach oben ab, schräger Wisch in der Sportfarbe
   an jedem Schnitt, Zahlen zählen hoch, dünner Fortschritt mit Leuchtpunkt;
-  im Ton ein Whoosh je Wisch und ein tiefer Schlag zu Beginn und am CTA
+  im Ton ein Geräusch je Wisch und ein Schlag zu Beginn und am CTA (beides
+  wechselt seit dem 04.11.2026 mit dem Tag, siehe oben „Ton“)
   (`insta_musik`, `schnitte`/`schlusspunkt`). Lange Listen (Balken,
   Duell) stehen auf einer Navy-Fläche, sonst ist Text auf manchen Fotos
   unlesbar. Ein Reel braucht ~70 s Rechenzeit; der Morgenlauf rendert acht

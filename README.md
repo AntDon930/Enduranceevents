@@ -2621,9 +2621,13 @@ Signal-Orange; Text nur in der sicheren Zone, die die Instagram-App nicht
 überdeckt. Bei Clips sucht `highlight()` das spannendste Fenster.
 
 **Ton**: ein **eigener Beat** (`insta_musik.py`, selbst erzeugt – keine
-Lizenzfrage): Bassdrum, Clap, Hi-Hat, Bass und Akkorde, 118–128 BPM, Tonart
-und Akkordfolge je Tag verschieden; die Folien wechseln genau auf den
-Schlägen. Ein lizenziertes Stück in `marketing/instagram/musik/`
+Lizenzfrage) in sechs Stilen, die mit dem Tag wechseln: Elektro-Pop, Trap,
+Lo-Fi, Synthwave, Dembow und Drum & Bass (84–174 BPM), je mit eigenem
+Rhythmus, eigenen Instrumenten und einer eigenen kleinen Melodie; Tonart und
+Akkordfolge je Tag verschieden. Auch das Geräusch an den Schnitten, der
+Schlussklang, der Bild-Übergang und die Art, wie Folien hereinkommen,
+wechseln täglich – zwei Tage hintereinander sehen und klingen nie gleich.
+Die Folien wechseln genau auf den Schlägen. Ein lizenziertes Stück in `marketing/instagram/musik/`
 (`musik.json`: `{"stuecke": [{"datei": "x.mp3", "lizenz": "…"}]}`) geht
 vor. **Die Musik aus der Instagram-Bibliothek kann die API nicht
 anhängen**; wer sie will, postet das Artefakt von Hand.

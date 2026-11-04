@@ -131,7 +131,7 @@ def main() -> int:
             print(f"  Veranstalter-Namen nicht ermittelt ({type(e).__name__}) - Caption ohne Erwähnung")
     (ziel / "caption.txt").write_text(beitrag["caption"], encoding="utf-8")
     print(f"  Video: {ziel / 'reel.mp4'} ({meta['dauer_s']} s, Hintergrund {meta['hintergrund']['art']}, "
-          f"Ton: {meta.get('musik') or 'still'})")
+          f"Ton: {meta.get('musik') or 'still'}, Übergang {meta.get('uebergang')}, Einstieg {meta.get('einstieg')})")
     stories = []
     for i, st in enumerate(beitrag.get("stories") or [], 1):
         pfad = video.rendere_story(st, ziel / f"story-{i}.jpg", datum.toordinal() + i)

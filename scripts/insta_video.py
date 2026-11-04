@@ -1128,8 +1128,12 @@ def zeitplan(folien: list[dict], gesamt: float | None = None,
         faktor = gesamt / sum(dauern)
         dauern = [d * faktor for d in dauern]
     elif schlag:
-        dauern = [max(1 if f.get("typ") == "logo" or f.get("blitz") else 2, round(d / schlag)) * schlag
-                  for f, d in zip(folien, dauern)]
+        def schlaege(f: dict, d: float) -> int:
+            if f.get("typ") == "logo" or f.get("blitz"):
+                n = max(1, round(d / schlag))
+                return n + 1 if n * schlag < 0.4 else n      # Drum & Bass: ein Schlag ist zu kurz
+            return max(2, round(d / schlag))
+        dauern = [schlaege(f, d) * schlag for f, d in zip(folien, dauern)]
     plan, t = [], 0.0
     for f, d in zip(folien, dauern):
         plan.append((t, t + d, f))
@@ -1587,8 +1591,19 @@ def baender(fb: Image.Image, luecke: int = 18) -> list[tuple[int, int]]:
     return [(max(0, a - 6), min(H, b + 14)) for a, b in aus if b - a > 3]
 
 
-def gestaffelt(fb: Image.Image, bands: list[tuple[int, int]], u: float, schnell: bool = False) -> Image.Image:
-    """Die Folie zur Zeit u (Sekunden seit ihrem Beginn): Band für Band."""
+# Wie Folien hereinkommen und Schnitte aussehen, wechselt mit dem Tag
+# (vom Nutzer am 04.11.2026: „Die Musik ist bei jedem Video gleich und die
+# Einspielungen auch. Das ist zu monoton.“) - rendere() wählt je Video eine
+# Art über insta_musik.rotation, Nachbartage nie gleich.
+EINSTIEG_ARTEN = ("unten", "seite", "zoom", "maske")
+UEBERGANG_ARTEN = ("diagonal", "vertikal", "kreis", "streifen", "blitz")
+
+
+def gestaffelt(fb: Image.Image, bands: list[tuple[int, int]], u: float, schnell: bool = False,
+               art: str = "unten") -> Image.Image:
+    """Die Folie zur Zeit u (Sekunden seit ihrem Beginn): Band für Band.
+    `art`: unten (Zeilen steigen auf, Karten poppen), seite (von rechts),
+    zoom (aus groß auf Maß), maske (von links aufgedeckt)."""
     staffel = 0.0 if schnell else STAFFEL
     dauer = 0.16 if schnell else BAND_DAUER
     if u >= dauer + staffel * max(0, len(bands) - 1):
@@ -1604,46 +1619,93 @@ def gestaffelt(fb: Image.Image, bands: list[tuple[int, int]], u: float, schnell:
         e = _ease_back(p)
         stueck = fb.crop((0, y0, B, y1))
         hoehe = y1 - y0
-        if hoehe > 200:                                    # Karte/Logo: Pop
+        x, y = 0, y0
+        if art == "seite":
+            x = int((1 - e) * (150 if hoehe > 200 else 100))
+        elif art == "zoom":
+            f = 1.12 - 0.12 * _ease_aus(min(1.0, p))
+            w2, h2 = max(1, int(B * f)), max(1, int(hoehe * f))
+            stueck = stueck.resize((w2, h2), Image.BILINEAR)
+            x, y = (B - w2) // 2, y0 + (hoehe - h2) // 2
+        elif art == "maske":
+            breite_px = max(1, int(B * _ease_aus(min(1.0, p * 1.15))))
+            stueck = stueck.crop((0, 0, breite_px, hoehe))
+        elif hoehe > 200:                                  # unten: Karte/Logo poppt
             f = 0.90 + 0.10 * e
             w2, h2 = max(1, int(B * f)), max(1, int(hoehe * f))
             stueck = stueck.resize((w2, h2), Image.BILINEAR)
             x, y = (B - w2) // 2, y0 + (hoehe - h2) // 2
-        else:                                              # Zeile: von unten
-            x, y = 0, y0 + int((1 - e) * 46)
+        else:                                              # unten: Zeile steigt auf
+            y = y0 + int((1 - e) * 46)
         alpha = _ease_aus(min(1.0, p * 1.4))
         if alpha < 1:
             stueck.putalpha(stueck.getchannel("A").point(lambda v, a=alpha: int(v * a)))
         if 0 <= y < H:
-            aus.alpha_composite(stueck, (max(0, x), y), (max(0, -x), 0))
+            if x >= 0:
+                aus.alpha_composite(stueck, (min(B - 1, x), max(0, y)), (0, max(0, -y)))
+            else:
+                aus.alpha_composite(stueck, (0, max(0, y)), (-x, max(0, -y)))
     return aus
 
 
-def abgang(fb: Image.Image, rest: float) -> Image.Image:
-    """Die letzten Zehntel einer Folie: nach oben weg und ausblenden."""
+def abgang(fb: Image.Image, rest: float, art: str = "unten") -> Image.Image:
+    """Die letzten Zehntel einer Folie: nach oben (unten), nach links
+    (seite) weg oder nur ausblenden (zoom, maske)."""
     p = 1 - max(0.0, rest) / ABGANG
     if p <= 0:
         return fb
-    dy = int(_ease_aus(p) * 60)
     aus = Image.new("RGBA", fb.size, (0, 0, 0, 0))
-    aus.alpha_composite(fb.crop((0, dy, B, H)), (0, 0))
+    if art == "seite":
+        dx = int(_ease_aus(p) * 90)
+        aus.alpha_composite(fb.crop((dx, 0, B, H)), (0, 0))
+    elif art in ("zoom", "maske"):
+        aus.alpha_composite(fb)
+    else:
+        dy = int(_ease_aus(p) * 60)
+        aus.alpha_composite(fb.crop((0, dy, B, H)), (0, 0))
     aus.putalpha(aus.getchannel("A").point(lambda v, a=1 - p: int(v * a)))
     return aus
 
 
-def wisch(bild: Image.Image, t: float, schnitte: list[float], farbe) -> None:
-    """Ein schräges Band in der Akzentfarbe fährt bei jedem Schnitt durchs
-    Bild (von links unten nach rechts oben), dahinter ein dünnes helles."""
+def wisch(bild: Image.Image, t: float, schnitte: list[float], farbe, art: str = "diagonal") -> None:
+    """Bei jedem Schnitt ein Übergang in der Akzentfarbe: diagonal (schräges
+    Band von links unten nach rechts oben), vertikal (Band von unten nach
+    oben), kreis (Ring aus der Mitte), streifen (fünf Streifen versetzt von
+    links), blitz (heller Blitz)."""
     for c in schnitte:
         p = (t - (c - WISCH / 2)) / WISCH
         if not 0 <= p <= 1:
             continue
         e = p * p * (3 - 2 * p)
-        x = -700 + e * (B + 1400)
+        if art == "blitz":
+            a = (1 - abs(2 * p - 1)) ** 2
+            bild.alpha_composite(Image.new("RGBA", (B, H), (255, 255, 255, int(190 * a))))
+            continue
         d = ImageDraw.Draw(bild)
-        for versatz, breite_b, f in ((0, 230, farbe + (235,)), (-120, 36, (255, 255, 255, 120))):
-            x0 = x + versatz
-            d.polygon([(x0, H), (x0 + breite_b, H), (x0 + breite_b + 520, 0), (x0 + 520, 0)], fill=f)
+        if art == "vertikal":
+            y = H + 120 - e * (H + 700)
+            d.rectangle([0, y, B, y + 300], fill=farbe + (235,))
+            d.rectangle([0, y + 340, B, y + 372], fill=(255, 255, 255, 120))
+        elif art == "kreis":
+            r = 40 + e * 1250
+            w = int(max(8, 300 * (1 - abs(2 * p - 1))))
+            d.ellipse([B / 2 - r, H / 2 - r, B / 2 + r, H / 2 + r], outline=farbe + (235,), width=w)
+            r2 = max(0, r - w - 40)
+            if r2 > 20:
+                d.ellipse([B / 2 - r2, H / 2 - r2, B / 2 + r2, H / 2 + r2], outline=(255, 255, 255, 120), width=14)
+        elif art == "streifen":
+            hoehe = H // 5
+            for k in range(5):
+                q = min(1.0, max(0.0, (p - k * 0.07) / 0.72))
+                eq = q * q * (3 - 2 * q)
+                x = -520 + eq * (B + 1040)
+                f = farbe + (235,) if k % 2 == 0 else (255, 255, 255, 120)
+                d.rectangle([x, k * hoehe, x + 420, (k + 1) * hoehe], fill=f)
+        else:
+            x = -700 + e * (B + 1400)
+            for versatz, breite_b, f in ((0, 230, farbe + (235,)), (-120, 36, (255, 255, 255, 120))):
+                x0 = x + versatz
+                d.polygon([(x0, H), (x0 + breite_b, H), (x0 + breite_b + 520, 0), (x0 + 520, 0)], fill=f)
 
 
 _korn: list[Image.Image] = []
@@ -1747,6 +1809,9 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
 
     schwarzweiss = beitrag.get("stil") == "sw"
     blau = hintergrund_art(beitrag) == "blau"
+    import insta_musik
+    einstieg = beitrag.get("einstieg") or insta_musik.rotation(seed, EINSTIEG_ARTEN, 3)
+    uebergang = beitrag.get("uebergang") or insta_musik.rotation(seed, UEBERGANG_ARTEN, 3)
     rahmen = rahmen_ebene(mitte=0.0 if blau else 0.46)
     credit = credit_ebene(nachweis)
     if credit:
@@ -1794,11 +1859,12 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
                     elif f.get("typ") == "hook" and str(f.get("zahl", "")).strip() and u < ZAEHLEN:
                         fb = mit_schatten(folie_bild(f, sport, u / ZAEHLEN))
                     else:
-                        fb = gestaffelt(fb, folien_baender[k], u, schnell=f.get("typ") == "logo" or f.get("blitz"))
+                        fb = gestaffelt(fb, folien_baender[k], u, schnell=f.get("typ") == "logo" or f.get("blitz"),
+                                        art=einstieg)
                     if not letzte and e - t < ABGANG and f.get("typ") != "logo" and not f.get("blitz"):
-                        fb = abgang(fb, e - t)
+                        fb = abgang(fb, e - t, einstieg)
                     bild.alpha_composite(fb)
-                wisch(bild, t, [c for c in schnitte if not _ist_blitz(plan, c)], akzent)
+                wisch(bild, t, [c for c in schnitte if not _ist_blitz(plan, c)], akzent, uebergang)
                 if blau:
                     # die Figur läuft auf der Fortschrittslinie ins Ziel
                     insta_figur.zeichne(bild, t, gesamt, sport, akzent, schritt_s, seed)
@@ -1838,11 +1904,13 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
                 "-t", f"{gesamt:.2f}", "-movflags", "+faststart", str(reel))
     (cover or Image.new("RGB", (B, H), NAVY)).save(ausgabe / "cover.jpg", quality=90)
     if beat_bpm:
-        musik = f"eigener Beat {beat_bpm} BPM"
+        import insta_musik
+        musik = insta_musik.beschreibung(seed, beat_bpm)
     else:
         musik = ton.name if ton and beitrag["format"] != "clip" else None
     return {"dauer_s": round(gesamt, 2), "thumb_offset_ms": int(cover_zeit * 1000),
-            "hintergrund": hintergrund, "nachweis": nachweis, "musik": musik}
+            "hintergrund": hintergrund, "nachweis": nachweis, "musik": musik,
+            "einstieg": einstieg, "uebergang": uebergang}
 
 
 def rendere_story(story: dict, ziel: Path, seed: int) -> Path:

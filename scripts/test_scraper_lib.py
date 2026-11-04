@@ -5412,6 +5412,45 @@ def test_instagram() -> None:
     check("Beat: Stereo, 44,1 kHz, Tempo aus der Auswahl, derselbe Tag klingt gleich",
           [len(proben), bpm in M.BPM_AUSWAHL, M.erzeuge(1.0, 7)[0] == proben, M.erzeuge(1.0, 8)[0] == proben],
           [2 * M.RATE, True, True, False])
+    # Abwechslung (vom Nutzer am 04.11.2026: „Die Musik ist bei jedem Video gleich
+    # und die Einspielungen auch. Das ist zu monoton."): Stil, Geräusch am Schnitt,
+    # Schlussklang, Bild-Übergang und Einstieg wechseln mit dem Tag.
+    import datetime as _dtm
+    from PIL import Image as _ImgW
+    seeds = [int(_dtm.date.fromordinal(_dtm.date(2026, 11, 4).toordinal() + i).strftime("%Y%m%d")) for i in range(12)]
+    check("Musik: sechs Tage hintereinander sechs verschiedene Stile, Tempo passt zum Stil",
+          (len({M.stil_fuer(s_) for s_ in seeds[:6]}), all(M.bpm_fuer(s_) in M.STILE[M.stil_fuer(s_)] for s_ in seeds)),
+          (6, True))
+    for name, liste, schritt in (("Stil", M.STIL_FOLGE, 1), ("Geräusch am Schnitt", M.UEBERGAENGE, 5),
+                                 ("Schlussklang", M.SCHLUSS, 2), ("Bild-Übergang", V.UEBERGANG_ARTEN, 3),
+                                 ("Einstieg", V.EINSTIEG_ARTEN, 3)):
+        folge = [M.rotation(s_, liste, schritt) for s_ in seeds]
+        check(f"{name}: Nachbartage nie gleich, alle {len(liste)} kommen vor",
+              (all(a_ != b_ for a_, b_ in zip(folge, folge[1:])), set(folge) == set(liste)), (True, True))
+    klaenge = {st_: M.erzeuge(2.5, 20261108, M.STILE[st_][0], [1.0], 2.0, stil=st_)[0].tobytes()
+               for st_ in M.STIL_FOLGE}
+    check("Musik: jeder Stil klingt anders (eigene Instrumente, eigener Rhythmus)", len(set(klaenge.values())), 6)
+    check("Geräusche: jedes Übergangs- und Schlussgeräusch erzeugt Ton",
+          [bool(M.uebergang_klang(a_, 1)[0]) and max(map(abs, M.uebergang_klang(a_, 1)[0])) > 0.05 for a_ in M.UEBERGAENGE] +
+          [max(map(abs, M.schluss_klang(a_))) > 0.1 for a_ in M.SCHLUSS], [True] * 11)
+    grund0 = _ImgW.new("RGBA", (1080, 1920), (11, 27, 51, 255))
+    wische = []
+    for art_ in V.UEBERGANG_ARTEN:
+        b_ = grund0.copy()
+        V.wisch(b_, 0.5, [0.5], V.SIGNAL, art_)
+        wische.append(b_.tobytes())
+    check("Bild-Übergänge: alle fünf zeichnen etwas, und jeder anders",
+          (all(w_ != grund0.tobytes() for w_ in wische), len(set(wische))), (True, 5))
+    hook_ = V.mit_schatten(V.folie_bild({"typ": "hook", "zahl": "5", "titel": "Die größten Marathon-Events",
+                                         "ueber": "Nach Teilnehmenden"}, "Laufen"))
+    baender_ = V.baender(hook_)
+    mitte_ = {art_: V.gestaffelt(hook_, baender_, 0.2, art=art_).tobytes() for art_ in V.EINSTIEG_ARTEN}
+    check("Einstieg: vier Arten, mittendrin verschieden, am Ende die ganze Folie",
+          (len(set(mitte_.values())), all(V.gestaffelt(hook_, baender_, 5.0, art=a_) is hook_ for a_ in V.EINSTIEG_ARTEN)),
+          (4, True))
+    dnb_plan = V.zeitplan([{"typ": "logo", "blitz": True}, {"typ": "logo", "blitz": True}, {"typ": "cta"}],
+                          schlag=M.schlag_s(174))
+    check("Drum & Bass: ein Logo steht trotzdem mindestens 0,4 s", min(e_ - s_ for s_, e_, _ in dnb_plan[:2]) >= 0.4, True)
     for f in woche[0]["folien"] + woche[3]["folien"] + [st["folie"] for st in woche[0]["stories"]]:
         bild = V.folie_bild(f, "Laufen")
         check(f"Folie {f['typ']} wird gezeichnet (1080 × 1920, nicht leer)", [bild.size, bild.getbbox() is not None],
