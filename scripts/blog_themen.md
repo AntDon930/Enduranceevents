@@ -6,7 +6,7 @@ veröffentlichen wir immer montags einen Blog Artikel!“, kurz darauf: „lass 
 Donnerstag (06:37 Berlin) schreibt die geplante Aufgabe „Blog-Artikel am
 Montag und Donnerstag“ (`trig_015LFqPsP972Ny6SzfzezXw2`) das nächste offene Thema
 (oberste Zeile mit `[ ]`), hakt es ab (`[x]` + Slug) und veröffentlicht es
-auf dem Clubs-Branch (bis zum Launch nur in der Vorschau).
+auf der Live-Seite (Entwicklungs-Branch, beide Live-Namen) und holt den Stand per Merge in den Clubs-Branch. Seit dem 04.11.2026 ist der Blog live (vom Nutzer: „Ja, bitte veröffentliche den Blog … und schreib noch ein paar weitere Artikel dazu“) – die ersten drei Themen sind am selben Tag erschienen.
 
 **Regeln (README „Blog“):**
 - Leicht lesbar, motivierend, du-Form, kurze Sätze, keine Angstthemen.
@@ -24,9 +24,9 @@ auf dem Clubs-Branch (bis zum Launch nur in der Vorschau).
 
 | Termin | Status | Typ | Sportart | Thema |
 |---|---|---|---|---|
-| Do 05.11.2026 | [ ] | Q | Laufen | Carboloading: Was du in den Tagen vor dem Rennen essen solltest |
-| Mo 09.11.2026 | [ ] | L | Laufen | Laufen im Winter: So macht Training bei Kälte und Dunkelheit Spaß |
-| Do 12.11.2026 | [ ] | E | Laufen | Silvesterläufe: Das Jahr laufend beenden – die schönsten Läufe zum Jahreswechsel |
+| Do 05.11.2026 | [x] `carboloading` (04.11.) | Q | Laufen | Carboloading: Was du in den Tagen vor dem Rennen essen solltest |
+| Mo 09.11.2026 | [x] `laufen-im-winter` (04.11.) | L | Laufen | Laufen im Winter: So macht Training bei Kälte und Dunkelheit Spaß |
+| Do 12.11.2026 | [x] `silvesterlaeufe` (04.11.) | E | Laufen | Silvesterläufe: Das Jahr laufend beenden – die schönsten Läufe zum Jahreswechsel |
 | Mo 16.11.2026 | [ ] | Q | Laufen | Krafttraining für Läufer: Die besten Übungen und warum sie helfen |
 | Do 19.11.2026 | [ ] | E | Laufen | Crossläufe und Winterlaufserien: Wettkampfspaß in der kalten Jahreszeit |
 | Mo 23.11.2026 | [ ] | L | Triathlon | Wintertraining im Triathlon: Schwimmen, Rolle und Laufband sinnvoll kombinieren |

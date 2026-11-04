@@ -215,6 +215,9 @@
 .beitrag-text th { background: var(--panel); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 700; }
 .beitrag-text tr.empfohlen td { background: var(--accent-bg); }
 .beitrag-text td:nth-child(2), .beitrag-text td:nth-child(3), .beitrag-text td:nth-child(4) { white-space: nowrap; }
+/* Zwei Spalten (Was? – Wie?) passen aufs Handy: umbrechen statt waagerecht scrollen. */
+.beitrag-text table.zweispaltig { min-width: 0; }
+.beitrag-text table.zweispaltig td { white-space: normal; }
 
 .beitrag-kasten {
   border: 1px solid var(--border);
