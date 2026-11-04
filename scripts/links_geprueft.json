@@ -19421,5 +19421,12 @@
     "quelle": "datasport.com",
     "alt": "https://datasport.com/de/events/zkb-zuerilauf-cup-2027",
     "notiz": "Linkprüfung 2026-10-05: Portalseite ohne Link auf eine Seite, die den Lauf nennt - Portallink bleibt."
+  },
+  "24h Harsewinkel|2026-11-07": {
+    "am": "2026-11-04",
+    "ergebnis": "korrigiert",
+    "quelle": "Nutzer",
+    "alt": "https://harsewinkel.dlrg.de/",
+    "notiz": "Startseite des Vereins durch die Seite des 24-Stunden-Schwimmens ersetzt (vom Nutzer genannt)."
   }
 }

@@ -237,9 +237,9 @@
     "art1": "Schwimmen",
     "art2": "Becken",
     "datum_start": "2026-11-07",
-    "datum_ende": "2026-11-07",
+    "datum_ende": "2026-11-08",
     "dauer_h": 24.0,
-    "veranstalter_url": "https://harsewinkel.dlrg.de/"
+    "veranstalter_url": "https://harsewinkel.dlrg.de/sport/wettkaempfe/24h-schwimmen/"
   },
   {
     "land": "Deutschland",
@@ -33459,19 +33459,6 @@
     "veranstalter_url": "https://bienwald-marathon.de/",
     "pruefung_offen": true,
     "instagram": "bienwald_marathon_kandel"
-  },
-  {
-    "land": "Deutschland",
-    "name": "53. Königsforst-Marathon Bensberg",
-    "standort": "Bensberg",
-    "lat": 51.2323776,
-    "lon": 9.3541143,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-14",
-    "datum_ende": "2027-03-14",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://koenigsforst-marathon.de"
   },
   {
     "land": "Deutschland",

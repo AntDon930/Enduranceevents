@@ -8472,5 +8472,11 @@
     "ergebnis": "entfernt",
     "quelle": "https://www.radsport-weser-ems.de/termine/",
     "notiz": "Korrekturliste des Nutzers, Check again: Finde ich nicht – Das ist derselbe Lauf wie der 9. Cloppenburger City Cross („WEC Cross Cloppenburg 24.10.2026“ auf radsport-weser-ems.de) – doppelt, gelöscht."
+  },
+  "24h Harsewinkel|2026-11-07": {
+    "am": "2026-11-04",
+    "ergebnis": "korrigiert",
+    "quelle": "https://harsewinkel.dlrg.de/sport/wettkaempfe/24h-schwimmen/",
+    "notiz": "24 Stunden Schwimmen 07.–08.11.2026 (Start Sa 14:00, Ende So 14:00), Hallenbad Harsewinkel; Link vom Nutzer, Ende auf den 08.11. gesetzt."
   }
 }

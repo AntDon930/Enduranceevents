@@ -7,12 +7,12 @@ BEGIN:VEVENT
 UID:2026-11-07-24h-harsewinkel-24h-harsewinkel@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261107
-DTEND;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
 SUMMARY:24h Harsewinkel
 LOCATION:Harsewinkel\, Deutschland
 DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 24 h\nhttps://harsewinkel
- .dlrg.de/
+ .dlrg.de/sport/wettkaempfe/24h-schwimmen/
 TRANSP:TRANSPARENT
-URL:https://harsewinkel.dlrg.de/
+URL:https://harsewinkel.dlrg.de/sport/wettkaempfe/24h-schwimmen/
 END:VEVENT
 END:VCALENDAR
