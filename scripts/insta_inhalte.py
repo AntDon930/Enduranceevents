@@ -1006,8 +1006,13 @@ def top_eintraege(auswahl: list[dict], countdown: bool = True) -> list[dict]:
     for platz, e in folge:
         v, g = e["v"], e["g"]
         tag = dt.date.fromisoformat(v["datum"]) if v.get("datum") else None
+        # Beim Countdown nur der MONAT (vom Nutzer am 04.11.2026: „Die Top 5
+        # Marathons brauchen kein Datum. Da geht es nur um die Größe in dem
+        # Video. Der Marathon kann in der Liste mit dem voraussichtlichen
+        # Monat stehen") - die Folie stellt die Teilnehmerzahl groß heraus.
         eintrag = {"logo_id": insta_logos.slug(g["name"]), "name": g["name"],
-                   "datum": datum_kurz(tag, jahr=True) if tag else "Termin folgt",
+                   "datum": (f"{MONAT_KURZ[tag.month - 1]} {tag.year}" if platz else datum_kurz(tag, jahr=True))
+                   if tag else "Termin folgt",
                    "monat_iso": v["datum"][:7] if tag else None, "tag": tag.day if tag else None,
                    "ort": f"{v['ort']} {LAND_KURZ.get(v['land'], '')}".strip(),
                    "starter": g.get("starter"), "lat": v.get("lat"), "lon": v.get("lon"),
@@ -1016,8 +1021,7 @@ def top_eintraege(auswahl: list[dict], countdown: bool = True) -> list[dict]:
             eintrag["platz"] = platz
         if not tag:
             eintrag["termin_offen"] = True
-        if e.get("geschaetzt"):                       # Termin aus der letzten Ausgabe geschätzt
-            eintrag["datum"] += "*"
+        if e.get("geschaetzt"):                       # Monat aus der letzten Ausgabe geschätzt
             eintrag["geschaetzt"] = True
         aus.append(eintrag)
     return aus
@@ -1038,10 +1042,14 @@ PLATZ_EMOJI = {1: "1️⃣", 2: "2️⃣", 3: "3️⃣", 4: "4️⃣", 5: "5️�
 
 def top_zeile(e: dict, mit_teilnehmern: bool = True) -> str:
     """Eine Zeile der Caption: beim Countdown mit Platz als Zahl-Emoji (ein
-    „#5" machte Instagram zum Hashtag), sonst mit Punkt."""
-    kopf = f"{PLATZ_EMOJI.get(e['platz'], str(e['platz']) + '.')} " if e.get("platz") else "• "
-    rest = f"{e['name']}, {e['ort']} – {e['datum']}" if e.get("platz") else f"{e['datum']}: {e['name']}, {e['ort']}"
-    return kopf + rest + (f" ({_starter_kurz(e['starter'])})" if mit_teilnehmern and e.get("starter") else "")
+    „#5" machte Instagram zum Hashtag), der Größe vorn und dem Monat
+    (geschätzt: „voraussichtlich"); sonst Datum und Name."""
+    if e.get("platz"):
+        monat = ("voraussichtlich " if e.get("geschaetzt") else "") + e["datum"]
+        groesse = f"{_starter_kurz(e['starter'])} · " if mit_teilnehmern and e.get("starter") else ""
+        return f"{PLATZ_EMOJI.get(e['platz'], str(e['platz']) + '.')} {e['name']}, {e['ort']}: {groesse}{monat}"
+    return (f"• {e['datum']}: {e['name']}, {e['ort']}"
+            + (f" ({_starter_kurz(e['starter'])})" if mit_teilnehmern and e.get("starter") else ""))
 
 
 # ------------------------------------------------- Anlässe (große Rennen)
@@ -1290,8 +1298,8 @@ def format_top(datum: dt.date, events: list[dict], rng: random.Random,
         f"der Countdown von Platz {anzahl} bis Platz 1:",
         zeilen,
         "Gezählt nach allen Teilnehmenden der Veranstaltung, letzte Ausgabe (Angaben der Veranstalter, "
-        "gerundet)." + (" * Termin geschätzt: gleicher Wochentag wie bei der letzten Ausgabe, der offizielle "
-                        "Termin steht noch aus." if geschaetzt else "")
+        "gerundet)." + (" „Voraussichtlich“: Der Termin der nächsten Ausgabe steht noch nicht fest, "
+                        "der Monat ist der der letzten Ausgabe." if geschaetzt else "")
         + " Wo bist du dabei? 👇 Speichern nicht vergessen.",
     ], hashtags(sport, rng=rng, extra=[f"#{schluessel}", "#rennkalender"]), rng, len(events))
     return _beitrag("top", datum, folien, caption, sport, kategorie=schluessel, design=design, anzahl=anzahl)

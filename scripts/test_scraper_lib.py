@@ -6669,9 +6669,12 @@ def test_insta_logos() -> None:
           "keins doppelt, keins mit toter Seite",
           [(e["g"]["name"], bool(e.get("geschaetzt"))) for e in letzte][:3],
           [("Alpha Marathon", False), ("Kilo Marathon", True), ("Bravo Marathon", False)])
-    check("top: geschätzter Termin = gleicher Wochentag ein Jahr nach der letzten Ausgabe, mit „*“",
+    check("top: beim Countdown nur der MONAT (geschätzt aus der letzten Ausgabe), kein Tag",
           [(e["name"], e["datum"], e.get("geschaetzt")) for e in I.top_eintraege(letzte[1:2])],
-          [("Kilo Marathon", "10. Okt 2027*", True)])
+          [("Kilo Marathon", "Okt 2027", True)])
+    zeile_k = I.top_zeile(dict(I.top_eintraege(letzte[1:2])[0], platz=4))
+    check("top Caption: Größe vorn, dann „voraussichtlich Okt 2027“",
+          zeile_k, "4️⃣ Kilo Marathon, Kilo DE: ca. 8.000 am Start · voraussichtlich Okt 2027")
     check("Schätzung: So 11.10.2026 → So 10.10.2027; ein gemerkter Termin 2028 geht zurück auf 2027",
           (I.naechste_ausgabe_geschaetzt("2026-10-11", _dt.date(2026, 11, 8)),
            I.naechste_ausgabe_geschaetzt("2028-10-01", _dt.date(2026, 11, 8)),

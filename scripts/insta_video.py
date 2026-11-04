@@ -567,6 +567,13 @@ def _starter_text(n: int | None) -> str:
     return f"ca. {gerundet:,} am Start".replace(",", ".")
 
 
+def _starter_zahl(n: int | None) -> str:
+    if not n:
+        return ""
+    gerundet = round(n, -3) if n >= 10000 else round(n, -2)
+    return f"{gerundet:,}".replace(",", ".")
+
+
 def _raster(n: int, x0: int, y0: int, x1: int, y1: int, spalten: int, luecke: int = 18,
             max_h: int = 180) -> list[tuple[int, int, int, int]]:
     """n Kästen in `spalten` Spalten, zeilenweise, mittig in der Fläche."""
@@ -594,13 +601,17 @@ def _gedaempft(img: Image.Image, box: tuple, radius: int) -> None:
 
 
 def _event_text(d: ImageDraw.ImageDraw, e: dict, x: int, y: int, breite_px: int, gross: int = 76) -> int:
-    """Datum (orange), Name, Ort · Teilnehmende; gibt das neue y zurück."""
-    d.text((x, y), ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(gross), fill=SONNE)
+    """Datum (orange), Name, Ort · Teilnehmende; gibt das neue y zurück.
+    Beim Countdown (`platz`) steht die GRÖSSE vorn (orange) und der Monat
+    hinten – „es geht nur um die Größe" (Nutzer, 04.11.2026)."""
+    groesse = bool(e.get("platz") and e.get("starter"))
+    vorn = f"{_starter_zahl(e['starter'])} AM START" if groesse else ohne_emoji(e.get("datum", "")).upper()
+    d.text((x, y), vorn, font=kondensiert(gross), fill=SONNE)
     y += int(gross * 1.08)
     for z in umbrechen(ohne_emoji(e["name"]), kondensiert(58, False), breite_px, 2):
         d.text((x, y), z, font=kondensiert(58, False), fill=WEISS)
         y += 60
-    info = " · ".join(t for t in (e.get("ort"), _starter_text(e.get("starter"))) if t)
+    info = " · ".join(t for t in (e.get("ort"), e.get("datum") if groesse else _starter_text(e.get("starter"))) if t)
     for z in umbrechen(ohne_emoji(info), text_schrift(36), breite_px, 2):
         d.text((x, y + 4), z, font=text_schrift(36), fill=KREIDE)
         y += 46
@@ -682,18 +693,28 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
                 d.text((tx, y + kh // 2 - g // 2 - 4),
                        umbrechen(ohne_emoji(e["name"]), kondensiert(g, False), 960 - tx, 1)[0],
                        font=kondensiert(g, False), fill=WEISS, anchor="lm")
-                d.text((tx, y + kh // 2 + g // 2 + 4), ohne_emoji(e.get("datum", "")),
+                unten = (_starter_text(e.get("starter")) if countdown and e.get("starter")
+                         else ohne_emoji(e.get("datum", "")))
+                d.text((tx, y + kh // 2 + g // 2 + 4), unten,
                        font=text_schrift(max(24, g * 2 // 3)), fill=SONNE, anchor="lm")
                 y += zeile_h
             return
         e = eintraege[aktiv]
         pille(d, RAND_X, 250, f"{titel} · " + (f"PLATZ {e['platz']}" if countdown else f"{aktiv + 1}/{n}"),
               kondensiert(42, False), farbe)
-        tag, _, rest = ohne_emoji(e.get("datum", "")).upper().partition(" ")
-        if e.get("termin_offen"):                         # „Termin folgt": ein großes „?"
-            tag, rest = "?", "TERMIN FOLGT"
-        d.text((RAND_X - 8, 330), tag, font=kondensiert(300), fill=SONNE)
-        d.text((RAND_X + 10 + breite(kondensiert(300), tag), 400), rest, font=kondensiert(110), fill=WEISS)
+        if countdown and e.get("starter"):
+            # die Teilnehmerzahl riesig, darunter „am Start" (Countdown nach Größe)
+            zahl, g = _starter_zahl(e["starter"]), 250
+            while g > 120 and breite(kondensiert(g), zahl) > TEXT_BREITE:
+                g -= 10
+            d.text((RAND_X - 6, 330), zahl, font=kondensiert(g), fill=SONNE)
+            d.text((RAND_X, 330 + int(g * 1.02)), "AM START", font=kondensiert(64), fill=WEISS)
+        else:
+            tag, _, rest = ohne_emoji(e.get("datum", "")).upper().partition(" ")
+            if e.get("termin_offen"):                     # „Termin folgt": ein großes „?"
+                tag, rest = "?", "TERMIN FOLGT"
+            d.text((RAND_X - 8, 330), tag, font=kondensiert(300), fill=SONNE)
+            d.text((RAND_X + 10 + breite(kondensiert(300), tag), 400), rest, font=kondensiert(110), fill=WEISS)
         logo_karte(img, d, (RAND_X, 680, 960, 1030), e.get("logo_id"), e["name"], radius=40, rand=60)
         if countdown:
             _platz_marke(d, (RAND_X, 680, 960, 1030), e["platz"], r=74)
@@ -701,7 +722,7 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
         for z in umbrechen(ohne_emoji(e["name"]), kondensiert(62, False), 540, 2):
             d.text((RAND_X, y), z, font=kondensiert(62, False), fill=WEISS)
             y += 64
-        for z in (e.get("ort", ""), _starter_text(e.get("starter"))):
+        for z in (e.get("ort", ""), e.get("datum", "") if countdown else _starter_text(e.get("starter"))):
             if z:
                 d.text((RAND_X, y + 6), ohne_emoji(z), font=text_schrift(38), fill=KREIDE)
                 y += 52
@@ -789,7 +810,8 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
                 d.text((tx, ky + kh / 2 - g * 0.6), umbrechen(ohne_emoji(e["name"]), kondensiert(g, False),
                                                                960 - tx, 1)[0],
                        font=kondensiert(g, False), fill=WEISS, anchor="lm")
-                d.text((tx, ky + kh / 2 + g * 0.6), ohne_emoji(e.get("datum", "")),
+                d.text((tx, ky + kh / 2 + g * 0.6),
+                       _starter_text(e.get("starter")) if countdown and e.get("starter") else ohne_emoji(e.get("datum", "")),
                        font=text_schrift(max(22, g * 2 // 3)), fill=SONNE, anchor="lm")
         return
 
@@ -822,14 +844,16 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
         if countdown:
             _platz_marke(d, (RAND_X, y, 960, y + 250), e["platz"], r=62)
         y += 276
-        d.text((RAND_X, y), (f"PLATZ {e['platz']} · " if countdown else "")
-               + ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(76), fill=SONNE)
+        groesse = countdown and e.get("starter")
+        d.text((RAND_X, y), f"{_starter_zahl(e['starter'])} AM START" if groesse
+               else ohne_emoji(e.get("datum", "")).upper(), font=kondensiert(76), fill=SONNE)
         y += 80
         if name_unten:
             d.text((RAND_X, y), umbrechen(ohne_emoji(e["name"]), kondensiert(56, False), TEXT_BREITE, 1)[0],
                    font=kondensiert(56, False), fill=WEISS)
             y += 62
-        info = " · ".join(t for t in (e.get("ort"), _starter_text(e.get("starter"))) if t)
+        info = " · ".join(t for t in (e.get("ort"), e.get("datum") if groesse else _starter_text(e.get("starter")))
+                          if t)
         d.text((RAND_X, y), ohne_emoji(info), font=text_schrift(36), fill=KREIDE)
         oben = boxen[-1][3] + 36 + 276 + 80 + 62 + 66
     hoehe = 1490 - oben

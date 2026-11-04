@@ -5357,13 +5357,22 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   sich dann in der Zukunft ändert"): `naechste_ausgabe_geschaetzt()` –
   derselbe Wochentag ein Jahr später (`gleicher_wochentag`, ±3 Tage um den
   Kalendertag), der erste solche Termin ab dem Tag des Beitrags; ein
-  gemerkter Termin weiter vorn (Köln: vorläufig 2028) geht zurück. Auf der
-  Folie mit „*" (`geschaetzt`), die Caption erklärt den Stern. Nur für die
-  Instagram-Top-Listen – auf der Seite gilt weiter Datenregel 19.
+  gemerkter Termin weiter vorn (Köln: vorläufig 2028) geht zurück.
+  **Gezeigt wird beim Countdown aber KEIN Tag, nur der Monat** (vom Nutzer
+  gleich danach: „Nein kein spezifisches Datum! Die Top 5 Marathons
+  brauchen kein Datum. Da geht es nur um die Größe in dem Video. Der
+  Marathon kann in der Liste mit dem voraussichtlichen Monat stehen"): Die
+  Folie stellt die Teilnehmerzahl groß heraus („41.000 AM START", im Design
+  `einzeln` riesig), Ort und Monat klein darunter; die Caption: „4️⃣
+  München Marathon, München DE: ca. 41.000 am Start · voraussichtlich Okt
+  2027" (`geschaetzt` → „voraussichtlich", ein Satz erklärt es). Gilt für
+  jede Countdown-Folie (`platz`), auch beim Anlass „die größten"; „die
+  nächsten großen" behält das Datum. Nur Instagram – auf der Seite gilt
+  weiter Datenregel 19.
   (`termin_offen` → „Termin folgt" bleibt als Rückfall im Code, wenn sich
   kein Termin schätzen lässt.) Am 04.11.2026: Berlin, Wien, Hamburg,
-  München (10.10.2027*), Köln (03.10.2027*) – Hannover und Frankfurt
-  fielen heraus. Der Anlass bleibt bei
+  München (voraussichtlich Okt 2027), Köln (ebenso) – Hannover und
+  Frankfurt fielen heraus. Der Anlass bleibt bei
   `top_kandidaten` (dort geht es um Rennen, die anstehen). Rotation (`datum.toordinal() // 14`) nur
   über Kategorien mit mindestens drei Events; Kategorie, Anzahl und Design
   wechseln JEDES Mal (Test am echten Bestand). Vier Designs
