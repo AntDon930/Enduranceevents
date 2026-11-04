@@ -58,6 +58,8 @@ from pathlib import Path
 
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 
+import insta_figur
+
 WURZEL = Path(__file__).resolve().parent.parent
 MARKETING = WURZEL / "marketing" / "instagram"
 FONTS = MARKETING / "fonts"
@@ -214,15 +216,17 @@ def _vignette() -> Image.Image:
     return _vignette_cache
 
 
-def rahmen_ebene(logo_y: int = 128) -> Image.Image:
+def rahmen_ebene(logo_y: int = 128, mitte: float = 0.46) -> Image.Image:
     """Was auf jedem Bild gleich ist: Verlauf oben/unten, Marke. Bei
-    Stories sitzt die Marke tiefer (oben liegt die Kopfzeile der App)."""
+    Stories sitzt die Marke tiefer (oben liegt die Kopfzeile der App).
+    `mitte`: wie stark Navy über der Bildmitte liegt (auf dem Foto 0,46,
+    auf dem blauen Grund 0)."""
     ebene = Image.new("RGBA", (B, H), (0, 0, 0, 0))
     verlauf = Image.new("L", (1, H))
     for y in range(H):
         oben = max(0.0, 1 - y / 560) * 0.88
         unten = max(0.0, (y - 1000) / 920) * 0.94
-        mitte = 0.46          # das Foto ist Stimmung, nicht Inhalt: ruhig halten
+        # das Foto ist Stimmung, nicht Inhalt: ruhig halten (mitte)
         verlauf.putpixel((0, y), int(255 * min(1.0, max(oben, unten, mitte))))
     alpha = ImageChops.lighter(verlauf.resize((B, H)), _vignette())
     farbe = Image.new("RGBA", (B, H), NAVY + (255,))
@@ -498,6 +502,7 @@ def logo_karte(img: Image.Image, d: ImageDraw.ImageDraw, box: tuple, logo_id: st
 
 # ------------------------------------------------------------- Karte
 
+LAND = (42, 96, 164)          # Landfläche der Karte, heller als der blaue Grund
 KARTE_GRENZEN = (5.8, 45.75, 17.25, 55.1)      # lon0, lat0, lon1, lat1: DE, AT, CH, Südtirol
 _umrisse: list | None = None
 
@@ -537,7 +542,7 @@ def karte_bild(w: int, h: int, punkte: list[tuple[float, float, str]], aktiv: in
 
     for ring in _laender_umrisse():
         if len(ring) > 2:
-            d.polygon([xy(lat, lon) for lon, lat in ring], fill=TIEFE + (235,), outline=(160, 180, 210, 255))
+            d.polygon([xy(lat, lon) for lon, lat in ring], fill=LAND + (240,), outline=(160, 180, 210, 255))
     for ring in _laender_umrisse():
         if len(ring) > 2:
             d.line([xy(lat, lon) for lon, lat in ring] + [xy(ring[0][1], ring[0][0])],
@@ -856,7 +861,7 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
                           if t)
         d.text((RAND_X, y), ohne_emoji(info), font=text_schrift(36), fill=KREIDE)
         oben = boxen[-1][3] + 36 + 276 + 80 + 62 + 66
-    hoehe = 1490 - oben
+    hoehe = 1430 - oben          # darunter läuft die Figur (insta_figur)
     img.alpha_composite(karte_bild(TEXT_BREITE, hoehe, punkte, aktiv, farbe), (RAND_X, oben))
 
 
@@ -1046,11 +1051,13 @@ def _duell_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict, fortschr
             d.text((cx, cy + 2), "VS", font=kondensiert(int(r * 0.95)), fill=NAVY, anchor="mm")
     zeilen = folie.get("zeilen") or []
     y0 = 800
+    # Zeilenabstand: die Fläche endet über der Laufbahn der Figur (1430)
+    zh = min(150, int((1430 - 100 - y0) / max(1, len(zeilen))))
     # eine ruhige Fläche hinter dem Vergleich, damit die Zahlen auf jedem Foto lesbar sind
     p_flaeche = 1.0 if fest else _ease_aus(min(1.0, max(0.0, (t - DUELL_EIN + 0.25) / 0.4)))
     if p_flaeche > 0:
         flaeche = Image.new("RGBA", img.size, (0, 0, 0, 0))
-        ImageDraw.Draw(flaeche).rounded_rectangle([RAND_X - 20, y0 - 50, 980, y0 + 150 * len(zeilen) + 100],
+        ImageDraw.Draw(flaeche).rounded_rectangle([RAND_X - 20, y0 - 50, 980, y0 + zh * len(zeilen) + 100],
                                                   radius=36, fill=NAVY + (int(205 * p_flaeche),))
         img.alpha_composite(flaeche)
     for i, (label, wl, wr, besser) in enumerate(zeilen):
@@ -1059,7 +1066,7 @@ def _duell_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict, fortschr
             continue
         p = _ease_aus(min(1.0, (t - start) / 0.4))
         alpha = int(255 * p)
-        y = y0 + i * 150
+        y = y0 + i * zh
         ebene = Image.new("RGBA", img.size, (0, 0, 0, 0))
         ed = ImageDraw.Draw(ebene)
         if i:
@@ -1078,7 +1085,7 @@ def _duell_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict, fortschr
     if t >= start and folie.get("frage"):
         p = _ease_back(min(1.0, (t - start) / 0.45))
         f = kondensiert(max(10, int(70 * p)))
-        d.text((530, y0 + 150 * len(zeilen) + 40), ohne_emoji(folie["frage"]).upper(), font=f, fill=SONNE,
+        d.text((530, y0 + zh * len(zeilen) + 40), ohne_emoji(folie["frage"]).upper(), font=f, fill=SONNE,
                anchor="mm")
 
 
@@ -1263,6 +1270,49 @@ def foto_frames(sport: str | None, dauer: float, seed: int):
         cy = min(max(cy, ch / 2), 2112 - ch / 2)
         box = (cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2)
         yield bild.resize((B, H), Image.BILINEAR, box=box)
+
+
+# Formate mit Logos, Karten und Ranglisten: ruhiger blauer Grund statt
+# Foto, dazu die kleine Figur auf der Fortschrittslinie (insta_figur) -
+# vom Nutzer am 04.11.2026: „Das Bild im Hintergrund ist noch nicht cool.
+# Wir können auch einfach einen blauen Hintergrund nehmen für solche Videos."
+BLAU_FORMATE = {"top", "anlass", "duell", "jahr", "monat", "anmeldung"}
+
+
+def hintergrund_art(beitrag: dict) -> str:
+    """„blau" oder „foto" - am Beitrag überschreibbar (`hintergrund`)."""
+    if beitrag.get("format") == "clip":
+        return "clip"
+    return beitrag.get("hintergrund") or ("blau" if beitrag.get("format") in BLAU_FORMATE else "foto")
+
+
+def blauer_grund(sport: str | None = None) -> Image.Image:
+    """Navy mit einem weichen, helleren Blau in der Mitte, einem Hauch der
+    Sportfarbe unten und einem feinen Punktraster (wie die Karte der
+    Seite). Ein Bild, für das ganze Reel - Bewegung bringen Schnitte,
+    Wisch, Lichtfleck und die Figur."""
+    oben, unten_f = (16, 36, 68), (7, 18, 37)
+    verlauf = Image.new("RGB", (1, H))
+    for y in range(H):
+        q = y / (H - 1)
+        verlauf.putpixel((0, y), tuple(int(oben[i] + (unten_f[i] - oben[i]) * q) for i in range(3)))
+    bild = verlauf.resize((B, H)).convert("RGBA")
+    g = Image.radial_gradient("L").resize((1700, 1700), Image.BILINEAR)
+    glanz = Image.new("RGBA", (1700, 1700), (38, 92, 162, 0))
+    glanz.putalpha(g.point(lambda v: int(max(0, 230 - v) * 0.72)))
+    bild.alpha_composite(glanz, (B // 2 - 850, 780 - 850))
+    akzent = SPORTFARBE.get(sport, SIGNAL) if sport else SIGNAL
+    warm = Image.new("RGBA", (1400, 1400), akzent + (0,))
+    warm.putalpha(Image.radial_gradient("L").resize((1400, 1400), Image.BILINEAR)
+                  .point(lambda v: int(max(0, 210 - v) * 0.16)))
+    bild.alpha_composite(warm, (B - 700, H - 520))
+    raster = Image.new("RGBA", (B, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(raster)
+    for y in range(24, H, 48):
+        for x in range(24, B, 48):
+            d.ellipse([x - 2, y - 2, x + 2, y + 2], fill=(255, 255, 255, 16))
+    bild.alpha_composite(raster)
+    return bild.convert("RGB")
 
 
 def video_frames(pfad: Path, dauer: float, start: float = 0.0, fuellen: str = "crop"):
@@ -1680,8 +1730,12 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
         # Formate über mehrere Sportarten (laengste: Lauf + Rad) wählen das
         # Foto über `foto_sport` - sonst kam auch ein Schwimmfoto in Frage.
         foto_sport = beitrag.get("foto_sport") or sport
-        pex = pexels_video(foto_sport, seed)
-        if pex:
+        pex = None if hintergrund_art(beitrag) == "blau" else pexels_video(foto_sport, seed)
+        if hintergrund_art(beitrag) == "blau":
+            grund = blauer_grund(sport)
+            frames = (grund for _ in range(int(round(gesamt * FPS)) + 1))
+            hintergrund = {"art": "blau"}
+        elif pex:
             frames = video_frames(pex[0], gesamt, 0.0, "crop")
             nachweis = pex[1]
             hintergrund = {"art": "pexels", "datei": pex[0].name}
@@ -1692,7 +1746,8 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
             hintergrund = {"art": "foto", "datei": pfad.name}
 
     schwarzweiss = beitrag.get("stil") == "sw"
-    rahmen = rahmen_ebene()
+    blau = hintergrund_art(beitrag) == "blau"
+    rahmen = rahmen_ebene(mitte=0.0 if blau else 0.46)
     credit = credit_ebene(nachweis)
     if credit:
         rahmen = Image.alpha_composite(rahmen, credit)
@@ -1704,6 +1759,8 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
     schnitte = [s for s, _, _ in plan[1:]]
     akzent = SPORTFARBE.get(sport, SIGNAL) if sport else SIGNAL
     n_frames = int(round(gesamt * FPS))
+    # zwei Schritte je Schlag - die Figur läuft im Takt des Beats
+    schritt_s = 60.0 / beat_bpm if beat_bpm else 0.5
 
     with tempfile.TemporaryDirectory() as tmp:
         stumm = Path(tmp) / "bild.mp4"
@@ -1742,12 +1799,16 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
                         fb = abgang(fb, e - t)
                     bild.alpha_composite(fb)
                 wisch(bild, t, [c for c in schnitte if not _ist_blitz(plan, c)], akzent)
-                # Fortschritt: dünn, mit leuchtendem Kopf
-                d = ImageDraw.Draw(bild)
-                d.rectangle([RAND_X, 1592, RAND_X + TEXT_BREITE, 1595], fill=(255, 255, 255, 55))
-                xe = RAND_X + int(TEXT_BREITE * (t / gesamt))
-                d.rectangle([RAND_X, 1591, xe, 1596], fill=akzent)
-                d.ellipse([xe - 7, 1586, xe + 7, 1600], fill=WEISS)
+                if blau:
+                    # die Figur läuft auf der Fortschrittslinie ins Ziel
+                    insta_figur.zeichne(bild, t, gesamt, sport, akzent, schritt_s, seed)
+                else:
+                    # Fortschritt: dünn, mit leuchtendem Kopf
+                    d = ImageDraw.Draw(bild)
+                    d.rectangle([RAND_X, 1592, RAND_X + TEXT_BREITE, 1595], fill=(255, 255, 255, 55))
+                    xe = RAND_X + int(TEXT_BREITE * (t / gesamt))
+                    d.rectangle([RAND_X, 1591, xe, 1596], fill=akzent)
+                    d.ellipse([xe - 7, 1586, xe + 7, 1600], fill=WEISS)
                 rgb = bild.convert("RGB")
                 if schwarzweiss:
                     rgb = rgb.convert("L").convert("RGB")

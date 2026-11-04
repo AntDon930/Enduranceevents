@@ -6871,6 +6871,54 @@ def test_insta_logos() -> None:
           ("2:01:09 (A, 2022)" in du2["caption"], "13 Weltrekorde" in du2["caption"]), (True, True))
     check("duell Runde 2: Logos stehen schon (fest), am Anfang schon mehr zu sehen als in Runde 1",
           flaeche(V.folie_bild(runden[1], "Laufen", 0.0)) > flaeche(V.folie_bild(runden[0], "Laufen", 0.0)), True)
+
+    # --- Blauer Grund und kleine Figur (vom Nutzer am 04.11.2026: „einfach einen blauen
+    # Hintergrund … und vielleicht eine kleine Animation von einem Läufer")
+    import insta_figur as FG
+    check("Hintergrund: Logo-/Ranglisten-Formate blau, die anderen Foto, Clip bleibt Clip, am Beitrag überschreibbar",
+          [V.hintergrund_art({"format": f}) for f in ("top", "anlass", "duell", "jahr", "monat", "anmeldung",
+                                                       "krass", "humor", "clip")] +
+          [V.hintergrund_art({"format": "top", "hintergrund": "foto"})],
+          ["blau"] * 6 + ["foto", "foto", "clip", "foto"])
+    grund = V.blauer_grund("Laufen")
+    hell = lambda px: sum(px)                                                     # noqa: E731
+    check("blauer Grund: 1080 × 1920, in der Mitte heller als in der Ecke",
+          (grund.size, hell(grund.getpixel((540, 780))) > hell(grund.getpixel((5, 1900)))), ((1080, 1920), True))
+    check("Figur: Läufer, bei Radformaten die Radlerin",
+          (FG.figur_fuer("Laufen"), FG.figur_fuer("Triathlon"), FG.figur_fuer(None), FG.figur_fuer("Fahrrad")),
+          ("laeufer", "laeufer", "laeufer", "radler"))
+    bilder = [FG.laeufer(0), FG.laeufer(FG.PHASEN // 4), FG.laeufer(0, 3), FG.radler(0), FG.radler(5)]
+    check("Figur: jede Haltung sieht anders aus (Laufschritt, Jubel, Rad mit drehenden Rädern)",
+          len({b.tobytes() for b in bilder}), len(bilder))
+
+    def figur_bbox(t: float, gesamt: float = 20.0, sport: str = "Laufen"):
+        bild = _Image.new("RGBA", (1080, 1920), (11, 27, 51, 255))
+        FG.zeichne(bild, t, gesamt, sport, V.SIGNAL, 0.5, 1)
+        # nur die Figur (weißer Sticker-Rand): über der Linie und links der Zielflagge
+        return bild, bild.crop((0, 1300, FG.RECHTS - 5, FG.LINIE_Y - 8)).convert("L").point(
+            lambda v: 255 if v > 200 else 0).getbbox()
+
+    _, b1 = figur_bbox(1.0)
+    _, b2 = figur_bbox(12.0)
+    _, b3 = figur_bbox(20.0 - FG.JUBEL_S - 0.02)      # angekommen, noch kein Konfetti
+    check("Figur läuft mit dem Video nach rechts und steht am Ende links der Zielflagge",
+          (b1[0] < b2[0] < b3[0], b3[2] < FG.RECHTS - 6), (True, True))
+    unten = _Image.new("RGBA", (1080, 1920), (0, 0, 0, 0))
+    FG.zeichne(unten, 5.0, 20.0, "Laufen", V.SIGNAL, 0.5, 1)
+    a = unten.getchannel("A").crop((0, 0, 1080, FG.LINIE_Y - 4)).getbbox()
+    check("Figur steht auf der Linie und bleibt unter dem Inhalt (ab y 1430)",
+          (a[1] >= 1400, abs(a[3] - (FG.LINIE_Y - 4)) <= 2), (True, True))
+    zwei = (_Image.new("RGBA", (1080, 1920), (11, 27, 51, 255)), _Image.new("RGBA", (1080, 1920), (11, 27, 51, 255)))
+    FG.zeichne(zwei[0], 19.2, 20.0, "Laufen", V.SIGNAL, 0.5, 1)
+    FG.zeichne(zwei[1], 19.6, 20.0, "Laufen", V.SIGNAL, 0.5, 1)
+    check("Am Ziel: Jubel mit Konfetti (das Bild ändert sich auch ohne Weglaufen)",
+          zwei[0].tobytes() != zwei[1].tobytes(), True)
+    check("duell: die Fläche hinter den Zeilen endet über der Laufbahn der Figur",
+          V.folie_bild(df, "Laufen", 1.0).getchannel("A").getbbox()[3] <= 1440, True)
+    tk = I.format_top(_dt.date(2026, 11, 14), tev, _random.Random(1), tgross)
+    karte_folie = dict(next(f for f in tk["folien"] if f["typ"] == "top" and f["aktiv"] is not None), variante="karte")
+    check("top (Karte): die Karte endet über der Laufbahn der Figur",
+          V.folie_bild(karte_folie, "Laufen").getchannel("A").getbbox()[3] <= 1440, True)
     ohne_quelle = [f"{g['name']}/{k}" for g in ganz for k, f in (g.get("fakten") or {}).items()
                    if not str(f.get("quelle", "")).startswith("https://")]
     check("grosse_events.json: jeder Duell-Fakt hat eine Quelle (https)", ohne_quelle, [])

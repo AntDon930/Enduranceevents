@@ -139,7 +139,7 @@ Clubs-Branch – README „Blog“.
 | `wartung.html` | **Wartungsmodus** (13./14.10.2026): Schalter ist das Firestore-Dokument `config/wartung`, umgelegt in `admin.html` (Karte „Wartungsmodus" mit Knopf und Texten DE/EN); Startseite, Liste und Karte fragen es im `<head>` per REST ab und leiten bei `aktiv` hierher, Impressum/Datenschutz/admin.html bleiben erreichbar; Wirkung sofort, kein Deploy. Bei ausgeschaltetem Schalter springt die Seite zur Startseite zurück – ansehen über `wartung.html?vorschau`. Regeln deployt und Probe bestanden am 14.10.2026 – siehe README „Deploy-Gate und Wartungsmodus" |
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
-| `scripts/insta_inhalte.py`, `insta_video.py`, `insta_musik.py`, `insta_veranstalter.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions + Stories, Reel- und Story-Render (Pillow + ffmpeg, eigener Beat), @-Erwähnung der Veranstalter (Name von deren Seite), Auswertung, Upload über die Instagram-API (seit 16.10.2026 **Anmeldung über Instagram**: Video kurz im Google-Speicher, Schlüssel im Google-Tresor, beides ohne Schlüsseldatei über Workload Identity; einmal einrichten mit `scripts/instagram_google_einrichten.sh` in der Cloud Shell), alles in einem Aufruf – siehe „Instagram" |
+| `scripts/insta_inhalte.py`, `insta_video.py`, `insta_figur.py`, `insta_musik.py`, `insta_veranstalter.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions + Stories, Reel- und Story-Render (Pillow + ffmpeg, eigener Beat; Logo-Formate auf blauem Grund mit laufender Figur, `insta_figur.py`), @-Erwähnung der Veranstalter (Name von deren Seite), Auswertung, Upload über die Instagram-API (seit 16.10.2026 **Anmeldung über Instagram**: Video kurz im Google-Speicher, Schlüssel im Google-Tresor, beides ohne Schlüsseldatei über Workload Identity; einmal einrichten mit `scripts/instagram_google_einrichten.sh` in der Cloud Shell), alles in einem Aufruf – siehe „Instagram" |
 | `scripts/insta_freigabe.py`, `marketing/instagram/plan.json` | **Freigabe mit einem Klick** (14.10.2026): `plan.json` (im Pages-Workflow erzeugt, nie committet) nennt die Beiträge der nächsten 14 Tage mit Kennung des Inhalts; das Dashboard (`admin.html`, Karte „Instagram-Freigabe") schreibt `insta_freigaben/<Datum>` in Firestore; der Abendlauf fragt `insta_freigabe.darf_posten()` – siehe „Instagram" |
 | `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `humor.json` (eigene Läuferwitze für das Format „humor"), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` (dort auch `instagram_namen.json`) nicht im Repo |
 | `scripts/insta_logos.py`, `marketing/instagram/grosse_events.json`, `marketing/instagram/logos/` | **Logo-Reels** (seit 27.10.2026): die großen Events mit Starterzahl und Anmeldestart (je mit Quelle) und ihre GEPRÜFTEN Logos (`logos/<slug>.png`, Quelle in `logos/logos.json`); `insta_logos.py sammeln|uebernehmen|bogen` – siehe „Instagram", Bullet „Logo-Reels" |
@@ -5482,6 +5482,32 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   (heute + 7 Vorschauen) – bei einem weiteren Effekt das 30-Minuten-Limit
   von `instagram.yml` im Blick behalten. `foto_sport` am Beitrag wählt das
   Foto bei gemischten Formaten (laengste: Lauf oder Rad, nie Schwimmen).
+- **Blauer Grund und die kleine Figur (04.11.2026, vom Nutzer: „Das Bild im
+  Hintergrund ist noch nicht cool. Wir können auch einfach einen blauen
+  Hintergrund nehmen für solche Videos. Und vielleicht eine kleine
+  Animation von einem Läufer irgendwo … wie diese Konstruktion Animation
+  bei der Club Seite“)**: Die Logo- und Ranglisten-Formate
+  (`insta_video.BLAU_FORMATE`: top, anlass, duell, jahr, monat, anmeldung)
+  laufen auf `blauer_grund()` (Navy, helleres Blau in der Mitte, Hauch der
+  Sportfarbe, Punktraster wie die Karte der Seite) statt auf einem Foto –
+  ohne Nachweiszeile, Rahmen ohne Navy-Schleier (`rahmen_ebene(mitte=0)`).
+  Die anderen Formate (krass, naehe, wuerdest, humor, wochenende, saison,
+  moment, laengste) behalten das Foto; `"hintergrund": "foto"|"blau"` am
+  Beitrag überschreibt (`hintergrund_art()`). Auf dem blauen Grund läuft
+  unten **die Figur** (`scripts/insta_figur.py`) auf der
+  Fortschrittslinie ins Ziel: Stil wie der Bauarbeiter in `clubs.html`
+  (Navy-Kontur, großer Kopf, Bäckchen, Stirnband mit flatternden Enden,
+  Startnummer mit dem Zeichen der Marke), weißer Sticker-Rand, damit sie
+  auf Navy steht; zwei Schritte je Schlag des Beats; Tempo-Striche; die
+  letzten 1,3 s (`JUBEL_S`) jubelt sie vor der Zielflagge, Konfetti. Bei
+  Radformaten (`sport == "Fahrrad"`) fährt eine Radlerin mit Helm.
+  Gezeichnet mit Pillow (vierfach, verkleinert), je Haltung einmal gerechnet
+  (`lru_cache`, 24 Phasen). **Der Inhalt endet deshalb bei y 1430**: die
+  Karte der Ranglisten (`hoehe = 1430 - oben`) und die Fläche des Duells
+  (Zeilenabstand `zh`, bei vier Zeilen 132 statt 150 px); `test_insta_logos`
+  prüft beides. Die Landfläche der Karte ist heller als der Grund
+  (`LAND`). Wer ein neues Format mit Logos baut, nimmt es in
+  `BLAU_FORMATE` auf und hält den Inhalt über 1430.
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,
