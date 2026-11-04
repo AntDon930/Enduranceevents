@@ -144,6 +144,7 @@ Clubs-Branch – README „Blog“.
 | `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `humor.json` (eigene Läuferwitze für das Format „humor"), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` (dort auch `instagram_namen.json`) nicht im Repo |
 | `scripts/insta_logos.py`, `marketing/instagram/grosse_events.json`, `marketing/instagram/logos/` | **Logo-Reels** (seit 27.10.2026): die großen Events mit Starterzahl und Anmeldestart (je mit Quelle) und ihre GEPRÜFTEN Logos (`logos/<slug>.png`, Quelle in `logos/logos.json`); `insta_logos.py sammeln|uebernehmen|bogen` – siehe „Instagram", Bullet „Logo-Reels" |
 | `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort auf diesem Stand (seit dem 27.10.2026 Commit `9461aba6`: Formate monat/anmeldung im Handlauf, vom Nutzer: „Ja bitte auf main“; davor `ae5751ef`, Anmeldung über Instagram) |
+| `clubs.json`, `clubs.js`, `clubs.css`, `clubs.html` | **Clubs** (seit 19.10.2026, Vorschau-Branch): wiederkehrende Treffs, Termine aus der Regel gerechnet (nie eingetragen), Stufe aus dem Tempo; Liste `clubs.html`, auf der Karte der Schalter Events / Clubs / Beide (`?ebene=`, `?wann=`) – Format und Launch in README „Clubs“; `test_clubs` + Rauchtest `pruefe_clubs` |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
@@ -167,7 +168,7 @@ python3 scripts/build_ics.py            # und die Dateien mitcommitten
 ```
 
 Wurde `site.css`, `filters.js`, `filter-ui.js`, `filter-ui.css`,
-`event-detail.js`, `event-detail.css` oder `stats.js` angefasst, **vorher** stempeln
+`event-detail.js`, `event-detail.css`, `stats.js`, `clubs.js` oder `clubs.css` angefasst, **vorher** stempeln
 (der Test schlägt sonst fehl und sagt es auch):
 
 ```bash
@@ -6823,7 +6824,11 @@ Verweise auf alte Nummern stehen in Klammern.
     Clubs-Branch To-do 11): zuerst die 252 Clubs „nur Instagram“ aus
     `clubs_profile_fehlen.xlsx` – Strava liest die Montagsaufgabe sicher
     aus; Clubs ohne Termine auf Strava wieder verlassen (die Montagsmeldung
-    nennt sie).
+    nennt sie). **Dazu die 94 Strava-Kandidaten** (26.10.2026, aus
+    runningclubnearme.org, ohne aktuellen Beleg): Liste
+    `strava_kandidaten.xlsx` (neu erzeugen aus `scripts/clubs_kandidaten.json`,
+    alle Einträge mit `strava`); ein Kandidat mit Treff wird als Club
+    angelegt und aus der Kandidatenliste genommen.
 13. **Montag 02.11.2026: den ersten Datenlauf mit Instagram-Prüfung und
     360 Minuten ansehen** (Claude, eingetragen am 27.10.2026): (a)
     Laufzeit des Laufs „Events automatisch aktualisieren“ (Grenze jetzt

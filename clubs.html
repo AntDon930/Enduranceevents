@@ -5,11 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="tdm-reservation" content="1">
 <title>Clubs – Endurance Events</title>
-<!-- Ankündigung der Clubs (04.11.2026, vom Nutzer: „Wenn man dann auf die
-     Clubs geht, dann bekommt man nur einen Satz … Und dann vielleicht noch
-     so ein süßer Bauarbeiter mit Under Construction“). Die echte Seite
-     entsteht auf dem Branch claude/clubs-feature-map-kycnmi; beim Launch
-     ersetzt deren clubs.html diese Datei (beim Merge: deren Fassung nehmen). -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
@@ -51,63 +46,22 @@
   });
 })();
 </script>
-<meta name="description" content="Run-, Bike-, Swim- und Triathlon-Clubs ganz in deiner Nähe – bald auf Endurance Events. Wir arbeiten gerade an einer Liste aller Clubs im deutschsprachigen Raum.">
+<meta name="description" content="Run Clubs, Rad-Treffs und Schwimmgruppen in Deutschland, Österreich und der Schweiz: wann sie sich treffen, wo, wie schnell und ob es etwas kostet.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Endurance Events">
-<meta property="og:title" content="Endurance Events – Clubs (coming soon)">
-<meta property="og:description" content="Run-, Bike-, Swim- und Triathlon-Clubs ganz in deiner Nähe – bald auf Endurance Events.">
+<meta property="og:title" content="Endurance Events – Clubs">
+<meta property="og:description" content="Run Clubs, Rad-Treffs und Schwimmgruppen: wann sie sich treffen, wo, wie schnell und ob es etwas kostet.">
 <meta property="og:locale" content="de_DE">
 <meta property="og:image" content="https://endurance-events.de/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="clubs.json" as="fetch" type="application/json" crossorigin="anonymous">
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
 <link rel="stylesheet" href="site.css?v=bbba0ffa">
-<style>
-  /* Die Seite ist fensterhoch, die Ankündigung steht in der Mitte, die
-     Fußzeile unten (wie die Liste ab 901 px). */
-  body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
-  .bald {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 18px;
-    padding: 32px var(--seite-rand) 48px;
-  }
-  .bald-illu { width: min(360px, 86vw); height: auto; }
-  /* Hintergrund der Grafik: der Ton beider Schemata, die Umrisse bleiben
-     Navy - auf dem hellen und dem dunklen Grund lesbar. */
-  .bald-illu .hg { fill: var(--accent-bg); }
-  .bald-schild {
-    display: inline-block;
-    font-family: var(--font-text);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 999px;
-    background: var(--sport-laufen-bg);
-    color: var(--sport-laufen-fg);
-  }
-  .bald-text {
-    max-width: 34em;
-    margin: 0;
-    font-size: 1.25rem;
-    line-height: 1.5;
-    text-wrap: balance;
-    color: var(--text);
-  }
-  /* Am Bindestrich nicht umbrechen („Triathlon-“ / „Clubs“ sah aus wie zwei Wörter). */
-  .bald-text .zusammen { white-space: nowrap; }
-  @media (max-width: 900px) {
-    .bald { gap: 14px; padding-top: 20px; }
-    .bald-text { font-size: 1.1rem; }
-  }
-</style>
+<link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
+<link rel="stylesheet" href="event-detail.css?v=acdd5b94">
+<link rel="stylesheet" href="clubs.css?v=e312c272">
 </head>
 <body>
 
@@ -120,12 +74,12 @@
         <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
       </svg>
     </span>
-    <span class="brand-name">Endurance Events</span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
   </a>
   <nav class="site-nav" aria-label="Seiten">
     <a class="nav-link" href="events.html" id="nav-events">Events</a>
-    <a class="nav-link nav-bald active" href="clubs.html" id="nav-clubs" aria-current="page">Clubs<span class="nav-bald-text">coming soon</span></a>
-    <a class="nav-link" href="karte.html" id="nav-map">Karte</a>
+    <a class="nav-link active" href="clubs.html" id="nav-clubs" aria-current="page">Clubs</a>
+    <a class="nav-link" href="karte.html?ebene=clubs" id="nav-map">Karte</a>
     <a class="nav-link" href="blog.html" id="nav-blog">Blog</a>
   </nav>
   <div class="top-actions">
@@ -140,91 +94,42 @@
     <div id="auth-mount"></div>
   </div>
 </header>
+<p class="page-note" id="subtitle"></p>
 
-<main class="bald">
-  <!-- Der Bauarbeiter: eigene Zeichnung (Inline-SVG, nichts von fremden
-       Servern), Farben aus dem Style Guide - Signal-Orange, Navy, Kreide. -->
-  <svg class="bald-illu" viewBox="0 0 360 300" role="img" id="bald-illu"
-       aria-label="Ein Bauarbeiter mit Schild „Under Construction“">
-    <defs>
-      <pattern id="warnstreifen" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-        <rect width="7" height="14" fill="#e8590c"/>
-        <rect x="7" width="7" height="14" fill="#0b1b33"/>
-      </pattern>
-      <clipPath id="schild-form"><rect x="14" y="70" width="124" height="70" rx="10"/></clipPath>
-      <clipPath id="weste-form"><rect x="160" y="140" width="70" height="80" rx="26"/></clipPath>
-    </defs>
-    <g stroke="#0b1b33" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
-      <circle class="hg" cx="180" cy="150" r="136" stroke="none"/>
-      <ellipse cx="180" cy="266" rx="128" ry="11" fill="#0b1b33" opacity="0.18" stroke="none"/>
+<!-- Die Filter der Clubs: Suche, Sportart, Wann, Stadt, Stufe, nur
+     kostenlos. Alles steht in der Adresse (?art=…&wann=…), damit ein
+     Link teilbar ist und die Karte dieselbe Auswahl zeigt. -->
+<div class="club-filter" id="club-filter">
+  <div class="master-search">
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input type="search" id="club-suche" autocomplete="off" aria-label="Suche">
+  </div>
+  <div class="seg" id="seg-art" role="group"></div>
+  <div class="seg" id="seg-wann" role="group"></div>
+  <select class="club-select" id="sel-stadt" aria-label="Stadt"></select>
+  <select class="club-select" id="sel-stufe" aria-label="Stufe"></select>
+  <label class="club-check"><input type="checkbox" id="chk-gratis"><span id="chk-gratis-text">Nur kostenlos</span></label>
+  <div class="filter-bar-actions">
+    <a class="bar-btn" href="karte.html?ebene=clubs" id="karte-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>
+      <span id="karte-btn-text">Auf der Karte</span>
+    </a>
+  </div>
+</div>
 
-      <!-- Leitkegel -->
-      <rect x="262" y="254" width="60" height="11" rx="4" fill="#e8590c"/>
-      <path d="M276 255 L288 196 Q292 190 296 196 L308 255 Z" fill="#e8590c"/>
-      <polygon points="285.5,212 298.5,212 300.6,222 283.4,222" fill="#ffffff" stroke="none"/>
-      <polygon points="280.8,234 303.2,234 305.4,244 278.6,244" fill="#ffffff" stroke="none"/>
-
-      <!-- Schild am Pfahl -->
-      <rect x="58" y="118" width="8" height="146" rx="3" fill="#9aa6b8"/>
-      <rect x="14" y="70" width="124" height="70" rx="10" fill="#ffffff"/>
-      <rect x="14" y="70" width="124" height="17" fill="url(#warnstreifen)" clip-path="url(#schild-form)" stroke="none"/>
-      <rect x="14" y="70" width="124" height="70" rx="10" fill="none"/>
-      <text x="76" y="110" text-anchor="middle" fill="#0b1b33" stroke="none"
-            font-family="'Barlow Condensed', 'Barlow', sans-serif" font-weight="700" font-size="21" letter-spacing="1.5">UNDER</text>
-      <text x="76" y="130" text-anchor="middle" fill="#0b1b33" stroke="none"
-            font-family="'Barlow Condensed', 'Barlow', sans-serif" font-weight="700" font-size="15" letter-spacing="1">CONSTRUCTION</text>
-
-      <!-- Beine und Laufschuhe -->
-      <rect x="172" y="206" width="20" height="46" rx="8" fill="#2c5a92"/>
-      <rect x="198" y="206" width="20" height="46" rx="8" fill="#2c5a92"/>
-      <rect x="156" y="246" width="38" height="13" rx="6.5" fill="#e8590c"/>
-      <rect x="196" y="246" width="38" height="13" rx="6.5" fill="#e8590c"/>
-      <rect x="159" y="254" width="32" height="3.5" rx="1.75" fill="#ffffff" stroke="none"/>
-      <rect x="199" y="254" width="32" height="3.5" rx="1.75" fill="#ffffff" stroke="none"/>
-
-      <!-- Arme: links hält er das Schild, rechts winkt er -->
-      <path d="M170 158 L80 168" stroke="#0b1b33" stroke-width="22" fill="none"/>
-      <path d="M170 158 L80 168" stroke="#2c5a92" stroke-width="16" fill="none"/>
-      <path d="M222 158 L258 116" stroke="#0b1b33" stroke-width="22" fill="none"/>
-      <path d="M222 158 L258 116" stroke="#2c5a92" stroke-width="16" fill="none"/>
-      <circle cx="70" cy="168" r="11" fill="#f6cfa8"/>
-      <circle cx="263" cy="108" r="11" fill="#f6cfa8"/>
-      <path d="M281 92 Q287 99 284 108" fill="none" stroke="#9aa6b8" stroke-width="3"/>
-      <path d="M289 86 Q298 98 293 112" fill="none" stroke="#9aa6b8" stroke-width="3"/>
-
-      <!-- Warnweste -->
-      <rect x="160" y="140" width="70" height="80" rx="26" fill="#e8590c"/>
-      <g clip-path="url(#weste-form)" stroke="none">
-        <rect x="160" y="182" width="70" height="8" fill="#f4f2ed"/>
-        <rect x="160" y="198" width="70" height="8" fill="#f4f2ed"/>
-      </g>
-      <rect x="160" y="140" width="70" height="80" rx="26" fill="none"/>
-      <path d="M181 141 L195 163 L209 141 Z" fill="#2c5a92"/>
-
-      <!-- Kopf -->
-      <circle cx="195" cy="106" r="36" fill="#f6cfa8"/>
-      <ellipse cx="181" cy="110" rx="4.5" ry="6" fill="#0b1b33" stroke="none"/>
-      <ellipse cx="209" cy="110" rx="4.5" ry="6" fill="#0b1b33" stroke="none"/>
-      <circle cx="182.6" cy="107.4" r="1.7" fill="#ffffff" stroke="none"/>
-      <circle cx="210.6" cy="107.4" r="1.7" fill="#ffffff" stroke="none"/>
-      <ellipse cx="170" cy="122" rx="7" ry="4.5" fill="#f28b82" opacity="0.6" stroke="none"/>
-      <ellipse cx="220" cy="122" rx="7" ry="4.5" fill="#f28b82" opacity="0.6" stroke="none"/>
-      <path d="M186 122 Q195 132 204 122" fill="none"/>
-
-      <!-- Helm -->
-      <path d="M157 94 C157 54 233 54 233 94 Z" fill="#ffffff"/>
-      <path d="M189 94 L189 70 Q195 61 201 70 L201 94 Z" fill="#e8590c" stroke="none"/>
-      <path d="M157 94 C157 54 233 54 233 94 Z" fill="none"/>
-      <rect x="148" y="91" width="94" height="10" rx="5" fill="#ffffff"/>
-    </g>
-  </svg>
-
-  <span class="bald-schild" id="bald-schild">Coming soon</span>
-  <p class="bald-text" id="bald-text">Finde deine passenden Run-, Bike-, Swim- und <span class="zusammen">Triathlon-Clubs</span> ganz in deiner Nähe. Wir arbeiten gerade an einer Liste aller Clubs im deutschsprachigen Raum.</p>
+<main class="club-main">
+  <section>
+    <div class="club-kopf">
+      <div class="result-count" id="result-count"></div>
+      <button type="button" class="reset-btn" id="reset-btn" hidden></button>
+    </div>
+    <ul class="club-liste" id="club-liste" aria-live="polite"></ul>
+    <p class="club-vorschlag" id="club-vorschlag"></p>
+  </section>
+  <aside class="club-seite-box" id="club-box"></aside>
 </main>
 
 <footer class="site-footer">
-  <span id="footer-text">Endurance Events – Ausdauersport im deutschsprachigen Raum</span>
   <div class="seiten-footer">
     <a id="footer-impressum" href="impressum.html">Impressum</a>
     <a id="footer-datenschutz" href="datenschutz.html">Datenschutz</a>
@@ -235,55 +140,282 @@
 <script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
-<script defer src="stats.js?v=9c3e9af2"></script>
+<script defer src="stats.js?v=6ea036f4"></script>
+<script src="filters.js?v=52e85793"></script>
+<script src="event-detail.js?v=1b8f61ef"></script>
+<script src="clubs.js?v=8b210fb7"></script>
 
 <script>
-(function () {
-  const I18N = {
-    de: {
-      text: 'Finde deine passenden Run-, Bike-, Swim- und <span class="zusammen">Triathlon-Clubs</span> ganz in deiner Nähe. Wir arbeiten gerade an einer Liste aller Clubs im deutschsprachigen Raum.',
-      illu: 'Ein Bauarbeiter mit Schild „Under Construction“',
-      nav_map: 'Karte',
-      footer: 'Endurance Events – Ausdauersport im deutschsprachigen Raum',
-      impressum: 'Impressum',
-      datenschutz: 'Datenschutz'
-    },
-    en: {
-      text: 'Find the right run, bike, swim and triathlon clubs near you. We are currently building a list of all clubs in the German-speaking region.',
-      illu: 'A construction worker holding an “Under Construction” sign',
-      nav_map: 'Map',
-      footer: 'Endurance Events – endurance sports in the German-speaking region',
-      impressum: 'Legal notice',
-      datenschutz: 'Privacy'
-    }
-  };
-
-  let lang = 'de';
-  try {
-    const saved = localStorage.getItem('endurance-lang');
-    if (saved === 'de' || saved === 'en') lang = saved;
-  } catch (e) { /* ignorieren */ }
-
-  function applyLang(l) {
-    lang = l;
-    try { localStorage.setItem('endurance-lang', l); } catch (e) { /* ignorieren */ }
-    document.documentElement.lang = l;
-    const T = I18N[l];
-    // innerHTML: nur der feste Text oben, mit der Klammer um „Triathlon-Clubs“.
-    document.getElementById('bald-text').innerHTML = T.text;
-    document.getElementById('bald-illu').setAttribute('aria-label', T.illu);
-    document.getElementById('nav-map').textContent = T.nav_map;
-    document.getElementById('footer-text').textContent = T.footer;
-    document.getElementById('footer-impressum').textContent = T.impressum;
-    document.getElementById('footer-datenschutz').textContent = T.datenschutz;
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+(async function () {
+  const EF = window.EnduranceFilters;
+  const EED = window.EnduranceDetail;
+  const EC = window.EnduranceClubs;
+  // Notbremse gegen einen halb alten Cache-Stand (wie Liste und Karte).
+  if (!EF || !EED || !EC || !EC.renderDetail || !EF.formatDateLong) {
+    let de = true;
+    try { de = localStorage.getItem('endurance-lang') !== 'en'; } catch (e) { /* ignorieren */ }
+    document.getElementById('subtitle').textContent = de
+      ? 'Der Browser hat eine veraltete Programmdatei gespeichert. Einmal neu laden genügt.'
+      : 'Your browser kept an outdated script file. Just reload the page.';
+    return;
   }
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  const I18N = {
+    de: {
+      title: 'Clubs',
+      nav_events: 'Events', nav_clubs: 'Clubs', nav_map: 'Karte',
+      suche: 'Club, Stadt oder Treffpunkt',
+      alle: 'Alle',
+      wann_alle: 'Jederzeit', wann_heute: 'Heute', wann_morgen: 'Morgen', wann_wochenende: 'Wochenende', wann_woche: '7 Tage',
+      alle_staedte: 'Alle Städte',
+      alle_stufen: 'Alle Stufen',
+      gratis: 'Nur kostenlos',
+      karte: 'Auf der Karte',
+      treffer: (n) => `${n} Club${n === 1 ? '' : 's'}`,
+      leer: 'Kein Club passt zu diesen Filtern.',
+      reset: 'Filter löschen',
+      laden: 'Lade Clubs…',
+      fehler: (m) => `Konnte clubs.json nicht laden: ${m}`,
+      box_leer: 'Wähle einen Club, um Treffpunkt, Termine und Tempo zu sehen.',
+      vorschlag: 'Dein Club fehlt? Schreib uns an',
+      kein_termin: 'Saisonpause',
+      footer_imprint: 'Impressum', footer_privacy: 'Datenschutz'
+    },
+    en: {
+      title: 'Clubs',
+      nav_events: 'Events', nav_clubs: 'Clubs', nav_map: 'Map',
+      suche: 'Club, city or meeting point',
+      alle: 'All',
+      wann_alle: 'Any time', wann_heute: 'Today', wann_morgen: 'Tomorrow', wann_wochenende: 'Weekend', wann_woche: '7 days',
+      alle_staedte: 'All cities',
+      alle_stufen: 'All levels',
+      gratis: 'Free only',
+      karte: 'On the map',
+      treffer: (n) => `${n} club${n === 1 ? '' : 's'}`,
+      leer: 'No club matches these filters.',
+      reset: 'Clear filters',
+      laden: 'Loading clubs…',
+      fehler: (m) => `Could not load clubs.json: ${m}`,
+      box_leer: 'Pick a club to see its meeting point, sessions and pace.',
+      vorschlag: 'Missing your club? Write to',
+      kein_termin: 'Off-season',
+      footer_imprint: 'Legal notice', footer_privacy: 'Privacy'
+    }
+  };
+  let lang = 'de';
+  try { const s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  const t = (k, ...a) => { const v = I18N[lang][k]; return typeof v === 'function' ? v(...a) : v; };
+  const esc = EF.escapeHtml;
+
+  const f = { art: new Set(), stufe: new Set(), stadt: new Set(), gratis: false, wann: null, suche: '' };
+  let clubs = [];
+  let gewaehlt = null;
+
+  const el = (id) => document.getElementById(id);
+  const listeEl = el('club-liste');
+  const boxEl = el('club-box');
+  const sucheEl = el('club-suche');
+  const stadtEl = el('sel-stadt');
+  const stufeEl = el('sel-stufe');
+  const gratisEl = el('chk-gratis');
+  const handy = () => window.matchMedia('(max-width: 900px)').matches;
+
+  // ---------- Adresse ----------
+  function leseAdresse() {
+    const p = new URLSearchParams(location.search);
+    (p.get('art') || '').split(',').filter(a => EC.ARTEN.includes(a)).forEach(a => f.art.add(a));
+    (p.get('stufe') || '').split(',').filter(s => EC.STUFEN.includes(s)).forEach(s => f.stufe.add(s));
+    (p.get('stadt') || '').split(',').filter(Boolean).forEach(s => f.stadt.add(s));
+    f.gratis = p.get('gratis') === '1';
+    const w = p.get('wann'); f.wann = EC.WANN.includes(w) ? w : null;
+    f.suche = p.get('s') || '';
+    const c = p.get('club'); if (c) gewaehlt = clubs.find(x => x.id === c) || null;
+  }
+  function params() {
+    const p = new URLSearchParams();
+    if (f.suche.trim()) p.set('s', f.suche.trim());
+    if (f.art.size) p.set('art', Array.from(f.art).join(','));
+    if (f.wann) p.set('wann', f.wann);
+    if (f.stadt.size) p.set('stadt', Array.from(f.stadt).join(','));
+    if (f.stufe.size) p.set('stufe', Array.from(f.stufe).join(','));
+    if (f.gratis) p.set('gratis', '1');
+    return p;
+  }
+  function schreibeAdresse() {
+    const p = params();
+    if (gewaehlt) p.set('club', gewaehlt.id);
+    const s = p.toString();
+    history.replaceState(null, '', location.pathname + (s ? '?' + s : ''));
+  }
+  // Die Karte versteht die Sportart als ?sportart= (filters.js) und
+  // ?wann= für die Clubs (karte.html).
+  function kartenLink() {
+    const p = new URLSearchParams();
+    p.set('ebene', 'clubs');
+    if (f.art.size) p.set('sportart', Array.from(f.art).join(','));
+    if (f.wann) p.set('wann', f.wann);
+    if (f.suche.trim()) p.set('s', f.suche.trim());
+    return 'karte.html?' + p.toString();
+  }
+
+  // ---------- Filterknöpfe ----------
+  function seg(container, werte, aktiv, beschriftung, klick) {
+    container.innerHTML = werte.map(w =>
+      `<button type="button" class="seg-btn" data-w="${esc(w.key)}" aria-pressed="${aktiv(w.key) ? 'true' : 'false'}">${w.icon || ''}${esc(beschriftung(w.key))}</button>`
+    ).join('');
+    container.querySelectorAll('.seg-btn').forEach(b => b.addEventListener('click', () => klick(b.dataset.w)));
+  }
+  function baueFilter() {
+    seg(el('seg-art'), [{ key: '' }].concat(EC.ARTEN.map(a => ({ key: a, icon: EC.sportIcon(a, 15) }))),
+      k => (k === '' ? f.art.size === 0 : f.art.has(k)),
+      k => (k === '' ? t('alle') : EC.tx(lang, 'art_' + k)),
+      k => { if (k === '') f.art.clear(); else if (f.art.has(k)) f.art.delete(k); else f.art.add(k); render(); });
+    seg(el('seg-wann'), [{ key: '' }].concat(EC.WANN.map(w => ({ key: w }))),
+      k => (k === '' ? !f.wann : f.wann === k),
+      k => t('wann_' + (k || 'alle')),
+      k => { f.wann = k || null; render(); });
+    const staedte = Array.from(new Set(clubs.map(c => c.stadt))).sort((a, b) => a.localeCompare(b, 'de'));
+    stadtEl.innerHTML = `<option value="">${esc(t('alle_staedte'))}</option>`
+      + staedte.map(s => `<option value="${esc(s)}"${f.stadt.has(s) ? ' selected' : ''}>${esc(EF.VALUE_TRANSLATIONS.standort && EF.VALUE_TRANSLATIONS.standort[s] ? EF.VALUE_TRANSLATIONS.standort[s][lang] : s)}</option>`).join('');
+    stufeEl.innerHTML = `<option value="">${esc(t('alle_stufen'))}</option>`
+      + EC.STUFEN.map(s => `<option value="${s}"${f.stufe.has(s) ? ' selected' : ''}>${esc(EC.tx(lang, 'stufe_' + s))}</option>`).join('');
+    gratisEl.checked = f.gratis;
+    sucheEl.value = f.suche;
+  }
+  stadtEl.addEventListener('change', () => { f.stadt.clear(); if (stadtEl.value) f.stadt.add(stadtEl.value); render(); });
+  stufeEl.addEventListener('change', () => { f.stufe.clear(); if (stufeEl.value) f.stufe.add(stufeEl.value); render(); });
+  gratisEl.addEventListener('change', () => { f.gratis = gratisEl.checked; render(); });
+  sucheEl.addEventListener('input', () => { f.suche = sucheEl.value; render(true); });
+  el('reset-btn').addEventListener('click', () => {
+    f.art.clear(); f.stufe.clear(); f.stadt.clear(); f.gratis = false; f.wann = null; f.suche = '';
+    render();
   });
-  applyLang(lang);
+
+  // ---------- Liste ----------
+  function hatFilter() {
+    return f.art.size || f.stufe.size || f.stadt.size || f.gratis || f.wann || f.suche.trim();
+  }
+  // Der angezeigte Termin: der erste im gewählten Zeitraum, sonst der nächste.
+  function terminFuer(c, jetzt) {
+    const z = f.wann ? EC.wannZeitraum(f.wann, jetzt) : null;
+    if (z) return EC.termineImZeitraum(c, z[0], z[1], { jetzt })[0] || null;
+    return EC.naechsterTermin(c, jetzt);
+  }
+  function kachel(c, termin, pause) {
+    const s = EC.stufen(c);
+    const tags = [];
+    // Kosten nur, wenn die Quelle etwas sagt - ein „–" als Tag sähe kaputt aus.
+    const kosten = EC.formatKosten(c, lang);
+    if (kosten !== '–') tags.push(`<span class="club-tag${EC.istGratis(c) ? ' club-tag--gratis' : ''}">${esc(kosten)}</span>`);
+    s.forEach(x => tags.push(`<span class="club-tag">${esc(EC.tx(lang, 'stufe_' + x))}</span>`));
+    const d = EC.formatDistanz(c.distanz_km, lang);
+    if (d) tags.push(`<span class="club-tag">${esc(d)}</span>`);
+    const rel = termin ? EF.relativeDays(termin.datum, lang) : '';
+    const stadt = EF.VALUE_TRANSLATIONS.standort && EF.VALUE_TRANSLATIONS.standort[c.stadt] ? EF.VALUE_TRANSLATIONS.standort[c.stadt][lang] : c.stadt;
+    const terminText = pause
+      ? (pause.ab ? EC.tx(lang, 'pausiert_ab', EF.formatDateLong(pause.ab.datum, lang)) : EC.tx(lang, 'pausiert_offen'))
+      : termin ? esc(EC.formatTerminKurz(termin, lang)) + (rel && !/^(heute|morgen|today|tomorrow)$/.test(rel) ? ` <span>· ${esc(rel)}</span>` : '') : esc(t('kein_termin'));
+    return `<li><button type="button" class="club-karte${pause ? ' club-karte--pausiert' : ''}" data-id="${esc(c.id)}"${gewaehlt === c ? ' aria-current="true"' : ''}>
+      <span class="ck-oben"><span class="ck-sport ${EC.sportClass(c.art)}">${EC.sportIcon(c.art, 14)}${esc(EC.tx(lang, 'art_' + c.art))}</span>${esc(EC.tx(lang, 'rh_' + EC.rhythmusVon(c)))}</span>
+      <span class="ck-name">${esc(c.name)}</span>
+      <span class="ck-ort">${esc(stadt)}${c.treffpunkt ? ' · ' + esc(c.treffpunkt) : ''}</span>
+      <span class="ck-termin">${pause ? `<span class="ck-pausiert">${esc(terminText)}</span>` : terminText}</span>
+      <span class="ck-fuss">${tags.join('')}</span>
+    </button></li>`;
+  }
+
+  function zeichneBox() {
+    if (!gewaehlt) {
+      document.body.classList.remove('club-offen');
+      boxEl.innerHTML = handy() ? '' : `<div class="detail-panel"><div class="detail-empty">${esc(t('box_leer'))}</div></div>`;
+      return;
+    }
+    const panel = document.createElement('div');
+    panel.className = 'detail-panel';
+    EC.renderDetail(panel, gewaehlt, {
+      lang, mapLink: true,
+      onClose: handy() ? () => { gewaehlt = null; render(); } : null
+    });
+    boxEl.innerHTML = '';
+    boxEl.appendChild(panel);
+    document.body.classList.toggle('club-offen', handy());
+  }
+
+  function render(nurListe) {
+    const jetzt = new Date();
+    if (!nurListe) baueFilter();
+    const treffer = clubs.filter(c => EC.passt(c, f, jetzt))
+      .map(c => ({ c, termin: terminFuer(c, jetzt), pause: EC.pausiert(c, jetzt) }))
+      .sort((a, b) => {
+        // Pausierte Clubs ans Ende – sie bleiben sichtbar, aber nach allem, was gerade läuft.
+        if (!a.pause !== !b.pause) return a.pause ? 1 : -1;
+        if (!a.termin !== !b.termin) return a.termin ? -1 : 1;
+        if (a.termin && b.termin) {
+          const ka = a.termin.datum + a.termin.uhrzeit, kb = b.termin.datum + b.termin.uhrzeit;
+          if (ka !== kb) return ka < kb ? -1 : 1;
+        }
+        return a.c.name.localeCompare(b.c.name, 'de');
+      });
+    el('result-count').textContent = t('treffer', treffer.length);
+    el('reset-btn').hidden = !hatFilter();
+    listeEl.innerHTML = treffer.length
+      ? treffer.map(x => kachel(x.c, x.termin, x.pause)).join('')
+      : `<li class="club-leer">${esc(t('leer'))}</li>`;
+    listeEl.querySelectorAll('.club-karte').forEach(b => b.addEventListener('click', () => {
+      gewaehlt = clubs.find(c => c.id === b.dataset.id) || null;
+      render(true);
+    }));
+    el('karte-btn').href = kartenLink();
+    zeichneBox();
+    schreibeAdresse();
+  }
+
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' && gewaehlt && handy()) { gewaehlt = null; render(true); }
+  });
+  // Ein Tippen auf den Schleier (body::after) schließt das Blatt.
+  document.addEventListener('click', (ev) => {
+    if (!document.body.classList.contains('club-offen')) return;
+    if (ev.target === document.body || ev.target === document.documentElement) { gewaehlt = null; render(true); }
+  });
+
+  function setLanguage(neu) {
+    lang = neu;
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    document.documentElement.lang = lang;
+    document.title = t('title') + ' – Endurance Events';
+    el('nav-events').textContent = t('nav_events');
+    el('nav-clubs').textContent = t('nav_clubs');
+    el('nav-map').textContent = t('nav_map');
+    sucheEl.placeholder = t('suche');
+    sucheEl.setAttribute('aria-label', t('suche'));
+    el('chk-gratis-text').textContent = t('gratis');
+    el('karte-btn-text').textContent = t('karte');
+    el('reset-btn').textContent = t('reset');
+    el('club-vorschlag').innerHTML = `${esc(t('vorschlag'))} <a href="mailto:info@endurance-events.de?subject=Club">info@endurance-events.de</a>`;
+    el('footer-impressum').textContent = t('footer_imprint');
+    el('footer-datenschutz').textContent = t('footer_privacy');
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    if (clubs.length) render();
+  }
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLanguage(b.dataset.lang)));
+
+  setLanguage(lang);
+  el('result-count').textContent = t('laden');
+  try {
+    clubs = await EC.loadClubs();
+  } catch (err) {
+    el('result-count').textContent = t('fehler', err.message);
+    return;
+  }
+  leseAdresse();
+  render();
+  if (gewaehlt) {
+    const k = listeEl.querySelector(`.club-karte[data-id="${CSS.escape(gewaehlt.id)}"]`);
+    if (k) k.scrollIntoView({ block: 'center' });
+  }
 })();
 </script>
+
 </body>
 </html>

@@ -1158,7 +1158,7 @@ def test_js_syntax() -> None:
                                      capture_output=True, text=True)
                 check(f"{name}: Inline-Skript {nr} ist gültiges JS",
                       fehlerzeile(erg), "")
-        for name in ("filters.js", "filter-ui.js", "event-detail.js", "auth.js", "stats.js",
+        for name in ("filters.js", "filter-ui.js", "event-detail.js", "auth.js", "stats.js", "clubs.js",
                      "firebase-config.js", "vorschau-sperre.js",
                      "functions/index.js", "functions/stats_aggregate.js"):
             pfad = wurzel / name
@@ -1492,7 +1492,7 @@ def test_keine_fremden_dateien() -> None:
                    + _re.findall(r'<link\b[^>]*\shref="(https?://[^"]+)"', ohne)
                    if not any(ok in u for ok in erlaubt)]
         check(f"{name} lädt nichts von fremden Servern", treffer, [])
-    for name in ("auth.js", "filters.js", "filter-ui.js", "event-detail.js", "stats.js"):
+    for name in ("auth.js", "filters.js", "filter-ui.js", "event-detail.js", "stats.js", "clubs.js"):
         quelle = (wurzel / name).read_text(encoding="utf-8")
         ohne = _re.sub(r"//[^\n]*", "", quelle)
         treffer = [u for u in _re.findall(r"['\"](https?://[^'\"]+\.js)['\"]", ohne)
@@ -1750,7 +1750,7 @@ def test_wartung() -> None:
         check(f"{name}: Schnipsel fragt das Dokument des eigenen Projekts ab", m is not None and url in m.group(0), True)
         check(f"{name}: Schnipsel steht VOR den Stylesheets",
               m is not None and m.start() < html.index('<link rel="stylesheet"'), True)
-    check("alle drei Kopien sind wortgleich", len(set(v for v in fassungen.values() if v)), 1)
+    check("alle Kopien sind wortgleich", len(set(v for v in fassungen.values() if v)), 1)
     for name in ("impressum.html", "datenschutz.html", "admin.html", "wartung.html"):
         html = (wurzel / name).read_text(encoding="utf-8")
         check(f"{name}: KEIN Schnipsel (bleibt in der Pause erreichbar)", muster.search(html) is None, True)
@@ -1807,6 +1807,297 @@ def test_wartung() -> None:
           on_block is not None and "claude/endurance-events-website-v1wruf" in on_block.group(1), False)
     check("ci.yml prüft den zweiten Branch weiter direkt",
           on_block is not None and "claude/website-access-9d9tg1" in on_block.group(1), True)
+
+def test_clubs() -> None:
+    """Clubs (19.10.2026): clubs.json hält sich an das Format, und clubs.js
+    rechnet die Termine richtig aus.
+
+    Die Termine stehen NICHT in der Datei, nur die Regel ("jeden Dienstag
+    19:00", "alle zwei Wochen ab …", "jeden 1. Sonntag im Monat") - ein
+    Tippfehler darin (ein `ab`-Datum, das nicht auf den Wochentag fällt)
+    ließe den Club still verschwinden. Hier wird jede Regel geprüft und
+    clubs.js an festen Daten mit node nachgerechnet.
+    """
+    import datetime as _dt
+    import json as _json
+    import re as _re
+    import shutil
+    import subprocess
+
+    print("\nClubs (clubs.json, clubs.js):")
+    wurzel = Path(__file__).resolve().parent.parent
+    clubs = _json.loads((wurzel / "clubs.json").read_text(encoding="utf-8"))
+    check("clubs.json ist eine Liste", isinstance(clubs, list), True)
+    ids = [c.get("id") for c in clubs]
+    check("ids eindeutig", len(ids), len(set(ids)))
+    fehler = []
+    uhr = _re.compile(r"^([01]\d|2[0-3]):[0-5]\d$")
+    pace_mmss = _re.compile(r"^\d{1,2}:[0-5]\d$")
+    for c in clubs:
+        n = c.get("id", "?")
+        if not _re.fullmatch(r"[a-z0-9-]+", n or ""):
+            fehler.append(f"{n}: id nur a-z, 0-9, -")
+        for feld in ("name", "art", "stadt", "land", "lat", "lon", "termine", "geprueft"):
+            if c.get(feld) in (None, "", []):
+                fehler.append(f"{n}: {feld} fehlt")
+        if c.get("art") not in ("Laufen", "Fahrrad", "Schwimmen"):
+            fehler.append(f"{n}: art {c.get('art')!r}")
+        if c.get("land") not in ("Deutschland", "Österreich", "Schweiz", "Italien (Südtirol)"):
+            fehler.append(f"{n}: land {c.get('land')!r}")
+        lat, lon = c.get("lat"), c.get("lon")
+        if not (isinstance(lat, (int, float)) and isinstance(lon, (int, float)) and 45.8 <= lat <= 55.1 and 5.8 <= lon <= 17.2):
+            fehler.append(f"{n}: Koordinaten außerhalb von D/A/CH")
+        for t in c.get("termine") or []:
+            if t.get("rhythmus") not in ("woechentlich", "zweiwoechentlich", "monatlich", "einmalig"):
+                fehler.append(f"{n}: rhythmus {t.get('rhythmus')!r}")
+            if t.get("rhythmus") == "einmalig":
+                try:
+                    _dt.date.fromisoformat(t.get("datum") or "")
+                except ValueError:
+                    fehler.append(f"{n}: einmalig ohne gültiges datum")
+            elif t.get("wochentag") not in range(1, 8):
+                fehler.append(f"{n}: wochentag {t.get('wochentag')!r}")
+            if t.get("uhrzeit") and not uhr.match(t["uhrzeit"]):
+                fehler.append(f"{n}: uhrzeit {t['uhrzeit']!r}")
+            if t.get("rhythmus") == "zweiwoechentlich":
+                try:
+                    if _dt.date.fromisoformat(t.get("ab") or "").isoweekday() != t.get("wochentag"):
+                        fehler.append(f"{n}: ab {t.get('ab')} ist kein Wochentag {t.get('wochentag')}")
+                except ValueError:
+                    fehler.append(f"{n}: zweiwoechentlich ohne gültiges ab")
+            if t.get("rhythmus") == "monatlich" and t.get("nter") not in (1, 2, 3, 4, -1):
+                fehler.append(f"{n}: monatlich ohne nter 1-4/-1")
+        for pace in [c.get("pace")] + [t.get("pace") for t in c.get("termine") or []]:
+            if not pace:
+                continue
+            for w in (pace.get("von"), pace.get("bis")):
+                if w is None:
+                    continue
+                if c.get("art") == "Fahrrad" and not isinstance(w, (int, float)):
+                    fehler.append(f"{n}: Rad-Tempo in km/h als Zahl")
+                if c.get("art") != "Fahrrad" and not (isinstance(w, str) and pace_mmss.match(w)):
+                    fehler.append(f"{n}: Tempo als 'm:ss'")
+        for s in c.get("stufen") or []:
+            if s not in ("anfaenger", "mittel", "fortgeschritten"):
+                fehler.append(f"{n}: stufe {s!r}")
+        for m in c.get("merkmale") or []:
+            if m not in ("anfaengerfreundlich", "mehrere_gruppen", "no_drop", "kaffee", "gepaeck", "dusche", "frauen"):
+                fehler.append(f"{n}: merkmal {m!r}")
+        if c.get("anmeldung") not in (None, "nein", "empfohlen", "pflicht"):
+            fehler.append(f"{n}: anmeldung {c.get('anmeldung')!r}")
+        for feld in ("webseite", "instagram", "strava"):
+            if c.get(feld) and not str(c[feld]).startswith("https://"):
+                fehler.append(f"{n}: {feld} ohne https://")
+        if not (c.get("webseite") or c.get("instagram") or c.get("strava")):
+            fehler.append(f"{n}: kein Link (Webseite, Instagram oder Strava)")
+        if not c.get("quelle"):
+            fehler.append(f"{n}: quelle fehlt (jede Angabe braucht einen Beleg)")
+        p = c.get("pause")
+        if p is not None:
+            if not isinstance(p, dict) or set(p) - {"von", "bis", "hinweis_de", "hinweis_en"}:
+                fehler.append(f"{n}: pause nur von/bis/hinweis_de/hinweis_en")
+            else:
+                for k in ("von", "bis"):
+                    if p.get(k):
+                        try:
+                            _dt.date.fromisoformat(p[k])
+                        except ValueError:
+                            fehler.append(f"{n}: pause.{k} kein Datum")
+        if c.get("pruefung_offen") and not c.get("pruefung_grund"):
+            fehler.append(f"{n}: pruefung_offen ohne pruefung_grund")
+        try:
+            _dt.date.fromisoformat(c.get("geprueft") or "")
+        except ValueError:
+            fehler.append(f"{n}: geprueft kein Datum")
+        # zuletzt_aktiv: Tag des jüngsten Belegs, dass der Club noch trifft
+        # (Beitrag, Strava-Termin, Ankündigung) – Qualität vor Menge.
+        if "zuletzt_aktiv" in c:
+            try:
+                if _dt.date.fromisoformat(c["zuletzt_aktiv"]) > _dt.date.fromisoformat(c["geprueft"]):
+                    fehler.append(f"{n}: zuletzt_aktiv nach geprueft")
+            except (ValueError, TypeError):
+                fehler.append(f"{n}: zuletzt_aktiv kein Datum")
+    check("jeder Club hält sich an das Format", fehler, [])
+    import clubs_korrekturliste as _ckp
+    ck_pause = lambda t: _ckp.pause_text(_ckp.pause_aus_text(t))  # noqa: E731
+    for text in ("pausiert", "pausiert bis 2027-04-01", "pausiert bis 2027-04-01 (Winterpause)", "pausiert ab 2026-12-14 bis 2027-02-05"):
+        check(f"Korrekturliste: Pause {text!r} hin und zurück", ck_pause(text), text)
+
+    # Die Korrekturliste liest ihre eigenen Texte verlustfrei zurück.
+    import clubs_korrekturliste as ck
+    proben = [{"rhythmus": "woechentlich", "wochentag": 2, "uhrzeit": "19:00"},
+              {"rhythmus": "zweiwoechentlich", "wochentag": 6, "uhrzeit": "09:00", "ab": "2026-10-03"},
+              {"rhythmus": "monatlich", "wochentag": 7, "uhrzeit": "10:00", "nter": 1, "bezeichnung": "Long Run"},
+              {"rhythmus": "monatlich", "wochentag": 5, "uhrzeit": "18:30", "nter": -1},
+              {"rhythmus": "einmalig", "datum": "2026-10-28", "uhrzeit": "17:30", "bezeichnung": "Community Run"}]
+    check("Korrekturliste: Termine hin und zurück",
+          ck.termine_aus_text("\n".join(ck.termin_text(t) for t in proben), []), proben)
+    for c in clubs:
+        check(f"Korrekturliste: {c['id']} Termine hin und zurück",
+              ck.termine_aus_text(ck.zelle(c, "termine"), c["termine"]), c["termine"]) if c.get("termine") else None
+    check("Korrekturliste: Tempo/Distanz/Kosten",
+          (ck.spanne_aus_text("5:30–6:30", "Laufen", True), ck.spanne_aus_text("25-30", "Fahrrad", True),
+           ck.spanne_aus_text("5–10", "Laufen", False), ck.kosten_aus_text("kostenlos"), ck.kosten_aus_text("5 €")),
+          ({"von": "5:30", "bis": "6:30"}, {"von": 25, "bis": 30}, [5, 10],
+           {"gratis": True, "betrag_eur": None, "text": None}, {"gratis": False, "betrag_eur": 5.0, "text": None}))
+    try:
+        ck.termine_aus_text("alle 2 Wochen Sa 09:00 ab 2026-10-05", [])
+        falsch = None
+    except ValueError:
+        falsch = "abgewiesen"
+    check("Korrekturliste: ab-Datum auf falschem Wochentag wird abgewiesen", falsch, "abgewiesen")
+
+    node = shutil.which("node")
+    if not node:
+        print("  (node nicht vorhanden - Rechenprobe übersprungen)")
+        return
+    skript = r"""
+      global.window = undefined;
+      require(process.argv[1] + '/filters.js');
+      require(process.argv[1] + '/clubs.js');
+      const EC = globalThis.EnduranceClubs;
+      const club = (termine, extra) => Object.assign({ id: 'x', art: 'Laufen', termine }, extra || {});
+      const tage = (c, a, b, o) => EC.termineImZeitraum(c, a, b, o).map(t => t.datum + ' ' + t.uhrzeit);
+      const r = {};
+      r.woche = tage(club([{ rhythmus: 'woechentlich', wochentag: 2, uhrzeit: '19:00' }]), '2026-10-19', '2026-11-03');
+      r.zwei = tage(club([{ rhythmus: 'zweiwoechentlich', wochentag: 6, uhrzeit: '09:00', ab: '2026-10-03' }]), '2026-10-01', '2026-11-08');
+      r.erster = tage(club([{ rhythmus: 'monatlich', wochentag: 7, uhrzeit: '10:00', nter: 1 }]), '2026-10-01', '2026-12-31');
+      r.letzter = tage(club([{ rhythmus: 'monatlich', wochentag: 5, uhrzeit: '18:00', nter: -1 }]), '2026-10-01', '2026-11-30');
+      r.saison = tage(club([{ rhythmus: 'woechentlich', wochentag: 3, uhrzeit: '07:00' }], { saison: { von: '05-01', bis: '09-30' } }), '2026-09-20', '2026-10-10');
+      r.ausfall = tage(club([{ rhythmus: 'woechentlich', wochentag: 4, uhrzeit: '19:00' }], { ausfaelle: ['2026-12-24'] }), '2026-12-20', '2026-12-31');
+      // Montag 19.10.2026, 20:00 Uhr: der Termin von heute 19:00 ist vorbei.
+      const jetzt = new Date(2026, 9, 19, 20, 0);
+      r.naechster = EC.naechsterTermin(club([{ rhythmus: 'woechentlich', wochentag: 1, uhrzeit: '19:00' }]), jetzt).datum;
+      r.wochenende = EC.wannZeitraum('wochenende', jetzt);
+      r.wochenende_so = EC.wannZeitraum('wochenende', new Date(2026, 9, 25, 9, 0));
+      r.stufen_lauf = EC.stufen({ art: 'Laufen', pace: { von: '5:30', bis: '6:30' }, termine: [] });
+      r.stufen_rad = EC.stufen({ art: 'Fahrrad', pace: { von: 30, bis: 34 }, termine: [] });
+      r.stufen_swim = EC.stufen({ art: 'Schwimmen', pace: { von: '1:40', bis: '1:40' }, termine: [] });
+      r.stufen_quelle = EC.stufen({ art: 'Laufen', stufen: ['fortgeschritten', 'anfaenger'], pace: { von: '5:00', bis: '5:00' }, termine: [] });
+      r.rrule = [EC.rrule({ rhythmus: 'woechentlich', wochentag: 2 }), EC.rrule({ rhythmus: 'zweiwoechentlich', wochentag: 6 }), EC.rrule({ rhythmus: 'monatlich', wochentag: 7, nter: -1 })];
+      r.regel = EC.formatRegel({ rhythmus: 'monatlich', wochentag: 7, nter: 1, uhrzeit: '10:00' }, 'de');
+      r.einmalig = tage(club([{ rhythmus: 'einmalig', datum: '2026-10-28', uhrzeit: '17:30' }, { rhythmus: 'woechentlich', wochentag: 1, uhrzeit: '19:00' }]), '2026-10-25', '2026-11-03');
+      r.einmalig_rrule = EC.rrule({ rhythmus: 'einmalig', datum: '2026-10-28' });
+      // Pause (20.10.2026): bis zum Neustart keine Termine, der Club gilt als pausiert.
+      const di = [{ rhythmus: 'woechentlich', wochentag: 2, uhrzeit: '18:00' }];
+      r.pause_bis = tage(club(di, { pause: { bis: '2026-11-03' } }), '2026-10-19', '2026-11-10');
+      r.pause_info = EC.pausiert(club(di, { pause: { bis: '2026-11-03', hinweis_de: 'Herbstpause' } }), jetzt);
+      r.pause_offen = EC.pausiert(club(di, { pause: {} }), jetzt);
+      r.pause_saison = EC.pausiert(club(di, { saison: { von: '04-01', bis: '09-30' } }), jetzt);
+      r.pause_nein = EC.pausiert(club(di), jetzt);
+      r.pause_vorbei = EC.pausiert(club(di, { pause: { bis: '2026-10-01' } }), jetzt);
+      console.log(JSON.stringify(r));
+    """
+    erg = subprocess.run([node, "-e", skript, str(wurzel)], capture_output=True, text=True)
+    check("clubs.js läuft unter node", erg.returncode == 0 and "", erg.stderr.strip()[-300:] if erg.returncode else "")
+    if erg.returncode:
+        return
+    r = _json.loads(erg.stdout)
+    check("wöchentlich: jeden Dienstag", r["woche"], ["2026-10-20 19:00", "2026-10-27 19:00", "2026-11-03 19:00"])
+    check("alle 2 Wochen ab einem Samstag", r["zwei"], ["2026-10-03 09:00", "2026-10-17 09:00", "2026-10-31 09:00"])
+    check("monatlich: erster Sonntag", r["erster"], ["2026-10-04 10:00", "2026-11-01 10:00", "2026-12-06 10:00"])
+    check("monatlich: letzter Freitag", r["letzter"], ["2026-10-30 18:00", "2026-11-27 18:00"])
+    check("Saison endet am 30.09.", r["saison"], ["2026-09-23 07:00", "2026-09-30 07:00"])
+    check("Ausfall am 24.12. fehlt", r["ausfall"], ["2026-12-31 19:00"])
+    check("heute 19:00 ist um 20:00 vorbei -> nächste Woche", r["naechster"], "2026-10-26")
+    check("Wochenende von Montag aus", r["wochenende"], ["2026-10-24", "2026-10-25"])
+    check("Wochenende an einem Sonntag = nur Sonntag", r["wochenende_so"], ["2026-10-25", "2026-10-25"])
+    check("Stufe Laufen 5:30-6:30 = Anfänger + Mittel", r["stufen_lauf"], ["anfaenger", "mittel"])
+    check("Stufe Rad 30-34 km/h = Mittel + Fortgeschritten", r["stufen_rad"], ["mittel", "fortgeschritten"])
+    check("Stufe Schwimmen 1:40/100 m = Fortgeschritten", r["stufen_swim"], ["fortgeschritten"])
+    check("Stufe aus der Quelle schlägt das Tempo", r["stufen_quelle"], ["anfaenger", "fortgeschritten"])
+    check("Kalender-Regeln (RRULE)", r["rrule"], ["FREQ=WEEKLY;BYDAY=TU", "FREQ=WEEKLY;INTERVAL=2;BYDAY=SA", "FREQ=MONTHLY;BYDAY=-1SU"])
+    check("Regel in Worten", r["regel"], "Jeden 1. Sonntag im Monat, 10:00 Uhr")
+    check("Einzeltermin neben wöchentlichem Termin", r["einmalig"], ["2026-10-26 19:00", "2026-10-28 17:30", "2026-11-02 19:00"])
+    check("Einzeltermin hat keine RRULE", r["einmalig_rrule"], None)
+    check("Pause bis 03.11.: erster Termin am Neustart", r["pause_bis"], ["2026-11-03 18:00", "2026-11-10 18:00"])
+    check("pausiert(): wieder ab dem Neustart, mit Hinweis", (r["pause_info"]["ab"]["datum"], r["pause_info"]["hinweis_de"]), ("2026-11-03", "Herbstpause"))
+    check("pausiert(): ohne bis = Neustart offen", r["pause_offen"]["ab"], None)
+    check("pausiert(): außerhalb der Saison, wieder ab April", r["pause_saison"]["ab"]["datum"], "2027-04-06")
+    check("pausiert(): normaler Club ist nicht pausiert", r["pause_nein"], None)
+    check("pausiert(): vergangene Pause zählt nicht", r["pause_vorbei"], None)
+
+
+def test_clubs_instagram() -> None:
+    """Instagram-Beiträge der Clubs (26.10.2026): clubs_instagram.py liest
+    die Handles aus clubs.json, holt über Business Discovery die Beiträge der
+    letzten Tage und lädt die Bilder – hier mit einer Attrappe statt Meta."""
+    print("\nClubs: Instagram-Beiträge abholen (clubs_instagram.py):")
+    import clubs_instagram as ci
+    import datetime as _dt
+    import json as _json
+    import os as _os
+    import tempfile
+    from types import SimpleNamespace
+    check("Handle aus der Profiladresse", [ci.handle_aus("https://www.instagram.com/cozy.runclub/"),
+          ci.handle_aus("https://instagram.com/Run_Club"), ci.handle_aus("https://www.instagram.com/p/abc/")],
+          ["cozy.runclub", "run_club", None])
+    jetzt = _dt.datetime(2026, 10, 26, 6, 0, tzinfo=_dt.timezone.utc)
+
+    class Antwort:
+        def __init__(self, daten=None, inhalt=b"", status=200):
+            self.daten, self.inhalt, self.status_code, self.headers = daten, inhalt, status, {}
+        def json(self):
+            return self.daten
+        def iter_content(self, n):
+            yield self.inhalt
+
+    class Sitzung:
+        headers = {}
+        def __init__(self):
+            self.aufrufe = []
+        def get(self, url, params=None, headers=None, timeout=None, stream=False):
+            self.aufrufe.append(url)
+            if "cdn" in url:
+                return Antwort(inhalt=b"JPEG")
+            if "privat" in params["fields"]:
+                return Antwort({"error": {"message": "Invalid user id", "code": 110}})
+            return Antwort({"business_discovery": {"name": "Cozy", "media": {"data": [
+                {"id": "1", "timestamp": "2026-10-20T08:00:00+0000", "caption": "Our events in November",
+                 "media_type": "IMAGE", "media_url": "https://cdn.example/1.jpg", "permalink": "https://www.instagram.com/p/1/"},
+                {"id": "2", "timestamp": "2026-08-01T08:00:00+0000", "caption": "alt", "media_type": "IMAGE",
+                 "media_url": "https://cdn.example/2.jpg"}]}}})
+
+    with tempfile.TemporaryDirectory() as tmp:
+        clubs = [{"id": "a", "instagram": "https://www.instagram.com/cozy.runclub/"},
+                 {"id": "b", "instagram": "https://www.instagram.com/privat.club/"},
+                 {"id": "c", "strava": "https://www.strava.com/clubs/1"}]
+        pfad = _os.path.join(tmp, "clubs.json")
+        open(pfad, "w").write(_json.dumps(clubs))
+        _os.environ.update(IG_FB_TOKEN="geheim", IG_FB_USER_ID="178")
+        try:
+            b = ci.lauf(SimpleNamespace(aus=_os.path.join(tmp, "aus"), clubs=pfad, tage=21, beitraege=8, max=400, pause=0),
+                        session=Sitzung(), schlafen=lambda s: None, jetzt=jetzt)
+        finally:
+            _os.environ.pop("IG_FB_TOKEN"); _os.environ.pop("IG_FB_USER_ID")
+        p = b["profile"].get("cozy.runclub", {})
+        check("nur Beiträge der letzten 21 Tage", [x["text"] for x in p.get("beitraege", [])], ["Our events in November"])
+        check("Bild geladen", p["beitraege"][0]["bilder"] if p.get("beitraege") else None, ["bilder/cozy.runclub/1-0.jpg"])
+        check("privates/unbekanntes Konto landet bei den Fehlern", sorted(b["fehler"]), ["privat.club"])
+        check("bericht.json geschrieben", _os.path.exists(_os.path.join(tmp, "aus", "bericht.json")), True)
+    check("Kandidaten kommen dazu, bekannte Handles nicht doppelt",
+          ci.handles([{"id": "a", "instagram": "https://www.instagram.com/cozy.runclub/"}],
+                     [{"stadt": "Berlin", "instagram": "https://www.instagram.com/neu.runclub/"},
+                      {"stadt": "Berlin", "instagram": "https://www.instagram.com/cozy.runclub/"}]),
+          {"cozy.runclub": ["a"], "neu.runclub": ["kandidat:Berlin"]})
+    h = _dt.date(2026, 10, 26)
+    check("Kandidaten: kürzlich inaktiv jede Woche, nach zwei Jahren vierteljährlich", [
+        ci.faellig({"letzter_beleg": None}, h),
+        ci.faellig({"letzter_beleg": "2026-03-01", "geprueft": "2026-10-19"}, h),
+        ci.faellig({"letzter_beleg": "2023-05-01", "geprueft": "2026-10-19"}, h),
+        ci.faellig({"letzter_beleg": "2023-05-01", "geprueft": "2026-07-20"}, h),
+        ci.faellig({"letzter_beleg": "2023-05-01"}, h)], [True, True, False, True, True])
+    kpfad = Path(__file__).resolve().parent / "clubs_kandidaten.json"
+    if kpfad.exists():
+        kand = _json.loads(kpfad.read_text(encoding="utf-8"))
+        check("clubs_kandidaten.json: je Eintrag Stadt, Art und eine Adresse",
+              [k.get("schluessel") for k in kand if not (k.get("stadt") and k.get("art") in ("Laufen", "Fahrrad", "Schwimmen")
+               and any(k.get(f) for f in ("instagram", "strava", "webseite", "meetup")))], [])
+    wf = (Path(__file__).resolve().parent.parent / ".github/workflows/instagram.yml").read_text(encoding="utf-8")
+    check("instagram.yml: Montagsjob holt die Club-Beiträge", all(x in wf for x in (
+        "clubs-instagram:", "'17 5 * * 1'", "instagram-fb-token", "clubs_instagram.py", "daten/clubs-instagram")), True)
+    check("instagram.yml: das Reel läuft nicht im Clubs-Termin", "github.event.schedule != '17 5 * * 1'" in wf, True)
+
 
 def test_blog() -> None:
     """Blog (04.11.2026, vom Nutzer: „neben der Karte einen Reiter für
@@ -1883,7 +2174,7 @@ def test_farbschema_skript() -> None:
         check(f"{name}: Knopf .theme-btn in der Kopfzeile", 'class="icon-btn theme-btn"' in html, True)
         check(f"{name}: Skript steht VOR den Stylesheets",
               m is not None and m.start() < html.index("<link rel=\"stylesheet\""), True)
-    check("alle vier Kopien sind wortgleich", len(set(v for v in fassungen.values() if v)), 1)
+    check("alle Kopien sind wortgleich", len(set(v for v in fassungen.values() if v)), 1)
     with open(os.path.join(wurzel, "site.css"), encoding="utf-8") as f:
         css = f.read()
     check("site.css: helles Schema über :root[data-theme=\"light\"]", ':root[data-theme="light"]' in css, True)
@@ -7015,7 +7306,8 @@ def main() -> int:
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,
                  test_keine_fremden_dateien, test_laender_maske,
-                 test_asset_stempel, test_farbschema_skript, test_wartung, test_blog, test_vorschau_sperre,
+                 test_asset_stempel, test_farbschema_skript, test_wartung, test_clubs, test_clubs_instagram, test_blog,
+                 test_vorschau_sperre,
                  test_lauf_im_triathlonkalender,
                  test_wettbewerb_zusatz, test_triathlon_format, test_charity_merkmal,
                  test_triathlon_format_kopie):

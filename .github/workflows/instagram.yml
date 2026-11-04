@@ -43,6 +43,9 @@ on:
   schedule:
     - cron: '47 6 * * *'
     - cron: '47 15 * * *'
+    # Montags 06:17 deutscher Zeit (05:17 UTC): Instagram-Beiträge der
+    # Clubs abholen (Job clubs-instagram, seit 26.10.2026).
+    - cron: '17 5 * * 1'
   workflow_dispatch:
     inputs:
       datum:
@@ -60,6 +63,11 @@ on:
         required: false
         default: false
         type: boolean
+      clubs:
+        description: 'Statt des Reels: Instagram-Beiträge der Clubs abholen'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -71,6 +79,7 @@ concurrency:
 
 jobs:
   reel:
+    if: github.event.schedule != '17 5 * * 1' && !inputs.clubs
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -136,3 +145,68 @@ jobs:
           path: ausgabe/
           retention-days: 14
           if-no-files-found: ignore
+
+  # CLUBS (seit 26.10.2026, vom Nutzer: „Wir müssen unbedingt die Sachen auf
+  # Instagram auch automatisch auslesen!“): montags die öffentlichen Beiträge
+  # der Club-Profile aus clubs.json über Metas Business Discovery abholen
+  # (scripts/clubs_instagram.py, Anmeldung über die Facebook-Seite,
+  # Schlüssel im Tresor als „instagram-fb-token“, eingerichtet mit
+  # scripts/instagram_fb_einrichten.sh). Ergebnis – Texte und Bilder, nichts
+  # ausgewertet – geht auf den Branch daten/clubs-instagram; die wöchentliche
+  # Claude-Aufgabe trägt daraus Termine ein. Ohne Schlüssel endet der Job
+  # mit einem Hinweis, der Reel-Lauf ist davon nicht betroffen.
+  clubs-instagram:
+    if: github.event.schedule == '17 5 * * 1' || inputs.clubs
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Checkout (Clubs-Branch)
+        uses: actions/checkout@v4
+        with:
+          ref: claude/clubs-feature-map-kycnmi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: pip install --quiet requests
+
+      - name: Google-Zugang (Workload Identity, ohne Schlüsseldatei)
+        id: google
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: projects/939878897826/locations/global/workloadIdentityPools/github/providers/enduranceevents
+          service_account: instagram-reel@endurance-5177a.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_lifetime: 3600s
+          create_credentials_file: false
+
+      - name: Schlüssel aus dem Tresor
+        env:
+          GCP_ACCESS_TOKEN: ${{ steps.google.outputs.access_token }}
+        run: |
+          roh="$(curl -sf -H "Authorization: Bearer $GCP_ACCESS_TOKEN" \
+            https://secretmanager.googleapis.com/v1/projects/endurance-5177a/secrets/instagram-fb-token/versions/latest:access)" || {
+            echo "::warning::Kein Secret instagram-fb-token – erst scripts/instagram_fb_einrichten.sh ausführen."; exit 1; }
+          wert="$(printf '%s' "$roh" | python3 -c 'import json,sys,base64; print(base64.b64decode(json.load(sys.stdin)["payload"]["data"]).decode())')"
+          token="$(printf '%s' "$wert" | python3 -c 'import json,sys; print(json.load(sys.stdin)["token"])')"
+          konto="$(printf '%s' "$wert" | python3 -c 'import json,sys; print(json.load(sys.stdin)["ig_user_id"])')"
+          echo "::add-mask::$token"
+          echo "IG_FB_TOKEN=$token" >> "$GITHUB_ENV"
+          echo "IG_FB_USER_ID=$konto" >> "$GITHUB_ENV"
+
+      - name: Beiträge der Club-Profile abholen
+        run: python3 scripts/clubs_instagram.py --aus clubs-instagram --tage 21
+
+      - name: Ergebnis auf den Branch daten/clubs-instagram
+        run: |
+          cd clubs-instagram
+          git init -q -b daten/clubs-instagram
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "Club-Beiträge von Instagram, $(date -u +%F)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:daten/clubs-instagram
