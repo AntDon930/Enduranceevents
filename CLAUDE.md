@@ -183,7 +183,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 357 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 372 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (bis 900 px: Kacheln statt Tabelle, der Knopf
 „Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -5347,17 +5347,29 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   davon (Rechte). `anlaesse.json`: je Eintrag `datum` (bestätigt, sonst
   null), `kategorie` (Schlüssel aus `TOP_KATEGORIEN`), `anlass_text`,
   `quelle`; jährlich nachtragen.
-- **Start am 02.11.2026 – vorher wird NICHTS gepostet** (vom Nutzer am
+- **Start am 04.11.2026 – vorher wird NICHTS gepostet** (vom Nutzer am
   27.10.2026: „wir fangen ab dem 2. November (Montag) an … Davor wird jetzt
-  noch nichts gepostet"): `insta_freigabe.POST_START`, `vor_start()` sperrt
+  noch nichts gepostet"; **am 04.11.2026 um zwei Tage verschoben**, weil
+  Montag und Dienstag nicht gepostet wurden – vom Nutzer: „Bitte noch
+  einmal alles nach hinten schreiben. ich poste das jetzt alles Manuell erst
+  einmal"): `insta_freigabe.POST_START`, `vor_start()` sperrt
   in `insta_lauf.py` jedes `--posten` (auch Handlauf und Autopost) für
   Beiträge vor dem Tag. Die Startwoche steht fest in
   **`marketing/instagram/sonderplan.json`** (`lade_sonderplan()`, geht in
   `plane()` und `format_am()` allem vor; bei `top` mit `kategorie`/
-  `anzahl`/`design`, bei `duell` mit `paar`): Mo `jahr`, Di `anmeldung`,
-  Mi `laengste`, Do Pause, Fr `top` Marathon/karte/5, Sa Pause, So `duell`
-  Berlin gegen Wien (`"pause": true` im Sonderplan). Der Nutzer sieht jedes
-  Video im Dashboard („View") an, gibt Feedback, dann frei.
+  `anzahl`/`design`, bei `duell` mit `paar`): Mi 04.11. `jahr`, Do
+  `anmeldung`, Fr `laengste`, Sa Pause, So `top` Marathon/karte/5, Mo
+  Pause, Di 10.11. `duell` Berlin gegen Wien (`"pause": true` im
+  Sonderplan). Der Nutzer sieht jedes Video im Dashboard („View") an, gibt
+  Feedback, dann frei. **Seit dem 04.11.2026 postet er von Hand** (Video
+  aus „View" bzw. aus dem Chat, Caption aus der Karte) – dann im Dashboard
+  NICHT „Freigeben" drücken, sonst postet der Abendlauf dasselbe Reel noch
+  einmal. **Wer die Woche wieder verschiebt**: Tage in `sonderplan.json`,
+  `POST_START` an beiden Stellen und die zwei Tests (`test_insta_logos`,
+  Sonderplan und Startsperre) gemeinsam; das Dashboard blendet vergangene
+  Tage aus und die Vorschauen im Speicher verfallen nach einem Tag – nach
+  dem Push den Instagram-Workflow von Hand ohne „posten" anstoßen, dann
+  legt er die Vorschauen der neuen Tage ab.
   **Nicht jeden Tag ein Video – „4-5 Videos in der Woche"** (vom Nutzer am
   27.10.2026): `insta_inhalte.postet_am()` – Dienstag und Donnerstag Pause
   (`PAUSE_WOCHENTAGE`), außer Anlass, 1. des Monats (Anmeldestart) oder
@@ -5365,7 +5377,7 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Test vergleicht). `plan_liste()` (plan.json, Dashboard) zeigt nur
   Post-Tage, `insta_lauf.py` rendert an Pausentagen nichts, legt im
   Morgenlauf aber die Vorschauen ab – vor dem Start die Woche ab
-  02.11.2026 plus den Montag danach.
+  `POST_START` plus den Tag danach.
 - **Zwei Formate dazu (27.10.2026)**: **`jahr`** („Dein Rennjahr": je
   Monat der nächsten zwölf das größte Event, geprüftes Logo vor ohne,
   Monatsfolien `blitz` im Takt ohne Wisch, Übersicht 3 × 4, mindestens zehn

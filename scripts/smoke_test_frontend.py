@@ -1890,7 +1890,7 @@ def pruefe_statistik_dashboard(ctx, basis):
                      link: !!document.querySelector('#insta-freigabe-card a[href*="actions/workflows/instagram.yml"]') }; }""")
         # Die Karte zeigt jeden künftigen Beitrag aus plan.json – nicht
         # „mindestens 7“: Seit dem 27.10.2026 hat der Plan Pausentage
-        # (Di/Do, vor dem Start am 02.11.2026 gar keine), die Zahl hängt
+        # (Di/Do, vor dem Start am 04.11.2026 gar keine), die Zahl hängt
         # also am Datum. Verglichen wird mit der Datei selbst.
         with open(os.path.join(WURZEL, "marketing", "instagram", "plan.json"), encoding="utf-8") as f:
             heute_iso = datetime.date.today().isoformat()
@@ -1921,11 +1921,15 @@ def pruefe_statistik_dashboard(ctx, basis):
         seite.click("#insta-freigabe-card .frei-zeile:first-child button[data-view]")
         seite.wait_for_selector("#reel-overlay .reel-hinweis:not([hidden])", timeout=8000)
         reel = seite.evaluate("""() => ({ hinweis: document.querySelector('#reel-overlay .reel-hinweis').textContent,
-            fokus: document.activeElement && document.activeElement.classList.contains('reel-zu') })""")
+            fokus: document.activeElement && document.activeElement.classList.contains('reel-zu'),
+            laden: document.querySelector('#reel-overlay .reel-laden').hidden,
+            caption: (document.querySelector('#reel-overlay .reel-caption') || {}).textContent })""")
         mp4 = [u for u in abrufe if u.endswith(".mp4")]
         pruefe("Morgenlauf" in reel["hinweis"] and any("-aktuell.mp4" in u for u in mp4)
                and any("/vorschau/" in u and "-aktuell" not in u for u in mp4) and reel["fokus"],
                "View öffnet das Reel-Fenster: Kennung, dann aktuell, dann Hinweis (%d Abrufe)" % len(mp4))
+        pruefe(reel["laden"] and reel["caption"] == "Caption kopieren",
+               "Reel-Fenster zum Posten von Hand: „Caption kopieren“ da, „Video öffnen“ erst mit geladenem Video")
         seite.keyboard.press("Escape")
         seite.wait_for_timeout(100)
         pruefe(seite.evaluate("() => document.getElementById('reel-overlay').hidden"), "Escape schließt das Reel-Fenster")

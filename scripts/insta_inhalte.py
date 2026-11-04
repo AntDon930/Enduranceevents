@@ -1394,7 +1394,7 @@ SONDERPLAN_DATEI = MARKETING / "sonderplan.json"
 
 def lade_sonderplan(pfad: Path | None = None) -> dict[str, dict]:
     """Feste Formate für einzelne Tage (marketing/instagram/sonderplan.json),
-    z. B. die Startwoche ab 02.11.2026: {"tage": {"2026-11-02": {"format":
+    z. B. die Startwoche ab 04.11.2026: {"tage": {"2026-11-04": {"format":
     "jahr"}, …}}. Optional mit `kategorie`, `anzahl`, `design` für „top"."""
     try:
         return json.loads((pfad or SONDERPLAN_DATEI).read_text(encoding="utf-8")).get("tage", {})
@@ -1402,10 +1402,12 @@ def lade_sonderplan(pfad: Path | None = None) -> dict[str, dict]:
         return {}
 
 
-# Gepostet wird ab dem 02.11.2026 und nicht jeden Tag: „4-5 Videos in der
-# Woche" (Nutzer, 27.10.2026). Dienstag und Donnerstag sind Pause, außer
-# ein Anlass, der Anmeldestart am 1. oder der Sonderplan sagen etwas anderes.
-POST_START = dt.date(2026, 11, 2)
+# Gepostet wird ab dem 04.11.2026 (geplant war der 02.11., am 04.11. um zwei
+# Tage verschoben – Montag und Dienstag blieben ungepostet) und nicht jeden
+# Tag: „4-5 Videos in der Woche" (Nutzer, 27.10.2026). Dienstag und
+# Donnerstag sind Pause, außer ein Anlass, der Anmeldestart am 1. oder der
+# Sonderplan sagen etwas anderes.
+POST_START = dt.date(2026, 11, 4)
 PAUSE_WOCHENTAGE = {1, 3}
 
 

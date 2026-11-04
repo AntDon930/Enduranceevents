@@ -6784,12 +6784,14 @@ def test_insta_logos() -> None:
     check("Sonderplan: Kategorie, Anzahl und Design fest", (tb["format"], tb.get("kategorie"), tb.get("design"),
                                                             tb.get("anzahl")), ("top", "triathlon", "raster", 7))
     start = I.lade_sonderplan(wurzel / "marketing" / "instagram" / "sonderplan.json")
-    check("sonderplan.json: die Startwoche 02.–08.11.2026, nur bekannte Formate oder Pause",
+    check("sonderplan.json: die Startwoche 04.–10.11.2026 (am 04.11. um zwei Tage verschoben), "
+          "nur bekannte Formate oder Pause",
           (sorted(start), all(t.get("pause") or t.get("format") in I.FORMATE for t in start.values())),
-          ([f"2026-11-0{k}" for k in range(2, 9)], True))
-    woche = [_dt.date(2026, 11, 2) + _dt.timedelta(days=k) for k in range(7)]
-    check("Startwoche: 4-5 Videos (vom Nutzer), nichts vor dem 02.11.",
-          (4 <= sum(I.postet_am(t, start) for t in woche) <= 5, I.postet_am(_dt.date(2026, 11, 1), start)), (True, False))
+          ([(_dt.date(2026, 11, 4) + _dt.timedelta(days=k)).isoformat() for k in range(7)], True))
+    woche = [_dt.date(2026, 11, 4) + _dt.timedelta(days=k) for k in range(7)]
+    check("Startwoche: 4-5 Videos (vom Nutzer), erstes am 04.11., nichts davor",
+          (4 <= sum(I.postet_am(t, start) for t in woche) <= 5, I.postet_am(_dt.date(2026, 11, 4), start),
+           I.postet_am(_dt.date(2026, 11, 3), start)), (True, True, False))
     regel = [_dt.date(2026, 11, 9) + _dt.timedelta(days=k) for k in range(7)]
     check("Ab der zweiten Woche: Di und Do Pause, ein Anlass postet trotzdem",
           ([t.weekday() for t in regel if I.postet_am(t, {}, [])],
@@ -6803,10 +6805,10 @@ def test_insta_logos() -> None:
     check("anmeldung: schon geöffnet = „Anmeldung offen seit …“",
           "Anmeldung offen seit 3. Nov" in [f["ueber"] for f in seit["folien"] if f["typ"] == "logo"], True)
 
-    # --- Vor dem Start am 02.11.2026 wird nichts gepostet
+    # --- Vor dem Start am 04.11.2026 wird nichts gepostet
     import insta_freigabe as F
-    check("Startsperre: vor dem 02.11.2026 nie posten, ab dann ja",
-          (F.vor_start("2026-11-01", "2026-11-01"), F.vor_start("2026-11-02", "2026-11-02"),
+    check("Startsperre: vor dem 04.11.2026 nie posten, ab dann ja",
+          (F.vor_start("2026-11-03", "2026-11-03"), F.vor_start("2026-11-04", "2026-11-04"),
            F.vor_start("2026-11-05", "2026-11-05")), (True, False, False))
 
 

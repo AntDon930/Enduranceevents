@@ -90,9 +90,12 @@ def autopost_aktiv(umgebung: dict | None = None) -> bool:
 
 # Erster Tag, an dem überhaupt gepostet wird (vom Nutzer am 27.10.2026: „wir
 # fangen ab dem 2. November (Montag) an … Davor wird jetzt noch nichts
-# gepostet"). Gilt für JEDEN Weg – Freigabe, Autopost und den Haken „posten"
-# im Handlauf –, gemessen am heutigen Tag UND am Tag des Beitrags.
-POST_START = "2026-11-02"            # wie insta_inhalte.POST_START (Test vergleicht)
+# gepostet"). Am 04.11.2026 um zwei Tage verschoben: Montag und Dienstag
+# blieben ungepostet, die Startwoche beginnt jetzt am Mittwoch
+# (marketing/instagram/sonderplan.json). Gilt für JEDEN Weg – Freigabe,
+# Autopost und den Haken „posten" im Handlauf –, gemessen am heutigen Tag
+# UND am Tag des Beitrags.
+POST_START = "2026-11-04"            # wie insta_inhalte.POST_START (Test vergleicht)
 
 
 def vor_start(datum: str, heute: str) -> bool:
