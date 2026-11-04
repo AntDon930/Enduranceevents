@@ -6855,6 +6855,17 @@ Verweise auf alte Nummern stehen in Klammern.
     Zahlen recherchieren und dem Nutzer zur Abnahme zeigen, dann das
     Format (`insta_inhalte` + Folientyp in `insta_video`) bauen, Vorschau
     im Dashboard.
+16. **Runway mit Claude testen** (eingetragen am 04.11.2026, vom Nutzer:
+    „Schreib in die To-do Liste das ich Runway mit Claude testen will“;
+    Anlass: die Frage, wie sich das Cartoon-Erklärvideo für
+    endurance-events.de bauen lässt – Skript liegt im Chat vom
+    04.11.2026, 75 s, acht Szenen, Figur Lena). Runway (runwayml.com) ist
+    ein KI-Videowerkzeug; in dieser Sitzung gibt es keinen Anschluss
+    dafür. Der Nutzer probiert es aus; Claude liefert Szenen-Prompts aus
+    dem Skript, echte Aufnahmen der Seite (Playwright) und Logo/Farben
+    als Material. Offen: ob die Figur von Szene zu Szene gleich bleibt,
+    und die Lizenz der erzeugten Clips (für Instagram und die Seite) vor
+    der Veröffentlichung prüfen.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
