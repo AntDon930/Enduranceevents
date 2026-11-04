@@ -27,7 +27,11 @@
   font-weight: 600;
   color: var(--text);
 }
-.club-grid { grid-template-columns: 1fr 1fr; }
+/* Die Angaben eines Clubs stehen UNTEREINANDER, auf jeder Breite (vom
+   Nutzer am 04.11.2026: „alles untereinander schreiben und nicht zwei
+   Spalten … dann flüssiger“) – in zwei Spalten brachen Treffpunkt und
+   Termine in schmale Stücke, und die Zeilen standen ungleich hoch. */
+.club-grid { grid-template-columns: 1fr; gap: 12px; }
 .club-grid dd { overflow-wrap: anywhere; }
 .club-bez { color: var(--text-muted); }
 .stufe-pill {
@@ -211,7 +215,6 @@
     border-bottom: 0;
     padding-bottom: calc(22px + env(safe-area-inset-bottom, 0px));
   }
-  .club-grid { grid-template-columns: 1fr; }
 }
 
 /* ---------- Karte: Schalter Events / Clubs / Beide ---------- */
