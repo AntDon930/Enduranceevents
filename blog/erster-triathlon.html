@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<!-- Erzeugt von scripts/build_blog.py aus blog.json und scripts/blog_texte/erster-triathlon.html – nicht von Hand ändern. -->
+<title>Dein erster Triathlon: So findest du das passende Rennen – Endurance Events</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="canonical" href="https://endurance-events.de/blog/erster-triathlon.html">
+<meta name="theme-color" content="#0b1220">
+<!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('../wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
+})();
+</script>
+<!-- Farbschema hell/dunkel: wortgleich wie in den anderen Seiten (test_farbschema_skript). -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<meta name="description" content="Welche Distanz passt zum Einstieg, woran erkennst du ein einsteigerfreundliches Rennen, und wie kommst du in zwölf Wochen gut vorbereitet an den Start? Ein Leitfaden mit Checkliste.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Dein erster Triathlon: So findest du das passende Rennen">
+<meta property="og:description" content="Welche Distanz passt zum Einstieg, woran erkennst du ein einsteigerfreundliches Rennen, und wie kommst du in zwölf Wochen gut vorbereitet an den Start? Ein Leitfaden mit Checkliste.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://endurance-events.de/blog/erster-triathlon.html">
+<meta property="og:image" content="https://endurance-events.de/bilder/triathlon.webp">
+<meta property="article:published_time" content="2026-11-04">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Dein erster Triathlon: So findest du das passende Rennen", "description": "Welche Distanz passt zum Einstieg, woran erkennst du ein einsteigerfreundliches Rennen, und wie kommst du in zwölf Wochen gut vorbereitet an den Start? Ein Leitfaden mit Checkliste.", "datePublished": "2026-11-04", "inLanguage": "de", "image": "https://endurance-events.de/bilder/triathlon.webp", "mainEntityOfPage": "https://endurance-events.de/blog/erster-triathlon.html", "publisher": {"@type": "Organization", "name": "Endurance Events", "url": "https://endurance-events.de"}}</script>
+<link rel="stylesheet" href="../vendor/fonts/barlow.css">
+<link rel="stylesheet" href="../site.css?v=bbba0ffa">
+<link rel="stylesheet" href="../blog.css?v=e7f9bf8e">
+</head>
+<body>
+
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). -->
+<header class="site-header top-bar">
+  <a class="brand" href="../index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Seiten">
+    <a class="nav-link" href="../events.html" id="nav-events">Events</a>
+    <a class="nav-link nav-bald" href="../clubs.html" id="nav-clubs">Clubs<span class="nav-bald-text">coming soon</span></a>
+    <a class="nav-link" href="../karte.html" id="nav-map">Karte</a>
+    <a class="nav-link active" href="../blog.html" id="nav-blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+
+
+<div class="lese-fortschritt" aria-hidden="true"><span id="lese-balken"></span></div>
+<main class="blog-main">
+<article class="beitrag">
+  <a class="beitrag-zurueck" href="../blog.html" id="blog-zurueck">← Alle Beiträge</a>
+  <header class="beitrag-hero">
+    <img class="beitrag-hero-bild" src="../bilder/triathlon.webp" srcset="../bilder/triathlon-480.webp 480w, ../bilder/triathlon.webp 960w" sizes="(max-width: 1120px) 100vw, 1120px" alt="Schwimmstart eines Triathlons: viele Athleten mit Badekappen im Wasser" width="960" height="640" fetchpriority="high">
+    <div class="beitrag-hero-text">
+      <div class="blog-meta">
+        <span class="blog-tag sport-triathlon">Triathlon</span><span>4. November 2026</span><span aria-hidden="true">·</span><span>7 Min. Lesezeit</span>
+      </div>
+      <h1>Dein erster Triathlon: So findest du das passende Rennen</h1>
+    </div>
+  </header>
+  <p class="beitrag-nachweis">Schwimmstart beim Triathlon Weiswampach. Foto: Steven Fruitsmaak, <a href="https://commons.wikimedia.org/w/index.php?curid=2594074" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener">CC BY-SA 3.0</a></p>
+  <div class="beitrag-spalte">
+  <nav class="beitrag-inhalt" aria-labelledby="inhalt-titel">
+    <h2 id="inhalt-titel">Inhalt</h2>
+    <ol><li><a href="#welche-distanz-passt-zu-dir">1. Welche Distanz passt zu dir?</a></li><li><a href="#woran-du-ein-einsteigerfreundliches-rennen-erkennst">2. Woran du ein einsteigerfreundliches Rennen erkennst</a></li><li><a href="#so-findest-du-dein-rennen-auf-endurance-events-de">3. So findest du dein Rennen auf endurance-events.de</a></li><li><a href="#in-zwoelf-wochen-zum-ersten-start">4. In zwölf Wochen zum ersten Start</a></li><li><a href="#regeln-die-einsteiger-oft-nicht-kennen">5. Regeln, die Einsteiger oft nicht kennen</a></li><li><a href="#checkliste-fuer-den-renntag">6. Checkliste für den Renntag</a></li><li><a href="#fazit">Fazit</a></li></ol>
+  </nav>
+<p class="beitrag-lead">Du willst deinen ersten Triathlon machen, weißt aber nicht, wo du anfangen sollst? Hier erfährst du, welche Distanz zu dir passt, woran du ein einsteigerfreundliches Rennen erkennst und wie du in zwölf Wochen gut vorbereitet an den Start kommst.</p>
+
+<div class="beitrag-text">
+
+<h2 id="welche-distanz-passt-zu-dir">1. Welche Distanz passt zu dir?</h2>
+<p>Triathlon ist nicht gleich Triathlon. Die Formate unterscheiden sich vor allem in der Länge – und damit darin, wie viel Training du brauchst. Die Werte stammen aus der Sportordnung der Deutschen Triathlon Union (DTU), die sich an den Distanzen des Weltverbands World Triathlon orientiert<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup><sup class="q"><a href="#q2" aria-label="Quelle 2">[2]</a></sup>. Die Verbände geben Spannen vor; viele Veranstalter liegen irgendwo darin.</p>
+
+<div class="beitrag-tabelle-huelle">
+<table>
+  <thead><tr><th>Format</th><th>Schwimmen</th><th>Rad</th><th>Laufen</th><th>Für wen?</th></tr></thead>
+  <tbody>
+    <tr class="empfohlen"><td><strong>Super-Sprint</strong></td><td>250–500 m</td><td>6,5–13 km</td><td>1,7–3,5 km</td><td>Zum Reinschnuppern</td></tr>
+    <tr class="empfohlen"><td><strong>Sprint</strong> (oft „Volks-“ oder „Jedermann-Distanz“)</td><td>500–750 m</td><td>18–22 km</td><td>4,5–5,5 km</td><td>Der klassische Einstieg</td></tr>
+    <tr><td><strong>Olympisch</strong> (Kurzdistanz)</td><td>1,5 km</td><td>40 km</td><td>10 km</td><td>Wenn du schon regelmäßig trainierst</td></tr>
+    <tr><td><strong>Mitteldistanz</strong> (70.3)</td><td>1,9–2,9 km</td><td>80–90 km</td><td>18–22 km</td><td>Nach ein, zwei Saisons</td></tr>
+    <tr><td><strong>Langdistanz</strong> (140.6)</td><td>3–4 km</td><td>91–200 km</td><td>22–42,2 km</td><td>Das große Ziel für später</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="beitrag-stand">Die Ironman-Formate 70.3 und 140.6 sind nach ihrer Gesamtlänge in Meilen benannt: 1,9 + 90 + 21,1 km und 3,8 + 180 + 42,2 km.</p>
+
+<p><strong>Unsere Empfehlung:</strong> Fang mit einem Sprint oder Super-Sprint an – das rät auch die DTU Einsteigerinnen und Einsteigern<sup class="q"><a href="#q3" aria-label="Quelle 3">[3]</a></sup>. Dort lernst du das Wichtigste – Wechselzone, Startgefühl, den Übergang vom Rad aufs Laufen – ohne dass dich die Distanz überfordert. Als Faustregel aus der Praxis: Wer 500 Meter am Stück schwimmt, eine Stunde Rad fährt und 30 Minuten durchläuft, hat eine gute Grundlage für einen Sprint.</p>
+
+<h2 id="woran-du-ein-einsteigerfreundliches-rennen-erkennst">2. Woran du ein einsteigerfreundliches Rennen erkennst</h2>
+<ul>
+  <li><strong>Schwimmen im Becken oder im ruhigen See:</strong> Ein Beckentriathlon mit gestaffeltem Start ist der entspannteste Einstieg. Beim Massenstart im See hilft es, sich seitlich oder hinten einzureihen.</li>
+  <li><strong>Flache Radstrecke und Rundkurs:</strong> Wenig Höhenmeter und eine abgesperrte Runde nehmen viel Stress raus.</li>
+  <li><strong>Eine Jedermann- oder Einsteigerwertung:</strong> Dann startest du mit Gleichgesinnten statt mit den Vereinsathleten.</li>
+  <li><strong>Genug Vorlauf:</strong> Die DTU nennt je nach Grundfitness drei bis sechs Monate Vorbereitung<sup class="q"><a href="#q3" aria-label="Quelle 3">[3]</a></sup>.</li>
+  <li><strong>Kurze Anreise:</strong> Ein Rennen in der Nähe erspart dir eine Übernachtung und erlaubt, die Strecke vorher abzufahren.</li>
+</ul>
+
+<div class="beitrag-kasten">
+<p><strong>Tipp:</strong> Lies die Ausschreibung des Veranstalters genau. Dort steht, ob ein Neoprenanzug erlaubt oder vorgeschrieben ist, ob Windschattenfahren verboten ist und welche Räder zugelassen sind. Ein Rennrad ist keine Pflicht: Die DTU schreibt bei Rennen mit Windschattenverbot keinen Radtyp vor, verlangt aber unter anderem zwei voneinander unabhängige Bremsen und verschlossene Lenkerenden<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>. Die DTU selbst ermuntert Einsteiger, mit dem Rad zu starten, das sie haben<sup class="q"><a href="#q3" aria-label="Quelle 3">[3]</a></sup>.</p>
+</div>
+
+<h2 id="so-findest-du-dein-rennen-auf-endurance-events-de">3. So findest du dein Rennen auf endurance-events.de</h2>
+<ol>
+  <li>Öffne die <a href="../events.html?sportart=Triathlon&amp;kat=Triathlon%3Asupersprint%2CTriathlon%3Asprint">Liste mit allen Super-Sprint- und Sprint-Triathlons</a>.</li>
+  <li>Stell unter <strong>„Ort &amp; Umkreis“</strong> deinen Wohnort ein, zum Beispiel mit 50 km Umkreis.</li>
+  <li>Grenze unter <strong>„Datum“</strong> den Zeitraum ein, der zu deinen zwölf Wochen Vorbereitung passt.</li>
+  <li>Ein Klick auf ein Rennen zeigt Format, Datum und den Link zur Seite des Veranstalters. Den Termin kannst du direkt in deinen Kalender übernehmen.</li>
+</ol>
+<p>Noch nichts Passendes dabei? Mit dem <strong>E-Mail-Abo</strong> bekommst du Bescheid, sobald ein neues Rennen zu deinen Filtern dazukommt. Und auf der <a href="../karte.html?sportart=Triathlon">Karte</a> siehst du auf einen Blick, was in deiner Region stattfindet.</p>
+
+<h2 id="in-zwoelf-wochen-zum-ersten-start">4. In zwölf Wochen zum ersten Start</h2>
+<p>Zwölf Wochen reichen, wenn du schon etwas Grundfitness mitbringst – die DTU bietet für die Sprintdistanz kostenlose Trainingspläne über 12 und 20 Wochen an<sup class="q"><a href="#q4" aria-label="Quelle 4">[4]</a></sup>. Unser grober Rahmen beruht auf Erfahrungswerten: etwa vier bis sechs Einheiten pro Woche von 30 bis 60 Minuten.</p>
+<h3>Woche 1–4: Grundlagen</h3>
+<ul>
+  <li>Je zwei Einheiten Schwimmen, Rad und Laufen, alles in lockerem Tempo.</li>
+  <li>Beim Schwimmen an der Technik arbeiten – ein Techniktraining oder eine Vereinseinheit lohnt sich hier am meisten.</li>
+</ul>
+<h3>Woche 5–9: Aufbau</h3>
+<ul>
+  <li>Einheiten langsam verlängern, einmal pro Woche etwas zügiger.</li>
+  <li><strong>Koppeltraining</strong> („Brick“): direkt nach dem Radfahren 10–20 Minuten laufen. So gewöhnen sich die Beine an den Wechsel.</li>
+  <li>Wenn möglich mindestens zweimal im freien Gewässer schwimmen, bei kühlem Wasser im Neoprenanzug.</li>
+  <li>Den Wechsel zu Hause üben: Helm auf, Schuhe an, Startnummer drehen.</li>
+</ul>
+<h3>Woche 10–12: Feinschliff</h3>
+<ul>
+  <li>In der vorletzten Woche einmal die halbe Renndistanz am Stück.</li>
+  <li>In der letzten Woche den Umfang deutlich zurückfahren und ausgeruht an den Start gehen.</li>
+</ul>
+<p>Wenn du länger keinen Sport gemacht hast, lass dich vor dem Trainingsstart kurz ärztlich beraten – das rät auch die DTU<sup class="q"><a href="#q3" aria-label="Quelle 3">[3]</a></sup>. Dann kannst du mit gutem Gefühl loslegen.</p>
+
+<h2 id="regeln-die-einsteiger-oft-nicht-kennen">5. Regeln, die Einsteiger oft nicht kennen</h2>
+<ul>
+  <li><strong>Helm zuerst:</strong> Der Helm muss geschlossen sein, bevor du dein Rad in der Wechselzone vom Ständer nimmst, und bleibt zu, bis das Rad wieder steht<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup><sup class="q"><a href="#q2" aria-label="Quelle 2">[2]</a></sup>.</li>
+  <li><strong>Auf- und Absteigen</strong> nur hinter bzw. vor der markierten Linie am Ausgang der Wechselzone – in der Wechselzone wird nicht gefahren<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>.</li>
+  <li><strong>Startnummer:</strong> auf dem Rad hinten, beim Laufen vorne, beim Schwimmen gar nicht<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>. Mit einem Startnummernband drehst du sie in einer Sekunde.</li>
+  <li><strong>Keine Musik:</strong> Geräte, die vom Wettkampf ablenken – ausdrücklich auch Musik –, sind verboten, Verstöße führen zur Disqualifikation<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>.</li>
+  <li><strong>Windschatten:</strong> Bei Rennen für Altersklassen und Jedermann ist Windschattenfahren in der Regel verboten. Die Windschattenzone ist 12 Meter lang, ein Überholvorgang muss nach 25 Sekunden abgeschlossen sein<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>.</li>
+</ul>
+
+<h3>Neoprenanzug: Was die Wassertemperatur entscheidet</h3>
+<p>Ob du einen Neoprenanzug tragen darfst oder musst, legt die DTU-Sportordnung nach Wassertemperatur und Schwimmstrecke fest<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>. Für Altersklassen bis 59 Jahre gilt:</p>
+<div class="beitrag-tabelle-huelle">
+<table>
+  <thead><tr><th>Schwimmstrecke</th><th>Pflicht</th><th>Erlaubt</th><th>Verboten</th></tr></thead>
+  <tbody>
+    <tr><td>bis 1.500 m</td><td>14,0–15,9 °C</td><td>16,0–21,9 °C</td><td>ab 22,0 °C</td></tr>
+    <tr><td>über 1.500 m</td><td>14,0–15,9 °C</td><td>16,0–24,5 °C</td><td>ab 24,6 °C</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Ab der Altersklasse 60 ist der Anzug auf allen Strecken bis 24,5 °C erlaubt. Unter 14 °C findet laut Sportordnung gar kein Schwimmen statt<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>. Welche Temperatur am Renntag gemessen wurde, sagt dir der Veranstalter vor dem Start.</p>
+
+<h2 id="checkliste-fuer-den-renntag">6. Checkliste für den Renntag</h2>
+<ul>
+  <li>Startunterlagen, Startnummer und Startnummernband</li>
+  <li>Badekappe und Schwimmbrille – stellt der Veranstalter eine Kappe, musst du sie tragen<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup></li>
+  <li>Neoprenanzug, falls erlaubt oder vorgeschrieben (siehe unten)</li>
+  <li>Rad, Helm, Radschuhe oder Turnschuhe, Trinkflasche</li>
+  <li>Laufschuhe – Schnellschnürsenkel sparen Zeit</li>
+  <li>Handtuch für deinen Wechselplatz, Sonnencreme, etwas zu essen für danach</li>
+</ul>
+<p>Sei früh da: Die Check-in-Zeiten der Wechselzone stehen in der Ausschreibung und sind verbindlich – wer zu spät kommt, kann den Start verlieren<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>. Beim Check-in trägst du den Helm geschlossen auf dem Kopf<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>. Geh die Wege von „Schwimmen raus“, „Rad raus“ und „Laufen raus“ einmal ab und merk dir, wo dein Platz ist – nach dem Schwimmen sieht alles anders aus.</p>
+
+<h2 id="fazit">Fazit</h2>
+<p>Dein erster Triathlon ist kein Hexenwerk: eine kurze Distanz, ein Rennen in der Nähe, zwölf Wochen Vorbereitung – und ein bisschen Mut an der Startlinie. Das Ziel beim ersten Mal ist das Ziel selbst.</p>
+
+<section class="beitrag-cta">
+  <h2>Finde jetzt dein erstes Rennen</h2>
+  <p>Alle Super-Sprint- und Sprint-Triathlons in Deutschland, Österreich, der Schweiz und Südtirol – mit Datum, Ort und Link zum Veranstalter.</p>
+  <div class="cta-knoepfe">
+    <a class="cta-knopf" href="../events.html?sportart=Triathlon&amp;kat=Triathlon%3Asupersprint%2CTriathlon%3Asprint">Einsteiger-Triathlons ansehen</a>
+    <a class="cta-knopf leise" href="../karte.html?sportart=Triathlon">Auf der Karte</a>
+  </div>
+</section>
+
+
+<section class="beitrag-quellen" aria-labelledby="quellen-titel">
+  <h2 id="quellen-titel">Quellen</h2>
+  <ol>
+    <li id="q1">Deutsche Triathlon Union: Sportordnung (SpO), Ausgabe 2026, u. a. §§ 7.3, 9.1, 18, 21–27, 33, 34. <a href="https://www.triathlondeutschland.de/verband/dokumente-ordnungen/sportordnung" rel="noopener">triathlondeutschland.de</a></li>
+    <li id="q2">World Triathlon: Competition Rules (Fassung vom 29.04.2026), Abschnitte 4.2 (Neoprenanzug), 5.5 (Windschatten), Anhang A (Wettkampfdistanzen). <a href="https://www.triathlon.org/about/downloads/category/competition_rules" rel="noopener">triathlon.org</a></li>
+    <li id="q3">Deutsche Triathlon Union: Tipps für den Einstieg. <a href="https://www.triathlondeutschland.de/neu-im-triathlon/tipps-fuer-den-einstieg" rel="noopener">triathlondeutschland.de</a></li>
+    <li id="q4">Deutsche Triathlon Union: Trainingspläne für die Sprintdistanz (12 und 20 Wochen). <a href="https://www.triathlondeutschland.de/neu-im-triathlon/trainingsplaene" rel="noopener">triathlondeutschland.de</a></li>
+  </ol>
+  <p>Alle Quellen abgerufen am 4. November 2026. Trainingshinweise ohne Quellenangabe sind Erfahrungswerte.</p>
+</section>
+
+</div>
+  <div class="beitrag-teilen">
+    <span id="teilen-text">Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.</span>
+    <button type="button" class="cta-knopf leise" id="teilen-knopf">Beitrag teilen</button>
+  </div>
+  </div>
+  <section class="beitrag-weitere" aria-labelledby="weitere-titel">
+    <h2 id="weitere-titel">Weitere Beiträge</h2>
+    <ul class="blog-liste">
+    <li class="blog-karte"><a href="erster-halbmarathon.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/halbmarathon-480.webp" alt="Läuferfeld von hinten auf der Reichsbrücke beim Vienna City Marathon" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Laufen</span></div>
+      <div class="blog-karte-text"><h3>Dein erster Halbmarathon: Was die Forschung über Training, Tempo und Renntag sagt</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>9 Min.</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="rtf-radmarathon-gran-fondo.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/radevents-480.webp" alt="Radfahrerfeld auf einer Landstraße im Rhonetal vor Bergen" loading="lazy" width="480" height="320"><span class="blog-tag sport-fahrrad">Rad</span></div>
+      <div class="blog-karte-text"><h3>RTF, Radmarathon, Jedermannrennen oder Gran Fondo: Welches Radevent passt zu dir?</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>8 Min.</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="freiwasserschwimmen-sicher.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/freiwasser-480.webp" alt="Massenstart im See: viele Schwimmer mit Badekappen vor dem Ufer" loading="lazy" width="480" height="320"><span class="blog-tag sport-schwimmen">Schwimmen</span></div>
+      <div class="blog-karte-text"><h3>Freiwasserschwimmen: So startest du gut vorbereitet in See und Fluss</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>8 Min.</span></div></div>
+    </a></li>
+    </ul>
+  </section>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="../impressum.html">Impressum</a>
+    <a id="footer-datenschutz" href="../datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script defer src="../vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="../vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="../firebase-config.js"></script>
+<script defer src="../auth.js"></script>
+<script defer src="../stats.js?v=9c3e9af2"></script>
+<script>
+(function () {
+  // Der Beitrag selbst ist deutsch; DE/EN schaltet nur die Bedienung um.
+  var T = {
+    de: { events: 'Events', clubs: 'Clubs', map: 'Karte', blog: 'Blog', back: '← Alle Beiträge', share: 'Beitrag teilen', share_text: 'Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.', copied: 'Link kopiert', imprint: 'Impressum', privacy: 'Datenschutz' },
+    en: { events: 'Events', clubs: 'Clubs', map: 'Map', blog: 'Blog', back: '← All articles', share: 'Share article', share_text: 'Found this helpful? Share it with your training partners.', copied: 'Link copied', imprint: 'Legal notice', privacy: 'Privacy' }
+  };
+  function setze(lang) {
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    var t = T[lang];
+    document.getElementById('nav-events').textContent = t.events;
+    var clubs = document.getElementById('nav-clubs');
+    if (!clubs.querySelector('.nav-bald-text')) clubs.textContent = t.clubs;
+    document.getElementById('nav-map').textContent = t.map;
+    document.getElementById('nav-blog').textContent = t.blog;
+    document.getElementById('blog-zurueck').textContent = t.back;
+    document.getElementById('teilen-knopf').textContent = t.share;
+    document.getElementById('teilen-text').textContent = t.share_text;
+    document.getElementById('footer-impressum').textContent = t.imprint;
+    document.getElementById('footer-datenschutz').textContent = t.privacy;
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+  }
+  var lang = 'de';
+  try { var s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  document.querySelectorAll('.lang-btn').forEach(function (b) { b.addEventListener('click', function () { lang = b.dataset.lang; setze(lang); }); });
+  setze(lang);
+  // Teilen: Teilen-Dialog des Geräts, sonst den Link kopieren.
+  var knopf = document.getElementById('teilen-knopf');
+  knopf.addEventListener('click', function () {
+    var daten = { title: document.title, url: location.href.split('#')[0] };
+    if (navigator.share) { navigator.share(daten).catch(function () {}); return; }
+    if (navigator.clipboard) navigator.clipboard.writeText(daten.url).then(function () {
+      knopf.textContent = T[lang].copied;
+      setTimeout(function () { knopf.textContent = T[lang].share; }, 2000);
+    }).catch(function () {});
+  });
+  // Lesefortschritt oben am Rand – nur Anzeige, nichts wird gespeichert.
+  var balken = document.getElementById('lese-balken');
+  var artikel = document.querySelector('.beitrag-spalte');
+  var geplant = false;
+  function fortschritt() {
+    geplant = false;
+    var r = artikel.getBoundingClientRect();
+    var weg = Math.min(Math.max(-r.top / Math.max(r.height - innerHeight, 1), 0), 1);
+    balken.style.transform = 'scaleX(' + weg.toFixed(3) + ')';
+  }
+  addEventListener('scroll', function () { if (!geplant) { geplant = true; requestAnimationFrame(fortschritt); } }, { passive: true });
+  fortschritt();
+})();
+</script>
+
+</body>
+</html>

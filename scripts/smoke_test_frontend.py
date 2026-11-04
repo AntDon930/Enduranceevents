@@ -27,6 +27,7 @@ from __future__ import annotations
 import datetime
 import functools
 import glob
+import json
 import http.server
 import subprocess
 import re
@@ -1564,6 +1565,41 @@ def pruefe_rechtsseiten(ctx, basis):
                "%s verlinkt Impressum und Datenschutz" % haupt)
         seite.close()
 
+
+
+def pruefe_blog(ctx, basis):
+    """Blog (04.11.2026): blog.html zeigt jeden Beitrag aus blog.json als
+    Kachel, ein Klick öffnet die Beitragsseite unter blog/, die ohne
+    Fehler und 404 lädt (Pfade eine Ebene höher), und „Alle Beiträge"
+    führt zurück. Die Kopfzeile bleibt auf 390 px in zwei Reihen."""
+    print("\nBlog (blog.html, blog/<slug>.html):")
+    with open(os.path.join(WURZEL, "blog.json"), encoding="utf-8") as f:
+        beitraege = json.load(f)
+    if not beitraege:
+        ueberspringe("blog.json ist leer")
+        return
+    seite, probleme = seite_oeffnen(ctx, basis + "/blog.html", warten=".blog-karte")
+    pruefe_kopf(seite, "blog.html")
+    pruefe(not probleme, "blog.html: lädt ohne Fehler (%s)" % ("; ".join(probleme[:3]) or "keine"))
+    pruefe(seite.locator(".blog-karte").count() == len(beitraege),
+           "blog.html: jeder Beitrag eine Kachel (%d von %d)" % (seite.locator(".blog-karte").count(), len(beitraege)))
+    nav = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link')).map(a => a.firstChild.textContent.trim())")
+    pruefe(nav == ["Events", "Clubs", "Karte", "Blog"], "blog.html: Navigation Events – Clubs – Karte – Blog (%s)" % " – ".join(nav))
+    reihen = seite.evaluate("() => Math.round(document.querySelector('.site-nav').getBoundingClientRect().top - document.querySelector('.brand').getBoundingClientRect().top)")
+    pruefe(abs(reihen) <= 8, "blog.html: Menü steht neben der Marke, keine eigene Zeile (%+d px)" % reihen)
+    seite.close()
+    erster = sorted(beitraege, key=lambda b: b["datum"], reverse=True)[0]
+    seite, probleme = seite_oeffnen(ctx, basis + "/blog/%s.html" % erster["slug"], warten=".beitrag h1")
+    pruefe_kopf(seite, "Beitrag")
+    pruefe(not probleme, "Beitrag: lädt ohne Fehler und ohne 404 (%s)" % ("; ".join(probleme[:3]) or "keine"))
+    titel = seite.locator(".beitrag h1").inner_text().strip()
+    pruefe(titel == erster["titel"], "Beitrag: Überschrift aus blog.json (%s)" % titel)
+    hell = seite.evaluate("() => getComputedStyle(document.body).backgroundColor")
+    pruefe(hell not in ("", "rgba(0, 0, 0, 0)"), "Beitrag: site.css geladen (Hintergrund %s)" % hell)
+    seite.click("#blog-zurueck")
+    seite.wait_for_selector(".blog-karte", timeout=15000)
+    pruefe(seite.url.endswith("/blog.html"), "Beitrag: „Alle Beiträge“ führt zur Übersicht")
+    seite.close()
 
 
 def pruefe_clubs_bald(ctx, basis):
@@ -3153,6 +3189,7 @@ def main() -> int:
                 pruefe_fehlendes_event(ctx, basis)
                 pruefe_rechtsseiten(ctx, basis)
                 pruefe_clubs_bald(ctx, basis)
+                pruefe_blog(ctx, basis)
                 pruefe_statistik(ctx, basis)
                 pruefe_statistik_dashboard(ctx, basis)
                 pruefe_abo(ctx, basis)

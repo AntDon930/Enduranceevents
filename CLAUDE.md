@@ -71,6 +71,15 @@ die Regel `.nav-bald`/`.nav-bald-text` aus `site.css` und
 `pruefe_clubs_bald` aus dem Rauchtest nehmen. Die Adresse `clubs.html`
 bleibt, geteilte Links gelten weiter.
 
+**Der Blog ist seit dem 04.11.2026 vorab LIVE** (vom Nutzer: „Ja, bitte
+veröffentliche den Blog (A) … Die Clubs noch nicht launchen“): Blogdateien,
+Reiter „Blog“, `sitemap.xml` stehen auf dem Entwicklungs-Branch. Auf dem
+Clubs-Branch dieselben Dateien; beim Merge in den Clubs-Branch dort in
+`blog.html` (und damit in den erzeugten `blog/*.html`) die Clubs-Zeile OHNE
+Schildchen nehmen und `build_blog.py` laufen lassen. **Neue Beiträge gehen
+auf den Entwicklungs-Branch** (beide Live-Namen), dann per Merge in den
+Clubs-Branch – README „Blog“.
+
 ## Dateien
 
 | Datei | Zweck |
@@ -87,6 +96,7 @@ bleibt, geteilte Links gelten weiter.
 | `vendor/fonts/` | **Barlow und Barlow Condensed** als woff2 (SIL OFL, Lizenztexte daneben), eingebunden über `vendor/fonts/barlow.css` in allen fünf Seiten – selbst gehostet, nichts von Google-Servern; ohne Stempel wie alles in `vendor/` |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
 | `clubs.html` | **Ankündigung der Clubs** („coming soon“, Bauarbeiter, ein Satz DE/EN; seit 04.11.2026) – wird beim Launch durch die Clubs-Seite vom Vorschau-Branch ersetzt, siehe „Vorschau-Branch für die Clubs“ |
+| `blog.html`, `blog.json`, `blog.css`, `blog/<slug>.html`, `scripts/build_blog.py`, `scripts/blog_texte/` | **Blog** (seit 04.11.2026, LIVE – vorab vor den Clubs; Menüpunkt „Clubs“ live mit „coming soon“): Reiter „Blog“ hinter „Karte“ in jeder Seite, Übersicht aus `blog.json`, je Beitrag eine erzeugte Seite unter `blog/` (Text in `scripts/blog_texte/<slug>.html`, dann `python3 scripts/build_blog.py`; `stamp_assets.py` ruft es mit auf; schreibt auch `sitemap.xml`, in `robots.txt` genannt) – README „Blog“; `test_blog` + Rauchtest `pruefe_blog`; **montags und donnerstags ein neuer Beitrag** aus `scripts/blog_themen.md` (geplante Aufgabe „Blog-Artikel am Montag und Donnerstag“, `trig_015LFqPsP972Ny6SzfzezXw2`, 06:37 Berlin, pusht auf beide Live-Branches und merged in den Clubs-Branch), Ton motivierend und leicht lesbar, Fußnoten nur bei Schlüsselthemen |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
 | `site.css` | **Farben (ZWEI Schemata: dunkel = `:root`, hell = `:root[data-theme="light"]`), Kopfzeile (Marke, Navigation, Hell/Dunkel-Knopf, DE/EN, Anmelden), Filterleiste, Werkzeugleiste, Fußzeile** – geteilt von Liste, Karte und Startseite; seit dem Umbau vom 21.09.2026 nach den Vorlagen des Nutzers (Liste dunkel, Karte hell) |
 | `filter-ui.js`, `filter-ui.css` | die Filterknöpfe (**Pillen mit gesetztem Wert**, `buildButtonBar` mit `order`) + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |

@@ -3873,6 +3873,70 @@ Eingriff.
 Kleinigkeit am Rande: Ein `favicon.ico` gibt es nicht, jeder
 Seitenaufruf holt sich dafür eine 404.
 
+## Blog (seit 04.11.2026, live)
+
+Vom Nutzer gewünscht: „neben der Karte einen Reiter für unsere
+Blogeinträge … Der Reiter soll einfach ‚Blog‘ heißen. Hier sammeln wir dann
+alle Blogeinträge.“ Gebaut auf dem Clubs-Branch; **am 04.11.2026 vorab live geschaltet** (vom
+Nutzer: „Ja, bitte veröffentliche den Blog“ – damit Google die Beiträge
+früh findet), die Clubs bleiben bis zum Launch in der Vorschau. Beide
+Branches tragen dieselben Blogdateien; der einzige Unterschied ist der
+Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` und
+`build_blog.py` lassen ihn dann beim Sprachwechsel in Ruhe).
+
+- **Navigation**: „Blog“ steht in jeder Seite hinter „Karte“ (Startseite,
+  Liste, Clubs, Karte, Dashboard, Blog). Damit vier Menüpunkte auf dem
+  Handy neben der Marke Platz haben, sind Marke und Menüschrift bis 440 px
+  etwas kleiner (`site.css`); vorher rutschte das Menü in eine eigene Zeile.
+- **`blog.html`** zeigt die Beiträge aus **`blog.json`** als Kacheln
+  (neueste zuerst): `slug`, `titel`, `teaser`, `datum`, `sportart`,
+  `kategorie`, `lesezeit_min`, `bild`, `bild_klein`, `bild_alt`.
+- **Jeder Beitrag ist eine eigene Seite** `blog/<slug>.html`, damit
+  Suchmaschinen ihn finden (Titel, Beschreibung, Open Graph, `canonical`,
+  JSON-LD `BlogPosting`). Die Seite wird von **`scripts/build_blog.py`**
+  erzeugt – aus dem Eintrag in `blog.json` und dem Text in
+  **`scripts/blog_texte/<slug>.html`** (nur der Inhalt, ohne Kopf).
+  Kopfzeile, Kopf-Skripte und `?v=`-Stempel übernimmt das Skript von
+  `blog.html`, mit Pfaden eine Ebene höher; `stamp_assets.py` ruft es nach
+  dem Stempeln auf. Erzeugte Seiten nicht von Hand ändern.
+- **Neuer Beitrag**: Eintrag in `blog.json`, Text nach
+  `scripts/blog_texte/<slug>.html`, dann `python3 scripts/build_blog.py`.
+  Bilder nur mit freier Lizenz und Namensnennung (`bild_nachweis` in
+  `blog.json`, HTML erlaubt – steht unter dem Titelbild; das Bild selbst
+  gehört NICHT in den Text, die Seite setzt es als Titelbild); Bildregel
+  des Nutzers (keine Einzelpersonen, keine erkennbaren Gesichter).
+- **Ton** (04.11.2026, vom Nutzer: „Wir wollen den Leuten keine Angst machen sondern sie zum laufen motivieren!“): keine Angstthemen – keine Herzstillstand-, Ertrinkungs- oder Verletzungsstatistiken als Aufhänger, keine Warnkästen, keine Haftungsfloskeln. Sicherheitswissen positiv formulieren („so startest du gut vorbereitet“); ein Arztbesuch höchstens als kurzer, freundlicher Satz.
+- **Lesbarkeit** (04.11.2026, vom Nutzer: „Generell muss nicht alles wissenschaftlich bewiesen sein … nur bei Schlüsselthemen ist es wichtig um Glaubwürdigkeit zu schaffen. Die Texte sollen auch nicht allzu wissenschaftlich sein“): Ergebnis statt Studiendesign (keine Teilnehmerzahlen, Konfidenzintervalle, „Meta-Analyse aus 27 Studien“), kurze Sätze, praktische Tipps vorn. Fußnoten nur bei Schlüsselthemen (Gesundheit, Ernährung, Sicherheit, Regeln); lockere Themen ohne.
+- **Montags und donnerstags ein neuer Beitrag** (04.11.2026, erst nur montags, gleich darauf „2x in der Woche … Donnerstag und Montag“): Themenplan in `scripts/blog_themen.md` (Typ Q/L/E), die geplante Aufgabe „Blog-Artikel am Montag und Donnerstag“ (06:37 Berlin) schreibt das oberste offene Thema, hakt es ab und pusht auf die Live-Branches (`claude/endurance-events-website-v1wruf` und `claude/website-access-9d9tg1`, derselbe Commit) und holt den Stand per Merge in den Clubs-Branch.
+- **Quellen** (04.11.2026, Wunsch des Nutzers: „sehr gut recherchieren … schön zitieren … nur aus seriösen Quellen“): Jede Aussage, die man nachprüfen muss, trägt eine Fußnote `<sup class="q"><a href="#qN">[N]</a></sup>`, am Ende steht `<section class="beitrag-quellen">` (NACH dem Abschlusskasten, damit sie nicht ins Inhaltsverzeichnis rutscht) mit Abrufdatum. Nur Verbände, Behörden, Rettungsorganisationen, Fachgesellschaften und begutachtete Studien; jede Studie über Europe PMC (Titel, Band, Seiten, Abstract) gegengeprüft, jede Verbandsstelle im Wortlaut gelesen. Was nur Erfahrung ist, sagt der Text auch so. Titelbilder liegen in `bilder/blog/` (aus dem Instagram-Pool `marketing/instagram/hintergruende/`, Nachweis in `blog.json`).
+- **Magazin-Aufbau** (04.11.2026, Vorlagen des Nutzers: ahotu Magazin,
+  Spartan Life, STYRKR Hub): Die Übersicht hat einen **Aufmacher** (der
+  neueste Beitrag über die ganze Breite, Bild und Text nebeneinander), die
+  übrigen als Kacheln mit dem Sportart-Etikett AUF dem Bild, darüber
+  **Sportart-Chips** (erst ab zwei Sportarten, `?sportart=` in der Adresse)
+  und darunter ein Navy-Band zum E-Mail-Abo. Der Beitrag beginnt mit dem
+  **Titelbild, Titel darauf** (Verlauf in Navy; bis 900 px steht der Titel
+  unter dem Bild), dann Lead mit Signal-Strich, **Inhaltsverzeichnis** (ab
+  drei Zwischenüberschriften, Anker aus den `h2` des Textes, der
+  Abschlusskasten `beitrag-cta` zählt nicht), Text, **Teilen** (Teilen-
+  Dialog, sonst Link kopieren), **Weitere Beiträge** (bis drei, gleiche
+  Sportart zuerst) und ein dünner **Lesefortschritt** oben am Rand.
+- **Sprache**: Die Beiträge sind deutsch, die Bedienung schaltet DE/EN um;
+  `blog.html` sagt auf Englisch, dass die Beiträge deutsch sind.
+- **Statistik**: Beiträge zählen als Seite `blog` (`stats.js`,
+  `STATS_SEITEN` in `functions/index.js` – wirkt erst nach dem nächsten
+  Functions-Deploy, vorher verwirft `collect` die Aufrufe still).
+- **Sitemap** (04.11.2026, mit dem Livegang): `build_blog.py` schreibt
+  auch `sitemap.xml` (Startseite, Liste, Karte, Blog, Impressum,
+  Datenschutz und jeder Beitrag mit Datum; NICHT clubs.html, admin.html,
+  wartung.html), `robots.txt` nennt sie. Einmal in der Google Search
+  Console einreichen (Eigenschaft `endurance-events.de` → Sitemaps →
+  `sitemap.xml`); danach liest Google sie selbst.
+- **Tests**: `test_blog` (Felder, Bilder, Texte, erzeugte Seiten aktuell,
+  alle `../`-Verweise vorhanden, Reiter in jeder Seite) und im Rauchtest
+  `pruefe_blog` (Kacheln, Beitrag ohne Fehler und 404, Rückweg, Menü neben
+  der Marke).
+
 ## Lokal testen
 
 Da `events.html` die Datei `events.json` per `fetch` lädt, funktioniert

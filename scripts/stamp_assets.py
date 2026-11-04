@@ -29,11 +29,11 @@ ROOT = Path(__file__).resolve().parent.parent
 # Die Dateien, die mehrere Seiten gemeinsam nutzen. Nur bei denen kann ein
 # halber Cache-Stand die Seite zerlegen; die Inline-Skripte stecken in der
 # HTML-Datei selbst und sind damit immer passend.
-ASSETS = ("site.css", "filters.js", "filter-ui.js", "filter-ui.css", "event-detail.js", "event-detail.css", "stats.js")
+ASSETS = ("site.css", "filters.js", "filter-ui.js", "filter-ui.css", "event-detail.js", "event-detail.css", "stats.js", "blog.css")
 
 # Alle Seiten, die eine der geteilten Dateien laden - die beiden Textseiten
 # und die Statistik nur stats.js bzw. site.css.
-HTML_FILES = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "admin.html", "clubs.html")
+HTML_FILES = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "admin.html", "clubs.html", "blog.html")
 
 
 def stempel(pfad: Path) -> str:
@@ -93,6 +93,9 @@ def schreibe() -> int:
             print(f"  {html} gestempelt")
     for name, wert in soll.items():
         print(f"  {name} -> ?v={wert}")
+    # Die Beitragsseiten übernehmen ihre Stempel von blog.html.
+    import build_blog
+    build_blog.schreibe()
     return geaendert
 
 

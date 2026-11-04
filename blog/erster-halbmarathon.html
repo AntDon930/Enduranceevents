@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<!-- Erzeugt von scripts/build_blog.py aus blog.json und scripts/blog_texte/erster-halbmarathon.html – nicht von Hand ändern. -->
+<title>Dein erster Halbmarathon: Was die Forschung über Training, Tempo und Renntag sagt – Endurance Events</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="canonical" href="https://endurance-events.de/blog/erster-halbmarathon.html">
+<meta name="theme-color" content="#0b1220">
+<!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('../wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
+})();
+</script>
+<!-- Farbschema hell/dunkel: wortgleich wie in den anderen Seiten (test_farbschema_skript). -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<meta name="description" content="Wie du dein Training aufbaust, wie viel du locker läufst, was du am Renntag isst und trinkst und wie du dich danach erholst – ein Leitfaden mit Quellen aus der Sportwissenschaft.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Dein erster Halbmarathon: Was die Forschung über Training, Tempo und Renntag sagt">
+<meta property="og:description" content="Wie du dein Training aufbaust, wie viel du locker läufst, was du am Renntag isst und trinkst und wie du dich danach erholst – ein Leitfaden mit Quellen aus der Sportwissenschaft.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://endurance-events.de/blog/erster-halbmarathon.html">
+<meta property="og:image" content="https://endurance-events.de/bilder/blog/halbmarathon.webp">
+<meta property="article:published_time" content="2026-11-04">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Dein erster Halbmarathon: Was die Forschung über Training, Tempo und Renntag sagt", "description": "Wie du dein Training aufbaust, wie viel du locker läufst, was du am Renntag isst und trinkst und wie du dich danach erholst – ein Leitfaden mit Quellen aus der Sportwissenschaft.", "datePublished": "2026-11-04", "inLanguage": "de", "image": "https://endurance-events.de/bilder/blog/halbmarathon.webp", "mainEntityOfPage": "https://endurance-events.de/blog/erster-halbmarathon.html", "publisher": {"@type": "Organization", "name": "Endurance Events", "url": "https://endurance-events.de"}}</script>
+<link rel="stylesheet" href="../vendor/fonts/barlow.css">
+<link rel="stylesheet" href="../site.css?v=bbba0ffa">
+<link rel="stylesheet" href="../blog.css?v=e7f9bf8e">
+</head>
+<body>
+
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). -->
+<header class="site-header top-bar">
+  <a class="brand" href="../index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Seiten">
+    <a class="nav-link" href="../events.html" id="nav-events">Events</a>
+    <a class="nav-link nav-bald" href="../clubs.html" id="nav-clubs">Clubs<span class="nav-bald-text">coming soon</span></a>
+    <a class="nav-link" href="../karte.html" id="nav-map">Karte</a>
+    <a class="nav-link active" href="../blog.html" id="nav-blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+
+
+<div class="lese-fortschritt" aria-hidden="true"><span id="lese-balken"></span></div>
+<main class="blog-main">
+<article class="beitrag">
+  <a class="beitrag-zurueck" href="../blog.html" id="blog-zurueck">← Alle Beiträge</a>
+  <header class="beitrag-hero">
+    <img class="beitrag-hero-bild" src="../bilder/blog/halbmarathon.webp" srcset="../bilder/blog/halbmarathon-480.webp 480w, ../bilder/blog/halbmarathon.webp 960w" sizes="(max-width: 1120px) 100vw, 1120px" alt="Läuferfeld von hinten auf der Reichsbrücke beim Vienna City Marathon" width="960" height="640" fetchpriority="high">
+    <div class="beitrag-hero-text">
+      <div class="blog-meta">
+        <span class="blog-tag sport-laufen">Laufen</span><span>4. November 2026</span><span aria-hidden="true">·</span><span>9 Min. Lesezeit</span>
+      </div>
+      <h1>Dein erster Halbmarathon: Was die Forschung über Training, Tempo und Renntag sagt</h1>
+    </div>
+  </header>
+  <p class="beitrag-nachweis">Vienna City Marathon 2015, Reichsbrücke. Foto: C.Stadler/Bwag, <a href="https://commons.wikimedia.org/wiki/File:Vienna_City_Marathon_2015_-_Reichsbr%C3%BCcke_(1).JPG" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a></p>
+  <div class="beitrag-spalte">
+  <nav class="beitrag-inhalt" aria-labelledby="inhalt-titel">
+    <h2 id="inhalt-titel">Inhalt</h2>
+    <ol><li><a href="#bist-du-bereit">Bist du bereit?</a></li><li><a href="#der-lange-lauf-ist-dein-wichtigstes-training">Der lange Lauf ist dein wichtigstes Training</a></li><li><a href="#meistens-locker-manchmal-zuegig">Meistens locker, manchmal zügig</a></li><li><a href="#die-letzten-zwei-wochen-weniger-ist-mehr">Die letzten zwei Wochen: weniger ist mehr</a></li><li><a href="#der-renntag">Der Renntag</a></li><li><a href="#nach-dem-ziel">Nach dem Ziel</a></li><li><a href="#dein-halbmarathon-auf-endurance-events-de">Dein Halbmarathon auf endurance-events.de</a></li><li><a href="#fazit">Fazit</a></li></ol>
+  </nav>
+<p class="beitrag-lead">21,1 Kilometer – das klingt nach viel. Aber wenn du heute schon regelmäßig läufst, ist der erste Halbmarathon ein Ziel, das du in ein paar Monaten erreichen kannst. Hier steht, wie du dich vorbereitest, wie du den Renntag genießt und wie du dich danach erholst.</p>
+
+<div class="beitrag-text">
+
+<h2 id="bist-du-bereit">Bist du bereit?</h2>
+<p>Ein Halbmarathon ist genau die Hälfte eines Marathons: 21,0975 Kilometer<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>. Gute Voraussetzungen hast du, wenn du seit einigen Monaten regelmäßig läufst und 5 bis 10 Kilometer am Stück schaffst. Dann reichen meist rund drei Monate Vorbereitung.</p>
+<p>Wenn du länger keinen Sport gemacht hast oder gesundheitliche Fragen hast, sprich vorher kurz mit deiner Ärztin oder deinem Arzt – dann kannst du mit gutem Gefühl loslegen.</p>
+
+<h2 id="der-lange-lauf-ist-dein-wichtigstes-training">Der lange Lauf ist dein wichtigstes Training</h2>
+<p>Das Herzstück jeder Halbmarathon-Vorbereitung ist der lange Lauf am Wochenende. Woche für Woche wird er ein Stück länger – bis du einige Wochen vor dem Rennen 16 bis 18 Kilometer locker laufen kannst. Die ganze Distanz musst du vorher nicht laufen; den Rest trägt dich am Renntag die Stimmung.</p>
+<p>Wichtig ist, ihn geduldig zu verlängern. Eine große Studie mit über 5.000 Läuferinnen und Läufern zeigt: Probleme gibt es vor allem dann, wenn ein einzelner Lauf plötzlich deutlich länger ist als alles, was du im letzten Monat gelaufen bist<sup class="q"><a href="#q2" aria-label="Quelle 2">[2]</a></sup>. Die oft zitierte 10-Prozent-Regel für den Wochenumfang ist übrigens nicht so streng belegt, wie viele denken<sup class="q"><a href="#q3" aria-label="Quelle 3">[3]</a></sup> – wichtiger ist, dass du keine großen Sprünge machst.</p>
+<div class="beitrag-kasten">
+<p><strong>Faustregel:</strong> Verlängere deinen langen Lauf um ein, zwei Kilometer pro Woche und gönn dir alle drei, vier Wochen eine etwas leichtere Woche. Und wenn mal etwas zwickt: lieber ein Ruhetag mehr. So bleibst du dran – und darauf kommt es an.</p>
+</div>
+
+<h2 id="meistens-locker-manchmal-zuegig">Meistens locker, manchmal zügig</h2>
+<p>Klingt komisch, funktioniert aber: Die meisten Kilometer solltest du langsam laufen – so langsam, dass du dich dabei unterhalten kannst. Selbst Spitzensportlerinnen und -sportler im Ausdauerbereich trainieren rund 80 Prozent der Zeit locker und nur etwa 20 Prozent intensiv<sup class="q"><a href="#q4" aria-label="Quelle 4">[4]</a></sup>.</p>
+<p>Für dich heißt das: Eine Woche mit drei bis vier Läufen könnte so aussehen:</p>
+<ul>
+  <li>zwei lockere Läufe von 30 bis 50 Minuten,</li>
+  <li>ein zügigerer Lauf, zum Beispiel einige Kilometer in deinem geplanten Renntempo oder kurze, schnelle Abschnitte,</li>
+  <li>der lange, ruhige Lauf am Wochenende.</li>
+</ul>
+<p>Wer mag, ergänzt das mit Radfahren, Schwimmen oder etwas Kräftigung – das stärkt den Körper, ohne die Beine zusätzlich zu belasten.</p>
+
+<h2 id="die-letzten-zwei-wochen-weniger-ist-mehr">Die letzten zwei Wochen: weniger ist mehr</h2>
+<p>In den zwei Wochen vor dem Rennen fährst du den Umfang deutlich zurück, etwa um die Hälfte. Lauf aber weiter an deinen gewohnten Tagen und streu ein paar kurze Abschnitte im Renntempo ein. Studien zeigen, dass genau diese Kombination am besten wirkt<sup class="q"><a href="#q5" aria-label="Quelle 5">[5]</a></sup>. Was in dieser Zeit im Körper passiert, erklärt unser Beitrag <a href="tapering.html">„Tapering: Warum weniger Training vor dem Rennen dich schneller macht“</a>.</p>
+
+<h2 id="der-renntag">Der Renntag</h2>
+<h3>Ruhig starten</h3>
+<p>Der häufigste Fehler beim ersten Halbmarathon: zu schnell loslaufen, weil die Stimmung am Start mitreißt. Ein gleichmäßiges Tempo bringt dich bei langen Strecken meist am besten ins Ziel<sup class="q"><a href="#q6" aria-label="Quelle 6">[6]</a></sup>. Lauf die ersten Kilometer bewusst etwas langsamer, als du dich fühlst – wenn du am Ende noch Reserven hast, umso schöner.</p>
+<h3>Essen und Trinken</h3>
+<p>Wenn du länger als etwa eine Stunde unterwegs bist, helfen dir unterwegs ein paar Kohlenhydrate, zum Beispiel ein Gel oder ein Becher Sportgetränk an der Verpflegungsstelle. Als Richtwert für längere Belastungen gelten 30 bis 60 Gramm pro Stunde<sup class="q"><a href="#q7" aria-label="Quelle 7">[7]</a></sup>. Probier im Training aus, was dein Magen verträgt – am Renntag gilt: nichts Neues.</p>
+<p>Beim Trinken ist es ganz einfach: Trink, wenn du Durst hast. Mehr hilft nicht mehr<sup class="q"><a href="#q8" aria-label="Quelle 8">[8]</a></sup>.</p>
+<h3>Genießen</h3>
+<p>Und vergiss nicht, dich umzuschauen: die Zuschauer, die Musik, die anderen Läuferinnen und Läufer neben dir. Dein erster Halbmarathon passiert nur einmal.</p>
+
+<h2 id="nach-dem-ziel">Nach dem Ziel</h2>
+<p>Gönn dir zwei bis drei ruhige Tage. Spazierengehen oder lockeres Radfahren tun gut, zügiges Laufen hebst du dir für später auf – eine Studie zeigt, dass sich die Muskulatur mit Ruhe in etwa drei Tagen erholt<sup class="q"><a href="#q9" aria-label="Quelle 9">[9]</a></sup>. Danach kannst du langsam wieder einsteigen. Und vielleicht schon das nächste Ziel suchen.</p>
+
+<h2 id="dein-halbmarathon-auf-endurance-events-de">Dein Halbmarathon auf endurance-events.de</h2>
+<ol>
+  <li>Öffne die <a href="../events.html?sportart=Laufen&amp;kat=Laufen%3Ahalf">Liste aller Halbmarathons</a> in Deutschland, Österreich, der Schweiz und Südtirol.</li>
+  <li>Stell unter <strong>„Ort &amp; Umkreis“</strong> deinen Wohnort ein und unter <strong>„Datum“</strong> einen Termin, der dir genug Vorbereitungszeit lässt.</li>
+  <li>Unter <strong>„Kategorie“</strong> wählst du Straße oder Trail. Für den ersten Halbmarathon ist ein flacher Straßenlauf meist die entspanntere Wahl.</li>
+</ol>
+
+<h2 id="fazit">Fazit</h2>
+<p>Für deinen ersten Halbmarathon brauchst du keinen perfekten Plan, sondern Geduld: den langen Lauf langsam verlängern, die meisten Kilometer locker laufen, vor dem Rennen ausruhen, ruhig starten und nach Durst trinken. Den Rest erledigen die Stimmung an der Strecke und das Gefühl im Ziel.</p>
+
+<section class="beitrag-cta">
+  <h2>Finde deinen ersten Halbmarathon</h2>
+  <p>Hunderte Halbmarathons auf Straße und Trail – mit Datum, Ort und Link zum Veranstalter.</p>
+  <div class="cta-knoepfe">
+    <a class="cta-knopf" href="../events.html?sportart=Laufen&amp;kat=Laufen%3Ahalf">Halbmarathons ansehen</a>
+    <a class="cta-knopf leise" href="../karte.html?sportart=Laufen&amp;kat=Laufen%3Ahalf">Auf der Karte</a>
+  </div>
+</section>
+
+<section class="beitrag-quellen" aria-labelledby="quellen-titel">
+  <h2 id="quellen-titel">Quellen</h2>
+  <ol>
+    <li id="q1">World Athletics: Half Marathon. <a href="https://worldathletics.org/disciplines/road-running/half-marathon" rel="noopener">worldathletics.org</a></li>
+    <li id="q2">Frandsen J. S. B. et al.: How much running is too much? Identifying high-risk running sessions in a 5200-person cohort study. Br J Sports Med 2025;59:1203–1210. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12421110/" rel="noopener">PMC12421110</a></li>
+    <li id="q3">Buist I. et al.: No effect of a graded training program on the number of running-related injuries in novice runners: a randomized controlled trial. Am J Sports Med 2008;36:33–39. <a href="https://doi.org/10.1177/0363546507307505" rel="noopener">doi:10.1177/0363546507307505</a></li>
+    <li id="q4">Seiler S.: What is best practice for training intensity and duration distribution in endurance athletes? Int J Sports Physiol Perform 2010;5:276–291. <a href="https://doi.org/10.1123/ijspp.5.3.276" rel="noopener">doi:10.1123/ijspp.5.3.276</a></li>
+    <li id="q5">Bosquet L. et al.: Effects of tapering on performance: a meta-analysis. Med Sci Sports Exerc 2007;39:1358–1365. <a href="https://doi.org/10.1249/mss.0b013e31806010e0" rel="noopener">doi:10.1249/mss.0b013e31806010e0</a></li>
+    <li id="q6">Abbiss C. R., Laursen P. B.: Describing and understanding pacing strategies during athletic competition. Sports Med 2008;38:239–252. <a href="https://doi.org/10.2165/00007256-200838030-00004" rel="noopener">doi:10.2165/00007256-200838030-00004</a></li>
+    <li id="q7">Burke L. M., Hawley J. A., Wong S. H., Jeukendrup A. E.: Carbohydrates for training and competition. J Sports Sci 2011;29 Suppl 1:S17–27. <a href="https://doi.org/10.1080/02640414.2011.585473" rel="noopener">doi:10.1080/02640414.2011.585473</a></li>
+    <li id="q8">Hew-Butler T. et al.: Exercise-associated hyponatremia: 2017 update. Front Med 2017;4:21. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5334560/" rel="noopener">PMC5334560</a></li>
+    <li id="q9">Zhou J. et al.: Quantitative MRI evaluation of the effects of rest and different intensities of running on the recovery of thigh muscle microdamage after a half marathon. BMC Sports Sci Med Rehabil 2026. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13081450/" rel="noopener">PMC13081450</a></li>
+  </ol>
+  <p>Alle Quellen abgerufen am 4. November 2026. Trainingstipps ohne Quellenangabe sind Erfahrungswerte.</p>
+</section>
+
+</div>
+  <div class="beitrag-teilen">
+    <span id="teilen-text">Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.</span>
+    <button type="button" class="cta-knopf leise" id="teilen-knopf">Beitrag teilen</button>
+  </div>
+  </div>
+  <section class="beitrag-weitere" aria-labelledby="weitere-titel">
+    <h2 id="weitere-titel">Weitere Beiträge</h2>
+    <ul class="blog-liste">
+    <li class="blog-karte"><a href="tapering.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/tapering-480.webp" alt="Läuferfeld beim London Marathon, von oben fotografiert" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Laufen</span></div>
+      <div class="blog-karte-text"><h3>Tapering: Warum weniger Training vor dem Rennen dich schneller macht</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>7 Min.</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="erster-triathlon.html">
+      <div class="blog-karte-bild"><img src="../bilder/triathlon-480.webp" alt="Schwimmstart eines Triathlons: viele Athleten mit Badekappen im Wasser" loading="lazy" width="480" height="320"><span class="blog-tag sport-triathlon">Triathlon</span></div>
+      <div class="blog-karte-text"><h3>Dein erster Triathlon: So findest du das passende Rennen</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>7 Min.</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="rtf-radmarathon-gran-fondo.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/radevents-480.webp" alt="Radfahrerfeld auf einer Landstraße im Rhonetal vor Bergen" loading="lazy" width="480" height="320"><span class="blog-tag sport-fahrrad">Rad</span></div>
+      <div class="blog-karte-text"><h3>RTF, Radmarathon, Jedermannrennen oder Gran Fondo: Welches Radevent passt zu dir?</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>8 Min.</span></div></div>
+    </a></li>
+    </ul>
+  </section>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="../impressum.html">Impressum</a>
+    <a id="footer-datenschutz" href="../datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script defer src="../vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="../vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="../firebase-config.js"></script>
+<script defer src="../auth.js"></script>
+<script defer src="../stats.js?v=9c3e9af2"></script>
+<script>
+(function () {
+  // Der Beitrag selbst ist deutsch; DE/EN schaltet nur die Bedienung um.
+  var T = {
+    de: { events: 'Events', clubs: 'Clubs', map: 'Karte', blog: 'Blog', back: '← Alle Beiträge', share: 'Beitrag teilen', share_text: 'Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.', copied: 'Link kopiert', imprint: 'Impressum', privacy: 'Datenschutz' },
+    en: { events: 'Events', clubs: 'Clubs', map: 'Map', blog: 'Blog', back: '← All articles', share: 'Share article', share_text: 'Found this helpful? Share it with your training partners.', copied: 'Link copied', imprint: 'Legal notice', privacy: 'Privacy' }
+  };
+  function setze(lang) {
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    var t = T[lang];
+    document.getElementById('nav-events').textContent = t.events;
+    var clubs = document.getElementById('nav-clubs');
+    if (!clubs.querySelector('.nav-bald-text')) clubs.textContent = t.clubs;
+    document.getElementById('nav-map').textContent = t.map;
+    document.getElementById('nav-blog').textContent = t.blog;
+    document.getElementById('blog-zurueck').textContent = t.back;
+    document.getElementById('teilen-knopf').textContent = t.share;
+    document.getElementById('teilen-text').textContent = t.share_text;
+    document.getElementById('footer-impressum').textContent = t.imprint;
+    document.getElementById('footer-datenschutz').textContent = t.privacy;
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+  }
+  var lang = 'de';
+  try { var s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  document.querySelectorAll('.lang-btn').forEach(function (b) { b.addEventListener('click', function () { lang = b.dataset.lang; setze(lang); }); });
+  setze(lang);
+  // Teilen: Teilen-Dialog des Geräts, sonst den Link kopieren.
+  var knopf = document.getElementById('teilen-knopf');
+  knopf.addEventListener('click', function () {
+    var daten = { title: document.title, url: location.href.split('#')[0] };
+    if (navigator.share) { navigator.share(daten).catch(function () {}); return; }
+    if (navigator.clipboard) navigator.clipboard.writeText(daten.url).then(function () {
+      knopf.textContent = T[lang].copied;
+      setTimeout(function () { knopf.textContent = T[lang].share; }, 2000);
+    }).catch(function () {});
+  });
+  // Lesefortschritt oben am Rand – nur Anzeige, nichts wird gespeichert.
+  var balken = document.getElementById('lese-balken');
+  var artikel = document.querySelector('.beitrag-spalte');
+  var geplant = false;
+  function fortschritt() {
+    geplant = false;
+    var r = artikel.getBoundingClientRect();
+    var weg = Math.min(Math.max(-r.top / Math.max(r.height - innerHeight, 1), 0), 1);
+    balken.style.transform = 'scaleX(' + weg.toFixed(3) + ')';
+  }
+  addEventListener('scroll', function () { if (!geplant) { geplant = true; requestAnimationFrame(fortschritt); } }, { passive: true });
+  fortschritt();
+})();
+</script>
+
+</body>
+</html>
