@@ -5351,10 +5351,19 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Gedächtnis (`veranstalter_seiten.json`, direkt gelesen – das Modul zöge
   bs4; Strecken aller Einträge eines Events zusammen entscheiden die
   Kategorie; `quelle: tot` nie; wer irgendeine sichere Ausgabe hat, nie aus
-  dem Gedächtnis). Solche Plätze zeigen „Termin folgt" (`termin_offen`;
-  Design `einzeln`: großes „?", `zeitleiste`: ans Ende der Achse), die
-  Caption erklärt es. Am 04.11.2026: Berlin, Wien, Hamburg, München, Köln
-  – Hannover und Frankfurt fielen heraus. Der Anlass bleibt bei
+  dem Gedächtnis). **Ihr Termin wird GESCHÄTZT** (vom Nutzer am
+  04.11.2026: „immer dann das letzte Event nehmen und davon ausgehen, dass
+  es nächstes Jahr gleich stattfindet. Das ist nicht so schlimm, falls es
+  sich dann in der Zukunft ändert"): `naechste_ausgabe_geschaetzt()` –
+  derselbe Wochentag ein Jahr später (`gleicher_wochentag`, ±3 Tage um den
+  Kalendertag), der erste solche Termin ab dem Tag des Beitrags; ein
+  gemerkter Termin weiter vorn (Köln: vorläufig 2028) geht zurück. Auf der
+  Folie mit „*" (`geschaetzt`), die Caption erklärt den Stern. Nur für die
+  Instagram-Top-Listen – auf der Seite gilt weiter Datenregel 19.
+  (`termin_offen` → „Termin folgt" bleibt als Rückfall im Code, wenn sich
+  kein Termin schätzen lässt.) Am 04.11.2026: Berlin, Wien, Hamburg,
+  München (10.10.2027*), Köln (03.10.2027*) – Hannover und Frankfurt
+  fielen heraus. Der Anlass bleibt bei
   `top_kandidaten` (dort geht es um Rennen, die anstehen). Rotation (`datum.toordinal() // 14`) nur
   über Kategorien mit mindestens drei Events; Kategorie, Anzahl und Design
   wechseln JEDES Mal (Test am echten Bestand). Vier Designs

@@ -907,6 +907,32 @@ def lade_gedaechtnis(pfad: Path | None = None) -> list[dict]:
     return [e for k, e in daten.items() if not k.startswith("_") and isinstance(e, dict)]
 
 
+def gleicher_wochentag(d: dt.date, jahre: int) -> dt.date:
+    """Derselbe Wochentag `jahre` Jahre später (oder früher), höchstens drei
+    Tage neben dem Kalendertag – So 11.10.2026 → So 10.10.2027."""
+    try:
+        ziel = d.replace(year=d.year + jahre)
+    except ValueError:                                  # 29. Februar
+        ziel = d.replace(year=d.year + jahre, day=28)
+    return ziel + dt.timedelta(days=((d.weekday() - ziel.weekday() + 3) % 7) - 3)
+
+
+def naechste_ausgabe_geschaetzt(zuletzt: str | None, ab: dt.date) -> dt.date | None:
+    """Der geschätzte Termin der nächsten Ausgabe: der erste Termin am selben
+    Wochentag in einem anderen Jahr, der nicht vor `ab` liegt (vom Nutzer am
+    04.11.2026: „immer dann das letzte Event nehmen und davon ausgehen, dass
+    es nächstes Jahr gleich stattfindet. Das ist nicht so schlimm, falls es
+    sich dann in der Zukunft ändert"). Liegt der gemerkte Termin selbst
+    schon weiter vorn (Köln: vorläufig 2028), geht es zurück auf 2027."""
+    try:
+        d = dt.date.fromisoformat(str(zuletzt))
+    except ValueError:
+        return None
+    kandidaten = [gleicher_wochentag(d, k) for k in range(-3, 4)]
+    kandidaten = [t for t in kandidaten if t >= ab]
+    return min(kandidaten) if kandidaten else None
+
+
 def top_kandidaten_letzte(datum: dt.date, events: list[dict], grosse: list[dict], kategorie: tuple,
                           gedaechtnis: list[dict] | None = None) -> list[dict]:
     """Die großen Events einer Kategorie NACH DER LETZTEN AUSGABE (vom Nutzer
@@ -915,7 +941,9 @@ def top_kandidaten_letzte(datum: dt.date, events: list[dict], grosse: list[dict]
     sicherem Termin (top_kandidaten, 15 Monate), dann jedes große Event,
     dessen nächste Ausgabe noch keinen sicheren Termin hat – aus dem
     Gedächtnis je Veranstaltung (Strecken der jüngsten Ausgabe entscheiden
-    die Kategorie), mit `termin_offen`. Größte zuerst."""
+    die Kategorie). Ihr Termin ist GESCHÄTZT: derselbe Wochentag ein Jahr
+    nach der letzten Ausgabe (naechste_ausgabe_geschaetzt, `geschaetzt`).
+    Größte zuerst."""
     _, _, sport, pruefe = kategorie
     bis = datum + dt.timedelta(days=450)
     liste = top_kandidaten(datum, events, grosse, kategorie, bis)
@@ -944,10 +972,14 @@ def top_kandidaten_letzte(datum: dt.date, events: list[dict], grosse: list[dict]
     for e in je_name.values():
         if not pruefe(sorted(e["km"]), e["art2"], e["g"]["name"].lower()):
             continue
+        termin = naechste_ausgabe_geschaetzt(e["zuletzt"], datum)
+        if not termin:
+            continue
         m = e.pop("m")
-        e["termin_offen"] = True
+        e["geschaetzt"] = True
         e["v"] = {"name": m["name"], "ort": m.get("standort", ""), "land": m.get("land", ""), "sport": sport,
-                  "datum": None, "lat": m.get("lat"), "lon": m.get("lon"), "url": m.get("url"), "km": sorted(e["km"])}
+                  "datum": termin.isoformat(), "lat": m.get("lat"), "lon": m.get("lon"), "url": m.get("url"),
+                  "km": sorted(e["km"])}
         offen.append(e)
     return sorted(liste + offen, key=lambda e: (-(e["g"].get("starter") or 0), e["g"]["name"]))
 
@@ -984,6 +1016,9 @@ def top_eintraege(auswahl: list[dict], countdown: bool = True) -> list[dict]:
             eintrag["platz"] = platz
         if not tag:
             eintrag["termin_offen"] = True
+        if e.get("geschaetzt"):                       # Termin aus der letzten Ausgabe geschätzt
+            eintrag["datum"] += "*"
+            eintrag["geschaetzt"] = True
         aus.append(eintrag)
     return aus
 
@@ -1217,9 +1252,9 @@ def format_top(datum: dt.date, events: list[dict], rng: random.Random,
     nur die mit Termin in den nächsten 12 Monaten – dann fehlte München) als
     COUNTDOWN nach Teilnehmerzahl: erst Platz n, zuletzt Platz 1 (vom Nutzer
     am 04.11.2026, siehe top_eintraege; bis dahin ohne Rangfolge nach
-    Datum), am Ende alle zusammen. Ohne sicheren nächsten Termin steht
-    „Termin folgt“. Kategorie, Anzahl (3/5/7/10) und Design wechseln von Mal
-    zu Mal."""
+    Datum), am Ende alle zusammen. Ohne sicheren nächsten Termin gilt der
+    geschätzte (gleicher Wochentag wie die letzte Ausgabe) mit „*“.
+    Kategorie, Anzahl (3/5/7/10) und Design wechseln von Mal zu Mal."""
     grosse = grosse if grosse is not None else lade_grosse()
     gedaechtnis = lade_gedaechtnis()
     kandidaten = [(k, top_kandidaten_letzte(datum, events, grosse, k, gedaechtnis)) for k in TOP_KATEGORIEN]
@@ -1249,13 +1284,14 @@ def format_top(datum: dt.date, events: list[dict], rng: random.Random,
         cta_folie("Check it out!", f"Alle {name} mit Termin", SEITE, "Link in der Bio"),
     ]
     zeilen = "\n".join(top_zeile(e) for e in eintraege)
-    offen = any(e.get("termin_offen") for e in eintraege)
+    geschaetzt = any(e.get("geschaetzt") for e in eintraege)
     caption = caption_bauen([
         f"🏆 Die {anzahl} größten {name} in Deutschland, Österreich, der Schweiz und Südtirol – "
         f"der Countdown von Platz {anzahl} bis Platz 1:",
         zeilen,
         "Gezählt nach allen Teilnehmenden der Veranstaltung, letzte Ausgabe (Angaben der Veranstalter, "
-        "gerundet)." + (" „Termin folgt“: Der Termin der nächsten Ausgabe steht noch nicht fest." if offen else "")
+        "gerundet)." + (" * Termin geschätzt: gleicher Wochentag wie bei der letzten Ausgabe, der offizielle "
+                        "Termin steht noch aus." if geschaetzt else "")
         + " Wo bist du dabei? 👇 Speichern nicht vergessen.",
     ], hashtags(sport, rng=rng, extra=[f"#{schluessel}", "#rennkalender"]), rng, len(events))
     return _beitrag("top", datum, folien, caption, sport, kategorie=schluessel, design=design, anzahl=anzahl)
