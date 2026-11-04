@@ -11,5 +11,44 @@
   "bild_klein": "bilder/triathlon-480.webp",
   "bild_alt": "Schwimmstart eines Triathlons: viele Athleten mit Badekappen im Wasser",
   "bild_nachweis": "Schwimmstart beim Triathlon Weiswampach. Foto: Steven Fruitsmaak, <a href=\"https://commons.wikimedia.org/w/index.php?curid=2594074\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" rel=\"noopener\">CC BY-SA 3.0</a>"
+ },
+ {
+  "slug": "erster-halbmarathon",
+  "titel": "Dein erster Halbmarathon: Was die Forschung über Training, Tempo und Renntag sagt",
+  "teaser": "Wie schnell darfst du steigern, wie viel locker laufen, was essen und trinken am Renntag – und wie lange erholen? Ein Leitfaden mit 18 Quellen, ehrlich auch dort, wo die Wissenschaft keine klare Antwort hat.",
+  "datum": "2026-11-04",
+  "sportart": "Laufen",
+  "kategorie": "Einsteiger",
+  "lesezeit_min": 9,
+  "bild": "bilder/blog/halbmarathon.webp",
+  "bild_klein": "bilder/blog/halbmarathon-480.webp",
+  "bild_alt": "Läuferfeld von hinten auf der Reichsbrücke beim Vienna City Marathon",
+  "bild_nachweis": "Vienna City Marathon 2015, Reichsbrücke. Foto: C.Stadler/Bwag, <a href=\"https://commons.wikimedia.org/wiki/File:Vienna_City_Marathon_2015_-_Reichsbr%C3%BCcke_(1).JPG\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+ },
+ {
+  "slug": "rtf-radmarathon-gran-fondo",
+  "titel": "RTF, Radmarathon, Jedermannrennen oder Gran Fondo: Welches Radevent passt zu dir?",
+  "teaser": "Tour oder Rennen, mit oder ohne Zeitnahme, Lizenz, Helmpflicht und StVO: Was hinter den Begriffen im Radsport steckt – nach den Regelwerken von German Cycling, Cycling Austria und UCI.",
+  "datum": "2026-11-04",
+  "sportart": "Fahrrad",
+  "kategorie": "Einsteiger",
+  "lesezeit_min": 8,
+  "bild": "bilder/blog/radevents.webp",
+  "bild_klein": "bilder/blog/radevents-480.webp",
+  "bild_alt": "Radfahrerfeld auf einer Landstraße im Rhonetal vor Bergen",
+  "bild_nachweis": "Peloton der Tour de France Femmes 2026 bei Vionnaz, Wallis. Foto: Christian David, <a href=\"https://commons.wikimedia.org/wiki/File:Peloton_of_the_2026_Tour_de_France_Femmes,_Vionnaz,_Valais.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+ },
+ {
+  "slug": "freiwasserschwimmen-sicher",
+  "titel": "Freiwasserschwimmen: So startest du sicher in See und Fluss",
+  "teaser": "Kälteschock, Neoprenregeln, Gedränge am Start, Strömung und Blaualgen: Was du vor deinem ersten Freiwasser-Event wissen solltest – gestützt auf DLRG, SLRG, World Aquatics, Umweltbundesamt und Forschung.",
+  "datum": "2026-11-04",
+  "sportart": "Schwimmen",
+  "kategorie": "Sicherheit",
+  "lesezeit_min": 8,
+  "bild": "bilder/blog/freiwasser.webp",
+  "bild_klein": "bilder/blog/freiwasser-480.webp",
+  "bild_alt": "Massenstart im See: viele Schwimmer mit Badekappen vor dem Ufer",
+  "bild_nachweis": "Schwimmstart beim Ironman Austria 2012 im Wörthersee. Foto: Johann Schwarz, <a href=\"https://commons.wikimedia.org/wiki/File:Swim_Start_at_Ironman_Austria_2012.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by/2.0/\" rel=\"noopener\">CC BY 2.0</a>"
  }
 ]

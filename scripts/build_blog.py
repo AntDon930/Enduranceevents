@@ -31,6 +31,7 @@ TEXTE = WURZEL / "scripts" / "blog_texte"
 SEITE_URL = "https://endurance-events.de"
 SPORT_KLASSE = {"Laufen": "sport-laufen", "Fahrrad": "sport-fahrrad",
                 "Schwimmen": "sport-schwimmen", "Triathlon": "sport-triathlon"}
+ANZEIGE = {"Fahrrad": "Rad"}  # wie die Sportart-Chips der Übersicht
 MONATE = ("Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
           "August", "September", "Oktober", "November", "Dezember")
 
@@ -115,7 +116,7 @@ def _tag(b: dict) -> str:
     if not b.get("sportart"):
         return ""
     return (f'<span class="blog-tag {SPORT_KLASSE.get(b["sportart"], "")}">'
-            f'{html.escape(b["sportart"])}</span>')
+            f'{html.escape(ANZEIGE.get(b["sportart"], b["sportart"]))}</span>')
 
 
 def seite(b: dict) -> str:
