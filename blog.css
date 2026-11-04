@@ -235,6 +235,7 @@
 }
 .beitrag-text .beitrag-cta h2 { margin-top: 0; color: #fff; text-transform: uppercase; }
 .beitrag-cta p { color: rgba(255, 255, 255, 0.82); }
+.beitrag-text .beitrag-cta p a { color: #fff; }
 .beitrag-cta .cta-knoepfe { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
 .cta-knopf {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px;

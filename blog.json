@@ -50,5 +50,18 @@
   "bild_klein": "bilder/blog/freiwasser-480.webp",
   "bild_alt": "Massenstart im See: viele Schwimmer mit Badekappen vor dem Ufer",
   "bild_nachweis": "Schwimmstart beim Ironman Austria 2012 im Wörthersee. Foto: Johann Schwarz, <a href=\"https://commons.wikimedia.org/wiki/File:Swim_Start_at_Ironman_Austria_2012.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by/2.0/\" rel=\"noopener\">CC BY 2.0</a>"
+ },
+ {
+  "slug": "tapering",
+  "titel": "Tapering: Warum weniger Training vor dem Rennen dich schneller macht",
+  "teaser": "In den letzten Wochen vor dem Start holt dein Körper nach, was er im Training aufgebaut hat: volle Speicher, kräftigere Muskelfasern, besserer Schlaf. Was beim Tapering passiert und wie du es richtig machst.",
+  "datum": "2026-11-04",
+  "sportart": "Laufen",
+  "kategorie": "Training",
+  "lesezeit_min": 7,
+  "bild": "bilder/blog/tapering.webp",
+  "bild_klein": "bilder/blog/tapering-480.webp",
+  "bild_alt": "Läuferfeld beim London Marathon, von oben fotografiert",
+  "bild_nachweis": "London Marathon 2026, Upper Thames Street. Foto: Acabashi, <a href=\"https://commons.wikimedia.org/wiki/File:2026_London_Marathon_Upper_Thames_Street_from_Blackfriars_Bridge_01.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
  }
 ]
