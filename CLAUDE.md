@@ -41,8 +41,8 @@ wäre das Schildchen weg. Rauchtest `pruefe_clubs_neu`. Soll es wieder weg:
 Klasse und `<span>` in den Seiten und in `blog.html` löschen, die Regel
 in `site.css` auch, dann `build_blog.py`. `clubs.html` steht in der
 `sitemap.xml`. Der Job `clubs-instagram` in `instagram.yml` holt seitdem
-den Entwicklungs-Branch (auf `main` steht er erst mit dem Ja des Nutzers,
-To-do Punkt 11).
+den Entwicklungs-Branch (auf `main` seit dem 04.11.2026, Commit
+`73066880`, vom Nutzer: „Punkt 11 bekommst du mein ja“).
 
 ## Dateien
 
@@ -6778,7 +6778,7 @@ Verweise auf alte Nummern stehen in Klammern.
     `pages_show_list`, `pages_read_engagement`, (d) Schlüssel im Graph API
     Explorer, (e) Cloud Shell auf dem Clubs-Branch `bash
     scripts/instagram_fb_einrichten.sh` (Secret `instagram-fb-token`),
-    (f) Ja für `instagram.yml` auf `main` – Schritt für Schritt in der
+    ~~(f) Ja für `instagram.yml` auf `main`~~ (erledigt 04.11.2026, `73066880`) – Schritt für Schritt in der
     To-do-Liste des Clubs-Branches. Fehlt `daten/clubs-instagram` oder ist
     der Stand älter als drei Tage, meldet die Montagsaufgabe das. Das
     Posten bleibt bei der Anmeldung über Instagram.
