@@ -246,6 +246,34 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   padding: 0;
 }
 .nav-link:hover, .nav-link.active { color: var(--text); }
+/* „Clubs – coming soon“ (04.11.2026, vom Nutzer: „neben der Events
+   Spalte die ‚Clubs‘ hinzufügen und dann darunter hinzuschreiben ‚coming
+   soon‘“): Der Menüpunkt führt auf die Ankündigung clubs.html, bis die
+   Clubs vom Vorschau-Branch live gehen. Das Schildchen steht UNTER dem
+   Wort, in Tonfläche und Textfarbe der Sportfarbe Laufen (wie die
+   Sport-Abzeichen, gut lesbar in beiden Schemata); die 44 px Höhe des
+   Menüpunkts bleiben. Es hängt ABSOLUT unter dem Wort: So bleibt „Clubs“
+   auf einer Linie mit „Events“ und „Karte“, und der Menüpunkt ist nicht
+   breiter als das Wort – sonst rutschte die Navigation auf 360 px
+   (Android) in eine eigene Zeile. Beim Launch fallen Klasse und
+   Schildchen weg. */
+.nav-link.nav-bald { position: relative; }
+.nav-bald-text {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 9px);
+  transform: translateX(-50%);
+  line-height: 1.2;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--sport-laufen-bg);
+  color: var(--sport-laufen-fg);
+}
 .top-actions {
   display: flex;
   flex-wrap: wrap;
@@ -570,6 +598,10 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
      lag damit 54 px tiefer als auf dem iPhone (393 px). Engere Lücken und
      schmalere DE/EN-Knöpfe: 316 px, eine Reihe (14.10.2026). */
   @media (max-width: 400px) {
+    /* Drei Menüpunkte (Events – Clubs – Karte, seit 19.10.2026) passen
+       auf 360 px nur mit engeren Lücken neben die Marke. */
+    .site-header { column-gap: 10px; }
+    .site-nav { gap: 12px; }
     .top-actions { gap: 6px; }
     .lang-btn { padding: 7px 10px; }
   }

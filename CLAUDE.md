@@ -50,6 +50,27 @@ die drei Vorschau-Schritte in `pages.yml` (holen, vorbereiten, Wächter),
 `vorschau.yml`, `vorschau-sperre.js` und die Zeile `Disallow: /vorschau/`
 in `robots.txt` entfernen.
 
+**Ankündigung auf der Live-Seite (seit dem 04.11.2026, vom Nutzer: „Auf
+der Live Webseite können wir … die Clubs schon einmal ankündigen … neben
+der Events Spalte die ‚Clubs‘ hinzufügen und dann darunter hinzuschreiben
+‚coming soon‘ … und dann vielleicht noch so ein süßer Bauarbeiter mit Under
+Construction“)**: Im Menü von Startseite, Liste und Karte steht „Clubs“
+zwischen Events und Karte (dieselbe Reihenfolge und dieselben Ids
+`nav-clubs` wie auf dem Clubs-Branch) mit dem Schildchen
+`<span class="nav-bald-text">coming soon</span>` (Klasse `.nav-bald` in
+`site.css`, absolut unter dem Wort – sonst rutschte das Menü auf 360 px in
+eine eigene Zeile). Es führt auf die Ankündigung **`clubs.html`**: eigener
+Bauarbeiter als Inline-SVG, Schild „Coming soon“, ein Satz (DE/EN). Die
+Datei steht in denselben Seitenlisten wie auf dem Clubs-Branch
+(`SEITEN`, `HTML_FILES`, Wartung, Farbschema, TDM, `STATS_SEITEN` – gezählt
+wird die Seite erst nach dem nächsten Functions-Deploy). **Beim Merge des
+Entwicklungs-Branches in den Clubs-Branch**: `clubs.html` ist auf beiden
+Seiten neu (add/add) – die Fassung des Clubs-Branches nehmen; in den drei
+Menüzeilen ebenfalls dessen Zeile (ohne Schildchen). **Beim Launch** dazu
+die Regel `.nav-bald`/`.nav-bald-text` aus `site.css` und
+`pruefe_clubs_bald` aus dem Rauchtest nehmen. Die Adresse `clubs.html`
+bleibt, geteilte Links gelten weiter.
+
 ## Dateien
 
 | Datei | Zweck |
@@ -65,6 +86,7 @@ in `robots.txt` entfernen.
 | `favicon.svg`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `manifest.webmanifest` | das Zeichen des Style Guides (Navy-Kachel, weiße Route, oranger Punkt); die PNGs entstehen aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 bzw. 192/512 px, randvoll ohne Rundung), `cairosvg` gibt es in der Sandbox nicht. Das **Manifest** (seit 13.10.2026, in allen sechs Seiten verlinkt) macht aus „Zum Home-Bildschirm" eine App mit Namen, Navy-Farbe und eigenem Fenster (`display: standalone`) |
 | `vendor/fonts/` | **Barlow und Barlow Condensed** als woff2 (SIL OFL, Lizenztexte daneben), eingebunden über `vendor/fonts/barlow.css` in allen fünf Seiten – selbst gehostet, nichts von Google-Servern; ohne Stempel wie alles in `vendor/` |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
+| `clubs.html` | **Ankündigung der Clubs** („coming soon“, Bauarbeiter, ein Satz DE/EN; seit 04.11.2026) – wird beim Launch durch die Clubs-Seite vom Vorschau-Branch ersetzt, siehe „Vorschau-Branch für die Clubs“ |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
 | `site.css` | **Farben (ZWEI Schemata: dunkel = `:root`, hell = `:root[data-theme="light"]`), Kopfzeile (Marke, Navigation, Hell/Dunkel-Knopf, DE/EN, Anmelden), Filterleiste, Werkzeugleiste, Fußzeile** – geteilt von Liste, Karte und Startseite; seit dem Umbau vom 21.09.2026 nach den Vorlagen des Nutzers (Liste dunkel, Karte hell) |
 | `filter-ui.js`, `filter-ui.css` | die Filterknöpfe (**Pillen mit gesetztem Wert**, `buildButtonBar` mit `order`) + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |
@@ -151,7 +173,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 347 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 357 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (bis 900 px: Kacheln statt Tabelle, der Knopf
 „Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -195,7 +217,8 @@ Kacheln, flache Übersicht und Kacheln ab Zoom 8, Bündel mit Ortsnamen,
 Orientierungsorte, „E-Mail-Abo" in die Liste), der Popup-Link ohne
 Pfeil, Filter über den Weg Liste → Karte → Liste und das **Farbschema**
 (der Knopf schaltet um, die Wahl bleibt gespeichert und gilt auf der
-nächsten Seite). Ohne Playwright bricht er
+nächsten Seite), die **Clubs-Ankündigung** (Menüpunkt mit „coming soon“
+auf drei Seiten, `clubs.html` in DE/EN, Menü auf 360 px in einer Zeile). Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
 blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`

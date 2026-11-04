@@ -1101,7 +1101,7 @@ def test_ortsverzeichnis() -> None:
 # Alle HTML-Seiten des Projekts. Zwei Tests laufen darüber (JS-Syntax
 # und "keine fremden Dateien"); eine neue Seite hier eintragen, nicht an
 # zwei Stellen.
-SEITEN = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "admin.html")
+SEITEN = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "admin.html", "clubs.html")
 
 
 def test_js_syntax() -> None:
@@ -1742,7 +1742,7 @@ def test_wartung() -> None:
     check("wartung.json gibt es nicht mehr (Schalter liegt in Firestore)", (wurzel / "wartung.json").exists(), False)
     muster = _re.compile(r"<script>\n\(function \(\) \{\n  if \(!window\.fetch\) return;.*?</script>", _re.S)
     fassungen = {}
-    for name in ("index.html", "events.html", "karte.html"):
+    for name in ("index.html", "events.html", "karte.html", "clubs.html"):
         html = (wurzel / name).read_text(encoding="utf-8")
         m = muster.search(html)
         fassungen[name] = m.group(0) if m else None
@@ -1825,7 +1825,7 @@ def test_farbschema_skript() -> None:
     print("\nFarbschema-Skript (hell/dunkel) in den Seiten:")
     wurzel = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
     fassungen: dict[str, str | None] = {}
-    for name in ("index.html", "events.html", "karte.html", "admin.html"):
+    for name in ("index.html", "events.html", "karte.html", "admin.html", "clubs.html"):
         with open(os.path.join(wurzel, name), encoding="utf-8") as f:
             html = f.read()
         m = re.search(r"<script>\n\(function \(\) \{\n  var wahl = null;.*?</script>", html, re.S)
@@ -4694,7 +4694,7 @@ def test_kopierschutz() -> None:
     tdm = json.loads((wurzel / ".well-known" / "tdmrep.json").read_text(encoding="utf-8"))
     check("tdmrep.json: Vorbehalt für die ganze Seite", tdm, [{"location": "/", "tdm-reservation": 1}])
     for seite in ("index.html", "events.html", "karte.html", "impressum.html",
-                  "datenschutz.html", "wartung.html", "admin.html"):
+                  "datenschutz.html", "wartung.html", "admin.html", "clubs.html"):
         check(f"{seite}: Meta-Tag tdm-reservation",
               '<meta name="tdm-reservation" content="1">' in (wurzel / seite).read_text(encoding="utf-8"), True)
     imp = (wurzel / "impressum.html").read_text(encoding="utf-8")

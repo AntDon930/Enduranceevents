@@ -1554,7 +1554,7 @@ def pruefe_rechtsseiten(ctx, basis):
         seite.close()
 
     # Von jeder Hauptseite aus erreichbar
-    for haupt in ("index.html", "events.html", "karte.html"):
+    for haupt in ("index.html", "events.html", "karte.html", "clubs.html"):
         seite, _ = seite_oeffnen(ctx, basis + "/" + haupt, "body")
         seite.wait_for_timeout(500)
         links = seite.evaluate("""() => ({
@@ -1563,6 +1563,51 @@ def pruefe_rechtsseiten(ctx, basis):
         pruefe(links["impressum"] and links["datenschutz"],
                "%s verlinkt Impressum und Datenschutz" % haupt)
         seite.close()
+
+
+
+def pruefe_clubs_bald(ctx, basis):
+    """Die Clubs-Ankündigung (04.11.2026): Menüpunkt „Clubs – coming soon“
+    auf Startseite, Liste und Karte, die Seite clubs.html mit Bauarbeiter
+    und Text in DE und EN. Auf 360 px (Android) bleibt die Navigation in
+    der Zeile der Marke – das Schildchen hängt absolut unter dem Wort.
+    """
+    print("\nClubs – coming soon")
+    for haupt in ("index.html", "events.html", "karte.html"):
+        seite, _ = seite_oeffnen(ctx, basis + "/" + haupt)
+        menue = seite.evaluate("""() => {
+            const a = document.querySelector('.site-nav a[href="clubs.html"]');
+            const reihe = Array.from(document.querySelectorAll('.site-nav .nav-link')).map(x => x.firstChild.textContent.trim());
+            return { da: !!a, schild: a ? (a.querySelector('.nav-bald-text') || {}).textContent || '' : '', reihe }; }""")
+        pruefe(menue["da"] and menue["schild"].lower() == "coming soon" and menue["reihe"][:3] == ["Events", "Clubs", menue["reihe"][2]],
+               "%s: Menüpunkt Clubs mit „coming soon“ hinter Events (%s)" % (haupt, menue["reihe"]))
+        seite.close()
+
+    seite, probleme = seite_oeffnen(ctx, basis + "/clubs.html")
+    seite.wait_for_timeout(300)
+    stand = seite.evaluate("""() => ({
+        text: (document.getElementById('bald-text') || {}).textContent || '',
+        illu: !!document.querySelector('svg.bald-illu'),
+        aktiv: (document.querySelector('.site-nav [aria-current="page"]') || {}).id || '',
+        ueberlauf: document.documentElement.scrollWidth - window.innerWidth })""")
+    pruefe(not probleme, "clubs.html lädt ohne Fehler (%s)" % ("; ".join(probleme) or "keine"))
+    pruefe(stand["illu"] and "Clubs ganz in deiner Nähe" in stand["text"],
+           "clubs.html: Bauarbeiter und Text der Ankündigung")
+    pruefe(stand["aktiv"] == "nav-clubs", "clubs.html: Clubs ist im Menü markiert (%s)" % stand["aktiv"])
+    pruefe(stand["ueberlauf"] <= 0, "clubs.html: kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
+    seite.click('.lang-btn[data-lang="en"]')
+    englisch = seite.evaluate("() => document.getElementById('bald-text').textContent")
+    pruefe("clubs near you" in englisch, "clubs.html: EN schaltet den Text um")
+    seite.click('.lang-btn[data-lang="de"]')
+    seite.set_viewport_size({"width": 360, "height": 800})
+    seite.wait_for_timeout(200)
+    zeile = seite.evaluate("""() => {
+        const m = document.querySelector('.brand').getBoundingClientRect();
+        const n = document.querySelector('.site-nav').getBoundingClientRect();
+        return { marke: Math.round(m.top + m.height / 2), menue: Math.round(n.top + n.height / 2) }; }""")
+    pruefe(abs(zeile["marke"] - zeile["menue"]) <= 6,
+           "360 px: das Menü steht in der Zeile der Marke (Mitte %d / %d px)" % (zeile["marke"], zeile["menue"]))
+    seite.close()
 
 
 def pruefe_statistik(ctx, basis):
@@ -3107,6 +3152,7 @@ def main() -> int:
                 pruefe_instagram(ctx, basis)
                 pruefe_fehlendes_event(ctx, basis)
                 pruefe_rechtsseiten(ctx, basis)
+                pruefe_clubs_bald(ctx, basis)
                 pruefe_statistik(ctx, basis)
                 pruefe_statistik_dashboard(ctx, basis)
                 pruefe_abo(ctx, basis)

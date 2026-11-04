@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<title>Clubs – Endurance Events</title>
+<!-- Ankündigung der Clubs (04.11.2026, vom Nutzer: „Wenn man dann auf die
+     Clubs geht, dann bekommt man nur einen Satz … Und dann vielleicht noch
+     so ein süßer Bauarbeiter mit Under Construction“). Die echte Seite
+     entsteht auf dem Branch claude/clubs-feature-map-kycnmi; beim Launch
+     ersetzt deren clubs.html diese Datei (beim Merge: deren Fassung nehmen). -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0b1220">
+<!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
+})();
+</script>
+<!-- Farbschema hell/dunkel: wortgleich wie in den anderen Seiten (test_farbschema_skript). -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<meta name="description" content="Run-, Bike-, Swim- und Triathlon-Clubs ganz in deiner Nähe – bald auf Endurance Events. Wir arbeiten gerade an einer Liste aller Clubs im deutschsprachigen Raum.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Endurance Events – Clubs (coming soon)">
+<meta property="og:description" content="Run-, Bike-, Swim- und Triathlon-Clubs ganz in deiner Nähe – bald auf Endurance Events.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://endurance-events.de/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="vendor/fonts/barlow.css">
+<link rel="stylesheet" href="site.css?v=c9e34fb2">
+<style>
+  /* Die Seite ist fensterhoch, die Ankündigung steht in der Mitte, die
+     Fußzeile unten (wie die Liste ab 901 px). */
+  body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+  .bald {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 18px;
+    padding: 32px var(--seite-rand) 48px;
+  }
+  .bald-illu { width: min(360px, 86vw); height: auto; }
+  /* Hintergrund der Grafik: der Ton beider Schemata, die Umrisse bleiben
+     Navy - auf dem hellen und dem dunklen Grund lesbar. */
+  .bald-illu .hg { fill: var(--accent-bg); }
+  .bald-schild {
+    display: inline-block;
+    font-family: var(--font-text);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--sport-laufen-bg);
+    color: var(--sport-laufen-fg);
+  }
+  .bald-text {
+    max-width: 34em;
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-wrap: balance;
+    color: var(--text);
+  }
+  /* Am Bindestrich nicht umbrechen („Triathlon-“ / „Clubs“ sah aus wie zwei Wörter). */
+  .bald-text .zusammen { white-space: nowrap; }
+  @media (max-width: 900px) {
+    .bald { gap: 14px; padding-top: 20px; }
+    .bald-text { font-size: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). -->
+<header class="site-header top-bar">
+  <a class="brand" href="index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <span class="brand-name">Endurance Events</span>
+  </a>
+  <nav class="site-nav" aria-label="Seiten">
+    <a class="nav-link" href="events.html" id="nav-events">Events</a>
+    <a class="nav-link nav-bald active" href="clubs.html" id="nav-clubs" aria-current="page">Clubs<span class="nav-bald-text">coming soon</span></a>
+    <a class="nav-link" href="karte.html" id="nav-map">Karte</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+
+<main class="bald">
+  <!-- Der Bauarbeiter: eigene Zeichnung (Inline-SVG, nichts von fremden
+       Servern), Farben aus dem Style Guide - Signal-Orange, Navy, Kreide. -->
+  <svg class="bald-illu" viewBox="0 0 360 300" role="img" id="bald-illu"
+       aria-label="Ein Bauarbeiter mit Schild „Under Construction“">
+    <defs>
+      <pattern id="warnstreifen" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="7" height="14" fill="#e8590c"/>
+        <rect x="7" width="7" height="14" fill="#0b1b33"/>
+      </pattern>
+      <clipPath id="schild-form"><rect x="14" y="70" width="124" height="70" rx="10"/></clipPath>
+      <clipPath id="weste-form"><rect x="160" y="140" width="70" height="80" rx="26"/></clipPath>
+    </defs>
+    <g stroke="#0b1b33" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+      <circle class="hg" cx="180" cy="150" r="136" stroke="none"/>
+      <ellipse cx="180" cy="266" rx="128" ry="11" fill="#0b1b33" opacity="0.18" stroke="none"/>
+
+      <!-- Leitkegel -->
+      <rect x="262" y="254" width="60" height="11" rx="4" fill="#e8590c"/>
+      <path d="M276 255 L288 196 Q292 190 296 196 L308 255 Z" fill="#e8590c"/>
+      <polygon points="285.5,212 298.5,212 300.6,222 283.4,222" fill="#ffffff" stroke="none"/>
+      <polygon points="280.8,234 303.2,234 305.4,244 278.6,244" fill="#ffffff" stroke="none"/>
+
+      <!-- Schild am Pfahl -->
+      <rect x="58" y="118" width="8" height="146" rx="3" fill="#9aa6b8"/>
+      <rect x="14" y="70" width="124" height="70" rx="10" fill="#ffffff"/>
+      <rect x="14" y="70" width="124" height="17" fill="url(#warnstreifen)" clip-path="url(#schild-form)" stroke="none"/>
+      <rect x="14" y="70" width="124" height="70" rx="10" fill="none"/>
+      <text x="76" y="110" text-anchor="middle" fill="#0b1b33" stroke="none"
+            font-family="'Barlow Condensed', 'Barlow', sans-serif" font-weight="700" font-size="21" letter-spacing="1.5">UNDER</text>
+      <text x="76" y="130" text-anchor="middle" fill="#0b1b33" stroke="none"
+            font-family="'Barlow Condensed', 'Barlow', sans-serif" font-weight="700" font-size="15" letter-spacing="1">CONSTRUCTION</text>
+
+      <!-- Beine und Laufschuhe -->
+      <rect x="172" y="206" width="20" height="46" rx="8" fill="#2c5a92"/>
+      <rect x="198" y="206" width="20" height="46" rx="8" fill="#2c5a92"/>
+      <rect x="156" y="246" width="38" height="13" rx="6.5" fill="#e8590c"/>
+      <rect x="196" y="246" width="38" height="13" rx="6.5" fill="#e8590c"/>
+      <rect x="159" y="254" width="32" height="3.5" rx="1.75" fill="#ffffff" stroke="none"/>
+      <rect x="199" y="254" width="32" height="3.5" rx="1.75" fill="#ffffff" stroke="none"/>
+
+      <!-- Arme: links hält er das Schild, rechts winkt er -->
+      <path d="M170 158 L80 168" stroke="#0b1b33" stroke-width="22" fill="none"/>
+      <path d="M170 158 L80 168" stroke="#2c5a92" stroke-width="16" fill="none"/>
+      <path d="M222 158 L258 116" stroke="#0b1b33" stroke-width="22" fill="none"/>
+      <path d="M222 158 L258 116" stroke="#2c5a92" stroke-width="16" fill="none"/>
+      <circle cx="70" cy="168" r="11" fill="#f6cfa8"/>
+      <circle cx="263" cy="108" r="11" fill="#f6cfa8"/>
+      <path d="M281 92 Q287 99 284 108" fill="none" stroke="#9aa6b8" stroke-width="3"/>
+      <path d="M289 86 Q298 98 293 112" fill="none" stroke="#9aa6b8" stroke-width="3"/>
+
+      <!-- Warnweste -->
+      <rect x="160" y="140" width="70" height="80" rx="26" fill="#e8590c"/>
+      <g clip-path="url(#weste-form)" stroke="none">
+        <rect x="160" y="182" width="70" height="8" fill="#f4f2ed"/>
+        <rect x="160" y="198" width="70" height="8" fill="#f4f2ed"/>
+      </g>
+      <rect x="160" y="140" width="70" height="80" rx="26" fill="none"/>
+      <path d="M181 141 L195 163 L209 141 Z" fill="#2c5a92"/>
+
+      <!-- Kopf -->
+      <circle cx="195" cy="106" r="36" fill="#f6cfa8"/>
+      <ellipse cx="181" cy="110" rx="4.5" ry="6" fill="#0b1b33" stroke="none"/>
+      <ellipse cx="209" cy="110" rx="4.5" ry="6" fill="#0b1b33" stroke="none"/>
+      <circle cx="182.6" cy="107.4" r="1.7" fill="#ffffff" stroke="none"/>
+      <circle cx="210.6" cy="107.4" r="1.7" fill="#ffffff" stroke="none"/>
+      <ellipse cx="170" cy="122" rx="7" ry="4.5" fill="#f28b82" opacity="0.6" stroke="none"/>
+      <ellipse cx="220" cy="122" rx="7" ry="4.5" fill="#f28b82" opacity="0.6" stroke="none"/>
+      <path d="M186 122 Q195 132 204 122" fill="none"/>
+
+      <!-- Helm -->
+      <path d="M157 94 C157 54 233 54 233 94 Z" fill="#ffffff"/>
+      <path d="M189 94 L189 70 Q195 61 201 70 L201 94 Z" fill="#e8590c" stroke="none"/>
+      <path d="M157 94 C157 54 233 54 233 94 Z" fill="none"/>
+      <rect x="148" y="91" width="94" height="10" rx="5" fill="#ffffff"/>
+    </g>
+  </svg>
+
+  <span class="bald-schild" id="bald-schild">Coming soon</span>
+  <p class="bald-text" id="bald-text">Finde deine passenden Run-, Bike-, Swim- und <span class="zusammen">Triathlon-Clubs</span> ganz in deiner Nähe. Wir arbeiten gerade an einer Liste aller Clubs im deutschsprachigen Raum.</p>
+</main>
+
+<footer class="site-footer">
+  <span id="footer-text">Endurance Events – Ausdauersport im deutschsprachigen Raum</span>
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="impressum.html">Impressum</a>
+    <a id="footer-datenschutz" href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script defer src="vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="firebase-config.js"></script>
+<script defer src="auth.js"></script>
+<script defer src="stats.js?v=b4dc168a"></script>
+
+<script>
+(function () {
+  const I18N = {
+    de: {
+      text: 'Finde deine passenden Run-, Bike-, Swim- und <span class="zusammen">Triathlon-Clubs</span> ganz in deiner Nähe. Wir arbeiten gerade an einer Liste aller Clubs im deutschsprachigen Raum.',
+      illu: 'Ein Bauarbeiter mit Schild „Under Construction“',
+      nav_map: 'Karte',
+      footer: 'Endurance Events – Ausdauersport im deutschsprachigen Raum',
+      impressum: 'Impressum',
+      datenschutz: 'Datenschutz'
+    },
+    en: {
+      text: 'Find the right run, bike, swim and triathlon clubs near you. We are currently building a list of all clubs in the German-speaking region.',
+      illu: 'A construction worker holding an “Under Construction” sign',
+      nav_map: 'Map',
+      footer: 'Endurance Events – endurance sports in the German-speaking region',
+      impressum: 'Legal notice',
+      datenschutz: 'Privacy'
+    }
+  };
+
+  let lang = 'de';
+  try {
+    const saved = localStorage.getItem('endurance-lang');
+    if (saved === 'de' || saved === 'en') lang = saved;
+  } catch (e) { /* ignorieren */ }
+
+  function applyLang(l) {
+    lang = l;
+    try { localStorage.setItem('endurance-lang', l); } catch (e) { /* ignorieren */ }
+    document.documentElement.lang = l;
+    const T = I18N[l];
+    // innerHTML: nur der feste Text oben, mit der Klammer um „Triathlon-Clubs“.
+    document.getElementById('bald-text').innerHTML = T.text;
+    document.getElementById('bald-illu').setAttribute('aria-label', T.illu);
+    document.getElementById('nav-map').textContent = T.nav_map;
+    document.getElementById('footer-text').textContent = T.footer;
+    document.getElementById('footer-impressum').textContent = T.impressum;
+    document.getElementById('footer-datenschutz').textContent = T.datenschutz;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+  applyLang(lang);
+})();
+</script>
+</body>
+</html>
