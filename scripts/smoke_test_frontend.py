@@ -3163,6 +3163,40 @@ def pruefe_clubs(ctx, basis):
     seite.keyboard.press("Escape")
     seite.wait_for_timeout(200)
     pruefe(not seite.evaluate("() => document.body.classList.contains('club-offen')"), "clubs.html: Escape schließt das Blatt")
+    # Breit (iPad quer, Rechner): die Angaben paarweise nebeneinander, ein
+    # Paar mit mehr als zwei Zeilen untereinander (.breit, 04.11.2026).
+    seite.set_viewport_size({"width": 1180, "height": 820})
+    seite.wait_for_timeout(200)
+    paare = {"nebeneinander": 0, "untereinander": 0, "zu_lang": []}
+    for i in range(min(30, karten)):
+        seite.locator(".club-karte").nth(i).click()
+        seite.wait_for_timeout(80)
+        r = seite.evaluate("""() => {
+            const g = document.querySelector('.club-seite-box .club-grid');
+            if (!g) return null;
+            return { spalten: getComputedStyle(g).gridTemplateColumns.split(' ').length,
+                     name: (document.querySelector('.club-seite-box h2') || {}).textContent,
+                     fakten: Array.from(g.children).map(f => {
+                       const dd = f.querySelector('dd');
+                       return { breit: f.classList.contains('breit'),
+                                zeilen: Math.round(dd.getBoundingClientRect().height / parseFloat(getComputedStyle(dd).lineHeight)) };
+                     }) };
+        }""")
+        if not r or r["spalten"] != 2:
+            paare["zu_lang"].append("keine zwei Spalten (%s)" % r)
+            continue
+        f = r["fakten"]
+        for j in range(0, len(f), 2):
+            if f[j]["breit"]:
+                paare["untereinander"] += 1
+            else:
+                paare["nebeneinander"] += 1
+                if max(x["zeilen"] for x in f[j:j + 2]) > 2:
+                    paare["zu_lang"].append(r["name"])
+    pruefe(not paare["zu_lang"] and paare["nebeneinander"] > 0 and paare["untereinander"] > 0,
+           "clubs.html breit: kurze Angaben nebeneinander, lange untereinander (%s)" % paare)
+    seite.set_viewport_size({"width": 390, "height": 844})
+    seite.wait_for_timeout(200)
     art = clubs[0]["art"]
     seite.click("#seg-art .seg-btn[data-w='%s']" % art)
     seite.wait_for_timeout(200)

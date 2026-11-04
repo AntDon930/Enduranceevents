@@ -580,6 +580,57 @@
   }
 
   // ctx: { lang, onClose?, mapLink?: bool, listLink?: bool, distanceText? }
+  // Zwei Angaben nebeneinander, solange beide kurz sind; braucht eine davon
+  // mehr als zwei Zeilen, steht das Paar untereinander (Klasse .breit). Vom
+  // Nutzer am 04.11.2026: „Bei manchen siehts aber ganz okay aus
+  // nebeneinander. Nur bei viel Text sieht es nicht so gut aus.“ GEMESSEN,
+  // nicht an der Zeichenzahl geschätzt: Die Spaltenbreite hängt an Fenster
+  // und Seite (Liste, Karte), die Schrift kann noch nachladen. Paare statt
+  // einzelner Angaben, damit die Reihenfolge bleibt und keine Lücke entsteht.
+  const MAX_ZEILEN_NEBENEINANDER = 2;
+  function ordneFakten(grid) {
+    if (!grid || !grid.isConnected) return;
+    const fakten = Array.from(grid.children).filter(f => f.classList.contains('fact'));
+    fakten.forEach(f => f.classList.remove('breit'));
+    const spalten = getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
+    if (spalten < 2) return;
+    const zeilen = fakten.map(f => {
+      const dd = f.querySelector('dd');
+      if (!dd) return 0;
+      const lh = parseFloat(getComputedStyle(dd).lineHeight) || 18;
+      return Math.round(dd.getBoundingClientRect().height / lh);
+    });
+    for (let i = 0; i < fakten.length; i += 2) {
+      const paar = fakten.slice(i, i + 2);
+      if (paar.length < 2 || zeilen.slice(i, i + 2).some(z => z > MAX_ZEILEN_NEBENEINANDER)) {
+        paar.forEach(f => f.classList.add('breit'));
+      }
+    }
+  }
+  // Neu ordnen, wenn sich die BREITE ändert (Fenster, iPad gedreht, Box
+  // eingeblendet) und wenn die Schrift geladen ist. Im Animationsframe,
+  // sonst meldet der Browser „ResizeObserver loop“ – ordneFakten ändert die
+  // Höhe des beobachteten Rasters.
+  function beobachteFakten(container) {
+    const grid = container.querySelector('.club-grid');
+    if (container._faktenBeobachter) container._faktenBeobachter.disconnect();
+    container._faktenBeobachter = null;
+    if (!grid) return;
+    ordneFakten(grid);
+    let breite = grid.getBoundingClientRect().width;
+    if (typeof ResizeObserver === 'function') {
+      const ro = new ResizeObserver(eintraege => {
+        const w = eintraege[0].contentRect.width;
+        if (Math.abs(w - breite) < 1) return;
+        breite = w;
+        requestAnimationFrame(() => ordneFakten(grid));
+      });
+      ro.observe(grid);
+      container._faktenBeobachter = ro;
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ordneFakten(grid));
+  }
+
   function renderDetail(container, club, ctx) {
     const lang = ctx.lang || 'de';
     const jetzt = new Date();
@@ -652,6 +703,7 @@
       ${club.geprueft ? `<p class="club-geprueft">${escapeHtml(tx(lang, 'd_geprueft', formatGeprueft(club.geprueft, lang)))}</p>` : ''}
     `;
     container.classList.toggle('club-pausiert', !!pause);
+    beobachteFakten(container);
     container.querySelector('.club-share-btn').addEventListener('click', () => teile(club, lang));
     if (ctx.onClose) container.querySelector('.detail-close').addEventListener('click', () => ctx.onClose(club));
     const cal = container.querySelector('.club-cal-btn');

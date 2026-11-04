@@ -27,11 +27,14 @@
   font-weight: 600;
   color: var(--text);
 }
-/* Die Angaben eines Clubs stehen UNTEREINANDER, auf jeder Breite (vom
-   Nutzer am 04.11.2026: „alles untereinander schreiben und nicht zwei
-   Spalten … dann flüssiger“) – in zwei Spalten brachen Treffpunkt und
-   Termine in schmale Stücke, und die Zeilen standen ungleich hoch. */
-.club-grid { grid-template-columns: 1fr; gap: 12px; }
+/* Die Angaben eines Clubs stehen paarweise NEBENEINANDER, solange beide
+   kurz sind; braucht eine davon mehr als zwei Zeilen, steht das Paar
+   untereinander (.breit, gesetzt von ordneFakten() in clubs.js nach dem
+   Messen – vom Nutzer am 04.11.2026: „Bei manchen siehts aber ganz okay
+   aus nebeneinander. Nur bei viel Text sieht es nicht so gut aus.“).
+   Bis 900 px (Blatt von unten) immer eine Spalte. */
+.club-grid { grid-template-columns: 1fr 1fr; }
+.club-grid > .fact.breit { grid-column: 1 / -1; }
 .club-grid dd { overflow-wrap: anywhere; }
 .club-bez { color: var(--text-muted); }
 .stufe-pill {
@@ -215,6 +218,7 @@
     border-bottom: 0;
     padding-bottom: calc(22px + env(safe-area-inset-bottom, 0px));
   }
+  .club-grid { grid-template-columns: 1fr; }
 }
 
 /* ---------- Karte: Schalter Events / Clubs / Beide ---------- */
