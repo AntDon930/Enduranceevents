@@ -6825,6 +6825,24 @@ Verweise auf alte Nummern stehen in Klammern.
     um 20:00–23:15) – am 02.11. lief der Abendlauf nach Mitternacht
     deutscher Zeit und plante schon den Dienstag. Bevor wieder automatisch
     gepostet wird: dem Abendlauf das Datum mitgeben oder früher ansetzen.
+15. **Content: Video „Marathon in Zahlen“ entwerfen** (eingetragen am
+    04.11.2026, vom Nutzer: „In Deutschland finishen XX Personen jährlich
+    einen Marathon, davon in XX Zeit, Geschlecht usw … als content to-do
+    das wir so ein Video entwerfen“). Idee: animierte Statistik-Grafik wie
+    `laengste` (Balken/Zahlen zählen hoch) – Hook „XX.XXX Menschen laufen
+    jedes Jahr einen Marathon in Deutschland“, dann Folien zu
+    Zielzeit-Verteilung (unter 3 h / 3–4 h / 4–5 h / über 5 h),
+    Frauen/Männer, Durchschnittsalter und -zeit, die größten Marathons
+    (Logos aus `grosse_events.json`), Schluss „Wo läufst du deinen?“ +
+    CTA. Später dieselbe Reihe für AT/CH, Halbmarathon, Triathlon.
+    **Jede Zahl braucht eine Quelle** (wie `momente.json`: Feld `quelle`
+    je Zahl, Jahr der Erhebung im Bild) – Kandidaten: DLV-/Laufmagazin-
+    Marathonstatistik, Ergebnislisten der großen Marathons (Finisher je
+    Ausgabe), RunRepeat-/ahotu-Auswertungen nur, wenn sie die Methode
+    nennen. Nicht schätzen, nicht runden ohne „ca.“. Vorgehen: erst die
+    Zahlen recherchieren und dem Nutzer zur Abnahme zeigen, dann das
+    Format (`insta_inhalte` + Folientyp in `insta_video`) bauen, Vorschau
+    im Dashboard.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
