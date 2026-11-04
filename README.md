@@ -3881,6 +3881,7 @@ alle Blogeinträge.“ Gebaut auf dem Clubs-Branch, geht mit dem Launch live.
   `blog.json`, HTML erlaubt – steht unter dem Titelbild; das Bild selbst
   gehört NICHT in den Text, die Seite setzt es als Titelbild); Bildregel
   des Nutzers (keine Einzelpersonen, keine erkennbaren Gesichter).
+- **Ton** (04.11.2026, vom Nutzer: „Wir wollen den Leuten keine Angst machen sondern sie zum laufen motivieren!“): keine Angstthemen – keine Herzstillstand-, Ertrinkungs- oder Verletzungsstatistiken als Aufhänger, keine Warnkästen, keine Haftungsfloskeln. Sicherheitswissen positiv formulieren („so startest du gut vorbereitet“); ein Arztbesuch höchstens als kurzer, freundlicher Satz.
 - **Quellen** (04.11.2026, Wunsch des Nutzers: „sehr gut recherchieren … schön zitieren … nur aus seriösen Quellen“): Jede Aussage, die man nachprüfen muss, trägt eine Fußnote `<sup class="q"><a href="#qN">[N]</a></sup>`, am Ende steht `<section class="beitrag-quellen">` (NACH dem Abschlusskasten, damit sie nicht ins Inhaltsverzeichnis rutscht) mit Abrufdatum. Nur Verbände, Behörden, Rettungsorganisationen, Fachgesellschaften und begutachtete Studien; jede Studie über Europe PMC (Titel, Band, Seiten, Abstract) gegengeprüft, jede Verbandsstelle im Wortlaut gelesen. Was nur Erfahrung ist, sagt der Text auch so. Titelbilder liegen in `bilder/blog/` (aus dem Instagram-Pool `marketing/instagram/hintergruende/`, Nachweis in `blog.json`).
 - **Magazin-Aufbau** (04.11.2026, Vorlagen des Nutzers: ahotu Magazin,
   Spartan Life, STYRKR Hub): Die Übersicht hat einen **Aufmacher** (der
