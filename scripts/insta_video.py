@@ -986,14 +986,17 @@ def _duell_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict, fortschr
     """Zwei große Events im direkten Vergleich (Format „duell"): die
     Logos fahren von links und rechts herein, dazwischen springt das VS,
     dann kommen Zeile für Zeile Termin, Ort, Teilnehmende, Strecken - der
-    größere Wert leuchtet. Zum Schluss die Frage."""
+    größere Wert leuchtet. Zum Schluss die Frage. Ab Runde 2 (`fest`)
+    stehen Logos und VS schon da, die Zeilen beginnen sofort."""
     t = fortschritt * float(folie.get("dauer") or 7.0)
+    fest = bool(folie.get("fest"))
+    ein = 0.3 if fest else DUELL_EIN
     a, b = folie["links"], folie["rechts"]
     farbe = SPORTFARBE.get(folie.get("sport"), SIGNAL)
     pille(d, RAND_X, 250, ohne_emoji(folie.get("titel", "DUELL")).upper(), kondensiert(46, False), farbe)
     spalte = [(RAND_X, 500), (560, 960)]
     for k, e in enumerate((a, b)):
-        p = _ease_back(min(1.0, max(0.0, (t - 0.1 * k) / 0.55)))
+        p = 1.0 if fest else _ease_back(min(1.0, max(0.0, (t - 0.1 * k) / 0.55)))
         dx = int((1 - p) * (-520 if k == 0 else 520))
         x0, x1 = spalte[k]
         ebene = Image.new("RGBA", img.size, (0, 0, 0, 0))
@@ -1005,9 +1008,9 @@ def _duell_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict, fortschr
             y += 46
         img.alpha_composite(ebene, (dx, 0) if dx >= 0 else (0, 0), (0, 0) if dx >= 0 else (-dx, 0))
     # VS
-    p = min(1.0, max(0.0, (t - 0.45) / 0.35))
+    p = 1.0 if fest else min(1.0, max(0.0, (t - 0.45) / 0.35))
     if p > 0:
-        r = int(66 * _ease_back(p, 2.4))
+        r = int(66 * (1.0 if fest else _ease_back(p, 2.4)))
         cx, cy = 530, 495
         d.ellipse([cx - r - 10, cy - r - 10, cx + r + 10, cy + r + 10], fill=farbe + (120,))
         d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=SONNE, outline=WEISS, width=6)
@@ -1016,14 +1019,14 @@ def _duell_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict, fortschr
     zeilen = folie.get("zeilen") or []
     y0 = 800
     # eine ruhige Fläche hinter dem Vergleich, damit die Zahlen auf jedem Foto lesbar sind
-    p_flaeche = _ease_aus(min(1.0, max(0.0, (t - DUELL_EIN + 0.25) / 0.4)))
+    p_flaeche = 1.0 if fest else _ease_aus(min(1.0, max(0.0, (t - DUELL_EIN + 0.25) / 0.4)))
     if p_flaeche > 0:
         flaeche = Image.new("RGBA", img.size, (0, 0, 0, 0))
         ImageDraw.Draw(flaeche).rounded_rectangle([RAND_X - 20, y0 - 50, 980, y0 + 150 * len(zeilen) + 100],
                                                   radius=36, fill=NAVY + (int(205 * p_flaeche),))
         img.alpha_composite(flaeche)
     for i, (label, wl, wr, besser) in enumerate(zeilen):
-        start = DUELL_EIN + i * DUELL_ZEILE
+        start = ein + i * DUELL_ZEILE
         if t < start:
             continue
         p = _ease_aus(min(1.0, (t - start) / 0.4))
@@ -1043,7 +1046,7 @@ def _duell_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict, fortschr
             mx = (x0 + x1) / 2 + (versatz if k == 0 else -versatz)
             ed.text((mx, y + 42), text, font=f, fill=fill, anchor="ma")
         img.alpha_composite(ebene)
-    start = DUELL_EIN + len(zeilen) * DUELL_ZEILE + 0.2
+    start = ein + len(zeilen) * DUELL_ZEILE + 0.2
     if t >= start and folie.get("frage"):
         p = _ease_back(min(1.0, (t - start) / 0.45))
         f = kondensiert(max(10, int(70 * p)))

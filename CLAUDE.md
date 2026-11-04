@@ -5387,7 +5387,15 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Sonderplan und Startsperre) gemeinsam; das Dashboard blendet vergangene
   Tage aus und die Vorschauen im Speicher verfallen nach einem Tag – nach
   dem Push den Instagram-Workflow von Hand ohne „posten" anstoßen, dann
-  legt er die Vorschauen der neuen Tage ab.
+  legt er die Vorschauen der neuen Tage ab. **Download im Dashboard**: je Zeile der Freigabe-Karte
+  ein Link „Download" (für die Tage mit Vorschau, heute + 7) auf
+  `vorschau/<Datum>-aktuell.mp4`, im Reel-Fenster „Video herunterladen"
+  sofort sichtbar (iPhone/iPad laden ein Video erst beim Abspielen – ein
+  Knopf, der auf `loadedmetadata` wartete, blieb dort unsichtbar). Der
+  Speicher liefert die Vorschau-Videos mit `Content-Disposition:
+  attachment` aus (`video_hochladen(…, anhang=)`, Mehrteil-Upload), der
+  Link lädt also herunter statt abzuspielen; ein `<video>` spielt sie
+  trotzdem.
   **Nicht jeden Tag ein Video – „4-5 Videos in der Woche"** (vom Nutzer am
   27.10.2026): `insta_inhalte.postet_am()` – Dienstag und Donnerstag Pause
   (`PAUSE_WOCHENTAGE`), außer Anlass, 1. des Monats (Anmeldestart) oder
@@ -5402,7 +5410,23 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Monate) und **`duell`** (zwei große Events einer Kategorie mit Logo,
   Größe höchstens Faktor 2 auseinander – `duell_paare()`; animierte Folie:
   Logos fahren ein, VS, Zeilen Termin/Ort/Am Start/Strecken auf einer
-  Navy-Fläche, der größere Wert in Sonne). Beide nur über Sonderplan oder
+  Navy-Fläche, der größere Wert in Sonne). **Seit dem 04.11.2026 in
+  Runden** (vom Nutzer: „Streckenrekord, Höhenmeter, durchschnittliche
+  Temperatur, geschätzte Zuschaueranzahl, erste Austragung … Alle Infos die
+  man noch für beide Events finden kann"): Runde 1 Eckdaten, dann je
+  Runde bis vier Zeilen aus **`fakten`** am Event in `grosse_events.json`
+  (`DUELL_RUNDEN`: Rekorde & Geschichte – `erste_austragung`,
+  `rekord_maenner`, `rekord_frauen`; Strecke & Stimmung – `hoehenmeter`,
+  `temperatur`, `zuschauer`). Eine Zeile nur, wenn BEIDE den Fakt haben,
+  eine Runde ab zwei Zeilen; ab Runde 2 stehen Logos und VS schon
+  (`fest`), die Frage kommt erst in der letzten. Was nur einer hat
+  (`weltrekorde`, `nationen`), steht in der Caption. Jeder Fakt trägt
+  `quelle` (https, `test_insta_logos` prüft es) und ggf. `hinweis`;
+  Temperatur = Tagesmittel im Rennmonat (Klimamittel 1991–2020), Höhenmeter
+  aus EINER Quelle für beide (marathon-index.com), Zuschauer „bis zu" laut
+  Veranstalter/Presse. Am 04.11.2026 recherchiert: Berlin und Wien – wer
+  ein neues Paar ins Duell schickt, recherchiert die Fakten beider Events
+  vorher genauso. Beide nur über Sonderplan oder
   `--format`, noch nicht im Wochenplan. `gross_fuer()` kennt `nicht`
   (Ausschlusswörter: L'Hivernale ist nicht Sierre-Zinal).
 - **Der Look seit dem 27.10.2026 („Die Videos sollen nicht so billig

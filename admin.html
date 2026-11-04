@@ -72,7 +72,7 @@
   .w-felder label { display: grid; gap: 4px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
   .w-felder input { font: inherit; font-size: 0.95rem; text-transform: none; letter-spacing: 0; padding: 8px 10px; border-radius: var(--radius-ctl); border: 1px solid var(--border-strong); background: var(--panel); color: var(--text); width: 100%; box-sizing: border-box; }
   .w-knoepfe { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 0; }
-  .w-knoepfe a.stat-btn { text-decoration: none; display: inline-flex; align-items: center; }
+  .w-knoepfe a.stat-btn, .frei-knoepfe a.stat-btn, .reel-aktionen a.stat-btn { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; }
   /* Instagram-Freigabe (14.10.2026): eine Zeile je Tag aus plan.json,
      Status aus Firestore, drei Knöpfe. */
   .frei-liste { display: grid; gap: 10px; margin: 10px 0 0; }
@@ -415,7 +415,9 @@
       f_reel_fehlt: 'Für diesen Tag liegt noch keine Vorschau vor. Der Morgenlauf (08:47 Uhr) legt die Reels der nächsten sieben Tage ab.',
       f_reel_anderer_stand: 'Diese Vorschau stammt aus dem Morgenlauf und zeigt einen neueren Stand als dieser Plan.',
       f_schliessen: 'Schließen',
-      f_reel_laden: 'Video öffnen (zum Speichern)',
+      f_reel_laden: 'Video herunterladen',
+      f_download: 'Download',
+      f_download_titel: 'Das Reel dieses Tages herunterladen (Stand des letzten Morgenlaufs)',
       f_caption_kopieren: 'Caption kopieren',
       f_caption_kopiert: 'Caption kopiert ✓',
       f_caption_nicht_kopiert: 'Kopieren nicht möglich – die Caption steht in der Karte unter „Caption“.',
@@ -558,7 +560,9 @@
       f_reel_fehlt: 'There is no preview for this day yet. The morning run (08:47) stores the reels of the next seven days.',
       f_reel_anderer_stand: 'This preview comes from the morning run and shows a newer state than this plan.',
       f_schliessen: 'Close',
-      f_reel_laden: 'Open video (to save it)',
+      f_reel_laden: 'Download video',
+      f_download: 'Download',
+      f_download_titel: 'Download this day’s reel (as rendered by the last morning run)',
       f_caption_kopieren: 'Copy caption',
       f_caption_kopiert: 'Caption copied ✓',
       f_caption_nicht_kopiert: 'Copying is not possible – the caption is in the card under “Caption”.',
@@ -788,6 +792,7 @@
   // Vorschauen des Morgenlaufs (scripts/insta_posten.py, vorschau_name):
   // vorschau/<Datum>-<Kennung>.mp4 und vorschau/<Datum>-aktuell.mp4.
   const VORSCHAU_BASIS = 'https://storage.googleapis.com/endurance-5177a-instagram/vorschau/';
+  const VORSCHAU_TAGE = 7;     // so viele Tage ab heute legt der Morgenlauf ab (insta_lauf.py --vorschau-tage)
   let freigabeOffen = false;     // Karte ausgeklappt? (bleibt über das Neuzeichnen)
   try { freigabeOffen = localStorage.getItem('endurance-freigabe-offen') === '1'; } catch (e) { /* ignorieren */ }
   let freigabePlan = null;        // { erzeugt, beitraege: [...] } oder null
@@ -891,6 +896,11 @@
       const knoepfe = [];
       if (st !== 'frei') knoepfe.push(`<button type="button" class="stat-btn primary" data-frei="${b.datum}">${escapeHtml(t('f_frei'))}</button>`);
       knoepfe.push(`<button type="button" class="stat-btn" data-view="${b.datum}">${escapeHtml(t('f_view'))}</button>`);
+      // Von Hand posten (seit 04.11.2026): das Reel direkt herunterladen –
+      // nur für die Tage, die der Morgenlauf als Vorschau ablegt (heute + 7).
+      if ((d - heute) / 86400000 <= VORSCHAU_TAGE) {
+        knoepfe.push(`<a class="stat-btn frei-download" href="${VORSCHAU_BASIS}${b.datum}-aktuell.mp4" download="AusdauerMaschine-${b.datum}.mp4" target="_blank" rel="noopener" title="${escapeHtml(t('f_download_titel'))}">${escapeHtml(t('f_download'))}</a>`);
+      }
       if (st !== 'gesperrt') knoepfe.push(`<button type="button" class="stat-btn" data-sperren="${b.datum}">${escapeHtml(t('f_sperren'))}</button>`);
       if (st !== 'offen') knoepfe.push(`<button type="button" class="stat-btn" data-zurueck="${b.datum}">${escapeHtml(t('f_zurueck'))}</button>`);
       return `<div class="frei-zeile ist-${st}" data-datum="${b.datum}">
@@ -947,7 +957,7 @@
         <video controls playsinline preload="metadata"></video>
         <p class="leer reel-hinweis" hidden></p>
         <div class="reel-aktionen">
-          <a class="stat-btn reel-laden" target="_blank" rel="noopener" hidden>${escapeHtml(t('f_reel_laden'))}</a>
+          <a class="stat-btn primary reel-laden" href="${VORSCHAU_BASIS}${escapeHtml(beitrag.datum)}-aktuell.mp4" download="AusdauerMaschine-${escapeHtml(beitrag.datum)}.mp4" target="_blank" rel="noopener">${escapeHtml(t('f_reel_laden'))}</a>
           <button type="button" class="stat-btn reel-caption">${escapeHtml(t('f_caption_kopieren'))}</button>
         </div>
       </div>`;
@@ -967,14 +977,13 @@
       hinweis.textContent = t('f_reel_fehlt');
       hinweis.hidden = false;
     });
-    // Von Hand posten (seit 04.11.2026): das Video in einem eigenen Tab
-    // öffnen – auf dem iPhone dort „Teilen → Video sichern“ – und die
-    // Caption in die Zwischenablage.
-    const laden = ov.querySelector('.reel-laden');
+    // Von Hand posten (seit 04.11.2026): „Video herunterladen“ steht sofort
+    // da – iPhone und iPad laden das Video erst beim Abspielen, ein Knopf,
+    // der auf das geladene Video wartete, blieb dort unsichtbar. Er zeigt auf
+    // den jüngsten Stand des Tages (-aktuell); der Speicher liefert ihn als
+    // Anhang (insta_posten.lade_vorschau), der Browser lädt ihn also herunter.
     video.addEventListener('loadedmetadata', () => {
       if (i > 0) { hinweis.textContent = t('f_reel_anderer_stand'); hinweis.hidden = false; }
-      laden.href = video.currentSrc || video.src;
-      laden.hidden = false;
     });
     const capKnopf = ov.querySelector('.reel-caption');
     capKnopf.addEventListener('click', async () => {

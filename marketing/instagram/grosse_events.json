@@ -627,7 +627,48 @@
    "anmeldestart_quelle": "https://marathonhandbook.com/berlin-marathon-2027-lottery/",
    "webseite": "https://www.bmw-berlin-marathon.com",
    "instagram": "berlinmarathon",
-   "hinweis": "Lotterie 01.10.–12.11.2026, Ergebnis 03.12.2026; ab 2027 Generali als Titelsponsor. Starter = knapp 80.000 Gemeldete über das ganze Wochenende 2025 (alle Disziplinen: Marathon 55.146 Gemeldete, Inline, 5K, Mini-Marathon, Rollstuhl, Handbike) – wie bei Wien und Hamburg die Anmeldungen aller Wettbewerbe. Bis 04.11.2026 stand hier 49.831 = Finisher NUR über 42,195 km, das ließ Berlin im Countdown hinter Wien fallen."
+   "hinweis": "Lotterie 01.10.–12.11.2026, Ergebnis 03.12.2026; ab 2027 Generali als Titelsponsor. Starter = knapp 80.000 Gemeldete über das ganze Wochenende 2025 (alle Disziplinen: Marathon 55.146 Gemeldete, Inline, 5K, Mini-Marathon, Rollstuhl, Handbike) – wie bei Wien und Hamburg die Anmeldungen aller Wettbewerbe. Bis 04.11.2026 stand hier 49.831 = Finisher NUR über 42,195 km, das ließ Berlin im Countdown hinter Wien fallen.",
+   "fakten": {
+    "erste_austragung": {
+     "wert": 1974,
+     "hinweis": "Berliner Volksmarathon des SC Charlottenburg, 244 von 286 im Ziel",
+     "quelle": "https://www.visitberlin.de/de/event/generali-berlin-marathon-2027"
+    },
+    "rekord_maenner": {
+     "zeit": "2:01:09",
+     "wer": "Eliud Kipchoge",
+     "jahr": 2022,
+     "quelle": "https://worldathletics.org/news/report/eliud-kipchoge-world-record-berlin-marathon-2022"
+    },
+    "rekord_frauen": {
+     "zeit": "2:11:04",
+     "wer": "Tigst Assefa",
+     "jahr": 2026,
+     "quelle": "https://marathonhandbook.com/berlin-marathon-results/"
+    },
+    "weltrekorde": {
+     "wert": 13,
+     "hinweis": "13 offizielle Weltrekorde auf der Strecke",
+     "quelle": "https://www.visitberlin.de/de/event/generali-berlin-marathon-2027"
+    },
+    "hoehenmeter": {
+     "wert": 58,
+     "hinweis": "ca. 58 Höhenmeter, Profil flach",
+     "quelle": "https://marathon-index.com/de/races/berlin-marathon/course"
+    },
+    "temperatur": {
+     "wert": 14.7,
+     "monat": "Sep.",
+     "hinweis": "Tagesmittel im September, Berlin-Brandenburg 1991–2020 (Höchstwert im Mittel 19,8 °C)",
+     "quelle": "https://en.wikipedia.org/wiki/Berlin#Climate"
+    },
+    "zuschauer": {
+     "wert": 1000000,
+     "text": "bis 1 Mio.",
+     "hinweis": "„bis zu 1 Million Zuschauer“ (Vorbericht 2025, Veranstalter SCC Events: 800.000 bis 1 Million)",
+     "quelle": "https://www.tagesspiegel.de/berlin/berlin-marathon-2025-sperrungen-startzeiten-und-programm-zum-grossen-laufevent-14334500.html"
+    }
+   }
   },
   {
    "name": "Berliner Frauenlauf",
@@ -3120,7 +3161,48 @@
    "anmeldestart": null,
    "webseite": "https://www.vienna-marathon.com",
    "instagram": "vienna_city_marathon",
-   "hinweis": "49.379 Anmeldungen alle Bewerbe 2026 (Rekord). Anmeldung 2027 lief bereits im Mai 2026 (genaues Datum unbekannt); Marathon/HM/Staffel seit September 2026 voll (Warteliste), Nebenbewerbe (10K, 5K) noch offen."
+   "hinweis": "49.379 Anmeldungen alle Bewerbe 2026 (Rekord). Anmeldung 2027 lief bereits im Mai 2026 (genaues Datum unbekannt); Marathon/HM/Staffel seit September 2026 voll (Warteliste), Nebenbewerbe (10K, 5K) noch offen.",
+   "fakten": {
+    "erste_austragung": {
+     "wert": 1984,
+     "hinweis": "25. März 1984, 794 Läuferinnen und Läufer (769 Männer, 25 Frauen)",
+     "quelle": "https://www.ganz-wien.at/veranstaltungen/sportevents/vienna-city-marathon-stadtmarathon-in-wien.html"
+    },
+    "rekord_maenner": {
+     "zeit": "2:05:08",
+     "wer": "Samwel Mailu",
+     "jahr": 2023,
+     "quelle": "https://en.wikipedia.org/wiki/Vienna_City_Marathon"
+    },
+    "rekord_frauen": {
+     "zeit": "2:20:06",
+     "wer": "Tigist Gezahagn",
+     "jahr": 2026,
+     "quelle": "https://www.watchathletics.com/article/13667/vienna-city-marathon-2026-gezahagn-breaks-course-record-as-kiprotich-stuns-men-s-race"
+    },
+    "hoehenmeter": {
+     "wert": 75,
+     "hinweis": "ca. 75 Höhenmeter, Profil flach, größter Höhenunterschied 44 m",
+     "quelle": "https://marathon-index.com/de/races/vienna-city-marathon/course"
+    },
+    "temperatur": {
+     "wert": 13.0,
+     "monat": "Apr.",
+     "hinweis": "Tagesmittel im April, Wien Innere Stadt 1991–2020 (Höchstwert im Mittel 17,4 °C)",
+     "quelle": "https://en.wikipedia.org/wiki/Vienna#Climate"
+    },
+    "zuschauer": {
+     "wert": 400000,
+     "text": "bis 400.000",
+     "hinweis": "„bis zu 400.000 Zuschauer an der Strecke“",
+     "quelle": "https://www.ganz-wien.at/veranstaltungen/sportevents/vienna-city-marathon-stadtmarathon-in-wien.html"
+    },
+    "nationen": {
+     "wert": 140,
+     "hinweis": "„an die 40.000 Teilnehmer aus ca. 140 Nationen“",
+     "quelle": "https://www.ganz-wien.at/veranstaltungen/sportevents/vienna-city-marathon-stadtmarathon-in-wien.html"
+    }
+   }
   },
   {
    "name": "Vienna Night Run",

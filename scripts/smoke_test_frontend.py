@@ -1922,14 +1922,17 @@ def pruefe_statistik_dashboard(ctx, basis):
         seite.wait_for_selector("#reel-overlay .reel-hinweis:not([hidden])", timeout=8000)
         reel = seite.evaluate("""() => ({ hinweis: document.querySelector('#reel-overlay .reel-hinweis').textContent,
             fokus: document.activeElement && document.activeElement.classList.contains('reel-zu'),
-            laden: document.querySelector('#reel-overlay .reel-laden').hidden,
+            laden: document.querySelector('#reel-overlay .reel-laden').hidden ? '' : document.querySelector('#reel-overlay .reel-laden').getAttribute('href'),
+            zeile: (document.querySelector('#insta-freigabe-card .frei-zeile:first-child a.frei-download') || {}).href || '',
             caption: (document.querySelector('#reel-overlay .reel-caption') || {}).textContent })""")
         mp4 = [u for u in abrufe if u.endswith(".mp4")]
         pruefe("Morgenlauf" in reel["hinweis"] and any("-aktuell.mp4" in u for u in mp4)
                and any("/vorschau/" in u and "-aktuell" not in u for u in mp4) and reel["fokus"],
                "View öffnet das Reel-Fenster: Kennung, dann aktuell, dann Hinweis (%d Abrufe)" % len(mp4))
-        pruefe(reel["laden"] and reel["caption"] == "Caption kopieren",
-               "Reel-Fenster zum Posten von Hand: „Caption kopieren“ da, „Video öffnen“ erst mit geladenem Video")
+        pruefe(reel["laden"].endswith("-aktuell.mp4") and reel["zeile"].endswith("-aktuell.mp4")
+               and reel["caption"] == "Caption kopieren",
+               "Posten von Hand: „Download“ in der Zeile, „Video herunterladen“ im Fenster sofort sichtbar "
+               "(auch ohne geladenes Video), „Caption kopieren“")
         seite.keyboard.press("Escape")
         seite.wait_for_timeout(100)
         pruefe(seite.evaluate("() => document.getElementById('reel-overlay').hidden"), "Escape schließt das Reel-Fenster")

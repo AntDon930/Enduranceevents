@@ -174,10 +174,26 @@ class Google:
         return weg
 
     # --- Cloud Storage: Video oder Bild, solange Meta es abholt --------
-    def video_hochladen(self, pfad: Path, name: str, art: str = "video/mp4") -> str:
+    def video_hochladen(self, pfad: Path, name: str, art: str = "video/mp4",
+                        anhang: str | None = None) -> str:
+        """Datei in den Speicher legen. Mit `anhang` (Dateiname) liefert der
+        Speicher sie mit „Content-Disposition: attachment" aus – ein Link
+        darauf lädt herunter, statt das Video im Browser zu öffnen (der
+        Download-Knopf im Dashboard, seit 04.11.2026). Ein <video> spielt
+        sie trotzdem ab."""
         url = f"{self.GCS}/upload/storage/v1/b/{self.z['bucket']}/o"
-        _antwort(_anfrage(self.s, "post", url, "Datei ablegen", params={"uploadType": "media", "name": name},
-                          headers={**self.h, "Content-Type": art}, data=pfad.read_bytes(), timeout=300),
+        if anhang:
+            grenze = "ausdauermaschine-" + _zufall.token_hex(8)
+            meta = json.dumps({"name": name, "contentType": art,
+                               "contentDisposition": f'attachment; filename="{anhang}"'})
+            daten = (f"--{grenze}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n{meta}\r\n"
+                     f"--{grenze}\r\nContent-Type: {art}\r\n\r\n").encode() + pfad.read_bytes() \
+                + f"\r\n--{grenze}--\r\n".encode()
+            params = {"uploadType": "multipart", "name": name}
+            kopf = {**self.h, "Content-Type": f"multipart/related; boundary={grenze}"}
+        else:
+            daten, params, kopf = pfad.read_bytes(), {"uploadType": "media", "name": name}, {**self.h, "Content-Type": art}
+        _antwort(_anfrage(self.s, "post", url, "Datei ablegen", params=params, headers=kopf, data=daten, timeout=300),
                  "Datei ablegen")
         return f"{self.GCS}/{self.z['bucket']}/{quote(name)}"
 
@@ -288,7 +304,8 @@ def lade_vorschau(ordner: Path, datum: str, kennung: str, z: dict, session=None)
         # unter dem Datum (der jüngste Stand) - plan.json entsteht beim
         # Deploy und kann einen älteren Stand tragen als der Morgenlauf.
         for k in (kennung, "aktuell"):
-            adressen.append(g.video_hochladen(pfad, vorschau_name(datum, k, endung), art))
+            adressen.append(g.video_hochladen(pfad, vorschau_name(datum, k, endung), art,
+                                              anhang=f"AusdauerMaschine-{datum}.mp4" if endung == "mp4" else None))
     return adressen
 
 

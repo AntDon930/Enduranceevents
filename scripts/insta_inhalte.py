@@ -1370,7 +1370,15 @@ def format_duell(datum: dt.date, events: list[dict], rng: random.Random,
                  grosse: list[dict] | None = None, paar: list[str] | None = None) -> dict | None:
     """„Duell": zwei große Events derselben Kategorie Seite an Seite -
     Termin, Ort, Teilnehmende, Strecken - und die Frage, welches man
-    wählen würde (Kommentare). Das Paar wechselt mit dem Datum."""
+    wählen würde (Kommentare). Das Paar wechselt mit dem Datum.
+
+    Seit dem 04.11.2026 in RUNDEN (vom Nutzer: „Streckenrekord, Höhenmeter,
+    durchschnittliche Temperatur, geschätzte Zuschaueranzahl, erste
+    Austragung … Alle Infos die man noch für beide Events finden kann"):
+    Runde 1 die Eckdaten, dann je Runde höchstens vier Zeilen aus `fakten`
+    in grosse_events.json (DUELL_RUNDEN) – eine Zeile nur, wenn BEIDE
+    Events den Fakt tragen, eine Runde nur ab zwei Zeilen. Jeder Fakt hat
+    seine Quelle in der Datei; geraten wird nichts."""
     import insta_logos
     grosse = grosse if grosse is not None else lade_grosse()
     paare = duell_paare(datum, events, grosse)
@@ -1400,23 +1408,95 @@ def format_duell(datum: dt.date, events: list[dict], rng: random.Random,
         ["Strecken", wa[3], wb[3], -1],
     ]
     frage = "Welches würdest du wählen?"
+    fa, fb = a["g"].get("fakten") or {}, b["g"].get("fakten") or {}
+    runden = [("Runde 1 · Eckdaten", zeilen)]
+    for titel_r, schluessel in DUELL_RUNDEN:
+        extra = [z for z in (_duell_zeile(k, fa.get(k), fb.get(k)) for k in schluessel) if z]
+        if len(extra) >= 2:
+            runden.append((f"Runde {len(runden) + 1} · {titel_r}", extra[:4]))
+    mehrere = len(runden) > 1
+    duell_folien = [
+        {"typ": "duell", "titel": titel_r if mehrere else f"Duell · {name_kat}", "sport": sport,
+         "links": seite(a), "rechts": seite(b), "zeilen": z,
+         "frage": frage if i == len(runden) - 1 else None, "fest": i > 0,
+         "dauer": 7.0 if i == 0 else round(1.0 + len(z) * 0.85 + (1.6 if i == len(runden) - 1 else 0.9), 2)}
+        for i, (titel_r, z) in enumerate(runden)]
     folien = [
         {"typ": "hook", "ueber": f"Duell · {name_kat}", "titel": f"{a['g']['name']} oder {b['g']['name']}?",
-         "zeilen": ["Zwei Riesen im Vergleich"]},
-        {"typ": "duell", "titel": f"Duell · {name_kat}", "sport": sport, "links": seite(a), "rechts": seite(b),
-         "zeilen": zeilen, "frage": frage, "dauer": 7.0},
+         "zeilen": ["Zwei Riesen im Vergleich" + (f" – in {len(runden)} Runden" if mehrere else "")]},
+        *duell_folien,
         {"typ": "satz", "ueber": "Du entscheidest", "titel": "LINKS ODER RECHTS?",
          "zeilen": ["Schreib's in die Kommentare"]},
         cta_folie("Check it out!", f"Alle {name_kat} mit Termin", SEITE, "Link in der Bio"),
     ]
+    fakten_text = "\n".join(_duell_caption_fakt(k, a["g"]["name"], fa.get(k), b["g"]["name"], fb.get(k))
+                            for _, ks in DUELL_RUNDEN for k in ks if fa.get(k) and fb.get(k))
+    extra_a = [_DUELL_ZUSATZ[k](fa[k]) for k in _DUELL_ZUSATZ if fa.get(k) and not fb.get(k)]
+    extra_b = [_DUELL_ZUSATZ[k](fb[k]) for k in _DUELL_ZUSATZ if fb.get(k) and not fa.get(k)]
     caption = caption_bauen([
         f"⚔️ Duell: {a['g']['name']} oder {b['g']['name']}?",
         f"🅰️ {a['g']['name']} – {wa[0]}, {wa[1]}, {_starter_kurz(wa[2])}\n"
         f"🅱️ {b['g']['name']} – {wb[0]}, {wb[1]}, {_starter_kurz(wb[2])}",
-        "Teilnehmende der letzten Ausgabe laut Veranstalter (gerundet). Welches würdest du wählen? "
-        "Schreib A oder B in die Kommentare 👇",
+        *([fakten_text] if fakten_text else []),
+        *([" · ".join([f"🅰️ {t}" for t in extra_a] + [f"🅱️ {t}" for t in extra_b])] if extra_a or extra_b else []),
+        "Teilnehmende der letzten Ausgabe laut Veranstalter (gerundet)"
+        + ("; Temperatur = Tagesmittel im Rennmonat (Klimamittel 1991–2020), Zuschauer laut Veranstalter "
+           "bzw. Presse" if mehrere else "") + ". Welches würdest du wählen? Schreib A oder B in die Kommentare 👇",
     ], hashtags(sport, rng=rng, extra=[f"#{kat}", "#duell"]), rng, len(events))
     return _beitrag("duell", datum, folien, caption, sport, kategorie=kat)
+
+
+# Die Runden nach den Eckdaten: (Titel, Schlüssel in `fakten`). Eine Zeile
+# braucht den Fakt bei BEIDEN Events.
+DUELL_RUNDEN = (
+    ("Rekorde & Geschichte", ("erste_austragung", "rekord_maenner", "rekord_frauen")),
+    ("Strecke & Stimmung", ("hoehenmeter", "temperatur", "zuschauer")),
+)
+DUELL_LABEL = {"erste_austragung": "Erste Austragung", "rekord_maenner": "Streckenrekord Männer",
+               "rekord_frauen": "Streckenrekord Frauen", "hoehenmeter": "Höhenmeter (ca.)",
+               "temperatur": "Ø Temperatur im Rennmonat", "zuschauer": "Zuschauer"}
+# Was nur EIN Event hat, steht in der Caption (z. B. 13 Weltrekorde in Berlin).
+_DUELL_ZUSATZ = {
+    "weltrekorde": lambda f: f"{f['wert']} Weltrekorde auf der Strecke",
+    "nationen": lambda f: f"Läufer aus ca. {f['wert']} Nationen",
+}
+
+
+def _zeit_s(zeit: str) -> int:
+    h, m, sek = (int(t) for t in zeit.split(":"))
+    return h * 3600 + m * 60 + sek
+
+
+def _temperatur(f: dict) -> str:
+    return f"{f['wert']:.0f} °C" + (f" ({f['monat']})" if f.get("monat") else "")
+
+
+def _duell_zeile(k: str, fl: dict | None, fr: dict | None) -> list | None:
+    """Eine Vergleichszeile [Label, links, rechts, besser] – besser: 0/1 hebt
+    eine Seite hervor (schnellerer Rekord, mehr Zuschauer), -1 keine."""
+    if not fl or not fr:
+        return None
+    if k in ("rekord_maenner", "rekord_frauen"):
+        sl, sr = _zeit_s(fl["zeit"]), _zeit_s(fr["zeit"])
+        return [DUELL_LABEL[k], fl["zeit"], fr["zeit"], -1 if sl == sr else (0 if sl < sr else 1)]
+    if k == "zuschauer":
+        return [DUELL_LABEL[k], fl.get("text") or _starter_zahl(fl["wert"]), fr.get("text") or _starter_zahl(fr["wert"]),
+                -1 if fl["wert"] == fr["wert"] else (0 if fl["wert"] > fr["wert"] else 1)]
+    if k == "temperatur":
+        return [DUELL_LABEL[k], _temperatur(fl), _temperatur(fr), -1]
+    if k == "hoehenmeter":
+        return [DUELL_LABEL[k], f"{fl['wert']} m", f"{fr['wert']} m", -1]
+    return [DUELL_LABEL[k], str(fl["wert"]), str(fr["wert"]), -1]
+
+
+def _duell_caption_fakt(k: str, na: str, fl: dict, nb: str, fr: dict) -> str:
+    """Eine Zeile der Caption je Fakt (mit Namen bei den Rekorden)."""
+    if k in ("rekord_maenner", "rekord_frauen"):
+        return (f"⏱️ {DUELL_LABEL[k]}: 🅰️ {fl['zeit']} ({fl['wer']}, {fl['jahr']}) · "
+                f"🅱️ {fr['zeit']} ({fr['wer']}, {fr['jahr']})")
+    zeile = _duell_zeile(k, fl, fr)
+    symbol = {"erste_austragung": "📜", "hoehenmeter": "⛰️", "temperatur": "🌡️", "zuschauer": "📣"}.get(k, "•")
+    return f"{symbol} {zeile[0]}: 🅰️ {zeile[1]} · 🅱️ {zeile[2]}"
 
 
 def _starter_zahl(n: int) -> str:

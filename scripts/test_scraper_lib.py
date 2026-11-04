@@ -5647,7 +5647,11 @@ def test_instagram() -> None:
             self.abgelegt = []
 
         def post(self, url, headers=None, params=None, data=None, **kw):
-            self.abgelegt.append((params["name"], headers["Content-Type"]))
+            art = headers["Content-Type"]
+            if art.startswith("multipart/related"):           # mit Metadaten: Video als Anhang
+                meta = __import__("json").loads(data.split(b"\r\n\r\n", 1)[1].split(b"\r\n", 1)[0])
+                art = (meta["contentType"], meta.get("contentDisposition"), data.count(b"mp4") >= 1)
+            self.abgelegt.append((params["name"], art))
             return Antwort({"name": params["name"]})
 
     with _tf.TemporaryDirectory() as tmp:
@@ -5655,14 +5659,19 @@ def test_instagram() -> None:
         (Path(tmp) / "cover.jpg").write_bytes(b"jpg")
         vs = VorschauSitzung()
         adressen = P.lade_vorschau(Path(tmp), "2026-10-17", "abc123", z, session=vs)
-        check("Vorschau: Reel und Titelbild unter Kennung und 'aktuell'", sorted(vs.abgelegt), sorted([
-            ("vorschau/2026-10-17-abc123.mp4", "video/mp4"), ("vorschau/2026-10-17-aktuell.mp4", "video/mp4"),
-            ("vorschau/2026-10-17-abc123.jpg", "image/jpeg"), ("vorschau/2026-10-17-aktuell.jpg", "image/jpeg")]))
+        anhang = ("video/mp4", 'attachment; filename="AusdauerMaschine-2026-10-17.mp4"', True)
+        check("Vorschau: Reel (als Download-Anhang) und Titelbild unter Kennung und 'aktuell'",
+              sorted(vs.abgelegt, key=str), sorted([
+                  ("vorschau/2026-10-17-abc123.mp4", anhang), ("vorschau/2026-10-17-aktuell.mp4", anhang),
+                  ("vorschau/2026-10-17-abc123.jpg", "image/jpeg"), ("vorschau/2026-10-17-aktuell.jpg", "image/jpeg")],
+                  key=str))
         check("Vorschau: öffentliche Adresse", adressen[0],
               "https://storage.googleapis.com/endurance-5177a-instagram/vorschau/2026-10-17-abc123.mp4")
     admin = (Path(__file__).resolve().parent.parent / "admin.html").read_text(encoding="utf-8")
     check("admin.html: Vorschau-Adresse passt zum Speicher",
           "'https://storage.googleapis.com/" + P.VORGABE_BUCKET + "/" + P.VORSCHAU_ORDNER + "/'" in admin, True)
+    check("admin.html: Download je Tag zeigt auf das jüngste Reel (-aktuell.mp4)",
+          ("-aktuell.mp4\" download=\"AusdauerMaschine-" in admin, admin.count("frei-download") >= 1), (True, True))
 
     class StorySitzung:
         """Attrappe für eine Story und die Auswertung (ohne Netz)."""
@@ -6795,6 +6804,26 @@ def test_insta_logos() -> None:
     check("duell: animiert – erst leer, am Ende Logos, Zeilen und Frage",
           ("duell" in V.ANIMIERT, flaeche(V.folie_bild(df, "Laufen", 0.0)) < 0.5 * flaeche(V.folie_bild(df, "Laufen", 1.0))),
           (True, True))
+    # Runden aus `fakten` (vom Nutzer am 04.11.2026: Streckenrekord, Höhenmeter, Temperatur, Zuschauer …)
+    dg2 = [dict(dg[0], fakten={"erste_austragung": {"wert": 1974}, "rekord_maenner": {"zeit": "2:01:09", "wer": "A", "jahr": 2022},
+                               "rekord_frauen": {"zeit": "2:11:04", "wer": "B", "jahr": 2026}, "weltrekorde": {"wert": 13},
+                               "hoehenmeter": {"wert": 58}, "zuschauer": {"wert": 1000000, "text": "bis 1 Mio."}}),
+           dict(dg[1], fakten={"erste_austragung": {"wert": 1984}, "rekord_maenner": {"zeit": "2:05:08", "wer": "C", "jahr": 2023},
+                               "hoehenmeter": {"wert": 75}, "temperatur": {"wert": 13.0, "monat": "Apr."}}), dg[2]]
+    du2 = I.format_duell(_dt.date(2026, 11, 8), dev, _random.Random(1), dg2, ["Berlin-Marathon", "Vienna City Marathon"])
+    runden = [f for f in du2["folien"] if f["typ"] == "duell"]
+    check("duell in Runden: nur Fakten, die BEIDE haben; eine Runde erst ab zwei Zeilen; Frage nur am Ende",
+          ([f["titel"] for f in runden], [z[0] for z in runden[1]["zeilen"]], runden[1]["zeilen"][1][1:],
+           [bool(f.get("frage")) for f in runden], [f.get("fest") for f in runden]),
+          (["Runde 1 · Eckdaten", "Runde 2 · Rekorde & Geschichte"], ["Erste Austragung", "Streckenrekord Männer"],
+           ["2:01:09", "2:05:08", 0], [False, True], [False, True]))
+    check("duell: Caption nennt die Rekordhalter und was nur ein Event hat (13 Weltrekorde)",
+          ("2:01:09 (A, 2022)" in du2["caption"], "13 Weltrekorde" in du2["caption"]), (True, True))
+    check("duell Runde 2: Logos stehen schon (fest), am Anfang schon mehr zu sehen als in Runde 1",
+          flaeche(V.folie_bild(runden[1], "Laufen", 0.0)) > flaeche(V.folie_bild(runden[0], "Laufen", 0.0)), True)
+    ohne_quelle = [f"{g['name']}/{k}" for g in ganz for k, f in (g.get("fakten") or {}).items()
+                   if not str(f.get("quelle", "")).startswith("https://")]
+    check("grosse_events.json: jeder Duell-Fakt hat eine Quelle (https)", ohne_quelle, [])
 
     # --- Sonderplan: ein fester Tag schlägt Wochenplan und Anlass; die Startwoche liegt im Repo
     sp = {"2026-11-07": {"format": "top", "kategorie": "triathlon", "anzahl": 7, "design": "raster"}}
