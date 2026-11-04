@@ -441,6 +441,9 @@ def folie_bild(folie: dict, sport: str | None, fortschritt: float = 1.0) -> Imag
     elif typ == "duell":
         _duell_folie(img, d, folie, fortschritt)
 
+    elif typ == "rangliste":
+        _rangliste_folie(img, d, folie, fortschritt)
+
     elif typ == "cta":
         y = 700
         titel = ohne_emoji(folie.get("titel", "")).upper()
@@ -865,7 +868,82 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
     img.alpha_composite(karte_bild(TEXT_BREITE, hoehe, punkte, aktiv, farbe), (RAND_X, oben))
 
 
-ANIMIERT = {"balken", "duell"}          # Folien, die sich während sie stehen bewegen
+ANIMIERT = {"balken", "duell", "rangliste"}   # Folien, die sich während sie stehen bewegen
+RANG_TAKT = 0.75               # Sekunden zwischen zwei Plätzen der Rangliste
+RANG_WACHSEN = 0.6
+
+
+def _rang_zahl(n: float) -> str:
+    """Teilnehmerzahl für die Infografik: auf Hunderter, mit Tausenderpunkt."""
+    return f"{int(round(n, -2)):,}".replace(",", ".")
+
+
+def _rangliste_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict, fortschritt: float) -> None:
+    """Infografik der größten Events (Format „top", Design „infografik"):
+    ALLE Plätze auf einer Grafik, Platz 1 oben, je Zeile Platz, Logo, Name
+    und ein Balken nach Teilnehmerzahl. Aufgedeckt wird als Countdown
+    (vom Nutzer: „mit der Nummer 5 anfangen und dann den Spannungsbogen zu
+    Nummer 1"): erst Platz n, zuletzt Platz 1, der Balken wächst, die Zahl
+    zählt hoch."""
+    eintraege = folie.get("eintraege") or []
+    n = len(eintraege)
+    t = fortschritt * rangliste_dauer(n)
+    farbe = SPORTFARBE.get(folie.get("sport"), SIGNAL)
+    pille(d, RAND_X, 250, ohne_emoji(folie.get("titel", "")).upper(), kondensiert(46, False), farbe)
+    d.text((RAND_X, 322), "Rangliste nach Teilnehmenden", font=text_schrift(36), fill=KREIDE)
+    oben, unten = 392, 1372
+    flaeche = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(flaeche).rounded_rectangle([RAND_X - 24, oben - 20, 984, unten + 20], radius=34,
+                                              fill=NAVY + (200,))
+    img.alpha_composite(flaeche)
+    zeile_h = (unten - oben) / max(1, n)
+    maxs = max((e.get("starter") or 0 for e in eintraege), default=1) or 1
+    karte_h = int(min(110, zeile_h * 0.56))
+    karte_w = int(karte_h * 1.7)
+    x_rang, x_karte = RAND_X, RAND_X + 96
+    x_text = x_karte + karte_w + 26
+    for k, e in enumerate(eintraege):              # Liste in Countdown-Reihenfolge: Platz n zuerst
+        platz = e.get("platz") or (k + 1)
+        start = 0.3 + k * RANG_TAKT
+        if t < start:
+            continue
+        p = min(1.0, (t - start) / RANG_WACHSEN)
+        glatt = 1 - (1 - p) ** 3
+        alpha = int(255 * min(1.0, (t - start) / 0.25))
+        y = int(oben + (platz - 1) * zeile_h + (zeile_h - karte_h - 46) / 2)
+        ebene = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        e_d = ImageDraw.Draw(ebene)
+        erster = platz == 1
+        e_d.text((x_rang, y + karte_h / 2), f"{platz}", font=kondensiert(int(karte_h * 0.95)),
+                 fill=(SONNE if erster else WEISS) + (alpha,), anchor="lm")
+        logo_karte(ebene, e_d, (x_karte, y, x_karte + karte_w, y + karte_h), e.get("logo_id"), e["name"],
+                   radius=max(12, karte_h // 6), rand=max(8, karte_h // 9), rahmen=SONNE if erster else None)
+        g = int(max(30, min(46, karte_h * 0.42)))
+        e_d.text((x_text, y + karte_h * 0.30), umbrechen(ohne_emoji(e["name"]), kondensiert(g, False),
+                                                        960 - x_text, 1)[0],
+                 font=kondensiert(g, False), fill=WEISS + (alpha,), anchor="lm")
+        e_d.text((x_text, y + karte_h * 0.76), ohne_emoji(e.get("ort", "")), font=text_schrift(int(g * 0.68)),
+                 fill=GRAU + (alpha,), anchor="lm")
+        # der Balken nach Teilnehmerzahl unter Platz und Logo
+        by, bh = y + karte_h + 14, 26
+        breite_max = 960 - 170 - x_karte
+        bw = max(12, int(breite_max * ((e.get("starter") or 0) / maxs) * glatt))
+        e_d.rounded_rectangle([x_karte, by, x_karte + breite_max, by + bh], radius=bh // 2,
+                              fill=(255, 255, 255, int(alpha * 0.12)))
+        e_d.rounded_rectangle([x_karte, by, x_karte + bw, by + bh], radius=bh // 2,
+                              fill=(SONNE if erster else farbe) + (alpha,))
+        # die Zahl in einer festen Spalte rechts - am Balkenende lag sie auf der Spur
+        e_d.text((960, by + bh / 2), _rang_zahl((e.get("starter") or 0) * glatt),
+                 font=kondensiert(44), fill=(SONNE if erster else WEISS) + (alpha,), anchor="rm")
+        img.alpha_composite(ebene)
+    if t >= 0.3 + n * RANG_TAKT + 0.3:
+        d.text((RAND_X, unten + 34), "Teilnehmende aller Wettbewerbe, letzte Ausgabe · Angaben der Veranstalter",
+               font=text_schrift(26), fill=(255, 255, 255, 170))
+
+
+def rangliste_dauer(n: int) -> float:
+    """So lange steht die Infografik: alle Plätze aufdecken, dann 2,5 s halten."""
+    return round(0.3 + n * RANG_TAKT + RANG_WACHSEN + 2.5, 2)
 BALKEN_TAKT = 0.55             # Sekunden je Balken
 BALKEN_WACHSEN = 0.45
 
@@ -1107,6 +1185,8 @@ def folien_dauer(f: dict) -> float:
         return DAUER_BLITZ
     if f.get("typ") == "jahr":
         return DAUER_JAHR if f.get("aktiv") is not None else DAUER_TOP_UEBERSICHT + 0.6
+    if f.get("typ") == "rangliste":
+        return rangliste_dauer(len(f.get("eintraege") or []))
     if f.get("typ") in ("balken", "duell"):
         return float(f.get("dauer") or 6.0)
     if f.get("typ") == "top":

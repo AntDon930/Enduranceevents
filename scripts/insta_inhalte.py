@@ -1314,17 +1314,27 @@ def format_top(datum: dt.date, events: list[dict], rng: random.Random,
     # Design und Anzahl wechseln jedes Mal (nie zweimal dasselbe hintereinander)
     wunsch = anzahl or TOP_ANZAHLEN[(runde + runde // len(TOP_ANZAHLEN)) % len(TOP_ANZAHLEN)]
     anzahl = max(n for n in TOP_ANZAHLEN if n <= len(liste) and n <= max(wunsch, min(TOP_ANZAHLEN)))
-    design = design if design in TOP_DESIGNS_GROESSE else TOP_DESIGNS_GROESSE[runde % len(TOP_DESIGNS_GROESSE)]
+    # „infografik" (alle Plätze auf EINER Grafik, vom Nutzer am 04.11.2026)
+    # gibt es bisher nur auf Wunsch (Sonderplan), nicht in der Rotation.
+    design = (design if design in TOP_DESIGNS_GROESSE + ("infografik",)
+              else TOP_DESIGNS_GROESSE[runde % len(TOP_DESIGNS_GROESSE)])
     schluessel, name, sport, _ = kat
     eintraege = top_eintraege(liste[:anzahl])
     titel = f"Die {anzahl} größten {name}"
     basis = {"typ": "top", "variante": design, "sport": sport, "titel": titel, "eintraege": eintraege,
              "start": datum.isoformat()[:7], "dauer": TOP_DAUER.get(anzahl, 2.0)}
+    if design == "infografik":
+        # die Dauer rechnet insta_video aus der Zahl der Plätze (die Planung
+        # im Pages-Workflow läuft ohne Pillow, darf insta_video nicht laden)
+        mitte = [{"typ": "rangliste", "titel": titel, "sport": sport, "eintraege": eintraege},
+                 {"typ": "satz", "ueber": "Und du?", "titel": "WO BIST DU DABEI?",
+                  "zeilen": ["Schreib's in die Kommentare"]}]
+    else:
+        mitte = [*top_folien(basis, anzahl), dict(basis, aktiv=None, schluss="Wo bist du dabei?")]
     folien = [
         {"typ": "hook", "ueber": "Nach Teilnehmenden", "zahl": str(anzahl),
          "titel": f"DIE GRÖSSTEN {name.upper()}", "zeilen": ["Deutschland · Österreich · Schweiz · Südtirol"]},
-        *top_folien(basis, anzahl),
-        dict(basis, aktiv=None, schluss="Wo bist du dabei?"),
+        *mitte,
         cta_folie("Check it out!", f"Alle {name} mit Termin", SEITE, "Link in der Bio"),
     ]
     zeilen = "\n".join(top_zeile(e) for e in eintraege)

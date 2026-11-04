@@ -5420,6 +5420,18 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Post-Tage, `insta_lauf.py` rendert an Pausentagen nichts, legt im
   Morgenlauf aber die Vorschauen ab – vor dem Start die Woche ab
   `POST_START` plus den Tag danach.
+- **Top als EINE Infografik (Design `infografik`, 04.11.2026, vom Nutzer:
+  „die 5 in eine Grafik packen und die dann ranken nach den jeweiligen
+  Teilnehmerzahlen“)**: statt einer Folie je Event eine animierte Folie
+  `rangliste` (`insta_video._rangliste_folie`): alle Plätze untereinander,
+  Platz 1 oben, Logo, Name, Ort und ein Balken nach `starter` mit der Zahl
+  in fester Spalte rechts; aufgedeckt als Countdown (Platz n zuerst,
+  `RANG_TAKT`), Fußnote „Teilnehmende aller Wettbewerbe, letzte Ausgabe“.
+  Dauer rechnet `rangliste_dauer()` aus der Zahl der Plätze – NICHT in die
+  Folie schreiben: `insta_inhalte` darf `insta_video` nicht laden (die
+  Planung im Pages-Workflow hat kein Pillow; dafür auch
+  `insta_logos.hat_logo()` statt `logo_bild()` in der Planung). Nur über
+  Sonderplan/Parameter, nicht in der Rotation; am 08.11.2026 im Sonderplan.
 - **Zwei Formate dazu (27.10.2026)**: **`jahr`** („Dein Rennjahr": je
   Monat der nächsten zwölf das größte Event, geprüftes Logo vor ohne,
   Monatsfolien `blitz` im Takt ohne Wisch, Übersicht 3 × 4, mindestens zehn

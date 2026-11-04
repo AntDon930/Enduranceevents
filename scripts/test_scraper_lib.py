@@ -7244,6 +7244,17 @@ def test_insta_logos() -> None:
     check("anmeldung: schon geöffnet = „Anmeldung offen seit …“",
           "Anmeldung offen seit 3. Nov" in [f["ueber"] for f in seit["folien"] if f["typ"] == "logo"], True)
 
+    # --- Top als EINE Infografik (Design „infografik"): alle Plätze auf einer Folie, Countdown
+    ib = I.format_top(_dt.date(2026, 11, 8), ev_echt, _random.Random(1), ganz, "marathon", 5, "infografik")
+    rl = [f for f in ib["folien"] if f["typ"] == "rangliste"]
+    check("top infografik: eine Rangliste mit fünf Plätzen, Platz 5 zuerst, dazu Hook/Frage/CTA",
+          ([f["typ"] for f in ib["folien"]], [e["platz"] for e in rl[0]["eintraege"]]),
+          (["hook", "rangliste", "satz", "cta"], [5, 4, 3, 2, 1]))
+    check("top infografik: animiert, steht bis alle Plätze aufgedeckt sind",
+          ("rangliste" in V.ANIMIERT, V.folien_dauer(rl[0]) > 5,
+           flaeche(V.folie_bild(rl[0], "Laufen", 0.0)) < flaeche(V.folie_bild(rl[0], "Laufen", 1.0))),
+          (True, True, True))
+
     # --- Vor dem Start am 04.11.2026 wird nichts gepostet
     import insta_freigabe as F
     check("Startsperre: vor dem 04.11.2026 nie posten, ab dann ja",

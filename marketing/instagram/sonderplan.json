@@ -1,5 +1,5 @@
 {
- "hinweis": "Feste Formate für einzelne Tage (insta_inhalte.lade_sonderplan) – gehen dem Wochenplan und den Anlässen vor. Startwoche ab Mittwoch 04.11.2026: ursprünglich ab Montag 02.11. geplant (vom Nutzer: „wir fangen ab dem 2. November an … die ersten 7 Videos“); am 04.11.2026 um zwei Tage nach hinten geschoben, weil Montag und Dienstag nicht gepostet wurden (vom Nutzer: „Bitte noch einmal alles nach hinten schreiben. ich poste das jetzt alles Manuell erst einmal“). Fünf Videos in der Startwoche (vom Nutzer: „4-5 Videos in der Woche“): Samstag und Montag Pause.",
+ "hinweis": "Feste Formate für einzelne Tage (insta_inhalte.lade_sonderplan) – gehen dem Wochenplan und den Anlässen vor. Startwoche ab Mittwoch 04.11.2026: ursprünglich ab Montag 02.11. geplant (vom Nutzer: „wir fangen ab dem 2. November an … die ersten 7 Videos“); am 04.11.2026 um zwei Tage nach hinten geschoben, weil Montag und Dienstag nicht gepostet wurden (vom Nutzer: „Bitte noch einmal alles nach hinten schreiben. ich poste das jetzt alles Manuell erst einmal“). Fünf Videos in der Startwoche (vom Nutzer: „4-5 Videos in der Woche“): Samstag und Montag Pause. Am 08.11. die Top 5 der Marathons als EINE Infografik (vom Nutzer am 04.11.2026: „die 5 in eine Grafik packen und die dann ranken nach den jeweiligen Teilnehmerzahlen“).",
  "tage": {
   "2026-11-04": {
    "format": "jahr"
@@ -17,7 +17,7 @@
    "format": "top",
    "kategorie": "marathon",
    "anzahl": 5,
-   "design": "karte"
+   "design": "infografik"
   },
   "2026-11-09": {
    "pause": true
