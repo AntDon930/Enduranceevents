@@ -6736,6 +6736,25 @@ Verweise auf alte Nummern stehen in Klammern.
     Munich, Wings for Life Munich) – kein Fehler, nur noch nicht
     aufgeräumt.
 
+14. **Meta blockiert den Instagram-Schlüssel – seit dem 23.10.2026**
+    (gefunden am 04.11.2026; nur der Nutzer): Jeder Lauf von
+    `instagram.yml`, der den Schlüssel pflegt, endet rot mit „Schlüssel
+    erneuern: HTTP 400 – API access blocked (OAuthException, code 200)".
+    Der Schlüssel vom 16.10. wurde am 23.10. sieben Tage alt; seitdem
+    scheitert jede Erneuerung (27.10.–01.11. lief die Pflege vor dem Start
+    gar nicht, daher grün). Ob auch das Posten gesperrt ist, ist offen; der
+    Schlüssel selbst gilt bis etwa 15.12.2026. Der Nutzer postet seit dem
+    04.11. von Hand. **Zu tun**: im Meta-Entwicklerkonto
+    (developers.facebook.com → App „AusdauerMaschine Content“) nach
+    Warnungen, Einschränkungen oder einem fälligen Daten-Check sehen, ggf.
+    das Konto ausdauermaschine in Instagram (Kontostatus) prüfen; danach
+    `scripts/instagram_google_einrichten.sh --anmelden` für einen neuen
+    Schlüssel. **Zweiter Befund**: Die Zeitpläne von GitHub laufen 4–8 h
+    zu spät (Morgenlauf 06:47 UTC kam um 13:30–15:00, Abendlauf 15:47 UTC
+    um 20:00–23:15) – am 02.11. lief der Abendlauf nach Mitternacht
+    deutscher Zeit und plante schon den Dienstag. Bevor wieder automatisch
+    gepostet wird: dem Abendlauf das Datum mitgeben oder früher ansetzen.
+
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
 (36), Functions-Deploy für die Abo-Kennzahl (37), Probe des
