@@ -58,8 +58,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="blog.json" as="fetch" type="application/json" crossorigin="anonymous">
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=68c2920e">
-<link rel="stylesheet" href="blog.css?v=e7f9bf8e">
+<link rel="stylesheet" href="site.css?v=bbba0ffa">
+<link rel="stylesheet" href="blog.css?v=13e54636">
 </head>
 <body>
 
@@ -239,7 +239,8 @@
     document.documentElement.lang = lang;
     document.title = t('title') + ' – Endurance Events';
     el('nav-events').textContent = t('nav_events');
-    el('nav-clubs').textContent = t('nav_clubs');
+    // Mit dem Schildchen „coming soon“ (Live-Seite) bleibt der Menüpunkt, wie er ist.
+    if (!el('nav-clubs').querySelector('.nav-bald-text')) el('nav-clubs').textContent = t('nav_clubs');
     el('nav-map').textContent = t('nav_map');
     el('nav-blog').textContent = t('nav_blog');
     el('blog-eyebrow').textContent = t('eyebrow');

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-wienerwaldlauf-9-6km-sittendorf-bei-wien@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Wienerwaldlauf – 9600 m \, Jahrgang 2017 und älter\, m/f\, 500 Plä
+ tze
+LOCATION:Sittendorf bei Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.6 km\nhttps://my.raceresul
+ t.com/432334/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/432334/
+END:VEVENT
+END:VCALENDAR

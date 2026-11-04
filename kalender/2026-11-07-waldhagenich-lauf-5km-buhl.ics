@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-waldhagenich-lauf-5km-buhl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Waldhägenich-Lauf – 5 km Lauf
+LOCATION:Bühl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.waldhaegen
+ ich-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.waldhaegenich-lauf.de/
+END:VEVENT
+END:VCALENDAR

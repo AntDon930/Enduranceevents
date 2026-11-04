@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-marsch-moor-2027-x-wanna@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Marsch & Moor 2027
+LOCATION:Wanna\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: -\nhttps://www.land-hadeln-h
+ ilft.com/details-registrierung/marsch-moor-2027
+TRANSP:TRANSPARENT
+URL:https://www.land-hadeln-hilft.com/details-registrierung/marsch-moor-20
+ 27
+END:VEVENT
+END:VCALENDAR

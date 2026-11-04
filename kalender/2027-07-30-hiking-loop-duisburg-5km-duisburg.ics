@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-30-hiking-loop-duisburg-5km-duisburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270730
+DTEND;VALUE=DATE:20270802
+SUMMARY:Hiking Loop Duisburg
+LOCATION:Duisburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 5 km\nhttps://www.hiking-loo
+ p.de/duisburg
+TRANSP:TRANSPARENT
+URL:https://www.hiking-loop.de/duisburg
+END:VEVENT
+END:VCALENDAR

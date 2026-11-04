@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-oldendorfer-winterlauf-15km-oldendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Oldendorfer Winterlauf
+LOCATION:Oldendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.lgk-nord-
+ stade.de/winterlauf/index.php
+TRANSP:TRANSPARENT
+URL:https://www.lgk-nord-stade.de/winterlauf/index.php
+END:VEVENT
+END:VCALENDAR

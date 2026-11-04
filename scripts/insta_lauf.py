@@ -82,6 +82,18 @@ def main() -> int:
 
     datum = dt.date.fromisoformat(a.datum) if a.datum else dt.datetime.now(ZoneInfo("Europe/Berlin")).date()
     ziel = a.ausgabe or AUSGABE / datum.isoformat()
+    if not a.format and not inhalte.postet_am(datum):
+        # Pausentag oder vor dem Start: kein Beitrag - aber die Vorschauen
+        # der nächsten Post-Tage legt der Morgenlauf trotzdem ab.
+        grund = "vor dem Start" if datum < inhalte.POST_START else "Pausentag"
+        print(f"{datum}: {grund} - heute kein Beitrag")
+        zusammenfassung(f"## Instagram {datum}: {grund}, kein Beitrag\n")
+        if not a.posten and not a.vorschau:
+            import insta_posten as posten
+            z = posten.zugang()
+            if z:
+                vorschauen(datum, a.vorschau_tage if a.vorschau_tage is not None else 7, ziel, None, z)
+        return 0
     beitrag = inhalte.plane(datum, format_=a.format)
     # Kennung des Inhalts VOR dem Rendern (die Namensnennung des
     # Hintergrunds kommt erst danach in die Caption) - dieselbe, die
@@ -91,6 +103,7 @@ def main() -> int:
           + (f", Moment {beitrag['moment_id']}" if beitrag.get("moment_id") else "")
           + (f", Clip {beitrag['clip']['id']}" if beitrag.get("clip") else ""))
 
+    logos_holen(beitrag)
     if a.vorschau:
         for p in video.vorschau(beitrag, ziel):
             print(f"  {p}")
@@ -148,8 +161,14 @@ def main() -> int:
         vorschauen(datum, vorschau_tage, ziel, beitrag["hash"], z)
 
     darf, grund, story_fehler = True, "", None
-    if a.posten and a.freigabe:
-        import insta_freigabe as freigabe
+    import insta_freigabe as freigabe
+    heute = dt.datetime.now(ZoneInfo("Europe/Berlin")).date().isoformat()
+    if a.posten and freigabe.vor_start(beitrag["datum"], heute):
+        darf, grund = False, f"vor dem Start am {freigabe.POST_START} wird nichts gepostet"
+        print(f"  Freigabe: NICHT posten - {grund}")
+        zusammenfassung(f"Freigabe: **nicht posten** - {grund}\n")
+        beitrag["freigabe"] = {"posten": False, "grund": grund}
+    elif a.posten and a.freigabe:
         darf, grund = freigabe.darf_posten(beitrag["datum"], beitrag["hash"])
         print(f"  Freigabe: {'posten' if darf else 'NICHT posten'} - {grund}")
         zusammenfassung(f"Freigabe: **{'posten' if darf else 'nicht posten'}** - {grund}\n")
@@ -194,7 +213,18 @@ def main() -> int:
     return 1 if pflege_fehler or story_fehler else 0
 
 
-def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str, z: dict) -> None:
+def logos_holen(beitrag: dict) -> None:
+    """Meldet, welche Logo-Folien (Formate monat/anmeldung) ein GEPRÜFTES
+    Logo haben (marketing/instagram/logos/, insta_logos.py) - die übrigen
+    zeigen den Namen. Der Lauf holt bewusst nichts aus dem Netz: Ungeprüft
+    kam jedes vierte Mal ein Sponsorlogo."""
+    import insta_logos
+    n, ohne = insta_logos.vorhanden(beitrag)
+    if n or ohne:
+        print(f"  Logos: {n} geprüft" + (f", Namenskarte für: {', '.join(ohne)}" if ohne else ""))
+
+
+def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str | None, z: dict) -> None:
     """Die Reels der nächsten Tage rendern und als Vorschau ablegen
     (insta_posten.lade_vorschau) – der „View"-Knopf der Freigabe-Karte in
     admin.html spielt sie ab. Heute ist schon gerendert; die übrigen Tage
@@ -203,23 +233,31 @@ def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str, z: dic
     Fehler hier lässt den Lauf grün – die Vorschau ist Beiwerk."""
     import tempfile
     import insta_posten as posten
-    ok = 0
+    ok, soll = 0, 0
+    # Vor dem Start zeigt die Vorschau die erste Woche ab dem Start (+1 Tag,
+    # damit auch der Montag danach dabei ist)
+    if datum < inhalte.POST_START:
+        datum, tage, kennung_heute = inhalte.POST_START, tage + 1, None
     for i in range(tage):
         tag = datum + dt.timedelta(days=i)
+        if not inhalte.postet_am(tag):
+            continue
+        soll += 1
         try:
-            if i == 0:
+            if i == 0 and kennung_heute:
                 ordner, kennung = ziel, kennung_heute
             else:
                 b = inhalte.plane(tag)
                 kennung = inhalte.beitrag_hash(b)
+                logos_holen(b)
                 ordner = Path(tempfile.mkdtemp(prefix=f"vorschau-{tag.isoformat()}-"))
                 video.rendere(b, ordner, seed=tag.toordinal())
             posten.lade_vorschau(ordner, tag.isoformat(), kennung, z)
             ok += 1
         except Exception as e:                               # noqa: BLE001 - Vorschau ist Beiwerk
             print(f"  Vorschau {tag}: nicht abgelegt ({type(e).__name__}: {str(e)[:120]})")
-    print(f"  Vorschauen für das Dashboard: {ok} von {tage} Tagen abgelegt")
-    zusammenfassung(f"Vorschauen für das Dashboard: {ok} von {tage} Tagen\n")
+    print(f"  Vorschauen für das Dashboard: {ok} von {soll} Post-Tagen abgelegt")
+    zusammenfassung(f"Vorschauen für das Dashboard: {ok} von {soll} Post-Tagen\n")
 
 
 def auswertung_text(daten: dict) -> str:

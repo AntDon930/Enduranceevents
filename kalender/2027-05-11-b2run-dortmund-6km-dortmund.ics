@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-11-b2run-dortmund-6km-dortmund@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270511
+DTEND;VALUE=DATE:20270512
+SUMMARY:B2Run Dortmund
+LOCATION:Dortmund\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.b2run.de/r
+ un/de/de/dortmund/index.html
+TRANSP:TRANSPARENT
+URL:https://www.b2run.de/run/de/de/dortmund/index.html
+END:VEVENT
+END:VCALENDAR

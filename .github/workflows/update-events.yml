@@ -46,9 +46,14 @@ jobs:
     # Wettbewerbe, das Land und die offizielle Veranstalter-Seite.
     # Das Limit liegt deutlich darüber, damit ein einzelner langsamer Lauf
     # nicht kurz vor dem Commit abgeschnitten wird - eine hängende
-    # Quelle soll ihn aber weiterhin beenden, statt stundenlang Minuten zu
-    # verbrauchen (GitHub-Standard wären 6 Stunden).
-    timeout-minutes: 300
+    # Quelle soll ihn aber weiterhin beenden. Seit dem 27.10.2026 sind es
+    # 360 Minuten, das Maximum für gehostete Läufer (vom Nutzer
+    # freigegeben): Der Lauf vom 26.10.2026 brauchte 262 von damals 300
+    # Minuten, und mit der Gedächtnis-Prüfung (40 min) und der
+    # Instagram-Prüfung (8 min) wächst er weiter. Reißt ein Lauf die
+    # Grenze, wird NICHTS committet. Reicht auch das nicht, muss er
+    # geteilt werden (eigener Workflow für einen der Prüfschritte).
+    timeout-minutes: 360
     steps:
       - name: Checkout
         uses: actions/checkout@v4

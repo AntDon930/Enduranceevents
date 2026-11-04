@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-crosslauf-am-opfinger-see-x-freiburg-im-breisgau@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:Crosslauf am Opfinger See
+LOCATION:Freiburg im Breisgau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
+ 424516/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/424516/
+END:VEVENT
+END:VCALENDAR

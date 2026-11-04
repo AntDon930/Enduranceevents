@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-running-up-for-air-austria-12h-salzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Running Up for Air Austria
+LOCATION:Salzburg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 h\nhttps://www.trailbande
+ .at/rufa-austria/
+TRANSP:TRANSPARENT
+URL:https://www.trailbande.at/rufa-austria/
+END:VEVENT
+END:VCALENDAR

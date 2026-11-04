@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:63. Göttinger Cross-Serie (2. Lauf)
 LOCATION:Göttingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://ladv.de/ausschr
- eibung/detail/49466/63.-G%C3%B6ttinger-Cross-Serie-%282.-Lauf%29-G%C3%B6t
- tingen.htm
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.lggoettinge
+ n.de/wettkaempfe/crosslauf-serie
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49466/63.-G%C3%B6ttinger-Cross-Se
- rie-%282.-Lauf%29-G%C3%B6ttingen.htm
+URL:https://www.lggoettingen.de/wettkaempfe/crosslauf-serie
 END:VEVENT
 END:VCALENDAR

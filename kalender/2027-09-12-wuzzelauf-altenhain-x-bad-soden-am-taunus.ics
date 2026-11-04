@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-wuzzelauf-altenhain-x-bad-soden-am-taunus@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Wuzzelauf Altenhain
+LOCATION:Bad Soden am Taunus\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://tsg-altenhain.de/
+ wuzzelauf/
+TRANSP:TRANSPARENT
+URL:https://tsg-altenhain.de/wuzzelauf/
+END:VEVENT
+END:VCALENDAR

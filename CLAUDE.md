@@ -32,9 +32,53 @@ Entwicklungs-Branch oben; der Clubs-Branch holt sie per **Merge** nach
 (nie umgekehrt vor dem Launch). `pages.yml` legt bei jedem Deploy den
 Clubs-Stand unter **`/vorschau/`** (noindex, robots.txt gesperrt, Daten
 vom Live-Stand); ein Push auf den Clubs-Branch stößt den Deploy über
-`vorschau.yml` an. **Launch**: Clubs-Branch in den Entwicklungs-Branch
-mergen, dann die beiden Vorschau-Schritte in `pages.yml`, `vorschau.yml`
-und die Zeile `Disallow: /vorschau/` in `robots.txt` entfernen.
+`vorschau.yml` an. **Seit dem 19.10.2026 mit Anmeldesperre** (vom Nutzer
+gewünscht, nachdem er gefragt hatte, ob die Vorschau geschützt ist – sie
+war es nicht, jede/r mit der Adresse kam drauf): `pages.yml` setzt
+`vorschau-sperre.js` als erstes Skript in jede Vorschau-Seite; sie zeigt
+die Seite nur, wenn das angemeldete Konto unter `admins/<uid>` steht (wie
+`admin.html`, REST mit ID-Token), sonst „Mit Google anmelden“ bzw. „kein
+Zugang“ mit der Konto-ID. Fail-closed: bis zur Bestätigung ist alles
+dahinter `opacity:0` + `inert`, und der Schritt „Vorschau nur mit
+Anmeldesperre“ wirft vor dem Upload die ganze Vorschau heraus, wenn EINE
+Seite die Sperre nicht trägt. **Grenze, dem Nutzer gesagt: Sichtschutz,
+kein Tresor** – GitHub Pages liefert die Dateien (HTML, Daten) an jeden
+aus, der sie direkt abruft. Ein Firebase-Update in `vendor/` muss
+`FIREBASE_PFAD` in der Datei mitnehmen (`test_vorschau_sperre` prüft den
+Pfad). **Launch**: Clubs-Branch in den Entwicklungs-Branch mergen, dann
+die drei Vorschau-Schritte in `pages.yml` (holen, vorbereiten, Wächter),
+`vorschau.yml`, `vorschau-sperre.js` und die Zeile `Disallow: /vorschau/`
+in `robots.txt` entfernen.
+
+**Ankündigung auf der Live-Seite (seit dem 04.11.2026, vom Nutzer: „Auf
+der Live Webseite können wir … die Clubs schon einmal ankündigen … neben
+der Events Spalte die ‚Clubs‘ hinzufügen und dann darunter hinzuschreiben
+‚coming soon‘ … und dann vielleicht noch so ein süßer Bauarbeiter mit Under
+Construction“)**: Im Menü von Startseite, Liste und Karte steht „Clubs“
+zwischen Events und Karte (dieselbe Reihenfolge und dieselben Ids
+`nav-clubs` wie auf dem Clubs-Branch) mit dem Schildchen
+`<span class="nav-bald-text">coming soon</span>` (Klasse `.nav-bald` in
+`site.css`, absolut unter dem Wort – sonst rutschte das Menü auf 360 px in
+eine eigene Zeile). Es führt auf die Ankündigung **`clubs.html`**: eigener
+Bauarbeiter als Inline-SVG, Schild „Coming soon“, ein Satz (DE/EN). Die
+Datei steht in denselben Seitenlisten wie auf dem Clubs-Branch
+(`SEITEN`, `HTML_FILES`, Wartung, Farbschema, TDM, `STATS_SEITEN` – gezählt
+wird die Seite erst nach dem nächsten Functions-Deploy). **Beim Merge des
+Entwicklungs-Branches in den Clubs-Branch**: `clubs.html` ist auf beiden
+Seiten neu (add/add) – die Fassung des Clubs-Branches nehmen; in den drei
+Menüzeilen ebenfalls dessen Zeile (ohne Schildchen). **Beim Launch** dazu
+die Regel `.nav-bald`/`.nav-bald-text` aus `site.css` und
+`pruefe_clubs_bald` aus dem Rauchtest nehmen. Die Adresse `clubs.html`
+bleibt, geteilte Links gelten weiter.
+
+**Der Blog ist seit dem 04.11.2026 vorab LIVE** (vom Nutzer: „Ja, bitte
+veröffentliche den Blog (A) … Die Clubs noch nicht launchen“): Blogdateien,
+Reiter „Blog“, `sitemap.xml` stehen auf dem Entwicklungs-Branch. Auf dem
+Clubs-Branch dieselben Dateien; beim Merge in den Clubs-Branch dort in
+`blog.html` (und damit in den erzeugten `blog/*.html`) die Clubs-Zeile OHNE
+Schildchen nehmen und `build_blog.py` laufen lassen. **Neue Beiträge gehen
+auf den Entwicklungs-Branch** (beide Live-Namen), dann per Merge in den
+Clubs-Branch – README „Blog“.
 
 ## Dateien
 
@@ -51,6 +95,8 @@ und die Zeile `Disallow: /vorschau/` in `robots.txt` entfernen.
 | `favicon.svg`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `manifest.webmanifest` | das Zeichen des Style Guides (Navy-Kachel, weiße Route, oranger Punkt); die PNGs entstehen aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 bzw. 192/512 px, randvoll ohne Rundung), `cairosvg` gibt es in der Sandbox nicht. Das **Manifest** (seit 13.10.2026, in allen sechs Seiten verlinkt) macht aus „Zum Home-Bildschirm" eine App mit Namen, Navy-Farbe und eigenem Fenster (`display: standalone`) |
 | `vendor/fonts/` | **Barlow und Barlow Condensed** als woff2 (SIL OFL, Lizenztexte daneben), eingebunden über `vendor/fonts/barlow.css` in allen fünf Seiten – selbst gehostet, nichts von Google-Servern; ohne Stempel wie alles in `vendor/` |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
+| `clubs.html` | **Ankündigung der Clubs** („coming soon“, Bauarbeiter, ein Satz DE/EN; seit 04.11.2026) – wird beim Launch durch die Clubs-Seite vom Vorschau-Branch ersetzt, siehe „Vorschau-Branch für die Clubs“ |
+| `blog.html`, `blog.json`, `blog.css`, `blog/<slug>.html`, `scripts/build_blog.py`, `scripts/blog_texte/` | **Blog** (seit 04.11.2026, LIVE – vorab vor den Clubs; Menüpunkt „Clubs“ live mit „coming soon“): Reiter „Blog“ hinter „Karte“ in jeder Seite, Übersicht aus `blog.json`, je Beitrag eine erzeugte Seite unter `blog/` (Text in `scripts/blog_texte/<slug>.html`, dann `python3 scripts/build_blog.py`; `stamp_assets.py` ruft es mit auf; schreibt auch `sitemap.xml`, in `robots.txt` genannt) – README „Blog“; `test_blog` + Rauchtest `pruefe_blog`; **montags und donnerstags ein neuer Beitrag** aus `scripts/blog_themen.md` (geplante Aufgabe „Blog-Artikel am Montag und Donnerstag“, `trig_015LFqPsP972Ny6SzfzezXw2`, 06:37 Berlin, pusht auf beide Live-Branches und merged in den Clubs-Branch), Ton motivierend und leicht lesbar, Fußnoten nur bei Schlüsselthemen |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
 | `site.css` | **Farben (ZWEI Schemata: dunkel = `:root`, hell = `:root[data-theme="light"]`), Kopfzeile (Marke, Navigation, Hell/Dunkel-Knopf, DE/EN, Anmelden), Filterleiste, Werkzeugleiste, Fußzeile** – geteilt von Liste, Karte und Startseite; seit dem Umbau vom 21.09.2026 nach den Vorlagen des Nutzers (Liste dunkel, Karte hell) |
 | `filter-ui.js`, `filter-ui.css` | die Filterknöpfe (**Pillen mit gesetztem Wert**, `buildButtonBar` mit `order`) + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |
@@ -70,6 +116,7 @@ und die Zeile `Disallow: /vorschau/` in `robots.txt` entfernen.
 | `scripts/links_geprueft.json` | **Protokoll der Linkprüfung** (nur `veranstalter_url`, 500 Veranstaltungen am 19.09.2026) – bewusst getrennt von `geprueft.json`, damit die Datenprüfung diese Events nicht für „erledigt" hält |
 | `scripts/eventliste_pdf_geprueft.json` | **Prüfprotokoll der PDF-Eventliste des Nutzers** (24.09.2026, 247 Rad- und Schwimm-Einträge DE/AT je Bundesland): je Eintrag Ergebnis und Notiz – 34 nachgetragen, 19 im Bestand, 67 „existiert, Termin offen" (53 davon mit Seite – im Gedächtnis, der Wochenlauf fragt sie ab –, 14 ohne auffindbare Seite), 98 nicht gefunden; Stand 13.10.2026 nach der Websuche zu den letzten 28 ohne Seite; siehe README („Die Eventliste des Nutzers") |
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
+| `scripts/abo_meldung.py` | **E-Mail-Abos** (seit 20.10.2026): `vergleichen` (in `pages.yml` vor dem Upload: was ist seit der letzten Meldung sichtbar geworden? Meldestand in `deploy.json` auf der Seite), `senden` (Job `abo` NACH dem Deploy, an `checkNewEvents`); gemeldet wird einmal je Datenlauf – siehe „Abos sind Filter + Rhythmus“ |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
 | `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** – `sammeln` (raceresult-Kontaktseite, externe Links der Portalseite), `verifizieren` (Adressen aus einer Websuche), `pruefen` (eigene Seiten: tot? nennt den Lauf?), `anwenden` (Overrides + Protokoll); jede Kandidatenseite muss den Lauf am Namen nennen (bei `verifizieren` zählt auch der Ort im Hostnamen), siehe „Neunter/Zehnter Durchgang"; `sammeln --ohne-host`, `veranstalter_name` aus der raceresult-Kontaktseite und die Berichtsfelder `begruendung`/`protokoll` für Handbelege seit dem „Achtzehnten Durchgang" |
@@ -77,7 +124,10 @@ und die Zeile `Disallow: /vorschau/` in `robots.txt` entfernen.
 | `scripts/veranstalter_seiten.py` | **Gedächtnis je Veranstaltung OHNE Datum** (seit 05.10.2026, vom Nutzer gewünscht): Schlüssel `<Kern des Namens>\|<Ort>`, merkt Veranstalterseite, Koordinaten, Sportart und Strecken der jüngsten Ausgabe; `lernen`/`anwenden`/`abgleich_vorjahr` laufen in `clean_events.py`, `pruefen` ruft die Seiten VERGANGENER Veranstaltungen ab und sucht die nächste Ausgabe (wöchentlich in `update_events.py`, `--uebernehmen` schreibt eindeutige Funde nach `manual_events.json`); siehe „Gedächtnis je Veranstaltung" |
 | `scripts/veranstalter_seiten.json` | **~2 MB, 4.371 Veranstaltungen (4.151 mit Seite) – nie komplett lesen**; eine Zeile je Eintrag, nach Schlüssel sortiert; geschrieben von `clean_events.py`, vom Datenlauf mitcommittet. Nachschlagen: `python3 scripts/veranstalter_seiten.py zeigen <Suchwort>` |
 | `scripts/veranstalter_seiten_pruefung.json` | Bericht von `pruefen` (je Veranstaltung Flag NEU/NEU?/LEER/NICHTS/FEHLER, gefundene Termine); entsteht im Datenlauf, wird mitcommittet |
+| `scripts/instagram_konten.py`, `scripts/instagram_konten.json` | **Das eigene Instagram-Konto großer Veranstaltungen** (seit 27.10.2026, vom Nutzer gewünscht): `pruefen` liest die EIGENE Veranstalterseite künftiger Events (nie Portal; robots.txt, 2 s je Host, 8 Hosts gleichzeitig, Startseite als Rückfall) und legt je Adresse die verlinkten Konten ab (eine Zeile je Adresse, ohne Urteil, alle 90 Tage neu, nach Fehler nach 21); `event_konto()` entscheidet, welches dem Event selbst gehört; `clean_events.fix_instagram()` setzt das Feld `instagram` – siehe Frontend-Fallen „Das Instagram-Zeichen großer Veranstaltungen“. Nachschlagen: `python3 scripts/instagram_konten.py zeigen <Suchwort>` |
 | `scripts/korrekturliste.py` | **Excel-Korrekturliste für den Nutzer** (seit 05.10.2026): `export` schreibt alle Strecken mit fehlender/fraglicher Angabe (Audit-Meldungen ohne Eintrag in `geprueft.json`, vorläufige Termine, „unklar“-Fälle) als `.xlsx`, Zellen rot = fehlt, orange = fraglich; `import datei.xlsx [--dry-run]` liest die korrigierte Fassung zurück (Vergleich gegen das ausgeblendete Blatt `_original`), schreibt `manual_overrides.json` + `geprueft.json` und lässt `clean_events.py --no-geocoding` und `build_ics.py` laufen. Braucht `openpyxl`. Die `.xlsx` wird nicht committet. **Seit dem Livegang (13.10.2026) ist die Liste der Schalter: Jede Zeile, die in ihr steht, trägt in `events.json` `pruefung_offen: true` und ist auf der Seite ausgeblendet** (siehe „Livegang") |
+| `korrektur/korrekturliste.html`, `scripts/korrektur_seite.py` | **Die Korrekturseite** (seit 19.10.2026, statt die zwei Excel-Listen hin- und herzuschicken): privates claude.ai-Artifact mit Datenbank, gleiche Spalten, Farben und Auswahllisten wie die Excel; `korrektur_seite.py daten events\|clubs` baut die Zeilen aus dem Excel-Export (`korrektur/daten/*.json`, nicht committet), `einlesen` schickt die Antworten durch den VORHANDENEN Import – siehe „Korrekturseite“ |
+| `vorschau-sperre.js` | **Anmeldesperre der Clubs-Vorschau** (seit 19.10.2026): `pages.yml` kopiert sie nach `vorschau/` und setzt sie in jede Vorschau-Seite; nur Konten in `admins/<uid>` sehen die Seiten – siehe „Vorschau-Branch für die Clubs“ oben |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
@@ -92,9 +142,9 @@ und die Zeile `Disallow: /vorschau/` in `robots.txt` entfernen.
 | `scripts/insta_inhalte.py`, `insta_video.py`, `insta_musik.py`, `insta_veranstalter.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions + Stories, Reel- und Story-Render (Pillow + ffmpeg, eigener Beat), @-Erwähnung der Veranstalter (Name von deren Seite), Auswertung, Upload über die Instagram-API (seit 16.10.2026 **Anmeldung über Instagram**: Video kurz im Google-Speicher, Schlüssel im Google-Tresor, beides ohne Schlüsseldatei über Workload Identity; einmal einrichten mit `scripts/instagram_google_einrichten.sh` in der Cloud Shell), alles in einem Aufruf – siehe „Instagram" |
 | `scripts/insta_freigabe.py`, `marketing/instagram/plan.json` | **Freigabe mit einem Klick** (14.10.2026): `plan.json` (im Pages-Workflow erzeugt, nie committet) nennt die Beiträge der nächsten 14 Tage mit Kennung des Inhalts; das Dashboard (`admin.html`, Karte „Instagram-Freigabe") schreibt `insta_freigaben/<Datum>` in Firestore; der Abendlauf fragt `insta_freigabe.darf_posten()` – siehe „Instagram" |
 | `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `humor.json` (eigene Läuferwitze für das Format „humor"), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` (dort auch `instagram_namen.json`) nicht im Repo |
-| `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort seit dem 16.10.2026 auf diesem Stand (Commit `ae5751ef`, Anmeldung über Instagram, Google-Zugang per Workload Identity) |
+| `scripts/insta_logos.py`, `marketing/instagram/grosse_events.json`, `marketing/instagram/logos/` | **Logo-Reels** (seit 27.10.2026): die großen Events mit Starterzahl und Anmeldestart (je mit Quelle) und ihre GEPRÜFTEN Logos (`logos/<slug>.png`, Quelle in `logos/logos.json`); `insta_logos.py sammeln|uebernehmen|bogen` – siehe „Instagram", Bullet „Logo-Reels" |
+| `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort auf diesem Stand (seit dem 27.10.2026 Commit `9461aba6`: Formate monat/anmeldung im Handlauf, vom Nutzer: „Ja bitte auf main“; davor `ae5751ef`, Anmeldung über Instagram) |
 | `clubs.json`, `clubs.js`, `clubs.css`, `clubs.html` | **Clubs** (seit 19.10.2026, Vorschau-Branch): wiederkehrende Treffs, Termine aus der Regel gerechnet (nie eingetragen), Stufe aus dem Tempo; Liste `clubs.html`, auf der Karte der Schalter Events / Clubs / Beide (`?ebene=`, `?wann=`) – Format und Launch in README „Clubs“; `test_clubs` + Rauchtest `pruefe_clubs` |
-| `blog.html`, `blog.json`, `blog.css`, `blog/<slug>.html`, `scripts/build_blog.py`, `scripts/blog_texte/` | **Blog** (seit 04.11.2026, Vorschau-Branch): Reiter „Blog“ hinter „Karte“ in jeder Seite, Übersicht aus `blog.json`, je Beitrag eine erzeugte Seite unter `blog/` (Text in `scripts/blog_texte/<slug>.html`, dann `python3 scripts/build_blog.py`; `stamp_assets.py` ruft es mit auf) – README „Blog“; `test_blog` + Rauchtest `pruefe_blog`; **montags und donnerstags ein neuer Beitrag** aus `scripts/blog_themen.md` (geplante Aufgabe „Blog-Artikel am Montag und Donnerstag“, `trig_015LFqPsP972Ny6SzfzezXw2`, 06:37 Berlin), Ton motivierend und leicht lesbar, Fußnoten nur bei Schlüsselthemen |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
@@ -134,7 +184,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 335 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 357 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (bis 900 px: Kacheln statt Tabelle, der Knopf
 „Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -178,7 +228,8 @@ Kacheln, flache Übersicht und Kacheln ab Zoom 8, Bündel mit Ortsnamen,
 Orientierungsorte, „E-Mail-Abo" in die Liste), der Popup-Link ohne
 Pfeil, Filter über den Weg Liste → Karte → Liste und das **Farbschema**
 (der Knopf schaltet um, die Wahl bleibt gespeichert und gilt auf der
-nächsten Seite). Ohne Playwright bricht er
+nächsten Seite), die **Clubs-Ankündigung** (Menüpunkt mit „coming soon“
+auf drei Seiten, `clubs.html` in DE/EN, Menü auf 360 px in einer Zeile). Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
 blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`
@@ -709,6 +760,17 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      **Seit dem 07.10.2026 auch FITLETIX, THE ROX, Deadly Dozen, ATHX und
      StrongAthlon** (To-do-Liste, Punkt 9) – vorher nur per Override, und
      ein Override trifft nur seinen einen Termin.
+     **Skilanglauf erweitert am 27.10.2026** (bei der Instagram-Durchsicht
+     sichtbar gefunden, sieben Veranstaltungen / 21 Zeilen als „Laufen ·
+     Straße“, jede an ihrer Seite geprüft): `\blanglauf\b` traf das
+     Kompositum nicht („Planoiras Volkslanglauf“), dazu „Loppet“ (Skadi,
+     Gantrisch – „Swiss Loppet“ ist die Volkslanglauf-Serie), die Marken
+     Gommerlauf, Ganghoferlauf, „Nordic Days“ (Kandersteg) und die Technik
+     im Label („Skating“ ohne „Inline“, „freie Technik“, „100 km
+     Klassisch“ – Rucksacklauf Schonach). Gegenproben „Inlineskating“,
+     „klassischer Marathon“, „Langläufer-Cup“, „Langlaufzentrum“ in
+     `test_nicht_ausdauer`. Keine neue Kategorie, die Entscheidung vom
+     21.09. – nur das Muster dafür.
      **Nicht** darunter fallen die Walking-/Nordic-Walking-Strecken
      innerhalb eines Volkslaufs (145 Zeilen) – das ist eine offene
      Frage an den Nutzer, siehe unten.
@@ -875,6 +937,59 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    der Absage weiter mit „Melde dich jetzt an". Der Neunkirchner
    Sommerlauf ist KEIN Absage-Fall mehr: Die Seite dankt inzwischen für
    die Teilnahme 2026.
+   **Abgesagt heißt: DIESE Ausgabe, nicht die Veranstaltung** (vom Nutzer
+   am 20.10.2026 am 25h Handorf: „einen Status der das Event rausnimmt
+   aus der Liste aber auch für nächstes Jahr merkt, weil löschen will ich
+   es nicht"). Dafür gibt es den Status **„Fällt aus"** in Korrekturseite
+   und Excel (`korrekturliste.STATUS_WERTE`, `korrektur_seite.STATUS_WERTE`):
+   Der Import schreibt `exclude: true` UND `abgesagt: true` in den
+   Override (`_note` „Ausgabe … fällt aus – die Veranstaltung bleibt im
+   Gedächtnis") und `ergebnis` **`abgesagt`** in `geprueft.json`;
+   `clean_events.abgesagte_zeilen()` reicht die Zeilen an
+   `veranstalter_seiten.merke_abgesagt()`, das am Gedächtnis-Eintrag
+   `abgesagt: <Starttag>` setzt – Seite und Strecken bleiben, und weil die
+   Zeile in `events.json` fehlt, fragt `pruefen` die Seite nach der
+   nächsten Ausgabe (10–14 Monate später), wie bei jeder vergangenen
+   Veranstaltung. Die Markierung fällt weg, sobald eine jüngere Ausgabe
+   gelernt ist. `merke_abgesagt()` legt nichts an (eine Zeile mit Status
+   kam über die Korrekturliste, ist also längst gelernt) und meldet ⚠,
+   wenn es keinen Eintrag findet – dann von Hand merken. **„Löschen"
+   ist dagegen nur „diese Zeile raus" – und nächstes Jahr wird
+   nachgesehen** (vom Nutzer am 20.10.2026 entschieden: „löschen soll nur
+   die eine Zeile herausnehmen und schauen ob das Event nächstes Jahr
+   passend ist"; NICHT „für immer" – eine gelöschte Strecke ist oft nur
+   EINE von mehreren). Der Import schreibt `exclude` + **`geloescht`**,
+   `clean_events.geloeschte_zeilen()` reicht die Zeile an
+   `veranstalter_seiten.merke_geloescht()`: Die Strecke fliegt aus den
+   gemerkten `strecken` dieser Ausgabe (sonst legte `pruefen` sie
+   nächstes Jahr als Vorjahreskopie wieder an) und steht unter
+   `geloescht` (Tag + Strecke; `ganz`, wenn von der Ausgabe nichts
+   übrig bleibt). `Gedaechtnis.geloescht_fuer()` findet die passende
+   Zeile der NÄCHSTEN Ausgabe (300–430 Tage später wie `FENSTER_TAGE`,
+   gleiche Länge ± 0,5 km bzw. Dauer bzw. Label; bei `ganz` jede), und
+   `audit_events.offene_pruefungen(…, gedaechtnis=)` gibt ihr den Grund
+   **„geloescht"** – sie ist ausgeblendet und steht wieder in der
+   Korrekturliste, bis der Nutzer sie geprüft hat (egal ob Quelle oder
+   Gedächtnis sie bringt). Gleiche Saison einer Serie und spätere Jahre
+   zählen nicht; Markierungen älter als 430 Tage räumt `merke_geloescht`
+   weg. `mark_pruefung_offen()` und `korrekturliste.export` übergeben
+   das Gedächtnis. Die neun Löschungen vor dem 20.10.2026 sind von Hand
+   nachgezogen (Zeilen aus der Git-Geschichte von `events.json`). **Wer
+   von Hand löscht, was der NUTZER löschen wollte** (etwa ein
+   „Check again" mit Ergebnis `entfernt`), setzt `"geloescht": true` mit
+   ins Override. `test_geloescht` hält alles fest. **Quellen, die die
+   Absage in den Namen schreiben**, fallen beim Einsammeln weg wie bei
+   boe/dsergebnis/kilometerliebe – seit dem Tag auch schwimmkalender.de
+   (`ABGESAGT` im Scraper). Der Anlass: „25h Handorf FÄLLT AUS!!!"
+   kam am 19.10.2026 als NEUE Zeile mit dem Ort „FÄLLT AUS!!!" (und einem
+   verdorbenen Gedächtnis-Eintrag, entfernt) – die saubere Zeile „25h
+   Handorf" vom September blieb daneben sichtbar, denn das Einsammeln
+   fügt hinzu, es löscht nicht. Beide stehen mit „Fällt aus" im Override.
+   **Lehre**: Ändert eine Quelle den Namen einer Ausgabe, steht die alte
+   Zeile weiter da – bei einer Absage immer nach der Schwesterzeile
+   suchen (`aktuelle_schluessel()` zeigt, welche Zeile einen Eintrag als
+   „aktuell" hält). `test_faellt_aus` hält Import,
+   Gedächtnis, `pruefen`-Auswahl und Scraper fest.
 
 19. **Vorläufige Termine tragen `datum_vorlaeufig`** (vom Nutzer am
    21.09.2026 entschieden: „kein konkretes Datum auf jeden Fall, wenn
@@ -2753,6 +2868,36 @@ Halbmarathon wurde") – Tabelle im README („Was das Gedächtnis aushält"):
   solche Doppel-Einträge aus der Zeit vor der unscharfen Suche bleiben
   im Gedächtnis stehen, `finde()` nimmt weiter nur den genauen.
 
+**Abgesagte Ausgaben (20.10.2026)**: Status „Fällt aus" → Override
+`exclude` + `abgesagt` → `merke_abgesagt()` setzt `abgesagt: <Tag>` am
+Eintrag; Seite und Strecken bleiben, `pruefen` sucht die nächste Ausgabe,
+die nächste gelernte Ausgabe nimmt die Markierung weg (Einzelheiten bei
+Datenregel 18).
+
+**Zwei Gedächtnis-Einträge, EINE Ausgabe (19.10.2026)**: Der Wochenlauf
+übernahm den Citylauf Schwabach zweimal – unter „Citylauf Schwabach“
+(5/10/21,1 km) und unter dem Sponsornamen „RIBE Citylauf Schwabach“
+(21 km), zwei Schlüssel aus der Zeit vor der unscharfen Suche.
+`add_manual_events()` überging die zweite 21-km-Zeile richtig, aber
+`test_manuelle_events` verlangt, dass jeder Eintrag der Datei in eine
+leere Liste passt – rot, und damit blieb der ganze Datenlauf hinter dem
+Deploy-Gate. Seitdem lässt `uebernehmen()` jede Strecke weg, für die
+`is_same_event()` in `manual_events.json` am selben Tag schon eine Zeile
+findet (Bericht: „… stehen schon unter einem anderen Namen“); der
+RIBE-Eintrag ist aus der Datei entfernt, `test_gedaechtnis` hält den Fall
+fest. Die beiden Gedächtnis-Einträge bleiben stehen (siehe oben,
+`finde()` nimmt den genauen).
+**Dieselbe Strecke zweimal IN einem Eintrag (26.10.2026)**: Der nächste
+Montagslauf blieb aus demselben Grund hinter dem Gate – „Naturpark
+Schönbuchlauf“ 2027 kam mit zweimal 25 km (einmal mit, einmal ohne Label;
+zwei Quellen der Vorjahresausgabe, beim Lernen vereinigt). Die Sperre vom
+19.10. verglich nur mit Zeilen, die schon in der Datei standen. Jetzt
+gilt `is_same_event()` auch INNERHALB einer Übernahme, die Zeile mit Label
+bleibt (Bericht: „… doppelt im Gedächtnis“); am Bestand tragen 75 Einträge
+eine Länge doppelt. `test_gedaechtnis` hält es fest. **Lehre**: Eine
+Regel gegen Doppelte muss alle drei Fälle sehen – gegen die Datei, gegen
+andere Einträge derselben Übernahme und innerhalb des Eintrags.
+
 **Einträge von Hand – die PDF-Liste des Nutzers (13.10.2026, „Ja, bitte
 die 45 ins Gedächtnis aufnehmen")**: Von den 72 „existiert, Termin
 offen"-Einträgen in `eventliste_pdf_geprueft.json` haben 45 eine
@@ -3851,6 +3996,79 @@ sagt es).
   `pruefeNachladen()` am Ende, und weiter unten deklariert gab es
   „Cannot access 'nachladeFrame' before initialization" (der Rauchtest
   hat es gemeldet – dieselbe Falle wie bei `DATE_PRESETS`).
+- **Das Instagram-Zeichen großer Veranstaltungen** (seit 27.10.2026, vom
+  Nutzer: „die größeren Events mit einem Instagram Account verknüpfen …
+  das Instagram Logo irgendwo klein hin … Das muss nicht für jedes Event
+  gemacht werden, aber für die großen wär das schon gut, die auch einen
+  eigenen Instagram Account haben.“). Ein kleines quadratisches Zeichen
+  (`a.detail-insta`, Konturicon `INSTA_SVG`, 48 × so hoch wie der Knopf)
+  RECHTS neben „Zur Veranstalterseite“ in `.detail-link-zeile` – in der
+  Liste und auf der Karte (dieselbe Box), Link
+  `https://www.instagram.com/<name>/`, Beschriftung „@name auf
+  Instagram“ (`detail_instagram`, DE/EN). Nichts wird von Instagram
+  geladen (inline-SVG, ein Link überträgt nichts) – deshalb keine
+  Änderung an der Datenschutzerklärung; ein Klick wird NICHT gezählt (das
+  wäre eine neue Aktion in der Statistik samt Datenschutz-Text und
+  Functions-Deploy). **Woher das Konto kommt, ist der ganze Punkt**:
+  nur von der eigenen Veranstalterseite, und nur, wenn der Kontoname aus
+  dem Namen der Veranstaltung besteht (`instagram_konten.event_konto`):
+  mindestens 60 % seiner Buchstaben aus Namens-/Ortswörtern UND ein
+  unterscheidendes Namenswort (kein Allerweltswort wie marathon/lauf/
+  trail, kein Vereinskürzel, nicht der Ort) – oder Ort plus
+  Veranstaltungswort („leipzigmarathon“) oder der Name ganz aus zwei
+  Namenswörtern („cityundtrail“). So fallen Verein (`lsvham`,
+  `tsvpenzberg`), Agentur (`alohasport.at`), Sponsor (`brooksrunning`),
+  Tourismus (`pitztal`) und Schwesterrennen (`erlentriathlon`) weg. Die
+  Durchsicht der ersten 128 Treffer fand zwei weitere Klassen, beide
+  jetzt Regel: der **Verein im Namen des Laufs** (`tuswasserstrasse`,
+  `alvmainz`, `scc.la` – Kürzel vorn im Kontonamen, `VEREIN_VORN`/
+  `VEREIN_KUERZEL`, und Vereinswörter wie athletik/laufclub/jeunesse) und
+  die **Ausgabe derselben Serie in einer anderen Stadt**
+  (`halloweenrunbremen` beim Lauf in Rotenburg: ein Ort ab 10.000
+  Einwohnern aus `places.json` im nicht abgedeckten Rest des Namens); das
+  ist zugleich der Filter „nur die großen“ – kleine Vereinsläufe haben
+  kein eigenes Konto. **Die Durchsicht ALLER 696 Treffer** (27.10.2026,
+  nach dem ersten vollen Lauf: 3.766 Seiten, 2.191 mit Instagram-Link)
+  fand 30 Fehltreffer in vier Klassen, jetzt Regel bzw. Liste: ein
+  **Vereinskürzel im Rest** des Kontonamens (`heeslingersc`, `lcauensee`,
+  `bocholterwsv_triathlon` mit Adjektivendung; „tri“ zählt dort nicht –
+  `ostseemantri`), das Vereinswort **„club“** (`triathlon_club_bremen`,
+  `ratzeburger_ruderclub`), „lauffreunde“ und „verband“, ein Konto
+  NUR aus **Kürzel des Namens plus Ort**, wenn der Lauf selbst im Konto
+  fehlt (`tgs.hausen` beim „Volkslauf der TGS Hausen“, `otb_osnabrueck`,
+  `mrrc_muenchen`, `wvckassel`, `awg_plauen`; `byu.lustenau` für „BYU
+  Lustenau“ und `evl.halbmarathon` bleiben), **Tourismus** (`mein…`/
+  `dein…`/`visit…` vor EINEM Namenswort ohne Veranstaltungswort –
+  `meinmontafon`, `dein.edersee`, aber `meinfreiburgmarathon` bleibt; ein
+  Konto NUR aus Ortsnamen aus `places.json`, wenn dem Konto ein eigenes
+  Wort der Veranstaltung fehlt – `usedom` beim „Usedom Beach Marathon“,
+  `zellamseekaprun` beim TriZell; „A Travers Romanel“ und
+  `sierrezinal_officiel` bleiben) und die **Sperrliste
+  `KEIN_EVENT_KONTO`** in `instagram_konten.py` für Firmen, Bergbahn,
+  Flughafen, Laufteams und Tourismusverbände, die keine Regel erkennt
+  (`sportscheck`, `airportpad`, `niesenbahn`, `vabalispa_official`,
+  `pitztal` …, je mit Grund) – sie hängt am Kontonamen, gilt also auch
+  für die nächste Ausgabe. **Stand danach**: 2.383 Zeilen tragen ein
+  Konto, 2.093 davon sichtbar, 810 verschiedene Konten (davon 101 aus der
+  recherchierten Liste). Abkürzungen sieht die Regel nicht
+  (`trailvsb`, `wtcshamburg`) – dafür der Override `"instagram":
+  "<name>"`, abschalten mit `"instagram": null`. **Vor der Erkennung steht die
+  recherchierte Liste** `marketing/instagram/grosse_events.json` (127
+  große Events für die Logo-Reels, am 27.10.2026 von einer parallelen
+  Sitzung einzeln recherchiert, 101 mit Konto): Gehört die Zeile zu einem
+  davon (`insta_inhalte.gross_fuer` – Suchwort im Namen, Land, Sportart),
+  gilt dessen Konto, auch hinter einem Portallink. Rangfolge also
+  Override > große Events > Erkennung. `fix_instagram()` läuft als
+  vorletzter Schritt von `clean_events.py` (vor `mark_pruefung_offen`,
+  nach allen Korrekturen an Name, Ort und Link), idempotent; der
+  Wochenlauf fragt vorher bis zu 400 Seiten in 8 Minuten
+  (`run_instagram_konten()` in `update_events.py`, neue Seiten zuerst),
+  `stage_kalender()` nimmt `instagram_konten.json` mit in den Commit (die
+  Workflow-Datei auf `main` kennt sie nicht und muss dafür nicht
+  geändert werden). Tests: `test_instagram_konten` (Regel mit den Fällen
+  der Stichprobe vom 27.10.2026, Sammeln mit Attrappe, Zuordnung),
+  Rauchtest `pruefe_instagram` (Zeichen, Link, Lage neben dem Knopf; Event
+  ohne Konto ohne Zeichen).
 - **Ein Event teilen: Link, kein PDF.** Der Knopf oben rechts in der Box
   gibt `navigator.share()` Titel, die Angaben aus der Box und einen
   **absoluten Link auf genau dieses Event** (`?event=<eventSlug>`);
@@ -3997,6 +4215,48 @@ sagt es).
   - „Sofort" ist ehrlich beschriftet: Die Daten werden **wöchentlich**
     erneuert, schneller als der Datenlauf kann kein Abo sein. Der Text
     sagt das (`abo_r_sofort_note`).
+  - **Wann die Mails rausgehen (seit dem 20.10.2026)**: einmal je
+    Datenlauf, im Job `abo` von `pages.yml` NACH dem ersten grünen Deploy,
+    der einen neuen Datenlauf-Commit (github-actions[bot]) enthält – also
+    montags, nach einem roten Gate am Tag der Reparatur. Gemeldet wird
+    alles, was seit der letzten Meldung SICHTBAR geworden ist, auch die
+    über die Korrekturseite freigegebenen Zeilen (`scripts/abo_meldung.py`,
+    Meldestand in `deploy.json` auf der Seite: `commit` + `gemeldet`).
+    Vorher meldete `update_events.py` im Datenlauf – vor dem Deploy
+    (am 19.10.2026 kamen die Mails um 17:02, das Gate war rot) und ohne
+    freigegebene Zeilen. **Nicht jeden Deploy melden lassen**: Die Function
+    verschickt „wöchentlich", sobald sechs Tage um sind – die Mail wanderte
+    sonst mit jedem Korrektur-Deploy einen Tag früher. Ein Rückfall auf
+    einen älteren Lauf („Re-run all jobs") meldet nichts. Das Log des Jobs
+    nennt geprüfte Abos und verschickte Mails (`mailsQueued`).
+    `NOTIFY_WEBHOOK_URL` in `update-events.yml` (auf `main`) ist seitdem
+    ungenutzt – harmlos, die Datei muss deshalb nicht nach `main`.
+    Grenze: Kam die letzte Mail an einem Dienstag (Gate-Reparatur), ist
+    „wöchentlich" am Montag danach noch nicht fällig (sechs Tage) und
+    kommt eine Woche später mit allem. `test_abo_meldung`.
+  - **Die Mail selbst (seit dem 20.10.2026, „Ja, bitte die schönere
+    Mail-Vorlage bauen")**: `aboMail()`/`einmalMail()` zwischen den Marken
+    `// ==== Abo-Mail: Anfang/Ende ====` in `functions/index.js` – Navy-Kopf
+    mit Marke, EINE Karte je Veranstaltung (Name + Tag + Ort) mit Rand in
+    der Sportfarbe, Datum mit Wochentag (vorläufig „Juni 2027*"), alle
+    Längen wie in der Länge-Spalte (`laengeText` = `EED.formatLength`,
+    `test_abo_mail` vergleicht es am ganzen Bestand), Abzeichen Sportart ·
+    Kategorie, Charity-Herz, Knöpfe „Zum Event" (`events.html?s=<Name>` –
+    bewusst kein `?event=`-Slug, das wäre die dritte Kopie der Regel) und
+    „Veranstalter-Seite", Fuß mit Abo beenden / verwalten / Impressum, dazu
+    eine Textfassung (`message.text`). Nur Tabellen und Inline-Stile, keine
+    Bilder (ein Bild vom eigenen Server wäre ein Lesebeleg), alles maskiert,
+    nur http(s) verlinkt, höchstens `MAX_KARTEN` = 30 Karten (Gmail kürzt ab
+    ~100 KB). Betreff „4 neue Events: <Abo-Name>", ohne Filter „… auf
+    Endurance Events" (vorher „… für Alle neuen Events"). `eventKurz` trägt
+    dafür `wettbewerb` und `hoehenmeter` – ältere `wartend`-Einträge ohne
+    die Felder gehen trotzdem (dann km statt Triathlon-Format). Ein
+    Duathlon heißt wie auf der Seite „Mitteldistanz"/„Langstrecke"/
+    „Ultra-Duathlon" (`DUATHLON_NAME`; am 26.10.2026 vom Test am
+    „Chemnitzer Indoor Triathlon" gefunden – „Triple Duathlon" stand als
+    „Ultra-Triathlon" in der Mail). Wirkt erst
+    nach `firebase deploy --only functions` aus der Cloud Shell (Nutzer).
+    Vorschau bauen: Abschnitt wie im Test in node rendern.
   - **`?abos=1` öffnet die Verwaltung** (darauf zeigt der Abmelde-Link
     der E-Mails, solange `UNSUBSCRIBE_URL` fehlt). Gelesen wird der
     Parameter in `readUrlState()`, **nicht** im Ladeteil: Dazwischen
@@ -4375,6 +4635,34 @@ sagt es).
   solchen Stelle **alle Klicks aller Prüfungen** durchsehen
   (`grep 'tbody tr[^"]*")\.\(first\|nth\)'` findet sie).
 
+- **Fehlerscan vom 19.10.2026 (neun Befunde, vom Nutzer: „Bitte alle 9
+  Fehler korrigieren")** – was daran nicht zurückgedreht werden soll:
+  - **Das Kalender-Menü liegt im Fluss**, nicht absolut: `.cal-box` ist
+    `display: contents`, das Menü eine volle Rasterzeile UNTER den Knöpfen
+    (`event-detail.css`). Schwebend ragte es auf dem Handy aus dem Blatt,
+    lag am Rechner über der Melde-Box und war auf dem iPad quer
+    abgeschnitten.
+  - **Spaltenbreiten**: Datum 14,5 % (EN „Sat 24 Oct 2026 –" war
+    abgeschnitten), Ort 13 % („Schwarzenbach" brach mitten im Wort), Name
+    20,5 %. **Von 901 bis 1276 px entfällt die Spalte „Land"** (Tabelle
+    792 statt 900 px), sonst lag „Länge" neben der 300-px-Box hinter dem
+    Scrollbalken. `.cell-clamp` trägt `hyphens: auto` (Chromium unter
+    Linux hat keine Wörterbücher – im Rauchtest wirkt es nicht, auf den
+    Geräten schon). Der Rauchtest klickt deshalb `td.col-art2` statt
+    `td.col-land`.
+  - **Filterleiste 901–1276 px enger** (`site.css`), damit „E-Mail-Abo"
+    nicht allein in die zweite Zeile rutscht; das große Datum der Box ist
+    dort 1,35rem.
+  - **Ein neues Event aus der Liste beginnt oben in der Box**
+    (`waehleZeile`, `scrollTop = 0`); die Strecken-Pillen übergeben
+    `behalteScroll`.
+  - **Abo-Dialog**: Die Pillenleiste trägt `filter-btn-bar` (Abstand des
+    Pfeils), `.abo-hint` gilt überall (der Satz unter „Anmelden" war
+    größer als der Rest), `.ee-modal` hat `max-height: 90dvh`.
+  - **Namen ohne Trennzeichen am Rand**: `scraper_lib.bereinige_name()`
+    in `Event.to_dict()` und `clean_events.fix_namensrand()` (VOR den
+    Overrides) – „-25. Laufwochenende Brugg", „… Lauf Cup -";
+    `test_namensrand`.
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 
 ## Tempo (gemessen, nicht geraten)
@@ -4949,7 +5237,10 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   alle gerne vorher mit einem Klick einfach freigeben")**: zwei Läufe am
   Tag (`instagram.yml`: 08:47 Vorschau = nur rendern, 17:47 Posten mit
   `--posten --freigabe`); `pages.yml` schreibt `marketing/instagram/plan.json`
-  (`insta_inhalte.py --plan 14`, gitignored); die Dashboard-Karte
+  (`insta_inhalte.py --plan 14`, gitignored; der Schritt installiert Pillow
+  und trägt `continue-on-error` – am 27.10.2026 hielt ein Plan ohne Pillow
+  in Lauf 419 den ganzen Deploy auf, Instagram darf die Website nie
+  blockieren; `test_insta_freigabe` prüft beides); die Dashboard-Karte
   `#insta-freigabe-card` zeigt die Tage und schreibt `insta_freigaben/<Datum>`
   (`status` freigegeben/gesperrt, `hash`, `format`, `geaendert`; Regeln:
   lesen alle, schreiben/löschen Admins); `insta_freigabe.entscheide()`:
@@ -4971,7 +5262,11 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   sonst „aktuell" mit Hinweis, sonst „kommt mit dem Morgenlauf". Kein
   Änderungsbedarf an `instagram.yml`. `test_insta_freigabe`
   und der Rauchtest (`pruefe_statistik_dashboard`, Attrappe speichert
-  set/delete) halten es fest. **Beides ist live**: die Regeln seit dem
+  set/delete) halten es fest; der Rauchtest zählt die Zeilen der Karte
+  gegen die künftigen Beiträge in plan.json, nicht gegen eine feste Zahl
+  (am 27.10.2026 rot mit „6 Tage“, weil der Plan seit den Pausentagen
+  nur noch Post-Tage enthält – fünfte Begegnung mit „fest eingetragenes
+  Beispiel“, siehe Frontend-Fallen). **Beides ist live**: die Regeln seit dem
   15.10.2026, 12:25 (vom Nutzer aus der Cloud Shell, `firebase deploy
   --only firestore:rules`; per REST geprüft: `insta_freigaben/<Tag>`
   antwortet 404 statt 403, `config/wartung` weiter 200), `instagram.yml`
@@ -4979,6 +5274,123 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   freigegeben: „Ja für instagram.yml auf main"), die Fassung mit der
   Anmeldung über Instagram seit dem 16.10.2026 (Commit `ae5751ef`, „Ja,
   instagram.yml auf main").
+- **Logo-Reels (27.10.2026, vom Nutzer: „schnelles Video von vielen Event
+  Logos im Monat … XX Events im November 2026 … Check it out! Link in
+  Bio" und „welche Events diesen Monat mit der Registrierung anfangen")**:
+  zwei Formate in `insta_inhalte.py`, die an ihrem Tag ALLES andere
+  schlagen (auch den Jahrestag): **`monat`** am letzten Freitag des Monats
+  (`letzter_freitag`) für den NÄCHSTEN Monat – Hook „375 EVENTS IM
+  NOVEMBER 2026" (Zahl aller sichtbaren Veranstaltungen), dann die bis zu
+  20 größten Events nach `starter` als Folie `logo` mit `blitz` (EIN
+  Schlag je Logo, harter Schnitt ohne Blende – `sichtbarkeit(…, hart)`,
+  `zeitplan` erlaubt bei `logo` einen Schlag), Schluss „Check it out!";
+  ungerader Monat Schwarzweiß (`stil: "sw"`, ganzes Bild in Graustufen),
+  gerader Farbe; unter 6 Events gilt der Wochenplan. **`anmeldung`** am
+  1. des Monats: die Events aus der Liste, deren `anmeldestart` in diesen
+  Monat fällt (genau → „Anmeldung ab 3. Nov", nur Monat → „Anmeldung im
+  November"), mit nächstem Renntermin (`renntermin`: events.json, sonst
+  `termin`), Caption „ohne Gewähr"; unter 3 gilt der Wochenplan.
+  **Größe**: Vom Nutzer erst „5.000+ Starter, Triathlon weniger", dann
+  korrigiert: „die Schwelle war nur dahergesagt … die 10-20 größten
+  Events im Monat". `grosse_events.json` ist deshalb eine recherchierte
+  Liste mit Starterzahl (Finisher oder Anmeldungen, `hinweis` sagt
+  welche, `starter_quelle` Pflicht, `null` nur bei IRONMAN), keine
+  Schwelle im Code. `gross_fuer()` ordnet eine Veranstaltung über
+  `suche` (Teilstrings des Namens) + Land + Sportart zu. **`anmeldestart`
+  gilt für EINE Ausgabe** – einmal im Jahr nachtragen, sonst bleibt das
+  Format leer. **Logos (vom Nutzer gewählt: „Logos von den Webseiten",
+  nach Hinweis auf das Restrisiko – Logo geschützt, Veranstalter freuen
+  sich meist)**: NUR geprüfte Dateien in `marketing/instagram/logos/`;
+  der tägliche Lauf holt NICHTS aus dem Netz (`insta_lauf.logos_holen`
+  meldet nur). Grund: Die automatische Suche traf bei jedem vierten Event
+  ein Sponsorlogo (Garmin beim Ötztaler – vom Nutzer bemerkt –, LBS,
+  Mizuno, Intersport) oder eine geparkte Domain (bonn-marathon.de).
+  Ablauf: `insta_logos.py sammeln --uebersicht bogen.png` (Kandidaten in
+  `.cache/logos/`), Bogen ansehen, `uebernehmen <slug>` bzw. `uebernehmen
+  <slug> --url <Bild oder Datei>`, `bogen geprueft.png` zum Gegenlesen.
+  Seiten mit Logo per JavaScript/Inline-SVG (Ötztaler, Köln Triathlon):
+  Playwright (Node) rendern, Element-Screenshot oder Symbol als SVG.
+  SVG rastert `_rastern_svg` mit Chromium, sonst ffmpeg/librsvg. Logos mit
+  viel Weiß und kaum Schwarz (`ist_hell`) bekommen eine Navy-Karte. Ohne
+  Logo zeigt die Folie den Namen groß auf der Karte. `test_insta_logos`.
+  **Die größten einer Kategorie (`top`, jeder zweite Samstag statt
+  `saison`, gerade Kalenderwoche; vom Nutzer am 27.10.2026: „Top 5
+  Marathons … auf einer Karte … die 5 Logos oben" und gleich danach: „es
+  muss nicht immer Top 5 sein … Top 10, Top 3 … es muss auch nicht
+  bewertet werden wer der beste … Einfach die 5 größten … unterschiedliche
+  Designs")**: die 3/5/7/10 größten Events (`TOP_ANZAHLEN`) einer
+  Kategorie der nächsten 12 Monate (`TOP_KATEGORIEN`: Marathon-, Trail-,
+  Halbmarathon-, Ultra-Events, Radmarathons, Triathlons – Halbmarathon nur
+  OHNE 42,2 km, sonst stand der Hamburg Marathon dort), **nach Datum, ohne
+  Platznummern**, dann die Übersicht und CTA. Gezählt nach `starter` der
+  GANZEN Veranstaltung – deshalb „…-Events" im Titel und „allen
+  Teilnehmenden der Veranstaltung" in der Caption (der Rennsteiglauf ist
+  mit 16.000 kein 16.000-Ultra). Rotation (`datum.toordinal() // 14`) nur
+  über Kategorien mit mindestens drei Events; Kategorie, Anzahl und Design
+  wechseln JEDES Mal (Test am echten Bestand). Vier Designs
+  (`TOP_DESIGNS`, `insta_video._top_folie`): `karte` (Logos oben, eine
+  oder zwei Reihen, Karte unten mit Punkten), `einzeln` (riesiges Datum,
+  Logo groß, kleine Karte; Übersicht als Liste), `raster` (Kacheln füllen
+  sich nacheinander), `zeitleiste` (Monatsachse, Logos am Termin). Die
+  Karte zeichnet `karte_bild()` selbst aus `laender.json` (kein
+  Kartendienst). Zeit je Event nach Anzahl (`TOP_DAUER`). Neues Design =
+  Zweig in `_top_folie` + Name in `TOP_DESIGNS` + der Test zeichnet es
+  mit 3 und 10 Events.
+  **Anlass (`anlass`, am Tag eines großen internationalen Rennens aus
+  `marketing/instagram/anlaesse.json`; vom Nutzer am 27.10.2026: „zu Ehren
+  des Tour de France Starts … die noch anstehenden Radmarathons in diesem
+  Jahr", „London Marathon … alle Marathons in unserer Region … es ist
+  wichtig, dass es sich immer abwechselt")**: geht an seinem Tag ALLEM vor
+  (auch Monat/Anmeldung/Top). Hook „Heute startet die Tour de France“ +
+  Zahl aller sichtbaren Events der Kategorie bis Silvester (zu wenige →
+  „in den nächsten 12 Monaten“), dann die größten davon in einem der
+  Top-Designs. Das große Rennen nur als TEXT – keine Bilder, keine Logos
+  davon (Rechte). `anlaesse.json`: je Eintrag `datum` (bestätigt, sonst
+  null), `kategorie` (Schlüssel aus `TOP_KATEGORIEN`), `anlass_text`,
+  `quelle`; jährlich nachtragen.
+- **Start am 02.11.2026 – vorher wird NICHTS gepostet** (vom Nutzer am
+  27.10.2026: „wir fangen ab dem 2. November (Montag) an … Davor wird jetzt
+  noch nichts gepostet"): `insta_freigabe.POST_START`, `vor_start()` sperrt
+  in `insta_lauf.py` jedes `--posten` (auch Handlauf und Autopost) für
+  Beiträge vor dem Tag. Die Startwoche steht fest in
+  **`marketing/instagram/sonderplan.json`** (`lade_sonderplan()`, geht in
+  `plane()` und `format_am()` allem vor; bei `top` mit `kategorie`/
+  `anzahl`/`design`, bei `duell` mit `paar`): Mo `jahr`, Di `anmeldung`,
+  Mi `laengste`, Do Pause, Fr `top` Marathon/karte/5, Sa Pause, So `duell`
+  Berlin gegen Wien (`"pause": true` im Sonderplan). Der Nutzer sieht jedes
+  Video im Dashboard („View") an, gibt Feedback, dann frei.
+  **Nicht jeden Tag ein Video – „4-5 Videos in der Woche"** (vom Nutzer am
+  27.10.2026): `insta_inhalte.postet_am()` – Dienstag und Donnerstag Pause
+  (`PAUSE_WOCHENTAGE`), außer Anlass, 1. des Monats (Anmeldestart) oder
+  Sonderplan; vor `POST_START` nie (steht auch in `insta_freigabe`, der
+  Test vergleicht). `plan_liste()` (plan.json, Dashboard) zeigt nur
+  Post-Tage, `insta_lauf.py` rendert an Pausentagen nichts, legt im
+  Morgenlauf aber die Vorschauen ab – vor dem Start die Woche ab
+  02.11.2026 plus den Montag danach.
+- **Zwei Formate dazu (27.10.2026)**: **`jahr`** („Dein Rennjahr": je
+  Monat der nächsten zwölf das größte Event, geprüftes Logo vor ohne,
+  Monatsfolien `blitz` im Takt ohne Wisch, Übersicht 3 × 4, mindestens zehn
+  Monate) und **`duell`** (zwei große Events einer Kategorie mit Logo,
+  Größe höchstens Faktor 2 auseinander – `duell_paare()`; animierte Folie:
+  Logos fahren ein, VS, Zeilen Termin/Ort/Am Start/Strecken auf einer
+  Navy-Fläche, der größere Wert in Sonne). Beide nur über Sonderplan oder
+  `--format`, noch nicht im Wochenplan. `gross_fuer()` kennt `nicht`
+  (Ausschlusswörter: L'Hivernale ist nicht Sierre-Zinal).
+- **Der Look seit dem 27.10.2026 („Die Videos sollen nicht so billig
+  aussehen")**: Foto mit Farblook (`farbgrad`: Kontrast, weniger Farbe,
+  Duoton Navy/warm), Tiefenschärfe (Blur 2,6), Vignette, ruhiger Mitte
+  (`rahmen_ebene` 0,46), Filmkorn unter der Schrift (vier fertige Ebenen
+  Rahmen + Korn), warmer Lichtfleck; Folien mit weichem Schatten, Bänder
+  staffeln sich herein (`gestaffelt`: Zeilen von unten, große Flächen
+  „poppen"), alte Folie geht nach oben ab, schräger Wisch in der Sportfarbe
+  an jedem Schnitt, Zahlen zählen hoch, dünner Fortschritt mit Leuchtpunkt;
+  im Ton ein Whoosh je Wisch und ein tiefer Schlag zu Beginn und am CTA
+  (`insta_musik`, `schnitte`/`schlusspunkt`). Lange Listen (Balken,
+  Duell) stehen auf einer Navy-Fläche, sonst ist Text auf manchen Fotos
+  unlesbar. Ein Reel braucht ~70 s Rechenzeit; der Morgenlauf rendert acht
+  (heute + 7 Vorschauen) – bei einem weiteren Effekt das 30-Minuten-Limit
+  von `instagram.yml` im Blick behalten. `foto_sport` am Beitrag wählt das
+  Foto bei gemischten Formaten (laengste: Lauf oder Rad, nie Schwimmen).
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,
@@ -5085,7 +5497,7 @@ Kalender, die kleinen enden von selbst. Probelauf (eine Seite je
 Kalender, ohne Details): 104 neue Events, davon die ersten Schweizer
 überhaupt. **Der nächste Datenlauf bringt sie** – Workflow auslösen,
 nicht im Chat warten (Laufzeit steigt um grob eine Stunde, das
-`timeout-minutes: 300` reicht).
+`timeout-minutes` reicht – seit dem 27.10.2026 360).
 
 **Schwimmen (24.09.2026)**: Der Nutzer hat drei Links geschickt
 (schwimmkalender.de, openwaterschwimmen.com, swimevents.de) und um weitere
@@ -5175,7 +5587,11 @@ Rennseite mit Start/Ziel, Datum, Sparte, „Rennen N"-Blöcken und
 Veranstalterlink; alle Klassen, auch Lizenz – dieselbe Entscheidung wie
 bei BRV Timing; **nicht** Kunstrad/Radball, Downhill/Enduro/E-MTB,
 Madison/Mannschaftszeitfahren, Nachwuchs; ein Cyclocross ohne Kilometer
-ist ein Zeitrennen „40 min"; 62 Events), **`swimsports_scraper.py`**
+ist ein Zeitrennen „40 min"; 62 Events). **Abgesagte Rennen bleiben im ÖRV-Kalender stehen**, nur der
+Kartentitel trägt „- ABGESAGT !!" (Wienenergie Cyclocross 24./25.10.2026,
+vom Nutzer am 20.10.2026 per „Check again" gefunden) – `parse_liste()` setzt
+seitdem `abgesagt`, der Scraper überspringt die Karte (`ABGESAGT`, Test in
+`test_cyclingaustria`), **`swimsports_scraper.py`**
 (Schwimmkalender Schweiz, Drupal; **Adresse ohne `/de/`**, mit Präfix
 „Zugriff verweigert"; Distanzen ohne SUP-Teile; Absagen fallen, außer
 der Name nennt den nächsten Termin; im September nur 2 künftige
@@ -5432,9 +5848,15 @@ Tests noch Deploy): GitHub unterdrückt Workflow-Läufe aus Pushes mit dem
 von Hand live. `update-events.yml` stößt `pages.yml` deshalb nach dem
 Push per `gh workflow run pages.yml --ref …` an (`actions: write`,
 workflow_dispatch ist die erlaubte Ausnahme) – **seit dem 13.10.2026
-auch auf `main`** (Commit `c7344d8`, vom Nutzer freigegeben). Beim
-ersten Montagslauf danach (19.10.2026) nachsehen, ob der
-`workflow_dispatch`-Lauf von „Deploy GitHub Pages" dasteht.
+auch auf `main`** (Commit `c7344d8`, vom Nutzer freigegeben). **Am
+19.10.2026 nachgesehen: Der Anstoß wirkt** (Lauf 39274388261,
+`workflow_dispatch`, zum Bot-Commit `4c82d702`) – **und der Lauf war rot**:
+`test_manuelle_events` fand eine Strecke doppelt in `manual_events.json`
+(zwei Gedächtnis-Einträge für eine Ausgabe, siehe „Gedächtnis je
+Veranstaltung“), das Deploy-Gate hielt den Datenlauf auf, live blieb der
+Stand vom Vormittag. **Nach jedem Montagslauf den Deploy-Lauf ansehen** –
+ein roter heißt: die neuen Daten warten, bis jemand den Fehler behebt und
+pusht.
 **Workflow-Läufe zu einem Commit immer mit dem VOLLEN SHA abfragen**
 (`actions/runs?head_sha=<40 Zeichen>`): Mit sieben Zeichen liefert die
 API still null Treffer – so entstand am 13.10. erst eine falsche
@@ -5482,6 +5904,18 @@ was dort gestaget ist, geht also mit, auch wenn eine Workflow-Datei das
 Fassung (`git add events.json kalender`) ist der Aufruf ein No-op.
 `test_kalender_staging` hält vor allem die Gegenprobe fest: **lokal darf
 das Skript den Index NIE anfassen.**
+
+**Seit dem 27.10.2026 fragt der Datenlauf danach die Veranstalterseiten
+nach ihren Instagram-Links** (`run_instagram_konten()`: 400 Seiten,
+8 Minuten). **Das Zeitbudget ist knapp**: Der Lauf vom 26.10.2026
+brauchte 262 der damals 300 Minuten. **Seit dem 27.10.2026 steht
+`timeout-minutes` auf 360** (vom Nutzer freigegeben: „Ja, Timeout auf
+main auf 360 anheben“, auf beiden Branches und auf `main`) – das ist das
+Maximum für gehostete Läufer, mehr geht nicht. Reißt ein Lauf die
+Grenze, bricht GitHub ab und es wird NICHTS committet – wer einen
+weiteren Schritt einbaut, rechnet vorher nach; reicht auch 360 nicht,
+muss der Lauf geteilt werden (eigener Workflow für einen Prüfschritt,
+Zeitplan auf `main`).
 
 **Seit dem 05.10.2026 läuft im Datenlauf vor dem Aufräumen
 `veranstalter_seiten.py pruefen`** (`run_naechste_ausgaben()` in
@@ -5583,8 +6017,8 @@ Tage dann hinzu" – er prüft täglich ~50 Zeilen.
   markiert; `kalender/` enthält die Dateien weiter (nicht verlinkt).
 - `EF.loadEvents()` (`dropUnchecked`, `filters.js`) lädt markierte Zeilen
   nicht – Liste, Karte und die Zähler der Startseite laufen alle darüber,
-  auch der Rückfall auf `events.json`. `update_events.py` meldet sie
-  nicht an die Abo-Function. Die Rauchtest-Helfer, die Zeilen aus
+  auch der Rückfall auf `events.json`. `abo_meldung.py` meldet sie
+  nicht an die Abo-Function – erst, wenn sie freigegeben sind. Die Rauchtest-Helfer, die Zeilen aus
   `events.json` auswählen (`anzahl_strecken`, `ort_mit_zwei_veranstaltungen`),
   übergehen sie ebenfalls. `test_pruefung_offen` hält alles fest.
 
@@ -5593,14 +6027,21 @@ zurückschicken → `korrekturliste.py import` (schreibt `geprueft.json`
 und Overrides, räumt auf) → Commit und Push → Pages-Deploy. Mit dem
 Aufräumen fällt das Feld an den geprüften Zeilen, sie sind live.
 Status „Unklar" lässt die Zeile ausgeblendet (sie steht weiter in der
-Liste); „Löschen" entfernt sie; „Stimmt so"/„Korrigiert" geben sie frei.
+Liste); „Löschen" entfernt sie, ihre nächste Ausgabe kommt wieder in die
+Liste (Datenregel 18); „Fällt aus" entfernt diese Ausgabe und
+lässt die Veranstaltung im Gedächtnis (Datenregel 18); „Check again"
+lässt sie ausgeblendet, bis Claude sie an der Quelle geprüft hat
+(Korrekturseite, `nochmal.json`); „Stimmt so"/„Korrigiert" geben sie frei.
 
 **Der Rhythmus seit dem Livegang** (vom Nutzer am 13.10.2026 erbeten:
 „Was mach ich, was machst du genau?"):
-- *Täglich, Nutzer*: ~50 Zeilen der Excel-Korrekturliste prüfen
-  (Veranstalterseite ansehen, Zelle korrigieren, Status setzen), Datei
-  speichern und hier schicken.
-- *Täglich, Claude*: `korrekturliste.py import --dry-run`, dann `import`;
+- *Täglich, Nutzer*: ~50 Zeilen auf der **Korrekturseite** prüfen
+  (Veranstalterseite ansehen, Zelle korrigieren, Status setzen – jede
+  Eingabe ist sofort gespeichert) und im Chat „Korrekturen übernehmen“
+  schreiben. (Bis zum 19.10.2026 ging die Excel-Datei hin und her; der
+  Weg bleibt möglich.)
+- *Täglich, Claude*: Antworten holen und `korrektur_seite.py einlesen`
+  (Ablauf in „Korrekturseite“), das ruft `korrekturliste.py import`;
   Zellen, die keine Zahl sind, von Hand (mehrere Distanzen, Runden,
   Minuten, Höhenmeter); aus Korrekturen Klassen zählen und Regeln bauen
   (Dreizehnter Durchgang); `clean_events` idempotent, `build_ics`,
@@ -5611,12 +6052,14 @@ Liste); „Löschen" entfernt sie; „Stimmt so"/„Korrigiert" geben sie frei.
   alle Scraper, Gedächtnis-Prüfung, `clean_events` (setzt
   `pruefung_offen` an neue auffällige Zeilen), `build_ics`, Commit →
   Deploy; saubere neue Zeilen sind sofort live, auffällige warten auf
-  die Liste; Abo-Mails über den Webhook.
+  die Liste; nach dem grünen Deploy die Abo-Mails (Job `abo` in
+  `pages.yml`, mit den unter der Woche freigegebenen Zeilen).
 - *Wöchentlich, Claude (Montag/Dienstag)*: Lauf und CI prüfen,
   `⚠`-Berichte und `audit_events.py` durchsehen,
-  `veranstalter_seiten.py handpruefung` (NEU?/TOT), **frische
-  Korrekturliste exportieren und schicken** (neue Zeilen aus dem Lauf
-  stehen nur dort; der Nutzer arbeitet dann in der neuen Datei weiter).
+  `veranstalter_seiten.py handpruefung` (NEU?/TOT), **die Zeilen der
+  Korrekturseite neu bauen und die Seite neu veröffentlichen** (neue
+  Zeilen aus dem Lauf stehen nur dort; Antworten und Quittungen bleiben
+  erhalten).
 - *Wöchentlich, Nutzer*: in der Firebase-Konsole nachsehen, ob in
   `errorReports` oder `eventSuggestions` etwas Neues liegt (Claude kann
   die Sammlungen nicht lesen – die Regeln sperren das), und es hier
@@ -5624,6 +6067,56 @@ Liste); „Löschen" entfernt sie; „Stimmt so"/„Korrigiert" geben sie frei.
   bestätigt.
 - *Bei Bedarf*: Fällt dem Nutzer auf der Seite etwas auf, hier melden;
   Claude prüft an der Quelle, zählt die Klasse, baut Regel oder Override.
+
+**Die längeren Rhythmen** (vom Nutzer am 27.10.2026 so beschlossen: „Ja
+ich stimme überall zu, bitte so aufnehmen“). Jede Sitzung sieht hier
+nach, ob etwas fällig ist, und sagt es dem Nutzer – das Datum der
+letzten Erledigung steht in Klammern dahinter (beim Erledigen
+nachtragen). Routine geht vor Entwicklung: Reichen die Tokens nicht,
+wartet die Entwicklung, nicht der Wochenablauf.
+- *Monatlich, Claude* – fällig ab dem 1. jedes Monats (zuletzt: –):
+  - Clubs-Korrekturliste durchsehen (Clubs-Branch, `clubs_korrekturliste.py`).
+  - `veranstalter_links.py sammeln --nur-host my.raceresult.com
+    --auch-geprueft --pause 8`, dann `anwenden` – Veranstalter tragen
+    ihre Seite auf der Kontaktseite nach.
+  - `seitenabgleich.py` über alle Veranstalterseiten: DATUM/DISTANZ
+    prüfen, ABGESAGT als „Fällt aus“, BESTAETIGT → Override
+    `datum_vorlaeufig` löschen.
+- *Monatlich, Nutzer*: Statistik-Dashboard und Instagram-Auswertung
+  ansehen.
+- *Quartalsweise, Claude* – nach dem Kalender, fällig ab 01.01., 01.04.,
+  01.07. und 01.10. (vom Nutzer am 27.10.2026 so festgelegt); das
+  laufende Quartal (Q4 2026) ist damit schon fällig (zuletzt: –):
+  - **Neue Quellen suchen – INTENSIV** (Wunsch des Nutzers: „Das neue
+    Quellen suchen soll dann schon sehr intensive sein“): je Sportart
+    (Rad und Schwimmen zuerst, dann Triathlon, Lauf) und je Region
+    (jedes Bundesland in DE und AT, jeder Kanton-Verband in CH,
+    Südtirol) Landesverbände, Cups und Serien, Zeitnehmer,
+    Anmeldeportale, Vereins- und Regionalkalender, Tourismusseiten;
+    dazu die Kandidaten- und Verbotslisten im README („Quellen für den
+    großen Datenlauf“ und folgende) erneut ansehen. Je Fund robots.txt,
+    Impressum, AGB live lesen und wie viele NEUE Events er bringt
+    (gegen `events.json` gezählt). Ergebnis als Tabelle für den Nutzer –
+    **kein Scraper ohne sein Ja**.
+  - Gesperrte Quellen erneut prüfen (robots.txt/Bedingungen geändert?) –
+    nur lesen, nie umgehen; Anfragen an Betreiber gibt es nicht
+    (alt 30, gestrichen).
+  - Geräte-Check (Handy, iPad, Rechner; Rauchtest plus
+    `pruefe_plattformen`) und `vendor/` auf Sicherheits-Updates
+    (Leaflet, markercluster, Firebase).
+- *Quartalsweise, Nutzer*: Impressum und Datenschutzerklärung
+  gegenlesen, sobald sich etwas an Daten, Statistik oder Werbung
+  geändert hat.
+- *Jährlich bzw. fest terminiert*:
+  - Frühjahr (März/April): nachsehen, ob BOE, Fricktaler Cup,
+    dsergebnis, swimsports, BRV Timing und fsieben die neue Saison
+    liefern; von Hand NordCup, Freiwassercup Bayern, RAD RACE (To-do
+    Punkte 3 und 4).
+  - Bis 31.03.2027: Mailversand ohne Firebase Extension (To-do Punkt 5,
+    Erinnerung am 11.01.2027).
+  - Saisonwechsel (Herbst/Winter): Gedächtnis-Funde und „geloescht“-
+    Wiedervorlagen in der Korrekturliste besonders im Blick behalten.
+  - *Nutzer*: Domain bei IONOS verlängern, Firebase-Abrechnung prüfen.
 
 **Stand beim Livegang**: 1.256 von 6.940 Zeilen ausgeblendet (sichtbar
 5.684; vor der Sternchen-Ausnahme 1.299). Die größten Gruppen: Distanz
@@ -5675,6 +6168,185 @@ zwei Schritten (http://www → http://apex → https). **Wer das nächste
 Mal eine Umleitung vermisst, schaut zuerst in Settings → Pages, ob
 dort ein DNS-Check läuft** – solange der läuft, greift „Enforce HTTPS"
 nicht, und es gibt nichts zu tun außer warten.
+
+## Korrekturseite (seit 19.10.2026)
+
+Vom Nutzer gewünscht: „Wir haben jetzt 2 Korrekturlisten … Beide sind in
+Excel, die wir uns immer hin und herschicken müssen. Können wir hier nicht
+einfach eine /korrektur.html Seite bauen die den gleichen Aufbau hat wie
+die Excel … Sobald ein Event dann von mir erledigt ist, dann siehst du
+sofort meinen Output.“
+
+**Adresse: https://claude.ai/artifact/MPZsMjzXMUT6x9tSuRS85T** – ein privates claude.ai-Artifact (nur der Nutzer
+öffnet es; Datenbank-Regel `read`/`write` = `admin` an der Wurzel, mit
+`as_level: "interact"` nachgeprüft: liest nichts). **Bewusst NICHT
+`/korrektur.html` auf endurance-events.de**: Dort speicherte die Seite in
+Firestore, und das kann Claude nicht lesen (Regeln, kein
+Dienstkonto-Schlüssel), und anmelden kann sich Claude dort auch nicht.
+Die Zeilen selbst wären KEIN neues Geheimnis – die ausgeblendeten stehen
+mit `pruefung_offen` ohnehin in der öffentlichen `events.json` (am
+19.10.2026: 1.565 von 7.604); neu öffentlich wären nur die Prüfhinweise
+der Liste. Der Nutzer hat am 19.10.2026 gefragt, warum die Seite nicht
+wie `admin.html` gebaut ist – Antwort: wegen des Lesens, nicht wegen der
+Zeilen.
+
+**Aufbau**: Quelltext `korrektur/korrekturliste.html` (ohne
+`<html>`/`<body>`, das ergänzt das Artifact-Werkzeug), Zeilen als
+veröffentlichte Dateien `daten/events.json` und `daten/clubs.json`
+(lokal `korrektur/daten/`, gitignored, ~1,2 MB), gebaut von
+`scripts/korrektur_seite.py daten events|clubs` aus dem Excel-Export
+(`korrekturliste.py export` bzw. `clubs_korrekturliste.py export` vom
+Clubs-Branch, `--clubs-repo <Checkout>`): dieselben Spalten, Farben (rot
+`F8C9C4` = fehlt, orange `FCE2B0` = fraglich, grau = nicht änderbar – aus
+`SPALTEN` der Skripte), Auswahllisten (Datenprüfung der Excel), fixierten
+Spalten. **Nur das Tabellenblatt** (vom Nutzer am 19.10.2026: „die
+Kopfteile wie bei admin brauchen wir auch nicht. Es kann wirklich nur eine
+Excel-Liste sein, wo ich umschalten kann von Events zu Clubs“): unten
+Blattreiter Events/Clubs wie in Excel (Zahl = Zeilen ohne Status), rechts
+daneben eine einzeilige Statuszeile (nicht gespeichert → speichert → „N
+bereit zur Übernahme“ → Stand der Liste); KEIN Kopf, keine Zähler, keine
+Suche, keine Hilfe – nicht wieder einbauen, ohne zu fragen
+(`test_korrektur_seite` prüft es). **Klein und fürs Handy** (vom Nutzer am
+selben Abend mit Bildschirmfoto: „Ich müsste das mit dem Handy machen,
+weil ich das viel unterwegs anschauen werde … Ich hab auch sehr gute
+Augen, also kann man alles auch bisschen kleiner machen, da die Liste nur
+intern ist“): Tabelle 0,8rem, Fußleiste 36 px; auf Touch-Geräten haben
+Editor und Status-Feld 16 px Schrift, sonst zoomt iOS beim Antippen hinein.
+**Schmal und ohne feste Spalten** (20.10.2026: „die erste Spalte mit
+Nummern … ausblenden … alles bisschen komprimieren, dass ich nicht immer
+nach links und rechts wischen muss … Termin vorläufig einfach in das Datum
+schreiben, zum Beispiel 13.10.26 (vorläufig) … das Fixieren der ersten
+Spalten auflösen. Nur die Zeile mit den Beschriftungen fixiert“): Fest
+steht nur noch die Kopfzeile. Ausgeblendet sind `Nr`, `Termin vorläufig`
+und die Club-`id` (`VERSTECKT` – sie bleiben in Daten und Antwort,
+`data-i` ist weiter der Index der vollen Spaltenliste, der Import
+vergleicht gegen die ganze Zeile). Die Datumsspalten zeigen TT.MM.JJ, beim
+Start steht „(vorläufig)“ darunter, Farbe und Änderung der ausgeblendeten
+Spalte gelten dort; der Editor nimmt „13.10.26 (vorläufig)“ (auch
+„vorl.“, „vorlaeufig“) und speichert `Datum Start` als TT.MM.JJJJ und
+`Termin vorläufig` ja/nein – jeweils nur, wenn es vom Original abweicht.
+`korrekturliste.lies_wert()` liest seitdem auch das zweistellige Jahr.
+Breiten: Excel-Breite × 4,2 + 14 px, 52–180 px (Links höchstens 150),
+Datum 78/64, Status 128 („Check again“ mit 16 px auf dem Handy), Land 42 (als Ländercode DE/AT/CH/IT, gespeichert
+wird der volle Name), Koordinaten 54 (zwei Zeilen); kürzere Kopftexte
+(`KURZ`, voller Name im Tooltip), höchstens vier Zeilen je Zelle, der
+Editor ragt mit mindestens 190 px über die Nachbarzelle. Events 1.554 px
+breit statt ~2.700. Alle Zeilen stehen da, beim Scrollen
+kommen je 100 nach; der Stand einer Zeile steht am Status-Feld (blau =
+bereit, gelb = Check again, grün = übernommen, rot umrandet = nicht
+gespeichert), ein neuer
+Datenbank-Stand zeichnet nur die geänderten Zeilen neu. Eine Zelle antippen = Editor
+(Enter/Tippen daneben übernimmt, Esc verwirft, Tab springt weiter);
+Status als Auswahl in der Zeile; Links öffnen in neuem Tab, geändert über
+✎. Jede Eingabe schreibt sofort `antworten_<liste>/<Zeilen-Id>` (Status,
+geänderte Werte, Anmerkung, `geaendert`, dazu die ganze Zeile
+`zeile`/`kopf` und bei Events `orig` = das `_original` der Excel – der
+Import vergleicht gegen genau das, was der Nutzer gesehen hat).
+**Zeilen-Id**: Clubs die Club-`id`, Events `e` + SHA-1 über `_original`
+(die Felder beim Export, nicht die Nr) – sie bleibt über einen neuen
+Export gleich, solange der Datenlauf die Zeile nicht ändert. Ändert er
+sie, liegt die Antwort verwaist in der Datenbank; `einlesen` übernimmt
+sie trotzdem (sie trägt ihre eigene Zeile mit).
+
+**Status**: Stimmt so / Korrigiert / Löschen / **Fällt aus** (seit dem
+20.10.2026: diese Ausgabe ist abgesagt, die Veranstaltung bleibt im
+Gedächtnis und kommt mit der nächsten Ausgabe wieder – Datenregel 18) /
+Unklar / **Check again** (seit dem 20.10.2026, vom Nutzer: „Ich schreibe
+meine Kommentare dann hinein, und du müsstest das Event noch einmal genau
+anschauen“ – siehe unten); die Auswahl kommt aus der Datenprüfung der
+Excel, neue Werte also in `korrekturliste.STATUS_WERTE` UND
+`korrektur_seite.STATUS_WERTE`, dann `daten events` neu und die Seite neu
+veröffentlichen. „Check again“ hängt `lies_export()` an BEIDE Listen an
+(der Clubs-Import auf dem Clubs-Branch kennt den Wert nicht und braucht
+ihn nicht – die Antwort erreicht ihn nie).
+
+**„Check again“ ist ein Auftrag, keine Antwort.** Weder die Seite noch die
+Excel übernehmen etwas aus der Zeile – auch keine geänderte Zelle
+(`korrekturliste.importiere()` überspringt sie und listet sie unter
+CHECK AGAIN; `korrektur_seite.cmd_einlesen()` nimmt sie vor dem Import
+heraus und schreibt sie nach `<out_dir>/nochmal.json`: Name, Termin, Ort,
+Link, Kommentar, geänderte Zellen, `schluessel` = „Name|Datum“ für
+`geprueft.json`). Die Zeile bleibt ausgeblendet (`pruefung_offen`), bis
+Claude sie geprüft hat. Claude liest den Kommentar, prüft das Event an
+der Veranstalterseite (wie jede Einzelprüfung: an der Quelle, Klasse
+zählen, Regel oder Override), trägt Korrekturen VON HAND ein (Override mit
+`_note`, `manual_events.json`; bei `entfernt`/`abgesagt` auch das
+`exclude`, bei `entfernt` dazu `geloescht: true` wie beim Status
+„Löschen") und schreibt je Eintrag in `nochmal.json` `antwort` (ein bis
+zwei Sätze für den Nutzer: was stimmt, was geändert ist, woher) und
+`ergebnis` (quelle_ok / korrigiert / unklar / entfernt / abgesagt; leer =
+kein Protokoll, die Zeile bleibt ausgeblendet). Dann
+`korrektur_seite.py erledigt events <out_dir>` (`--dry-run` zeigt es
+nur): `geprueft.json`, Aufräumen, und `<out_dir>/quittung-nochmal.json`
+mit `ids` UND `notizen` → `ArtifactData set` wie bei der normalen
+Quittung. Die Seite zeigt die Zeile dann grün, die Antwort als „Claude: …“
+unter der Anmerkung (nicht ausgegraut). Ein zweites `einlesen` behält
+schon geschriebene Antworten (gleiche Zeile, gleicher Stand). Bei Clubs
+gibt es kein `ergebnis` (deren Protokoll liegt auf dem Clubs-Branch) –
+dort nur `antwort`, Korrekturen von Hand im Checkout. Auch im Chat sagen,
+was herauskam. `test_check_again` hält Import, Auftragsliste, `erledigt`
+und die Seite fest.
+
+**Erledigte Zeilen sind ausgeblendet** (seit 20.10.2026, vom Nutzer: „Kann
+man die korrigierten und die ‚stimmt so‘ dann ausblenden … Sonst muss ich
+immer runterscrollen“): Status gesetzt und kein „Check again“ (bereit oder
+übernommen) – beim Laden, wenn Antworten und Quittungen da sind, und beim
+Blattwechsel, nicht sofort beim Setzen. Der Knopf „Erledigte einblenden (N)“
+unten holt sie zurück.
+
+**Übernommen** zeigt die Seite über **Quittungen**, nicht über ein Feld
+an der Antwort: `ArtifactData` schreibt ein vorhandenes Dokument nur mit
+seiner Versionsnummer, und die steht nicht in den Dateien von
+`list … out_dir`. Eine Quittung ist jedes Mal ein NEUES Dokument
+`quittung_<liste>/<JJJJMMTT-hhmmss>` mit `ids`: Zeilen-Id → `geaendert`
+der übernommenen Antwort. Ändert der Nutzer die Zeile danach noch einmal,
+ist sie wieder „bereit“. Die Antworten fasst Claude nie an.
+
+**Ablauf bei „Korrekturen übernehmen“** (Events; Clubs genauso mit
+`clubs`):
+
+1. `ArtifactData list` mit `url` = die Adresse oben, `collection`
+   `antworten_events` und dann `quittung_events`, beide mit demselben
+   `out_dir` (Scratchpad, z. B. `…/korrektur-antworten`) und
+   `query.limit` 1000 (bei mehr: `cursor`).
+2. `python3 scripts/korrektur_seite.py einlesen events <out_dir>
+   --dry-run` – zeigt, was der Import täte (übernommen wird nur, was einen
+   Status und noch keine Quittung hat); Zellen, die keine Zahl sind, wie
+   bisher von Hand.
+3. Ohne `--dry-run`: schreibt Overrides, `geprueft.json`, räumt auf
+   (`clean_events.py --no-geocoding`, `build_ics.py`) und legt
+   `<out_dir>/quittung.json` an. Bei Fehlern im Import KEINE Quittung.
+4. `ArtifactData set` mit `collection` `quittung_events`, `doc_id` wie
+   ausgegeben, `file_path` = die `quittung.json` – die Zeilen werden auf
+   der Seite grün.
+4a. Stand „Check again“ in der Ausgabe: jeden Eintrag aus `nochmal.json`
+   an der Quelle prüfen, korrigieren, `antwort`/`ergebnis` eintragen, dann
+   `korrektur_seite.py erledigt events <out_dir>` und die Quittung
+   `quittung-nochmal.json` genauso mit `ArtifactData set` schreiben (siehe
+   oben).
+5. Tests, Commit, Push auf beide Branches (der Pages-Deploy macht die
+   Zeilen sichtbar).
+6. `korrektur_seite.py daten events` (und `clubs`) neu, dann die Seite
+   neu veröffentlichen: in DERSELBEN Sitzung `Artifact publish` mit
+   `file_path` `korrektur/korrekturliste.html` und `files`
+   `{"daten/events.json": "korrektur/daten/events.json", "daten/clubs.json":
+   "korrektur/daten/clubs.json"}`; aus einer ANDEREN Sitzung zuerst
+   `Artifact read` mit der `url`, dann publish mit `url` (sonst entsteht
+   ein zweites Artifact). `capabilities` weglassen – die gespeicherte
+   Erklärung (db-Regel + user) bleibt.
+
+**Clubs**: `einlesen clubs … --clubs-repo <Checkout von
+claude/clubs-feature-map-kycnmi>` ruft `clubs_korrekturliste.importiere()`
+im Checkout des Clubs-Branches; committet wird dort nur, was der Import
+schreibt, nach `git pull --rebase` (eine parallele Sitzung arbeitet auf
+dem Branch).
+
+**Grenzen**: 25.000 Dokumente je Artifact, 256 KiB je Dokument – eine
+Antwort hat ~2–3 KB, eine Quittung je Lauf. Die Excel-Wege
+(`korrekturliste.py export|import`) bleiben unverändert und laufen
+weiter, falls die Seite einmal nicht geht. `test_korrektur_seite` hält
+Auswahl, Quittung, Excel-Rückweg und die Sammlungsnamen der Seite fest
+(ohne `openpyxl` übersprungen – die CI hat es nicht).
 
 ## Wo das Projekt gerade steht
 
@@ -5858,9 +6530,9 @@ clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
   Tagen Daten prüfen**, ob ein Scanner-Muster bleibt (gleiche
   Browser/OS-Kombination, kein Referrer, nur Startseite) – dann in
   `stats.js`/`collect` filtern, nicht vorher.
-- **Montag 19.10.2026**: Nach dem Datenlauf muss ein Lauf „Deploy GitHub
-  Pages" mit Ereignis `workflow_dispatch` dastehen (Abfrage mit VOLLEM
-  SHA). Fehlt er, den Anstoß in `update-events.yml` auf `main` prüfen.
+- ~~**Montag 19.10.2026**: Deploy-Lauf nach dem Datenlauf prüfen~~
+  **erledigt** (19.10.2026): Der `workflow_dispatch`-Lauf steht da, war
+  aber rot (doppelte Gedächtnis-Ausgabe) – behoben, siehe „Automatik“.
 - **Nächste Schritte in Reihenfolge** (Stand 14.10.2026, 16:00: Probe
   des Wartungsmodus und Functions-Deploy sind durch): Punkt 1
   (Korrekturliste – die nächste Excel des Nutzers einlesen), Punkt 2
@@ -5907,10 +6579,12 @@ bleiben Begründungen und Entscheidungen stehen, die Nummern dort sind
 die ALTEN). Wird ein Punkt erledigt, die Liste hier neu durchnummerieren;
 Verweise auf alte Nummern stehen in Klammern.
 
-1. **Korrekturliste** (alt 32): täglich ~50 Zeilen in der Excel prüfen
-   und die Datei zurückschicken → `korrekturliste.py import` → Push.
-   Jede geprüfte Zeile wird damit auf endurance-events.de sichtbar
-   (`pruefung_offen`, siehe „Livegang"); 1.256 Zeilen warten.
+1. **Korrekturliste** (alt 32): täglich ~50 Zeilen prüfen – seit dem
+   19.10.2026 auf der **Korrekturseite** (https://claude.ai/artifact/MPZsMjzXMUT6x9tSuRS85T) statt in der Excel,
+   dann im Chat „Korrekturen übernehmen“ → `korrektur_seite.py einlesen`
+   → Push. Jede geprüfte Zeile wird damit auf endurance-events.de sichtbar
+   (`pruefung_offen`, siehe „Livegang“); am 19.10.2026 nach dem Datenlauf
+   1.606 Event- und 273 Club-Zeilen.
 2. **GitHub-Domain-Verifizierung** (alt 33, kostenlos, freiwillig):
    (1) github.com → Profilbild → **Settings** (persönlich) → **Pages** →
    „Add a domain" → `endurance-events.de` → GitHub zeigt einen
@@ -5918,6 +6592,10 @@ Verweise auf alte Nummern stehen in Klammern.
    Hostname nur `_github-pages-challenge-AntDon930`, Wert = der Code,
    keinen www-Eintrag dazu; (3) bei GitHub „Verify", notfalls nach ein
    paar Minuten noch einmal. Der TXT-Eintrag bleibt dauerhaft stehen.
+   **Stand 27.10.2026**: noch nicht angelegt (DNS antwortet NXDOMAIN).
+   Sobald der Nutzer Bescheid gibt, prüft Claude den Eintrag:
+   `curl -s "https://dns.google/resolve?name=_github-pages-challenge-antdon930.endurance-events.de&type=TXT"`
+   – `"Status":0` mit einem `Answer` heißt: da, dann „Verify“ bei GitHub.
 3. **Frühjahr 2027** (alt 26): NordCup 2027 (9 Radmarathons SH) beim
    Veranstalter nachziehen.
 4. **Frühjahr 2027** (alt 27): BOE, Fricktaler Cup, dsergebnis,
@@ -5967,42 +6645,78 @@ Verweise auf alte Nummern stehen in Klammern.
     `storage.googleapis.com/endurance-5177a-instagram/ig.html` eintippen,
     Zulassen, Adresse zurück) – erst dann zeigt die Auswertung
     Reichweite, Gespeichert und Geteilt.
-10. **Instagram der Clubs automatisch auslesen** (26.10.2026, nur der
-    Nutzer, „Ich arbeite das alles diese Woche noch ab“; gebaut auf dem
-    Clubs-Branch, Commit `b7997db1`, README „Clubs“): (a) Facebook-Seite
-    „AusdauerMaschine“ vom privaten Profil aus anlegen; (b) in den
-    Seiten-Einstellungen → Verknüpfte Konten @ausdauermaschine verbinden;
-    (c) Meta-App „AusdauerMaschine Content“ → Anwendungsfall „Facebook
-    Login“ / „Instagram API mit Facebook Login“ mit `instagram_basic`,
-    `instagram_manage_insights`, `pages_show_list`, `pages_read_engagement`
-    (Entwicklungsmodus reicht); (d) Graph API Explorer → App wählen, die
-    vier Rechte anhaken, „Generate Access Token“; (e) Cloud Shell:
-    `cd ~/Enduranceevents && git fetch origin claude/clubs-feature-map-kycnmi
-    && git checkout claude/clubs-feature-map-kycnmi && git pull && bash
-    scripts/instagram_fb_einrichten.sh` (fragt App-ID, App-Geheimcode,
-    Schlüssel; Probe an cozy.runclub zeigt, ob Bilder mitkommen; legt
-    Secret `instagram-fb-token` an); (f) Ja für `instagram.yml` auf `main`
-    (neuer Job `clubs-instagram`, montags 05:17 UTC) – dann pusht Claude
-    nur diese Datei. Danach wertet die Montagsaufgabe
-    (`trig_01MvVHbqKGeJjdmGLQ7mBqd3`, 08:56 Berlin) Strava UND den Branch
-    `daten/clubs-instagram` aus. Das Posten bleibt bei der Anmeldung über
-    Instagram.
-11. **Strava-Clubs beitreten** (26.10.2026, Nutzer, täglich 15): zuerst
-    die 252 Clubs „nur Instagram“ aus `clubs_profile_fehlen.xlsx` (im
-    Chat geschickt) – Strava liest die Montagsaufgabe sicher aus;
-    Clubs ohne Termine auf Strava wieder verlassen (die Montagsmeldung
+10. **Functions deployen für die neue Abo-Mail (den „neuen Newsletter“) –
+    VOR MONTAG 02.11.2026** (eingetragen am 20.10.2026, vom Nutzer: „Bitte
+    deploy auf die to-do liste setzen. Mach ich morgen."; am 26.10.2026
+    noch einmal: „Bitte firebase deploy für den neuen Newsletter auf die
+    to-do Liste nehmen" – die erste Frist, Montag 26.10., ist verstrichen;
+    nur der Nutzer, Cloud Shell):
+    `cd ~/Enduranceevents && git pull && firebase deploy --only functions`
+    (Erwartung: vier Funktionen „Successful update operation", „Deploy
+    complete!"; `STATS_ORIGINS` fragt die CLI nicht, der Wert steht in
+    `functions/.env.endurance-5177a` im Klon dort). Das `git pull` holt
+    auch die Duathlon-Namen vom 26.10.2026 (Commit `ed74477f`). Bis dahin
+    verschickt `checkNewEvents` die ALTE Vorlage – so ging am 26.10.2026
+    die Montagsmail raus (Job `abo`: 574 neu sichtbare Events, 2 Abos
+    geprüft, 1 Mail; die seit dem 19.10. freigegebenen Zeilen waren
+    dabei). Erledigt, sobald die nächste Montagsmail im neuen Aussehen
+    kommt (Log des Jobs `abo` nach dem Datenlauf-Deploy: „E-Mails
+    verschickt: N"). Siehe „Abos sind Filter + Rhythmus“ (Die Mail selbst).
+11. **Instagram-Profile der Clubs automatisch auswerten** (eingetragen am
+    26.10.2026, vom Nutzer: „Und das du die Instagram Profile von den Clubs
+    automatisch auswertest muss auch noch draufstehen“; gebaut auf dem
+    Clubs-Branch `claude/clubs-feature-map-kycnmi`, Commit `b7997db1`, dort
+    To-do 10). **Weg**: Metas offizielle Schnittstelle Business Discovery
+    (kein Scraping) – `scripts/clubs_instagram.py` holt montags 05:17 UTC
+    (neuer Job `clubs-instagram` in `instagram.yml`) die öffentlichen
+    Beiträge der Club-Profile (Text, Bilder) auf den Branch
+    `daten/clubs-instagram`; die Montagsaufgabe
+    `trig_01MvVHbqKGeJjdmGLQ7mBqd3` („Clubs wöchentlich auslesen“, 08:56
+    Berlin, aktiv) liest Texte und Monatspläne und trägt die Termine in
+    `clubs.json` ein, wie bei einem Bildschirmfoto. Private Konten und
+    Konten ohne Business/Creator liefern nichts. **Erst der Nutzer** (er
+    will es diese Woche erledigen: „Ich arbeite das alles diese Woche noch
+    ab“): (a) Facebook-Seite „AusdauerMaschine“ anlegen, (b) dort
+    @ausdauermaschine verknüpfen, (c) in der Meta-App „Instagram API mit
+    Facebook Login“ mit `instagram_basic`, `instagram_manage_insights`,
+    `pages_show_list`, `pages_read_engagement`, (d) Schlüssel im Graph API
+    Explorer, (e) Cloud Shell auf dem Clubs-Branch `bash
+    scripts/instagram_fb_einrichten.sh` (Secret `instagram-fb-token`),
+    (f) Ja für `instagram.yml` auf `main` – Schritt für Schritt in der
+    To-do-Liste des Clubs-Branches. Fehlt `daten/clubs-instagram` oder ist
+    der Stand älter als drei Tage, meldet die Montagsaufgabe das. Das
+    Posten bleibt bei der Anmeldung über Instagram.
+12. **Strava-Clubs beitreten** (26.10.2026, Nutzer, täglich 15; auf dem
+    Clubs-Branch To-do 11): zuerst die 252 Clubs „nur Instagram“ aus
+    `clubs_profile_fehlen.xlsx` – Strava liest die Montagsaufgabe sicher
+    aus; Clubs ohne Termine auf Strava wieder verlassen (die Montagsmeldung
     nennt sie). **Dazu die 94 Strava-Kandidaten** (26.10.2026, aus
     runningclubnearme.org, ohne aktuellen Beleg): Liste
-    `strava_kandidaten.xlsx` (im Chat geschickt; neu erzeugen aus
-    `scripts/clubs_kandidaten.json`, alle Einträge mit `strava`). Nach dem
-    Beitritt liest die Montagsaufgabe ihre Termine; ein Kandidat mit Treff
-    wird als Club angelegt und aus der Kandidatenliste genommen.
+    `strava_kandidaten.xlsx` (neu erzeugen aus `scripts/clubs_kandidaten.json`,
+    alle Einträge mit `strava`); ein Kandidat mit Treff wird als Club
+    angelegt und aus der Kandidatenliste genommen.
+13. **Montag 02.11.2026: den ersten Datenlauf mit Instagram-Prüfung und
+    360 Minuten ansehen** (Claude, eingetragen am 27.10.2026): (a)
+    Laufzeit des Laufs „Events automatisch aktualisieren“ (Grenze jetzt
+    360 – bleibt er über ~330, den Lauf teilen, siehe „Automatik“);
+    (b) im Log „Instagram-Konten: … Seiten geprüft“ – lief die Prüfung
+    durch, wurde `instagram_konten.json` mitcommittet; (c) die NEU
+    zugeordneten Konten im Abschnitt „Instagram-Konto der Veranstaltung“
+    des Aufräum-Logs durchsehen, Fehltreffer als Regel oder in
+    `KEIN_EVENT_KONTO` (Frontend-Fallen, „Das Instagram-Zeichen großer
+    Veranstaltungen“); (d) der Deploy-Lauf danach grün (sonst warten die
+    Daten hinter dem Gate) und die Abo-Mail im neuen Aussehen (Punkt 10).
+    Dabei kommen fünf Zeilen aus der Liste der großen Events dazu, die die
+    parallele Sitzung am 27.10. ergänzt hat (10 km de Payerne, Spartan
+    Munich, Wings for Life Munich) – kein Fehler, nur noch nicht
+    aufgeräumt.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
 (36), Functions-Deploy für die Abo-Kennzahl (37), Probe des
 Wartungsmodus (38) – alle 13./14.10.2026; Instagram einrichten (39) –
-16.10.2026; RADRACE als Veranstalter (40) – 17.10.2026.)
+16.10.2026; RADRACE als Veranstalter (40) – 17.10.2026; Timeout des
+Datenlaufs auf 360 Minuten (41) – 27.10.2026.)
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
@@ -6647,6 +7361,14 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     standing; Startplätze per Los oder Qualifier, „aus den stärksten
     Bewerbern" – vor der Aufnahme klären, ob das „für jeden" ist), New
     Balance Midnight Miles (newbalance.de antwortet 403).
+41. ~~**Timeout des Datenlaufs auf 360 Minuten**~~ **erledigt**
+    (27.10.2026, vom Nutzer: „Ja, Timeout auf main auf 360 anheben“):
+    `timeout-minutes: 360` in `update-events.yml` auf beiden
+    Entwicklungs-Branches und auf `main` (Commit `a202d26f`, nur diese
+    Datei), Diff zwischen
+    `main` und Entwicklungs-Branch leer. Anlass: Der Lauf vom 26.10.2026
+    brauchte 262 von 300 Minuten, dazu kam die Instagram-Prüfung. 360 ist
+    das Maximum für gehostete Läufer.
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
     Termin – rein oder raus?~~ **erledigt** (09.10.2026, vom Nutzer: „Ne

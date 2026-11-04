@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-47-internationales-kitzbuhler-horn-radrennen-x-kitzbuhel@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270725
+SUMMARY:47. Internationales Kitzbühler Horn Radrennen – Einzelzeitfahren
+LOCATION:Kitzbühel\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: -\nhttps://www.kitzspor
+ t.at/sportverein
+TRANSP:TRANSPARENT
+URL:https://www.kitzsport.at/sportverein
+END:VEVENT
+END:VCALENDAR

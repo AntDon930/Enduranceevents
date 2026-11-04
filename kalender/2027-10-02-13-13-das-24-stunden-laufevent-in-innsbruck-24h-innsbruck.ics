@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-02-13-13-das-24-stunden-laufevent-in-innsbruck-24h-innsbruck@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271002
+DTEND;VALUE=DATE:20271004
+SUMMARY:13_13 – Das 24-Stunden-Laufevent in Innsbruck
+LOCATION:Innsbruck\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://www.from13to13
+ .com/
+TRANSP:TRANSPARENT
+URL:https://www.from13to13.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-bad-waltersdorfer-rote-nasen-lauf-x-bad-waltersdorf@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Bad Waltersdorfer Rote Nasen Lauf
+LOCATION:Bad Waltersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.rotenasenlauf
+ .at/lauf/4-bad-waltersdorfer-rote-nasen-lauf
+TRANSP:TRANSPARENT
+URL:https://www.rotenasenlauf.at/lauf/4-bad-waltersdorfer-rote-nasen-lauf
+END:VEVENT
+END:VCALENDAR

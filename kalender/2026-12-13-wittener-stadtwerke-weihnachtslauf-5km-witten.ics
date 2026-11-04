@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-wittener-stadtwerke-weihnachtslauf-5km-witten@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Wittener Stadtwerke Weihnachtslauf – 5 km Jugendliche und Erwachse
+ ne
+LOCATION:Witten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.triwit.de/
+ veranstaltungen/weihnachtslauf.html
+TRANSP:TRANSPARENT
+URL:https://www.triwit.de/veranstaltungen/weihnachtslauf.html
+END:VEVENT
+END:VCALENDAR

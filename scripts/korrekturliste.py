@@ -30,7 +30,11 @@ ist egal, ob events.json inzwischen ein Datenlauf neu geschrieben hat.
 Jede Änderung wird ein Eintrag in `manual_overrides.json` unter dem
 genauesten Schlüssel ("<Name>|<Datum>|<km>", sonst
 "<Name>|<Datum>|@<Wettbewerb>", sonst "<Name>|<Datum>"), „Löschen"
-wird `exclude: true`, und der Status landet in `geprueft.json`. Danach
+wird `exclude: true`, „Fällt aus" ebenso, dazu `abgesagt: true` (die
+Ausgabe fällt aus, die Veranstaltung bleibt im Gedächtnis und der
+Wochenlauf sucht ihre nächste Ausgabe), und der Status landet in
+`geprueft.json`. „Check again" übernimmt nichts aus der Zeile - der
+Import listet sie, Claude prüft sie an der Quelle. Danach
 `clean_events.py` und `build_ics.py` laufen lassen (macht `import`
 selbst, außer mit `--dry-run` oder `--ohne-aufraeumen`).
 """
@@ -97,7 +101,19 @@ FELDER = [f for f, _, _ in SPALTEN if not f.startswith("_")]
 AENDERBAR = [f for f in FELDER if f != "name"]
 SPALTE = {f: i + 1 for i, (f, _, _) in enumerate(SPALTEN)}
 
-STATUS_WERTE = ["Stimmt so", "Korrigiert", "Löschen", "Unklar"]
+# „Fällt aus" (vom Nutzer am 20.10.2026 am 25h Handorf gewünscht: „einen
+# Status der das Event rausnimmt aus der Liste aber auch für nächstes Jahr
+# merkt, weil löschen will ich es nicht"): wie „Löschen" raus aus der
+# Liste, aber als ABGESAGTE Ausgabe - das Gedächtnis
+# (veranstalter_seiten.merke_abgesagt) behält die Veranstaltung samt Seite
+# und Strecken, und `pruefen` sucht ihre nächste Ausgabe.
+# „Check again" (vom Nutzer am 20.10.2026: „Ich schreibe meine Kommentare
+# dann hinein, und du müsstest das Event noch einmal genau anschauen"): Der
+# Import übernimmt die Zeile NICHT - weder Zellen noch Status -, sondern
+# nennt sie als Auftrag an Claude. Die Zeile bleibt ausgeblendet, bis Claude
+# sie an der Quelle geprüft hat (korrektur_seite.py, `nochmal.json`/`erledigt`).
+NOCHMAL = "Check again"
+STATUS_WERTE = ["Stimmt so", "Korrigiert", "Löschen", "Fällt aus", "Unklar", NOCHMAL]
 SPORTARTEN = ["Laufen", "Fahrrad", "Schwimmen", "Triathlon"]
 KATEGORIEN = ["Straße", "Trail", "Mountainbike", "Cyclecross", "Gravel", "Hindernis",
               "Duathlon", "Bahn", "Backyard Ultra", "Freiwasser", "Cross", "Swimrun",
@@ -156,13 +172,14 @@ KATEGORIE_FELDER: dict[str, tuple[tuple[str, ...], str, str]] = {
 # Export
 # ---------------------------------------------------------------------------
 
-def sammle(events: list[dict], heute: str) -> list[tuple[dict, list[tuple[tuple[str, ...], str, str]]]]:
+def sammle(events: list[dict], heute: str,
+           gedaechtnis=None) -> list[tuple[dict, list[tuple[tuple[str, ...], str, str]]]]:
     """Die Zeilen der Liste: (Event, [(Felder, Art, Text), …]) - genau die
     Zeilen, die `audit_events.offene_pruefungen()` nennt und die die Seite
     seit dem Livegang (13.10.2026) als `pruefung_offen` ausblendet. Hier
     wird nur übersetzt: Audit-Kategorie -> Felder, "fehlt"/"fraglich", Text."""
     zeilen = []
-    for e, gruende in offene_pruefungen(events, heute):
+    for e, gruende in offene_pruefungen(events, heute, gedaechtnis=gedaechtnis):
         funde: list[tuple[tuple[str, ...], str, str]] = []
         for art, text in gruende:
             if art == "audit":
@@ -195,7 +212,10 @@ def als_zelle(feld: str, wert):
 def export(ziel: Path) -> None:
     events = json.loads(EVENTS_JSON_PATH.read_text(encoding="utf-8"))
     heute = datetime.date.today().isoformat()
-    zeilen = sammle(events, heute)
+    # Mit dem Gedächtnis: Strecken, die der Nutzer im Vorjahr gelöscht hat,
+    # stehen wieder in der Liste (dieselbe Auswahl wie mark_pruefung_offen).
+    import veranstalter_seiten  # noqa: PLC0415 - nur hier gebraucht
+    zeilen = sammle(events, heute, veranstalter_seiten.Gedaechtnis.laden())
 
     wb = Workbook()
     ws = wb.active
@@ -302,8 +322,10 @@ def _anleitung(wb: Workbook, anzahl: int, letzte: int) -> None:
          f"oder fraglich ist.", None, f(size=10)),
         ("Jede Zeile hier ist auf endurance-events.de AUSGEBLENDET, bis sie geprüft ist: "
          "Sobald du eine Zeile mit Status zurückschickst und ich sie einlese, erscheint sie "
-         "auf der Seite (auch „Löschen“ und „Unklar“ nehmen sie aus der Liste - „Unklar“ bleibt "
-         "ausgeblendet, bis es geklärt ist). Einzige Ausnahme: Steht bei einer Zeile NUR „Termin "
+         "auf der Seite (auch „Löschen“, „Fällt aus“ und „Unklar“ nehmen sie aus der Liste - "
+         "„Unklar“ bleibt ausgeblendet, bis es geklärt ist; „Fällt aus“ nimmt nur diese Ausgabe "
+         "heraus, die Veranstaltung bleibt gemerkt und kommt mit der nächsten Ausgabe wieder; „Check again“ "
+         "übernehme ich nicht, ich sehe mir die Zeile mit deiner Anmerkung noch einmal an). Einzige Ausnahme: Steht bei einer Zeile NUR „Termin "
          "nur geschätzt“, ist sie sichtbar - mit Sternchen am Datum.", None, f(size=10)),
         None,
         ("So geht's", None, f(bold=True, size=11)),
@@ -311,7 +333,10 @@ def _anleitung(wb: Workbook, anzahl: int, letzte: int) -> None:
                "fraglich“ sagt, worum es geht.", None),
         ("2.", "Falsches direkt in der Zelle überschreiben, Fehlendes eintragen. Formate: Datum "
                "TT.MM.JJJJ, Distanz in km mit Komma (z. B. 21,1), Dauer in Stunden (z. B. 6).", None),
-        ("3.", "In „Status“ wählen: Stimmt so / Korrigiert / Löschen / Unklar. Leer = nicht angesehen "
+        ("3.", "In „Status“ wählen: Stimmt so / Korrigiert / Löschen / Fällt aus / Unklar / Check again. "
+               "„Löschen“ = nur diese Zeile, nächstes Jahr kommt die Strecke wieder zur Prüfung. "
+               "„Fällt aus“ = diese Ausgabe ist abgesagt, nächstes Jahr wieder. „Check again“ = ich sehe mir "
+               "das Event noch einmal genau an, dein Kommentar in „Deine Anmerkung“. Leer = nicht angesehen "
                "(Änderungen in der Zeile übernehme ich trotzdem).", None),
         ("4.", "Alles, was nicht in eine Zelle passt (z. B. falscher Name, Hinweise), in „Deine "
                "Anmerkung“.", None),
@@ -379,7 +404,9 @@ def _anleitung(wb: Workbook, anzahl: int, letzte: int) -> None:
 # Import
 # ---------------------------------------------------------------------------
 
-DATUM_RE = re.compile(r"^\s*(\d{1,2})\.(\d{1,2})\.(\d{4})\s*$")
+# Auch mit zweistelligem Jahr („13.10.26“) – so schreibt es der Nutzer auf
+# der Korrekturseite und gern auch in der Excel.
+DATUM_RE = re.compile(r"^\s*(\d{1,2})\.(\d{1,2})\.(\d{2}|\d{4})\s*$")
 
 
 def lies_wert(feld: str, wert):
@@ -397,7 +424,8 @@ def lies_wert(feld: str, wert):
             return wert.isoformat()
         m = DATUM_RE.match(str(wert))
         if m:
-            return datetime.date(int(m[3]), int(m[2]), int(m[1])).isoformat()
+            jahr = int(m[3]) + (2000 if len(m[3]) == 2 else 0)
+            return datetime.date(jahr, int(m[2]), int(m[1])).isoformat()
         return datetime.date.fromisoformat(str(wert)).isoformat()
     if feld == "datum_vorlaeufig":
         s = str(wert).strip().lower()
@@ -535,6 +563,7 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
 
     heute = datetime.date.today().isoformat()
     fehler, aenderungen, geloescht, status_zaehler = [], [], [], {}
+    nochmal: list[str] = []
     neue_overrides: dict[str, dict] = {}
     neues_protokoll: dict[str, dict] = {}
     neue_links: dict[str, dict] = {}
@@ -557,6 +586,11 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
         anmerkung = (zeile[SPALTE["_anmerkung"] - 1] or "")
         anmerkung = str(anmerkung).strip()
         bez = f"Nr {nr} {alt['name']!r} {alt['datum_start']}"
+        # „Check again": nichts übernehmen, auch keine geänderte Zelle - die
+        # Zeile ist ein Auftrag an Claude, nicht die Antwort des Nutzers.
+        if status.casefold() == NOCHMAL.casefold():
+            nochmal.append(bez + (f": {anmerkung}" if anmerkung else ""))
+            continue
 
         # Ein Format statt einer Zahl in der Distanz-Spalte ("Sprint",
         # "Olympisch") - bei Triathlon UND Duathlon ist das die Länge
@@ -619,7 +653,8 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
         if neu.get("datum_vorlaeufig") is False:
             neu["datum_vorlaeufig"] = None  # Feld entfernen statt false speichern
 
-        loeschen = status.lower() == "löschen"
+        abgesagt = status.lower() == "fällt aus"
+        loeschen = status.lower() == "löschen" or abgesagt
         if not neu and not loeschen and not status and not anmerkung:
             continue
 
@@ -644,13 +679,23 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
                               f"ALLE {n} Strecken dieser Veranstaltung. Bitte prüfen.")
         if loeschen:
             neue_overrides.setdefault(schluessel, {})["exclude"] = True
-            geloescht.append(bez)
+            if abgesagt:
+                neue_overrides[schluessel]["abgesagt"] = True
+            else:
+                # „Löschen" nimmt nur DIESE Zeile heraus; die nächste Ausgabe
+                # kommt wieder in die Liste (vom Nutzer am 20.10.2026: „löschen
+                # soll nur die eine Zeile herausnehmen und schauen ob das Event
+                # nächstes Jahr passend ist", veranstalter_seiten.merke_geloescht).
+                neue_overrides[schluessel]["geloescht"] = True
+            geloescht.append(bez + (" (fällt aus, bleibt im Gedächtnis)" if abgesagt else ""))
         elif neu:
             neue_overrides.setdefault(schluessel, {}).update(neu)
             aenderungen.append(f"{bez}: " + ", ".join(
                 f"{f} {alt.get(f)!r} -> {v!r}" for f, v in neu.items()))
         if neu or loeschen:
-            notiz = "Korrekturliste des Nutzers" + (f": {anmerkung}" if anmerkung else "")
+            notiz = "Korrekturliste des Nutzers" + (
+                f": Ausgabe {alt['datum_start']} fällt aus - die Veranstaltung bleibt im Gedächtnis"
+                if abgesagt else "") + (f": {anmerkung}" if anmerkung else "")
             neue_overrides[schluessel]["_note"] = notiz
         # Der Nutzer setzt eine Anmelde-/Zeitnehmerseite über die
         # Vereinsseite: Das ist seine Entscheidung vom 13.10.2026 ("die
@@ -670,8 +715,8 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
                          "die Vereinsseite nennt den Lauf nicht mehr (portal_erlaubt im Override).",
             }
 
-        ergebnis = {"löschen": "entfernt", "unklar": "unklar", "stimmt so": "quelle_ok",
-                    "korrigiert": "korrigiert"}.get(status.lower())
+        ergebnis = {"löschen": "entfernt", "fällt aus": "abgesagt", "unklar": "unklar",
+                    "stimmt so": "quelle_ok", "korrigiert": "korrigiert"}.get(status.lower())
         if ergebnis is None and neu:
             ergebnis = "korrigiert"
         if ergebnis == "korrigiert" and not neu:
@@ -682,13 +727,15 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
             vorher = neues_protokoll.get(pkey, {}).get("ergebnis")
             # Eine Veranstaltung, deren eine Strecke korrigiert und deren
             # andere bestätigt wurde, ist "korrigiert".
-            rang = ["quelle_ok", "unklar", "korrigiert", "entfernt"]
+            rang = ["quelle_ok", "unklar", "korrigiert", "abgesagt", "entfernt"]
             if vorher and rang.index(vorher) > rang.index(ergebnis):
                 ergebnis = vorher
             neues_protokoll[pkey] = {
                 "am": heute, "ergebnis": ergebnis,
                 "quelle": neu.get("veranstalter_url") or alt.get("veranstalter_url") or "",
-                "notiz": "Korrekturliste des Nutzers" + (f": {anmerkung}" if anmerkung else ""),
+                "notiz": "Korrekturliste des Nutzers" + (
+                    ": Ausgabe fällt aus, nächste Ausgabe sucht das Gedächtnis" if ergebnis == "abgesagt"
+                    else "") + (f": {anmerkung}" if anmerkung else ""),
             }
         elif anmerkung:
             fehler.append(f"{bez}: Anmerkung ohne Änderung/Status: {anmerkung}")
@@ -699,6 +746,10 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
         print("  ~ " + z)
     for z in geloescht:
         print("  - " + z)
+    if nochmal:
+        print(f"\nCHECK AGAIN ({len(nochmal)}) - nicht übernommen, an der Quelle noch einmal ansehen:")
+        for z in nochmal:
+            print("  ? " + z)
     if fehler:
         print(f"\nHINWEISE ({len(fehler)}) - bitte ansehen:")
         for z in fehler:

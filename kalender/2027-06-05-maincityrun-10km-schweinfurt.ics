@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-maincityrun-10km-schweinfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:MainCityRun – Hauptlauf
+LOCATION:Schweinfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://laufen-triathl
+ on.de/maincityrun/
+TRANSP:TRANSPARENT
+URL:http://laufen-triathlon.de/maincityrun/
+END:VEVENT
+END:VCALENDAR

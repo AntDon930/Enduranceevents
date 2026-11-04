@@ -26,19 +26,15 @@ NICHT ab – die übrigen Skripte laufen trotzdem, und die Ergebnisse der
 erfolgreichen Skripte werden übernommen. Am Ende steht eine Zusammen-
 fassung, welche Skripte erfolgreich waren.
 
-Optionale "Benachrichtige mich"-Anbindung (NOTIFY_WEBHOOK_URL)
-------------------------------------------------------------------
-Ist die Umgebungsvariable `NOTIFY_WEBHOOK_URL` gesetzt (z. B. als
-GitHub-Actions-Secret, siehe `.github/workflows/update-events.yml`),
-werden nach einem echten (nicht `--dry-run`) Lauf alle NEU hinzugekommenen
-Events (Vorher-/Nachher-Vergleich über dieselbe Name+Datum+Distanz-
-Identität wie beim Dedupe) per HTTPS-POST an diese URL gemeldet - gedacht
-für die Cloud Function in `functions/index.js`, die sie gegen gespeicherte
-Filterabos (siehe `auth.js`/events.html "Benachrichtige mich") prüft und
-bei einem Treffer eine E-Mail auslöst. Optional zusätzlich
-`NOTIFY_WEBHOOK_SECRET` (wird als Header `X-Notify-Secret` mitgeschickt).
-Ohne gesetztes `NOTIFY_WEBHOOK_URL` passiert hier schlicht nichts - kein
-Fehler, kein Effekt auf den restlichen Lauf.
+E-Mail-Abos ("Benachrichtige mich")
+------------------------------------
+Bis zum 20.10.2026 meldete dieses Skript die neuen Events am Ende des
+Laufs an die Cloud Function `checkNewEvents`. Das kam zu früh (vor dem
+Commit und vor dem Deploy-Gate) und übersah Zeilen, die über die
+Korrekturseite freigegeben werden. Die Meldung steht jetzt im
+Pages-Workflow NACH dem Deploy: `scripts/abo_meldung.py` vergleicht die
+Live-Seite mit dem neuen Stand. `NOTIFY_WEBHOOK_URL` in
+`update-events.yml` wird hier nicht mehr gelesen.
 
 Neue Scraper hinzufügen
 ------------------------
@@ -65,8 +61,6 @@ import json
 import os
 import subprocess
 import sys
-import urllib.error
-import urllib.request
 from pathlib import Path
 
 SCRIPTS_DIR = Path(__file__).resolve().parent
@@ -132,15 +126,6 @@ def load_events(path: Path) -> list[dict]:
         return []
 
 
-def event_identity(event: dict) -> tuple:
-    """Identisch zu scraper_lib.dedupe_key(), aber ohne Import (dieses
-    Skript startet die Scraper als eigene Subprozesse statt sie zu
-    importieren) - Name + Startdatum + gerundete Distanz."""
-    laenge_km = event.get("laenge_km")
-    rounded_km = round(laenge_km, 1) if isinstance(laenge_km, (int, float)) else None
-    return (str(event.get("name", "")).strip().casefold(), event.get("datum_start"), rounded_km)
-
-
 def run_build_ics(events_json: Path) -> bool:
     """Führt scripts/build_ics.py aus: schreibt für jedes Event eine
     fertige .ics-Datei nach kalender/ und räumt Dateien weg, deren Event
@@ -197,8 +182,10 @@ def stage_kalender() -> None:
     # jedem Lauf fort, und was dort steht, muss den Datenlauf überleben -
     # sonst ist mit der vergangenen Zeile auch ihre Seite weg.
     pfade = ["kalender"]
+    # Seit dem 27.10.2026 auch die Instagram-Konten der Veranstalterseiten
+    # (scripts/instagram_konten.json) - die Datei auf `main` nennt sie nicht.
     for rel in ("scripts/veranstalter_seiten.json", "scripts/veranstalter_seiten_pruefung.json",
-                "scripts/manual_events.json"):
+                "scripts/manual_events.json", "scripts/instagram_konten.json"):
         if (REPO_ROOT / rel).exists():
             pfade.append(rel)
     try:
@@ -243,6 +230,42 @@ def run_naechste_ausgaben(events_json: Path) -> bool:
     return result.returncode == 0
 
 
+def run_instagram_konten(events_json: Path) -> bool:
+    """Fragt die eigenen Veranstalterseiten künftiger Events nach ihren
+    Instagram-Links (scripts/instagram_konten.py pruefen): ungeprüfte
+    zuerst, dann jede Seite nach PRUEF_ABSTAND_TAGE wieder - höchstens
+    INSTAGRAM_MAX Seiten und INSTAGRAM_ZEITLIMIT Sekunden je Lauf. Neue
+    Events bekommen so in der Woche, in der sie auftauchen, ihr
+    Instagram-Symbol. Ein Fehlschlag hält den Datenlauf nicht auf."""
+    script = SCRIPTS_DIR / "instagram_konten.py"
+    if not script.exists():
+        return True
+    print(f"\n{'=' * 70}\nInstagram-Konten der Veranstalterseiten\n{'=' * 70}")
+    cmd = [sys.executable, str(script), "--events-json", str(events_json), "pruefen",
+           "--max", str(INSTAGRAM_MAX), "--zeitlimit", str(INSTAGRAM_ZEITLIMIT)]
+    try:
+        result = subprocess.run(cmd, cwd=REPO_ROOT, timeout=INSTAGRAM_ZEITLIMIT + 5 * 60)
+    except subprocess.TimeoutExpired:
+        print("⚠ Die Instagram-Prüfung hat zu lange gedauert - abgebrochen, der Datenlauf geht weiter.")
+        return False
+    except OSError as exc:
+        print(f"⚠ Die Instagram-Prüfung ließ sich nicht starten ({exc}).")
+        return False
+    if result.returncode != 0:
+        print(f"⚠ Die Instagram-Prüfung endete mit Rückgabewert {result.returncode}.")
+    return result.returncode == 0
+
+
+# Je Woche kommen ~150 neue Seiten; dazu wird jede Seite alle 90 Tage
+# noch einmal gelesen (~3.900 Seiten → ~300 je Woche, neue zuerst). Eine
+# Seite kostet 1–3 s, meist ohne Wartezeit (lauter verschiedene Hosts).
+# Knapp gehalten: Der Wochenlauf brauchte am 26.10.2026 schon 262 der
+# damals 300 Minuten; seit dem 27.10.2026 sind es 360 (timeout-minutes in
+# update-events.yml auf `main`, das Maximum).
+INSTAGRAM_MAX = 400
+INSTAGRAM_ZEITLIMIT = 8 * 60
+
+
 # Wie viele Seiten je Wochenlauf, und wie lange. Gerechnet (05.10.2026):
 # Jede Veranstaltung des Gedächtnisses ist irgendwann vergangen und wartet
 # auf ihren nächsten Termin - bei 4.400 Veranstaltungen und einer Prüfung
@@ -252,8 +275,9 @@ def run_naechste_ausgaben(events_json: Path) -> bool:
 # ~40 Minuten. Das ZEITLIMIT ist die eigentliche Grenze: Das Skript hört
 # dann selbst auf, übernimmt die Funde und speichert - der harte TIMEOUT
 # darunter ist nur noch die Notbremse gegen eine hängende Seite, und er
-# verlöre alles, was dieser Lauf gefunden hat. Der Wochenlauf hat 300
-# Minuten (update-events.yml), die Scraper brauchen ~210.
+# verlöre alles, was dieser Lauf gefunden hat. Der Wochenlauf hat 360
+# Minuten (update-events.yml, seit dem 27.10.2026; vorher 300), die
+# Scraper brauchen ~210.
 NAECHSTE_AUSGABEN_MAX = 600
 NAECHSTE_AUSGABEN_ZEITLIMIT = 40 * 60
 NAECHSTE_AUSGABEN_TIMEOUT = 50 * 60
@@ -277,33 +301,6 @@ def run_cleanup(events_json: Path) -> bool:
               "events.json bleibt unbereinigt, der Lauf gilt trotzdem als erfolgreich.")
         return False
     return True
-
-
-def notify_webhook_of_new_events(new_events: list[dict]) -> None:
-    """Meldet neu hinzugekommene Events (best-effort, siehe
-    functions/index.js) an eine optionale Cloud Function, die sie gegen
-    gespeicherte "Benachrichtige mich"-Filterabos prüft und passende
-    E-Mails auslöst. Ohne gesetztes NOTIFY_WEBHOOK_URL passiert nichts;
-    ein Fehler hier lässt den Gesamtlauf NICHT fehlschlagen - das
-    Scrapen/Aktualisieren von events.json ist die Kernaufgabe, die
-    Benachrichtigung ein optionales Extra."""
-    webhook_url = os.environ.get("NOTIFY_WEBHOOK_URL")
-    if not webhook_url or not new_events:
-        return
-
-    print(f"\n→ Melde {len(new_events)} neue(s) Event(s) an {webhook_url} ...")
-    headers = {"Content-Type": "application/json"}
-    secret = os.environ.get("NOTIFY_WEBHOOK_SECRET")
-    if secret:
-        headers["X-Notify-Secret"] = secret
-
-    body = json.dumps({"events": new_events}, ensure_ascii=False).encode("utf-8")
-    req = urllib.request.Request(webhook_url, data=body, headers=headers, method="POST")
-    try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            print(f"  ✓ Webhook antwortete mit HTTP {resp.status}.")
-    except (urllib.error.URLError, urllib.error.HTTPError) as exc:
-        print(f"  ⚠ Webhook-Aufruf fehlgeschlagen (ignoriert, events.json bleibt trotzdem gültig): {exc}")
 
 
 def run_script(script: Path, events_json: Path, dry_run: bool, extra_args: list[str]) -> bool:
@@ -378,6 +375,9 @@ def main():
         # Erst die nächsten Ausgaben vergangener Veranstaltungen (schreibt
         # manual_events.json), dann das Aufräumen, das sie aufnimmt.
         run_naechste_ausgaben(args.events_json)
+        # Die Instagram-Konten der Veranstalterseiten (instagram_konten.json),
+        # die clean_events.fix_instagram() gleich zuordnet.
+        run_instagram_konten(args.events_json)
         # Aufräumen VOR dem Vorher-/Nachher-Vergleich: sonst würden Events
         # gemeldet, die die Duplikat-Zusammenführung gleich wieder entfernt.
         run_cleanup(args.events_json)
@@ -385,14 +385,8 @@ def main():
 
     after_events = load_events(args.events_json)
     after = len(after_events)
-
-    if not args.dry_run:
-        before_identities = {event_identity(e) for e in before_events}
-        # Ausgeblendete Zeilen (pruefung_offen, siehe clean_events.py) sieht
-        # niemand auf der Seite - also auch keine E-Mail darüber.
-        new_events = [e for e in after_events
-                      if event_identity(e) not in before_identities and not e.get("pruefung_offen")]
-        notify_webhook_of_new_events(new_events)
+    # Die E-Mail-Abos meldet seit dem 20.10.2026 der Pages-Workflow nach
+    # dem Deploy (scripts/abo_meldung.py), nicht mehr dieser Lauf.
 
     print(f"\n{'=' * 70}\nZusammenfassung\n{'=' * 70}")
     for name, ok in results.items():

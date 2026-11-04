@@ -1159,13 +1159,50 @@ def test_js_syntax() -> None:
                 check(f"{name}: Inline-Skript {nr} ist gültiges JS",
                       fehlerzeile(erg), "")
         for name in ("filters.js", "filter-ui.js", "event-detail.js", "auth.js", "stats.js", "clubs.js",
-                     "firebase-config.js", "functions/index.js", "functions/stats_aggregate.js"):
+                     "firebase-config.js", "vorschau-sperre.js",
+                     "functions/index.js", "functions/stats_aggregate.js"):
             pfad = wurzel / name
             if not pfad.exists():
                 continue
             erg = subprocess.run([node, "--check", str(pfad)],
                                  capture_output=True, text=True)
             check(f"{name} ist gültiges JS", fehlerzeile(erg), "")
+
+
+def test_vorschau_sperre() -> None:
+    """Anmeldesperre für /vorschau/ (19.10.2026): pages.yml setzt
+    vorschau-sperre.js in JEDE Vorschau-Seite, und vor dem Upload fliegt
+    eine Vorschau ohne Sperre ganz heraus. Die Sperre fragt admins/<uid>
+    wie admin.html und lädt Firebase aus einem Pfad, den es geben muss."""
+    print("\nAnmeldesperre der Vorschau:")
+    import re as _re
+    wurzel = Path(__file__).resolve().parent.parent
+    js = (wurzel / "vorschau-sperre.js").read_text(encoding="utf-8")
+    pfad = _re.search(r"FIREBASE_PFAD = '([^']+)'", js).group(1)
+    for datei in ("firebase-app-compat.js", "firebase-auth-compat.js"):
+        check(f"Firebase-Pfad der Sperre gibt es: {pfad}{datei}", (wurzel / pfad / datei).exists(), True)
+    check("Sperre fragt admins/<uid> per REST", "/documents/admins/" in js and "getIdToken" in js, True)
+    check("Sperre ist sofort zu (vor <body>)", js.index("root.classList.add('vs-zu')") < js.index("function zu("), True)
+    check("verborgen über opacity, nicht display (Leaflet misst sonst 0 px)",
+          "opacity:0!important" in js and "display:none" not in js, True)
+    regeln = (wurzel / "firestore.rules").read_text(encoding="utf-8")
+    check("firestore.rules: das eigene admins-Dokument ist abfragbar",
+          "allow get: if request.auth != null && request.auth.uid == uid;" in regeln, True)
+    # Als Text, nicht mit yaml: PyYAML gibt es in der CI nicht (13.10.2026).
+    workflow = (wurzel / ".github/workflows/pages.yml").read_text(encoding="utf-8")
+    teile = _re.split(r"\n      - name: ", workflow)
+    schritte = {t.split("\n", 1)[0].strip(): {"run": t} for t in teile[1:]}
+    namen = list(schritte)
+    marke = 'src="/vorschau/vorschau-sperre.js"'
+    vorbereiten = schritte.get("Vorschau vorbereiten", {}).get("run", "")
+    check("pages.yml kopiert die Sperre in die Vorschau", "cp vorschau-sperre.js vorschau/" in vorbereiten, True)
+    check("pages.yml setzt sie in jede Vorschau-Seite", marke in vorbereiten and "find vorschau -name '*.html'" in vorbereiten, True)
+    check("pages.yml räumt die Vorschau bei einem Fehler weg", "trap 'rm -rf vorschau' ERR" in vorbereiten, True)
+    waechter = schritte.get("Vorschau nur mit Anmeldesperre", {}).get("run", "")
+    check("Wächter prüft dieselbe Marke und wirft sonst die Vorschau raus",
+          marke in waechter and "rm -rf vorschau" in waechter, True)
+    check("Wächter läuft vor dem Upload",
+          "Vorschau nur mit Anmeldesperre" in namen and namen.index("Vorschau nur mit Anmeldesperre") < namen.index("Upload site as Pages artifact"), True)
 
 
 def test_abo_rhythmen() -> None:
@@ -2712,6 +2749,10 @@ def test_nicht_ausdauer() -> None:
                  # Gehen und Skilanglauf (Nutzer, 21.09.2026)
                  "Lusatian Race Walking", "Internationaler Kammlauf (Skilanglauf)",
                  "König-Ludwig-Langlauf", "Gehermeeting: Gehertag Naumburg",
+                 # Skilanglauf, am 27.10.2026 sichtbar in der Liste gefunden
+                 "Planoiras Volkslanglauf Lenzerheide", "Skadi Loppet", "Gantrisch Loppet",
+                 "Kandersteger Nordic Days", "Gommerlauf", "Ganghoferlauf Leutasch",
+                 "Rucksacklauf 100 km Klassisch", "Gommerlauf Gommer Skating-Kombi, 63 km (freie Technik)",
                  # virtuelle Läufe (Nutzer, 21.09.2026)
                  "Virtueller Silvesterlauf", "Virtual Run Berlin"):
         check(f"{name!r} fliegt heraus", bool(ist_nicht_ausdauer(name)), True)
@@ -2728,7 +2769,14 @@ def test_nicht_ausdauer() -> None:
                  # Walking-Strecken bleiben (offene Frage an den Nutzer),
                  # "Langläufer" ist kein Langlauf, ein Bergläufer kein Geher.
                  "21. Trochtelfinger Nordic Walking Stöckles-Cup", "Ahmadiyya Charity Walk",
-                 "5 km Walking", "Langläufer-Cup Oberstdorf", "Marathon der Bergläufer"):
+                 "5 km Walking", "Langläufer-Cup Oberstdorf", "Marathon der Bergläufer",
+                 # Inline und "klassisch" ohne Technik bleiben
+                 "Berlin Marathon 42,195 km (Laufen, Inlineskating, Rollstuhl, Handbike)",
+                 "Halbmarathon Inline-Skating", "Inline Skating Marathon",
+                 "Napf-Marathon 42.195 km klassischer Marathon",
+                 "Freimarktslauf Garrel 10 km Klassische Strecke durch Garrel",
+                 "Giro Media Blenio 10 km , klassische Distanz.", "Lauf am Langlaufzentrum",
+                 "2B Schöckl-Halterhütte-Rucksacklauf", "Nordic Walking Tag"):
         check(f"{name!r} bleibt", ist_nicht_ausdauer(name), None)
     # Der Ort zählt mit: Die XMAS-Challenge trug "virtuell" nur dort.
     from scraper_lib import nicht_ausdauer_text
@@ -3827,6 +3875,11 @@ def test_cyclingaustria() -> None:
     karten = ca.parse_liste(liste)
     assert [k["id"] for k in karten] == ["66A5150B9B5D4BABB3DD1C836E78761B", "1DB0BEFF77C644F09483583293A91C56"], karten
     assert karten[0]["url"].endswith("view=event&id=66A5150B9B5D4BABB3DD1C836E78761B") and karten[0]["datum"] == "2026-09-26"
+    assert not karten[0]["abgesagt"]
+    abgesagt = ca.parse_liste('<div data-disziplin="Cyclocross" data-date="2026-10-24"><a href="/index.php?option=com_events&amp;view=event&amp;'
+                              'id=3A142E458E9042568C7C8459D4B77EC1"><h3>Wienenergie Cyclocross - ABGESAGT !!</h3></a>'
+                              '<p>Ausschreibung abgesagt</p></div>')
+    assert abgesagt[0]["abgesagt"], abgesagt
 
     def block(nr, klassen, disziplin, distanz=None, dauer=None):
         felder = f'<h3 class="uk-h5">Disziplin</h3><div class="uk-panel">{disziplin}</div>'
@@ -4686,6 +4739,25 @@ def test_gedaechtnis() -> None:
         b2 = vs.uebernehmen([("k", eintrag, "2027-07-25", "2027-07-25")], "2026-10-05", pfad)
         roh = _json.loads(pfad.read_text(encoding="utf-8"))
         check("uebernehmen: einmal angelegt, beim zweiten Mal übersprungen", (len(b1), len(b2), len(roh["events"]), roh["_readme"]), (1, 0, 2, "x"))
+        # Dieselbe Ausgabe unter einem zweiten Gedächtnis-Eintrag mit Sponsornamen
+        # (19.10.2026, RIBE Citylauf Schwabach): keine zweite Zeile für dieselbe
+        # Strecke – sonst stünde sie doppelt in manual_events.json.
+        sponsor = dict(eintrag, name="Allianz Munich Triathlon")
+        b3 = vs.uebernehmen([("k2", sponsor, "2027-07-25", "2027-07-25")], "2026-10-05", pfad)
+        roh = _json.loads(pfad.read_text(encoding="utf-8"))
+        check("uebernehmen: Sponsorname derselben Ausgabe legt nichts doppelt an",
+              (len(roh["events"]), "anderen Namen" in " ".join(b3)), (2, True))
+        # Dieselbe Strecke zweimal IM Eintrag (26.10.2026, Naturpark
+        # Schönbuchlauf: 25 km mit und ohne Label): nur einmal, die mit Label.
+        doppelt = dict(eintrag, name="Schönbuchlauf", strecken=[
+            {"laenge_km": 5.0, "dauer_h": None, "wettbewerb": "5 km", "art2": "Straße"},
+            {"laenge_km": 25.0, "dauer_h": None, "wettbewerb": None, "art2": "Straße"},
+            {"laenge_km": 25.0, "dauer_h": None, "wettbewerb": "25 km Schönbuchlauf", "art2": "Straße"}])
+        b4 = vs.uebernehmen([("k3", doppelt, "2027-10-17", "2027-10-17")], "2026-10-05", pfad)
+        roh = _json.loads(pfad.read_text(encoding="utf-8"))
+        neu4 = [(e["laenge_km"], e.get("wettbewerb")) for e in roh["events"] if e["name"] == "Schönbuchlauf"]
+        check("uebernehmen: doppelte Strecke im Gedächtnis nur einmal, mit Label",
+              (neu4, "doppelt im Gedächtnis" in " ".join(b4)), ([(5.0, "5 km"), (25.0, "25 km Schönbuchlauf")], True))
         g = Path(tmp) / "ged.json"
         ged2.speichern(g)
         check("speichern/laden: gültiges JSON, Eintrag unverändert", vs.Gedaechtnis.laden(g).finde(alt[0]), eintrag)
@@ -4918,8 +4990,9 @@ def test_pruefung_offen() -> None:
     quelle = (wurzel / "filters.js").read_text(encoding="utf-8")
     check("EF.loadEvents() wirft pruefung_offen weg (beide Wege)",
           quelle.count("dropUnchecked(") >= 3 and "!e.pruefung_offen" in quelle, True)
-    check("update_events.py meldet ausgeblendete Zeilen nicht",
-          'not e.get("pruefung_offen")' in (wurzel / "scripts" / "update_events.py").read_text(encoding="utf-8"), True)
+    import abo_meldung as _abo
+    check("die Abo-Meldung zählt ausgeblendete Zeilen nicht als sichtbar",
+          _abo.sichtbar({"name": "X", "datum_start": "2099-01-01", "pruefung_offen": True}, "2026-10-20"), False)
 
 
 def test_kopierschutz() -> None:
@@ -5227,6 +5300,189 @@ def _insta_testevents(heute):
     return ev
 
 
+def test_instagram_konten() -> None:
+    """Das eigene Instagram-Konto großer Veranstaltungen (seit 27.10.2026):
+    die Regel (nur Konten, deren Name aus dem Namen der Veranstaltung
+    besteht - nie Verein, Agentur, Sponsor, Tourismus, Schwesterrennen),
+    das Sammeln (eigene Seite, Startseite als Rückfall, Fehler behält
+    das Alte) und die Zuordnung in clean_events (Override setzt und
+    schaltet ab, Portallink zählt nicht, idempotent)."""
+    print("\ntest_instagram_konten")
+    import datetime as _dt
+    import json
+    SCRIPTS_DIR = Path(__file__).resolve().parent
+    import instagram_konten as ik
+    from clean_events import fix_instagram
+
+    k = ik.event_konto
+    # Fälle aus der Stichprobe vom 27.10.2026 (41 Veranstalterseiten).
+    for konten, name, ort, soll in [
+        (["leipzigmarathon"], "Leipzig Marathon", "Leipzig", "leipzigmarathon"),
+        (["wachaumarathon"], "WACHAUmarathon", "Krems an der Donau", "wachaumarathon"),
+        (["oetztalerradmarathon"], "Ötztaler Radmarathon", "Sölden", "oetztalerradmarathon"),
+        (["viking.triathlon"], "6. Viking-Triathlon", "Schleswig", "viking.triathlon"),
+        (["neujahrsmarathon.ch"], "Neujahrsmarathon Schlieren", "Schlieren", "neujahrsmarathon.ch"),
+        (["evl.halbmarathon"], "EVL-HalbMarathon", "Leverkusen", "evl.halbmarathon"),
+        (["cityundtrail"], "Alpenstadt City&Trail", "Bad Reichenhall", "cityundtrail"),
+        (["3kings3hills"], "3Kings3Hills Trail Festival 2027", "Haidmühle", "3kings3hills"),
+        (["rennsteiglauf.official"], "Rennsteiglauf", "Schmiedefeld am Rennsteig", "rennsteiglauf.official"),
+        (["berlinmarathon2027"], "BMW Berlin-Marathon", "Berlin", "berlinmarathon2027"),
+        (["brooksrunning", "muenchenmarathon"], "Brooks München Marathon", "München", "muenchenmarathon"),
+        (["temposport.erlentriathlon", "temposport.einsiedelntriathlon", "erlentriathlon"],
+         "Einsiedeln Triathlon", "Höfe", "temposport.einsiedelntriathlon"),
+        (["lhivernalle", "lagueuleduloup_"], "L'Hivern'Alle", "Alle", "lhivernalle"),
+        (["halloweenrunbremen"], "Halloween Run Bremen", "Bremen", "halloweenrunbremen"),
+        (["algemarin_sv3sathlon"], "Algemarin SV3sathlon", "Mühltal-Traisa", "algemarin_sv3sathlon"),
+        (["schwebebahnlauf"], "Schwebebahnlauf Wuppertal 2027", "Wuppertal", "schwebebahnlauf"),
+        (["der_frauenfelder"], "Frauenfelder (Halb-)Marathon Wil", "Wil", "der_frauenfelder"),
+        # Durchsicht aller 696 Treffer (27.10.2026): Gegenproben der neuen Regeln
+        (["ostseemantri"], "OstseeMan Triathlon Glücksburg", "Glücksburg (Ostsee)", "ostseemantri"),
+        (["spiezathlon_tri"], "Spiezathlon", "Spiez", "spiezathlon_tri"),
+        (["a.travers.romanel"], "A Travers Romanel", "Romanel-sur-Lausanne", "a.travers.romanel"),
+        (["sierrezinal_officiel"], "L'Hivernale Sierre-Zinal", "Anniviers", "sierrezinal_officiel"),
+        (["meinfreiburgmarathon"], "Freiburg Marathon", "Freiburg", "meinfreiburgmarathon"),
+        (["penzberger_teamtrail"], "Penzberger TeamTrail", "Penzberg", "penzberger_teamtrail"),
+        (["byu.lustenau"], "BYU Lustenau", "Lustenau", "byu.lustenau"),
+        (["bcn_tour_officiel"], "BCN Tour", "Neuchâtel", "bcn_tour_officiel"),
+    ]:
+        check(f"Event-Konto: {name}", k(konten, name, ort), soll)
+    for konten, name, ort, warum in [
+        (["lsvham"], "Lufthansa-Technik-Halbmarathon", "Bramfelder See", "Verein"),
+        (["tsvpenzberg"], "TSV Penzberg Volkslauf", "Penzberg", "Verein mit Ort"),
+        (["hnt_hamburg"], "Süderelbe Halbmarathon durch das Alte Land", "Hamburg Neugrab", "nur der Ort"),
+        (["alohasport.at"], "34. Welser Halbmarathon", "Wels", "Agentur"),
+        (["pitztal"], "Pitz Alpine Snow Trail", "Jerzens", "Tourismus"),
+        (["brooksrunning"], "Brooks München Marathon", "München", "Sponsor"),
+        (["erlentriathlon"], "Einsiedeln Triathlon", "Höfe", "Schwesterrennen (nur 'triathlon')"),
+        (["stadtlauf"], "Stadtlauf Erding", "Erding", "ein Allerweltswort"),
+        (["exil_ev"], "Lauf gegen Rassismus", "Osnabrück", "Verein"),
+        # Durchsicht der ersten 128 Treffer (27.10.2026): der Verein im Namen des Laufs ...
+        (["tuswasserstrasse"], "Oktoberlauf mit Mühlenkreisserie - TUS Wasserstraße", "Petershagen", "Verein im Namen"),
+        (["alvmainz"], "Nikolauslauf des ALV Mainz", "Mainz", "Vereinskürzel im Namen"),
+        (["scc.la"], "62. SCC Cross Country", "Berlin", "Vereinskürzel im Namen"),
+        (["rc1886villingen"], "Gravelrennen des RC 1886 Villingen", "Mönchweiler", "Vereinskürzel im Namen"),
+        (["llg_wustweiler"], "Freundschaftslauf Wustweiler", "Illingen (Saar)", "Kürzel als erstes Glied"),
+        (["tsgaltenbuseck"], "Alten-Busecker Winterlaufserie", "Buseck", "TSG vorn"),
+        (["athletik_waldniel"], "Athletik Waldniel Jahresendlauf", "Schwalmtal", "Vereinswort"),
+        (["jeunesse_de_fey"], "Cross de la Jeunesse de Fey", "Fey", "Vereinswort"),
+        # ... und dieselbe Serie in einer anderen Stadt.
+        (["halloweenrunbremen"], "1. Halloween-Run-Rotenburg", "Rotenburg (Wümme)", "fremder großer Ort"),
+        # Durchsicht aller 696 Treffer: Kürzel im Rest, „club“, Tourismus, Sperrliste
+        (["heeslingersc"], "13. Heeslinger Nikolauscross", "Heeslingen", "Kürzel im Rest"),
+        (["lcauensee"], "36. Sparkassen Silvesterlauf am Auensee", "Leipzig", "Kürzel im Rest"),
+        (["bocholterwsv_triathlon"], "Aasee Triathlon", "Bocholt", "Kürzel mit Adjektivendung"),
+        (["triathlon_club_bremen"], "Einhorn Triathlon", "Bremen", "Vereinswort club"),
+        (["ratzeburger_ruderclub"], "Winterlauf des Ratzeburger Ruderclubs", "Ratzeburg", "Vereinswort club"),
+        (["lauffreundeboenen"], "8. Sechs-Std.-Lauf am Förderturm Bönen", "Bönen", "Vereinswort"),
+        (["usedom", "eventbikeberlin"], "Usedom Beach Marathon", "Heringsdorf", "Tourismus: nur Ort"),
+        (["zellamseekaprun"], "TriZell: Internationaler Triathlon Zell am See-Kaprun", "Zell am See", "Tourismus: nur Orte"),
+        (["meinmontafon"], "Montafon Arlberg Marathon", "Silbertal", "Tourismus: mein + Region"),
+        (["dein.edersee"], "13. 24-Stunden Wanderabenteuer Edersee 2027", "Vöhl", "Tourismus: dein + Region"),
+        (["pitztal"], "Gletschermarathon Pitztal", "Gruabe Arena", "Sperrliste: Tourismus"),
+        (["sportscheck"], "SportScheck RUN Hamburg", "Aussen-Alster", "Sperrliste: Händler"),
+        (["airportpad"], "Paderborn-Lippstadt Airport Run", "Büren", "Sperrliste: Flughafen"),
+        (["tgs.hausen"], "Volkslauf der TGS Hausen", "Obertshausen", "Kürzel + Ort, der Lauf fehlt"),
+        (["otb_osnabrueck"], "OTB Silvesterlauf", "Osnabrück", "Kürzel + Ort, der Lauf fehlt"),
+        (["wvckassel"], "10. Volkslauf WVC Kassel", "Kassel", "Kürzel + Ort, der Lauf fehlt"),
+        (["laufen", "muenchen"], "Halbmarathon München", "München", "zu kurz/nur Ort"),
+        ([], "Leipzig Marathon", "Leipzig", "keine Konten"),
+        (None, "Leipzig Marathon", "Leipzig", "Seite nie gelesen"),
+        (["Bad Name!"], "Leipzig Marathon", "Leipzig", "kein gültiger Kontoname"),
+    ]:
+        check(f"kein Event-Konto ({warum}): {konten}", k(konten, name, ort), None)
+    check("Gleichstand zweier Konten heißt keines",
+          k(["leipzigmarathon", "marathonleipzig"], "Leipzig Marathon", "Leipzig"), None)
+
+    # Sammeln mit einer Attrappe statt des Netzes.
+    seiten = {
+        "https://a.de/lauf": '<a href="https://www.instagram.com/alauf/">',
+        "https://b.de/sub": "<p>nichts</p>",
+        "https://b.de/": '<footer><a href="https://instagram.com/bmarathon">x</a></footer>',
+        "https://d.de/": '<a href="https://instagram.com/p/xyz">Beitrag</a>',
+    }
+
+    class Attrappe:
+        def _darf(self, url):
+            return "c.de" not in url
+
+        def holen(self, url):
+            return seiten.get(url)
+
+    heute = _dt.date(2026, 10, 27)
+    evs = [{"name": "A-Lauf", "datum_start": "2026-11-01", "veranstalter_url": "https://a.de/lauf"},
+           {"name": "B Marathon", "datum_start": "2026-12-01", "veranstalter_url": "https://b.de/sub"},
+           {"name": "C", "datum_start": "2026-12-01", "veranstalter_url": "https://c.de/"},
+           {"name": "D", "datum_start": "2026-12-02", "veranstalter_url": "https://d.de/"},
+           {"name": "E", "datum_start": "2026-12-02", "veranstalter_url": "https://e.de/tot"},
+           {"name": "alt", "datum_start": "2026-01-01", "veranstalter_url": "https://alt.de/"},
+           {"name": "Portal", "datum_start": "2026-12-01", "veranstalter_url": "https://my.raceresult.com/1/"}]
+    daten = {"https://e.de/tot": {"geprueft": "2026-01-01", "konten": ["ealt"]}}
+    z = ik.pruefen(evs, daten, heute, 100, 60, abrufer_fabrik=Attrappe, parallel=3)
+    check("gesammelt: Konto der Seite", daten["https://a.de/lauf"]["konten"], ["alauf"])
+    check("gesammelt: Startseite als Rückfall",
+          (daten["https://b.de/sub"]["konten"], daten["https://b.de/sub"].get("quelle")), (["bmarathon"], "startseite"))
+    check("robots.txt verbietet: leer, kein Abruf", daten["https://c.de/"]["konten"], [])
+    check("Beitrag ist kein Konto", daten["https://d.de/"]["konten"], [])
+    check("nicht lesbar: altes Ergebnis bleibt, als Fehler markiert",
+          (daten["https://e.de/tot"]["konten"], daten["https://e.de/tot"].get("fehler")), (["ealt"], True))
+    check("vergangene Events und Portale werden nicht gelesen",
+          ("https://alt.de/" in daten, any("raceresult" in u for u in daten)), (False, False))
+    check("Zählung", (z["geprueft"], z["mit_konto"], z["fehler"], z["offen"]), (5, 2, 1, 0))
+    z2 = ik.pruefen(evs, daten, heute, 100, 60, abrufer_fabrik=Attrappe, parallel=1)
+    check("frisch geprüft: nichts fällig, nur der Fehler kommt früher wieder",
+          z2["geprueft"], 0)
+    check("Fehler nach drei Wochen wieder fällig",
+          ik.faellig(daten["https://e.de/tot"], heute + _dt.timedelta(days=21)), True)
+    check("gelesene Seite nach 90 Tagen wieder fällig",
+          (ik.faellig(daten["https://a.de/lauf"], heute + _dt.timedelta(days=89)),
+           ik.faellig(daten["https://a.de/lauf"], heute + _dt.timedelta(days=90))), (False, True))
+
+    # Zuordnung (clean_events.fix_instagram).
+    konten = {"https://www.leipzigmarathon.de/": {"konten": ["leipzigmarathon"], "geprueft": "2026-10-27"},
+              "https://tsv.de/": {"konten": ["tsvpenzberg"], "geprueft": "2026-10-27"}}
+    rows = [{"name": "Leipzig Marathon", "datum_start": "2027-04-18", "laenge_km": 42.2,
+             "standort": "Leipzig", "veranstalter_url": "https://www.leipzigmarathon.de/"},
+            {"name": "Leipzig Marathon", "datum_start": "2027-04-18", "laenge_km": 10,
+             "standort": "Leipzig", "veranstalter_url": "https://www.leipzigmarathon.de/"},
+            {"name": "TSV Penzberg Volkslauf", "datum_start": "2027-05-01", "laenge_km": 10,
+             "standort": "Penzberg", "veranstalter_url": "https://tsv.de/", "instagram": "veraltet"},
+            {"name": "Kleiner Lauf", "datum_start": "2027-05-01", "laenge_km": 10,
+             "standort": "Penzberg", "veranstalter_url": "https://tsv.de/"},
+            {"name": "Portal-Lauf", "datum_start": "2027-05-01", "laenge_km": 10, "standort": "X",
+             "veranstalter_url": "https://my.raceresult.com/1/"}]
+    ov = {"Kleiner Lauf|2027-05-01": {"instagram": "@KleinerLauf", "_note": "von Hand"},
+          "Leipzig Marathon|2027-04-18|10": {"instagram": None, "_note": "abgeschaltet"}}
+    aend = fix_instagram(rows, konten, ov, grosse=[])
+    check("je Zeile: Event-Konto, Override aus, Verein nie, von Hand, Portal nie",
+          [r.get("instagram") for r in rows], ["leipzigmarathon", None, None, "kleinerlauf", None])
+    check("Änderungen werden gemeldet (gesetzt, entfernt, von Hand)", len(aend), 3)
+    check("idempotent", fix_instagram(rows, konten, ov, grosse=[]), [])
+    # Die recherchierte Liste der großen Events (grosse_events.json) schlägt
+    # die Erkennung, der Override schlägt beide.
+    gross = [{"name": "Portal-Lauf", "suche": ["portal-lauf"], "land": None, "sport": None,
+              "instagram": "portallauf_official"},
+             {"name": "Leipzig", "suche": ["leipzig marathon"], "land": None, "sport": None,
+              "instagram": "leipzig_recherchiert"}]
+    fix_instagram(rows, konten, ov, grosse=gross)
+    check("große Events: recherchiertes Konto, auch hinter einem Portallink; Override gewinnt",
+          [r.get("instagram") for r in rows],
+          ["leipzig_recherchiert", None, None, "kleinerlauf", "portallauf_official"])
+    check("ohne Konto kein Feld in events.json", "instagram" in rows[2], False)
+    ik_datei = json.loads((SCRIPTS_DIR / "instagram_konten.json").read_text(encoding="utf-8")) \
+        if (SCRIPTS_DIR / "instagram_konten.json").exists() else {}
+    falsch = [u for u, v in ik_datei.items()
+              if not isinstance(v, dict) or "geprueft" not in v
+              or not all(ik.NAME_RE.match(n) for n in v.get("konten") or [])]
+    check("instagram_konten.json: jeder Eintrag mit Datum und gültigen Namen", falsch[:3], [])
+    ev = json.loads((SCRIPTS_DIR.parent / "events.json").read_text(encoding="utf-8"))
+    ungueltig = [e["name"] for e in ev if "instagram" in e and not ik.NAME_RE.match(e["instagram"] or "")]
+    check("events.json: jedes instagram-Feld ist ein gültiger Kontoname", ungueltig[:3], [])
+    js = (SCRIPTS_DIR.parent / "event-detail.js").read_text(encoding="utf-8")
+    check("Box: Zeichen nur mit gültigem Namen, Link auf instagram.com, DE und EN",
+          ("/^[a-z0-9._]{1,30}$/.test(e.instagram" in js, "https://www.instagram.com/${encodeURIComponent(insta)}/" in js,
+           js.count("detail_instagram:")), (True, True, 2))
+
+
 def test_insta_freigabe() -> None:
     """Instagram-Freigabe mit einem Klick (14.10.2026): die Kennung des
     Inhalts, der Freigabe-Plan, die Entscheidung des Abendlaufs mit einer
@@ -5238,6 +5494,8 @@ def test_insta_freigabe() -> None:
 
     print("\nInstagram-Freigabe (insta_freigabe, plan.json, Dashboard):")
     import insta_inhalte as I
+    I.SONDERPLAN_DATEI = Path("/gibt-es-nicht/sonderplan.json")   # Plan-Tests ohne die feste Startwoche
+    _postet_echt, I.postet_am = I.postet_am, (lambda *a, **k: True)   # Plan-Tests: jeder Tag ein Post-Tag
     import insta_freigabe as F
     wurzel = Path(__file__).resolve().parent.parent
     heute = _dt.date(2026, 10, 19)
@@ -5257,8 +5515,8 @@ def test_insta_freigabe() -> None:
     check("Plan: 14 Tage", len(plan), 14)
     check("Plan: Felder je Tag", sorted(k for k in plan[0] if k not in ("moment_id", "clip_id")),
           ["caption", "datum", "folien", "format", "hash", "stories", "wochentag"])
-    check("Plan: erster Tag = Start, Montag, krass", (plan[0]["datum"], plan[0]["wochentag"], plan[0]["format"]),
-          (heute.isoformat(), "Mo", "krass"))
+    check("Plan: erster Tag = Start, Montag, Wochenplan (ungerade KW: laengste)",
+          (plan[0]["datum"], plan[0]["wochentag"], plan[0]["format"]), (heute.isoformat(), "Mo", "laengste"))
     check("Plan: Stories je Tag mit Art und Folie", all({"art", "folie"} <= set(st) for st in plan[0]["stories"]), True)
     check("Dashboard: Stories-Zeile", ("storiesText(b.stories)" in (wurzel / "admin.html").read_text(encoding="utf-8")), True)
     check("Plan: Kennung je Tag = beitrag_hash des geplanten Beitrags", plan[0]["hash"], h)
@@ -5298,6 +5556,11 @@ def test_insta_freigabe() -> None:
           (True, True, True, True))
     pages = (wurzel / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
     check("pages.yml erzeugt den Plan", "insta_inhalte.py --plan 14 --json marketing/instagram/plan.json" in pages, True)
+    # Lauf 419 (27.10.2026): Der Plan liest die Logos mit Pillow, der
+    # Deploy-Job hatte es nicht – und ein roter Plan hielt die Website auf.
+    plan_schritt = pages.split("- name: Instagram-Plan erzeugen", 1)[1].split("- name:", 1)[0]
+    check("pages.yml: der Plan bekommt Pillow und hält den Deploy nicht auf",
+          ('pip install --quiet "pillow' in plan_schritt, "continue-on-error: true" in plan_schritt), (True, True))
     check(".gitignore kennt plan.json", "marketing/instagram/plan.json" in (wurzel / ".gitignore").read_text(encoding="utf-8"), True)
     regeln = (wurzel / "firestore.rules").read_text(encoding="utf-8")
     # Bis zur delete-Regel schneiden - ein schlichtes "}" träfe die
@@ -5319,6 +5582,7 @@ def test_insta_freigabe() -> None:
     lauf = (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8")
     check("insta_lauf.py: --freigabe fragt insta_freigabe, Kennung vor dem Rendern",
           ("--freigabe" in lauf, "freigabe.darf_posten(" in lauf, 'beitrag["hash"] = inhalte.beitrag_hash(beitrag)' in lauf), (True, True, True))
+    I.postet_am = _postet_echt
 
 
 def test_instagram() -> None:
@@ -5332,6 +5596,7 @@ def test_instagram() -> None:
 
     print("\nInstagram (insta_inhalte, insta_video, insta_posten):")
     import insta_inhalte as I
+    I.SONDERPLAN_DATEI = Path("/gibt-es-nicht/sonderplan.json")   # Plan-Tests ohne die feste Startwoche
     wurzel = Path(__file__).resolve().parent.parent
     heute = _dt.date(2026, 10, 19)            # ein Montag
     ev = _insta_testevents(heute)
@@ -5339,9 +5604,11 @@ def test_instagram() -> None:
     ev.append(dict(ev[0], name="Wolfgangsee Junior-Marathon", laenge_km=42.195))
     momente = I.lade_momente()
     formate = [I.plane(heute + _dt.timedelta(days=i), ev, momente=momente, clips=[])["format"] for i in range(7)]
-    check("Wochenplan Mo-So (seit 16.10.2026; ohne Clips: Do = Humor)", formate,
-          ["krass", "naehe", "wuerdest", "humor", "wochenende", "saison", "moment"])
+    check("Wochenplan Mo-So (seit 16.10.2026; ohne Clips: Do = Humor; Montag ungerade KW = laengste)",
+          formate, ["laengste", "naehe", "wuerdest", "humor", "wochenende", "saison", "moment"])
     woche = [I.plane(heute + _dt.timedelta(days=i), ev, momente=momente, clips=[]) for i in range(7)]
+    # die Prüfungen von „krass" am Montag mit erzwungenem Format
+    woche[0] = I.plane(heute, ev, format_="krass", momente=momente, clips=[])
     check("jedes Format beginnt mit Zahl oder Satz (sofort sichtbar), endet mit dem Aufruf",
           [(w["folien"][0]["typ"] in ("hook", "satz", "moment"), w["folien"][-1]["typ"]) for w in woche],
           [(True, "cta")] * 7)
@@ -5386,7 +5653,7 @@ def test_instagram() -> None:
           [b27["format"], b27["folien"][0]["ueber"]], ["moment", "Heute vor 8 Jahren"])
     mo_jahrestag = momente + [dict(momente[0], id="test-montag", datum="2000-10-19")]
     check("Montag bleibt beim Plan, auch am Jahrestag",
-          I.plane(heute, ev, momente=mo_jahrestag, clips=[])["format"], "krass")
+          I.plane(heute, ev, momente=mo_jahrestag, clips=[])["format"], "laengste")
 
     pflicht = ("id", "datum", "sport", "titel", "text", "quelle")
     fehler = [m.get("id") for m in momente if any(not m.get(k) for k in pflicht)
@@ -5793,26 +6060,1068 @@ def test_instagram() -> None:
           [True, True, True])
 
 
+def test_korrektur_seite() -> None:
+    """Korrekturseite (19.10.2026): Die Antworten der Seite gehen über eine
+    Excel-Datei im Exportformat in den VORHANDENEN Import; übernommen wird
+    nur, was einen Status und noch keine Quittung hat; die Quittung ist ein
+    neues Dokument, das die Seite auf „übernommen“ schaltet."""
+    print("\nKorrekturseite (Antworten -> Import, Quittungen):")
+    try:
+        import openpyxl  # noqa: F401
+    except ImportError:
+        print("  (übersprungen: openpyxl fehlt)")
+        return
+    import argparse
+    import json
+    import tempfile
+    import korrektur_seite as ks
+    from openpyxl import load_workbook
+    wurzel = Path(__file__).resolve().parent.parent
+    kopf = ["Nr", "Name (nicht änderbar)", "Distanz (km)", "Status", "Deine Anmerkung"]
+    def antwort(zid, status, werte=None, geaendert="2026-10-19T10:00:00.000Z"):
+        return {"liste": "events", "id": zid, "status": status, "werte": werte or {}, "anmerkung": "",
+                "kopf": kopf, "zeile": ["7", "Testlauf", "21,1", "", ""], "geaendert": geaendert,
+                "orig": '{"name": "Testlauf", "laenge_km": 21.1}'}
+    with tempfile.TemporaryDirectory() as tmp:
+        ordner = Path(tmp)
+        (ordner / "antworten_events").mkdir()
+        (ordner / "quittung_events").mkdir()
+        docs = {"e1": antwort("e1", "Korrigiert", {"Distanz (km)": "10,5"}),
+                "e2": antwort("e2", "Stimmt so"),
+                "e3": antwort("e3", "", {"Distanz (km)": "5"}),            # in Arbeit: bleibt liegen
+                "e4": antwort("e4", "Stimmt so", geaendert="2026-10-19T09:00:00.000Z"),
+                "e5": antwort("e5", "Unklar", geaendert="2026-10-19T11:00:00.000Z")}
+        for zid, d in docs.items():
+            (ordner / "antworten_events" / f"{zid}.json").write_text(json.dumps(d), encoding="utf-8")
+        # e4 ist mit genau diesem Stand übernommen, e5 nur mit einem ÄLTEREN
+        (ordner / "quittung_events" / "20261019-090500.json").write_text(json.dumps(
+            {"liste": "events", "ids": {"e4": "2026-10-19T09:00:00.000Z", "e5": "2026-10-19T08:00:00.000Z"}}),
+            encoding="utf-8")
+        check("Antworten gelesen", sorted(a["id"] for a in ks.lade_antworten(ordner, "events")),
+              ["e1", "e2", "e3", "e4", "e5"])
+        check("Clubs-Ordner leer", ks.lade_antworten(ordner, "clubs"), [])
+        aufrufe = []
+        class FakeImport:
+            @staticmethod
+            def importiere(xlsx, dry_run, aufraeumen=True):
+                wb = load_workbook(xlsx)
+                ws, orig = wb["Events prüfen"], wb["_original"]
+                aufrufe.append({"zeilen": [[c for c in r] for r in ws.iter_rows(min_row=2, values_only=True)],
+                                "orig": [list(r) for r in orig.iter_rows(min_row=2, values_only=True)],
+                                "kopf": [c.value for c in ws[1]], "dry_run": dry_run})
+                return 0
+        alt_modul = ks.modul
+        ks.modul = lambda liste, clubs_repo=None: FakeImport
+        try:
+            args = argparse.Namespace(liste="events", ordner=ordner, dry_run=True, ohne_aufraeumen=True, clubs_repo=None)
+            ks.cmd_einlesen(args)
+            check("Probelauf schreibt keine Quittung", (ordner / "quittung.json").exists(), False)
+            args.dry_run = False
+            ks.cmd_einlesen(args)
+        finally:
+            ks.modul = alt_modul
+        lauf = aufrufe[-1]
+        check("Kopfzeile wie im Export", lauf["kopf"], kopf)
+        check("übernommen: e1, e2 und e5 (neuer Stand) – nicht e3 (ohne Status), nicht e4 (quittiert)",
+              [(z[0], z[2], z[3]) for z in lauf["zeilen"]],
+              [(1, "10,5", "Korrigiert"), (2, "21,1", "Stimmt so"), (3, "21,1", "Unklar")])
+        check("_original trägt die Werte beim Export", lauf["orig"][0], [1, docs["e1"]["orig"]])
+        quittung = json.loads((ordner / "quittung.json").read_text(encoding="utf-8"))
+        check("Quittung nennt genau die übernommenen Stände",
+              quittung["ids"], {z: docs[z]["geaendert"] for z in ("e1", "e2", "e5")})
+        # Ein zweiter Lauf mit der neuen Quittung übernimmt nichts mehr
+        (ordner / "quittung_events" / "20261019-120000.json").write_text(json.dumps(quittung), encoding="utf-8")
+        aufrufe.clear()
+        ks.modul = lambda liste, clubs_repo=None: FakeImport
+        try:
+            ks.cmd_einlesen(argparse.Namespace(liste="events", ordner=ordner, dry_run=False,
+                                               ohne_aufraeumen=True, clubs_repo=None))
+        finally:
+            ks.modul = alt_modul
+        check("zweiter Lauf: nichts mehr zu übernehmen", aufrufe, [])
+    seite = (wurzel / "korrektur" / "korrekturliste.html").read_text(encoding="utf-8")
+    for teil in ("'antworten_' + l", "'quittung_' + l", "'daten/' + l + '.json'", "q.has(a.geaendert)"):
+        check(f"Seite: {teil}", teil in seite, True)
+    check("Seite: kein Feld `stand` mehr (Quittungen entscheiden)", "a.stand" in seite, False)
+    # Vom Nutzer am 19.10.2026: „nur eine Excel-Liste, wo ich umschalten kann
+    # von Events zu Clubs“ – Blattreiter, Tabelle, Statuszeile, sonst nichts.
+    check("Seite: Blattreiter für Events und Clubs",
+          all(f'data-liste="{l}"' in seite for l in ("events", "clubs")), True)
+    check("Seite: kein Kopf, keine Zähler, keine Suche, keine Hilfe",
+          [t for t in ('<header', 'id="zaehler"', 'id="suche"', 'id="hilfe"') if t in seite], [])
+    # 20.10.2026: Nr und „Termin vorläufig“ ausgeblendet (vorläufig steht im
+    # Datum, „13.10.26 (vorläufig)“), keine festen Spalten mehr – nur die
+    # Kopfzeile bleibt oben; der Import liest das zweistellige Jahr.
+    check("Seite: Nr und Termin vorläufig ausgeblendet",
+          "new Set(['Nr', 'Termin vorläufig', 'id'])" in seite, True)
+    check("Seite: keine festen Spalten", ("th.fix" in seite, "position: sticky; top: 0" in seite), (False, True))
+    import korrekturliste as kl
+    check("Import: Datum mit zweistelligem Jahr",
+          (kl.lies_wert("datum_start", "13.10.26"), kl.lies_wert("datum_start", "13.10.2026")),
+          ("2026-10-13", "2026-10-13"))
+
+
+def test_namensrand() -> None:
+    """Trenn- und Aufzählungszeichen am Rand eines Namens fliegen
+    (Fehlerscan 19.10.2026: "-25. Laufwochenende Brugg"), Klammern,
+    Anführungszeichen und Bindestriche IM Namen bleiben."""
+    print("\nSatzzeichen am Rand des Namens:")
+    import scraper_lib
+    import clean_events
+    b = scraper_lib.bereinige_name
+    check("führender Bindestrich", b("-25. Laufwochenende Brugg"), "25. Laufwochenende Brugg")
+    check("Gedankenstrich am Ende", b("23. Lauf um den Allendorfer Bahnhof - Volksbank Sauerland Lauf Cup -"),
+          "23. Lauf um den Allendorfer Bahnhof - Volksbank Sauerland Lauf Cup")
+    check("Bindestrich im Namen bleibt", b("Run-Bike-Run Ostfildern-Nellingen"), "Run-Bike-Run Ostfildern-Nellingen")
+    check("Klammer bleibt", b("(L)auf zur Venus"), "(L)auf zur Venus")
+    check("Anführungszeichen bleiben", b("„Rund um“"), "„Rund um“")
+    check("nur Satzzeichen: unverändert", b("--"), "--")
+    check("None", b(None), None)
+    check("Event.to_dict", scraper_lib.Event(name=" • Stadtlauf, ", datum_start="2027-05-01",
+                                               standort="Ulm").to_dict()["name"], "Stadtlauf")
+    ev = [{"name": "-Testlauf"}, {"name": "Testlauf"}]
+    check("fix_namensrand meldet einen", len(clean_events.fix_namensrand(ev)), 1)
+    check("fix_namensrand idempotent", clean_events.fix_namensrand(ev), [])
+
+
+def test_faellt_aus() -> None:
+    """Status „Fällt aus" (vom Nutzer am 20.10.2026 am 25h Handorf
+    gewünscht: „einen Status der das Event rausnimmt aus der Liste aber
+    auch für nächstes Jahr merkt, weil löschen will ich es nicht"): Der
+    Import schreibt `exclude` + `abgesagt`, das Gedächtnis behält die
+    Veranstaltung mit Seite und Strecken und gibt sie an `pruefen`, die
+    Markierung fällt mit der nächsten Ausgabe weg; schwimmkalender.de
+    liest eine Absage im Namen nicht als Ort."""
+    print("\nStatus „Fällt aus“ (Ausgabe abgesagt, Veranstaltung gemerkt):")
+    import json as _json
+    import tempfile
+    import clean_events
+    import schwimmkalender_scraper as sk
+    import veranstalter_seiten as vs
+    wurzel = Path(__file__).resolve().parent.parent
+
+    # Beide Statuslisten kennen den Wert (die Seite übernimmt ihn aus der
+    # Datenprüfung der Excel, korrektur_seite.py lässt ihn durch).
+    for datei in ("korrekturliste.py", "korrektur_seite.py"):
+        text = (wurzel / "scripts" / datei).read_text(encoding="utf-8")
+        zeile = next(z for z in text.splitlines() if z.startswith("STATUS_WERTE"))
+        check(f"{datei}: „Fällt aus“ in STATUS_WERTE", "\"Fällt aus\"" in zeile, True)
+
+    def z(name, datum, standort="Handorf", lat=51.99, lon=7.70, url="https://bad-handorf.example/"):
+        return dict(name=name, standort=standort, land="Deutschland", lat=lat, lon=lon, art1="Schwimmen",
+                    art2="Becken", datum_start=datum, datum_ende=datum, laenge_km=None, dauer_h=25.0,
+                    wettbewerb=None, veranstalter_url=url)
+    ged = vs.Gedaechtnis({})
+    vs.lernen([z("25h Handorf", "2026-10-24")], ged, overrides={})
+    k = vs.schluessel_von(z("25h Handorf", "2026-10-24"))
+    zeile = z("25h Handorf", "2026-10-24")
+    bericht = vs.merke_abgesagt([zeile], ged)
+    check("abgesagte Ausgabe gemerkt", (ged.daten[k].get("abgesagt"), len(bericht)), ("2026-10-24", 1))
+    check("Eintrag behält Seite und Strecken", (ged.daten[k]["url"], [s["dauer_h"] for s in ged.daten[k]["strecken"]]),
+          ("https://bad-handorf.example/", [25.0]))
+    check("zweimal gemerkt = einmal", vs.merke_abgesagt([zeile], ged), [])
+    # Ohne Zeile in events.json gehört der Eintrag zu denen, die `pruefen`
+    # nach der nächsten Ausgabe fragt.
+    check("pruefen fragt die abgesagte Veranstaltung ab", k in vs.aktuelle_schluessel(ged, []), False)
+    check("nächster Termin im Fenster nach der abgesagten Ausgabe",
+          vs.kandidaten_termine({"2027-10-23", "2026-10-24"}, ged.daten[k]["datum"], "2026-10-25"), ["2027-10-23"])
+    # Die nächste Ausgabe ist da: die Markierung ist Geschichte.
+    vs.lernen([z("25h Handorf", "2027-10-23")], ged, overrides={})
+    check("nächste Ausgabe nimmt die Markierung weg", "abgesagt" in ged.daten[k], False)
+    # Eine verdorbene Zeile (die Absage im Namen, als Ort gelesen) legt
+    # keinen neuen Eintrag an - der Bericht meldet sie.
+    vorher = len(ged)
+    kaputt = z("25h Handorf FÄLLT AUS!!!", "2026-10-24", standort="FÄLLT AUS!!!", lat=None, lon=None)
+    bericht = vs.merke_abgesagt([kaputt], ged)
+    check("ohne Eintrag: Warnung, nichts angelegt", (len(ged), bericht[0].startswith("⚠")), (vorher, True))
+
+    # clean_events findet die Zeilen über den Override.
+    alt_laden = clean_events.load_manual_overrides
+    clean_events.load_manual_overrides = lambda: {
+        "25h Handorf|2026-10-24": {"exclude": True, "abgesagt": True},
+        "Anderer Lauf|2026-10-24": {"exclude": True}}
+    try:
+        treffer = clean_events.abgesagte_zeilen([zeile, z("Anderer Lauf", "2026-10-24")])
+    finally:
+        clean_events.load_manual_overrides = alt_laden
+    check("abgesagte_zeilen: nur abgesagt, nicht gelöscht", [e["name"] for e in treffer], ["25h Handorf"])
+
+    # schwimmkalender.de schreibt die Absage in den Namen.
+    detail = {"name": "25h Handorf FÄLLT AUS!!!", "datum_start": "2026-10-24", "datum_ende": "2026-10-25",
+              "land": "Nordrhein-Westfalen", "links": ["https://bad-handorf.example/"]}
+    check("schwimmkalender: abgesagt im Namen = keine Zeile", sk.build_events(detail, 64, sk.CONFIG), [])
+    check("schwimmkalender: Absage-Wörter", [bool(sk.ABGESAGT.search(n)) for n in (
+        "25h Handorf FÄLLT AUS!!!", "Seeschwimmen abgesagt", "Fällt 2026 aus", "Entfällt", "Kaltwasser-Ausfallschwimmen")],
+          [True, True, True, True, False])
+
+    # Der Import schreibt den Override und das Protokoll (braucht openpyxl).
+    try:
+        import openpyxl  # noqa: F401
+    except ImportError:
+        print("  (Import übersprungen: openpyxl fehlt)")
+        return
+    import korrektur_seite as ks
+    import korrekturliste as kl
+    kopf = [k for _, k, _ in kl.SPALTEN]
+    werte = {k: "" for k in kopf}
+    werte.update({"Nr": 1, "Datum Start": "24.10.2026", "Datum Ende": "25.10.2026", "Name (nicht änderbar)": "25h Handorf",
+                  "Sportart": "Schwimmen", "Kategorie": "Becken", "Dauer (h)": "25", "Ort": "Handorf",
+                  "Land": "Deutschland", "Veranstalter-Link": "https://bad-handorf.example/"})
+    orig = {"datum_start": "2026-10-24", "datum_ende": "2026-10-25", "datum_vorlaeufig": None, "name": "25h Handorf",
+            "wettbewerb": None, "art1": "Schwimmen", "art2": "Becken", "laenge_km": None, "dauer_h": 25.0,
+            "standort": "Handorf", "land": "Deutschland", "veranstalter_url": "https://bad-handorf.example/",
+            "lat": 51.99, "lon": 7.70}
+    antwort = {"liste": "events", "id": "e1", "status": "Fällt aus", "werte": {}, "anmerkung": "",
+               "kopf": kopf, "zeile": [werte[k] for k in kopf], "orig": _json.dumps(orig, ensure_ascii=False)}
+    pfade = ("MANUAL_OVERRIDES_PATH", "GEPRUEFT_PATH", "EVENTS_JSON_PATH")
+    alt = {n: getattr(kl, n) for n in pfade}
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        for n, inhalt in zip(pfade, ({}, {}, [dict(orig)])):
+            (tmp / f"{n}.json").write_text(_json.dumps(inhalt), encoding="utf-8")
+            setattr(kl, n, tmp / f"{n}.json")
+        try:
+            ks.baue_excel("events", [antwort], tmp / "a.xlsx")
+            rc = kl.importiere(tmp / "a.xlsx", False, False)
+            ov = _json.loads((tmp / "MANUAL_OVERRIDES_PATH.json").read_text(encoding="utf-8"))
+            prot = _json.loads((tmp / "GEPRUEFT_PATH.json").read_text(encoding="utf-8"))
+        finally:
+            for n, v in alt.items():
+                setattr(kl, n, v)
+    eintrag = ov.get("25h Handorf|2026-10-24", {})
+    check("Import: exclude + abgesagt", (rc, eintrag.get("exclude"), eintrag.get("abgesagt")), (0, True, True))
+    check("Import: Protokoll „abgesagt“", prot.get("25h Handorf|2026-10-24", {}).get("ergebnis"), "abgesagt")
+
+
+def test_check_again() -> None:
+    """Status „Check again" (vom Nutzer am 20.10.2026: „Ich schreibe meine
+    Kommentare dann hinein, und du müsstest das Event noch einmal genau
+    anschauen"): Die Zeile geht NICHT in den Import - weder auf der Seite
+    noch in der Excel -, sie steht als Auftrag in `nochmal.json`; nach der
+    Prüfung quittiert `erledigt` sie mit einer Notiz, die die Seite zeigt."""
+    print("\nStatus „Check again“ (Auftrag an Claude statt Import):")
+    try:
+        import openpyxl  # noqa: F401
+    except ImportError:
+        print("  (übersprungen: openpyxl fehlt)")
+        return
+    import argparse
+    import json as _json
+    import tempfile
+    import korrekturliste as kl
+    import korrektur_seite as ks
+    from openpyxl import load_workbook
+    wurzel = Path(__file__).resolve().parent.parent
+    check("Excel-Auswahl kennt „Check again“", kl.NOCHMAL in kl.STATUS_WERTE, True)
+    check("Seite: „Check again“ geht nie in den Import", ks.NOCHMAL in ks.STATUS_WERTE, False)
+
+    kopf = [k for _, k, _ in kl.SPALTEN]
+    orig = {"datum_start": "2027-05-01", "datum_ende": "2027-05-01", "datum_vorlaeufig": None, "name": "Testlauf",
+            "wettbewerb": None, "art1": "Laufen", "art2": "Straße", "laenge_km": 10.0, "dauer_h": None,
+            "standort": "Ulm", "land": "Deutschland", "veranstalter_url": "https://testlauf.example/",
+            "lat": 48.4, "lon": 10.0}
+    werte = {k: "" for k in kopf}
+    werte.update({"Nr": 1, "Datum Start": "01.05.2027", "Datum Ende": "01.05.2027", "Name (nicht änderbar)": "Testlauf",
+                  "Sportart": "Laufen", "Kategorie": "Straße", "Distanz (km)": "10", "Ort": "Ulm", "Land": "Deutschland",
+                  "Veranstalter-Link": "https://testlauf.example/"})
+    def antwort(zid, status, anm="", w=None, geaendert="2026-10-20T10:00:00.000Z"):
+        return {"liste": "events", "id": zid, "status": status, "werte": w or {}, "anmerkung": anm,
+                "kopf": kopf, "zeile": [werte[k] for k in kopf], "geaendert": geaendert,
+                "orig": _json.dumps(orig, ensure_ascii=False)}
+    with tempfile.TemporaryDirectory() as tmp:
+        ordner = Path(tmp)
+        (ordner / "antworten_events").mkdir()
+        docs = {"e1": antwort("e1", "Stimmt so"),
+                "e2": antwort("e2", "Check again", "Ich glaube, es gibt auch 21 km", {"Distanz (km)": "21,1"})}
+        for zid, d in docs.items():
+            (ordner / "antworten_events" / f"{zid}.json").write_text(_json.dumps(d), encoding="utf-8")
+        aufrufe = []
+        class FakeImport:
+            GEPRUEFT_PATH = ordner / "geprueft.json"
+            @staticmethod
+            def importiere(xlsx, dry_run, aufraeumen=True):
+                ws = load_workbook(xlsx)["Events prüfen"]
+                aufrufe.append([r[kopf.index("Status")] for r in ws.iter_rows(min_row=2, values_only=True)])
+                return 0
+        FakeImport.GEPRUEFT_PATH.write_text("{}", encoding="utf-8")
+        alt_modul = ks.modul
+        ks.modul = lambda liste, clubs_repo=None: FakeImport
+        try:
+            args = argparse.Namespace(liste="events", ordner=ordner, dry_run=False, ohne_aufraeumen=True, clubs_repo=None)
+            ks.cmd_einlesen(args)
+            auftrag = _json.loads((ordner / "nochmal.json").read_text(encoding="utf-8"))
+            quittung = _json.loads((ordner / "quittung.json").read_text(encoding="utf-8"))
+            check("Import sieht nur „Stimmt so“", aufrufe, [["Stimmt so"]])
+            check("Quittung nur für die übernommene Zeile", sorted(quittung["ids"]), ["e1"])
+            e = auftrag["eintraege"][0]
+            check("Auftrag: Name, Link, Kommentar, Zellen, Schlüssel",
+                  (len(auftrag["eintraege"]), e["id"], e["name"], e["link"], e["anmerkung"], e["werte"], e["schluessel"]),
+                  (1, "e2", "Testlauf", "https://testlauf.example/", "Ich glaube, es gibt auch 21 km",
+                   {"Distanz (km)": "21,1"}, "Testlauf|2027-05-01"))
+            # Claude beantwortet den Auftrag; ein zweites `einlesen` behält die Antwort.
+            e.update(antwort="21,1 km gibt es – nachgetragen.", ergebnis="korrigiert")
+            (ordner / "nochmal.json").write_text(_json.dumps(auftrag), encoding="utf-8")
+            ks.cmd_einlesen(args)
+            check("zweites einlesen behält die Antwort",
+                  _json.loads((ordner / "nochmal.json").read_text(encoding="utf-8"))["eintraege"][0]["antwort"],
+                  "21,1 km gibt es – nachgetragen.")
+            args.dry_run = True
+            ks.cmd_erledigt(args)
+            check("erledigt --dry-run schreibt nichts",
+                  ((ordner / "quittung-nochmal.json").exists(), _json.loads(FakeImport.GEPRUEFT_PATH.read_text())), (False, {}))
+            args.dry_run = False
+            rc = ks.cmd_erledigt(args)
+            q = _json.loads((ordner / "quittung-nochmal.json").read_text(encoding="utf-8"))
+            prot = _json.loads(FakeImport.GEPRUEFT_PATH.read_text(encoding="utf-8"))
+            check("Quittung mit Stand und Notiz",
+                  (rc, q["ids"], q["notizen"]), (0, {"e2": docs["e2"]["geaendert"]}, {"e2": "21,1 km gibt es – nachgetragen."}))
+            check("Protokoll: Ergebnis und Kommentar",
+                  (prot["Testlauf|2027-05-01"]["ergebnis"], "Check again" in prot["Testlauf|2027-05-01"]["notiz"]),
+                  ("korrigiert", True))
+            e.update(antwort="", ergebnis="korrigiert")
+            (ordner / "nochmal.json").write_text(_json.dumps(auftrag), encoding="utf-8")
+            check("Ergebnis ohne Antwort wird abgewiesen", ks.cmd_erledigt(args), 1)
+            e.update(antwort="x", ergebnis="passt")
+            (ordner / "nochmal.json").write_text(_json.dumps(auftrag), encoding="utf-8")
+            check("unbekanntes Ergebnis wird abgewiesen", ks.cmd_erledigt(args), 1)
+        finally:
+            ks.modul = alt_modul
+
+    # Der Excel-Weg: Die Zeile wird übersprungen, auch mit geänderter Zelle.
+    pfade = ("MANUAL_OVERRIDES_PATH", "GEPRUEFT_PATH", "EVENTS_JSON_PATH")
+    alt = {n: getattr(kl, n) for n in pfade}
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        for n, inhalt in zip(pfade, ({}, {}, [dict(orig)])):
+            (tmp / f"{n}.json").write_text(_json.dumps(inhalt), encoding="utf-8")
+            setattr(kl, n, tmp / f"{n}.json")
+        try:
+            ks.baue_excel("events", [antwort("e2", "Check again", "bitte prüfen", {"Distanz (km)": "21,1"})], tmp / "a.xlsx")
+            rc = kl.importiere(tmp / "a.xlsx", False, False)
+            ov = _json.loads((tmp / "MANUAL_OVERRIDES_PATH.json").read_text(encoding="utf-8"))
+            prot = _json.loads((tmp / "GEPRUEFT_PATH.json").read_text(encoding="utf-8"))
+        finally:
+            for n, v in alt.items():
+                setattr(kl, n, v)
+    check("Excel-Import: „Check again“ schreibt weder Override noch Protokoll", (rc, ov, prot), (0, {}, {}))
+
+    seite = (wurzel / "korrektur" / "korrekturliste.html").read_text(encoding="utf-8")
+    for teil in ("const NOCHMAL = 'Check again'", "tr.s-nochmal", "v.notizen", "claude-notiz"):
+        check(f"Seite: {teil}", teil in seite, True)
+
+
+def test_abo_meldung() -> None:
+    """E-Mail-Abos erst nach dem Deploy und mit freigegebenen Zeilen (vom
+    Nutzer am 20.10.2026: „Ja, bitte beide Punkte ändern"): Neu ist, was
+    jetzt SICHTBAR ist und beim letzten Melden nicht. Gemeldet wird einmal
+    je Datenlauf (sonst wanderte die Wochen-Mail mit jedem Korrektur-
+    Deploy), erst im Job nach dem Deploy; ein Rückfall meldet nichts."""
+    print("\nE-Mail-Abos (abo_meldung.py):")
+    import argparse
+    import datetime as _dt
+    import json as _json
+    import os
+    import socket as _socket
+    import tempfile
+    import urllib.error
+    import abo_meldung as a
+    import fangzeile
+    heute = "2026-10-20"
+
+    def z(name, tag="2026-11-07", km=10.0, **mehr):
+        e = {"name": name, "datum_start": tag, "datum_ende": tag, "laenge_km": km, "standort": "Ulm"}
+        e.update(mehr)
+        return e
+
+    vorher = [z("Bleibt"), z("Ausgeblendet", pruefung_offen=True), z("Bleibt versteckt", pruefung_offen=True),
+              z("Gestrichen")]
+    nachher = [z("Bleibt"), z("Ausgeblendet"), z("Bleibt versteckt", pruefung_offen=True), z("Ganz neu"),
+               z("Ganz neu"), z("Neu, aber vorbei", tag="2026-10-01"), z("Neu und versteckt", pruefung_offen=True),
+               z("Bleibt", km=21.1), fangzeile.zeile(_dt.date(2026, 10, 20)) | {"pruefung_offen": False}]
+    namen = [e["name"] for e in a.neue_sichtbare(vorher, nachher, heute)]
+    check("neue Zeile aus dem Datenlauf wird gemeldet", "Ganz neu" in namen, True)
+    check("je Kennung nur einmal", namen.count("Ganz neu"), 1)
+    check("freigegebene Zeile (vorher pruefung_offen) wird gemeldet", "Ausgeblendet" in namen, True)
+    check("weiter ausgeblendete Zeile nicht", "Bleibt versteckt" in namen or "Neu und versteckt" in namen, False)
+    check("schon sichtbare Zeile nicht", namen.count("Bleibt"), 1)  # nur die neue 21,1-km-Strecke
+    check("vergangene Zeile nicht", "Neu, aber vorbei" in namen, False)
+    check("Fangzeile nie", fangzeile.NAME in namen, False)
+    check("Kennung wie dedupe_key (Distanz gerundet)", a.kennung(z("X", km=42.195)), ("x", "2026-11-07", 42.2))
+
+    gross = [z(f"Lauf {i}") for i in range(a.MIN_VORHER)]
+    A, B, C = "a" * 40, "b" * 40, "c" * 40   # gemeldet, live, dieser Deploy
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        (tmp / "events.json").write_text(_json.dumps(gross + [z("Ganz neu")]), encoding="utf-8")
+        aus = tmp / "abo" / "abo-neu.json"
+        dj = tmp / "deploy.json"
+        alt_stand, alt_git = a.live_stand, a.git
+
+        def lauf(stand, vorfahr=True, datenlauf=True, inhalt=gross, bot=A):
+            a.live_stand = lambda seite, cache: stand
+            def git(*g):
+                if g[0] == "cat-file":
+                    return ""
+                if g[0] == "merge-base":
+                    return "" if vorfahr else None
+                if g[0] == "show":
+                    return _json.dumps(inhalt)
+                if g[0] == "log":
+                    if g[1] == "-1":
+                        return bot + "\n" if bot else ""
+                    return "d" * 40 + "\n" if datenlauf else ""
+                return None
+            a.git = git
+            if dj.exists():
+                dj.unlink()
+            a.cmd_vergleichen(argparse.Namespace(seite="https://x.example", cache="1", commit=C, deploy_json=str(dj),
+                                                 nachher=str(tmp / "events.json"), aus=str(aus), heute=heute))
+            d = _json.loads(aus.read_text(encoding="utf-8"))
+            meldestand = _json.loads(dj.read_text(encoding="utf-8")) if dj.exists() else None
+            return [e["name"] for e in d["events"]], d.get("grund"), meldestand
+
+        try:
+            namen, grund, ds = lauf(("ok", {"commit": B, "gemeldet": A}))
+            check("neuer Datenlauf: alles seit der letzten Meldung", (namen, grund), (["Ganz neu"], None))
+            check("… und dieser Stand gilt danach als gemeldet", ds, {"commit": C, "gemeldet": C})
+            namen, grund, ds = lauf(("ok", {"commit": B, "gemeldet": A}), datenlauf=False)
+            check("Korrektur-Deploy ohne Datenlauf: nichts melden, Meldestand bleibt",
+                  (namen, grund, ds), ([], None, {"commit": C, "gemeldet": A}))
+            namen, grund, ds = lauf(("ok", {"commit": B, "gemeldet": A}), vorfahr=False)
+            check("Rückfall (Live-Commit kein Vorfahr): nichts melden, kein Fehler",
+                  (namen, grund, ds), ([], None, {"commit": C, "gemeldet": A}))
+            namen, grund, ds = lauf(("ok", {"commit": B, "gemeldet": A}), inhalt=gross[:10])
+            check("kaputter gemeldeter Stand: nichts melden, mit Grund", (namen, grund is not None), ([], True))
+            namen, grund, ds = lauf(("fehlt", {}), datenlauf=False)
+            check("ohne deploy.json: der letzte Datenlauf gilt als gemeldet",
+                  (namen, grund, ds), ([], None, {"commit": C, "gemeldet": A}))
+            namen, grund, ds = lauf(("fehler", {}))
+            check("deploy.json nicht lesbar: nichts melden, mit Grund, ohne Meldestand",
+                  (namen, grund is not None, ds), ([], True, {"commit": C}))
+        finally:
+            a.live_stand, a.git = alt_stand, alt_git
+
+        # senden: ohne Datei / mit Grund rot, leer grün, ohne Adresse grün.
+        alt_env = {k: os.environ.pop(k, None) for k in ("NOTIFY_WEBHOOK_URL", "NOTIFY_WEBHOOK_SECRET")}
+        try:
+            check("senden ohne Liste: rot", a.main(["senden", "--datei", str(tmp / "fehlt.json")]), 1)
+            a.schreibe(aus, [], "kaputt")
+            check("senden mit Grund: rot", a.main(["senden", "--datei", str(aus)]), 1)
+            a.schreibe(aus, [])
+            check("senden ohne neue Events: grün, kein Aufruf", a.main(["senden", "--datei", str(aus)]), 0)
+            a.schreibe(aus, [z("Ganz neu")])
+            check("senden ohne NOTIFY_WEBHOOK_URL: grün", a.main(["senden", "--datei", str(aus)]), 0)
+        finally:
+            for k, v in alt_env.items():
+                if v is not None:
+                    os.environ[k] = v
+
+    # melde: 503 wird wiederholt, eine Zeitüberschreitung nie (die Mails
+    # könnten schon in der Warteschlange liegen).
+    import urllib.request as _ur
+    alt_open, alt_sleep = _ur.urlopen, a.time.sleep
+    aufrufe = []
+
+    class Antwort:
+        def __enter__(self):
+            return self
+        def __exit__(self, *x):
+            return False
+        def read(self):
+            return b'{"checkedSubscriptions": 2, "mailsQueued": 2, "collectedForLater": 0}'
+
+    try:
+        a.time.sleep = lambda s: None
+        def offen_503(req, timeout=0):
+            aufrufe.append(req.get_header("X-notify-secret"))
+            if len(aufrufe) < 2:
+                raise urllib.error.HTTPError(req.full_url, 503, "busy", {}, None)
+            return Antwort()
+        _ur.urlopen = offen_503
+        antwort = a.melde("https://x.example/hook", "geheim", [z("Ganz neu")])
+        check("503 einmal wiederholt, dann Antwort gelesen", (len(aufrufe), antwort["mailsQueued"]), (2, 2))
+        check("Secret im Kopf", aufrufe[0], "geheim")
+        aufrufe.clear()
+        def zu_langsam(req, timeout=0):
+            aufrufe.append(1)
+            raise _socket.timeout("timed out")
+        _ur.urlopen = zu_langsam
+        try:
+            a.melde("https://x.example/hook", None, [z("Ganz neu")])
+            fehler = None
+        except RuntimeError as exc:
+            fehler = str(exc)
+        check("Zeitüberschreitung: kein zweiter Aufruf", (len(aufrufe), fehler is not None), (1, True))
+    finally:
+        _ur.urlopen, a.time.sleep = alt_open, alt_sleep
+
+    wurzel = Path(__file__).resolve().parent.parent
+    update = (wurzel / "scripts" / "update_events.py").read_text(encoding="utf-8")
+    check("der Datenlauf meldet nicht mehr selbst", "os.environ.get(\"NOTIFY_WEBHOOK_URL\")" in update, False)
+    pages = (wurzel / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+    abo = pages[pages.index("\n  abo:"):] if "\n  abo:" in pages else ""
+    check("pages.yml: Job „abo“ läuft erst nach dem Deploy", "needs: deploy" in abo, True)
+    check("pages.yml: der Job meldet mit den Secrets",
+          "abo_meldung.py senden" in abo and "secrets.NOTIFY_WEBHOOK_URL" in abo, True)
+    upload = pages.index("upload-pages-artifact")
+    check("pages.yml: Vergleich samt deploy.json VOR dem Upload",
+          0 < pages.index("abo_meldung.py vergleichen") < upload and "--deploy-json deploy.json" in pages, True)
+    check("pages.yml: die Liste liegt nicht in der hochgeladenen Seite", "$RUNNER_TEMP/abo/abo-neu.json" in pages, True)
+    check("Secrets nur im Job „abo“", pages.count("secrets.NOTIFY_WEBHOOK"), abo.count("secrets.NOTIFY_WEBHOOK"))
+
+
+def test_abo_mail() -> None:
+    """Die Abo-Mail im Stil der Seite (vom Nutzer am 20.10.2026: „Ja, bitte
+    die schönere Mail-Vorlage bauen"): rendert den echten Abschnitt aus
+    functions/index.js in node - eine Karte je Veranstaltung, Längen wie
+    in der Länge-Spalte (am ganzen Bestand gegen EED.formatLength),
+    Datum mit Wochentag, maskierte Daten, Betreff ohne „für Alle neuen
+    Events", höchstens MAX_KARTEN Karten."""
+    print("\nAbo-Mail (functions/index.js, aboMail):")
+    import json as _json
+    import shutil
+    import subprocess
+    node = shutil.which("node")
+    if not node:
+        print("  (übersprungen: node fehlt)")
+        return
+    wurzel = Path(__file__).resolve().parent.parent
+    quelle = (wurzel / "functions" / "index.js").read_text(encoding="utf-8")
+    check("Abschnitt mit Marken in functions/index.js",
+          "// ==== Abo-Mail: Anfang ====" in quelle and "// ==== Abo-Mail: Ende ====" in quelle, True)
+    check("Einmal-Abos nutzen dieselbe Vorlage", "message: einmalMail(treffer[0])" in quelle, True)
+
+    def lauf(name, tag, km=None, **mehr):
+        e = {"name": name, "datum_start": tag, "datum_ende": tag, "standort": "Ulm", "land": "Deutschland",
+             "art1": "Laufen", "art2": "Straße", "laenge_km": km, "veranstalter_url": "https://lauf.example/"}
+        e.update(mehr)
+        return e
+    beispiele = [
+        lauf("Stadtlauf", "2026-10-25", 21.1), lauf("Stadtlauf", "2026-10-25", 10.0), lauf("Stadtlauf", "2026-10-25", 5.0),
+        lauf("Cross <b>X</b>", "2026-11-07", None, art1="Fahrrad", art2="Cyclocross", dauer_h=0.5,
+             veranstalter_url="javascript:alert(1)"),
+        lauf("Seetriathlon", "2027-06-12", 25.75, art1="Triathlon", art2="Straße", datum_ende="2027-06-13"),
+        lauf("Herbstlauf", "2027-09-01", 10.0, datum_vorlaeufig=True, charity=True),
+    ]
+    wieviele = [lauf(f"Lauf {i}", "2026-12-01", 10.0) for i in range(40)]
+    skript = (
+        "const fs=require('fs');"
+        f"const src=fs.readFileSync({_json.dumps(str(wurzel / 'functions' / 'index.js'))},'utf8');"
+        "const tri=src.slice(src.indexOf('const TRIATHLON_FORMAT_IM_LABEL'),src.indexOf('const TRIATHLON_FORMAT_KATEGORIE'));"
+        "const teil=src.slice(src.indexOf('// ==== Abo-Mail: Anfang ===='),src.indexOf('// ==== Abo-Mail: Ende ===='));"
+        "const defineString=(n,o)=>({value:()=>o.default});"
+        "const m=new Function('defineString','SITE_URL',tri+teil+';return {eventKurz,aboMail,einmalMail,laengeText,MAX_KARTEN};')"
+        "(defineString,defineString('',{default:'https://endurance-events.de'}));"
+        "global.window=global;"
+        f"require({_json.dumps(str(wurzel / 'filters.js'))});"
+        "global.EnduranceFilters.relativeDays=()=>'';"
+        f"require({_json.dumps(str(wurzel / 'event-detail.js'))});"
+        "const EED=global.EnduranceDetail;"
+        f"const ev=JSON.parse(fs.readFileSync({_json.dumps(str(wurzel / 'events.json'))},'utf8')).filter(e=>!e.pruefung_offen);"
+        "const abw=ev.filter(e=>(m.laengeText(m.eventKurz(e))||'–')!==EED.formatLength(e,'de')).map(e=>e.name).slice(0,5);"
+        "const b=JSON.parse(process.argv[1]), w=JSON.parse(process.argv[2]);"
+        "const kurz=x=>x.map(m.eventKurz);"
+        "const mit=m.aboMail('id1',{name:'Laufen · 25 km um Ulm',rhythmus:'woechentlich',token:'t'},kurz(b),0);"
+        "const ohne=m.aboMail('id1',{name:'Alle neuen Events',rhythmus:'monatlich'},kurz(b),3);"
+        "const eins=m.aboMail('id1',{name:'',rhythmus:'sofort'},kurz(b.slice(0,1)),0);"
+        "const viel=m.aboMail('id1',{name:'X',rhythmus:'woechentlich'},kurz(w),0);"
+        "const einmal=m.einmalMail(b[0]);"
+        "console.log(JSON.stringify({abw,anzahl:ev.length,mit,ohne,eins,viel_karten:(viel.html.match(/Zum Event/g)||[]).length,"
+        "viel_html:viel.html.length,viel_text:viel.text.includes('… und 10 weitere Events'),einmal,max:m.MAX_KARTEN}));"
+    )
+    r = subprocess.run([node, "-e", skript, _json.dumps(beispiele), _json.dumps(wieviele)], capture_output=True, text=True)
+    if r.returncode != 0:
+        check("Abo-Mail läuft in node", r.stderr.strip()[:300], "")
+        return
+    d = _json.loads(r.stdout)
+    check(f"Längen wie in der Länge-Spalte ({d['anzahl']} sichtbare Zeilen)", d["abw"], [])
+    mit, ohne, eins = d["mit"], d["ohne"], d["eins"]
+    check("Betreff mit Filter", mit["subject"], "4 neue Events: Laufen · 25 km um Ulm")
+    check("Betreff ohne Filter (kein „für Alle neuen Events“)", ohne["subject"], "4+ neue Events auf Endurance Events")
+    check("Betreff bei einem Event", eins["subject"], "Neues Event: Stadtlauf")
+    html = mit["html"]
+    check("eine Karte je Veranstaltung", html.count("Zum Event"), 4)
+    check("Längen kürzeste zuerst, Dezimalkomma", "5km &middot; 10km &middot; 21,1km" in html, True)
+    check("unter einer Stunde in Minuten", "30min" in html, True)
+    check("Triathlon als Format", ">Sprint<" in html, True)
+    check("Datum mit Wochentag", "So, 25.10.2026" in html, True)
+    check("mehrtägig", "Sa, 12.06. – So, 13.06.2027" in html, True)
+    check("vorläufiger Termin nur als Monat mit *", "September 2027*" in html and "Termin noch zu bestätigen" in html, True)
+    check("Charity-Marke", "&#9829; Charity" in html, True)
+    check("Name maskiert", "Cross &lt;b&gt;X&lt;/b&gt;" in html and "<b>X</b>" not in html, True)
+    check("nur http(s) wird verlinkt", "javascript:" in html, False)
+    check("Link in die Liste mit Suche", "https://endurance-events.de/events.html?s=Stadtlauf" in html, True)
+    check("Abmelde-Link und Impressum", "Abo beenden" in html and "/impressum.html" in html, True)
+    check("keine Bilder (kein Lesebeleg)", "<img" in html.lower(), False)
+    check("Textfassung mit Link", "https://endurance-events.de/events.html?s=Stadtlauf" in mit["text"], True)
+    check("übersprungene Strecken genannt", "3 weitere Strecken" in ohne["html"], True)
+    check("höchstens MAX_KARTEN Karten", d["viel_karten"], d["max"])
+    check("Rest als Zahl (auch im Text)", d["viel_text"], True)
+    check("Mail bleibt unter der Gmail-Grenze (~100 KB)", d["viel_html"] < 90000, True)
+    check("Einmal-Abo im selben Gewand", d["einmal"]["subject"] == "Neues Event gefunden: Stadtlauf"
+          and "Zum Event" in d["einmal"]["html"], True)
+
+
+def test_geloescht() -> None:
+    """Status „Löschen" (vom Nutzer am 20.10.2026: „löschen soll nur die
+    eine Zeile herausnehmen und schauen ob das Event nächstes Jahr passend
+    ist"): Der Import setzt `geloescht`, das Gedächtnis nimmt die Strecke aus
+    der Vorjahreskopie und merkt sie; die passende Zeile der NÄCHSTEN
+    Ausgabe steht wieder in der Korrekturliste - die übrigen Termine einer
+    Serie und spätere Jahre nicht, und nach der Prüfung auch nicht mehr."""
+    print("\nStatus „Löschen“ (Zeile raus, nächste Ausgabe wird geprüft):")
+    import json as _json
+    import tempfile
+    import clean_events
+    import veranstalter_seiten as vs
+    from audit_events import offene_pruefungen
+
+    def z(name, datum, km=None, wettbewerb=None, dauer=None, standort="Ladbergen"):
+        return dict(name=name, standort=standort, land="Deutschland", lat=52.13, lon=7.74, art1="Laufen",
+                    art2="Straße", datum_start=datum, datum_ende=datum, laenge_km=km, dauer_h=dauer,
+                    wettbewerb=wettbewerb, veranstalter_url="https://ladbergen-ultra.example/")
+    ged = vs.Gedaechtnis({})
+    zeilen = [z("Ladbergen Ultramarathon", "2026-10-14", 21.1, "Halbmarathon"),
+              z("Ladbergen Ultramarathon", "2026-10-14", 42.2, "Marathon"),
+              z("Ladbergen Ultramarathon", "2026-10-14", 44.0, "Ultra 44 km")]
+    vs.lernen(zeilen, ged, overrides={})
+    k = vs.schluessel_von(zeilen[0])
+    bericht = vs.merke_geloescht([zeilen[2]], ged, "2026-10-20")
+    eintrag = ged.daten[k]
+    check("gelöscht gemerkt, Strecke aus der Vorjahreskopie",
+          (len(bericht), [st["laenge_km"] for st in eintrag["strecken"]], len(eintrag["geloescht"]),
+           eintrag["geloescht"][0].get("ganz")), (1, [21.1, 42.2], 1, None))
+    check("zweimal gemerkt = einmal", vs.merke_geloescht([zeilen[2]], ged, "2026-10-20"), [])
+    check("Vorjahreskopie ohne die gelöschte Strecke",
+          [r["laenge_km"] for r in vs.manual_events_aus(eintrag, "2027-10-13", "2027-10-13", "2027-09-01")],
+          [21.1, 42.2])
+    naechste = z("Ladbergen Ultramarathon", "2027-10-13", 44.0, "Ultra 44 km")
+    check("nächste Ausgabe derselben Strecke: wieder eine Frage",
+          [len(ged.geloescht_fuer(r)) for r in (
+              naechste, z("Ladbergen Ultramarathon", "2027-10-13", 43.8),        # neu vermessen
+              z("Ladbergen Ultramarathon", "2027-10-13", 42.2),                  # andere Strecke
+              z("Ladbergen Ultramarathon", "2026-11-20", 44.0),                  # gleiche Saison
+              z("Ladbergen Ultramarathon", "2028-10-11", 44.0))],                # zwei Jahre später
+          [1, 1, 0, 0, 0])
+    arten = lambda r, prot: [a for e, g in offene_pruefungen([r], "2027-01-01", prot, gedaechtnis=ged)  # noqa: E731
+                             for a, _ in g]
+    check("Korrekturliste: Grund „geloescht“", "geloescht" in arten(naechste, {}), True)
+    check("nach der Prüfung nicht mehr", "geloescht" in arten(naechste, {
+        "ladbergen ultramarathon|2027-10-13": {"ergebnis": "quelle_ok"}}), False)
+    check("ohne Gedächtnis kein Grund", "geloescht" in [a for e, g in offene_pruefungen([naechste], "2027-01-01", {})
+                                                         for a, _ in g], False)
+    # Die ganze Veranstaltung gelöscht: nächstes Jahr passt jede Strecke.
+    h = z("Hartberg bewegt sich", "2026-10-17", 6.0, standort="Hartberg")
+    vs.lernen([h], ged, overrides={})
+    vs.merke_geloescht([h], ged, "2026-10-20")
+    check("ganze Veranstaltung: ganz, jede Strecke passt",
+          (ged.daten[vs.schluessel_von(h)]["geloescht"][0].get("ganz"),
+           len(ged.geloescht_fuer(z("Hartberg bewegt sich", "2027-10-16", 10.0, standort="Hartberg")))), (True, 1))
+    check("ganz bleibt beim zweiten Aufruf einmal", (vs.merke_geloescht([h], ged, "2026-10-20"),
+                                                     len(ged.daten[vs.schluessel_von(h)]["geloescht"])), ([], 1))
+    vs.merke_geloescht([], ged, "2028-06-01")
+    check("alte Markierungen räumt der Aufruf weg", ("geloescht" in ged.daten[k],
+                                                     "geloescht" in ged.daten[vs.schluessel_von(h)]), (False, False))
+    check("ohne Eintrag: Warnung, nichts angelegt",
+          (vs.merke_geloescht([z("Gibt es nicht", "2026-10-14", 5.0, standort="Nirgendwo")], ged)[0][:1],
+           len(ged.daten)), ("⚠", 2))
+
+    alt_laden = clean_events.load_manual_overrides
+    clean_events.load_manual_overrides = lambda: {
+        "Ladbergen Ultramarathon|2026-10-14|44": {"exclude": True, "geloescht": True},
+        "Ladbergen Ultramarathon|2026-10-14|42.2": {"exclude": True},
+        "Ladbergen Ultramarathon|2026-10-14|21.1": {"exclude": True, "geloescht": True, "abgesagt": True}}
+    try:
+        treffer = clean_events.geloeschte_zeilen(zeilen)
+    finally:
+        clean_events.load_manual_overrides = alt_laden
+    check("geloeschte_zeilen: nur Löschen der Korrekturliste", [e["laenge_km"] for e in treffer], [44.0])
+
+    # Der Import setzt die Markierung (braucht openpyxl).
+    try:
+        import openpyxl  # noqa: F401
+    except ImportError:
+        print("  (Import übersprungen: openpyxl fehlt)")
+        return
+    import korrektur_seite as ks
+    import korrekturliste as kl
+    kopf = [k for _, k, _ in kl.SPALTEN]
+    werte = {k: "" for k in kopf}
+    werte.update({"Nr": 1, "Datum Start": "14.10.2026", "Datum Ende": "14.10.2026",
+                  "Name (nicht änderbar)": "Ladbergen Ultramarathon", "Wettbewerb / Strecke": "Ultra 44 km",
+                  "Sportart": "Laufen", "Kategorie": "Straße", "Distanz (km)": "44", "Ort": "Ladbergen",
+                  "Land": "Deutschland", "Veranstalter-Link": "https://ladbergen-ultra.example/"})
+    orig = dict(zeilen[2], datum_vorlaeufig=None)
+    antwort = {"liste": "events", "id": "e1", "status": "Löschen", "werte": {}, "anmerkung": "",
+               "kopf": kopf, "zeile": [werte[k] for k in kopf], "orig": _json.dumps(orig, ensure_ascii=False)}
+    pfade = ("MANUAL_OVERRIDES_PATH", "GEPRUEFT_PATH", "EVENTS_JSON_PATH")
+    alt = {n: getattr(kl, n) for n in pfade}
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        for n, inhalt in zip(pfade, ({}, {}, [dict(orig)])):
+            (tmp / f"{n}.json").write_text(_json.dumps(inhalt), encoding="utf-8")
+            setattr(kl, n, tmp / f"{n}.json")
+        try:
+            ks.baue_excel("events", [antwort], tmp / "a.xlsx")
+            rc = kl.importiere(tmp / "a.xlsx", False, False)
+            ov = _json.loads((tmp / "MANUAL_OVERRIDES_PATH.json").read_text(encoding="utf-8"))
+        finally:
+            for n, v in alt.items():
+                setattr(kl, n, v)
+    eintrag = ov.get("Ladbergen Ultramarathon|2026-10-14|44", {})
+    check("Import: exclude + geloescht, nicht abgesagt",
+          (rc, eintrag.get("exclude"), eintrag.get("geloescht"), eintrag.get("abgesagt")), (0, True, True, None))
+
+
+def test_insta_logos() -> None:
+    """Logo-Reels (27.10.2026): am letzten Freitag „monat" (Zahl aller
+    Events des nächsten Monats, dann die Logos der großen Events im Takt),
+    am 1. „anmeldung" (große Events, deren Anmeldung in dem Monat öffnet);
+    die Logo-Suche auf der Veranstalterseite und die Pflichtfelder von
+    grosse_events.json."""
+    import datetime as _dt
+    import io as _io
+    import json as _json
+    import random as _random
+    import re as _re
+
+    print("\nInstagram-Logo-Reels (insta_inhalte monat/anmeldung, insta_logos):")
+    import insta_inhalte as I
+    I.SONDERPLAN_DATEI = Path("/gibt-es-nicht/sonderplan.json")   # Plan-Tests ohne die feste Startwoche
+    import insta_logos as L
+    import insta_video as V
+    from PIL import Image as _Image
+
+    # --- Logo-Suche: das Logo im Startseiten-Link schlägt den Sponsor
+    html = ('<html><body><header><a href="/"><img src="/img/logo.svg" alt="Stadtlauf"></a></header>'
+            '<div class="sponsors"><img class="logo" src="/s/garmin_logo.png"></div>'
+            '<footer><img src="/f/partner-logo.png"></footer>'
+            '<link rel="apple-touch-icon" href="/apple.png"></body></html>')
+    k = L.kandidaten(html, "https://www.stadtlauf.de/", "Stadtlauf")
+    check("Logo-Suche: Kopf-Logo zuerst, Sponsoren und Fuß nie, Touch-Icon zuletzt",
+          [u for _, u in k], ["https://www.stadtlauf.de/img/logo.svg", "https://www.stadtlauf.de/apple.png"])
+    check("Logo-Suche: Sponsor im Umfeld (class=sponsors) fliegt raus",
+          any("garmin" in u for _, u in k), False)
+
+    # --- Aufbereiten: Rand weg, helles Logo erkannt, zu kleines abgewiesen
+    weiss = _Image.new("RGBA", (600, 400), (0, 0, 0, 0))
+    weiss.paste((255, 255, 255, 255), (100, 150, 280, 250))     # zwei „Buchstaben" mit Lücke
+    weiss.paste((255, 255, 255, 255), (320, 150, 500, 250))
+    puffer = _io.BytesIO()
+    weiss.save(puffer, "PNG")
+    erg = L.aufbereiten(puffer.getvalue())
+    check("Aufbereiten: transparenter Rand abgeschnitten, weißes Logo = hell (Navy-Karte)",
+          (erg[0].size, erg[1]), ((400, 100), True))
+    klein = _io.BytesIO()
+    _Image.new("RGB", (40, 40), (200, 0, 0)).save(klein, "PNG")
+    check("Aufbereiten: zu kleines Bild ist kein Logo", L.aufbereiten(klein.getvalue()), None)
+    check("Slug ohne Umlaute", L.slug("Zürich Marathon – Läufe"), "zuerich-marathon-laeufe")
+
+    # --- Testdaten: sechs große Events im November
+    def zeile(name, ort, tag, sport="Laufen", km=42.195):
+        return {"name": name, "standort": ort, "land": "Deutschland", "art1": sport, "art2": "Straße",
+                "datum_start": tag, "datum_ende": tag, "lat": 50.0, "lon": 8.0, "laenge_km": km,
+                "veranstalter_url": "https://x.de/"}
+    ev = [zeile(f"Dorflauf {i}", "Hinterwald", f"2026-11-{i + 1:02d}", km=10.0) for i in range(20)]
+    ev += [zeile("Mainufer Marathon", "Frankfurt", "2026-11-08"), zeile("Mainufer Halbmarathon", "Frankfurt", "2026-11-08", km=21.1),
+           zeile("Domstadt-Lauf", "Köln", "2026-11-15"), zeile("Isar Triathlon", "München", "2026-11-21", "Triathlon", 51.5),
+           zeile("Elbe Run", "Hamburg", "2026-11-29"), zeile("Kinder Elbe Run", "Hamburg", "2026-11-29", km=2.0),
+           zeile("Saale Lauf", "Halle", "2026-11-01"), zeile("Rhein Lauf", "Bonn", "2026-11-22"),
+           zeile("Domstadt-Lauf", "Köln", "2027-04-25")]
+    grosse = [
+        {"name": "Mainufer Marathon", "suche": ["mainufer"], "land": "Deutschland", "sport": "Laufen", "starter": 20000,
+         "anmeldestart": "2026-11-03", "webseite": "https://mainufer.de/"},
+        {"name": "Domstadt-Lauf", "suche": ["domstadt-lauf"], "land": "Deutschland", "sport": "Laufen", "starter": 9000,
+         "anmeldestart": "2026-11", "webseite": "https://domstadt.de/"},
+        {"name": "Isar Triathlon", "suche": ["isar triathlon"], "land": "Deutschland", "sport": "Triathlon", "starter": 1500,
+         "anmeldestart": "2026-11-20", "termin": "2027-07-04"},
+        {"name": "Elbe Run", "suche": ["elbe run"], "land": "Deutschland", "sport": "Laufen", "starter": 6000,
+         "anmeldestart": "2026-12-01", "webseite": "https://elberun.de/"},
+        {"name": "Alpen Radmarathon", "suche": ["alpen rad"], "land": "Österreich", "sport": "Fahrrad", "starter": 4000,
+         "anmeldestart": "2026-11-10", "termin": "2027-08-29"},
+        {"name": "Saale Lauf", "suche": ["saale lauf"], "land": "Deutschland", "sport": "Laufen", "starter": 900},
+        {"name": "Rhein Lauf", "suche": ["rhein lauf"], "land": "Deutschland", "sport": "Laufen", "starter": 1200},
+    ]
+    check("letzter Freitag im Oktober 2026 ist der 30.", [d for d in range(20, 32) if I.letzter_freitag(_dt.date(2026, 10, d))], [30])
+    b = I.plane(_dt.date(2026, 10, 30), ev, momente=I.lade_momente(), clips=[], grosse=grosse)
+    logos = [f for f in b["folien"] if f["typ"] == "logo"]
+    check("monat: letzter Freitag → Logo-Reel für den nächsten Monat", b["format"], "monat")
+    check("monat: erste Folie = Zahl ALLER Events im November", (b["folien"][0]["zahl"], b["folien"][0]["titel"]),
+          (str(len(I.veranstaltungen(ev, _dt.date(2026, 11, 1), _dt.date(2026, 11, 30)))), "EVENTS IM NOVEMBER 2026"))
+    check("monat: je großes Event ein Logo (Halbmarathon zählt zum Marathon, Kinderlauf nie), nach Datum",
+          [(f["name"], f["datum"], f["logo_id"]) for f in logos],
+          [("Saale Lauf", "1. Nov", "saale-lauf"), ("Mainufer Marathon", "8. Nov", "mainufer-marathon"),
+           ("Domstadt-Lauf", "15. Nov", "domstadt-lauf"), ("Isar Triathlon", "21. Nov", "isar-triathlon"),
+           ("Rhein Lauf", "22. Nov", "rhein-lauf"), ("Elbe Run", "29. Nov", "elbe-run")])
+    alt = I.MONAT_MAX_LOGOS
+    I.MONAT_MAX_LOGOS = 5
+    try:
+        knapp = I.plane(_dt.date(2026, 10, 30), ev, momente=I.lade_momente(), clips=[], grosse=grosse)
+    finally:
+        I.MONAT_MAX_LOGOS = alt
+    check("monat: bei mehr Events als Platz die größten nach Starterzahl (der kleinste fällt)",
+          [f["name"] for f in knapp["folien"] if f["typ"] == "logo"],
+          ["Mainufer Marathon", "Domstadt-Lauf", "Isar Triathlon", "Rhein Lauf", "Elbe Run"])
+    check("monat: ein Schlag je Logo, Ende mit „Check it out“, Schwarzweiß im November",
+          (all(f.get("blitz") for f in logos), b["folien"][-1]["typ"], b["folien"][-1]["titel"], b["stil"]),
+          (True, "cta", "Check it out!", "sw"))
+    plan = V.zeitplan(b["folien"], schlag=0.5)
+    check("monat: Logo-Folien stehen genau einen Schlag", {round(e - s, 2) for s, e, f in plan if f["typ"] == "logo"}, {0.5})
+    weniger = I.plane(_dt.date(2026, 10, 30), ev, momente=I.lade_momente(), clips=[], grosse=grosse[:5])
+    check("monat: unter sechs Logos gilt der normale Plan", weniger["format"] != "monat", True)
+
+    a = I.plane(_dt.date(2026, 11, 1), ev, momente=I.lade_momente(), clips=[], grosse=grosse, anlaesse=[])
+    karten = [f for f in a["folien"] if f["typ"] == "logo"]
+    check("anmeldung: am 1. die großen Events, deren Anmeldung in dem Monat öffnet", a["format"], "anmeldung")
+    check("anmeldung: Anmeldestart (genau oder nur Monat) und nächster Renntermin, nach Anmeldestart",
+          [(f["name"], f["ueber"], f["datum"]) for f in karten],
+          [("Domstadt-Lauf", "Anmeldung im November", "15. Nov 2026"),
+           ("Mainufer Marathon", "Anmeldung ab 3. Nov", "8. Nov 2026"),
+           ("Alpen Radmarathon", "Anmeldung ab 10. Nov", "29. Aug 2027"),
+           ("Isar Triathlon", "Anmeldung ab 20. Nov", "21. Nov 2026")])
+    check("anmeldung: Caption sagt „ohne Gewähr“", "ohne Gewähr" in a["caption"], True)
+    check("anmeldung: unter drei Events gilt der Wochenplan",
+          I.plane(_dt.date(2026, 12, 1), ev, momente=I.lade_momente(), clips=[], grosse=grosse, anlaesse=[])["format"]
+          != "anmeldung", True)
+    nyc = [{"id": "x", "name": "NYC", "datum": "2026-11-01", "kategorie": "marathon", "anlass_text": "Heute läuft New York",
+            "quelle": "https://example.org"}]
+    check("anmeldung: belegt ein Anlass den 1., kommt der Anmeldestart am 2.",
+          I.plane(_dt.date(2026, 11, 2), ev, momente=I.lade_momente(), clips=[], grosse=grosse, anlaesse=nyc)["format"],
+          "anmeldung")
+    check("Formate monat, anmeldung und top über --format wählbar", {"monat", "anmeldung", "top"} <= set(I.FORMATE), True)
+
+    # --- Top 5 (jeder zweite Samstag): Kategorie, Rangfolge, Rotation, Karte
+    def top_zeilen(name, ort, tag, km, sport="Laufen", art2="Straße", land="Deutschland"):
+        return dict(zeile(name, ort, tag, sport, km), art2=art2, land=land)
+    tev = []
+    tgross = []
+    for i, (n, st) in enumerate([("Alpha", 9000), ("Bravo", 7000), ("Charlie", 5000), ("Delta", 3000),
+                                 ("Echo", 2000), ("Foxtrot", 1000)]):
+        tev.append(top_zeilen(f"{n} Marathon", f"Ort{i}", f"2027-0{i + 3}-1{i}", 42.195))
+        tev.append(top_zeilen(f"{n} Marathon", f"Ort{i}", f"2027-0{i + 3}-1{i}", 10.0))
+        tgross.append({"name": f"{n} Marathon", "suche": [n.lower() + " marathon"], "land": "Deutschland",
+                       "sport": "Laufen", "starter": st})
+    tev.append(top_zeilen("Golf Halbmarathon", "OrtG", "2027-05-02", 21.1))
+    tgross.append({"name": "Golf Halbmarathon", "suche": ["golf halbmarathon"], "land": "Deutschland",
+                   "sport": "Laufen", "starter": 99999})
+    kat = {k[0]: k for k in I.TOP_KATEGORIEN}
+    check("top: Marathon-Kategorie, größte zuerst, nur Veranstaltungen mit 42,2 km",
+          [e["g"]["name"] for e in I.top_kandidaten(_dt.date(2026, 11, 14), tev, tgross, kat["marathon"])][:3],
+          ["Alpha Marathon", "Bravo Marathon", "Charlie Marathon"])
+    check("top: Halbmarathon-Kategorie ohne Veranstaltungen mit Marathon",
+          [e["g"]["name"] for e in I.top_kandidaten(_dt.date(2026, 11, 14), tev, tgross, kat["halbmarathon"])],
+          ["Golf Halbmarathon"])
+    t = I.format_top(_dt.date(2026, 11, 14), tev, _random.Random(1), tgross)
+    n = t["anzahl"]
+    namen = [f["eintraege"][f["aktiv"]]["name"] for f in t["folien"] if f["typ"] == "top" and f["aktiv"] is not None]
+    erwartet = sorted(["Alpha Marathon", "Bravo Marathon", "Charlie Marathon", "Delta Marathon", "Echo Marathon",
+                       "Foxtrot Marathon"][:n], key=lambda x: "ABCDEF".index(x[0]))
+    check("top: die n größten (3/5/7/10), vorgestellt nach DATUM, ohne Rangfolge, dann Übersicht und CTA",
+          (n in I.TOP_ANZAHLEN, namen, [f["typ"] for f in t["folien"]][-2:], t["folien"][-2]["aktiv"],
+           any("rang" in e for e in t["folien"][1]["eintraege"])),
+          (True, erwartet, ["top", "cta"], None, False))
+    check("top: Caption sagt, wie gezählt wird", "allen Teilnehmenden der Veranstaltung" in t["caption"], True)
+    samstage = [_dt.date(2026, 10, 31) + _dt.timedelta(days=14 * i) for i in range(4)]
+    check("top: jeder zweite Samstag, sonst „saison“",
+          [I.format_am(_dt.date(2026, 10, 31) + _dt.timedelta(days=7 * i)) for i in range(4)],
+          ["top", "saison", "top", "saison"])
+    ganz = I.lade_grosse()
+    ev_echt = I.lade_events()
+    tops = [b for b in (I.format_top(d, ev_echt, _random.Random(1), ganz) for d in samstage) if b]
+    paare = list(zip(tops, tops[1:]))
+    check("top: am echten Bestand wechseln Kategorie, Design und Anzahl jedes Mal",
+          all(a["kategorie"] != b["kategorie"] and a["design"] != b["design"] and a["anzahl"] != b["anzahl"]
+              for a, b in paare), True)
+    for design in I.TOP_DESIGNS:
+        for aktiv in (0, None):
+            for menge in (3, 10):
+                f = dict(t["folien"][1], variante=design, aktiv=aktiv,
+                         eintraege=(t["folien"][1]["eintraege"] * 4)[:menge])
+                bild = V.folie_bild(f, "Laufen")
+                check(f"top: Design {design} zeichnet {menge} Events ({'eins' if aktiv == 0 else 'Übersicht'})",
+                      bild.getchannel("A").getbbox() is not None, True)
+    karte = V.karte_bild(400, 400, [(52.52, 13.40, "1")], 0)
+    check("Karte: Länderfläche aus laender.json und Punkt Berlin im Nordosten",
+          (karte.getpixel((200, 250))[3] > 0, karte.getpixel((5, 5))[3]), (True, 0))
+
+    # --- Anlass: am Tag eines großen internationalen Rennens
+    anl = [{"id": "london-2027", "name": "London Marathon", "datum": "2027-02-20", "sport": "Laufen",
+            "kategorie": "marathon", "anlass_text": "Heute läuft London", "quelle": "https://example.org",
+            "hashtag": "#londonmarathon"}]
+    b = I.plane(_dt.date(2027, 2, 20), tev, momente=I.lade_momente(), clips=[], grosse=tgross, anlaesse=anl)
+    check("anlass: am Tag des Rennens geht der Anlass allem vor (auch einem Samstag)", b["format"], "anlass")
+    check("anlass: erste Folie nennt das Rennen, die Zahl ALLER Marathons bis Silvester",
+          (b["folien"][0]["ueber"], b["folien"][0]["zahl"], b["folien"][0]["titel"]),
+          ("Heute läuft London", "6", "MARATHONS BEI UNS BIS SILVESTER 2027"))
+    check("anlass: dann die größten (Logo-Folien), Caption mit Hashtag des Rennens",
+          (sum(1 for f in b["folien"] if f["typ"] == "top" and f["aktiv"] is not None) >= 3,
+           "#londonmarathon" in b["caption"]), (True, True))
+    spaet = dict(anl[0], datum="2027-12-10")
+    tev2 = tev + [top_zeilen("Alpha Marathon", "Ort0", "2028-03-10", 42.195)]
+    b2 = I.format_anlass(_dt.date(2027, 12, 10), tev2, _random.Random(1), spaet, tgross)
+    check("anlass: bis Silvester zu wenig → die nächsten 12 Monate", b2 is None or
+          b2["folien"][0]["titel"].endswith("IN DEN NÄCHSTEN 12 MONATEN"), True)
+    check("anlaesse.json: Datum, Kategorie, Text und Quelle je Eintrag",
+          [a.get("id") for a in I.lade_anlaesse()
+           if not (a.get("datum") is None or _re.fullmatch(r"\d{4}-\d{2}-\d{2}", a["datum"]))
+           or a.get("kategorie") not in {k[0] for k in I.TOP_KATEGORIEN}
+           or not a.get("anlass_text") or not str(a.get("quelle", "")).startswith("http")], [])
+
+    # --- Die längsten (animierte Balken)
+    lev = [top_zeilen(f"Ultra {i}", f"U{i}", "2027-06-0%d" % (i % 9 + 1), 100.0 + 50 * i) for i in range(12)]
+    lev += [top_zeilen(f"Radrennen {i}", f"R{i}", "2027-07-0%d" % (i % 9 + 1), 300.0 + 100 * i, sport="Fahrrad")
+            for i in range(12)]
+    lev.append(top_zeilen("Mammut Marsch", "M", "2027-06-10", 999.0, art2="Marsch"))
+    lev.append(top_zeilen("Ultra 11", "U11", "2027-06-03", 650.0))                 # dieselbe Veranstaltung, kürzer
+    lauf = I.laengste_kandidaten(_dt.date(2026, 11, 2), lev, "Laufen", 10)
+    check("laengste: die längsten Läufe absteigend, Märsche nie, je Veranstaltung die längste Strecke",
+          [v["name"] for v in lauf[:3]] + [len(lauf)], ["Ultra 11", "Ultra 10", "Ultra 9", 10])
+    lb = I.format_laengste(_dt.date(2026, 11, 2), lev, _random.Random(1))
+    balken = lb["folien"][1]
+    check("laengste: Hook mit der größten Länge, Balkenfolie, Frage, CTA",
+          ([f["typ"] for f in lb["folien"]], lb["folien"][2]["titel"]),
+          (["hook", "balken", "satz", "cta"], "WELCHES WÜRDEST DU SCHAFFEN?"))
+    check("laengste: Tausenderpunkt in der Kilometerzahl",
+          I._balken_zeile({"name": "x", "km": [1284.0], "datum": "2027-08-01", "ort": "F", "land": "Deutschland",
+                           "sport": "Laufen"})["km_text"], "1.284 km")
+    leer = V.folie_bild(balken, None, 0.0)
+    voll = V.folie_bild(balken, None, 1.0)
+    from PIL import ImageStat as _Stat
+    flaeche = lambda b: _Stat.Stat(b.getchannel("A")).sum[0]
+    check("laengste: animiert – am Anfang nur Titel und Überschriften, am Ende alle Balken",
+          flaeche(leer) < 0.3 * flaeche(voll), True)
+    check("laengste: wird Bild für Bild gezeichnet und steht so lange, wie die Balken brauchen",
+          ("balken" in V.ANIMIERT, V.folien_dauer(balken) == balken["dauer"]), (True, True))
+
+    # --- Folie ohne Logo im Cache: Namenskarte statt Absturz
+    bild = V.folie_bild(dict(logos[0], logo_id="gibt-es-nicht"), "Laufen")
+    check("Logo-Folie ohne Logo zeichnet die Namenskarte (Karte weiß, mittig)",
+          bild.getpixel(((V.KARTE[0] + V.KARTE[2]) // 2, V.KARTE[1] + 20))[:3], V.WEISS)
+
+    # --- grosse_events.json: Pflichtfelder und Quellen
+    wurzel = Path(__file__).resolve().parent.parent
+    liste = _json.loads((wurzel / "marketing" / "instagram" / "grosse_events.json").read_text(encoding="utf-8"))["events"]
+    fehler = []
+    for g in liste:
+        n = g.get("name", "?")
+        if not g.get("suche") or not all(isinstance(x, str) and x == x.lower() and x for x in g["suche"]):
+            fehler.append(f"{n}: suche")
+        if g.get("land") not in I.LAND_KURZ or g.get("sport") not in I.SPORTARTEN:
+            fehler.append(f"{n}: land/sport")
+        if g.get("starter") is None:
+            if "ironman" not in n.lower():
+                fehler.append(f"{n}: starter fehlt (nur bei IRONMAN ohne veröffentlichte Zahl erlaubt)")
+        elif not isinstance(g["starter"], int) or not str(g.get("starter_quelle", "")).startswith("https://"):
+            fehler.append(f"{n}: starter/quelle")
+
+        if g.get("anmeldestart") is not None:
+            if not _re.fullmatch(r"\d{4}-\d{2}(-\d{2})?", str(g["anmeldestart"])) or not I.anmeldestart(g):
+                fehler.append(f"{n}: anmeldestart")
+            if not str(g.get("anmeldestart_quelle") or "").startswith("http"):
+                fehler.append(f"{n}: anmeldestart ohne Quelle")
+        if g.get("webseite") and not g["webseite"].startswith("https://"):
+            fehler.append(f"{n}: webseite")
+    check("grosse_events.json: Pflichtfelder, Quellen, Datumsformat", fehler, [])
+    namen = [L.slug(g["name"]) for g in liste]
+    check("grosse_events.json: Namen eindeutig (Logo-Datei je Name)", len(namen), len(set(namen)))
+    ordner = wurzel / "marketing" / "instagram" / "logos"
+    dateien = {p.stem for p in ordner.glob("*.png")}
+    meta = _json.loads((ordner / "logos.json").read_text(encoding="utf-8"))
+    check("logos/: jede Datei gehört zu einem großen Event und hat Quelle + Prüfdatum in logos.json",
+          (sorted(dateien - set(namen)), sorted(d for d in dateien if not (meta.get(d) or {}).get("geprueft"))), ([], []))
+    check("Der tägliche Lauf holt keine Logos aus dem Netz (nur geprüfte Dateien)",
+          "logo_fuer" in (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8"), False)
+
+    # --- Rennjahr: je Monat das größte Event, zwölf Monate, dann die Übersicht
+    monate = [(2026, 11), (2026, 12)] + [(2027, m) for m in range(1, 11)]
+    buchst = "ABCDEFGHIJKL"
+    jev = [zeile(f"Lauf {buchst[i]}", "Kassel", f"{j}-{m:02d}-15") for i, (j, m) in enumerate(monate)]
+    jev.append(zeile("Kleiner Lauf", "Kassel", "2027-04-10"))
+    jg = [{"name": f"Lauf {buchst[i]}", "suche": [f"lauf {buchst[i].lower()}"], "land": "Deutschland",
+           "sport": "Laufen", "starter": 5000 + i} for i in range(12)]
+    jg.append({"name": "Kleiner Lauf", "suche": ["kleiner lauf"], "land": "Deutschland", "sport": "Laufen", "starter": 100})
+    jb = I.format_jahr(_dt.date(2026, 11, 2), jev, _random.Random(1), jg)
+    jahr_folien = [f for f in jb["folien"] if f["typ"] == "jahr"]
+    check("jahr: zwölf Monate im Takt (blitz) + Übersicht, je Monat das größte Event",
+          (len(jahr_folien), sum(1 for f in jahr_folien if f.get("blitz")), jahr_folien[-1]["aktiv"],
+           [e["name"] for e in jahr_folien[0]["eintraege"]][5]),
+          (13, 12, None, "Lauf F"))
+    check("jahr: unter zehn Monaten mit Event gilt der Plan",
+          I.format_jahr(_dt.date(2026, 11, 2), jev[:5], _random.Random(1), jg), None)
+    bild_j = V.folie_bild(jahr_folien[3], "Laufen")
+    check("jahr: Monatsfolie und Übersicht zeichnen", (bild_j.size, V.folie_bild(jahr_folien[-1], "Laufen").size),
+          ((V.B, V.H), (V.B, V.H)))
+
+    # --- Duell: zwei große Events derselben Kategorie mit Logo, ein festes Paar über den Sonderplan
+    dev = [zeile("Berlin-Marathon", "Berlin", "2027-09-26"), zeile("Berlin-Marathon", "Berlin", "2027-09-26", km=5.0),
+           dict(zeile("Vienna City Marathon", "Wien", "2027-04-18"), land="Österreich"),
+           zeile("Hamburg Marathon", "Hamburg", "2027-04-25")]
+    dg = [{"name": "Berlin-Marathon", "suche": ["berlin-marathon"], "land": "Deutschland", "sport": "Laufen", "starter": 49831},
+          {"name": "Vienna City Marathon", "suche": ["vienna city"], "land": "Österreich", "sport": "Laufen", "starter": 49379},
+          {"name": "Hamburg Marathon", "suche": ["hamburg marathon"], "land": "Deutschland", "sport": "Laufen", "starter": 46000}]
+    du = I.format_duell(_dt.date(2026, 11, 8), dev, _random.Random(1), dg, ["Berlin-Marathon", "Vienna City Marathon"])
+    df = du["folien"][1]
+    check("duell: festes Paar, Vergleichszeilen, der größere Wert leuchtet",
+          (df["links"]["name"], df["rechts"]["name"], [z[0] for z in df["zeilen"]], df["zeilen"][2][1:]),
+          ("Berlin-Marathon", "Vienna City Marathon", ["Termin", "Ort", "Am Start (ca.)", "Strecken"],
+           ["50.000", "49.000", 0]))
+    check("duell: animiert – erst leer, am Ende Logos, Zeilen und Frage",
+          ("duell" in V.ANIMIERT, flaeche(V.folie_bild(df, "Laufen", 0.0)) < 0.5 * flaeche(V.folie_bild(df, "Laufen", 1.0))),
+          (True, True))
+
+    # --- Sonderplan: ein fester Tag schlägt Wochenplan und Anlass; die Startwoche liegt im Repo
+    sp = {"2026-11-07": {"format": "top", "kategorie": "triathlon", "anzahl": 7, "design": "raster"}}
+    tb = I.plane(_dt.date(2026, 11, 7), ev_echt, momente=I.lade_momente(), clips=[], grosse=ganz, sonderplan=sp)
+    check("Sonderplan: Kategorie, Anzahl und Design fest", (tb["format"], tb.get("kategorie"), tb.get("design"),
+                                                            tb.get("anzahl")), ("top", "triathlon", "raster", 7))
+    start = I.lade_sonderplan(wurzel / "marketing" / "instagram" / "sonderplan.json")
+    check("sonderplan.json: die Startwoche 02.–08.11.2026, nur bekannte Formate oder Pause",
+          (sorted(start), all(t.get("pause") or t.get("format") in I.FORMATE for t in start.values())),
+          ([f"2026-11-0{k}" for k in range(2, 9)], True))
+    woche = [_dt.date(2026, 11, 2) + _dt.timedelta(days=k) for k in range(7)]
+    check("Startwoche: 4-5 Videos (vom Nutzer), nichts vor dem 02.11.",
+          (4 <= sum(I.postet_am(t, start) for t in woche) <= 5, I.postet_am(_dt.date(2026, 11, 1), start)), (True, False))
+    regel = [_dt.date(2026, 11, 9) + _dt.timedelta(days=k) for k in range(7)]
+    check("Ab der zweiten Woche: Di und Do Pause, ein Anlass postet trotzdem",
+          ([t.weekday() for t in regel if I.postet_am(t, {}, [])],
+           I.postet_am(_dt.date(2026, 11, 10), {}, [{"datum": "2026-11-10", "kategorie": "marathon"}])),
+          ([0, 2, 4, 5, 6], True))
+    import insta_freigabe as _F
+    check("POST_START gleich in insta_inhalte und insta_freigabe", I.POST_START.isoformat(), _F.POST_START)
+
+    # --- Anmeldung: was am Tag des Beitrags schon offen ist, heißt „seit"
+    seit = I.format_anmeldung(_dt.date(2026, 11, 1), ev, _random.Random(1), grosse, heute=_dt.date(2026, 11, 5))
+    check("anmeldung: schon geöffnet = „Anmeldung offen seit …“",
+          "Anmeldung offen seit 3. Nov" in [f["ueber"] for f in seit["folien"] if f["typ"] == "logo"], True)
+
+    # --- Vor dem Start am 02.11.2026 wird nichts gepostet
+    import insta_freigabe as F
+    check("Startsperre: vor dem 02.11.2026 nie posten, ab dann ja",
+          (F.vor_start("2026-11-01", "2026-11-01"), F.vor_start("2026-11-02", "2026-11-02"),
+           F.vor_start("2026-11-05", "2026-11-05")), (True, False, False))
+
+
 def main() -> int:
-    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_insta_freigabe,
+    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_instagram_konten, test_insta_freigabe, test_insta_logos,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
-                 test_duplikate, test_namensvereinheitlichung,
+                 test_duplikate, test_namensvereinheitlichung, test_namensrand,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien, test_web_data,
                  test_meldungen,
                  test_ortsverzeichnis, test_js_syntax, test_abo_rhythmen,
                  test_override_schluessel, test_suche_uebersetzungen,
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
-                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_dauer_minuten, test_pruefung_offen, test_kopierschutz,
+                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_dauer_minuten, test_pruefung_offen, test_korrektur_seite, test_kopierschutz,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
-                 test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
+                 test_schwimmen_regeln, test_schwimmkalender, test_faellt_aus, test_check_again, test_geloescht, test_abo_meldung, test_abo_mail, test_turbosport, test_radsportevents,
                  test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_dealgrid, test_marsch_quellen, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis, test_serien,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel, test_farbschema_skript, test_wartung, test_clubs, test_clubs_instagram, test_blog,
+                 test_vorschau_sperre,
                  test_lauf_im_triathlonkalender,
                  test_wettbewerb_zusatz, test_triathlon_format, test_charity_merkmal,
                  test_triathlon_format_kopie):

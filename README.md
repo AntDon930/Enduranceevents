@@ -133,8 +133,8 @@ Schweiz.
   Marathon) - das sind unterschiedliche Einträge und erscheinen absichtlich
   einzeln in der Liste statt als ein zusammengefasster/verworfener
   Eintrag. Jeder Scraper prüft das selbst beim Schreiben in `events.json`;
-  `update_events.py` meldet zusätzlich, welche Events dabei neu
-  hinzukamen (für die optionale "Benachrichtige mich"-Anbindung, siehe
+  Welche Events neu auf der Seite stehen, meldet seit dem 20.10.2026
+  `scripts/abo_meldung.py` nach dem Deploy an die E-Mail-Abos (siehe
   unten).
 
 - `index.html` – Willkommensseite (Hero mit Slogan, Sportart-Kacheln,
@@ -1766,7 +1766,8 @@ Grobe Verteilung: running.life ~71 Minuten (~2020 Detailseiten),
 laufen.de ~26 Minuten (~750), Rest wenige Minuten, plus Geocoding neuer
 Orte beim ersten Lauf.
 
-Das ist der Grund, warum der Workflow `timeout-minutes: 300` setzt – und
+Das ist der Grund, warum der Workflow `timeout-minutes: 360` setzt (seit
+dem 27.10.2026, vorher 300; 360 ist das Maximum für gehostete Läufer) – und
 warum man einen Datenlauf besser über „Actions → Run workflow" auslöst
 als ihn lokal abzuwarten. Für schnelle Tests eines Scrapers:
 `--max-pages 2 --no-details`.
@@ -2082,17 +2083,33 @@ rausgeht, sind zwei weitere, **optionale** Schritte nötig (siehe
    Danach die ausgegebene Function-URL als GitHub-Actions-Secret
    `NOTIFY_WEBHOOK_URL` hinterlegen (Repo → Settings → Secrets and
    variables → Actions) und **denselben** Geheimniswert als
-   `NOTIFY_WEBHOOK_SECRET`. `update_events.py` ruft die URL danach
-   automatisch nach jedem Lauf auf, in dem sich `events.json` geändert
-   hat, und weist sich per Header `X-Notify-Secret` aus.
+   `NOTIFY_WEBHOOK_SECRET`. Der Job `abo` in `pages.yml` ruft die URL
+   seit dem 20.10.2026 nach dem ersten grünen Deploy jedes Datenlaufs
+   auf (`scripts/abo_meldung.py senden`) und weist sich per Header
+   `X-Notify-Secret` aus. Gemeldet wird, was seit der letzten Meldung
+   sichtbar geworden ist – neue Zeilen des Datenlaufs UND über die
+   Korrekturseite freigegebene; den Meldestand trägt `deploy.json` auf
+   der Seite. Vorher rief `update_events.py` die URL noch im Datenlauf
+   auf, also vor dem Deploy-Gate. Das Log des Jobs nennt die Antwort der
+   Function (geprüfte Abos, verschickte Mails).
 2. In der Firebase-Konsole unter **Extensions** die offizielle Extension
    **"Trigger Email from Firestore"** installieren und dort SMTP-
    Zugangsdaten (z. B. von SendGrid, Mailgun oder einem eigenen Postfach)
    hinterlegen - sie übernimmt den eigentlichen Versand für die
    `mail`-Dokumente, die `functions/index.js` anlegt.
 
+**Wie die Mail aussieht** (seit dem 20.10.2026): `aboMail()` in
+`functions/index.js` baut sie im Stil der Seite – Navy-Kopf mit der
+Marke, eine Karte je Veranstaltung mit Datum samt Wochentag, Ort,
+Sportart, allen Längen in der Schreibweise der Länge-Spalte, den Knöpfen
+„Zum Event" (Liste mit der Suche nach dem Namen) und „Veranstalter-Seite",
+darunter Abo beenden / verwalten / Impressum, dazu eine Textfassung.
+Tabellen und Inline-Stile (Mail-Programme kennen kein Stylesheet),
+keine Bilder, höchstens 30 Karten (Gmail kürzt lange Mails).
+`test_abo_mail` rendert sie in node.
+
 **Was die Function nicht tut**: Sie prüft ausschließlich die Events, die
-`update_events.py` ihr als *neu* meldet. Bestehende Abos werden also
+`abo_meldung.py` ihr als *neu* meldet. Bestehende Abos werden also
 **nicht** rückwirkend gegen die bereits vorhandenen Events geprüft – ein
 gespeichertes Abo schlägt erst an, wenn nach dem Deployment ein passendes
 Event dazukommt. Die Abos bleiben mit `notified: false` gültig und gehen
@@ -2530,6 +2547,62 @@ Erwähnung kommt nach der Kennung in die Caption, das Dashboard zeigt sie
 nicht. Von Hand prüfen: `python3 scripts/insta_veranstalter.py <url>`.
 
 Ansehen ohne Video: `python3 scripts/insta_inhalte.py --tage 7`.
+
+### Logo-Reels: der Monat und der Anmeldestart (seit 27.10.2026)
+
+Zwei Tage im Monat zeigen statt des Wochenplans die großen Events mit
+ihren Logos – vom Nutzer gewünscht: „ein schnelles Video von vielen Event
+Logos … XX Events im November 2026 … Check it out! Link in Bio" und „welche
+Events diesen Monat mit der Registrierung anfangen".
+
+| Tag | Format | Inhalt |
+|---|---|---|
+| letzter Freitag | `monat` | „375 EVENTS IM NOVEMBER 2026", dann die bis zu 20 größten Events des nächsten Monats als Logo, ein Logo je Schlag, am Ende „Check it out!"; abwechselnd Farbe und Schwarzweiß |
+| 1. des Monats | `anmeldung` | „6 TOP-RENNEN ÖFFNEN IM NOVEMBER DIE ANMELDUNG", je Event Logo, „Anmeldung ab 2. Nov" und Renntermin |
+
+Die Events kommen aus `marketing/instagram/grosse_events.json` – eine
+recherchierte Liste mit Starterzahl und Anmeldestart, je mit Quelle
+(„die 10–20 größten Events im Monat", keine feste Schwelle). Der
+Anmeldestart gilt für eine Ausgabe und muss jährlich nachgetragen werden.
+
+**Logos** liegen geprüft in `marketing/instagram/logos/` (Quelle je Logo in
+`logos.json`). Der tägliche Lauf holt keine Logos aus dem Netz – die
+automatische Suche erwischte bei jedem vierten Event ein Sponsorlogo. Neue
+Logos:
+
+```bash
+python3 scripts/insta_logos.py sammeln --uebersicht bogen.png   # Kandidaten + Kontaktbogen
+python3 scripts/insta_logos.py uebernehmen <slug>               # angesehenes Logo übernehmen
+python3 scripts/insta_logos.py uebernehmen <slug> --url <Bild>  # anderes Bild
+python3 scripts/insta_logos.py bogen geprueft.png               # alle geprüften, Lücken rot
+```
+
+**Die größten einer Kategorie** (`top`, jeder zweite Samstag statt
+„Speicher dir das"): die 3, 5, 7 oder 10 größten Marathon-, Halbmarathon-,
+Ultra-, Trail-Events, Radmarathons oder Triathlons der nächsten 12 Monate –
+nach Datum, ohne Rangfolge, gezählt nach allen Teilnehmenden der
+Veranstaltung. Kategorie, Anzahl und Design wechseln jedes Mal; vier
+Designs: Karte (Logos oben, Karte mit Punkten unten), einzeln (großes
+Datum, Logo, kleine Karte), Raster (Kacheln füllen sich) und Zeitleiste
+(Monatsachse, Logos am Termin). Die Karte zeichnet das Skript selbst aus
+`laender.json`.
+
+Fehlt ein Logo, zeigt die Folie den Namen groß auf einer Karte. Will ein
+Veranstalter sein Logo nicht im Reel, die Datei löschen.
+
+### Startwoche ab dem 02.11.2026, Rennjahr und Duell (27.10.2026)
+
+Vor Montag, dem 2. November 2026, wird nichts gepostet
+(`insta_freigabe.POST_START`). Die erste Woche steht fest in
+`marketing/instagram/sonderplan.json`: Rennjahr (das größte Event jedes
+Monats), Anmeldestart im November, die längsten Rennen, die fünf größten
+Marathon-Events (Karte), Wochenende, die sieben größten Triathlons
+(Raster), Duell Berlin-Marathon gegen Vienna City Marathon. Die Vorschauen
+legt ein Handlauf von `instagram.yml` mit Datum 2026-11-02 ab; der Nutzer
+sieht sie im Dashboard an und gibt sie frei. Neu sind die Formate `jahr`
+und `duell` und ein überarbeiteter Look (Farblook, Tiefenschärfe, Korn,
+Schatten, gestaffelte Animation, Wisch-Übergänge mit Whoosh) – Einzelheiten
+in CLAUDE.md, „Instagram".
 
 ### Das Video (`scripts/insta_video.py`, `scripts/insta_musik.py`)
 
@@ -3445,6 +3518,79 @@ die Filter unangetastet (wer ein Event teilt, teilt nicht seine Suche)
 und **scrollt auf Handybreite zur Box** – sonst sähe der Empfänger nur
 eine Liste. Der Rauchtest prüft genau diesen Rückweg.
 
+## Das Instagram-Konto großer Veranstaltungen (seit 27.10.2026)
+
+Vom Nutzer gewünscht: „die größeren Events mit einem Instagram Account
+verknüpfen … das Instagram Logo irgendwo klein hin auf dem Profil von dem
+Event … Das muss nicht für jedes Event gemacht werden, aber für die
+großen wär das schon gut, die auch einen eigenen Instagram Account
+haben.“
+
+**Wie es aussieht**: ein kleines quadratisches Instagram-Zeichen rechts
+neben „Zur Veranstalterseite“, in der Box der Liste und der Karte. Es
+führt auf `instagram.com/<konto>`; die Beschriftung nennt das Konto
+(„@leipzigmarathon auf Instagram“). Das Zeichen ist eingebettet, nichts
+wird von Instagram geladen – ein Link überträgt erst etwas, wenn jemand
+klickt.
+
+**Woher das Konto kommt** (`scripts/instagram_konten.py`):
+
+1. *Sammeln*: Die eigene Veranstalterseite jedes künftigen Events (nie
+   ein Kalenderportal oder Zeitnehmer) wird gelesen, und jedes
+   Instagram-Konto, auf das sie verlinkt, landet je Adresse in
+   `scripts/instagram_konten.json` – ohne Urteil. Nennt die Unterseite
+   keines, wird die Startseite gelesen (der Link steht meist im Fuß).
+   robots.txt, höchstens ein Abruf alle 2 s je Host, acht Hosts
+   gleichzeitig; jede Seite alle 90 Tage neu, nach einem Fehler nach drei
+   Wochen.
+2. *Entscheiden* (`event_konto`): Nur ein Konto, dessen Name aus dem
+   Namen der Veranstaltung besteht, gilt – mindestens 60 % seiner
+   Buchstaben aus Wörtern von Name und Ort, und dazu ein Wort, das die
+   Veranstaltung unterscheidet (kein Allerweltswort wie „marathon“,
+   kein Vereinskürzel, nicht nur der Ort). Ort plus Veranstaltungswort
+   („leipzigmarathon“) reicht auch, ebenso ein Name ganz aus zwei
+   Namenswörtern („cityundtrail“).
+
+Das ist zugleich der Filter „nur die großen“: Kleine Vereinsläufe
+verlinken das Konto ihres Vereins, und das fällt durch.
+
+| Konto auf der Seite | Veranstaltung | Ergebnis |
+|---|---|---|
+| `leipzigmarathon` | Leipzig Marathon | ✓ |
+| `oetztalerradmarathon` | Ötztaler Radmarathon | ✓ |
+| `temposport.einsiedelntriathlon` | Einsiedeln Triathlon | ✓ (unter sieben Konten der Seite) |
+| `lsvham`, `tsvpenzberg` | Vereinsläufe | ✗ Verein |
+| `alohasport.at` | Welser Halbmarathon | ✗ Agentur |
+| `brooksrunning` | Brooks München Marathon | ✗ Sponsor |
+| `pitztal` | Pitz Alpine Snow Trail | ✗ Tourismusverband |
+| `erlentriathlon` | Einsiedeln Triathlon | ✗ Schwesterrennen |
+| `heeslingersc`, `triathlon_club_bremen` | Vereinsläufe | ✗ Kürzel im Rest bzw. „club“ |
+| `tgs.hausen`, `otb_osnabrueck` | Volkslauf der TGS Hausen, OTB Silvesterlauf | ✗ nur Kürzel + Ort, der Lauf fehlt |
+| `usedom`, `meinmontafon` | Usedom Beach Marathon, Montafon Arlberg Marathon | ✗ Tourismus |
+| `sportscheck`, `airportpad` | SportScheck RUN, Airport Run | ✗ Sperrliste (Händler, Flughafen) |
+
+Nach dem ersten vollen Lauf (27.10.2026: 3.766 Seiten, 2.191 mit
+Instagram-Link) nahm die Regel 696 Konten an; die Durchsicht aller 696
+fand 30 Fehltreffer, daraus wurden die vier unteren Zeilen der Tabelle
+(Regel) und die Sperrliste `KEIN_EVENT_KONTO` mit Grund je Konto. Danach
+tragen 2.383 Zeilen ein Konto (2.093 sichtbar), 810 verschiedene Konten.
+
+Abkürzungen sieht die Regel nicht (`trailvsb` für den Trail Verbier St
+Bernard, `wtcshamburg`). Dafür gibt es den Override
+`"instagram": "<konto>"` in `manual_overrides.json`;
+`"instagram": null` schaltet ein Zeichen ab.
+
+**Die großen Events sind recherchiert**: Für die 127 Events in
+`marketing/instagram/grosse_events.json` (die Liste der Logo-Reels, mit
+Starterzahlen und Quellen) gilt das dort eingetragene Konto vor der
+Erkennung. Rangfolge: Override, dann diese Liste, dann die Erkennung.
+
+**Ablauf**: Der Wochenlauf fragt vor dem Aufräumen bis zu 400 Seiten in
+acht Minuten (neue zuerst), `clean_events.fix_instagram()` setzt danach
+das Feld `instagram` an jede Zeile, deren Seite ein Event-Konto nennt,
+und nimmt es weg, wenn nicht mehr. Nachschlagen:
+`python3 scripts/instagram_konten.py zeigen <Suchwort>`.
+
 ## Seitensymbol und Vorschau beim Teilen
 
 `favicon.svg` (498 Byte) ist das Symbol für Tab und Lesezeichen,
@@ -3482,8 +3628,8 @@ Termin, frühere Prüfung „unklar", exakt doppelte Zeile), tragen in
 `events.json` das Feld `pruefung_offen: true`. `clean_events.py` setzt es
 als letzten Schritt (`mark_pruefung_offen`, Regel in
 `audit_events.offene_pruefungen`), die Seite lädt solche Zeilen nicht
-(`EF.loadEvents` → `dropUnchecked`), und `update_events.py` meldet sie
-nicht per E-Mail. Die Zeilen bleiben in `events.json` und in `kalender/`;
+(`EF.loadEvents` → `dropUnchecked`), und `abo_meldung.py` meldet sie
+erst per E-Mail, wenn sie freigegeben sind. Die Zeilen bleiben in `events.json` und in `kalender/`;
 sobald der Nutzer eine Zeile über `korrekturliste.py import` prüft, fällt
 das Feld beim nächsten Aufräumen, und sie ist sichtbar. Ein geschätzter
 Termin allein blendet nicht aus (Sternchen reicht,
@@ -3854,11 +4000,16 @@ Merge nach.
   kennt `clubs` erst damit, vorher verwirft sie die Aufrufe der
   Clubs-Seite still).
 
-## Blog (seit 04.11.2026, noch in der Vorschau)
+## Blog (seit 04.11.2026, live)
 
 Vom Nutzer gewünscht: „neben der Karte einen Reiter für unsere
 Blogeinträge … Der Reiter soll einfach ‚Blog‘ heißen. Hier sammeln wir dann
-alle Blogeinträge.“ Gebaut auf dem Clubs-Branch, geht mit dem Launch live.
+alle Blogeinträge.“ Gebaut auf dem Clubs-Branch; **am 04.11.2026 vorab live geschaltet** (vom
+Nutzer: „Ja, bitte veröffentliche den Blog“ – damit Google die Beiträge
+früh findet), die Clubs bleiben bis zum Launch in der Vorschau. Beide
+Branches tragen dieselben Blogdateien; der einzige Unterschied ist der
+Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` und
+`build_blog.py` lassen ihn dann beim Sprachwechsel in Ruhe).
 
 - **Navigation**: „Blog“ steht in jeder Seite hinter „Karte“ (Startseite,
   Liste, Clubs, Karte, Dashboard, Blog). Damit vier Menüpunkte auf dem
@@ -3883,7 +4034,7 @@ alle Blogeinträge.“ Gebaut auf dem Clubs-Branch, geht mit dem Launch live.
   des Nutzers (keine Einzelpersonen, keine erkennbaren Gesichter).
 - **Ton** (04.11.2026, vom Nutzer: „Wir wollen den Leuten keine Angst machen sondern sie zum laufen motivieren!“): keine Angstthemen – keine Herzstillstand-, Ertrinkungs- oder Verletzungsstatistiken als Aufhänger, keine Warnkästen, keine Haftungsfloskeln. Sicherheitswissen positiv formulieren („so startest du gut vorbereitet“); ein Arztbesuch höchstens als kurzer, freundlicher Satz.
 - **Lesbarkeit** (04.11.2026, vom Nutzer: „Generell muss nicht alles wissenschaftlich bewiesen sein … nur bei Schlüsselthemen ist es wichtig um Glaubwürdigkeit zu schaffen. Die Texte sollen auch nicht allzu wissenschaftlich sein“): Ergebnis statt Studiendesign (keine Teilnehmerzahlen, Konfidenzintervalle, „Meta-Analyse aus 27 Studien“), kurze Sätze, praktische Tipps vorn. Fußnoten nur bei Schlüsselthemen (Gesundheit, Ernährung, Sicherheit, Regeln); lockere Themen ohne.
-- **Montags und donnerstags ein neuer Beitrag** (04.11.2026, erst nur montags, gleich darauf „2x in der Woche … Donnerstag und Montag“): Themenplan in `scripts/blog_themen.md` (Typ Q/L/E), die geplante Aufgabe „Blog-Artikel am Montag und Donnerstag“ (06:37 Berlin) schreibt das oberste offene Thema, hakt es ab und pusht auf den Clubs-Branch.
+- **Montags und donnerstags ein neuer Beitrag** (04.11.2026, erst nur montags, gleich darauf „2x in der Woche … Donnerstag und Montag“): Themenplan in `scripts/blog_themen.md` (Typ Q/L/E), die geplante Aufgabe „Blog-Artikel am Montag und Donnerstag“ (06:37 Berlin) schreibt das oberste offene Thema, hakt es ab und pusht auf die Live-Branches (`claude/endurance-events-website-v1wruf` und `claude/website-access-9d9tg1`, derselbe Commit) und holt den Stand per Merge in den Clubs-Branch.
 - **Quellen** (04.11.2026, Wunsch des Nutzers: „sehr gut recherchieren … schön zitieren … nur aus seriösen Quellen“): Jede Aussage, die man nachprüfen muss, trägt eine Fußnote `<sup class="q"><a href="#qN">[N]</a></sup>`, am Ende steht `<section class="beitrag-quellen">` (NACH dem Abschlusskasten, damit sie nicht ins Inhaltsverzeichnis rutscht) mit Abrufdatum. Nur Verbände, Behörden, Rettungsorganisationen, Fachgesellschaften und begutachtete Studien; jede Studie über Europe PMC (Titel, Band, Seiten, Abstract) gegengeprüft, jede Verbandsstelle im Wortlaut gelesen. Was nur Erfahrung ist, sagt der Text auch so. Titelbilder liegen in `bilder/blog/` (aus dem Instagram-Pool `marketing/instagram/hintergruende/`, Nachweis in `blog.json`).
 - **Magazin-Aufbau** (04.11.2026, Vorlagen des Nutzers: ahotu Magazin,
   Spartan Life, STYRKR Hub): Die Übersicht hat einen **Aufmacher** (der
@@ -3900,8 +4051,14 @@ alle Blogeinträge.“ Gebaut auf dem Clubs-Branch, geht mit dem Launch live.
 - **Sprache**: Die Beiträge sind deutsch, die Bedienung schaltet DE/EN um;
   `blog.html` sagt auf Englisch, dass die Beiträge deutsch sind.
 - **Statistik**: Beiträge zählen als Seite `blog` (`stats.js`,
-  `STATS_SEITEN` in `functions/index.js` – wirkt erst nach dem
-  Functions-Deploy beim Launch).
+  `STATS_SEITEN` in `functions/index.js` – wirkt erst nach dem nächsten
+  Functions-Deploy, vorher verwirft `collect` die Aufrufe still).
+- **Sitemap** (04.11.2026, mit dem Livegang): `build_blog.py` schreibt
+  auch `sitemap.xml` (Startseite, Liste, Karte, Blog, Impressum,
+  Datenschutz und jeder Beitrag mit Datum; NICHT clubs.html, admin.html,
+  wartung.html), `robots.txt` nennt sie. Einmal in der Google Search
+  Console einreichen (Eigenschaft `endurance-events.de` → Sitemaps →
+  `sitemap.xml`); danach liest Google sie selbst.
 - **Tests**: `test_blog` (Felder, Bilder, Texte, erzeugte Seiten aktuell,
   alle `../`-Verweise vorhanden, Reiter in jeder Seite) und im Rauchtest
   `pruefe_blog` (Kacheln, Beitrag ohne Fehler und 404, Rückweg, Menü neben

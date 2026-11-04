@@ -1,5 +1,44 @@
 [
  {
+  "slug": "silvesterlaeufe",
+  "titel": "Silvesterläufe: Das Jahr laufend beenden – die schönsten Läufe zum Jahreswechsel",
+  "teaser": "Über 100 Läufe am 30. und 31. Dezember: große Stadtläufe, kleine Läufe mit Aussicht und Ultras für die Langen – quer durch Deutschland, Österreich, die Schweiz und Südtirol.",
+  "datum": "2026-11-04",
+  "sportart": "Laufen",
+  "kategorie": "Events",
+  "lesezeit_min": 3,
+  "bild": "bilder/blog/silvesterlaeufe.webp",
+  "bild_klein": "bilder/blog/silvesterlaeufe-480.webp",
+  "bild_alt": "Zuschauer in Winterjacken an der Strecke des Zürcher Silvesterlaufs, von hinten fotografiert",
+  "bild_nachweis": "Zürcher Silvesterlauf 2024, Limmatquai. Foto: Zürcher Silvesterlauf fernblau, <a href=\"https://commons.wikimedia.org/wiki/File:Silvesterlauf-D%C3%B6rfli_2024.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+ },
+ {
+  "slug": "carboloading",
+  "titel": "Carboloading: Was du in den Tagen vor dem Rennen essen solltest",
+  "teaser": "Volle Speicher für die zweite Rennhälfte: Für wen sich Carboloading lohnt, wie viel genug ist, warum zwei Tage reichen – und warum die Waage am Renntag mehr zeigen darf.",
+  "datum": "2026-11-04",
+  "sportart": "Laufen",
+  "kategorie": "Ernährung",
+  "lesezeit_min": 3,
+  "bild": "bilder/blog/carboloading.webp",
+  "bild_klein": "bilder/blog/carboloading-480.webp",
+  "bild_alt": "Läuferfeld beim London Marathon zwischen Zuschauerreihen, von oben fotografiert",
+  "bild_nachweis": "London Marathon 2026, Upper Thames Street. Foto: Acabashi, <a href=\"https://commons.wikimedia.org/wiki/File:2026_London_Marathon_Upper_Thames_Street_from_Blackfriars_Bridge_06.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+ },
+ {
+  "slug": "laufen-im-winter",
+  "titel": "Laufen im Winter: So macht Training bei Kälte und Dunkelheit Spaß",
+  "teaser": "Zwiebelprinzip, Licht, Halt auf glattem Boden und Tricks gegen den inneren Schweinehund: So bleibst du im Winter dran – und startest mit Vorsprung ins Frühjahr.",
+  "datum": "2026-11-04",
+  "sportart": "Laufen",
+  "kategorie": "Training",
+  "lesezeit_min": 3,
+  "bild": "bilder/blog/winterlaufen.webp",
+  "bild_klein": "bilder/blog/winterlaufen-480.webp",
+  "bild_alt": "Start des Zürcher Silvesterlaufs im Dezember, das Läuferfeld aus der Ferne zwischen Zuschauern",
+  "bild_nachweis": "Start des Zürcher Silvesterlaufs 2024. Foto: Zürcher Silvesterlauf fernblau, <a href=\"https://commons.wikimedia.org/wiki/File:Z%C3%BCrcher_Silvesterlauf_2024.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+ },
+ {
   "slug": "erster-triathlon",
   "titel": "Dein erster Triathlon: So findest du das passende Rennen",
   "teaser": "Welche Distanz passt zum Einstieg, woran erkennst du ein einsteigerfreundliches Rennen, und wie kommst du in zwölf Wochen gut vorbereitet an den Start? Ein Leitfaden mit Checkliste.",

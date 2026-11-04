@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-07-lidl-tour-of-austria-x-osterreich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270707
+DTEND;VALUE=DATE:20270712
+SUMMARY:LIDL Tour of Austria – Etappenrennen
+LOCATION:Österreich\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.tourofaustri
+ a.com
+TRANSP:TRANSPARENT
+URL:https://www.tourofaustria.com
+END:VEVENT
+END:VCALENDAR

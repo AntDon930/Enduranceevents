@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-26-int-ruppersthaler-weintraubenlauf-osterr-volk-x-rupperst
+ hal-sportplatz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:26. Int. Ruppersthaler Weintraubenlauf (Österr. Volkslaufcup\, Sch
+ midatal Laufcup)
+LOCATION:Ruppersthal-Sportplatz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.weintraubenlau
+ f.at
+TRANSP:TRANSPARENT
+URL:http://www.weintraubenlauf.at
+END:VEVENT
+END:VCALENDAR

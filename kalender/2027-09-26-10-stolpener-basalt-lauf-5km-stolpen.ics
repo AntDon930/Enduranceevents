@@ -10,8 +10,7 @@ DTSTART;VALUE=DATE:20270926
 DTEND;VALUE=DATE:20270927
 SUMMARY:10. Stolpener Basalt-Lauf
 LOCATION:Stolpen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://basaltlauf.org
- /
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://basaltlauf.org/
 TRANSP:TRANSPARENT
 URL:https://basaltlauf.org/
 END:VEVENT

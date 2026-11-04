@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-swimrun-rheinsberg-5-4km-rheinsberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:SwimRun Rheinsberg – SuperSprint
+LOCATION:Rheinsberg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 5.4 km\nhttps://www.swim
+ run-rheinsberg.de/
+TRANSP:TRANSPARENT
+URL:https://www.swimrun-rheinsberg.de/
+END:VEVENT
+END:VCALENDAR

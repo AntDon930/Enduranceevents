@@ -86,7 +86,8 @@ def verbirgt(gruende: list[tuple[str, str]]) -> bool:
 
 
 def offene_pruefungen(events: list[dict], heute: str | None = None,
-                      protokoll: dict | None = None) -> list[tuple[dict, list[tuple[str, str]]]]:
+                      protokoll: dict | None = None,
+                      gedaechtnis=None) -> list[tuple[dict, list[tuple[str, str]]]]:
     """Die Zeilen, die noch keine Prüfung bestanden haben - EINE Regel für
     zwei Abnehmer: `korrekturliste.py export` macht daraus die Excel-Liste
     des Nutzers, `clean_events.mark_pruefung_offen()` setzt an genau diese
@@ -106,7 +107,10 @@ def offene_pruefungen(events: list[dict], heute: str | None = None,
     Je Zeile die Gründe als (art, text): art "audit" (Kategorie von
     pruefe_event, nur ohne Eintrag in geprueft.json), "vorlaeufig"
     (datum_vorlaeufig), "unklar" (frühere Prüfung unklar, text = Notiz),
-    "doppelt" (zwei Zeilen mit Name, Tag, Distanz und Label gleich).
+    "doppelt" (zwei Zeilen mit Name, Tag, Distanz und Label gleich),
+    "geloescht" (mit `gedaechtnis`: die Strecke hat der Nutzer bei der
+    vorigen Ausgabe gelöscht - „schauen ob das Event nächstes Jahr passend
+    ist", 20.10.2026; `veranstalter_seiten.Gedaechtnis.geloescht_fuer`).
     Vergangene Zeilen zählen nicht (vor `heute`, Vorgabe: heute)."""
     heute = heute or datetime.date.today().isoformat()
     protokoll = lade_geprueft() if protokoll is None else protokoll
@@ -119,6 +123,11 @@ def offene_pruefungen(events: list[dict], heute: str | None = None,
         gruende: list[tuple[str, str]] = []
         if not ist_geprueft(protokoll, e):
             gruende.extend(("audit", kategorie) for kategorie, _ in pruefe_event(e))
+            for m in (gedaechtnis.geloescht_fuer(e) if gedaechtnis is not None else []):
+                was = "die ganze Veranstaltung" if m.get("ganz") else "diese Strecke"
+                gruende.append(("geloescht", f"Im Vorjahr ({m.get('datum')}) hast du {was} gelöscht - "
+                                             f"bitte prüfen, ob sie dieses Jahr passt"))
+                break
         if e.get("datum_vorlaeufig"):
             gruende.append(("vorlaeufig", "Termin nur geschätzt (Veranstalter nennt das Datum noch nicht)"))
         eintrag = unklar.get(f"{(e.get('name') or '').strip()}|{e.get('datum_start')}".casefold())

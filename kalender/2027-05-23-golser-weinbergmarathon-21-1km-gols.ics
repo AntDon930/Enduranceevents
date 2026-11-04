@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-golser-weinbergmarathon-21-1km-gols@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Golser Weinbergmarathon – Halbmarathon
+LOCATION:Gols\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttps://my.raceresul
+ t.com/424264/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/424264/
+END:VEVENT
+END:VCALENDAR

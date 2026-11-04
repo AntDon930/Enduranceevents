@@ -1209,7 +1209,7 @@ def pruefe_gruppierung(ctx, basis):
            % ", ".join("%d px" % h for h in sorted(set(hoehen_offen))))
     # Ein Klick auf die Zeile (nicht den Pfeil) klappt NICHT zu, er wählt
     # die erste Strecke (18.10.2026).
-    seite.locator("tr.group-row:not(.single) td.col-land").first.click()
+    seite.locator("tr.group-row:not(.single) td.col-art2").first.click()
     seite.wait_for_timeout(300)
     pruefe(seite.evaluate("() => document.querySelector('tr.group-row:not(.single)').classList.contains('open')"),
            "ein Klick auf die Zeile neben dem Pfeil klappt nicht zu")
@@ -1555,7 +1555,7 @@ def pruefe_rechtsseiten(ctx, basis):
         seite.close()
 
     # Von jeder Hauptseite aus erreichbar
-    for haupt in ("index.html", "events.html", "karte.html"):
+    for haupt in ("index.html", "events.html", "karte.html", "clubs.html"):
         seite, _ = seite_oeffnen(ctx, basis + "/" + haupt, "body")
         seite.wait_for_timeout(500)
         links = seite.evaluate("""() => ({
@@ -1564,6 +1564,51 @@ def pruefe_rechtsseiten(ctx, basis):
         pruefe(links["impressum"] and links["datenschutz"],
                "%s verlinkt Impressum und Datenschutz" % haupt)
         seite.close()
+
+
+
+def pruefe_clubs_bald(ctx, basis):
+    """Die Clubs-Ankündigung (04.11.2026): Menüpunkt „Clubs – coming soon“
+    auf Startseite, Liste und Karte, die Seite clubs.html mit Bauarbeiter
+    und Text in DE und EN. Auf 360 px (Android) bleibt die Navigation in
+    der Zeile der Marke – das Schildchen hängt absolut unter dem Wort.
+    """
+    print("\nClubs – coming soon")
+    for haupt in ("index.html", "events.html", "karte.html"):
+        seite, _ = seite_oeffnen(ctx, basis + "/" + haupt)
+        menue = seite.evaluate("""() => {
+            const a = document.querySelector('.site-nav a[href="clubs.html"]');
+            const reihe = Array.from(document.querySelectorAll('.site-nav .nav-link')).map(x => x.firstChild.textContent.trim());
+            return { da: !!a, schild: a ? (a.querySelector('.nav-bald-text') || {}).textContent || '' : '', reihe }; }""")
+        pruefe(menue["da"] and menue["schild"].lower() == "coming soon" and menue["reihe"][:3] == ["Events", "Clubs", menue["reihe"][2]],
+               "%s: Menüpunkt Clubs mit „coming soon“ hinter Events (%s)" % (haupt, menue["reihe"]))
+        seite.close()
+
+    seite, probleme = seite_oeffnen(ctx, basis + "/clubs.html")
+    seite.wait_for_timeout(300)
+    stand = seite.evaluate("""() => ({
+        text: (document.getElementById('bald-text') || {}).textContent || '',
+        illu: !!document.querySelector('svg.bald-illu'),
+        aktiv: (document.querySelector('.site-nav [aria-current="page"]') || {}).id || '',
+        ueberlauf: document.documentElement.scrollWidth - window.innerWidth })""")
+    pruefe(not probleme, "clubs.html lädt ohne Fehler (%s)" % ("; ".join(probleme) or "keine"))
+    pruefe(stand["illu"] and "Clubs ganz in deiner Nähe" in stand["text"],
+           "clubs.html: Bauarbeiter und Text der Ankündigung")
+    pruefe(stand["aktiv"] == "nav-clubs", "clubs.html: Clubs ist im Menü markiert (%s)" % stand["aktiv"])
+    pruefe(stand["ueberlauf"] <= 0, "clubs.html: kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
+    seite.click('.lang-btn[data-lang="en"]')
+    englisch = seite.evaluate("() => document.getElementById('bald-text').textContent")
+    pruefe("clubs near you" in englisch, "clubs.html: EN schaltet den Text um")
+    seite.click('.lang-btn[data-lang="de"]')
+    seite.set_viewport_size({"width": 360, "height": 800})
+    seite.wait_for_timeout(200)
+    zeile = seite.evaluate("""() => {
+        const m = document.querySelector('.brand').getBoundingClientRect();
+        const n = document.querySelector('.site-nav').getBoundingClientRect();
+        return { marke: Math.round(m.top + m.height / 2), menue: Math.round(n.top + n.height / 2) }; }""")
+    pruefe(abs(zeile["marke"] - zeile["menue"]) <= 6,
+           "360 px: das Menü steht in der Zeile der Marke (Mitte %d / %d px)" % (zeile["marke"], zeile["menue"]))
+    seite.close()
 
 
 def pruefe_statistik(ctx, basis):
@@ -1712,6 +1757,7 @@ def pruefe_statistik_dashboard(ctx, basis):
     Zielgruppe nach Sportart und Region, Bericht je Veranstaltung,
     Werbeplätze - und dass alles in DE und EN zeichnet.
     """
+    import json
     print("\nStatistik-Dashboard mit Firebase-Attrappe")
     # Eigener Kontext: Die Umleitungen der SDKs dürfen die anderen
     # Prüfungen (Abo-Dialog, Anmeldung) nicht treffen.
@@ -1807,8 +1853,17 @@ def pruefe_statistik_dashboard(ctx, basis):
                      knoepfe: Array.from(erste.querySelectorAll('button')).map(b => b.textContent),
                      caption: (erste.querySelector('pre') || {}).textContent || '',
                      link: !!document.querySelector('#insta-freigabe-card a[href*="actions/workflows/instagram.yml"]') }; }""")
-        pruefe(frei["zeilen"] >= 7 and frei["status"] == "offen" and frei["knoepfe"] == ["Freigeben", "View", "Sperren"],
-               "Freigabe-Karte: %d Tage aus plan.json, erste Zeile offen mit Freigeben/View/Sperren (%s)" % (frei["zeilen"], frei["knoepfe"]))
+        # Die Karte zeigt jeden künftigen Beitrag aus plan.json – nicht
+        # „mindestens 7“: Seit dem 27.10.2026 hat der Plan Pausentage
+        # (Di/Do, vor dem Start am 02.11.2026 gar keine), die Zahl hängt
+        # also am Datum. Verglichen wird mit der Datei selbst.
+        with open(os.path.join(WURZEL, "marketing", "instagram", "plan.json"), encoding="utf-8") as f:
+            heute_iso = datetime.date.today().isoformat()
+            erwartet = sum(1 for b in json.load(f).get("beitraege", []) if b.get("datum", "") >= heute_iso)
+        pruefe(erwartet >= 1 and frei["zeilen"] == erwartet and frei["status"] == "offen"
+               and frei["knoepfe"] == ["Freigeben", "View", "Sperren"],
+               "Freigabe-Karte: %d von %d Tagen aus plan.json, erste Zeile offen mit Freigeben/View/Sperren (%s)"
+               % (frei["zeilen"], erwartet, frei["knoepfe"]))
         pruefe(len(frei["caption"]) > 40 and frei["link"], "… Caption aufklappbar, Link zu den Videos in GitHub Actions")
         seite.click("#insta-freigabe-card .frei-zeile:first-child button[data-frei]")
         seite.wait_for_function("() => document.querySelector('#insta-freigabe-card .frei-zeile').classList.contains('ist-frei')", timeout=5000)
@@ -1978,6 +2033,75 @@ def pruefe_teilen(ctx, basis):
     toast = seite.evaluate("() => (document.querySelector('.toast') || {}).textContent || ''")
     pruefe(bool(toast.strip()), "ohne Teilen-Dialog wird kopiert (%s)" % toast.strip())
     seite.close()
+
+
+def event_fuer_instagram(mit_konto: bool) -> tuple[str, str | None] | None:
+    """(Name, Konto) der ersten künftigen, sichtbaren Zeile mit eigener
+    Veranstalterseite, die ein Instagram-Konto trägt (bzw. keines) - aus
+    events.json gewählt, nicht fest eingetragen (siehe CLAUDE.md: kein
+    festes Beispiel in den Prüfungen). Nur Namen, die die Mastersuche
+    eindeutig findet: kein anderer sichtbarer Name enthält ihn."""
+    import datetime
+    import json
+    heute = datetime.date.today().isoformat()
+    pfad = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "events.json")
+    with open(pfad, encoding="utf-8") as f:
+        events = json.load(f)
+    sichtbar = [e for e in events
+                if not e.get("pruefung_offen")
+                and (e.get("datum_ende") or e.get("datum_start") or "") >= heute]
+    namen = [(e.get("name") or "").lower() for e in sichtbar]
+    for e in sichtbar:
+        name = e.get("name") or ""
+        if bool(e.get("instagram")) != mit_konto or not e.get("veranstalter_url") or len(name) < 10:
+            continue
+        if sum(1 for n in namen if name.lower() in n) != sum(1 for n in namen if n == name.lower()):
+            continue
+        return name, e.get("instagram")
+    return None
+
+
+def pruefe_instagram(ctx, basis):
+    """Das Instagram-Zeichen großer Veranstaltungen (seit 27.10.2026): klein
+    rechts neben dem Veranstalter-Knopf, verlinkt auf das Konto des Events,
+    gleich hoch wie der Knopf - und bei einem Event ohne eigenes Konto
+    gar nicht da."""
+    print("\nInstagram-Konto in der Detail-Box")
+    for mit_konto in (True, False):
+        wahl = event_fuer_instagram(mit_konto)
+        if not wahl:
+            print("  (kein passendes Event %s Instagram-Konto im Bestand - übersprungen)"
+                  % ("mit" if mit_konto else "ohne"))
+            continue
+        name, konto = wahl
+        seite, probleme = seite_oeffnen(ctx, basis + "/events.html?s=" + urllib.parse.quote(name), "tbody tr[data-idx]")
+        seite.wait_for_timeout(500)
+        seite.locator("tbody tr[data-idx]").first.click()
+        seite.wait_for_timeout(800)
+        info = seite.evaluate("""() => {
+            const p = document.getElementById('detail-panel');
+            const a = p.querySelector('.detail-insta'), l = p.querySelector('.detail-link');
+            const r = (el) => el ? el.getBoundingClientRect() : null;
+            return {name: (p.querySelector('h2') || {}).textContent || '',
+                    href: a ? a.getAttribute('href') : null,
+                    titel: a ? a.getAttribute('aria-label') : null,
+                    insta: r(a), link: r(l)}; }""")
+        pruefe(not probleme, "Seite lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+        if mit_konto:
+            pruefe(info["href"] == "https://www.instagram.com/%s/" % konto,
+                   "%s: Zeichen verlinkt @%s (%s)" % (name, konto, info["href"]))
+            pruefe(bool(info["titel"]) and ("@" + konto) in info["titel"],
+                   "Beschriftung nennt das Konto (%s)" % info["titel"])
+            if info["insta"] and info["link"]:
+                pruefe(abs(info["insta"]["top"] - info["link"]["top"]) < 2
+                       and abs(info["insta"]["height"] - info["link"]["height"]) < 3
+                       and info["insta"]["left"] > info["link"]["right"]
+                       and info["insta"]["width"] < 60,
+                       "klein, rechts neben dem Veranstalter-Knopf, gleich hoch (%dx%d)"
+                       % (info["insta"]["width"], info["insta"]["height"]))
+        else:
+            pruefe(info["href"] is None, "%s: ohne eigenes Konto kein Zeichen" % name)
+        seite.close()
 
 
 def pruefe_fenster(ctx, basis):
@@ -3141,6 +3265,7 @@ def main() -> int:
                 pruefe_gruppierung(ctx, basis)
                 pruefe_fenster(ctx, basis)
                 pruefe_teilen(ctx, basis)
+                pruefe_instagram(ctx, basis)
                 pruefe_fehlendes_event(ctx, basis)
                 pruefe_rechtsseiten(ctx, basis)
                 pruefe_statistik(ctx, basis)

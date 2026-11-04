@@ -55,3 +55,6 @@ Disallow: /scripts/
 Disallow: /functions/
 Disallow: /marketing/
 Disallow: /vorschau/
+
+# Alle öffentlichen Seiten und Blogbeiträge (erzeugt von scripts/build_blog.py).
+Sitemap: https://endurance-events.de/sitemap.xml

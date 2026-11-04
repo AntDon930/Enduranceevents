@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-muritz-triathlon-waren-x-waren-muritz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270725
+SUMMARY:Müritz-Triathlon Waren
+LOCATION:Waren (Müritz)\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://mueritzsportcl
+ ub.de/mueritz-triathlon/
+TRANSP:TRANSPARENT
+URL:https://mueritzsportclub.de/mueritz-triathlon/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-schockl-challenge-x-sankt-radegund-bei-graz@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Schöckl Challenge
+LOCATION:Sankt Radegund bei Graz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ergebnisliste.at/
+ Event/1260
+TRANSP:TRANSPARENT
+URL:https://ergebnisliste.at/Event/1260
+END:VEVENT
+END:VCALENDAR

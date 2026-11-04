@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-14-sve-halbmarathon-21-1km-hamburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:SVE Halbmarathon – Halbmarathon
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://lauftreff.s
+ ve-hamburg.de/1-sve-halbmarathon/
+TRANSP:TRANSPARENT
+URL:https://lauftreff.sve-hamburg.de/1-sve-halbmarathon/
+END:VEVENT
+END:VCALENDAR

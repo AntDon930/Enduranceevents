@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-02-mountainman-berchtesgaden-watzmann-stage-run-202-x-berchtes
+ gaden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270602
+DTEND;VALUE=DATE:20270607
+SUMMARY:MOUNTAINMAN Berchtesgaden – Watzmann Stage Run 2027
+LOCATION:Berchtesgaden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://mountainman.de/tra
+ ilrunning-events/alps/berchtesgaden/
+TRANSP:TRANSPARENT
+URL:https://mountainman.de/trailrunning-events/alps/berchtesgaden/
+END:VEVENT
+END:VCALENDAR

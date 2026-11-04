@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-19-dafc-2026-dark-and-fucking-cold-60h-borsdorf@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+SUMMARY:DAFC 2026 - DARK AND FUCKING COLD – Gravel Race 60 h
+LOCATION:Borsdorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 60 h\nhttps://www.hallzigex
+ press.com/darkandfuckingcold/
+TRANSP:TRANSPARENT
+URL:https://www.hallzigexpress.com/darkandfuckingcold/
+END:VEVENT
+END:VCALENDAR

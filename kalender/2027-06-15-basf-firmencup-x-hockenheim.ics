@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-15-basf-firmencup-x-hockenheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270616
+SUMMARY:Basf Firmencup
+LOCATION:Hockenheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.firmencup.de/
+TRANSP:TRANSPARENT
+URL:https://www.firmencup.de/
+END:VEVENT
+END:VCALENDAR

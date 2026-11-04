@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-14-kristallmarathon-23-1km-krayenberggemeinde@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:Kristallmarathon – Halbmarathon
+LOCATION:Krayenberggemeinde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 23.1 km\nhttps://baer-servic
+ e.de/veranstaltung/KMA/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/KMA/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-mtb-rennen-am-badesee-in-peitz-20km-peitz@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:MTB Rennen am Badesee in Peitz – Cross-Country 20 km
+LOCATION:Peitz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 20 km\nhttps://www.ra
+ dsport-peitz.de/
+TRANSP:TRANSPARENT
+URL:https://www.radsport-peitz.de/
+END:VEVENT
+END:VCALENDAR

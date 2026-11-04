@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-halbmarathon-strasslach-dingharting-10km-strasslach-dinghar
+ ting@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Halbmarathon Straßlach-Dingharting – 10 km Lauf
+LOCATION:Straßlach-Dingharting\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sas-onlin
+ e.net/eventportal_bs/850/
+TRANSP:TRANSPARENT
+URL:https://www.sas-online.net/eventportal_bs/850/
+END:VEVENT
+END:VCALENDAR

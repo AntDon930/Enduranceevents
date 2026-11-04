@@ -611,6 +611,7 @@ class Event:
 
     def to_dict(self) -> dict:
         d = {f.name: getattr(self, f.name) for f in fields(self)}
+        d["name"] = bereinige_name(d.get("name"))
         # Einheitlich eine Nachkommastelle, egal woher der Wert kommt
         # (Regex, JSON-LD, manuelles Override) - siehe round_km().
         if d.get("laenge_km") is not None:
@@ -1891,6 +1892,20 @@ _NAME_STOPWORDS = {
 }
 
 
+# Satzzeichen, die ein Name nicht am Anfang oder Ende trägt: Reste einer
+# Aufzählung oder eines Trenners der Quelle ("-25. Laufwochenende Brugg",
+# "… - Volksbank Sauerland Lauf Cup -"; Fehlerscan 19.10.2026). Klammern
+# und Anführungszeichen bleiben - die gehören zum Namen.
+_NAMENSRAND = " \t\u00a0-\u2010\u2011\u2012\u2013\u2014_\u00b7\u2022*,;:/|"
+
+
+def bereinige_name(name: str | None) -> str | None:
+    """Nimmt Trenn- und Aufzählungszeichen vom Rand eines Namens."""
+    if not name:
+        return name
+    return name.strip(_NAMENSRAND) or name
+
+
 def normalize_event_name(name: str | None) -> str:
     """Normalisiert einen Event-Namen für den Duplikat-Vergleich: Kleinschreibung,
     Umlaute/ß aufgelöst, führende Auflagen-Nummer ("52. ") entfernt, Satzzeichen
@@ -2768,7 +2783,18 @@ NICHT_AUSDAUER: list[tuple[re.Pattern, str]] = [
     (re.compile(r"race\s*walking|racewalking|\bgeher(?:tag|wettbewerb|meeting)?\b|"
                 r"stra(?:ß|ss)engehen|bahngehen", re.I),
      "Gehen / Race Walking (keine Laufveranstaltung)"),
-    (re.compile(r"skilanglauf|ski-langlauf|\blanglauf\b|skimarathon", re.I),
+    # Am 27.10.2026 standen sieben Skilanglauf-Veranstaltungen als "Laufen ·
+    # Straße" in der Liste, alle an ihrer Seite geprüft: Das Wort steckt im
+    # Kompositum ("Planoiras Volkslanglauf"), die Rennen heißen "Loppet"
+    # (Skadi Loppet, Gantrisch Loppet - "Swiss Loppet" ist die Serie der
+    # Volkslanglaufrennen), oder nur das Label verrät die Technik
+    # ("Skating", "freie Technik", "100 km Klassisch"); Gommerlauf,
+    # Ganghoferlauf und die Kandersteger Nordic Days tragen nur ihre Marke.
+    # "Inlineskating" (Berlin Marathon), "klassischer Marathon" und der
+    # "Langläufer-Cup" bleiben.
+    (re.compile(r"skilanglauf|ski-langlauf|\w*langlauf\b|skimarathon|\w*loppet\b|"
+                r"ganghoferlauf|gommerlauf|nordic\s+days?\b|\bkm\s+klassisch\b|"
+                r"(?<!inline)(?<!inline-)(?<!inline\s)\bskating\b|freie\s+technik", re.I),
      "Skilanglauf (keine Laufveranstaltung)"),
     # Virtuelle Läufe ("egal wo, egal wann") haben weder Ort noch Termin
     # noch Koordinaten; die Liste ist auf Karte und Umkreissuche gebaut.

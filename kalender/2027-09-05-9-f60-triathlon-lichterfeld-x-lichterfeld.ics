@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-9-f60-triathlon-lichterfeld-x-lichterfeld@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:9. F60-Triathlon Lichterfeld
+LOCATION:Lichterfeld\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.f60triathl
+ on.de
+TRANSP:TRANSPARENT
+URL:https://www.f60triathlon.de
+END:VEVENT
+END:VCALENDAR

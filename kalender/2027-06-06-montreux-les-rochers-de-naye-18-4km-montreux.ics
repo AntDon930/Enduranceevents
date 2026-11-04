@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-montreux-les-rochers-de-naye-18-4km-montreux@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Montreux-Les Rochers-de-Naye – La Classique 18.4 km
+LOCATION:Montreux\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 18.4 km\nhttps://www.montreux
+ lesrochersdenaye.ch/
+TRANSP:TRANSPARENT
+URL:https://www.montreuxlesrochersdenaye.ch/
+END:VEVENT
+END:VCALENDAR

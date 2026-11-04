@@ -129,6 +129,13 @@ _DAUER_RE = re.compile(r"^\s*(\d{1,3})\s*h\b", re.I)
 # Die Dauer steht vorn ("24h Friedberg") oder in einer Klammer ("Rotary
 # Charity-Schwimmen (24h Freising)").
 _DAUER_IRGENDWO_RE = re.compile(r"(?:^|\()\s*(\d{1,3})\s*h\b", re.I)
+# Die Seite schreibt eine Absage in den NAMEN („25h Handorf FÄLLT AUS!!!",
+# am 20.10.2026) - dann ist die Ausgabe abgesagt (Datenregel 18), und ohne
+# diese Prüfung wurde „FÄLLT AUS!!!" der Ort. Wie bei den anderen Quellen
+# (boe, dsergebnis, kilometerliebe) fällt die Zeile beim Einsammeln weg;
+# das Gedächtnis kennt die Veranstaltung aus den Läufen davor und sucht
+# ihre nächste Ausgabe.
+ABGESAGT = re.compile(r"f[aä]llt\s+(?:\d{4}\s+)?aus|abgesagt|entf[aä]llt|cancell?ed", re.I)
 # Endet der Name darauf, ist das letzte Wort kein Ort.
 _KEIN_ORT = re.compile(
     r"(schwimm\w*|swim\w*|challenge|cup|crossing|querung|meile|marathon|"
@@ -310,7 +317,7 @@ def land_aus_feld(land: str | None) -> str | None:
 def build_events(detail: dict, kategorie_nr: int | None, config: SiteConfig) -> list[Event]:
     """Aus einer Detailseite die Event-Zeilen (eine je Distanz)."""
     name_roh = detail.get("name") or ""
-    if not name_roh or not detail.get("datum_start"):
+    if not name_roh or not detail.get("datum_start") or ABGESAGT.search(name_roh):
         return []
     kat = KATEGORIEN.get(kategorie_nr or 0)
     art1 = guess_art1(name_roh, config)

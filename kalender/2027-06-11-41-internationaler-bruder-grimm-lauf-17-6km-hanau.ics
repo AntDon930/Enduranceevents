@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-41-internationaler-bruder-grimm-lauf-17-6km-hanau@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270614
+SUMMARY:41. Internationaler Brüder-Grimm-Lauf – Einzeletappe 14\,7–17\,6 k
+ m
+LOCATION:Hanau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17.6 km\nhttps://www.mkk.de/
+ de/mkk_de/buergerservice/lebenslagen_1/sport_kultur_ehrenamt/40_sport/spo
+ rtveranstaltungen/brueder_grimm_lauf/brueder_grimm_lauf.html
+TRANSP:TRANSPARENT
+URL:https://www.mkk.de/de/mkk_de/buergerservice/lebenslagen_1/sport_kultur
+ _ehrenamt/40_sport/sportveranstaltungen/brueder_grimm_lauf/brueder_grimm_
+ lauf.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-xterra-austria-45-5km-altaussee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:XTERRA Austria
+LOCATION:Altaussee\, Österreich
+DESCRIPTION:Sportart: Triathlon / Cross\nLänge: 45.5 km\nhttps://www.xterr
+ aplanet.com/event/xterra-austria
+TRANSP:TRANSPARENT
+URL:https://www.xterraplanet.com/event/xterra-austria
+END:VEVENT
+END:VCALENDAR

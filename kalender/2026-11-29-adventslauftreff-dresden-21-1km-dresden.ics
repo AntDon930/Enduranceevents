@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-adventslauftreff-dresden-21-1km-dresden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Adventslauftreff Dresden – Halbmarathon
+LOCATION:Dresden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://baer-servic
+ e.de/veranstaltung/OEA/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/OEA/
+END:VEVENT
+END:VCALENDAR

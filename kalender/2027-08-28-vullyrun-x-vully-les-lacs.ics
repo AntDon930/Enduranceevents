@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-vullyrun-x-vully-les-lacs@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Vullyrun
+LOCATION:Vully-les-Lacs\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://vullyrun.ch/
+TRANSP:TRANSPARENT
+URL:https://vullyrun.ch/
+END:VEVENT
+END:VCALENDAR

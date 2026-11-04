@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-tiroler-silberpfad-trophy-23km-schwaz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Tiroler Silberpfad Trophy
+LOCATION:Schwaz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 23 km\nhttps://silberregion-
+ karwendel.com/de/tiroler-silberpfad-trophy
+TRANSP:TRANSPARENT
+URL:https://silberregion-karwendel.com/de/tiroler-silberpfad-trophy
+END:VEVENT
+END:VCALENDAR

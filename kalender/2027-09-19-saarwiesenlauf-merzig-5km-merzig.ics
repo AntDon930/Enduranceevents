@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-saarwiesenlauf-merzig-5km-merzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Saarwiesenlauf Merzig
+LOCATION:Merzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
+ reibung/detail/49577/CEB-Saarwiesenlauf-Merzig.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49577/CEB-Saarwiesenlauf-Merzig.h
+ tm
+END:VEVENT
+END:VCALENDAR

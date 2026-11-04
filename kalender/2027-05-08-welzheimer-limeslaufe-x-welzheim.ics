@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-welzheimer-limeslaufe-x-welzheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Welzheimer Limesläufe
+LOCATION:Welzheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.tsfwelzheim.d
+ e/abteilungen/welzheimer-limeslauf/
+TRANSP:TRANSPARENT
+URL:https://www.tsfwelzheim.de/abteilungen/welzheimer-limeslauf/
+END:VEVENT
+END:VCALENDAR

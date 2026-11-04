@@ -99,6 +99,10 @@ NACHWUCHS_IM_NAMEN = re.compile(r"kids|nachwuchs|youngster|kinder|jugend|schüle
 SPARTE_ART2 = {"straße": "Straße", "strasse": "Straße", "mtb": "Mountainbike",
                "cyclocross": "Cyclecross", "bahn": "Bahn", "gravel": "Gravel"}
 _KEIN_LINK = re.compile(r"^https?://-?/?$")
+# Abgesagte Rennen stehen weiter im Kalender, nur im Kartentitel markiert
+# („Wienenergie Cyclocross - ABGESAGT !!“, 20.10.2026 vom Nutzer gefunden –
+# die Rennseite selbst trägt den Namen ohne den Zusatz). Datenregel 18.
+ABGESAGT = re.compile(r"\babgesagt\b|\bcancell?ed\b|\bf(ä|ae)llt aus\b", re.I)
 
 
 def parse_liste(html: str) -> list[dict]:
@@ -119,6 +123,7 @@ def parse_liste(html: str) -> list[dict]:
             "name": titel.get_text(" ", strip=True) if titel else None,
             "datum": div.get("data-date"),
             "disziplin": div.get("data-disziplin", ""),
+            "abgesagt": bool(ABGESAGT.search(div.get_text(" ", strip=True))),
         })
     return karten
 
@@ -273,6 +278,9 @@ def fetch_cyclingaustria_events(session, config, delay, max_pages, render_js) ->
     for i, k in enumerate(karten):
         if config.max_details and i >= config.max_details:
             break
+        if k.get("abgesagt"):
+            uebersprungen.append(f"{k['name']} ({k['datum']}): abgesagt")
+            continue
         time.sleep(delay)
         html = fetch_page(session, k["url"], render_js=False)
         if not html:

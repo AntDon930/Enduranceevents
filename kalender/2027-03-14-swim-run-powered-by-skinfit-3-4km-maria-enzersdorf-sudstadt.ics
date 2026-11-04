@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-swim-run-powered-by-skinfit-3-4km-maria-enzersdorf-sudstadt
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Swim Run powered by Skinfit
+LOCATION:Maria Enzersdorf\, Südstadt\, Österreich
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 3.4 km\nhttps://www.trih
+ eroes.at/
+TRANSP:TRANSPARENT
+URL:https://www.triheroes.at/
+END:VEVENT
+END:VCALENDAR

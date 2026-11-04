@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-lausitzer-seenland100-150km-grossraschen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Lausitzer Seenland100 – Radmarathon 150 km
+LOCATION:Großräschen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 150 km\nhttp://www.seenland
+ 100.de
+TRANSP:TRANSPARENT
+URL:http://www.seenland100.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-29-int-asvo-hrinkow-city-kriterium-steyr-p-b-rai-x-steyr@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:29. Int ASVÖ Hrinkow City Kriterium Steyr p/b Raiffeisen – Kriteri
+ um\, Cycling 4 All
+LOCATION:Steyr\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.hrinkow-bike
+ s.at
+TRANSP:TRANSPARENT
+URL:https://www.hrinkow-bikes.at
+END:VEVENT
+END:VCALENDAR

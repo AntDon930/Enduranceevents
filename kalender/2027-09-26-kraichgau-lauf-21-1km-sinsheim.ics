@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-26-kraichgau-lauf-21-1km-sinsheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:Kraichgau-Lauf – Halbmarathon
+LOCATION:Sinsheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.kraichg
+ aulauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.kraichgaulauf.de/
+END:VEVENT
+END:VCALENDAR

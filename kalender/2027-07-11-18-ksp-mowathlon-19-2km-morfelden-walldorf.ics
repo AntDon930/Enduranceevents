@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-18-ksp-mowathlon-19-2km-morfelden-walldorf@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:18. ksp MöWathlon – 19\,2 km Radfahren auf einer autofreien Streck
+ e
+LOCATION:Mörfelden-Walldorf\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 19.2 km\nhttps://www.moew
+ athlon.de/ksp-moewathlon/
+TRANSP:TRANSPARENT
+URL:https://www.moewathlon.de/ksp-moewathlon/
+END:VEVENT
+END:VCALENDAR

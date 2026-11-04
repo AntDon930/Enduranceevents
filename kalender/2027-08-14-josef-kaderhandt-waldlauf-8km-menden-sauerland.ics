@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-josef-kaderhandt-waldlauf-8km-menden-sauerland@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:Josef-Kaderhandt Waldlauf
+LOCATION:Menden (Sauerland)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.menden-wal
+ dlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.menden-waldlauf.de/
+END:VEVENT
+END:VCALENDAR

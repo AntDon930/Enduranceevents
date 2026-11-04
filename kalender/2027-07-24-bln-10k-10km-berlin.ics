@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270724
 DTEND;VALUE=DATE:20270725
 SUMMARY:BLN 10k
 LOCATION:Berlin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.davengo.c
- om/event/overview/saucony-bln-10k-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://berlin10k.com
+ /
 TRANSP:TRANSPARENT
-URL:https://www.davengo.com/event/overview/saucony-bln-10k-2027
+URL:https://berlin10k.com/
 END:VEVENT
 END:VCALENDAR

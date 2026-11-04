@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-stadtlauf-bad-mergentheim-21-1km-bad-mergentheim@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Stadtlauf Bad Mergentheim – Halbmarathon
+LOCATION:Bad Mergentheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.stadtla
+ uf-mgh.de/
+TRANSP:TRANSPARENT
+URL:https://www.stadtlauf-mgh.de/
+END:VEVENT
+END:VCALENDAR

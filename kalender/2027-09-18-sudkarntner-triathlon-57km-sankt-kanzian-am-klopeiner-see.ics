@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-sudkarntner-triathlon-57km-sankt-kanzian-am-klopeiner-see@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270920
+SUMMARY:Südkärntner Triathlon
+LOCATION:Sankt Kanzian am Klopeiner See\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 57 km\nhttps://suedkaernt
+ ner-triathlon.at/
+TRANSP:TRANSPARENT
+URL:https://suedkaerntner-triathlon.at/
+END:VEVENT
+END:VCALENDAR

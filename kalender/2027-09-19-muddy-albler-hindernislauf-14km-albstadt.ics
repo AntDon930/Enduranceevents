@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270919
 DTEND;VALUE=DATE:20270920
 SUMMARY:Muddy Älbler Hindernislauf – Muddy L STRONG\, 4 Runden\, 14 km
 LOCATION:Albstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 14 km\nhttps://www.maxx-t
- iming.de/anmeldung
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 14 km\nhttps://muddy-aelb
+ ler.de/
 TRANSP:TRANSPARENT
-URL:https://www.maxx-timing.de/anmeldung
+URL:https://muddy-aelbler.de/
 END:VEVENT
 END:VCALENDAR

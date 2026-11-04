@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-01-firmenlauf-friedrichshafen-6km-friedrichshafen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270701
+DTEND;VALUE=DATE:20270702
+SUMMARY:Firmenlauf Friedrichshafen
+LOCATION:Friedrichshafen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://firmenlauf-fn.
+ de/
+TRANSP:TRANSPARENT
+URL:https://firmenlauf-fn.de/
+END:VEVENT
+END:VCALENDAR

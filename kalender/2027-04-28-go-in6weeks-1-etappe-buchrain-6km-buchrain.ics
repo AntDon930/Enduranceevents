@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-28-go-in6weeks-1-etappe-buchrain-6km-buchrain@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270428
+DTEND;VALUE=DATE:20270429
+SUMMARY:GO-IN6weeks 1. Etappe - Buchrain – 4–6 km (Run4Fun\, Jahrgang 2011
+  und älter)
+LOCATION:Buchrain\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.6weeks.ch/
+ fuer-teilnehmende/alle-etappen/
+TRANSP:TRANSPARENT
+URL:https://www.6weeks.ch/fuer-teilnehmende/alle-etappen/
+END:VEVENT
+END:VCALENDAR

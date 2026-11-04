@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-umpfertallauf-5km-boxberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Umpfertallauf – 5 km Hobbylauf
+LOCATION:Boxberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufgemeinscha
+ ft-tauberfranken.de/12-umpfertallauf/
+TRANSP:TRANSPARENT
+URL:https://laufgemeinschaft-tauberfranken.de/12-umpfertallauf/
+END:VEVENT
+END:VCALENDAR

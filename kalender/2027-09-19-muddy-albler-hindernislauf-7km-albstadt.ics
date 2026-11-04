@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270919
 DTEND;VALUE=DATE:20270920
 SUMMARY:Muddy Älbler Hindernislauf – Muddy S LIGHT\, 2 Runden\, 7 km
 LOCATION:Albstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 7 km\nhttps://www.maxx-ti
- ming.de/anmeldung
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 7 km\nhttps://muddy-aelbl
+ er.de/
 TRANSP:TRANSPARENT
-URL:https://www.maxx-timing.de/anmeldung
+URL:https://muddy-aelbler.de/
 END:VEVENT
 END:VCALENDAR

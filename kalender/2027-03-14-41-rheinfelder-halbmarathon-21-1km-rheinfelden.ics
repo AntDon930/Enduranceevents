@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-41-rheinfelder-halbmarathon-21-1km-rheinfelden@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:41. Rheinfelder Halbmarathon – Halbmarathon 21\,1 km
+LOCATION:Rheinfelden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.lcm-rhei
+ nfelden.de/lauftag.html
+TRANSP:TRANSPARENT
+URL:http://www.lcm-rheinfelden.de/lauftag.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-21-27-volksbank-lauf-rund-um-den-offlumer-see-5-7km-neuenkirch
+ en@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270522
+SUMMARY:27. Volksbank-Lauf "Rund um den Offlumer See" – 5\,7 km Jedermannl
+ auf und Walking
+LOCATION:Neuenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.7 km\nhttp://www.sus-neuen
+ kirchen.de/de/abteilungen/lauftreff/volkslauf/ausschreibung/
+TRANSP:TRANSPARENT
+URL:http://www.sus-neuenkirchen.de/de/abteilungen/lauftreff/volkslauf/auss
+ chreibung/
+END:VEVENT
+END:VCALENDAR

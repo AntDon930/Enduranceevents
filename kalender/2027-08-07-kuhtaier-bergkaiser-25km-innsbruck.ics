@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-kuhtaier-bergkaiser-25km-innsbruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:Kühtaier Bergkaiser – Jedermannrennen 25 km
+LOCATION:Innsbruck\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 25 km\nhttps://www.radsport
+ events.com/
+TRANSP:TRANSPARENT
+URL:https://www.radsportevents.com/
+END:VEVENT
+END:VCALENDAR

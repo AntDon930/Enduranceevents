@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-brevet-4-flusse-tour-600km-bonn-venusberg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Brevet - 4 Flüsse Tour – Brevet 600 km
+LOCATION:Bonn-Venusberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 600 km\nhttps://www.radtref
+ fcampus.de/brevet-rheinland/
+TRANSP:TRANSPARENT
+URL:https://www.radtreffcampus.de/brevet-rheinland/
+END:VEVENT
+END:VCALENDAR

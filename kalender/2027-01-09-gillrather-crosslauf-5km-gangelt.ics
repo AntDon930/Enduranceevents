@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-gillrather-crosslauf-5km-gangelt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Gillrather Crosslauf
+LOCATION:Gangelt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://djk-gillrath.de
+ /index.php?view=article&id=44%3A48-gillrather-crosslauf&catid=8
+TRANSP:TRANSPARENT
+URL:https://djk-gillrath.de/index.php?view=article&id=44%3A48-gillrather-c
+ rosslauf&catid=8
+END:VEVENT
+END:VCALENDAR

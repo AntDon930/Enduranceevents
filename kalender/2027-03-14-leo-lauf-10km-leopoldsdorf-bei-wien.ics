@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-leo-lauf-10km-leopoldsdorf-bei-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Leo Lauf
+LOCATION:Leopoldsdorf bei Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://leolauf.at/
+TRANSP:TRANSPARENT
+URL:https://leolauf.at/
+END:VEVENT
+END:VCALENDAR

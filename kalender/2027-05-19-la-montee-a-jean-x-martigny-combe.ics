@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-19-la-montee-a-jean-x-martigny-combe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270519
+DTEND;VALUE=DATE:20270520
+SUMMARY:La Montée à Jean
+LOCATION:Martigny-Combe\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.vs-timing.ch/d
+ e-CH/Home/Event/262?fromResult=False
+TRANSP:TRANSPARENT
+URL:https://www.vs-timing.ch/de-CH/Home/Event/262?fromResult=False
+END:VEVENT
+END:VCALENDAR

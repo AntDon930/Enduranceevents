@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-4-6-stunden-lauf-des-tus-laubach-ev-6h-laubach@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:4. 6-Stunden-Lauf des TuS Laubach eV
+LOCATION:Laubach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://hunsbuckel-trai
+ l.de/
+TRANSP:TRANSPARENT
+URL:https://hunsbuckel-trail.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-ischgl-ironbike-x-ischgl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:Ischgl Ironbike – Cycling 4 All\, Marathon
+LOCATION:Ischgl\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.ischgl
+ ironbike.com
+TRANSP:TRANSPARENT
+URL:https://www.ischglironbike.com
+END:VEVENT
+END:VCALENDAR

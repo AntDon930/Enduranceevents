@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-13-veloschatz-bikefestival-x-oschatz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270513
+DTEND;VALUE=DATE:20270517
+SUMMARY:VelOschatz Bikefestival
+LOCATION:Oschatz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad\nLänge: -\nhttps://veloschatz.de/
+TRANSP:TRANSPARENT
+URL:https://veloschatz.de/
+END:VEVENT
+END:VCALENDAR

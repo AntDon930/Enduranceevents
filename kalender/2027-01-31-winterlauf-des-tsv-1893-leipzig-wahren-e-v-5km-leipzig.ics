@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-winterlauf-des-tsv-1893-leipzig-wahren-e-v-5km-leipzig@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Winterlauf des TSV 1893 Leipzig-Wahren e.V.
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://baer-service.d
+ e/veranstaltung/WLL/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/WLL/
+END:VEVENT
+END:VCALENDAR

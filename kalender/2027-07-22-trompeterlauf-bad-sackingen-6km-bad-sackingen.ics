@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-22-trompeterlauf-bad-sackingen-6km-bad-sackingen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270722
+DTEND;VALUE=DATE:20270723
+SUMMARY:Trompeterlauf Bad Säckingen
+LOCATION:Bad Säckingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://trompeterlauf.
+ de/
+TRANSP:TRANSPARENT
+URL:https://trompeterlauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-landkreis-lauftag-10km-elsenfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Landkreis-Lauftag – 10 km (Teer\, ab W/M 14)
+LOCATION:Elsenfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.landkreis
+ -miltenberg.de/lauftag/index.html
+TRANSP:TRANSPARENT
+URL:https://www.landkreis-miltenberg.de/lauftag/index.html
+END:VEVENT
+END:VCALENDAR

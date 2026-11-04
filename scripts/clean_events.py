@@ -105,6 +105,7 @@ from scraper_lib import (  # noqa: E402
     parse_duration_h,
     load_manual_overrides,
     round_km,
+    bereinige_name,
 )
 import veranstalter_seiten  # noqa: E402  (Gedächtnis je Veranstaltung, ohne Datum)
 import fangzeile  # noqa: E402  (erfundene Zeile, an der sich eine Kopie erkennen lässt)
@@ -345,6 +346,36 @@ def _hat_distanzgenauen_schluessel(overrides: dict, event: dict) -> bool:
     """True, wenn zu dieser Zeile ein Eintrag "<Name>|<Datum>|<km>" steht."""
     keys = override_keys(event.get("name"), event.get("datum_start"), event.get("laenge_km"))
     return len(keys) > 1 and hat_override_schluessel(overrides, keys[0])
+
+
+def abgesagte_zeilen(events: list[dict]) -> list[dict]:
+    """Die Zeilen, die ein Override als ABGESAGTE Ausgabe herausnimmt
+    (`exclude` + `abgesagt`, Status „Fällt aus" der Korrekturliste) - sie
+    gehen an veranstalter_seiten.merke_abgesagt(), damit das Gedächtnis
+    die Veranstaltung für die nächste Ausgabe behält."""
+    overrides = load_manual_overrides()
+    treffer = []
+    for e in events:
+        ov = find_override(overrides, e.get("name"), e.get("datum_start"), e.get("laenge_km"), e.get("wettbewerb"))
+        if ov and ov.get("exclude") and ov.get("abgesagt"):
+            treffer.append(e)
+    return treffer
+
+
+def geloeschte_zeilen(events: list[dict]) -> list[dict]:
+    """Die Zeilen, die der Nutzer in der Korrekturliste GELÖSCHT hat
+    (`exclude` + `geloescht`, Status „Löschen") - sie gehen an
+    veranstalter_seiten.merke_geloescht(): Das Gedächtnis vergisst die
+    Strecke für die Vorjahreskopie, und die nächste Ausgabe kommt wieder in
+    die Korrekturliste („löschen soll nur die eine Zeile herausnehmen und
+    schauen ob das Event nächstes Jahr passend ist", 20.10.2026)."""
+    overrides = load_manual_overrides()
+    treffer = []
+    for e in events:
+        ov = find_override(overrides, e.get("name"), e.get("datum_start"), e.get("laenge_km"), e.get("wettbewerb"))
+        if ov and ov.get("exclude") and ov.get("geloescht") and not ov.get("abgesagt"):
+            treffer.append(e)
+    return treffer
 
 
 def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str]]:
@@ -1242,6 +1273,18 @@ def fix_halbmarathon_distance(events: list[dict]) -> list[str]:
         event["laenge_km"] = 21.1
         changed.append(f"{event.get('name')}: laenge_km 42.2 -> 21.1")
     return changed
+
+
+def fix_namensrand(events: list[dict]) -> list[str]:
+    """Rückwirkend: Trenn- und Aufzählungszeichen vom Rand der Namen
+    (scraper_lib.bereinige_name). Idempotent."""
+    meldungen = []
+    for e in events:
+        neu = bereinige_name(e.get("name"))
+        if neu != e.get("name"):
+            meldungen.append(f"{e.get('name')!r} -> {neu!r}")
+            e["name"] = neu
+    return meldungen
 
 
 def fix_meter_labels(events: list[dict]) -> list[str]:
@@ -2159,7 +2202,62 @@ def merge_duplicates(events: list[dict]) -> tuple[list[dict], list[str]]:
     return result, report
 
 
-def mark_pruefung_offen(events: list[dict], today: str | None = None) -> tuple[list[str], list[str]]:
+def fix_instagram(events: list[dict], konten: dict | None = None,
+                  overrides: dict | None = None, grosse: list[dict] | None = None) -> list[str]:
+    """Setzt `instagram` (Kontoname ohne @) an jede Zeile, deren EIGENE
+    Veranstalterseite ein Konto der Veranstaltung selbst verlinkt, und
+    nimmt es weg, sobald das nicht mehr gilt (seit 27.10.2026, vom Nutzer
+    gewünscht: das Instagram-Symbol für die großen Events mit eigenem
+    Konto). Die Konten je Seite sammelt instagram_konten.py, welches davon
+    dem Event gehört, entscheidet instagram_konten.event_konto() - also
+    nie der Verein, der Sponsor oder die Agentur. Ein Override
+    `"instagram": "<name>"` setzt es von Hand, `"instagram": null`
+    schaltet es ab. Dazwischen steht die Liste der großen Events
+    (marketing/instagram/grosse_events.json, für die Logo-Reels am
+    27.10.2026 einzeln recherchiert): Gehört die Zeile zu einem davon
+    (insta_inhalte.gross_fuer - Suchwort im Namen, Land und Sportart) und
+    nennt es ein Konto, gilt dieses - recherchiert schlägt erkannt.
+    Idempotent."""
+    import instagram_konten
+    import insta_inhalte
+    if konten is None:
+        konten = instagram_konten.lade()
+    if overrides is None:
+        overrides = load_manual_overrides()
+    if grosse is None:
+        grosse = insta_inhalte.lade_grosse()
+    changes: list[str] = []
+    for e in events:
+        override = find_override(overrides, e.get("name"), e.get("datum_start"),
+                                 e.get("laenge_km"), e.get("wettbewerb"))
+        gross = insta_inhalte.gross_fuer({"name": e.get("name") or "", "land": e.get("land"),
+                                          "sport": e.get("art1")}, grosse) if grosse else None
+        if override and "instagram" in override:
+            soll = (override.get("instagram") or "").lower().lstrip("@") or None
+        elif gross and gross.get("instagram"):
+            soll = str(gross["instagram"]).lower().lstrip("@")
+        else:
+            soll = None
+            url = e.get("veranstalter_url")
+            if url and not is_portal_link(url):
+                eintrag = konten.get(url) or {}
+                soll = instagram_konten.event_konto(eintrag.get("konten"), e.get("name") or "",
+                                                    e.get("standort") or "")
+        if soll and not instagram_konten.NAME_RE.match(soll):
+            soll = None
+        if soll == e.get("instagram"):
+            continue
+        changes.append(f"{e.get('name')} ({e.get('datum_start')}): "
+                       f"{('@' + e['instagram']) if e.get('instagram') else '–'} -> {('@' + soll) if soll else '–'}")
+        if soll:
+            e["instagram"] = soll
+        else:
+            e.pop("instagram", None)
+    return changes
+
+
+def mark_pruefung_offen(events: list[dict], today: str | None = None,
+                        gedaechtnis=None) -> tuple[list[str], list[str]]:
     """Setzt `pruefung_offen: true` an jede Zeile, die in der Korrekturliste
     des Nutzers stünde (`audit_events.offene_pruefungen`: Audit-Meldung
     ohne Eintrag in geprueft.json, vorläufiger Termin, frühere Prüfung
@@ -2177,7 +2275,8 @@ def mark_pruefung_offen(events: list[dict], today: str | None = None) -> tuple[l
     LETZTER Schritt, nach allen Korrekturen, Umbenennungen und
     Zusammenführungen - vorher könnte eine Zeile markiert werden, die das
     Aufräumen gleich darauf repariert. Gibt (neu markiert, freigegeben)."""
-    offen = {id(e) for e, gruende in offene_pruefungen(events, today) if verbirgt(gruende)}
+    offen = {id(e) for e, gruende in offene_pruefungen(events, today, gedaechtnis=gedaechtnis)
+             if verbirgt(gruende)}
     markiert: list[str] = []
     freigegeben: list[str] = []
     for e in events:
@@ -2213,9 +2312,14 @@ def main() -> None:
     # heraus beim Laden, wieder hinein als allerletzter Schritt.
     events = fangzeile.entfernen(events)
     before = len(events)
+    # VOR den Overrides: Ihr Schlüssel ist der bereinigte Name, so wie ihn
+    # der Scraper inzwischen selbst liefert (Event.to_dict).
+    namens_raender = fix_namensrand(events)
 
     geocoder = None if args.no_geocoding else Geocoder(GEOCODE_CACHE_PATH)
 
+    abgesagte = abgesagte_zeilen(events)
+    geloeschte = geloeschte_zeilen(events)
     events, excluded, override_changes = apply_overrides(events)
     # NACH apply_overrides: Ein Override mit dem Schlüssel "<Name>|<Datum>"
     # trifft JEDE Strecke dieser Veranstaltung an diesem Tag - auch eine
@@ -2242,6 +2346,14 @@ def main() -> None:
     # neue Ausgabe mit Portallink bekommt sie gleich hier. Ein zweites
     # lernen() steht nach dem Vereinheitlichen der Namen (unten).
     gedaechtnis = veranstalter_seiten.Gedaechtnis.laden()
+    # Abgesagte Ausgaben (Status „Fällt aus"): Die Zeile ist schon heraus,
+    # die Veranstaltung bleibt gemerkt - VOR lernen(), das die Zeile nicht
+    # mehr sieht.
+    abgesagt = veranstalter_seiten.merke_abgesagt(abgesagte, gedaechtnis)
+    # Gelöschte Strecken (Status „Löschen"): aus der Vorjahreskopie heraus,
+    # die nächste Ausgabe kommt wieder in die Korrekturliste - ebenfalls
+    # VOR lernen().
+    geloescht = veranstalter_seiten.merke_geloescht(geloeschte, gedaechtnis, args.today or date.today().isoformat())
     # Erst der Abgleich mit der vorigen Ausgabe (welche Strecken fehlen
     # der neuen?), DANN lernen - sonst kennt das Gedächtnis die neue
     # Ausgabe schon und hat nichts mehr zu vergleichen.
@@ -2330,6 +2442,8 @@ def main() -> None:
         # läuft die Schleife weiter (Zusammenführen mit neuen Koordinaten).
         umbenannt = [e for e in events if e.get("name") != namen_vorher.get(id(e))]
         if umbenannt:
+            abgesagt += veranstalter_seiten.merke_abgesagt(abgesagte_zeilen(umbenannt), gedaechtnis)
+            geloescht += veranstalter_seiten.merke_geloescht(geloeschte_zeilen(umbenannt), gedaechtnis)
             behalten, spaet_excluded, spaet_changes = apply_overrides(umbenannt)
             if spaet_excluded:
                 behalten_ids = {id(e) for e in behalten}
@@ -2360,6 +2474,8 @@ def main() -> None:
     section("Manuelle Korrekturen angewendet", override_changes)
     section("Einzeln recherchiert nachgetragen (manual_events.json)", manuell_ergaenzt)
     section("Per Override ausgeschlossen", excluded)
+    section("Ausgabe fällt aus, Veranstaltung bleibt im Gedächtnis (Status „Fällt aus“)", abgesagt)
+    section("Gelöscht (Status „Löschen“) - die nächste Ausgabe kommt wieder in die Korrekturliste", geloescht)
     section("Veranstalterseite/Koordinaten aus dem Gedächtnis (vorige Ausgabe)", aus_gedaechtnis)
     section("⚠ Gedächtnis: Strecken der vorigen Ausgabe, die der neuen fehlen", vorjahr)
     section("Gedächtnis je Veranstaltung: Seiten gemerkt/aktualisiert", gemerkt)
@@ -2376,6 +2492,7 @@ def main() -> None:
     section("Charity-Merkmal gesetzt", charity_changes)
     section("Kategorie (art2) korrigiert", art2_changes)
     section("Distanz korrigiert (Halbmarathon-Bugfix)", distance_fixes)
+    section("Satzzeichen am Rand des Namens entfernt", namens_raender)
     section("Distanz aus dem Meter-Label (Kinderläufe, Meterangaben)", meter_fixes)
     section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)
     section("Widersprüchliches Wettbewerbs-Label entfernt", label_fixes)
@@ -2409,10 +2526,14 @@ def main() -> None:
     section("Namens-Formatierung bereinigt", tidy_fixes)
     section("Namen innerhalb einer Veranstaltung vereinheitlicht", name_fixes)
 
+    # Das eigene Instagram-Konto großer Veranstaltungen - nach allen
+    # Korrekturen an Name, Ort und Link, denn die Regel liest alle drei.
+    section("Instagram-Konto der Veranstaltung gesetzt/geändert/entfernt", fix_instagram(events))
+
     # Ganz zum Schluss: Was noch in der Korrekturliste steht, bleibt auf
     # der Seite ausgeblendet (pruefung_offen) - erst nach allen
     # Korrekturen, sonst würde markiert, was gerade repariert wurde.
-    neu_offen, freigegeben = mark_pruefung_offen(events, args.today)
+    neu_offen, freigegeben = mark_pruefung_offen(events, args.today, gedaechtnis)
     anzahl_offen = sum(1 for e in events if e.get("pruefung_offen"))
     section("Auf der Seite ausgeblendet, bis geprüft (pruefung_offen) - neu markiert", neu_offen)
     section("Prüfung erledigt - wieder sichtbar", freigegeben)

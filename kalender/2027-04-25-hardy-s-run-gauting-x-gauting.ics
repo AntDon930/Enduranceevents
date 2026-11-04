@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-hardy-s-run-gauting-x-gauting@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Hardy's Run Gauting
+LOCATION:Gauting\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.hardys-freize
+ it.de/hardys-run-gauting-2026
+TRANSP:TRANSPARENT
+URL:https://www.hardys-freizeit.de/hardys-run-gauting-2026
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-30-tufelsschlucht-berglauf-8km-hagendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:Tüfelsschlucht-Berglauf – 8 km \, 500 m Steigung für Hauptlauf M/W
+  16–70
+LOCATION:Hägendorf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.juratoptour
+ .ch/de/wertungslaeufe/tuefelsschlucht-berglauf
+TRANSP:TRANSPARENT
+URL:https://www.juratoptour.ch/de/wertungslaeufe/tuefelsschlucht-berglauf
+END:VEVENT
+END:VCALENDAR

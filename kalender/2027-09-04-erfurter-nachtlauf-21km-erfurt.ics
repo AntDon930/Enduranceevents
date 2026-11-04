@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-erfurter-nachtlauf-21km-erfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Erfurter Nachtlauf – 21 km (Mindestalter 16 Jahre)
+LOCATION:Erfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://erfurter-lauf
+ nacht.de/
+TRANSP:TRANSPARENT
+URL:https://erfurter-laufnacht.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-neutraublinger-stadtlauf-5km-neutraubling@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Neutraublinger Stadtlauf
+LOCATION:Neutraubling\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.stadt-neut
+ raubling.de/kultur-freizeit-veranstaltungen/neutraublinger-stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://www.stadt-neutraubling.de/kultur-freizeit-veranstaltungen/neut
+ raublinger-stadtlauf/
+END:VEVENT
+END:VCALENDAR

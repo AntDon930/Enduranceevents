@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-bezirks-waldlaufmeisterschaften-9km-bad-sackingen@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Bezirks-Waldlaufmeisterschaften
+LOCATION:Bad Säckingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://ladv.de/aussch
+ reibung/detail/49618/Bezirks-Waldlaufmeisterschaften-Bad-S%C3%A4ckingen.h
+ tm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49618/Bezirks-Waldlaufmeisterscha
+ ften-Bad-S%C3%A4ckingen.htm
+END:VEVENT
+END:VCALENDAR

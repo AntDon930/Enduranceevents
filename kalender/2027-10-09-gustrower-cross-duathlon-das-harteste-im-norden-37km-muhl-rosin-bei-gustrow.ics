@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-09-gustrower-cross-duathlon-das-harteste-im-norden-37km-muhl-r
+ osin-bei-gustrow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271009
+DTEND;VALUE=DATE:20271010
+SUMMARY:Güstrower Cross-Duathlon „Das Härteste im Norden“
+LOCATION:Mühl Rosin bei Güstrow\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 37 km\nhttps://www.trif
+ un.de/events/cross-duathlon
+TRANSP:TRANSPARENT
+URL:https://www.trifun.de/events/cross-duathlon
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-brevet-200-gravel-200km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Brevet 200 - Gravel – Gravel Brevet 200 km
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 200 km\nhttps://www.radtref
+ fcampus.de/brevet-rheinland/
+TRANSP:TRANSPARENT
+URL:https://www.radtreffcampus.de/brevet-rheinland/
+END:VEVENT
+END:VCALENDAR

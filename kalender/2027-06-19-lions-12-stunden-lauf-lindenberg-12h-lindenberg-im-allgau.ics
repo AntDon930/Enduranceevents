@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-lions-12-stunden-lauf-lindenberg-12h-lindenberg-im-allgau@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Lions-12-Stunden-Lauf-Lindenberg
+LOCATION:Lindenberg im Allgäu\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 h\nhttp://12stundenlauf-l
+ indenberg.de/
+TRANSP:TRANSPARENT
+URL:http://12stundenlauf-lindenberg.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-schwarzwald-super-rennradmarathon-190km-munstertal-schwarzw
+ ald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:Schwarzwald Super! Rennradmarathon – Radmarathon 190 km
+LOCATION:Münstertal/Schwarzwald\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 190 km\nhttps://www.schwarz
+ wald-super.de/information/
+TRANSP:TRANSPARENT
+URL:https://www.schwarzwald-super.de/information/
+END:VEVENT
+END:VCALENDAR

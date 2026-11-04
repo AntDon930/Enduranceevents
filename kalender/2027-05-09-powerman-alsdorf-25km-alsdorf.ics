@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-powerman-alsdorf-25km-alsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:POWERMAN Alsdorf – POWERMAN Sprint
+LOCATION:Alsdorf\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25 km\nhttps://datasport.
+ com/de/events/powerman-alsdorf-2027
+TRANSP:TRANSPARENT
+URL:https://datasport.com/de/events/powerman-alsdorf-2027
+END:VEVENT
+END:VCALENDAR

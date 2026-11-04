@@ -230,7 +230,8 @@ def seite(b: dict) -> str:
     try {{ localStorage.setItem('endurance-lang', lang); }} catch (e) {{ /* ignorieren */ }}
     var t = T[lang];
     document.getElementById('nav-events').textContent = t.events;
-    document.getElementById('nav-clubs').textContent = t.clubs;
+    var clubs = document.getElementById('nav-clubs');
+    if (!clubs.querySelector('.nav-bald-text')) clubs.textContent = t.clubs;
     document.getElementById('nav-map').textContent = t.map;
     document.getElementById('nav-blog').textContent = t.blog;
     document.getElementById('blog-zurueck').textContent = t.back;
@@ -278,9 +279,36 @@ def ziel(b: dict) -> Path:
     return WURZEL / "blog" / f"{b['slug']}.html"
 
 
+# Die Sitemap für Suchmaschinen (seit 04.11.2026, mit dem Livegang des
+# Blogs): die öffentlichen Seiten plus jeder Beitrag. Bewusst NICHT darin:
+# clubs.html (bis zum Launch nur „coming soon“), admin.html, wartung.html.
+# Ohne lastmod bei den festen Seiten – sonst änderte sich die Datei mit
+# jedem Datenlauf ohne Inhalt; bei Beiträgen ist es ihr Datum.
+SITEMAP = WURZEL / "sitemap.xml"
+SITEMAP_SEITEN = ("", "events.html", "karte.html", "blog.html", "impressum.html", "datenschutz.html")
+
+
+def sitemap() -> str:
+    alle = beitraege()
+    neuester = max((b["datum"] for b in alle), default=None)
+    zeilen = ['<?xml version="1.0" encoding="UTF-8"?>',
+              '<!-- Erzeugt von scripts/build_blog.py – nicht von Hand ändern. -->',
+              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for pfad in SITEMAP_SEITEN:
+        lastmod = f"<lastmod>{neuester}</lastmod>" if pfad == "blog.html" and neuester else ""
+        zeilen.append(f"  <url><loc>{SEITE_URL}/{pfad}</loc>{lastmod}</url>")
+    for b in sorted(alle, key=lambda x: x["datum"], reverse=True):
+        zeilen.append(f"  <url><loc>{SEITE_URL}/blog/{b['slug']}.html</loc><lastmod>{b['datum']}</lastmod></url>")
+    zeilen.append("</urlset>")
+    return "\n".join(zeilen) + "\n"
+
+
 def veraltet() -> list[str]:
-    return [b["slug"] for b in beitraege()
-            if not ziel(b).exists() or ziel(b).read_text(encoding="utf-8") != seite(b)]
+    alt = [b["slug"] for b in beitraege()
+           if not ziel(b).exists() or ziel(b).read_text(encoding="utf-8") != seite(b)]
+    if not SITEMAP.exists() or SITEMAP.read_text(encoding="utf-8") != sitemap():
+        alt.append("sitemap.xml")
+    return alt
 
 
 def schreibe() -> int:
@@ -292,6 +320,11 @@ def schreibe() -> int:
             p.write_text(neu, encoding="utf-8")
             n += 1
             print(f"  blog/{b['slug']}.html geschrieben")
+    neu = sitemap()
+    if not SITEMAP.exists() or SITEMAP.read_text(encoding="utf-8") != neu:
+        SITEMAP.write_text(neu, encoding="utf-8")
+        n += 1
+        print("  sitemap.xml geschrieben")
     return n
 
 

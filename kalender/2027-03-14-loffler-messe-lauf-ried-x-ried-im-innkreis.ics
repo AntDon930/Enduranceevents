@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-loffler-messe-lauf-ried-x-ried-im-innkreis@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:LÖFFLER Messe-Lauf Ried
+LOCATION:Ried im Innkreis\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.sportmesse-rie
+ d.at/themenwelt/laufbewerbe
+TRANSP:TRANSPARENT
+URL:http://www.sportmesse-ried.at/themenwelt/laufbewerbe
+END:VEVENT
+END:VCALENDAR

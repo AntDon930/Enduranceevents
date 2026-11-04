@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-steinfurter-volksbank-triathlon-x-steinfurt@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Steinfurter Volksbank Triathlon
+LOCATION:Steinfurt\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://triteam-steinf
+ urt.de/triathlon/
+TRANSP:TRANSPARENT
+URL:https://triteam-steinfurt.de/triathlon/
+END:VEVENT
+END:VCALENDAR

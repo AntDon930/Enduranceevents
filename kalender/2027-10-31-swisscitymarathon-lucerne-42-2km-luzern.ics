@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-31-swisscitymarathon-lucerne-42-2km-luzern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271031
+DTEND;VALUE=DATE:20271101
+SUMMARY:SwissCityMarathon - Lucerne – 42.195 km Marathon (Schweizer Meiste
+ rschaften)
+LOCATION:Luzern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.swissci
+ tymarathon.ch/
+TRANSP:TRANSPARENT
+URL:https://www.swisscitymarathon.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-zeininger-halbmarathon-5km-zeiningen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Zeininger Halbmarathon – Running und Walking Viertelmarathon 5 km
+LOCATION:Zeiningen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.zeiningerha
+ lbmarathon.ch
+TRANSP:TRANSPARENT
+URL:http://www.zeiningerhalbmarathon.ch
+END:VEVENT
+END:VCALENDAR
