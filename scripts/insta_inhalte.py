@@ -867,6 +867,12 @@ TOP_KATEGORIEN = (
 )
 TOP_ANZAHLEN = (5, 3, 7, 10)    # „es muss nicht immer Top 5 sein … Top 10, Top 3" (Nutzer, 27.10.2026)
 TOP_DESIGNS = ("karte", "einzeln", "raster", "zeitleiste")
+# Für die Listen nach GRÖSSE (Countdown): ohne Zeitleiste – sie ordnet nach
+# Termin, und ein Datum gehört nicht in diese Videos (vom Nutzer am
+# 04.11.2026: „Wir lassen einfach das Datum bei den größten Marathons raus.
+# Das ist nicht wichtig in dem Video. Wenn wir zum Beispiel einen Zeitplan
+# der Marathons in 2027 erstellen, dann ist das Datum wichtig.")
+TOP_DESIGNS_GROESSE = ("karte", "einzeln", "raster")
 TOP_DAUER = {3: 2.6, 5: 2.3, 7: 1.8, 10: 1.4}    # Sekunden je Event, mehr Events = schneller
 
 
@@ -1037,13 +1043,12 @@ def top_eintraege(auswahl: list[dict], countdown: bool = True) -> list[dict]:
     for platz, e in folge:
         v, g = e["v"], e["g"]
         tag = dt.date.fromisoformat(v["datum"]) if v.get("datum") else None
-        # Beim Countdown nur der MONAT (vom Nutzer am 04.11.2026: „Die Top 5
-        # Marathons brauchen kein Datum. Da geht es nur um die Größe in dem
-        # Video. Der Marathon kann in der Liste mit dem voraussichtlichen
-        # Monat stehen") - die Folie stellt die Teilnehmerzahl groß heraus.
+        # Beim Countdown KEIN Datum, auch kein Monat (vom Nutzer am
+        # 04.11.2026: „Wir lassen einfach das Datum bei den größten Marathons
+        # raus") - die Folie stellt die Teilnehmerzahl groß heraus. Der
+        # (geschätzte) Termin bleibt nur intern für die Auswahl.
         eintrag = {"logo_id": insta_logos.slug(g["name"]), "name": g["name"],
-                   "datum": (f"{MONAT_KURZ[tag.month - 1]} {tag.year}" if platz else datum_kurz(tag, jahr=True))
-                   if tag else "Termin folgt",
+                   "datum": "" if platz else (datum_kurz(tag, jahr=True) if tag else "Termin folgt"),
                    "monat_iso": v["datum"][:7] if tag else None, "tag": tag.day if tag else None,
                    "ort": f"{v['ort']} {LAND_KURZ.get(v['land'], '')}".strip(),
                    "starter": g.get("starter"), "lat": v.get("lat"), "lon": v.get("lon"),
@@ -1073,12 +1078,11 @@ PLATZ_EMOJI = {1: "1️⃣", 2: "2️⃣", 3: "3️⃣", 4: "4️⃣", 5: "5️�
 
 def top_zeile(e: dict, mit_teilnehmern: bool = True) -> str:
     """Eine Zeile der Caption: beim Countdown mit Platz als Zahl-Emoji (ein
-    „#5" machte Instagram zum Hashtag), der Größe vorn und dem Monat
-    (geschätzt: „voraussichtlich"); sonst Datum und Name."""
-    if e.get("platz"):
-        monat = ("voraussichtlich " if e.get("geschaetzt") else "") + e["datum"]
-        groesse = f"{_starter_kurz(e['starter'])} · " if mit_teilnehmern and e.get("starter") else ""
-        return f"{PLATZ_EMOJI.get(e['platz'], str(e['platz']) + '.')} {e['name']}, {e['ort']}: {groesse}{monat}"
+    „#5" machte Instagram zum Hashtag) und der Größe, ohne Datum; sonst
+    Datum und Name."""
+    if e.get("platz"):                           # nach Größe: ohne Datum
+        groesse = f": {_starter_kurz(e['starter'])}" if mit_teilnehmern and e.get("starter") else ""
+        return f"{PLATZ_EMOJI.get(e['platz'], str(e['platz']) + '.')} {e['name']}, {e['ort']}{groesse}"
     return (f"• {e['datum']}: {e['name']}, {e['ort']}"
             + (f" ({_starter_kurz(e['starter'])})" if mit_teilnehmern and e.get("starter") else ""))
 
@@ -1136,9 +1140,10 @@ def format_anlass(datum: dt.date, events: list[dict], rng: random.Random, anlass
         return None
     runde = datum.toordinal()
     anzahl = min(len(liste), (5, 7, 10)[runde % 3])
-    design = TOP_DESIGNS[(runde // 7) % len(TOP_DESIGNS)]
     # Abwechslung: mal die größten, mal die nächsten (die als Erstes anstehen)
     naechste = runde % 2 == 1
+    designs = TOP_DESIGNS if naechste else TOP_DESIGNS_GROESSE
+    design = designs[(runde // 7) % len(designs)]
     if naechste:
         auswahl = sorted(liste, key=lambda e: e["v"]["datum"])[:anzahl]
     else:
@@ -1309,7 +1314,7 @@ def format_top(datum: dt.date, events: list[dict], rng: random.Random,
     # Design und Anzahl wechseln jedes Mal (nie zweimal dasselbe hintereinander)
     wunsch = anzahl or TOP_ANZAHLEN[(runde + runde // len(TOP_ANZAHLEN)) % len(TOP_ANZAHLEN)]
     anzahl = max(n for n in TOP_ANZAHLEN if n <= len(liste) and n <= max(wunsch, min(TOP_ANZAHLEN)))
-    design = design if design in TOP_DESIGNS else TOP_DESIGNS[runde % len(TOP_DESIGNS)]
+    design = design if design in TOP_DESIGNS_GROESSE else TOP_DESIGNS_GROESSE[runde % len(TOP_DESIGNS_GROESSE)]
     schluessel, name, sport, _ = kat
     eintraege = top_eintraege(liste[:anzahl])
     titel = f"Die {anzahl} größten {name}"
@@ -1323,15 +1328,12 @@ def format_top(datum: dt.date, events: list[dict], rng: random.Random,
         cta_folie("Check it out!", f"Alle {name} mit Termin", SEITE, "Link in der Bio"),
     ]
     zeilen = "\n".join(top_zeile(e) for e in eintraege)
-    geschaetzt = any(e.get("geschaetzt") for e in eintraege)
     caption = caption_bauen([
         f"🏆 Die {anzahl} größten {name} in Deutschland, Österreich, der Schweiz und Südtirol – "
         f"der Countdown von Platz {anzahl} bis Platz 1:",
         zeilen,
         "Gezählt nach allen Teilnehmenden der Veranstaltung, letzte Ausgabe (Angaben der Veranstalter, "
-        "gerundet)." + (" „Voraussichtlich“: Der Termin der nächsten Ausgabe steht noch nicht fest, "
-                        "der Monat ist der der letzten Ausgabe." if geschaetzt else "")
-        + " Wo bist du dabei? 👇 Speichern nicht vergessen.",
+        "gerundet). Wo bist du dabei? 👇 Speichern nicht vergessen.",
     ], hashtags(sport, rng=rng, extra=[f"#{schluessel}", "#rennkalender"]), rng, len(events))
     return _beitrag("top", datum, folien, caption, sport, kategorie=schluessel, design=design, anzahl=anzahl)
 

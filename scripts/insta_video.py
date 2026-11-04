@@ -704,11 +704,11 @@ def _top_folie(img: Image.Image, d: ImageDraw.ImageDraw, folie: dict) -> None:
               kondensiert(42, False), farbe)
         if countdown and e.get("starter"):
             # die Teilnehmerzahl riesig, darunter „am Start" (Countdown nach Größe)
-            zahl, g = _starter_zahl(e["starter"]), 250
+            zahl, g = _starter_zahl(e["starter"]), 220
             while g > 120 and breite(kondensiert(g), zahl) > TEXT_BREITE:
                 g -= 10
-            d.text((RAND_X - 6, 330), zahl, font=kondensiert(g), fill=SONNE)
-            d.text((RAND_X, 330 + int(g * 1.02)), "AM START", font=kondensiert(64), fill=WEISS)
+            d.text((RAND_X - 6, 320), zahl, font=kondensiert(g), fill=SONNE)
+            d.text((RAND_X, 320 + int(g * 1.0)), "AM START", font=kondensiert(58), fill=WEISS)
         else:
             tag, _, rest = ohne_emoji(e.get("datum", "")).upper().partition(" ")
             if e.get("termin_offen"):                     # „Termin folgt": ein großes „?"

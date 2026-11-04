@@ -6669,12 +6669,14 @@ def test_insta_logos() -> None:
           "keins doppelt, keins mit toter Seite",
           [(e["g"]["name"], bool(e.get("geschaetzt"))) for e in letzte][:3],
           [("Alpha Marathon", False), ("Kilo Marathon", True), ("Bravo Marathon", False)])
-    check("top: beim Countdown nur der MONAT (geschätzt aus der letzten Ausgabe), kein Tag",
-          [(e["name"], e["datum"], e.get("geschaetzt")) for e in I.top_eintraege(letzte[1:2])],
-          [("Kilo Marathon", "Okt 2027", True)])
+    check("top nach Größe: KEIN Datum (vom Nutzer am 04.11.2026), der Termin bleibt nur intern",
+          [(e["name"], e["datum"], e["monat_iso"], e.get("geschaetzt")) for e in I.top_eintraege(letzte[1:2])],
+          [("Kilo Marathon", "", "2027-10", True)])
     zeile_k = I.top_zeile(dict(I.top_eintraege(letzte[1:2])[0], platz=4))
-    check("top Caption: Größe vorn, dann „voraussichtlich Okt 2027“",
-          zeile_k, "4️⃣ Kilo Marathon, Kilo DE: ca. 8.000 am Start · voraussichtlich Okt 2027")
+    check("top Caption: Platz, Name, Ort und Größe – ohne Datum",
+          zeile_k, "4️⃣ Kilo Marathon, Kilo DE: ca. 8.000 am Start")
+    check("top nach Größe: nie die Zeitleiste (sie ordnet nach Termin)",
+          ("zeitleiste" in I.TOP_DESIGNS_GROESSE, t["design"] in I.TOP_DESIGNS_GROESSE), (False, True))
     check("Schätzung: So 11.10.2026 → So 10.10.2027; ein gemerkter Termin 2028 geht zurück auf 2027",
           (I.naechste_ausgabe_geschaetzt("2026-10-11", _dt.date(2026, 11, 8)),
            I.naechste_ausgabe_geschaetzt("2028-10-01", _dt.date(2026, 11, 8)),
