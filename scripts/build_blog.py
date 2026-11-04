@@ -61,6 +61,63 @@ def datum_de(iso: str) -> str:
     return f"{d.day}. {MONATE[d.month - 1]} {d.year}"
 
 
+def _anker(text: str) -> str:
+    t = text.lower()
+    for a, b in (("ä", "ae"), ("ö", "oe"), ("ü", "ue"), ("ß", "ss")):
+        t = t.replace(a, b)
+    t = re.sub(r"[^a-z0-9]+", "-", t).strip("-")
+    return re.sub(r"^\d+-", "", t) or "abschnitt"
+
+
+def mit_inhalt(text: str) -> tuple[str, list[tuple[str, str]]]:
+    """Gibt jeder Zwischenüberschrift (h2) vor dem Abschlusskasten einen
+    Anker und liefert das Inhaltsverzeichnis dazu. Der Kasten
+    „beitrag-cta“ ist keine Gliederung, er bleibt ohne Eintrag."""
+    schnitt = text.find('<section class="beitrag-cta"')
+    vorn, hinten = (text, "") if schnitt < 0 else (text[:schnitt], text[schnitt:])
+    inhalt: list[tuple[str, str]] = []
+
+    def ersetze(m: re.Match) -> str:
+        titel = re.sub(r"<[^>]+>", "", m.group(1))
+        anker = _anker(titel)
+        while any(a == anker for a, _ in inhalt):
+            anker += "-2"
+        inhalt.append((anker, titel))
+        return f'<h2 id="{anker}">{m.group(1)}</h2>'
+
+    vorn = re.sub(r"<h2>(.*?)</h2>", ersetze, vorn)
+    return vorn + hinten, inhalt
+
+
+def _weitere(b: dict, alle: list[dict]) -> str:
+    """Bis zu drei andere Beiträge: gleiche Sportart zuerst, dann die neuesten."""
+    andere = [x for x in alle if x["slug"] != b["slug"]]
+    andere = sorted(andere, key=lambda x: x["datum"], reverse=True)
+    andere.sort(key=lambda x: x.get("sportart") != b.get("sportart"))
+    if not andere:
+        return ""
+    e = html.escape
+    karten = "".join(
+        f'''
+    <li class="blog-karte"><a href="{e(x['slug'])}.html">
+      <div class="blog-karte-bild"><img src="../{e(x.get('bild_klein') or x['bild'])}" alt="{e(x.get('bild_alt', ''))}" loading="lazy" width="480" height="320">{_tag(x)}</div>
+      <div class="blog-karte-text"><h3>{e(x['titel'])}</h3><div class="blog-meta"><span>{e(datum_de(x['datum']))}</span><span aria-hidden="true">·</span><span>{int(x.get('lesezeit_min') or 1)} Min.</span></div></div>
+    </a></li>''' for x in andere[:3])
+    return f'''
+  <section class="beitrag-weitere" aria-labelledby="weitere-titel">
+    <h2 id="weitere-titel">Weitere Beiträge</h2>
+    <ul class="blog-liste">{karten}
+    </ul>
+  </section>'''
+
+
+def _tag(b: dict) -> str:
+    if not b.get("sportart"):
+        return ""
+    return (f'<span class="blog-tag {SPORT_KLASSE.get(b["sportart"], "")}">'
+            f'{html.escape(b["sportart"])}</span>')
+
+
 def seite(b: dict) -> str:
     kopf, kopfzeile = _vorlage()
     blog_html = (WURZEL / "blog.html").read_text(encoding="utf-8")
@@ -68,6 +125,8 @@ def seite(b: dict) -> str:
     stats_js = _stempel(blog_html, "stats.js")
     blog_css = _stempel(blog_html, "blog.css")
     text = (TEXTE / f"{b['slug']}.html").read_text(encoding="utf-8").strip()
+    text, inhalt = mit_inhalt(text)
+    weitere = _weitere(b, beitraege())
     e = html.escape
     url = f"{SEITE_URL}/blog/{b['slug']}.html"
     bild_url = f"{SEITE_URL}/{b['bild']}" if b.get("bild") else f"{SEITE_URL}/og-image.png"
@@ -77,8 +136,22 @@ def seite(b: dict) -> str:
         "inLanguage": "de", "image": bild_url, "mainEntityOfPage": url,
         "publisher": {"@type": "Organization", "name": "Endurance Events", "url": SEITE_URL},
     }
-    tag = (f'<span class="blog-tag {SPORT_KLASSE.get(b.get("sportart"), "")}">{e(b["sportart"])}</span>'
-           if b.get("sportart") else "")
+    tag = _tag(b)
+    bild = b.get("bild")
+    srcset = (f' srcset="../{e(b["bild_klein"])} 480w, ../{e(bild)} 960w" sizes="(max-width: 1120px) 100vw, 1120px"'
+              if b.get("bild_klein") else "")
+    hero_bild = (f'<img class="beitrag-hero-bild" src="../{e(bild)}"{srcset} alt="{e(b.get("bild_alt", ""))}" width="960" height="640" fetchpriority="high">'
+                 if bild else "")
+    nachweis = f'\n  <p class="beitrag-nachweis">{b["bild_nachweis"]}</p>' if b.get("bild_nachweis") else ""
+    inhalt_html = ""
+    if len(inhalt) >= 3:
+        punkte = "".join(f'<li><a href="#{a}">{e(t)}</a></li>' for a, t in inhalt)
+        inhalt_html = f'''
+  <nav class="beitrag-inhalt" aria-labelledby="inhalt-titel">
+    <h2 id="inhalt-titel">Inhalt</h2>
+    <ol>{punkte}</ol>
+  </nav>'''
+
     return f"""<!DOCTYPE html>
 <html lang="de">
 <head>
@@ -110,14 +183,26 @@ def seite(b: dict) -> str:
 <body>
 
 {kopfzeile}
+<div class="lese-fortschritt" aria-hidden="true"><span id="lese-balken"></span></div>
 <main class="blog-main">
 <article class="beitrag">
   <a class="beitrag-zurueck" href="../blog.html" id="blog-zurueck">← Alle Beiträge</a>
-  <div class="blog-meta">
-    {tag}<span>{e(datum_de(b['datum']))}</span><span aria-hidden="true">·</span><span>{int(b.get('lesezeit_min') or 1)} Min. Lesezeit</span>
-  </div>
-  <h1>{e(b['titel'])}</h1>
+  <header class="beitrag-hero{' ohne-bild' if not bild else ''}">
+    {hero_bild}
+    <div class="beitrag-hero-text">
+      <div class="blog-meta">
+        {tag}<span>{e(datum_de(b['datum']))}</span><span aria-hidden="true">·</span><span>{int(b.get('lesezeit_min') or 1)} Min. Lesezeit</span>
+      </div>
+      <h1>{e(b['titel'])}</h1>
+    </div>
+  </header>{nachweis}
+  <div class="beitrag-spalte">{inhalt_html}
 {text}
+  <div class="beitrag-teilen">
+    <span id="teilen-text">Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.</span>
+    <button type="button" class="cta-knopf leise" id="teilen-knopf">Beitrag teilen</button>
+  </div>
+  </div>{weitere}
 </article>
 </main>
 
@@ -137,8 +222,8 @@ def seite(b: dict) -> str:
 (function () {{
   // Der Beitrag selbst ist deutsch; DE/EN schaltet nur die Bedienung um.
   var T = {{
-    de: {{ events: 'Events', clubs: 'Clubs', map: 'Karte', blog: 'Blog', back: '← Alle Beiträge', imprint: 'Impressum', privacy: 'Datenschutz' }},
-    en: {{ events: 'Events', clubs: 'Clubs', map: 'Map', blog: 'Blog', back: '← All articles', imprint: 'Legal notice', privacy: 'Privacy' }}
+    de: {{ events: 'Events', clubs: 'Clubs', map: 'Karte', blog: 'Blog', back: '← Alle Beiträge', share: 'Beitrag teilen', share_text: 'Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.', copied: 'Link kopiert', imprint: 'Impressum', privacy: 'Datenschutz' }},
+    en: {{ events: 'Events', clubs: 'Clubs', map: 'Map', blog: 'Blog', back: '← All articles', share: 'Share article', share_text: 'Found this helpful? Share it with your training partners.', copied: 'Link copied', imprint: 'Legal notice', privacy: 'Privacy' }}
   }};
   function setze(lang) {{
     try {{ localStorage.setItem('endurance-lang', lang); }} catch (e) {{ /* ignorieren */ }}
@@ -148,14 +233,38 @@ def seite(b: dict) -> str:
     document.getElementById('nav-map').textContent = t.map;
     document.getElementById('nav-blog').textContent = t.blog;
     document.getElementById('blog-zurueck').textContent = t.back;
+    document.getElementById('teilen-knopf').textContent = t.share;
+    document.getElementById('teilen-text').textContent = t.share_text;
     document.getElementById('footer-impressum').textContent = t.imprint;
     document.getElementById('footer-datenschutz').textContent = t.privacy;
     document.querySelectorAll('.lang-btn').forEach(function (b) {{ b.classList.toggle('active', b.dataset.lang === lang); }});
   }}
   var lang = 'de';
   try {{ var s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; }} catch (e) {{ /* ignorieren */ }}
-  document.querySelectorAll('.lang-btn').forEach(function (b) {{ b.addEventListener('click', function () {{ setze(b.dataset.lang); }}); }});
+  document.querySelectorAll('.lang-btn').forEach(function (b) {{ b.addEventListener('click', function () {{ lang = b.dataset.lang; setze(lang); }}); }});
   setze(lang);
+  // Teilen: Teilen-Dialog des Geräts, sonst den Link kopieren.
+  var knopf = document.getElementById('teilen-knopf');
+  knopf.addEventListener('click', function () {{
+    var daten = {{ title: document.title, url: location.href.split('#')[0] }};
+    if (navigator.share) {{ navigator.share(daten).catch(function () {{}}); return; }}
+    if (navigator.clipboard) navigator.clipboard.writeText(daten.url).then(function () {{
+      knopf.textContent = T[lang].copied;
+      setTimeout(function () {{ knopf.textContent = T[lang].share; }}, 2000);
+    }}).catch(function () {{}});
+  }});
+  // Lesefortschritt oben am Rand – nur Anzeige, nichts wird gespeichert.
+  var balken = document.getElementById('lese-balken');
+  var artikel = document.querySelector('.beitrag-spalte');
+  var geplant = false;
+  function fortschritt() {{
+    geplant = false;
+    var r = artikel.getBoundingClientRect();
+    var weg = Math.min(Math.max(-r.top / Math.max(r.height - innerHeight, 1), 0), 1);
+    balken.style.transform = 'scaleX(' + weg.toFixed(3) + ')';
+  }}
+  addEventListener('scroll', function () {{ if (!geplant) {{ geplant = true; requestAnimationFrame(fortschritt); }} }}, {{ passive: true }});
+  fortschritt();
 }})();
 </script>
 

@@ -59,7 +59,7 @@
 <link rel="preload" href="blog.json" as="fetch" type="application/json" crossorigin="anonymous">
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
 <link rel="stylesheet" href="site.css?v=68c2920e">
-<link rel="stylesheet" href="blog.css?v=17a90b78">
+<link rel="stylesheet" href="blog.css?v=d1529ecf">
 </head>
 <body>
 
@@ -95,11 +95,23 @@
 
 <main class="blog-main">
   <div class="blog-kopf">
+    <p class="blog-eyebrow" id="blog-eyebrow">Magazin</p>
     <h2 id="blog-titel">Blog</h2>
     <p id="blog-intro"></p>
     <p class="blog-hinweis-sprache" id="blog-sprache" hidden></p>
   </div>
-  <ul class="blog-liste" id="blog-liste" aria-live="polite"></ul>
+  <div class="blog-filter" id="blog-filter" role="group" aria-label="Sportart" hidden></div>
+  <ul class="blog-liste blog-liste--start" id="blog-liste" aria-live="polite"></ul>
+  <section class="blog-abo" aria-labelledby="abo-titel">
+    <div>
+      <h2 id="abo-titel">Kein Rennen mehr verpassen</h2>
+      <p id="abo-text"></p>
+    </div>
+    <div class="blog-abo-knoepfe">
+      <a class="cta-knopf" id="abo-knopf" href="events.html?abos=1">E-Mail-Abo einrichten</a>
+      <a class="cta-knopf leise" id="abo-events" href="events.html">Events entdecken</a>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -130,6 +142,10 @@
       weiter: 'Weiterlesen →',
       leer: 'Noch keine Beiträge.',
       fehler: 'Die Beiträge konnten nicht geladen werden.',
+      eyebrow: 'Magazin', alle: 'Alle', filter: 'Sportart',
+      abo_titel: 'Kein Rennen mehr verpassen',
+      abo_text: 'Wähle Sportart und Umkreis – wir schicken dir neue Events per E-Mail, sobald sie in der Liste stehen.',
+      abo_knopf: 'E-Mail-Abo einrichten', abo_events: 'Events entdecken',
       footer_imprint: 'Impressum', footer_privacy: 'Datenschutz',
       sport: { Laufen: 'Laufen', Fahrrad: 'Rad', Schwimmen: 'Schwimmen', Triathlon: 'Triathlon' }
     },
@@ -142,6 +158,10 @@
       weiter: 'Read more →',
       leer: 'No articles yet.',
       fehler: 'The articles could not be loaded.',
+      eyebrow: 'Magazine', alle: 'All', filter: 'Sport',
+      abo_titel: 'Never miss a race',
+      abo_text: 'Pick your sport and radius – we email you new events as soon as they are listed.',
+      abo_knopf: 'Set up email alerts', abo_events: 'Explore events',
       footer_imprint: 'Legal notice', footer_privacy: 'Privacy',
       sport: { Laufen: 'Running', Fahrrad: 'Cycling', Schwimmen: 'Swimming', Triathlon: 'Triathlon' }
     }
@@ -159,19 +179,41 @@
     return d.toLocaleDateString(lang === 'en' ? 'en-GB' : 'de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
   }
 
+  const SPORT_REIHE = ['Laufen', 'Fahrrad', 'Schwimmen', 'Triathlon'];
+  let filter = '';
+  try { const f = new URLSearchParams(location.search).get('sportart'); if (SPORT_REIHE.includes(f)) filter = f; } catch (e) { /* ignorieren */ }
+
+  const tagHtml = (b) => b.sportart
+    ? `<span class="blog-tag ${SPORT_KLASSE[b.sportart] || ''}">${esc(t('sport')[b.sportart] || b.sportart)}</span>` : '';
+
+  // Sportart-Filter nur mit den Sportarten, zu denen es Beiträge gibt –
+  // bei einer einzigen Sportart gibt es nichts zu wählen.
+  function zeichneFilter() {
+    const box = el('blog-filter');
+    const da = SPORT_REIHE.filter(s => beitraege.some(b => b.sportart === s));
+    box.hidden = da.length < 2;
+    box.setAttribute('aria-label', t('filter'));
+    if (box.hidden) { filter = ''; return; }
+    box.innerHTML = ['', ...da].map(s =>
+      `<button type="button" class="blog-chip${s ? ' ' + SPORT_KLASSE[s] : ''}" data-sport="${esc(s)}" aria-pressed="${s === filter}">${esc(s ? (t('sport')[s] || s) : t('alle'))}</button>`).join('');
+  }
+
   function zeichne() {
     const liste = el('blog-liste');
     if (beitraege === null) return;
-    if (!beitraege.length) { liste.innerHTML = `<li class="blog-leer">${esc(t('leer'))}</li>`; return; }
-    liste.innerHTML = beitraege.map(b => `
-      <li class="blog-karte">
+    zeichneFilter();
+    const sicht = beitraege.filter(b => !filter || b.sportart === filter);
+    if (!sicht.length) { liste.innerHTML = `<li class="blog-leer">${esc(t('leer'))}</li>`; return; }
+    // Der neueste Beitrag steht groß oben (Aufmacher), die anderen als Kacheln.
+    liste.innerHTML = sicht.map((b, i) => `
+      <li class="blog-karte${i === 0 ? ' ist-aufmacher' : ''}">
         <a href="blog/${encodeURIComponent(b.slug)}.html">
-          <img src="${esc(b.bild_klein || b.bild)}" alt="${esc(b.bild_alt || '')}" loading="lazy" width="480" height="320">
+          <div class="blog-karte-bild">
+            <img src="${esc(i === 0 ? b.bild : (b.bild_klein || b.bild))}"${i === 0 && b.bild_klein ? ` srcset="${esc(b.bild_klein)} 480w, ${esc(b.bild)} 960w" sizes="(max-width: 900px) 100vw, 640px"` : ''} alt="${esc(b.bild_alt || '')}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} width="960" height="640">
+            ${tagHtml(b)}
+          </div>
           <div class="blog-karte-text">
-            <div class="blog-meta">
-              ${b.sportart ? `<span class="blog-tag ${SPORT_KLASSE[b.sportart] || ''}">${esc(t('sport')[b.sportart] || b.sportart)}</span>` : ''}
-              <span>${esc(datum(b.datum))}</span><span aria-hidden="true">·</span><span>${esc(t('lesezeit', b.lesezeit_min))}</span>
-            </div>
+            <div class="blog-meta"><span>${esc(datum(b.datum))}</span><span aria-hidden="true">·</span><span>${esc(t('lesezeit', b.lesezeit_min))}</span></div>
             <h3>${esc(b.titel)}</h3>
             <p>${esc(b.teaser)}</p>
             <span class="blog-weiter">${esc(t('weiter'))}</span>
@@ -179,6 +221,17 @@
         </a>
       </li>`).join('');
   }
+  el('blog-filter').addEventListener('click', (ev) => {
+    const k = ev.target.closest('.blog-chip');
+    if (!k) return;
+    filter = k.dataset.sport;
+    try {
+      const u = new URL(location.href);
+      if (filter) u.searchParams.set('sportart', filter); else u.searchParams.delete('sportart');
+      history.replaceState(null, '', u);
+    } catch (e) { /* ignorieren */ }
+    zeichne();
+  });
 
   function setLanguage(neu) {
     lang = neu;
@@ -189,7 +242,12 @@
     el('nav-clubs').textContent = t('nav_clubs');
     el('nav-map').textContent = t('nav_map');
     el('nav-blog').textContent = t('nav_blog');
+    el('blog-eyebrow').textContent = t('eyebrow');
     el('blog-intro').textContent = t('intro');
+    el('abo-titel').textContent = t('abo_titel');
+    el('abo-text').textContent = t('abo_text');
+    el('abo-knopf').textContent = t('abo_knopf');
+    el('abo-events').textContent = t('abo_events');
     el('blog-sprache').textContent = t('sprache');
     el('blog-sprache').hidden = !t('sprache');
     el('footer-impressum').textContent = t('footer_imprint');

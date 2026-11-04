@@ -3877,8 +3877,22 @@ alle Blogeinträge.“ Gebaut auf dem Clubs-Branch, geht mit dem Launch live.
   dem Stempeln auf. Erzeugte Seiten nicht von Hand ändern.
 - **Neuer Beitrag**: Eintrag in `blog.json`, Text nach
   `scripts/blog_texte/<slug>.html`, dann `python3 scripts/build_blog.py`.
-  Bilder nur mit freier Lizenz und Namensnennung unter dem Bild; Bildregel
+  Bilder nur mit freier Lizenz und Namensnennung (`bild_nachweis` in
+  `blog.json`, HTML erlaubt – steht unter dem Titelbild; das Bild selbst
+  gehört NICHT in den Text, die Seite setzt es als Titelbild); Bildregel
   des Nutzers (keine Einzelpersonen, keine erkennbaren Gesichter).
+- **Magazin-Aufbau** (04.11.2026, Vorlagen des Nutzers: ahotu Magazin,
+  Spartan Life, STYRKR Hub): Die Übersicht hat einen **Aufmacher** (der
+  neueste Beitrag über die ganze Breite, Bild und Text nebeneinander), die
+  übrigen als Kacheln mit dem Sportart-Etikett AUF dem Bild, darüber
+  **Sportart-Chips** (erst ab zwei Sportarten, `?sportart=` in der Adresse)
+  und darunter ein Navy-Band zum E-Mail-Abo. Der Beitrag beginnt mit dem
+  **Titelbild, Titel darauf** (Verlauf in Navy; bis 900 px steht der Titel
+  unter dem Bild), dann Lead mit Signal-Strich, **Inhaltsverzeichnis** (ab
+  drei Zwischenüberschriften, Anker aus den `h2` des Textes, der
+  Abschlusskasten `beitrag-cta` zählt nicht), Text, **Teilen** (Teilen-
+  Dialog, sonst Link kopieren), **Weitere Beiträge** (bis drei, gleiche
+  Sportart zuerst) und ein dünner **Lesefortschritt** oben am Rand.
 - **Sprache**: Die Beiträge sind deutsch, die Bedienung schaltet DE/EN um;
   `blog.html` sagt auf Englisch, dass die Beiträge deutsch sind.
 - **Statistik**: Beiträge zählen als Seite `blog` (`stats.js`,

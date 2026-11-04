@@ -1,58 +1,110 @@
 /* blog.css – Übersicht (blog.html) und Beiträge (blog/<slug>.html).
    Farben, Schriften und Radien kommen aus site.css (Style Guide des
-   Nutzers); hier steht nur, was der Blog zusätzlich braucht. */
+   Nutzers); hier steht nur, was der Blog zusätzlich braucht.
+   Aufbau seit dem 04.11.2026 nach Magazin-Vorbild (Wunsch des Nutzers,
+   Vorlagen ahotu Magazin, Spartan Life, STYRKR Hub): großer Aufmacher,
+   Sportart-Filter, Kacheln mit Etikett auf dem Bild; im Beitrag ein
+   Titelbild mit Titel darauf, Inhaltsverzeichnis, Lesefortschritt,
+   Teilen und „Weitere Beiträge“. */
 
 .blog-main {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 22px var(--seite-rand) 48px;
+  padding: 22px var(--seite-rand) 56px;
   min-height: calc(100vh - 230px);
+}
+
+/* ---------- Übersicht ---------- */
+.blog-kopf { margin: 6px 0 22px; }
+.blog-eyebrow {
+  margin: 0 0 4px;
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--brand);
 }
 .blog-kopf h2 {
   font-family: var(--font-display);
-  font-size: 2.6rem;
+  font-size: 3.4rem;
   font-weight: 700;
-  line-height: 1.05;
-  margin: 0 0 8px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0 0 10px;
 }
-.blog-kopf p { color: var(--text-muted); font-size: 1.05rem; margin: 0 0 24px; max-width: 46rem; }
-.blog-hinweis-sprache { font-size: 0.9rem; color: var(--text-muted); margin: -12px 0 22px; }
+.blog-kopf p { color: var(--text-muted); font-size: 1.08rem; line-height: 1.55; margin: 0; max-width: 44rem; }
+.blog-kopf .blog-eyebrow { color: var(--brand); font-size: 0.78rem; }
+.blog-hinweis-sprache { font-size: 0.9rem !important; margin-top: 8px !important; }
 
-/* Übersicht: Kacheln */
+.blog-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+.blog-filter[hidden] { display: none; }
+.blog-chip {
+  min-height: 40px; padding: 0 16px;
+  border-radius: 999px; border: 1px solid var(--border);
+  background: var(--panel); color: var(--text);
+  font: 600 0.9rem var(--font-text); cursor: pointer;
+}
+.blog-chip:hover { border-color: var(--border-strong, var(--accent)); }
+.blog-chip[aria-pressed="true"] {
+  background: var(--pill-active-bg); color: var(--pill-active-fg); border-color: var(--pill-active-border, var(--pill-active-bg));
+}
+
 .blog-liste {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 26px 22px;
 }
-.blog-karte {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.15s, transform 0.15s;
-}
-.blog-karte:hover { border-color: var(--border-strong, var(--accent)); transform: translateY(-2px); }
+.blog-karte { display: flex; flex-direction: column; min-width: 0; }
 .blog-karte a { color: inherit; text-decoration: none; display: flex; flex-direction: column; height: 100%; }
-.blog-karte img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; background: var(--panel-2); }
-.blog-karte-text { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-.blog-karte h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; line-height: 1.15; margin: 0; }
-.blog-karte p { margin: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
-.blog-weiter { margin-top: auto; padding-top: 6px; font-weight: 600; font-size: 0.92rem; color: var(--link, var(--accent)); }
+.blog-karte-bild {
+  position: relative; overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--panel-2);
+  aspect-ratio: 3 / 2;
+}
+.blog-karte-bild img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+}
+.blog-karte a:hover .blog-karte-bild img { transform: scale(1.04); }
+.blog-karte-bild .blog-tag { position: absolute; left: 12px; top: 12px; box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18); }
+.blog-karte-text { padding: 14px 2px 0; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.blog-karte h3 {
+  font-family: var(--font-display); font-size: 1.55rem; font-weight: 700; line-height: 1.1; margin: 0;
+}
+.blog-karte a:hover h3 { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; text-decoration-color: var(--brand); }
+.blog-karte p {
+  margin: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.55;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.blog-weiter { margin-top: auto; padding-top: 4px; font-weight: 600; font-size: 0.92rem; color: var(--link, var(--accent)); }
+
+/* Aufmacher: der neueste Beitrag über die ganze Breite, Bild und Text nebeneinander. */
+.blog-karte.ist-aufmacher { grid-column: 1 / -1; }
+.blog-karte.ist-aufmacher a {
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 0;
+  background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-card); overflow: hidden;
+}
+.blog-karte.ist-aufmacher .blog-karte-bild { border-radius: 0; aspect-ratio: auto; min-height: 340px; }
+.blog-karte.ist-aufmacher .blog-karte-text { padding: 30px 32px; justify-content: center; gap: 12px; }
+.blog-karte.ist-aufmacher h3 { font-size: 2.5rem; line-height: 1.02; }
+.blog-karte.ist-aufmacher p { font-size: 1.05rem; -webkit-line-clamp: 5; }
+.blog-karte.ist-aufmacher .blog-weiter {
+  margin-top: 8px; align-self: flex-start;
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px;
+  border-radius: var(--radius-ctl); background: var(--accent); color: var(--on-accent);
+}
 
 .blog-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); }
 .blog-tag {
   display: inline-flex;
   align-items: center;
-  padding: 3px 10px;
+  padding: 4px 10px;
   border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   background: var(--accent-bg);
   color: var(--text);
@@ -63,44 +115,104 @@
 .blog-tag.sport-schwimmen { background: var(--sport-schwimmen-bg); color: var(--sport-schwimmen-fg); }
 .blog-leer { color: var(--text-muted); }
 
-/* Beitrag */
-.beitrag { max-width: 760px; margin: 0 auto; }
+/* Abo-Band unter den Beiträgen: Navy in beiden Schemata (wie die Fußzeile). */
+.blog-abo {
+  margin: 48px 0 0;
+  padding: 30px 32px;
+  border-radius: var(--radius-card);
+  background: var(--footer-bg);
+  color: #fff;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 28px;
+}
+.blog-abo h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.05; margin: 0 0 6px; text-transform: uppercase; }
+.blog-abo p { margin: 0; color: rgba(255, 255, 255, 0.8); max-width: 36rem; line-height: 1.5; }
+.blog-abo-knoepfe { display: flex; flex-wrap: wrap; gap: 10px; }
+.blog-abo .cta-knopf { background: #fff; color: #0b1b33; }
+.blog-abo .cta-knopf.leise { background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, 0.45); }
+
+/* ---------- Beitrag ---------- */
+.lese-fortschritt { position: fixed; left: 0; right: 0; top: 0; height: 3px; z-index: 1500; pointer-events: none; }
+.lese-fortschritt span { display: block; height: 100%; background: var(--brand); transform: scaleX(0); transform-origin: 0 50%; }
+
+.beitrag { margin: 0 auto; }
 .beitrag-zurueck {
-  display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-bottom: 6px;
   color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.92rem;
 }
 .beitrag-zurueck:hover { color: var(--text); }
-.beitrag h1 {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.05;
-  margin: 10px 0 14px;
+
+/* Titelbild mit Titel darauf; der Verlauf hält die Schrift auf jedem Foto lesbar. */
+.beitrag-hero {
+  position: relative; display: grid; overflow: hidden;
+  border-radius: var(--radius-card); background: var(--footer-bg);
+  aspect-ratio: 16 / 7; min-height: 360px;
 }
-.beitrag-lead { font-size: 1.2rem; line-height: 1.55; color: var(--text); margin: 0 0 22px; }
-.beitrag-bild { margin: 0 0 30px; }
-.beitrag-bild img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-card); display: block; }
-.beitrag-bild figcaption { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
-.beitrag-bild figcaption a { color: inherit; }
-.beitrag-text { font-size: 1.04rem; line-height: 1.7; }
+.beitrag-hero > * { grid-area: 1 / 1; }
+.beitrag-hero-bild { width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: 50% 60%; display: block; }
+.beitrag-hero::after {
+  content: ""; grid-area: 1 / 1;
+  background: linear-gradient(180deg, rgba(11, 27, 51, 0) 30%, rgba(11, 27, 51, 0.55) 60%, rgba(11, 27, 51, 0.92) 100%);
+}
+.beitrag-hero-text { position: relative; z-index: 1; align-self: end; padding: 32px 40px 34px; color: #fff; max-width: 900px; }
+.beitrag-hero .blog-meta { color: rgba(255, 255, 255, 0.85); }
+.beitrag-hero h1 {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.02;
+  margin: 12px 0 0;
+  color: #fff;
+  text-wrap: balance;
+}
+.beitrag-hero.ohne-bild { min-height: 0; aspect-ratio: auto; }
+.beitrag-hero.ohne-bild::after { display: none; }
+.beitrag-nachweis { font-size: 0.76rem; color: var(--text-muted); margin: 8px 2px 0; text-align: right; }
+.beitrag-nachweis a { color: inherit; }
+
+.beitrag-spalte { max-width: 740px; margin: 34px auto 0; }
+.beitrag-lead {
+  font-size: 1.3rem; line-height: 1.55; color: var(--text); margin: 0 0 26px;
+  padding-left: 18px; border-left: 4px solid var(--brand);
+}
+
+.beitrag-inhalt {
+  background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-card);
+  padding: 18px 22px; margin: 0 0 30px;
+}
+.beitrag-inhalt h2 {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-muted); margin: 0 0 10px;
+}
+.beitrag-inhalt ol { margin: 0; padding-left: 0; list-style: none; columns: 2; column-gap: 28px; }
+.beitrag-inhalt li { break-inside: avoid; margin: 0; }
+.beitrag-inhalt a {
+  display: block; padding: 7px 0; line-height: 1.35;
+  color: var(--text); text-decoration: none; font-weight: 500; font-size: 0.95rem;
+}
+.beitrag-inhalt a:hover { color: var(--link, var(--accent)); text-decoration: underline; }
+
+.beitrag-text { font-size: 1.06rem; line-height: 1.75; }
 .beitrag-text h2 {
   font-family: var(--font-display);
-  font-size: 1.9rem;
-  font-weight: 600;
-  line-height: 1.15;
-  margin: 38px 0 12px;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 46px 0 14px;
+  scroll-margin-top: 20px;
 }
-.beitrag-text h3 { font-size: 1.1rem; margin: 24px 0 8px; }
-.beitrag-text p { margin: 0 0 16px; }
-.beitrag-text ul, .beitrag-text ol { margin: 0 0 18px; padding-left: 1.3em; }
-.beitrag-text li { margin: 0 0 8px; }
+.beitrag-text h3 { font-size: 1.12rem; margin: 26px 0 8px; }
+.beitrag-text p { margin: 0 0 18px; }
+.beitrag-text ul, .beitrag-text ol { margin: 0 0 20px; padding-left: 1.3em; }
+.beitrag-text li { margin: 0 0 9px; }
+.beitrag-text li::marker { color: var(--brand); }
 .beitrag-text a { color: var(--link, var(--accent)); }
 .beitrag-text strong { font-weight: 600; }
 
-.beitrag-tabelle-huelle { overflow-x: auto; margin: 0 0 18px; }
+.beitrag-tabelle-huelle { overflow-x: auto; margin: 6px 0 22px; border: 1px solid var(--border); border-radius: var(--radius-card); }
 .beitrag-text table { border-collapse: collapse; width: 100%; font-size: 0.95rem; min-width: 520px; }
-.beitrag-text th, .beitrag-text td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-.beitrag-text th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); font-weight: 600; }
+.beitrag-text th, .beitrag-text td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.beitrag-text tbody tr:last-child td { border-bottom: 0; }
+.beitrag-text th { background: var(--panel); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 700; }
 .beitrag-text tr.empfohlen td { background: var(--accent-bg); }
 .beitrag-text td:nth-child(2), .beitrag-text td:nth-child(3), .beitrag-text td:nth-child(4) { white-space: nowrap; }
 
@@ -109,34 +221,68 @@
   border-left: 4px solid var(--brand);
   background: var(--panel);
   border-radius: var(--radius-ctl);
-  padding: 14px 18px;
-  margin: 0 0 20px;
+  padding: 16px 20px;
+  margin: 0 0 22px;
 }
 .beitrag-kasten p:last-child { margin-bottom: 0; }
 
 .beitrag-cta {
-  margin: 40px 0 10px;
-  padding: 24px;
+  margin: 44px 0 10px;
+  padding: 28px 30px;
   border-radius: var(--radius-card);
-  background: var(--panel);
-  border: 1px solid var(--border);
+  background: var(--footer-bg);
+  color: #fff;
 }
-.beitrag-cta h2 { margin-top: 0; }
-.beitrag-cta .cta-knoepfe { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.beitrag-text .beitrag-cta h2 { margin-top: 0; color: #fff; text-transform: uppercase; }
+.beitrag-cta p { color: rgba(255, 255, 255, 0.82); }
+.beitrag-cta .cta-knoepfe { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
 .cta-knopf {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px;
-  border-radius: var(--radius-ctl); font-weight: 600; text-decoration: none;
-  background: var(--accent); color: var(--on-accent);
+  border-radius: var(--radius-ctl); font: 600 0.95rem var(--font-text); text-decoration: none; cursor: pointer;
+  background: var(--accent); color: var(--on-accent); border: 0;
 }
 .cta-knopf.leise { background: transparent; color: var(--text); border: 1px solid var(--border); }
-/* Gewinnt gegen .beitrag-text a (Linkfarbe), sonst stand im Dunkeln
-   helle Schrift auf hellem Knopf. */
-.beitrag-text a.cta-knopf { color: var(--on-accent); text-decoration: none; }
-.beitrag-text a.cta-knopf.leise { color: var(--text); }
+/* Gewinnt gegen .beitrag-text a (Linkfarbe); im Navy-Kasten weiß bzw. Navy. */
+.beitrag-text .beitrag-cta a.cta-knopf { background: #fff; color: #0b1b33; text-decoration: none; }
+.beitrag-text .beitrag-cta a.cta-knopf.leise { background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, 0.45); }
+
+.beitrag-teilen {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px;
+  margin: 30px 0 0; padding: 18px 0 0; border-top: 1px solid var(--border);
+  color: var(--text-muted); font-size: 0.95rem;
+}
+
+.beitrag-weitere { margin: 56px 0 0; padding-top: 30px; border-top: 1px solid var(--border); }
+.beitrag-weitere h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; text-transform: uppercase; margin: 0 0 20px; }
 
 @media (max-width: 900px) {
-  .blog-kopf h2 { font-size: 2.1rem; }
-  .beitrag h1 { font-size: 2.2rem; }
-  .beitrag-lead { font-size: 1.08rem; }
-  .beitrag-text h2 { font-size: 1.6rem; }
+  .blog-kopf h2 { font-size: 2.5rem; }
+  .blog-karte.ist-aufmacher a { grid-template-columns: 1fr; }
+  .blog-karte.ist-aufmacher .blog-karte-bild { min-height: 0; aspect-ratio: 3 / 2; }
+  .blog-karte.ist-aufmacher .blog-karte-text { padding: 18px 18px 22px; }
+  .blog-karte.ist-aufmacher h3 { font-size: 1.9rem; }
+  .blog-abo { padding: 24px 20px; }
+  .blog-abo h2 { font-size: 1.7rem; }
+
+  /* Auf dem Handy steht der Titel UNTER dem Bild – auf 390 px deckte ein
+     zweizeiliger Titel sonst das halbe Foto zu. */
+  .beitrag-hero { min-height: 0; aspect-ratio: auto; background: none; border-radius: 0; overflow: visible; }
+  .beitrag-hero > * { grid-area: auto; }
+  .beitrag-hero::after { display: none; }
+  .beitrag-hero-bild { aspect-ratio: 3 / 2; height: auto; border-radius: var(--radius-card); }
+  .beitrag-hero-text { padding: 16px 0 0; color: var(--text); }
+  .beitrag-hero .blog-meta { color: var(--text-muted); }
+  .beitrag-hero h1 { font-size: 2.3rem; color: var(--text); }
+  .beitrag-hero .blog-meta { order: -1; }
+  .beitrag-nachweis { text-align: left; margin-top: 10px; }
+  .beitrag-spalte { margin-top: 22px; }
+  .beitrag-lead { font-size: 1.12rem; }
+  .beitrag-inhalt ol { columns: 1; }
+  .beitrag-text h2 { font-size: 1.75rem; margin-top: 38px; }
+  .beitrag-cta { padding: 22px 20px; }
 }
+
+/* Im dunklen Schema ist die Seite selbst Navy – die beiden Kästen heben
+   sich dort über die Fläche und eine Linie ab. */
+:root:not([data-theme="light"]) .blog-abo,
+:root:not([data-theme="light"]) .beitrag-cta { background: var(--panel); border: 1px solid var(--border); }
