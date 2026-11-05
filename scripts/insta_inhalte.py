@@ -1288,6 +1288,18 @@ def format_laengste(datum: dt.date, events: list[dict], rng: random.Random) -> d
                     foto_sport=sport or ("Laufen", "Fahrrad")[datum.toordinal() % 2])
 
 
+TOP_FRAGE = {"marathon": "einen Marathon", "trail": "ein Trail-Event", "radmarathon": "einen Radmarathon",
+             "halbmarathon": "einen Halbmarathon", "ultra": "einen Ultra", "triathlon": "einen Triathlon",
+             "gravel": "ein Gravel-Event"}
+
+
+def top_frage(kategorie: str, datum: dt.date) -> str:
+    """Einstiegsfrage des Top-Reels („Suchst du einen Marathon für 2027?",
+    vom Nutzer am 05.11.2026). Ab September gilt schon das nächste Jahr."""
+    jahr = datum.year + 1 if datum.month >= 9 else datum.year
+    return f"Suchst du {TOP_FRAGE.get(kategorie, 'ein Event')} für {jahr}?"
+
+
 def format_top(datum: dt.date, events: list[dict], rng: random.Random,
                grosse: list[dict] | None = None, kategorie: str | None = None,
                anzahl: int | None = None, design: str | None = None) -> dict | None:
@@ -1332,8 +1344,9 @@ def format_top(datum: dt.date, events: list[dict], rng: random.Random,
     else:
         mitte = [*top_folien(basis, anzahl), dict(basis, aktiv=None, schluss="Wo bist du dabei?")]
     folien = [
-        {"typ": "hook", "ueber": "Nach Teilnehmenden", "zahl": str(anzahl),
-         "titel": f"DIE GRÖSSTEN {name.upper()}", "zeilen": ["Deutschland · Österreich · Schweiz · Südtirol"]},
+        {"typ": "hook", "frage": top_frage(schluessel, datum), "ueber": "Nach Teilnehmenden",
+         "zahl": str(anzahl), "titel": f"DIE GRÖSSTEN {name.upper()}",
+         "zeilen": ["Deutschland · Österreich · Schweiz · Südtirol"]},
         *mitte,
         cta_folie("Check it out!", f"Alle {name} mit Termin", SEITE, "Link in der Bio"),
     ]

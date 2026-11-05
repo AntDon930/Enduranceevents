@@ -5432,6 +5432,12 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Planung im Pages-Workflow hat kein Pillow; dafür auch
   `insta_logos.hat_logo()` statt `logo_bild()` in der Planung). Nur über
   Sonderplan/Parameter, nicht in der Rotation; am 08.11.2026 im Sonderplan.
+  **Seit dem 05.11.2026 beginnt jedes Top-Reel mit einer Frage** („Suchst du
+  einen Marathon für 2027?“, `top_frage()`/`TOP_FRAGE`, ab September das
+  nächste Jahr; Feld `frage` der Hook-Folie, oben über der Pille), und
+  kleine Zahlen bis 20 zählen im Hook Schritt für Schritt ab 1 (`hochgezaehlt`,
+  ab dem ersten Bild ohne den Vorsprung der ersten Folie – vorher begann
+  „5“ bei „4“).
 - **Zwei Formate dazu (27.10.2026)**: **`jahr`** („Dein Rennjahr": je
   Monat der nächsten zwölf das größte Event, geprüftes Logo vor ohne,
   Monatsfolien `blitz` im Takt ohne Wisch, Übersicht 3 × 4, mindestens zehn

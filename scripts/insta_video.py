@@ -282,7 +282,12 @@ def hochgezaehlt(text: str, fortschritt: float) -> str:
         ziel = int(roh.replace(".", ""))
     except ValueError:
         return text
-    wert = int(round(ziel * (1 - (1 - max(0.0, fortschritt)) ** 3)))
+    if 0 < ziel <= 20:
+        # kleine Zahlen zählen Schritt für Schritt ab 1 („1, 2, 3, 4, 5" –
+        # vom Nutzer am 05.11.2026: „von 1 auf 5 zählen schnell")
+        wert = min(ziel, 1 + int(max(0.0, fortschritt) * ziel))
+    else:
+        wert = int(round(ziel * (1 - (1 - max(0.0, fortschritt)) ** 3)))
     neu = f"{wert:,}".replace(",", ".") if "." in roh else str(wert)
     return text[:m.start()] + neu + text[m.start() + len(roh):]
 
@@ -330,6 +335,13 @@ def folie_bild(folie: dict, sport: str | None, fortschritt: float = 1.0) -> Imag
 
     elif typ == "hook":
         y = 470
+        if folie.get("frage"):
+            # Einstiegsfrage über allem („Suchst du einen Marathon für 2027?")
+            zeilen_f = umbrechen(ohne_emoji(folie["frage"]), kondensiert(84), TEXT_BREITE, 2)
+            yf = 410 - len(zeilen_f) * 86
+            for z in zeilen_f:
+                d.text((RAND_X, yf), z, font=kondensiert(84), fill=WEISS)
+                yf += 86
         if folie.get("ueber"):
             _, h = pille(d, RAND_X, y, ohne_emoji(folie["ueber"]).upper(), kondensiert(42, False), SIGNAL)
             y += h + 30
@@ -1936,8 +1948,10 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
                     fb = folien_bilder[k]
                     if f.get("typ") in ANIMIERT:
                         fb = mit_schatten(folie_bild(f, sport, min(1.0, (t - s) / max(0.01, e - s))))
-                    elif f.get("typ") == "hook" and str(f.get("zahl", "")).strip() and u < ZAEHLEN:
-                        fb = mit_schatten(folie_bild(f, sport, u / ZAEHLEN))
+                    elif f.get("typ") == "hook" and str(f.get("zahl", "")).strip() and t - s < ZAEHLEN:
+                        # gezählt wird ab dem ersten Bild, ohne den Vorsprung
+                        # der ersten Folie (sonst begann „5" bei „4")
+                        fb = mit_schatten(folie_bild(f, sport, (t - s) / ZAEHLEN))
                     else:
                         fb = gestaffelt(fb, folien_baender[k], u, schnell=f.get("typ") == "logo" or f.get("blitz"),
                                         art=einstieg)
