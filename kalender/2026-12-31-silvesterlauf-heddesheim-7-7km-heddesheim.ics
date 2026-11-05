@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-heddesheim-7-7km-heddesheim@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Heddesheim – Heddesheimer Meile\, 7\,7 km
+LOCATION:Heddesheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://heddesheimer
+ -sl.iwebfree.de/
+TRANSP:TRANSPARENT
+URL:https://heddesheimer-sl.iwebfree.de/
+END:VEVENT
+END:VCALENDAR

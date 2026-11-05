@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-uderslebener-waldlauf-16-4km-bad-frankenhausen-kyffhauser@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Uderslebener Waldlauf – 16\,4 km Laufstrecke\, Startgeld 12€\, Tei
+ lnahme ab 16 Jahre
+LOCATION:Bad Frankenhausen/Kyffhäuser\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16.4 km\nhttps://runtix.com/
+ sts/10021/3226
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3226
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-runschnellweg-essen-mulheim-21-1km-essen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Runschnellweg Essen - Mülheim – 21\,1 km Halbmarathon
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.runschn
+ ellweg.de
+TRANSP:TRANSPARENT
+URL:https://www.runschnellweg.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-int-raiffeisen-osterreich-grand-prix-uci-xco-c1-x-windhaag-
+ bei-perg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Int. Raiffeisen Österreich Grand Prix UCI XCO C1 – Cross-Country
+LOCATION:Windhaag bei Perg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.mtb-wi
+ ndhaag.com
+TRANSP:TRANSPARENT
+URL:https://www.mtb-windhaag.com
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-02-shelter-attack-600km-flensburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270902
+DTEND;VALUE=DATE:20270906
+SUMMARY:Shelter Attack – Gravel 600 km
+LOCATION:Flensburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 600 km\nhttps://hackenpedde
+ r-bikepacking.de/shelter-attack/
+TRANSP:TRANSPARENT
+URL:https://hackenpedder-bikepacking.de/shelter-attack/
+END:VEVENT
+END:VCALENDAR

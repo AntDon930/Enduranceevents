@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-alten-busecker-winterlaufserie-15km-buseck-alten-buseck@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:Alten-Busecker Winterlaufserie – 15 km Hauptlauf
+LOCATION:Buseck/Alten-Buseck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.tsg-alten
+ -buseck.com
+TRANSP:TRANSPARENT
+URL:https://www.tsg-alten-buseck.com
+END:VEVENT
+END:VCALENDAR

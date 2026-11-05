@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-brechener-strassenlauf-5km-brechen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Brechener Straßenlauf – 5 km Lauf\, Jahrgang 2015 und älter\, 7\,0
+ 0 €
+LOCATION:Brechen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.lgbrechen.
+ de/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://www.lgbrechen.de/ausschreibung/
+END:VEVENT
+END:VCALENDAR

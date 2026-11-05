@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-engteraner-wadenkneifer-ctf-77km-bramsche@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Engteraner Wadenkneifer CTF – CTF 77 km
+LOCATION:Bramsche\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 77 km\nhttps://www.wa
+ denkneifer-tusengter.de/veranst/
+TRANSP:TRANSPARENT
+URL:https://www.wadenkneifer-tusengter.de/veranst/
+END:VEVENT
+END:VCALENDAR

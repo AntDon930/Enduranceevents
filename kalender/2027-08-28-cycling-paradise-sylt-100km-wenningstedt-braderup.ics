@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-cycling-paradise-sylt-100km-wenningstedt-braderup@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Cycling Paradise Sylt – RTF 100 km
+LOCATION:Wenningstedt-Braderup\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 100 km\nhttps://cycling-par
+ adise.com
+TRANSP:TRANSPARENT
+URL:https://cycling-paradise.com
+END:VEVENT
+END:VCALENDAR

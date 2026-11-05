@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-herbolzheimer-dreikonigslauf-10km-neudenau@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Herbolzheimer Dreikönigslauf
+LOCATION:Neudenau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.gaenslauf
+ .de/gl-dreikoenigslauf.html
+TRANSP:TRANSPARENT
+URL:https://www.gaenslauf.de/gl-dreikoenigslauf.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-gravelissimo-100km-walsrode@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Gravelissimo – Gravel Tour 100 km
+LOCATION:Walsrode\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 100 km\nhttps://gravelissim
+ o.de/
+TRANSP:TRANSPARENT
+URL:https://gravelissimo.de/
+END:VEVENT
+END:VCALENDAR

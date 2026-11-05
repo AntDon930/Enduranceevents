@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-zistathlon-weinviertler-raiffeisen-laufcup-x-zistersdorf-im
+ -weinviertel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Zistathlon (Weinviertler Raiffeisen Laufcup)
+LOCATION:Zistersdorf im Weinviertel\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.weinviertlerl
+ aufcup.at/events/zistersdorf-22-05-2027/
+TRANSP:TRANSPARENT
+URL:https://www.weinviertlerlaufcup.at/events/zistersdorf-22-05-2027/
+END:VEVENT
+END:VCALENDAR

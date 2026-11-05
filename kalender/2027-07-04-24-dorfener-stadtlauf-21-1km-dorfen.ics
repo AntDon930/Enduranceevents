@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-24-dorfener-stadtlauf-21-1km-dorfen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:24. Dorfener Stadtlauf
+LOCATION:Dorfen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.foerderk
+ reis-dorfen.de/
+TRANSP:TRANSPARENT
+URL:http://www.foerderkreis-dorfen.de/
+END:VEVENT
+END:VCALENDAR

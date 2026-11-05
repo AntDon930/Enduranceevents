@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-22-gorch-fock-lauf-wilhelmshaven-42-2km-wilhelmshaven@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:22. Gorch-Fock-Lauf Wilhelmshaven
+LOCATION:Wilhelmshaven\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.gorch-fo
+ ck-lauf.de
+TRANSP:TRANSPARENT
+URL:http://www.gorch-fock-lauf.de
+END:VEVENT
+END:VCALENDAR

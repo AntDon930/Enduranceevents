@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-29-steiralauf-in-bad-mitterndorf-10km-bad-mitterndorf@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270131
+SUMMARY:Steiralauf in Bad Mitterndorf
+LOCATION:Bad Mitterndorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.steiralau
+ f.at
+TRANSP:TRANSPARENT
+URL:https://www.steiralauf.at
+END:VEVENT
+END:VCALENDAR

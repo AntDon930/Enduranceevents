@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-hiking-loop-munchen-5km-regattastrecke-oberschleissheim@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270308
+SUMMARY:Hiking Loop München
+LOCATION:Regattastrecke Oberschleißheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 5 km\nhttps://www.hiking-loo
+ p.de/muenchen
+TRANSP:TRANSPARENT
+URL:https://www.hiking-loop.de/muenchen
+END:VEVENT
+END:VCALENDAR

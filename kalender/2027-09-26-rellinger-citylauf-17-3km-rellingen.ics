@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-26-rellinger-citylauf-17-3km-rellingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:Rellinger Citylauf – 17\,3 Kilometer City-Walk\, ausgeschildert un
+ d GPS vermessen
+LOCATION:Rellingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17.3 km\nhttps://sport-relli
+ ngen.de/rellinger-citylauf/
+TRANSP:TRANSPARENT
+URL:https://sport-rellingen.de/rellinger-citylauf/
+END:VEVENT
+END:VCALENDAR

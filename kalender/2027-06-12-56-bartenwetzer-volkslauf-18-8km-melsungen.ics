@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-56-bartenwetzer-volkslauf-18-8km-melsungen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:56. Bartenwetzer Volkslauf
+LOCATION:Melsungen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18.8 km\nhttp://lauftreff-me
+ lsungen.de
+TRANSP:TRANSPARENT
+URL:http://lauftreff-melsungen.de
+END:VEVENT
+END:VCALENDAR

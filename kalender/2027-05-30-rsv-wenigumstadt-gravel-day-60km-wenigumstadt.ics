@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-rsv-wenigumstadt-gravel-day-60km-wenigumstadt@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:RSV Wenigumstadt Gravel Day – Gravel Tour 60 km
+LOCATION:Wenigumstadt\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 60 km\nhttps://rsv-wenigums
+ tadt.de/radsportwochenende/gravel-tour
+TRANSP:TRANSPARENT
+URL:https://rsv-wenigumstadt.de/radsportwochenende/gravel-tour
+END:VEVENT
+END:VCALENDAR

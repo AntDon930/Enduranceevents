@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-crosslaufserie-oberschwaben-blitzenreute-7-5km-wolpertswend
+ e@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Crosslaufserie Oberschwaben - Blitzenreute – 7\,5 km Hauptlauf
+LOCATION:Wolpertswende\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.5 km\nhttps://www.crosslauf
+ serie-oberschwaben.de/veranstaltungsorte/06-12-2026-blitzenreute/
+TRANSP:TRANSPARENT
+URL:https://www.crosslaufserie-oberschwaben.de/veranstaltungsorte/06-12-20
+ 26-blitzenreute/
+END:VEVENT
+END:VCALENDAR

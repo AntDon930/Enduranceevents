@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-sandkruger-schleife-5km-hatten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Sandkruger Schleife – Bruno-Lauf 5 km
+LOCATION:Hatten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://sandkruger-sch
+ leife.de/
+TRANSP:TRANSPARENT
+URL:https://sandkruger-schleife.de/
+END:VEVENT
+END:VCALENDAR

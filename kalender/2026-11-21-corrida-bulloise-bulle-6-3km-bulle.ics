@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-corrida-bulloise-bulle-6-3km-bulle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Corrida Bulloise\, Bulle – Course 6.1km
+LOCATION:Bulle\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.3 km\nhttps://www.corrida-
+ bulloise.ch/home
+TRANSP:TRANSPARENT
+URL:https://www.corrida-bulloise.ch/home
+END:VEVENT
+END:VCALENDAR

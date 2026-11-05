@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-13-madrisa-trail-klosters-presented-by-lowa-11km-klosters@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270813
+DTEND;VALUE=DATE:20270814
+SUMMARY:MADRISA TRAIL KLOSTERS presented by LOWA – T11 Trail 11 km
+LOCATION:Klosters\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11 km\nhttp://www.madrisatrai
+ l.ch/
+TRANSP:TRANSPARENT
+URL:http://www.madrisatrail.ch/
+END:VEVENT
+END:VCALENDAR

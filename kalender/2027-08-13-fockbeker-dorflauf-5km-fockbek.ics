@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-13-fockbeker-dorflauf-5km-fockbek@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270813
+DTEND;VALUE=DATE:20270814
+SUMMARY:Fockbeker Dorflauf
+LOCATION:Fockbek\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://sv-fockbek.de/
+ dorflauf/
+TRANSP:TRANSPARENT
+URL:https://sv-fockbek.de/dorflauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-25-schkolener-stadtparklauf-5km-schkolen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:25. Schkölener Stadtparklauf
+LOCATION:Schkölen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ssv-fsg.hpage.
+ com/25schkoelener-stadtparklauf.html
+TRANSP:TRANSPARENT
+URL:https://ssv-fsg.hpage.com/25schkoelener-stadtparklauf.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-darmstadter-crossrennen-x-darmstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Darmstädter Crossrennen – Cyclocross
+LOCATION:Darmstadt\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttp://www.vc-racing
+ team.de/
+TRANSP:TRANSPARENT
+URL:http://www.vc-racingteam.de/
+END:VEVENT
+END:VCALENDAR

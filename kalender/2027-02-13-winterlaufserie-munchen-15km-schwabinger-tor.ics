@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-13-winterlaufserie-munchen-15km-schwabinger-tor@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:Winterlaufserie München
+LOCATION:Schwabinger Tor\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://laufwinter.de
+ /
+TRANSP:TRANSPARENT
+URL:https://laufwinter.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-coupe-du-vignoble-8km-cortaillod@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Coupe du Vignoble
+LOCATION:Cortaillod\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://sportchrono.ch
+ /events.php?id=1261
+TRANSP:TRANSPARENT
+URL:https://sportchrono.ch/events.php?id=1261
+END:VEVENT
+END:VCALENDAR

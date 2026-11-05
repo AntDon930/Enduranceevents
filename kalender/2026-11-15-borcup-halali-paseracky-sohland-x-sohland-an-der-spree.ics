@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-borcup-halali-paseracky-sohland-x-sohland-an-der-spree@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:BORcup HALALI pašerácký - Sohland
+LOCATION:Sohland an der Spree\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://oris.ceskyorienta
+ k.cz/Zavod?id=10386
+TRANSP:TRANSPARENT
+URL:https://oris.ceskyorientak.cz/Zavod?id=10386
+END:VEVENT
+END:VCALENDAR

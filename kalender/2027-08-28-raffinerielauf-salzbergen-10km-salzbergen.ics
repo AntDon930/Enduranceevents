@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-raffinerielauf-salzbergen-10km-salzbergen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Raffinerielauf Salzbergen – 10 km Hauptlauf (ab 16 Jahren)\, Teamw
+ ertung
+LOCATION:Salzbergen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sva-salzb
+ ergen.de/sportarten/raffinerielauf/
+TRANSP:TRANSPARENT
+URL:https://www.sva-salzbergen.de/sportarten/raffinerielauf/
+END:VEVENT
+END:VCALENDAR

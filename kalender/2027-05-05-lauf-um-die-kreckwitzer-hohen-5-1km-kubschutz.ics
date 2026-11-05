@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-lauf-um-die-kreckwitzer-hohen-5-1km-kubschutz@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:Lauf um die Kreckwitzer Höhen
+LOCATION:Kubschütz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.1 km\nhttps://baer-service
+ .de/veranstaltung/KRE/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/KRE/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-nikolauslauf-immenstadt-10km-immenstadt-im-allgau@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Nikolauslauf Immenstadt
+LOCATION:Immenstadt im Allgäu\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://tvimmenstadt-
+ triathlon.de/aktuelles/NIkOLAUSLAUF_2026.php
+TRANSP:TRANSPARENT
+URL:https://tvimmenstadt-triathlon.de/aktuelles/NIkOLAUSLAUF_2026.php
+END:VEVENT
+END:VCALENDAR

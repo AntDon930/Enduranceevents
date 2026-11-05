@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-pobershauer-schwarzwassertallauf-5km-marienberg@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Pobershauer Schwarzwassertallauf
+LOCATION:Marienberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.trans-miri
+ quidi.de/modx/schwarzwassertallauf.html
+TRANSP:TRANSPARENT
+URL:https://www.trans-miriquidi.de/modx/schwarzwassertallauf.html
+END:VEVENT
+END:VCALENDAR

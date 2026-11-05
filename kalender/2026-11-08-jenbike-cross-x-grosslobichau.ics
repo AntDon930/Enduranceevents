@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-jenbike-cross-x-grosslobichau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Jenbike Cross – Cyclocross
+LOCATION:Großlöbichau\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.radclub-
+ jena.de
+TRANSP:TRANSPARENT
+URL:https://www.radclub-jena.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-3-gravelman-quick-dirty-26km-offenbach-am-main@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:3. GravelMan - Quick & Dirty
+LOCATION:Offenbach am Main\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 26 km\nhttps://www.gravel
+ man.de/
+TRANSP:TRANSPARENT
+URL:https://www.gravelman.de/
+END:VEVENT
+END:VCALENDAR

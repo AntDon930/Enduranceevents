@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-black-forest-ultra-gravel-120km-kirchzarten@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270726
+SUMMARY:Black Forest Ultra Gravel – Gravel 120 km
+LOCATION:Kirchzarten\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 120 km\nhttps://ultra-bike.
+ de
+TRANSP:TRANSPARENT
+URL:https://ultra-bike.de
+END:VEVENT
+END:VCALENDAR

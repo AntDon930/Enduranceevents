@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-lodrino-lavertezzo-21-1km-riviera@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270607
+SUMMARY:Lodrino - Lavertezzo – Halbmarathon
+LOCATION:Riviera\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://lodrino-lav
+ ertezzo.ch/
+TRANSP:TRANSPARENT
+URL:https://lodrino-lavertezzo.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-fischland-darss-zingst-ultramarathon-100km-ribnitz-damgarte
+ n@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Fischland-Darss-Zingst-Ultramarathon
+LOCATION:Ribnitz-Damgarten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://www.fischlan
+ d-darss-zingst-ultramarathon.eu
+TRANSP:TRANSPARENT
+URL:https://www.fischland-darss-zingst-ultramarathon.eu
+END:VEVENT
+END:VCALENDAR

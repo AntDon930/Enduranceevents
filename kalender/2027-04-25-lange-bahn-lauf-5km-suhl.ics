@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-lange-bahn-lauf-5km-suhl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Lange-Bahn-Lauf – 5 km Jugend und Einsteigerlauf
+LOCATION:Suhl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 5 km\nhttps://www.lange-bahn-l
+ auf.de/
+TRANSP:TRANSPARENT
+URL:https://www.lange-bahn-lauf.de/
+END:VEVENT
+END:VCALENDAR

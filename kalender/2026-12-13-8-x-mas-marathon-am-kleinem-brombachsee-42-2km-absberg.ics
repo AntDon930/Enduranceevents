@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-8-x-mas-marathon-am-kleinem-brombachsee-42-2km-absberg@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:8. X-MAS Marathon am kleinem Brombachsee
+LOCATION:Absberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://seenland-ev
+ ents.com
+TRANSP:TRANSPARENT
+URL:https://seenland-events.com
+END:VEVENT
+END:VCALENDAR

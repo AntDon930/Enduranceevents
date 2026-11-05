@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-churfranken-triathlon-51-5km-niedernberg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Churfranken Triathlon – Olympisch 51\,5 km (1\,5 km Schwimmen / 40
+  km Rad / 10 km Laufen)
+LOCATION:Niedernberg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://www.trip
+ aul.de/tri
+TRANSP:TRANSPARENT
+URL:https://www.tripaul.de/tri
+END:VEVENT
+END:VCALENDAR

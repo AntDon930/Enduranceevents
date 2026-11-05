@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-horster-waldlauf-im-naturpark-teutoburger-wald-21km-lage@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Hörster Waldlauf im Naturpark Teutoburger Wald
+LOCATION:Lage\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://tglage.de/
+TRANSP:TRANSPARENT
+URL:https://tglage.de/
+END:VEVENT
+END:VCALENDAR

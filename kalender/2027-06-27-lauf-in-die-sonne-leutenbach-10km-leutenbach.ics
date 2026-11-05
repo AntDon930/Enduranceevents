@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-lauf-in-die-sonne-leutenbach-10km-leutenbach@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Lauf in die Sonne - Leutenbach
+LOCATION:Leutenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lauf-in-d
+ ie-sonne.de/index.php
+TRANSP:TRANSPARENT
+URL:https://www.lauf-in-die-sonne.de/index.php
+END:VEVENT
+END:VCALENDAR

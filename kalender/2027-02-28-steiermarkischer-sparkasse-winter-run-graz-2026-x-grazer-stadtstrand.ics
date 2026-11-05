@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-steiermarkischer-sparkasse-winter-run-graz-2026-x-grazer-st
+ adtstrand@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:"Steiermärkischer Sparkasse" Winter Run Graz 2026/27 (3. Lauf)
+LOCATION:Grazer Stadtstrand\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.graz-winterru
+ n.at
+TRANSP:TRANSPARENT
+URL:https://www.graz-winterrun.at
+END:VEVENT
+END:VCALENDAR

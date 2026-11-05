@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-21-bokeler-windmuhlenlauf-10km-bokel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270724
+SUMMARY:21. Bokeler Windmühlenlauf
+LOCATION:Bokel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.windmuehle
+ nlauf.de/
+TRANSP:TRANSPARENT
+URL:http://www.windmuehlenlauf.de/
+END:VEVENT
+END:VCALENDAR

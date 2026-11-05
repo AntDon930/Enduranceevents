@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-the-majestics-gravel-110km-aigle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:The Majestics Gravel – Gravel Race 110 km
+LOCATION:Aigle\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 110 km\nhttps://themajestic
+ s.ch/uci-gravel-world-series/
+TRANSP:TRANSPARENT
+URL:https://themajestics.ch/uci-gravel-world-series/
+END:VEVENT
+END:VCALENDAR

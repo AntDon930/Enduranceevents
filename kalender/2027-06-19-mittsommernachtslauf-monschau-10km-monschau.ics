@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-mittsommernachtslauf-monschau-10km-monschau@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Mittsommernachtslauf Monschau – 10 km Lauf und 10 km Walk
+LOCATION:Monschau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://belgenbachtra
+ il.de/mittsommernachtslauf/
+TRANSP:TRANSPARENT
+URL:https://belgenbachtrail.de/mittsommernachtslauf/
+END:VEVENT
+END:VCALENDAR

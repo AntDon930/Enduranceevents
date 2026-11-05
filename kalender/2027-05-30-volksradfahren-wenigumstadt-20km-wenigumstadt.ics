@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-volksradfahren-wenigumstadt-20km-wenigumstadt@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Volksradfahren Wenigumstadt – Volksradfahren 20 km
+LOCATION:Wenigumstadt\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 20 km\nhttps://rsv-wenigums
+ tadt.de/radsportwochenende/volksradfahren
+TRANSP:TRANSPARENT
+URL:https://rsv-wenigumstadt.de/radsportwochenende/volksradfahren
+END:VEVENT
+END:VCALENDAR

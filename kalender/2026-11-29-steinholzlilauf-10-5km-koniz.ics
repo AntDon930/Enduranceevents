@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-steinholzlilauf-10-5km-koniz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Steinhölzlilauf
+LOCATION:Köniz\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://www.steinho
+ elzlilauf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.steinhoelzlilauf.ch/
+END:VEVENT
+END:VCALENDAR

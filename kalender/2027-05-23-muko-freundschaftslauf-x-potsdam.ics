@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-muko-freundschaftslauf-x-potsdam@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Muko-Freundschaftslauf
+LOCATION:Potsdam\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://muko-berlin-brand
+ enburg.de/muko-freundschaftslauf/
+TRANSP:TRANSPARENT
+URL:https://muko-berlin-brandenburg.de/muko-freundschaftslauf/
+END:VEVENT
+END:VCALENDAR

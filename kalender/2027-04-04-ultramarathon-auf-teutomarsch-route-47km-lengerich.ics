@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-ultramarathon-auf-teutomarsch-route-47km-lengerich@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Ultramarathon auf Teutomarsch-Route
+LOCATION:Lengerich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 47 km\nhttps://my.raceresult
+ .com/431549/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/431549/
+END:VEVENT
+END:VCALENDAR

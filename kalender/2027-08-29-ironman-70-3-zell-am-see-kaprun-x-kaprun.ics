@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-ironman-70-3-zell-am-see-kaprun-x-kaprun@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Ironman 70.3 Zell am See-Kaprun – Mitteldistanz (Termin vorläufig)
+LOCATION:Kaprun\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Straße\nLänge: -\nhttps://www.ironman.com/im703-zell-am-see
+TRANSP:TRANSPARENT
+URL:https://www.ironman.com/im703-zell-am-see
+END:VEVENT
+END:VCALENDAR

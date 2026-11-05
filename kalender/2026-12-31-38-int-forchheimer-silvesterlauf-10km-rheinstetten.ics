@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-38-int-forchheimer-silvesterlauf-10km-rheinstetten@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:38. Int. Forchheimer Silvesterlauf
+LOCATION:Rheinstetten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sportfreu
+ nde-forchheim.de/
+TRANSP:TRANSPARENT
+URL:https://www.sportfreunde-forchheim.de/
+END:VEVENT
+END:VCALENDAR

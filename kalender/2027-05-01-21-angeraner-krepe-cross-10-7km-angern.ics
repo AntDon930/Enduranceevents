@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-21-angeraner-krepe-cross-10-7km-angern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:21. Angeraner Krepe - Cross
+LOCATION:Angern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.7 km\nhttp://www.svangern.
+ de
+TRANSP:TRANSPARENT
+URL:http://www.svangern.de
+END:VEVENT
+END:VCALENDAR

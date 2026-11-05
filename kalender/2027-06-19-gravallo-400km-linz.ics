@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-gravallo-400km-linz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Gravallo – Bikepacking 400 km
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 400 km\nhttps://www.gravall
+ o.bike
+TRANSP:TRANSPARENT
+URL:https://www.gravallo.bike
+END:VEVENT
+END:VCALENDAR

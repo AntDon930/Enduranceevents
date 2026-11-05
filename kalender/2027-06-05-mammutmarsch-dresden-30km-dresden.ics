@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-mammutmarsch-dresden-30km-dresden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Mammutmarsch Dresden
+LOCATION:Dresden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 30 km\nhttps://mammutmarsch.
+ de/events/mammutmarsch-dresden
+TRANSP:TRANSPARENT
+URL:https://mammutmarsch.de/events/mammutmarsch-dresden
+END:VEVENT
+END:VCALENDAR

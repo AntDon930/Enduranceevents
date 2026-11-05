@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-18-schauinslandkonig-bergzeitfahren-11-5km-freiburg-im-breisga
+ u@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:Schauinslandkönig Bergzeitfahren – Zeitfahren 11.5 km
+LOCATION:Freiburg im Breisgau\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 11.5 km\nhttps://www.sc
+ hauinslandkoenig.de
+TRANSP:TRANSPARENT
+URL:https://www.schauinslandkoenig.de
+END:VEVENT
+END:VCALENDAR

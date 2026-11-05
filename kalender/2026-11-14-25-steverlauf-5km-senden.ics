@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-25-steverlauf-5km-senden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:25. Steverlauf
+LOCATION:Senden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.asv-senden
+ .de/steverlauf/
+TRANSP:TRANSPARENT
+URL:https://www.asv-senden.de/steverlauf/
+END:VEVENT
+END:VCALENDAR

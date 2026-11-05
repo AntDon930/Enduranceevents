@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-tegernsee-triathlon-x-gmund-am-tegernsee@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Tegernsee Triathlon – Sprint
+LOCATION:Gmund am Tegernsee\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://tegernsee-tria
+ thlon.de/
+TRANSP:TRANSPARENT
+URL:https://tegernsee-triathlon.de/
+END:VEVENT
+END:VCALENDAR

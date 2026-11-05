@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-volkslauf-durch-den-sportpark-koblenz-x-koblenz@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:Volkslauf durch den Sportpark Koblenz
+LOCATION:Koblenz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.meddys-lwt.de
+ /de/news-events/volkslauf/
+TRANSP:TRANSPARENT
+URL:https://www.meddys-lwt.de/de/news-events/volkslauf/
+END:VEVENT
+END:VCALENDAR

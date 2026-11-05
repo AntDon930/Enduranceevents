@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-10-ipsheimer-weinberglauf-5-8km-ipsheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270910
+DTEND;VALUE=DATE:20270911
+SUMMARY:Ipsheimer Weinberglauf – Hauptlauf etwa 5800 m
+LOCATION:Ipsheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.8 km\nhttps://www.tsv-ipshe
+ im.de/weinberglauf/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-ipsheim.de/weinberglauf/
+END:VEVENT
+END:VCALENDAR

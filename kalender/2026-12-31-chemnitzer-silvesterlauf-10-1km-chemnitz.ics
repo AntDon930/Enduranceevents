@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-chemnitzer-silvesterlauf-10-1km-chemnitz@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Chemnitzer Silvesterlauf
+LOCATION:Chemnitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.1 km\nhttps://www.triathlo
+ nchemnitz.de/veranstaltungen/silvesterlauf/
+TRANSP:TRANSPARENT
+URL:https://www.triathlonchemnitz.de/veranstaltungen/silvesterlauf/
+END:VEVENT
+END:VCALENDAR

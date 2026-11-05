@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-zkb-zurilauf-cup-11-5km-zurich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:ZKB Zürilauf Cup – Ränn de Uetliberg 2026
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.5 km\nhttps://www.zuerila
+ ufcup.ch/12-laeufe/raenn_de_uetliberg
+TRANSP:TRANSPARENT
+URL:https://www.zuerilaufcup.ch/12-laeufe/raenn_de_uetliberg
+END:VEVENT
+END:VCALENDAR

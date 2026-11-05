@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-remsecker-waldlauf-5km-remseck-am-neckar@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Remsecker Waldlauf
+LOCATION:Remseck am Neckar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://remsecker-wald
+ lauf.de/
+TRANSP:TRANSPARENT
+URL:https://remsecker-waldlauf.de/
+END:VEVENT
+END:VCALENDAR

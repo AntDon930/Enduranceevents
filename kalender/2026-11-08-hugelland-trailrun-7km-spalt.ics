@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-hugelland-trailrun-7km-spalt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Hügelland Trailrun
+LOCATION:Spalt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://huegelland.tsv-
+ katzwang-ultrasport.de/
+TRANSP:TRANSPARENT
+URL:https://huegelland.tsv-katzwang-ultrasport.de/
+END:VEVENT
+END:VCALENDAR

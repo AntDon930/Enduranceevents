@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-20-24h-bedburg-24h-bedburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261122
+SUMMARY:24h Bedburg
+LOCATION:Bedburg\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 24 h\nhttps://bedburg.dlr
+ g.de/24-stunden-schwimmen/
+TRANSP:TRANSPARENT
+URL:https://bedburg.dlrg.de/24-stunden-schwimmen/
+END:VEVENT
+END:VCALENDAR

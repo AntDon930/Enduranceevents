@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-10-world-games-of-mountainbiking-saalbach-80km-saalbach-hinter
+ glemm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270910
+DTEND;VALUE=DATE:20270913
+SUMMARY:World Games of Mountainbiking Saalbach – Radmarathon 80 km
+LOCATION:Saalbach-Hinterglemm\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 80 km\nhttps://www.saalbach
+ .com/en/events/worldgames
+TRANSP:TRANSPARENT
+URL:https://www.saalbach.com/en/events/worldgames
+END:VEVENT
+END:VCALENDAR

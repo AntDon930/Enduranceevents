@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-19-german-cycling-vrtf-20-90km-frankfurt-main@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+SUMMARY:German Cycling vRTF #20 – RTF 90 km
+LOCATION:Frankfurt/Main\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 90 km\nhttps://t1p.de/vRTF2
+ 0
+TRANSP:TRANSPARENT
+URL:https://t1p.de/vRTF20
+END:VEVENT
+END:VCALENDAR

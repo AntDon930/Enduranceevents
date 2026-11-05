@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-crosslauf-am-rodelberg-8-5km-pinneberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Crosslauf am Rodelberg – Langstrecke ca. 8.500 m
+LOCATION:Pinneberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.5 km\nhttps://www.vfl-pinne
+ berg.de/de/aktuelles/aktuelles/crosslauf/?returnToListName=News_Newsroom_
+ de&returnToListPage=1
+TRANSP:TRANSPARENT
+URL:https://www.vfl-pinneberg.de/de/aktuelles/aktuelles/crosslauf/?returnT
+ oListName=News_Newsroom_de&returnToListPage=1
+END:VEVENT
+END:VCALENDAR

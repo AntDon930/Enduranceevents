@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-unterlandlauf-21-1km-schwaigern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Unterlandlauf – Halbmarathon
+LOCATION:Schwaigern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.tsvschw
+ aigern.de/ull
+TRANSP:TRANSPARENT
+URL:https://www.tsvschwaigern.de/ull
+END:VEVENT
+END:VCALENDAR

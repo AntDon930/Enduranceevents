@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-5-markttagelauf-5km-bredstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:5. Markttagelauf – 5km-Markttage-Lauf
+LOCATION:Bredstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.unser-bred
+ stedt.de/hgv-markttage-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.unser-bredstedt.de/hgv-markttage-lauf/
+END:VEVENT
+END:VCALENDAR

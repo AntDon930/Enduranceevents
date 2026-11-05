@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-zirbitzlauf-8km-sankt-anna-am-lavantegg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Zirbitzlauf
+LOCATION:Sankt Anna am Lavantegg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.zirbitzlau
+ f.at/
+TRANSP:TRANSPARENT
+URL:https://www.zirbitzlauf.at/
+END:VEVENT
+END:VCALENDAR

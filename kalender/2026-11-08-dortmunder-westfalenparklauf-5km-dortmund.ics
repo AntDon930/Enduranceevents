@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-dortmunder-westfalenparklauf-5km-dortmund@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Dortmunder Westfalenparklauf – 5\,0 km (2 Runden) ab M/W U14
+LOCATION:Dortmund\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://westfalenparkl
+ auf.de/wp/
+TRANSP:TRANSPARENT
+URL:https://westfalenparklauf.de/wp/
+END:VEVENT
+END:VCALENDAR

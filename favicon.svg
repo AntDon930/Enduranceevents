@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Endurance Events">
+  <!-- Das Zeichen des Style Guides (Design-System v1, 21.09.2026): die
+       Route als Hoehenprofil, die Sonne als Ziel - Navy-Kachel, weisse
+       Route, orangefarbener Punkt (Signal #E8590C). Auf 16 px noch lesbar,
+       deshalb nur drei Linien und ein Punkt. Dasselbe Zeichen steht als
+       Inline-SVG in der Kopfzeile jeder Seite (site.css, .brand-logo). -->
+  <rect width="64" height="64" rx="14" fill="#0b1b33"/>
+  <path d="M11 46 L26 20 L38 34 L51 17" fill="none" stroke="#ffffff"
+        stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="51" cy="17" r="7" fill="#e8590c"/>
+</svg>

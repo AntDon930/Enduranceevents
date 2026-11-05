@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-cross-lauf-frohnleiten-stlv-und-klv-crosscup-202-x-sport-un
+ d-freizeitpark-frohnleiten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Cross-Lauf Frohnleiten (STLV- und KLV-CrossCup 2026/27 - 2. Lauf)
+LOCATION:Sport und Freizeitpark Frohnleiten\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://crosslaufcup.gknet
+ .at/
+TRANSP:TRANSPARENT
+URL:https://crosslaufcup.gknet.at/
+END:VEVENT
+END:VCALENDAR

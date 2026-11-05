@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-awg-treppenhauslauf-x-plauen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:AWG Treppenhauslauf
+LOCATION:Plauen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.awg-plauen.de/
+ news/treppenhauslauf/
+TRANSP:TRANSPARENT
+URL:https://www.awg-plauen.de/news/treppenhauslauf/
+END:VEVENT
+END:VCALENDAR

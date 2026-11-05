@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-worthersee-halbmarathon-21-1km-velden-am-worthersee@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Wörthersee Halbmarathon – Halbmarathon
+LOCATION:Velden am Wörthersee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.kaernte
+ nlaeuft.at/
+TRANSP:TRANSPARENT
+URL:https://www.kaerntenlaeuft.at/
+END:VEVENT
+END:VCALENDAR

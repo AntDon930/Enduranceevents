@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-ostalb-gravel-60km-aalen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Ostalb Gravel – Gravel Tour 60 km
+LOCATION:Aalen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 60 km\nhttps://www.ostalbgr
+ avel.de/
+TRANSP:TRANSPARENT
+URL:https://www.ostalbgravel.de/
+END:VEVENT
+END:VCALENDAR

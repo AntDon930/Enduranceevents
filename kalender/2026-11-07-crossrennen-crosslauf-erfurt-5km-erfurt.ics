@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-crossrennen-crosslauf-erfurt-5km-erfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Crossrennen & Crosslauf Erfurt – 5 km - Crosslauf
+LOCATION:Erfurt\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Cross\nLänge: 5 km\nhttps://zpn-timing.d
+ e/a/851
+TRANSP:TRANSPARENT
+URL:https://zpn-timing.de/a/851
+END:VEVENT
+END:VCALENDAR

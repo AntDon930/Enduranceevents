@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-neuland-hambach-gravelride-auf-der-sophienhohe-58km-niederz
+ ier@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:NEULAND HAMBACH Gravelride „Auf der Sophienhöhe“
+LOCATION:Niederzier\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 58 km\nhttps://www.gravelri
+ de-sophienhoehe.de/
+TRANSP:TRANSPARENT
+URL:https://www.gravelride-sophienhoehe.de/
+END:VEVENT
+END:VCALENDAR

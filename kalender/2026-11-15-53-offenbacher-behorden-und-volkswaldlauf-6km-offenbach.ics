@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-53-offenbacher-behorden-und-volkswaldlauf-6km-offenbach@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:53. Offenbacher Behörden- und Volkswaldlauf – 6 km für U18\, U20\,
+  Aktive und Senioren\, 2 Runden
+LOCATION:Offenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttp://www.lg-offenbac
+ h.de/index.php/veranstaltungen/behoerde
+TRANSP:TRANSPARENT
+URL:http://www.lg-offenbach.de/index.php/veranstaltungen/behoerde
+END:VEVENT
+END:VCALENDAR

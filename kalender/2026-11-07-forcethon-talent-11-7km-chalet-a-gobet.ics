@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-forcethon-talent-11-7km-chalet-a-gobet@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Forcethon Talent
+LOCATION:Chalet-à-Gobet\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.7 km\nhttps://www.trophee
+ -lausannois.ch/Talent/
+TRANSP:TRANSPARENT
+URL:https://www.trophee-lausannois.ch/Talent/
+END:VEVENT
+END:VCALENDAR

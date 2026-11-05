@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-hero-sudtirol-dolomites-60km-wolkenstein@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:HERO Südtirol Dolomites – MTB-Marathon 60 km
+LOCATION:Wolkenstein\, Italien (Südtirol)
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 60 km\nhttps://www.he
+ rodolomites.com
+TRANSP:TRANSPARENT
+URL:https://www.herodolomites.com
+END:VEVENT
+END:VCALENDAR

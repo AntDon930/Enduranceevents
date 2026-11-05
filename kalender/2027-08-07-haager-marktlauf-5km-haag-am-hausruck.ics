@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-haager-marktlauf-5km-haag-am-hausruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:Haager Marktlauf
+LOCATION:Haag am Hausruck\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.traunviert
+ ler-laufcup.at/laufe/haager-marktlauf/
+TRANSP:TRANSPARENT
+URL:https://www.traunviertler-laufcup.at/laufe/haager-marktlauf/
+END:VEVENT
+END:VCALENDAR

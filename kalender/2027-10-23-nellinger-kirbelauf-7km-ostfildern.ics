@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-23-nellinger-kirbelauf-7km-ostfildern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271023
+DTEND;VALUE=DATE:20271024
+SUMMARY:Nellinger Kirbelauf
+LOCATION:Ostfildern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://my.raceresult.
+ com/432077/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/432077/
+END:VEVENT
+END:VCALENDAR

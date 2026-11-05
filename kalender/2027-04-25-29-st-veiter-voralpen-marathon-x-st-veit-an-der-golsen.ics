@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-29-st-veiter-voralpen-marathon-x-st-veit-an-der-golsen@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:29. St. Veiter Voralpen Marathon – Marathon
+LOCATION:St. Veit an der Gölsen\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://urc-mariaz
+ ell.blogspot.com
+TRANSP:TRANSPARENT
+URL:https://urc-mariazell.blogspot.com
+END:VEVENT
+END:VCALENDAR

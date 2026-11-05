@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-davos-x-trails-68-4km-davos@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270725
+SUMMARY:Davos X-Trails – Diamond 68 km
+LOCATION:Davos\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 68.4 km\nhttps://www.davos-xt
+ rails.ch/
+TRANSP:TRANSPARENT
+URL:https://www.davos-xtrails.ch/
+END:VEVENT
+END:VCALENDAR

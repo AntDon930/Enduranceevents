@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-16-friesenheimer-eulenlauf-10km-ludwigshafen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:16. Friesenheimer Eulenlauf
+LOCATION:Ludwigshafen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://svf-ludwigsha
+ fen.de/2026/01/28/comeback-des-friesenheimer-eulenlaufs/
+TRANSP:TRANSPARENT
+URL:https://svf-ludwigshafen.de/2026/01/28/comeback-des-friesenheimer-eule
+ nlaufs/
+END:VEVENT
+END:VCALENDAR

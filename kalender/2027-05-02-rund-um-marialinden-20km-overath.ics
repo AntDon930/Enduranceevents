@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-rund-um-marialinden-20km-overath@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Rund um Marialinden
+LOCATION:Overath\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://quaelixfaktor
+ .de/marialinden
+TRANSP:TRANSPARENT
+URL:https://quaelixfaktor.de/marialinden
+END:VEVENT
+END:VCALENDAR

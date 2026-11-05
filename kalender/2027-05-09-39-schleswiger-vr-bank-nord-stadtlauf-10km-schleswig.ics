@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-39-schleswiger-vr-bank-nord-stadtlauf-10km-schleswig@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:39. Schleswiger VR Bank Nord Stadtlauf
+LOCATION:Schleswig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.spiridon-s
+ chleswig.de
+TRANSP:TRANSPARENT
+URL:http://www.spiridon-schleswig.de
+END:VEVENT
+END:VCALENDAR

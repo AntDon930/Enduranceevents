@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-37-kaltenkirchener-stadtlauf-5km-kaltenkirchen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:37. Kaltenkirchener Stadtlauf – 5 km – eine Runde durch Kaltenkirc
+ hen.
+LOCATION:Kaltenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.kaltenkirc
+ hener-stadtlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.kaltenkirchener-stadtlauf.de/
+END:VEVENT
+END:VCALENDAR

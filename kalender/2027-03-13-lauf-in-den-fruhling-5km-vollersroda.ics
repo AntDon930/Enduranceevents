@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-lauf-in-den-fruhling-5km-vollersroda@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Lauf in den Frühling
+LOCATION:Vollersroda\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.fwg-badber
+ ka.de/lauf-in-den-fr%C3%BChling/
+TRANSP:TRANSPARENT
+URL:https://www.fwg-badberka.de/lauf-in-den-fr%C3%BChling/
+END:VEVENT
+END:VCALENDAR

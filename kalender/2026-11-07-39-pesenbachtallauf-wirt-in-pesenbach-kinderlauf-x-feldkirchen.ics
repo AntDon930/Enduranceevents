@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-39-pesenbachtallauf-wirt-in-pesenbach-kinderlauf-x-feldkirc
+ hen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:39. Pesenbachtallauf + Wirt in Pesenbach Kinderlauf
+LOCATION:Feldkirchen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.pesenbachtalla
+ uf.at/
+TRANSP:TRANSPARENT
+URL:http://www.pesenbachtallauf.at/
+END:VEVENT
+END:VCALENDAR

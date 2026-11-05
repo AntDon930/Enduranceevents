@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-thomasburger-punschlauf-5km-thomasburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:Thomasburger Punschlauf
+LOCATION:Thomasburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.thomasburg
+ ersv.com/leichtathletik/punschlauf/
+TRANSP:TRANSPARENT
+URL:https://www.thomasburgersv.com/leichtathletik/punschlauf/
+END:VEVENT
+END:VCALENDAR

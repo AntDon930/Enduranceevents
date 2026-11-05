@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-10-sudwestpark-funrun-8-8km-nurnberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270610
+DTEND;VALUE=DATE:20270611
+SUMMARY:SüdwestPark FunRun – 8\,8 km Läufer\, offen für alle
+LOCATION:Nürnberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.8 km\nhttps://www.funrunsu
+ edwest.de/
+TRANSP:TRANSPARENT
+URL:https://www.funrunsuedwest.de/
+END:VEVENT
+END:VCALENDAR

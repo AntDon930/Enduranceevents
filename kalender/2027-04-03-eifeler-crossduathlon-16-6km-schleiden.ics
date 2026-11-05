@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-eifeler-crossduathlon-16-6km-schleiden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:Eifeler Crossduathlon – EXD Light 2\,6 km Lauf - 12 km MTB - 2 km 
+ Lauf (16\,6 km)
+LOCATION:Schleiden\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 16.6 km\nhttps://runtix
+ .com/sts/10021/3231
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3231
+END:VEVENT
+END:VCALENDAR

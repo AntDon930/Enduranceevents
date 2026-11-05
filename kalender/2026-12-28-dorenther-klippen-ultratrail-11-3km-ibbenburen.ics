@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-28-dorenther-klippen-ultratrail-11-3km-ibbenburen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261228
+DTEND;VALUE=DATE:20261229
+SUMMARY:Dörenther Klippen UltraTrail – Runde 11\,35 km und ca. 280 Hm
+LOCATION:Ibbenbüren\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11.3 km\nhttps://ultra-uwe-un
+ terwegs.de/veranstaltungen/uwes-laufangebote/
+TRANSP:TRANSPARENT
+URL:https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-radmarathon-tecklenburger-hohen-74km-ibbenburen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Radmarathon 'Tecklenburger Höhen' – Radmarathon 74 km
+LOCATION:Ibbenbüren\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 74 km\nhttp://www.marathon-
+ ibbenbueren.de/rtf
+TRANSP:TRANSPARENT
+URL:http://www.marathon-ibbenbueren.de/rtf
+END:VEVENT
+END:VCALENDAR

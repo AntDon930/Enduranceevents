@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-freckenhorster-herbstmanover-ctf-51km-warendorf@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Freckenhorster Herbstmanöver CTF – CTF 51 km
+LOCATION:Warendorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 51 km\nhttps://www.rs
+ g-warendorf-freckenhorst.de
+TRANSP:TRANSPARENT
+URL:https://www.rsg-warendorf-freckenhorst.de
+END:VEVENT
+END:VCALENDAR

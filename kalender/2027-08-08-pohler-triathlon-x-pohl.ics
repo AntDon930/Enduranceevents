@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-pohler-triathlon-x-pohl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:Pöhler Triathlon – Triathlon
+LOCATION:Pöhl\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.poehler-tr
+ iathlon.de
+TRANSP:TRANSPARENT
+URL:https://www.poehler-triathlon.de
+END:VEVENT
+END:VCALENDAR

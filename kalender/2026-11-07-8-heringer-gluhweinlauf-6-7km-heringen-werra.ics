@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-8-heringer-gluhweinlauf-6-7km-heringen-werra@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:8. Heringer Glühweinlauf
+LOCATION:Heringen/Werra\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.7 km\nhttps://www.tv03-her
+ ingen.de
+TRANSP:TRANSPARENT
+URL:https://www.tv03-heringen.de
+END:VEVENT
+END:VCALENDAR

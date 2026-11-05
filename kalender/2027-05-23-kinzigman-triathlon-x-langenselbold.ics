@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-kinzigman-triathlon-x-langenselbold@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Kinzigman Triathlon – Triathlon
+LOCATION:Langenselbold\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://kinzigman.word
+ press.com/
+TRANSP:TRANSPARENT
+URL:https://kinzigman.wordpress.com/
+END:VEVENT
+END:VCALENDAR

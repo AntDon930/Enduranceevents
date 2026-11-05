@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-41-rheinfelder-halbmarathon-10km-rheinfelden@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:41. Rheinfelder Halbmarathon – Lauf 10\,0 km
+LOCATION:Rheinfelden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.lcm-rheinf
+ elden.de/lauftag.html
+TRANSP:TRANSPARENT
+URL:http://www.lcm-rheinfelden.de/lauftag.html
+END:VEVENT
+END:VCALENDAR

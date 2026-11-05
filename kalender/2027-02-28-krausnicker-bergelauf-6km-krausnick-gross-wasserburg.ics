@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-krausnicker-bergelauf-6km-krausnick-gross-wasserburg@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:Krausnicker-Bergelauf
+LOCATION:Krausnick-Groß Wasserburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.berlin-tim
+ ing.de/Krausnicker-Bergelauf
+TRANSP:TRANSPARENT
+URL:https://www.berlin-timing.de/Krausnicker-Bergelauf
+END:VEVENT
+END:VCALENDAR

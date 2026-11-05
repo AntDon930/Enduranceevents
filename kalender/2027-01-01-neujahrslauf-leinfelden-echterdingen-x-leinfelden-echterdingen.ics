@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-01-neujahrslauf-leinfelden-echterdingen-x-leinfelden-echterdin
+ gen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Neujahrslauf - Leinfelden-Echterdingen
+LOCATION:Leinfelden-Echterdingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.neujahrslauf.
+ lgfilder.de/
+TRANSP:TRANSPARENT
+URL:https://www.neujahrslauf.lgfilder.de/
+END:VEVENT
+END:VCALENDAR

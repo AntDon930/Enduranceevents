@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-lipperlandtriathlon-25-5km-lage@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Lipperlandtriathlon – Sprintdistanz 25\,5 km (500 m Schwimmen / 20
+  km Rad / 5 km Laufen)
+LOCATION:Lage\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.5 km\nhttps://tglage.d
+ e/triathlon.html#lipperlandtriathlon
+TRANSP:TRANSPARENT
+URL:https://tglage.de/triathlon.html#lipperlandtriathlon
+END:VEVENT
+END:VCALENDAR

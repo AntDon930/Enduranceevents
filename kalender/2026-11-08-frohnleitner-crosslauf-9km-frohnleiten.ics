@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-frohnleitner-crosslauf-9km-frohnleiten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Frohnleitner Crosslauf
+LOCATION:Frohnleiten\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://ergebnisliste.a
+ t/Event/1257
+TRANSP:TRANSPARENT
+URL:https://ergebnisliste.at/Event/1257
+END:VEVENT
+END:VCALENDAR

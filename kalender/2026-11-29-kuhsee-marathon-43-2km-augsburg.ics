@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-kuhsee-marathon-43-2km-augsburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Kuhsee Marathon – Kuhsee Marathon Challenge (18 Runden à 2\,4 km =
+  43\,2 km)
+LOCATION:Augsburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43.2 km\nhttps://kuhsee-mara
+ thon-challenge.github.io/kmc/
+TRANSP:TRANSPARENT
+URL:https://kuhsee-marathon-challenge.github.io/kmc/
+END:VEVENT
+END:VCALENDAR

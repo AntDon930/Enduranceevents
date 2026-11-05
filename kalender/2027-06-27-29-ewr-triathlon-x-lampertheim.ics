@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-29-ewr-triathlon-x-lampertheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:29. EWR Triathlon
+LOCATION:Lampertheim\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.lamperthei
+ m.de/de/veranstaltungen/?NaNNaN=&navid=706136706136&pageId27f0831a=10
+TRANSP:TRANSPARENT
+URL:https://www.lampertheim.de/de/veranstaltungen/?NaNNaN=&navid=706136706
+ 136&pageId27f0831a=10
+END:VEVENT
+END:VCALENDAR

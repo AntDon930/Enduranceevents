@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-uderslebener-waldlauf-7-8km-bad-frankenhausen-kyffhauser@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Uderslebener Waldlauf – 7\,8 km Laufstrecke\, Startgeld 10€
+LOCATION:Bad Frankenhausen/Kyffhäuser\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.8 km\nhttps://runtix.com/s
+ ts/10021/3226
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3226
+END:VEVENT
+END:VCALENDAR

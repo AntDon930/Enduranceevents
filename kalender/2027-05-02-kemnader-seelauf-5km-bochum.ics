@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-kemnader-seelauf-5km-bochum@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Kemnader Seelauf – 5 km Lauf \, eine Runde
+LOCATION:Bochum\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.lgobochum.
+ de/kemnader-seelauf-2027.cfm
+TRANSP:TRANSPARENT
+URL:https://www.lgobochum.de/kemnader-seelauf-2027.cfm
+END:VEVENT
+END:VCALENDAR

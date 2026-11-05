@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-iffiglauf-kids-run-9km-lenk@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Iffiglauf & Kids-Run
+LOCATION:Lenk\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://lenk-simmental
+ .ch/erlebnisse-touren/erlebnis/detail/iffiglauf
+TRANSP:TRANSPARENT
+URL:https://lenk-simmental.ch/erlebnisse-touren/erlebnis/detail/iffiglauf
+END:VEVENT
+END:VCALENDAR

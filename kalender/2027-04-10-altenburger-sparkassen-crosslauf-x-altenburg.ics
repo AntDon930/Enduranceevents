@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-altenburger-sparkassen-crosslauf-x-altenburg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Altenburger Sparkassen-Crosslauf
+LOCATION:Altenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://ladv.de/ausschreib
+ ung/detail/48481/14.-Altenburger-Sparkassen-Crosslauf-Altenburg.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/48481/14.-Altenburger-Sparkassen-
+ Crosslauf-Altenburg.htm
+END:VEVENT
+END:VCALENDAR

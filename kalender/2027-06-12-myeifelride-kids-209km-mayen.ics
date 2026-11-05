@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-myeifelride-kids-209km-mayen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270614
+SUMMARY:MyEifelRide Kids – Radmarathon 209 km
+LOCATION:Mayen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 209 km\nhttps://www.myeifel
+ ride.de/
+TRANSP:TRANSPARENT
+URL:https://www.myeifelride.de/
+END:VEVENT
+END:VCALENDAR

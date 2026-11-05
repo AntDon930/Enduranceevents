@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-arbo-karnten-radmarathon-106km-bad-kleinkirchheim@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:ARBÖ Kärnten Radmarathon – Strecke A – Nockalmrunde 106 km / 2.530
+  hm
+LOCATION:Bad Kleinkirchheim\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 106 km\nhttps://www.kaernte
+ n-radmarathon.at/
+TRANSP:TRANSPARENT
+URL:https://www.kaernten-radmarathon.at/
+END:VEVENT
+END:VCALENDAR

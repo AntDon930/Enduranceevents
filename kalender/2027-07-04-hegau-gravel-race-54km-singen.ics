@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-hegau-gravel-race-54km-singen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Hegau Gravel Race – Gravel Race 54 km
+LOCATION:Singen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 54 km\nhttps://hegaugravel.
+ de/
+TRANSP:TRANSPARENT
+URL:https://hegaugravel.de/
+END:VEVENT
+END:VCALENDAR

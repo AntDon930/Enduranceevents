@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-attendorner-citylauf-5km-attendorn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Attendorner Citylauf – 5.000 m Volkslauf
+LOCATION:Attendorn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://tv-attendorn.d
+ e/laufsport/citylauf/
+TRANSP:TRANSPARENT
+URL:https://tv-attendorn.de/laufsport/citylauf/
+END:VEVENT
+END:VCALENDAR

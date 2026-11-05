@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-tower-run-basel-x-basel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Tower Run Basel – Security Challenge
+LOCATION:Basel\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://towerrunbasel.ch/
+TRANSP:TRANSPARENT
+URL:https://towerrunbasel.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-17-business-run-bodensee-5km-bregenz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270917
+DTEND;VALUE=DATE:20270918
+SUMMARY:Business Run Bodensee
+LOCATION:Bregenz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://w3-sports.com/
+ business-run-bodensee/
+TRANSP:TRANSPARENT
+URL:https://w3-sports.com/business-run-bodensee/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-kallmunzer-fruhlingslauf-5km-kallmunz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Kallmünzer Frühlingslauf – 5 km Hobbylauf
+LOCATION:Kallmünz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.atsv-kallm
+ uenz.de/triathlon/ausschreibung-fruehlingslauf-2026/
+TRANSP:TRANSPARENT
+URL:https://www.atsv-kallmuenz.de/triathlon/ausschreibung-fruehlingslauf-2
+ 026/
+END:VEVENT
+END:VCALENDAR

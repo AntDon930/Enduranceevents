@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-brevet-600-ara-schleswig-holstein-600km-schonkirchen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270529
+SUMMARY:Brevet 600 - ARA Schleswig-Holstein – Brevet 600 km
+LOCATION:Schönkirchen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 600 km\nhttps://www.audax-r
+ andonneure.de/startorte/schleswig-holstein
+TRANSP:TRANSPARENT
+URL:https://www.audax-randonneure.de/startorte/schleswig-holstein
+END:VEVENT
+END:VCALENDAR

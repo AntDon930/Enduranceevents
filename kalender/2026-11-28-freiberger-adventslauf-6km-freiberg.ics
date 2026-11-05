@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-freiberger-adventslauf-6km-freiberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Freiberger Adventslauf – Volkslauf\, 6 km\, ab 2012\, Startgebühr 
+ 12\,00 €
+LOCATION:Freiberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttp://freiberger-adve
+ ntslauf.de/
+TRANSP:TRANSPARENT
+URL:http://freiberger-adventslauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-27-hohen-neuendorfer-herbstlauf-11km-hohen-neuendorf@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:27. Hohen Neuendorfer Herbstlauf – 11 km Lauf
+LOCATION:Hohen Neuendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.ssv-hohen
+ -neuendorf.de
+TRANSP:TRANSPARENT
+URL:https://www.ssv-hohen-neuendorf.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-17-48-dreikonigslauf-vfl-altenstadt-10km-altenstadt@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270117
+DTEND;VALUE=DATE:20270118
+SUMMARY:48. Dreikönigslauf VfL Altenstadt
+LOCATION:Altenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.vfl-altens
+ tadt.de
+TRANSP:TRANSPARENT
+URL:http://www.vfl-altenstadt.de
+END:VEVENT
+END:VCALENDAR

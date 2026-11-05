@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-rad-am-salzburgring-einzelzeitfahren-x-plainfeld@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Rad am Salzburgring – Einzelzeitfahren – Einzelzeitfahren\, Straße
+ nrennen
+LOCATION:Plainfeld\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: -\nhttps://www.radteams
+ alzburg.at
+TRANSP:TRANSPARENT
+URL:https://www.radteamsalzburg.at
+END:VEVENT
+END:VCALENDAR

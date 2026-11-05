@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-grand-prix-winterthur-5km-winterthur@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Grand Prix Winterthur – 5 km (um langsam auf längere Distanzen zuz
+ ugehen)
+LOCATION:Winterthur\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://gp-winterthur.
+ ch/en/home/
+TRANSP:TRANSPARENT
+URL:https://gp-winterthur.ch/en/home/
+END:VEVENT
+END:VCALENDAR

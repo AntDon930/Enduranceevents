@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-kellerwald-bikemarathon-89km-gilserberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Kellerwald-Bikemarathon – MTB-Marathon 89 km
+LOCATION:Gilserberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 89 km\nhttp://www.kel
+ lerwald-bikemarathon.de
+TRANSP:TRANSPARENT
+URL:http://www.kellerwald-bikemarathon.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-geretsrieder-stadtlauf-5-3km-geretsried@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Geretsrieder Stadtlauf – 5\,3 km 5 km Lauf und U20
+LOCATION:Geretsried\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttps://leichtathlet
+ ik.tus-geretsried.de/stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://leichtathletik.tus-geretsried.de/stadtlauf/
+END:VEVENT
+END:VCALENDAR

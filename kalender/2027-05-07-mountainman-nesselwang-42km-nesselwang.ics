@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-mountainman-nesselwang-42km-nesselwang@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270509
+SUMMARY:Mountainman Nesselwang – 42 km \, 2.750+ hm\, Marathon-Distanz\, 3
+  Verpflegungspunkte
+LOCATION:Nesselwang\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42 km\nhttps://mountainman.de
+ /trailrunning-events/alps/nesselwang/
+TRANSP:TRANSPARENT
+URL:https://mountainman.de/trailrunning-events/alps/nesselwang/
+END:VEVENT
+END:VCALENDAR

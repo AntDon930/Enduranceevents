@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-rats-run-kupferzell-10-8km-kupferzell@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Rats-Run - Kupferzell – 10.800 m\, 20+ Hindernisse
+LOCATION:Kupferzell\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 10.8 km\nhttps://v2.rats-
+ runners.de/kupferzell-event/
+TRANSP:TRANSPARENT
+URL:https://v2.rats-runners.de/kupferzell-event/
+END:VEVENT
+END:VCALENDAR

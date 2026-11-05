@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-hagener-volkslauf-10km-hagen-am-teutoburger-wald@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Hagener Volkslauf
+LOCATION:Hagen am Teutoburger Wald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.laufen-os.
+ de/wettkaempfe/hagener-volkslauf-run-under-the-sun-2027
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/hagener-volkslauf-run-under-the-s
+ un-2027
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-algemarin-sv3sathlon-10km-muhltal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Algemarin SV3sathlon
+LOCATION:Mühltal\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 10 km\nhttps://sv3sathlon
+ .de/
+TRANSP:TRANSPARENT
+URL:https://sv3sathlon.de/
+END:VEVENT
+END:VCALENDAR

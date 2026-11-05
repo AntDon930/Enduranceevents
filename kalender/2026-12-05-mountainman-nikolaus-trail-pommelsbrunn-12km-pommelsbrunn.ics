@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-mountainman-nikolaus-trail-pommelsbrunn-12km-pommelsbrunn@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261207
+SUMMARY:Mountainman Nikolaus-Trail Pommelsbrunn – S 12 km 370 hm
+LOCATION:Pommelsbrunn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12 km\nhttps://mountainman.de
+ /trailrunning-events/hills/nikolaustrail-pommelsbrunn/
+TRANSP:TRANSPARENT
+URL:https://mountainman.de/trailrunning-events/hills/nikolaustrail-pommels
+ brunn/
+END:VEVENT
+END:VCALENDAR

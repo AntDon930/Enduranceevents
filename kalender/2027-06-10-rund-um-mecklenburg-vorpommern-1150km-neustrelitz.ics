@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-10-rund-um-mecklenburg-vorpommern-1150km-neustrelitz@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270610
+DTEND;VALUE=DATE:20270611
+SUMMARY:Rund um Mecklenburg-Vorpommern
+LOCATION:Neustrelitz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 1150 km\nhttps://rund-um-me
+ cklenburg.de/
+TRANSP:TRANSPARENT
+URL:https://rund-um-mecklenburg.de/
+END:VEVENT
+END:VCALENDAR

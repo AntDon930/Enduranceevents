@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-vennlauf-monschau-21-1km-monschau-mutzenich@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Vennlauf Monschau
+LOCATION:Monschau-Mützenich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.vennlau
+ f.de
+TRANSP:TRANSPARENT
+URL:https://www.vennlauf.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-werbellinsee-triathlon-24-4km-werbellinsee@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Werbellinsee Triathlon – Sprinttriathlon 24\,4 km (700 m Schwimmen
+  / 19 km Rad / 4\,8 km Laufen)
+LOCATION:Werbellinsee\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 24.4 km\nhttps://werbelli
+ nseetriathlon.de/
+TRANSP:TRANSPARENT
+URL:https://werbellinseetriathlon.de/
+END:VEVENT
+END:VCALENDAR

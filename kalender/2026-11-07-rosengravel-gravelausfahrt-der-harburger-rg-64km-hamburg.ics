@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-rosengravel-gravelausfahrt-der-harburger-rg-64km-hamburg@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Rosengravel\, Gravelausfahrt der Harburger RG
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 64 km\nhttps://harburger-rg
+ .de/events/gemeinsam-rosengravel-abfahren/
+TRANSP:TRANSPARENT
+URL:https://harburger-rg.de/events/gemeinsam-rosengravel-abfahren/
+END:VEVENT
+END:VCALENDAR

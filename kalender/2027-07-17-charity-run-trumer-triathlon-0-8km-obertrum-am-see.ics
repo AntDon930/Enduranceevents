@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-charity-run-trumer-triathlon-0-8km-obertrum-am-see@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Charity Run Trumer Triathlon
+LOCATION:Obertrum am See\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße · Charity\nLänge: 0.8 km\nhttps:/
+ /trumer-triathlon.at/en/races/charity-run.html
+TRANSP:TRANSPARENT
+URL:https://trumer-triathlon.at/en/races/charity-run.html
+END:VEVENT
+END:VCALENDAR

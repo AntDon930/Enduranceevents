@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-4-nord-marsch-ratzeburg-2027-50km-ratzeburg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:4. Nord-Marsch Ratzeburg 2027
+LOCATION:Ratzeburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://www.nord-mars
+ ch.de/event-details/nord-marsch-ratzeburg
+TRANSP:TRANSPARENT
+URL:https://www.nord-marsch.de/event-details/nord-marsch-ratzeburg
+END:VEVENT
+END:VCALENDAR

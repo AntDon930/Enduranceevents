@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-3-lauf-der-39-crosslauf-serie-2026-cochem-zell-i-8-2km-kais
+ ersesch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:3. Lauf der 39. Crosslauf-Serie 2026 Cochem-Zell in Kaisersesch
+LOCATION:Kaisersesch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.2 km
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

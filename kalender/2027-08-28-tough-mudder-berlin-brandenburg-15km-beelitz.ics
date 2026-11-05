@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-tough-mudder-berlin-brandenburg-15km-beelitz@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Tough Mudder - Berlin - Brandenburg
+LOCATION:Beelitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 15 km\nhttps://de.toughmu
+ dder.com/events/berlin-brandenburg/
+TRANSP:TRANSPARENT
+URL:https://de.toughmudder.com/events/berlin-brandenburg/
+END:VEVENT
+END:VCALENDAR

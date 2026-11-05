@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-23-ultratrail-frankische-schweiz-33km-ebermannstadt@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270423
+DTEND;VALUE=DATE:20270425
+SUMMARY:Ultratrail Fränkische Schweiz – 33 km Speedtrail\, 1460 hm
+LOCATION:Ebermannstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 33 km\nhttps://www.ultratrail
+ -fraenkische-schweiz.de/
+TRANSP:TRANSPARENT
+URL:https://www.ultratrail-fraenkische-schweiz.de/
+END:VEVENT
+END:VCALENDAR

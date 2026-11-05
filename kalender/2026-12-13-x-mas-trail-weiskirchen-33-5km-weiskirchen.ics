@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-x-mas-trail-weiskirchen-33-5km-weiskirchen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:X-Mas Trail - Weiskirchen – Ruprecht Trail (33\,5 km\, 1.050 hm)
+LOCATION:Weiskirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 33.5 km\nhttps://www.hartfues
+ sler.de/x-mas-trail/
+TRANSP:TRANSPARENT
+URL:https://www.hartfuessler.de/x-mas-trail/
+END:VEVENT
+END:VCALENDAR

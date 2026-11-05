@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-zirler-marktlauf-10km-zirl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Zirler Marktlauf – 10.000 m - Erwachsene\, 5 Runden
+LOCATION:Zirl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.skitri.at
+ /marktlauf/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://www.skitri.at/marktlauf/ausschreibung/
+END:VEVENT
+END:VCALENDAR

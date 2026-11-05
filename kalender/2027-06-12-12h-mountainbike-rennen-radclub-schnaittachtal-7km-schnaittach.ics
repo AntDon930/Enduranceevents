@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-12h-mountainbike-rennen-radclub-schnaittachtal-7km-schnaitt
+ ach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:12h Mountainbike Rennen Radclub Schnaittachtal
+LOCATION:Schnaittach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 7 km\nhttps://rc-schn
+ aittachtal.de/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://rc-schnaittachtal.de/ausschreibung/
+END:VEVENT
+END:VCALENDAR

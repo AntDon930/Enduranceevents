@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-dreikonigslauf-lauingen-10km-lauingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Dreikönigslauf Lauingen
+LOCATION:Lauingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.zeitgemae
+ ss.info/event.php?ACCESSCODE=202701061
+TRANSP:TRANSPARENT
+URL:https://www.zeitgemaess.info/event.php?ACCESSCODE=202701061
+END:VEVENT
+END:VCALENDAR

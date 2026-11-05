@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2028-05-13-gutsmuths-rennsteiglauf-intersport-marathon-42-2km-schmiede
+ feld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20280513
+DTEND;VALUE=DATE:20280514
+SUMMARY:GutsMuths Rennsteiglauf Intersport-Marathon
+LOCATION:Schmiedefeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.rennstei
+ glauf.de
+TRANSP:TRANSPARENT
+URL:http://www.rennsteiglauf.de
+END:VEVENT
+END:VCALENDAR

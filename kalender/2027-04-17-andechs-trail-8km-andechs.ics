@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-andechs-trail-8km-andechs@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Andechs Trail – Beginner Trail
+LOCATION:Andechs\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttp://www.andechs-trai
+ l.de/
+TRANSP:TRANSPARENT
+URL:http://www.andechs-trail.de/
+END:VEVENT
+END:VCALENDAR

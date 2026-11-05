@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-eicut-heilbad-heiligenstadt-65km-heilbad-heiligenstadt@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Eicut - Heilbad Heiligenstadt
+LOCATION:Heilbad Heiligenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 65 km\nhttps://www.ltv-obere
+ ichsfeld.de/eicut/
+TRANSP:TRANSPARENT
+URL:https://www.ltv-obereichsfeld.de/eicut/
+END:VEVENT
+END:VCALENDAR

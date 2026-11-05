@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-waldmunchner-radrundfahrt-64km-waldmunchen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Waldmünchner Radrundfahrt – Radmarathon 64 km
+LOCATION:Waldmünchen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 64 km\nhttps://waldmuenchne
+ r-radrundfahrt.de/
+TRANSP:TRANSPARENT
+URL:https://waldmuenchner-radrundfahrt.de/
+END:VEVENT
+END:VCALENDAR

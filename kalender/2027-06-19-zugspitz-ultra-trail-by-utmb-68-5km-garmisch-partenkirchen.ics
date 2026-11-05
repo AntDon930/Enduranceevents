@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-zugspitz-ultra-trail-by-utmb-68-5km-garmisch-partenkirchen@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Zugspitz Ultra Trail by UTMB – Leutasch Trail (68\,5 km)
+LOCATION:Garmisch-Partenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 68.5 km\nhttps://zugspitz.utm
+ b.world/
+TRANSP:TRANSPARENT
+URL:https://zugspitz.utmb.world/
+END:VEVENT
+END:VCALENDAR

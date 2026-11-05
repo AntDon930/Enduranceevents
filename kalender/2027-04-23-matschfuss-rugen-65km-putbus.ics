@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-23-matschfuss-rugen-65km-putbus@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270423
+DTEND;VALUE=DATE:20270426
+SUMMARY:Matschfuss Rügen – Gravel Tour 65 km
+LOCATION:Putbus\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 65 km\nhttps://plattfuss-po
+ dcast.de/pages/matschfuss-rugen-2027
+TRANSP:TRANSPARENT
+URL:https://plattfuss-podcast.de/pages/matschfuss-rugen-2027
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-14-42-strassenlauf-10km-riedstadt-wolfskehlen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270514
+DTEND;VALUE=DATE:20270515
+SUMMARY:42. Straßenlauf
+LOCATION:Riedstadt-Wolfskehlen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsv03wolf
+ skehlen.de
+TRANSP:TRANSPARENT
+URL:https://www.tsv03wolfskehlen.de
+END:VEVENT
+END:VCALENDAR

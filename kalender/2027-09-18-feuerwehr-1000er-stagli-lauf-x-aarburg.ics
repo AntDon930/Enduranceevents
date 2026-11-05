@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-feuerwehr-1000er-stagli-lauf-x-aarburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Feuerwehr 1000er Stägli Lauf
+LOCATION:Aarburg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.asscs.ch/1000
+ er-st%C3%A4gli-2026
+TRANSP:TRANSPARENT
+URL:https://www.asscs.ch/1000er-st%C3%A4gli-2026
+END:VEVENT
+END:VCALENDAR

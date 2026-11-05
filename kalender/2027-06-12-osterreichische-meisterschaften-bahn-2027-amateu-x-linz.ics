@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-osterreichische-meisterschaften-bahn-2027-amateu-x-linz@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Österreichische Meisterschaften Bahn 2027- Amateure & Masters – Au
+ sscheidungsrennen\, Omnium\, Punkterennen\, Scratch\, Temporennen
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Bahn\nLänge: -\nhttps://www.velodrom-linz.
+ at
+TRANSP:TRANSPARENT
+URL:https://www.velodrom-linz.at
+END:VEVENT
+END:VCALENDAR

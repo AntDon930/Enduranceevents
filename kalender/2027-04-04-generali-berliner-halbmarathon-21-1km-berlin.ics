@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-generali-berliner-halbmarathon-21-1km-berlin@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Generali Berliner Halbmarathon – Halbmarathon
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.general
+ i-berliner-halbmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.generali-berliner-halbmarathon.de/
+END:VEVENT
+END:VCALENDAR

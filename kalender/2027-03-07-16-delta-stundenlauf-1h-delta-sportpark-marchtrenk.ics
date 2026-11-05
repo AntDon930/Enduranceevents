@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-16-delta-stundenlauf-1h-delta-sportpark-marchtrenk@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:16. DELTA Stundenlauf
+LOCATION:DELTA Sportpark Marchtrenk\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttp://www.lscdelta.at
+TRANSP:TRANSPARENT
+URL:http://www.lscdelta.at
+END:VEVENT
+END:VCALENDAR

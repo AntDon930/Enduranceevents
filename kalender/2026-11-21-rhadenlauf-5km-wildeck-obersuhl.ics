@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-rhadenlauf-5km-wildeck-obersuhl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Rhädenlauf – Ausdauer Lauf
+LOCATION:Wildeck-Obersuhl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://tvo1888.de/lei
+ chtathletik/
+TRANSP:TRANSPARENT
+URL:https://tvo1888.de/leichtathletik/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-austria-backyard-ultra-wagendorf-x-wagendorf@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270712
+SUMMARY:Austria Backyard Ultra - Wagendorf
+LOCATION:Wagendorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: Open End\nhttps://ww
+ w.austriabackyardultra.com/wagendorf
+TRANSP:TRANSPARENT
+URL:https://www.austriabackyardultra.com/wagendorf
+END:VEVENT
+END:VCALENDAR

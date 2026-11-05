@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-brm-200-above-the-lake-212km-buch-sh@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:BRM 200 ABOVE THE LAKE – Gravel Brevet 212 km
+LOCATION:Buch SH\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 212 km\nhttps://www.audax-s
+ uisse.ch/brevets
+TRANSP:TRANSPARENT
+URL:https://www.audax-suisse.ch/brevets
+END:VEVENT
+END:VCALENDAR

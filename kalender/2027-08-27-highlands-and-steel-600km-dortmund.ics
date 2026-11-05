@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-27-highlands-and-steel-600km-dortmund@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270827
+DTEND;VALUE=DATE:20270831
+SUMMARY:Highlands and Steel – Ultracycling 600 km
+LOCATION:Dortmund\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 600 km\nhttps://www.highlan
+ dsandsteel.com
+TRANSP:TRANSPARENT
+URL:https://www.highlandsandsteel.com
+END:VEVENT
+END:VCALENDAR

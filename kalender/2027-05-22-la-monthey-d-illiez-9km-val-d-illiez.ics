@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-la-monthey-d-illiez-9km-val-d-illiez@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:La Monthey d'Illiez
+LOCATION:Val-d'Illiez\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://montheydilliez
+ .ch/
+TRANSP:TRANSPARENT
+URL:https://montheydilliez.ch/
+END:VEVENT
+END:VCALENDAR

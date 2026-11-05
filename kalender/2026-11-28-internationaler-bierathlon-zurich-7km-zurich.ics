@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-internationaler-bierathlon-zurich-7km-zurich@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Internationaler Bierathlon Zürich
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.bierathlon
+ .ch/internationaler-bierathlon-zuerich.html
+TRANSP:TRANSPARENT
+URL:https://www.bierathlon.ch/internationaler-bierathlon-zuerich.html
+END:VEVENT
+END:VCALENDAR

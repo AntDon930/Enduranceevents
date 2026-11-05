@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-crosslauf-galgenen-x-schubelbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Crosslauf Galgenen
+LOCATION:Schübelbach\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.tsv-galgenen.ch
+ /anlaesse/crosslauf
+TRANSP:TRANSPARENT
+URL:http://www.tsv-galgenen.ch/anlaesse/crosslauf
+END:VEVENT
+END:VCALENDAR

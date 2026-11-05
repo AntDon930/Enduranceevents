@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-19-wumbor-la-10km-rodermark-urberach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:19. wumboR-La
+LOCATION:Rödermark-Urberach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.wumboR-Lau
+ f.de
+TRANSP:TRANSPARENT
+URL:http://www.wumboR-Lauf.de
+END:VEVENT
+END:VCALENDAR

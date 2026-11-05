@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-mtb-rennen-fur-lizenzfahrer-und-jedermann-forst-0-7h-forst@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:„MTB-Rennen für Lizenzfahrer und Jedermann" Forst – Cross-Country 
+ 40 min
+LOCATION:Forst\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 40 min\nhttps://mtb-l
+ ausitz.de/
+TRANSP:TRANSPARENT
+URL:https://mtb-lausitz.de/
+END:VEVENT
+END:VCALENDAR

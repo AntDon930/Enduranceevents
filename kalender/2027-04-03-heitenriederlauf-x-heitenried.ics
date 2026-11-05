@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-heitenriederlauf-x-heitenried@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:Heitenriederlauf
+LOCATION:Heitenried\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.heitenriederl
+ auf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.heitenriederlauf.ch/
+END:VEVENT
+END:VCALENDAR

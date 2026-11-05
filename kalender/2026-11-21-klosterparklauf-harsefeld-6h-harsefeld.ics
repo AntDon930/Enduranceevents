@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-klosterparklauf-harsefeld-6h-harsefeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Klosterparklauf Harsefeld – 6-Stunden-Lauf (Runde 1.461\,4 m)
+LOCATION:Harsefeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://volkslauf-harse
+ feld.de/klosterparklauf/
+TRANSP:TRANSPARENT
+URL:https://volkslauf-harsefeld.de/klosterparklauf/
+END:VEVENT
+END:VCALENDAR

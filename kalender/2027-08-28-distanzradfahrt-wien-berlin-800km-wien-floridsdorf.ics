@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-distanzradfahrt-wien-berlin-800km-wien-floridsdorf@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Distanzradfahrt Wien - Berlin – Bikepacking 800 km
+LOCATION:Wien-Floridsdorf\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 800 km\nhttps://supergrevet
+ .grevet.de/infos-distanzradfahrt-wien-berlin/
+TRANSP:TRANSPARENT
+URL:https://supergrevet.grevet.de/infos-distanzradfahrt-wien-berlin/
+END:VEVENT
+END:VCALENDAR

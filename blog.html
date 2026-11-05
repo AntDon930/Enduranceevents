@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<title>Blog – Endurance Events</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0b1220">
+<!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
+})();
+</script>
+<!-- Farbschema hell/dunkel: wortgleich wie in den anderen Seiten (test_farbschema_skript). -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<meta name="description" content="Tipps, Leitfäden und Hintergründe rund um Laufen, Radfahren, Schwimmen und Triathlon im deutschsprachigen Raum.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Endurance Events – Blog">
+<meta property="og:description" content="Tipps, Leitfäden und Hintergründe rund um Laufen, Radfahren, Schwimmen und Triathlon.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://endurance-events.de/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="blog.json" as="fetch" type="application/json" crossorigin="anonymous">
+<link rel="stylesheet" href="vendor/fonts/barlow.css">
+<link rel="stylesheet" href="site.css?v=8fe729d6">
+<link rel="stylesheet" href="blog.css?v=13e54636">
+</head>
+<body>
+
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). -->
+<header class="site-header top-bar">
+  <a class="brand" href="index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Seiten">
+    <a class="nav-link" href="events.html" id="nav-events">Events</a>
+    <a class="nav-link nav-neu" href="clubs.html" id="nav-clubs">Clubs<span class="nav-neu-text">new</span></a>
+    <a class="nav-link" href="karte.html" id="nav-map">Karte</a>
+    <a class="nav-link active" href="blog.html" id="nav-blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+
+<main class="blog-main">
+  <div class="blog-kopf">
+    <p class="blog-eyebrow" id="blog-eyebrow">Magazin</p>
+    <h2 id="blog-titel">Blog</h2>
+    <p id="blog-intro"></p>
+    <p class="blog-hinweis-sprache" id="blog-sprache" hidden></p>
+  </div>
+  <div class="blog-filter" id="blog-filter" role="group" aria-label="Sportart" hidden></div>
+  <ul class="blog-liste blog-liste--start" id="blog-liste" aria-live="polite"></ul>
+  <section class="blog-abo" aria-labelledby="abo-titel">
+    <div>
+      <h2 id="abo-titel">Kein Rennen mehr verpassen</h2>
+      <p id="abo-text"></p>
+    </div>
+    <div class="blog-abo-knoepfe">
+      <a class="cta-knopf" id="abo-knopf" href="events.html?abos=1">E-Mail-Abo einrichten</a>
+      <a class="cta-knopf leise" id="abo-events" href="events.html">Events entdecken</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="impressum.html">Impressum</a>
+    <a id="footer-datenschutz" href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script defer src="vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="firebase-config.js"></script>
+<script defer src="auth.js"></script>
+<script defer src="stats.js?v=6ea036f4"></script>
+
+<script>
+(async function () {
+  // Die Beiträge stehen in blog.json (neueste zuerst); jeder Beitrag ist
+  // eine eigene Seite unter blog/<slug>.html, damit Suchmaschinen ihn
+  // finden. Die Beiträge sind deutsch, die Bedienung zweisprachig.
+  const I18N = {
+    de: {
+      title: 'Blog',
+      nav_events: 'Events', nav_clubs: 'Clubs', nav_map: 'Karte', nav_blog: 'Blog',
+      intro: 'Leitfäden, Tipps und Hintergründe rund um Laufen, Radfahren, Schwimmen und Triathlon – damit du dein nächstes Rennen findest und gut vorbereitet am Start stehst.',
+      sprache: '',
+      lesezeit: (n) => `${n} Min. Lesezeit`,
+      weiter: 'Weiterlesen →',
+      leer: 'Noch keine Beiträge.',
+      fehler: 'Die Beiträge konnten nicht geladen werden.',
+      eyebrow: 'Magazin', alle: 'Alle', filter: 'Sportart',
+      abo_titel: 'Kein Rennen mehr verpassen',
+      abo_text: 'Wähle Sportart und Umkreis – wir schicken dir neue Events per E-Mail, sobald sie in der Liste stehen.',
+      abo_knopf: 'E-Mail-Abo einrichten', abo_events: 'Events entdecken',
+      footer_imprint: 'Impressum', footer_privacy: 'Datenschutz',
+      sport: { Laufen: 'Laufen', Fahrrad: 'Rad', Schwimmen: 'Schwimmen', Triathlon: 'Triathlon' }
+    },
+    en: {
+      title: 'Blog',
+      nav_events: 'Events', nav_clubs: 'Clubs', nav_map: 'Map', nav_blog: 'Blog',
+      intro: 'Guides, tips and background on running, cycling, swimming and triathlon – to help you find your next race and start well prepared.',
+      sprache: 'Our articles are currently written in German.',
+      lesezeit: (n) => `${n} min read`,
+      weiter: 'Read more →',
+      leer: 'No articles yet.',
+      fehler: 'The articles could not be loaded.',
+      eyebrow: 'Magazine', alle: 'All', filter: 'Sport',
+      abo_titel: 'Never miss a race',
+      abo_text: 'Pick your sport and radius – we email you new events as soon as they are listed.',
+      abo_knopf: 'Set up email alerts', abo_events: 'Explore events',
+      footer_imprint: 'Legal notice', footer_privacy: 'Privacy',
+      sport: { Laufen: 'Running', Fahrrad: 'Cycling', Schwimmen: 'Swimming', Triathlon: 'Triathlon' }
+    }
+  };
+  let lang = 'de';
+  try { const s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  const t = (k, ...a) => { const v = I18N[lang][k]; return typeof v === 'function' ? v(...a) : v; };
+  const el = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const SPORT_KLASSE = { Laufen: 'sport-laufen', Fahrrad: 'sport-fahrrad', Schwimmen: 'sport-schwimmen', Triathlon: 'sport-triathlon' };
+  let beitraege = null;
+
+  function datum(iso) {
+    const d = new Date(iso + 'T12:00:00');
+    return d.toLocaleDateString(lang === 'en' ? 'en-GB' : 'de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  const SPORT_REIHE = ['Laufen', 'Fahrrad', 'Schwimmen', 'Triathlon'];
+  let filter = '';
+  try { const f = new URLSearchParams(location.search).get('sportart'); if (SPORT_REIHE.includes(f)) filter = f; } catch (e) { /* ignorieren */ }
+
+  const tagHtml = (b) => b.sportart
+    ? `<span class="blog-tag ${SPORT_KLASSE[b.sportart] || ''}">${esc(t('sport')[b.sportart] || b.sportart)}</span>` : '';
+
+  // Sportart-Filter nur mit den Sportarten, zu denen es Beiträge gibt –
+  // bei einer einzigen Sportart gibt es nichts zu wählen.
+  function zeichneFilter() {
+    const box = el('blog-filter');
+    const da = SPORT_REIHE.filter(s => beitraege.some(b => b.sportart === s));
+    box.hidden = da.length < 2;
+    box.setAttribute('aria-label', t('filter'));
+    if (box.hidden) { filter = ''; return; }
+    box.innerHTML = ['', ...da].map(s =>
+      `<button type="button" class="blog-chip${s ? ' ' + SPORT_KLASSE[s] : ''}" data-sport="${esc(s)}" aria-pressed="${s === filter}">${esc(s ? (t('sport')[s] || s) : t('alle'))}</button>`).join('');
+  }
+
+  function zeichne() {
+    const liste = el('blog-liste');
+    if (beitraege === null) return;
+    zeichneFilter();
+    const sicht = beitraege.filter(b => !filter || b.sportart === filter);
+    if (!sicht.length) { liste.innerHTML = `<li class="blog-leer">${esc(t('leer'))}</li>`; return; }
+    // Der neueste Beitrag steht groß oben (Aufmacher), die anderen als Kacheln.
+    liste.innerHTML = sicht.map((b, i) => `
+      <li class="blog-karte${i === 0 ? ' ist-aufmacher' : ''}">
+        <a href="blog/${encodeURIComponent(b.slug)}.html">
+          <div class="blog-karte-bild">
+            <img src="${esc(i === 0 ? b.bild : (b.bild_klein || b.bild))}"${i === 0 && b.bild_klein ? ` srcset="${esc(b.bild_klein)} 480w, ${esc(b.bild)} 960w" sizes="(max-width: 900px) 100vw, 640px"` : ''} alt="${esc(b.bild_alt || '')}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} width="960" height="640">
+            ${tagHtml(b)}
+          </div>
+          <div class="blog-karte-text">
+            <div class="blog-meta"><span>${esc(datum(b.datum))}</span><span aria-hidden="true">·</span><span>${esc(t('lesezeit', b.lesezeit_min))}</span></div>
+            <h3>${esc(b.titel)}</h3>
+            <p>${esc(b.teaser)}</p>
+            <span class="blog-weiter">${esc(t('weiter'))}</span>
+          </div>
+        </a>
+      </li>`).join('');
+  }
+  el('blog-filter').addEventListener('click', (ev) => {
+    const k = ev.target.closest('.blog-chip');
+    if (!k) return;
+    filter = k.dataset.sport;
+    try {
+      const u = new URL(location.href);
+      if (filter) u.searchParams.set('sportart', filter); else u.searchParams.delete('sportart');
+      history.replaceState(null, '', u);
+    } catch (e) { /* ignorieren */ }
+    zeichne();
+  });
+
+  function setLanguage(neu) {
+    lang = neu;
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    document.documentElement.lang = lang;
+    document.title = t('title') + ' – Endurance Events';
+    el('nav-events').textContent = t('nav_events');
+    // Nur den Text setzen – das Schildchen „new“ bleibt stehen.
+    el('nav-clubs').firstChild.nodeValue = t('nav_clubs');
+    el('nav-map').textContent = t('nav_map');
+    el('nav-blog').textContent = t('nav_blog');
+    el('blog-eyebrow').textContent = t('eyebrow');
+    el('blog-intro').textContent = t('intro');
+    el('abo-titel').textContent = t('abo_titel');
+    el('abo-text').textContent = t('abo_text');
+    el('abo-knopf').textContent = t('abo_knopf');
+    el('abo-events').textContent = t('abo_events');
+    el('blog-sprache').textContent = t('sprache');
+    el('blog-sprache').hidden = !t('sprache');
+    el('footer-impressum').textContent = t('footer_imprint');
+    el('footer-datenschutz').textContent = t('footer_privacy');
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    zeichne();
+  }
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLanguage(b.dataset.lang)));
+  setLanguage(lang);
+
+  try {
+    const r = await fetch('blog.json', { cache: 'no-cache' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    beitraege = (await r.json()).slice().sort((a, b) => b.datum.localeCompare(a.datum));
+  } catch (err) {
+    el('blog-liste').innerHTML = `<li class="blog-leer">${esc(t('fehler'))}</li>`;
+    return;
+  }
+  zeichne();
+})();
+</script>
+
+</body>
+</html>

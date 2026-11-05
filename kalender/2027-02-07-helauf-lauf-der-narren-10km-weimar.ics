@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-07-helauf-lauf-der-narren-10km-weimar@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:Helauf - Lauf der Narren – 10 km (2 Runden)
+LOCATION:Weimar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.vfb-oberw
+ eimar.de/faschingslauf/
+TRANSP:TRANSPARENT
+URL:https://www.vfb-oberweimar.de/faschingslauf/
+END:VEVENT
+END:VCALENDAR

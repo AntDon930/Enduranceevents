@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-konigseer-stadtwaldlauf-11-5km-konigsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Königseer Stadtwaldlauf
+LOCATION:Königsee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.5 km\nhttps://laufvereink
+ oenigsee.de/koenigseer-stadtwaldlauf
+TRANSP:TRANSPARENT
+URL:https://laufvereinkoenigsee.de/koenigseer-stadtwaldlauf
+END:VEVENT
+END:VCALENDAR

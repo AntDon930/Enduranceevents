@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-nordrhein-meisterschaften-2026-10km-strasse-10km-essen@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Nordrhein Meisterschaften 2026 10km Straße
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/nordrhein-meisterschaften-2026-10km-straße
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/nordrhein-meisterschaften-2026-
+ 10km-straße
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-41-memmelsdorfer-schlosslauf-5-4km-memmelsdorf@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:41. Memmelsdorfer Schlosslauf – 5.400 m Hobbylauf im und um den Sc
+ hlosspark
+LOCATION:Memmelsdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttps://sc-memmelsdo
+ rf.de/schlosslauf/
+TRANSP:TRANSPARENT
+URL:https://sc-memmelsdorf.de/schlosslauf/
+END:VEVENT
+END:VCALENDAR

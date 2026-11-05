@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-24-elm-peaks-challenge-26km-evessen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271024
+DTEND;VALUE=DATE:20271025
+SUMMARY:Elm Peaks Challenge
+LOCATION:Evessen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 26 km\nhttps://epc-run.de/
+TRANSP:TRANSPARENT
+URL:https://epc-run.de/
+END:VEVENT
+END:VCALENDAR

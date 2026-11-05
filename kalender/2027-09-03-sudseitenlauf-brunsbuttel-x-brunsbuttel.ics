@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-03-sudseitenlauf-brunsbuttel-x-brunsbuttel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270903
+DTEND;VALUE=DATE:20270904
+SUMMARY:Südseitenlauf Brunsbüttel
+LOCATION:Brunsbüttel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://vfb-brunsbuettel.d
+ e/index.php/suedseitenlauf/
+TRANSP:TRANSPARENT
+URL:http://vfb-brunsbuettel.de/index.php/suedseitenlauf/
+END:VEVENT
+END:VCALENDAR

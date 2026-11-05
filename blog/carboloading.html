@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<!-- Erzeugt von scripts/build_blog.py aus blog.json und scripts/blog_texte/carboloading.html – nicht von Hand ändern. -->
+<title>Carboloading: Was du in den Tagen vor dem Rennen essen solltest – Endurance Events</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="canonical" href="https://endurance-events.de/blog/carboloading.html">
+<meta name="theme-color" content="#0b1220">
+<!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('../wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
+})();
+</script>
+<!-- Farbschema hell/dunkel: wortgleich wie in den anderen Seiten (test_farbschema_skript). -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<meta name="description" content="Volle Speicher für die zweite Rennhälfte: Für wen sich Carboloading lohnt, wie viel genug ist, warum zwei Tage reichen – und warum die Waage am Renntag mehr zeigen darf.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Carboloading: Was du in den Tagen vor dem Rennen essen solltest">
+<meta property="og:description" content="Volle Speicher für die zweite Rennhälfte: Für wen sich Carboloading lohnt, wie viel genug ist, warum zwei Tage reichen – und warum die Waage am Renntag mehr zeigen darf.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://endurance-events.de/blog/carboloading.html">
+<meta property="og:image" content="https://endurance-events.de/bilder/blog/carboloading.webp">
+<meta property="article:published_time" content="2026-11-04">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Carboloading: Was du in den Tagen vor dem Rennen essen solltest", "description": "Volle Speicher für die zweite Rennhälfte: Für wen sich Carboloading lohnt, wie viel genug ist, warum zwei Tage reichen – und warum die Waage am Renntag mehr zeigen darf.", "datePublished": "2026-11-04", "inLanguage": "de", "image": "https://endurance-events.de/bilder/blog/carboloading.webp", "mainEntityOfPage": "https://endurance-events.de/blog/carboloading.html", "publisher": {"@type": "Organization", "name": "Endurance Events", "url": "https://endurance-events.de"}}</script>
+<link rel="stylesheet" href="../vendor/fonts/barlow.css">
+<link rel="stylesheet" href="../site.css?v=8fe729d6">
+<link rel="stylesheet" href="../blog.css?v=13e54636">
+</head>
+<body>
+
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). -->
+<header class="site-header top-bar">
+  <a class="brand" href="../index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Seiten">
+    <a class="nav-link" href="../events.html" id="nav-events">Events</a>
+    <a class="nav-link nav-neu" href="../clubs.html" id="nav-clubs">Clubs<span class="nav-neu-text">new</span></a>
+    <a class="nav-link" href="../karte.html" id="nav-map">Karte</a>
+    <a class="nav-link active" href="../blog.html" id="nav-blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+
+
+<div class="lese-fortschritt" aria-hidden="true"><span id="lese-balken"></span></div>
+<main class="blog-main">
+<article class="beitrag">
+  <a class="beitrag-zurueck" href="../blog.html" id="blog-zurueck">← Alle Beiträge</a>
+  <header class="beitrag-hero">
+    <img class="beitrag-hero-bild" src="../bilder/blog/carboloading.webp" srcset="../bilder/blog/carboloading-480.webp 480w, ../bilder/blog/carboloading.webp 960w" sizes="(max-width: 1120px) 100vw, 1120px" alt="Läuferfeld beim London Marathon zwischen Zuschauerreihen, von oben fotografiert" width="960" height="640" fetchpriority="high">
+    <div class="beitrag-hero-text">
+      <div class="blog-meta">
+        <span class="blog-tag sport-laufen">Laufen</span><span>4. November 2026</span><span aria-hidden="true">·</span><span>3 Min. Lesezeit</span>
+      </div>
+      <h1>Carboloading: Was du in den Tagen vor dem Rennen essen solltest</h1>
+    </div>
+  </header>
+  <p class="beitrag-nachweis">London Marathon 2026, Upper Thames Street. Foto: Acabashi, <a href="https://commons.wikimedia.org/wiki/File:2026_London_Marathon_Upper_Thames_Street_from_Blackfriars_Bridge_06.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a></p>
+  <div class="beitrag-spalte">
+  <nav class="beitrag-inhalt" aria-labelledby="inhalt-titel">
+    <h2 id="inhalt-titel">Inhalt</h2>
+    <ol><li><a href="#worum-es-geht">Worum es geht</a></li><li><a href="#fuer-welche-rennen-lohnt-es-sich">Für welche Rennen lohnt es sich?</a></li><li><a href="#wie-viel-ist-genug">Wie viel ist genug?</a></li><li><a href="#zwei-tage-reichen">Zwei Tage reichen</a></li><li><a href="#so-setzt-du-es-um">So setzt du es um</a></li><li><a href="#keine-sorge-wegen-der-waage">Keine Sorge wegen der Waage</a></li><li><a href="#am-renntag-selbst">Am Renntag selbst</a></li><li><a href="#fazit">Fazit</a></li></ol>
+  </nav>
+<p class="beitrag-lead">Nudelparty am Vorabend, Teller voll Pasta – Carboloading gehört zum Marathon wie die Startnummer. Aber wann lohnt es sich wirklich, wie viel ist genug, und muss man dafür eine ganze Woche umstellen? Die gute Nachricht: Es ist einfacher, als viele denken.</p>
+
+<div class="beitrag-text">
+
+<h2 id="worum-es-geht">Worum es geht</h2>
+<p>Dein Körper speichert Kohlenhydrate als Glykogen – vor allem in den Muskeln und in der Leber. Dieser Speicher ist dein schnellster Treibstoff. Bei langen Belastungen wird er nach und nach leerer, und irgendwann fühlen sich die Beine schwer an<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>.</p>
+<p>Carboloading heißt nichts anderes, als diesen Speicher in den Tagen vor dem Rennen bis zum Rand zu füllen. Dann hast du mehr Energie für die zweite Hälfte – genau dort, wo es zählt.</p>
+
+<h2 id="fuer-welche-rennen-lohnt-es-sich">Für welche Rennen lohnt es sich?</h2>
+<p>Für alles, was länger als etwa 90 Minuten dauert: Marathon, lange Trailläufe, Radmarathons, Mittel- und Langdistanz im Triathlon. Bei solchen Rennen halten volle Speicher die Müdigkeit spürbar länger fern, und Ausdauersportler kommen schneller ins Ziel<sup class="q"><a href="#q2" aria-label="Quelle 2">[2]</a></sup>.</p>
+<p>Für einen 10-km-Lauf oder einen Halbmarathon, den du unter 90 Minuten läufst, brauchst du kein spezielles Carboloading. Da reicht es, am Tag vorher normal und kohlenhydratreich zu essen<sup class="q"><a href="#q3" aria-label="Quelle 3">[3]</a></sup>. Schon eine ältere Studie mit trainierten Läufern über 20,9 km zeigte: Extra-Laden brachte auf dieser Strecke keinen Vorteil<sup class="q"><a href="#q4" aria-label="Quelle 4">[4]</a></sup>.</p>
+
+<h2 id="wie-viel-ist-genug">Wie viel ist genug?</h2>
+<div class="beitrag-tabelle-huelle">
+<table class="zweispaltig">
+  <thead><tr><th>Rennen</th><th>Kohlenhydrate</th></tr></thead>
+  <tbody>
+    <tr><td><strong>unter 90 Min.</strong></td><td>7–12 g/kg am Tag davor</td></tr>
+    <tr class="empfohlen"><td><strong>über 90 Min.</strong></td><td>10–12 g/kg pro Tag, 36–48 Stunden lang</td></tr>
+    <tr><td><strong>Frühstück</strong></td><td>1–4 g/kg, 1–4 Stunden vor dem Start</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="beitrag-stand">g/kg = Gramm Kohlenhydrate pro Kilo Körpergewicht. Richtwerte der großen Sporternährungsverbände<sup class="q"><a href="#q3" aria-label="Quelle 3">[3]</a></sup><sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>.</p>
+<p>Ein Rechenbeispiel: Wiegst du 70 Kilo, sind 10 Gramm pro Kilo rund 700 Gramm Kohlenhydrate am Tag. Das ist mehr, als die meisten erwarten – und genau deshalb lohnt es sich, ein bisschen zu planen.</p>
+
+<h2 id="zwei-tage-reichen">Zwei Tage reichen</h2>
+<p>Früher hieß es: erst eine Woche „leertrainieren“ und kaum Kohlenhydrate essen, dann umso mehr. Das brauchst du nicht. Schon in den 1980er-Jahren zeigte sich, dass sich die Speicher auch ohne diese harte Phase genauso gut füllen lassen<sup class="q"><a href="#q4" aria-label="Quelle 4">[4]</a></sup>.</p>
+<p>Und es geht sogar schneller als gedacht: Trainierte Ausdauersportler, die einen Tag lang wenig trainierten und viele Kohlenhydrate aßen, hatten danach schon volle Speicher<sup class="q"><a href="#q5" aria-label="Quelle 5">[5]</a></sup>. Weil du in der Rennwoche ohnehin weniger trainierst (mehr dazu im Beitrag <a href="tapering.html">„Tapering“</a>), passt das wunderbar zusammen.</p>
+
+<h2 id="so-setzt-du-es-um">So setzt du es um</h2>
+<ul>
+  <li><strong>Kohlenhydrate in jede Mahlzeit:</strong> Nudeln, Reis, Kartoffeln, Brot, Haferflocken, Obst.</li>
+  <li><strong>Zwischendurch snacken:</strong> Brezel, Banane, Reiswaffeln, Müsliriegel, ein Glas Saft.</li>
+  <li><strong>Etwas weniger Fett und Ballaststoffe:</strong> So passen mehr Kohlenhydrate auf den Teller, und der Bauch bleibt ruhig. Weißbrot statt Vollkorn ist in diesen zwei Tagen völlig in Ordnung.</li>
+  <li><strong>Nicht „mehr essen“, sondern „anders verteilen“:</strong> Du musst dich nicht vollstopfen – du verschiebst den Schwerpunkt auf dem Teller.</li>
+  <li><strong>Nichts Neues:</strong> Iss Dinge, die du kennst und gut verträgst. Teste deine Rennverpflegung schon bei langen Trainingsläufen – der Magen lässt sich daran gewöhnen<sup class="q"><a href="#q6" aria-label="Quelle 6">[6]</a></sup>.</li>
+</ul>
+
+<div class="beitrag-kasten">
+<p><strong>Ein Beispieltag:</strong> Haferflocken mit Banane und Honig zum Frühstück, Brezel und Saft am Vormittag, ein großer Teller Nudeln mit Tomatensoße zu Mittag, Reiswaffeln und Obst am Nachmittag, Reis oder Kartoffeln am Abend. Dazu über den Tag verteilt Saft oder ein Sportgetränk.</p>
+</div>
+
+<h2 id="keine-sorge-wegen-der-waage">Keine Sorge wegen der Waage</h2>
+<p>Viele sind am Renntag ein bis zwei Kilo schwerer und erschrecken. Das ist ein gutes Zeichen: Jedes Gramm Glykogen speichert der Muskel zusammen mit rund drei Gramm Wasser<sup class="q"><a href="#q7" aria-label="Quelle 7">[7]</a></sup>. Die Speicher sind voll – genau das wolltest du.</p>
+
+<h2 id="am-renntag-selbst">Am Renntag selbst</h2>
+<p>Ein vertrautes Frühstück zwei bis drei Stunden vor dem Start: Weißbrot mit Marmelade oder Honig, eine Banane, Haferflocken. Und unterwegs helfen bei langen Rennen Gels oder Sportgetränk an den Verpflegungsstellen – wie viel, steht in unserem <a href="erster-halbmarathon.html">Halbmarathon-Leitfaden</a>.</p>
+
+<h2 id="fazit">Fazit</h2>
+<p>Carboloading ist kein Hexenwerk: Für Rennen über 90 Minuten zwei Tage lang viele Kohlenhydrate, weniger Training, vertraute Lebensmittel – und am Renntag ein gutes Frühstück. Dann stehst du mit vollen Speichern am Start und hast Kraft bis ins Ziel.</p>
+
+<section class="beitrag-cta">
+  <h2>Finde deinen nächsten Marathon</h2>
+  <p>Alle Marathons und Ultras in Deutschland, Österreich, der Schweiz und Südtirol – mit Datum, Ort und Link zum Veranstalter.</p>
+  <div class="cta-knoepfe">
+    <a class="cta-knopf" href="../events.html?sportart=Laufen&amp;kat=Laufen%3Amarathon">Marathons ansehen</a>
+    <a class="cta-knopf leise" href="tapering.html">Zum Tapering-Beitrag</a>
+  </div>
+</section>
+
+<section class="beitrag-quellen" aria-labelledby="quellen-titel">
+  <h2 id="quellen-titel">Quellen</h2>
+  <ol>
+    <li id="q1">Burke L. M., Hawley J. A., Wong S. H., Jeukendrup A. E.: Carbohydrates for training and competition. J Sports Sci 2011;29 Suppl 1:S17–27. <a href="https://doi.org/10.1080/02640414.2011.585473" rel="noopener">doi:10.1080/02640414.2011.585473</a></li>
+    <li id="q2">Hawley J. A., Schabort E. J., Noakes T. D., Dennis S. C.: Carbohydrate-loading and exercise performance. An update. Sports Med 1997;24:73–81. <a href="https://doi.org/10.2165/00007256-199724020-00001" rel="noopener">doi:10.2165/00007256-199724020-00001</a></li>
+    <li id="q3">Thomas D. T., Erdman K. A., Burke L. M.: American College of Sports Medicine Joint Position Statement. Nutrition and Athletic Performance. Med Sci Sports Exerc 2016;48:543–568. <a href="https://doi.org/10.1249/MSS.0000000000000852" rel="noopener">doi:10.1249/MSS.0000000000000852</a></li>
+    <li id="q4">Sherman W. M., Costill D. L., Fink W. J., Miller J. M.: Effect of exercise-diet manipulation on muscle glycogen and its subsequent utilization during performance. Int J Sports Med 1981;2:114–118. <a href="https://doi.org/10.1055/s-2008-1034594" rel="noopener">doi:10.1055/s-2008-1034594</a></li>
+    <li id="q5">Bussau V. A., Fairchild T. J., Rao A., Steele P., Fournier P. A.: Carbohydrate loading in human muscle: an improved 1 day protocol. Eur J Appl Physiol 2002;87:290–295. <a href="https://doi.org/10.1007/s00421-002-0621-5" rel="noopener">doi:10.1007/s00421-002-0621-5</a></li>
+    <li id="q6">Jeukendrup A. E.: Training the Gut for Athletes. Sports Med 2017;47 Suppl 1:101–110. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5371619/" rel="noopener">PMC5371619</a></li>
+    <li id="q7">Fernández-Elías V. E., Ortega J. F., Nelson R. K., Mora-Rodriguez R.: Relationship between muscle water and glycogen recovery after prolonged exercise in the heat in humans. Eur J Appl Physiol 2015;115:1919–1926. <a href="https://doi.org/10.1007/s00421-015-3175-z" rel="noopener">doi:10.1007/s00421-015-3175-z</a></li>
+  </ol>
+  <p>Alle Quellen abgerufen am 4. November 2026. Beispieltag und Ernährungstipps ohne Quellenangabe sind Erfahrungswerte.</p>
+</section>
+
+</div>
+  <div class="beitrag-teilen">
+    <span id="teilen-text">Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.</span>
+    <button type="button" class="cta-knopf leise" id="teilen-knopf">Beitrag teilen</button>
+  </div>
+  </div>
+  <section class="beitrag-weitere" aria-labelledby="weitere-titel">
+    <h2 id="weitere-titel">Weitere Beiträge</h2>
+    <ul class="blog-liste">
+    <li class="blog-karte"><a href="krafttraining-fuer-laeufer.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/krafttraining-fuer-laeufer-480.webp" alt="Läuferfeld beim Vienna City Marathon auf der Reichsbrücke, von hinten fotografiert" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Laufen</span></div>
+      <div class="blog-karte-text"><h3>Krafttraining für Läufer: Die besten Übungen und warum sie helfen</h3><div class="blog-meta"><span>5. November 2026</span><span aria-hidden="true">·</span><span>4 Min.</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="silvesterlaeufe.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/silvesterlaeufe-480.webp" alt="Zuschauer in Winterjacken an der Strecke des Zürcher Silvesterlaufs, von hinten fotografiert" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Laufen</span></div>
+      <div class="blog-karte-text"><h3>Silvesterläufe: Das Jahr laufend beenden – die schönsten Läufe zum Jahreswechsel</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>3 Min.</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="laufen-im-winter.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/winterlaufen-480.webp" alt="Start des Zürcher Silvesterlaufs im Dezember, das Läuferfeld aus der Ferne zwischen Zuschauern" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Laufen</span></div>
+      <div class="blog-karte-text"><h3>Laufen im Winter: So macht Training bei Kälte und Dunkelheit Spaß</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>3 Min.</span></div></div>
+    </a></li>
+    </ul>
+  </section>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="../impressum.html">Impressum</a>
+    <a id="footer-datenschutz" href="../datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script defer src="../vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="../vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="../firebase-config.js"></script>
+<script defer src="../auth.js"></script>
+<script defer src="../stats.js?v=6ea036f4"></script>
+<script>
+(function () {
+  // Der Beitrag selbst ist deutsch; DE/EN schaltet nur die Bedienung um.
+  var T = {
+    de: { events: 'Events', clubs: 'Clubs', map: 'Karte', blog: 'Blog', back: '← Alle Beiträge', share: 'Beitrag teilen', share_text: 'Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.', copied: 'Link kopiert', imprint: 'Impressum', privacy: 'Datenschutz' },
+    en: { events: 'Events', clubs: 'Clubs', map: 'Map', blog: 'Blog', back: '← All articles', share: 'Share article', share_text: 'Found this helpful? Share it with your training partners.', copied: 'Link copied', imprint: 'Legal notice', privacy: 'Privacy' }
+  };
+  function setze(lang) {
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    var t = T[lang];
+    document.getElementById('nav-events').textContent = t.events;
+    // Nur den Text setzen – das Schildchen „new“ bleibt stehen.
+    document.getElementById('nav-clubs').firstChild.nodeValue = t.clubs;
+    document.getElementById('nav-map').textContent = t.map;
+    document.getElementById('nav-blog').textContent = t.blog;
+    document.getElementById('blog-zurueck').textContent = t.back;
+    document.getElementById('teilen-knopf').textContent = t.share;
+    document.getElementById('teilen-text').textContent = t.share_text;
+    document.getElementById('footer-impressum').textContent = t.imprint;
+    document.getElementById('footer-datenschutz').textContent = t.privacy;
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+  }
+  var lang = 'de';
+  try { var s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  document.querySelectorAll('.lang-btn').forEach(function (b) { b.addEventListener('click', function () { lang = b.dataset.lang; setze(lang); }); });
+  setze(lang);
+  // Teilen: Teilen-Dialog des Geräts, sonst den Link kopieren.
+  var knopf = document.getElementById('teilen-knopf');
+  knopf.addEventListener('click', function () {
+    var daten = { title: document.title, url: location.href.split('#')[0] };
+    if (navigator.share) { navigator.share(daten).catch(function () {}); return; }
+    if (navigator.clipboard) navigator.clipboard.writeText(daten.url).then(function () {
+      knopf.textContent = T[lang].copied;
+      setTimeout(function () { knopf.textContent = T[lang].share; }, 2000);
+    }).catch(function () {});
+  });
+  // Lesefortschritt oben am Rand – nur Anzeige, nichts wird gespeichert.
+  var balken = document.getElementById('lese-balken');
+  var artikel = document.querySelector('.beitrag-spalte');
+  var geplant = false;
+  function fortschritt() {
+    geplant = false;
+    var r = artikel.getBoundingClientRect();
+    var weg = Math.min(Math.max(-r.top / Math.max(r.height - innerHeight, 1), 0), 1);
+    balken.style.transform = 'scaleX(' + weg.toFixed(3) + ')';
+  }
+  addEventListener('scroll', function () { if (!geplant) { geplant = true; requestAnimationFrame(fortschritt); } }, { passive: true });
+  fortschritt();
+})();
+</script>
+
+</body>
+</html>

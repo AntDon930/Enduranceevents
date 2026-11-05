@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-harsefelder-lauf-und-musikfestival-x-harsefeld@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Harsefelder Lauf- Und Musikfestival
+LOCATION:Harsefeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://volkslauf-harsefe
+ ld.de/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://volkslauf-harsefeld.de/ausschreibung/
+END:VEVENT
+END:VCALENDAR

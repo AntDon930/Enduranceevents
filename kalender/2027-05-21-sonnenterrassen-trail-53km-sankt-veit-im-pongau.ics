@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-21-sonnenterrassen-trail-53km-sankt-veit-im-pongau@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270523
+SUMMARY:Sonnenterrassen Trail – K53 \, 53 km\, 3000 m D+
+LOCATION:Sankt Veit im Pongau\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 53 km\nhttps://www.st-trail.a
+ t/events/sonnenterrassen-trail-2027
+TRANSP:TRANSPARENT
+URL:https://www.st-trail.at/events/sonnenterrassen-trail-2027
+END:VEVENT
+END:VCALENDAR

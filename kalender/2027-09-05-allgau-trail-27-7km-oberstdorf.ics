@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-allgau-trail-27-7km-oberstdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Allgäu Trail – Allgäu Trail 27k
+LOCATION:Oberstdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 27.7 km\nhttps://www.dataspor
+ t.de/anmeldeservice/ato2027
+TRANSP:TRANSPARENT
+URL:https://www.datasport.de/anmeldeservice/ato2027
+END:VEVENT
+END:VCALENDAR

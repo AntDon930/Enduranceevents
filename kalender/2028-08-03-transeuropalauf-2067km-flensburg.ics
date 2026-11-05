@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2028-08-03-transeuropalauf-2067km-flensburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20280803
+DTEND;VALUE=DATE:20280909
+SUMMARY:Transeuropalauf
+LOCATION:Flensburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 2067 km\nhttps://neckarlauf.
+ com/transeuropalauf.html
+TRANSP:TRANSPARENT
+URL:https://neckarlauf.com/transeuropalauf.html
+END:VEVENT
+END:VCALENDAR

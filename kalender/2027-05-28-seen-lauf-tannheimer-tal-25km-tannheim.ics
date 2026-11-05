@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-seen-lauf-tannheimer-tal-25km-tannheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270530
+SUMMARY:Seen-Lauf Tannheimer Tal – 25 km Trailrun (6 Hütten)
+LOCATION:Tannheim\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 25 km\nhttps://www.seen-lauf.
+ com/
+TRANSP:TRANSPARENT
+URL:https://www.seen-lauf.com/
+END:VEVENT
+END:VCALENDAR

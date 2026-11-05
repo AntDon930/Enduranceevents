@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-deggendorfer-halbmarathon-21-1km-deggendorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Deggendorfer Halbmarathon – 21\,1 km Halbmarathon
+LOCATION:Deggendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.lv-degg
+ endorf.de/news/20-jaehriges-jubilaeum-des-deggendorfer-elypso-halbmaratho
+ ns.html
+TRANSP:TRANSPARENT
+URL:https://www.lv-deggendorf.de/news/20-jaehriges-jubilaeum-des-deggendor
+ fer-elypso-halbmarathons.html
+END:VEVENT
+END:VCALENDAR

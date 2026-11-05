@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-9-riedlinger-misse-lauf-8-2km-riedlingen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:9. Riedlinger Misse-Lauf
+LOCATION:Riedlingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.2 km\nhttps://www.tsv-ried
+ lingen.com/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-riedlingen.com/
+END:VEVENT
+END:VCALENDAR

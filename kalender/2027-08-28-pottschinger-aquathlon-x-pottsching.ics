@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-pottschinger-aquathlon-x-pottsching@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Pöttschinger Aquathlon – Aquathlon (Termin vorläufig)
+LOCATION:Pöttsching\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Aquathlon\nLänge: -\nhttps://www.triathlon-poettsching.at/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-poettsching.at/
+END:VEVENT
+END:VCALENDAR

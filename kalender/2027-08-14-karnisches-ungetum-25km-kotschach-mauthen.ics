@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-karnisches-ungetum-25km-kotschach-mauthen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:Karnisches Ungetüm
+LOCATION:Kötschach-Mauthen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25 km\nhttps://www.ungetuem.
+ at/kut
+TRANSP:TRANSPARENT
+URL:https://www.ungetuem.at/kut
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-13-24h-pottenstein-24h-pottenstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261115
+SUMMARY:24h Pottenstein
+LOCATION:Pottenstein\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 24 h\nhttp://www.pottenst
+ ein.de/veranstaltungen
+TRANSP:TRANSPARENT
+URL:http://www.pottenstein.de/veranstaltungen
+END:VEVENT
+END:VCALENDAR

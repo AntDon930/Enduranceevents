@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-berliner-nikolauslauf-14km-krumme-lanke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Berliner Nikolauslauf – Drittel-Marathon (14\,1 km)
+LOCATION:Krumme Lanke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://www.berliner-
+ nikolauslauf.com/startseite/
+TRANSP:TRANSPARENT
+URL:https://www.berliner-nikolauslauf.com/startseite/
+END:VEVENT
+END:VCALENDAR

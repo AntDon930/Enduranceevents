@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-martinslauf-dusseldorf-10km-dusseldorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Martinslauf Düsseldorf – 10 km Volkslauf
+LOCATION:Düsseldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sfd.de/ma
+ rtinslauf/
+TRANSP:TRANSPARENT
+URL:https://www.sfd.de/martinslauf/
+END:VEVENT
+END:VCALENDAR

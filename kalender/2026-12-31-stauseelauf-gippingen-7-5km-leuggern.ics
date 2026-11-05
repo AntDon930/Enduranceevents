@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-stauseelauf-gippingen-7-5km-leuggern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Stauseelauf Gippingen – 7\,53 km Hauptlauf und offene Kategorie
+LOCATION:Leuggern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.stauseel
+ auf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.stauseelauf.ch/
+END:VEVENT
+END:VCALENDAR

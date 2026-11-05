@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-20-inferno-triathlon-halbmarathon-21-1km-lauterbrunnen@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270820
+DTEND;VALUE=DATE:20270823
+SUMMARY:Inferno Triathlon + Halbmarathon – Halbmarathon
+LOCATION:Lauterbrunnen\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 21.1 km\nhttps://inferno.
+ ch/
+TRANSP:TRANSPARENT
+URL:https://inferno.ch/
+END:VEVENT
+END:VCALENDAR

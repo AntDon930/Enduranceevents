@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-24-heiligabend-lauf-schmiedefeld-am-rennsteig-10km-schmiedefel
+ d-am-rennsteig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261224
+DTEND;VALUE=DATE:20261225
+SUMMARY:Heiligabend-Lauf - Schmiedefeld am Rennsteig
+LOCATION:Schmiedefeld am Rennsteig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.rennsteig
+ lauf.de/laufkalender/heiligabend-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.rennsteiglauf.de/laufkalender/heiligabend-lauf/
+END:VEVENT
+END:VCALENDAR

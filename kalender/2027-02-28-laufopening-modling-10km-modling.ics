@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-laufopening-modling-10km-modling@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:Laufopening Mödling
+LOCATION:Mödling\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.laufopeni
+ ng-moedling.at/
+TRANSP:TRANSPARENT
+URL:https://www.laufopening-moedling.at/
+END:VEVENT
+END:VCALENDAR

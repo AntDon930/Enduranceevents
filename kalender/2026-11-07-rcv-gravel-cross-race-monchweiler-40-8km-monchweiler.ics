@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-rcv-gravel-cross-race-monchweiler-40-8km-monchweiler@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:RCV Gravel Cross Race Mönchweiler – 40\,8 km (6 Runden à 6\,8 km)
+LOCATION:Mönchweiler\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 40.8 km\nhttps://rc-villing
+ en.eu/gravel-crossrennen/
+TRANSP:TRANSPARENT
+URL:https://rc-villingen.eu/gravel-crossrennen/
+END:VEVENT
+END:VCALENDAR

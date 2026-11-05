@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-nordschwarzwald-triathlon-2027-x-nagold@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:Nordschwarzwald Triathlon 2027 – Langdistanz
+LOCATION:Nagold\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://nordschwarzwal
+ d-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://nordschwarzwald-triathlon.de/
+END:VEVENT
+END:VCALENDAR

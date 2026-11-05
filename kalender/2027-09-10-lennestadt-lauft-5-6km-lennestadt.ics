@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-10-lennestadt-lauft-5-6km-lennestadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270910
+DTEND;VALUE=DATE:20270911
+SUMMARY:Lennestadt läuft – 5\,6 km Senioren (Einführungsrunde + 5 Runden l
+ ange Strecke)
+LOCATION:Lennestadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://www.lennesta
+ dt-laeuft.de/
+TRANSP:TRANSPARENT
+URL:https://www.lennestadt-laeuft.de/
+END:VEVENT
+END:VCALENDAR

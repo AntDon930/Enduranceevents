@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-41-mrrc-silvesterlauf-munchen-2026-5km-munchen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:41. MRRC Silvesterlauf München 2026
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.mrrc-muenc
+ hen.de/de/silvesterlauf
+TRANSP:TRANSPARENT
+URL:https://www.mrrc-muenchen.de/de/silvesterlauf
+END:VEVENT
+END:VCALENDAR

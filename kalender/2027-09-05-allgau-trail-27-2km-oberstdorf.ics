@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-allgau-trail-27-2km-oberstdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Allgäu Trail – 27\,2 km mit 1389 Höhenmetern
+LOCATION:Oberstdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 27.2 km\nhttps://allgaeu-trai
+ l.de/
+TRANSP:TRANSPARENT
+URL:https://allgaeu-trail.de/
+END:VEVENT
+END:VCALENDAR

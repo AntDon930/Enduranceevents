@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<!-- Erzeugt von scripts/build_blog.py aus blog.json und scripts/blog_texte/tapering.html – nicht von Hand ändern. -->
+<title>Tapering: Warum weniger Training vor dem Rennen dich schneller macht – Endurance Events</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="canonical" href="https://endurance-events.de/blog/tapering.html">
+<meta name="theme-color" content="#0b1220">
+<!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('../wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
+})();
+</script>
+<!-- Farbschema hell/dunkel: wortgleich wie in den anderen Seiten (test_farbschema_skript). -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<meta name="description" content="In den letzten Wochen vor dem Start holt dein Körper nach, was er im Training aufgebaut hat: volle Speicher, kräftigere Muskelfasern, besserer Schlaf. Was beim Tapering passiert und wie du es richtig machst.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Tapering: Warum weniger Training vor dem Rennen dich schneller macht">
+<meta property="og:description" content="In den letzten Wochen vor dem Start holt dein Körper nach, was er im Training aufgebaut hat: volle Speicher, kräftigere Muskelfasern, besserer Schlaf. Was beim Tapering passiert und wie du es richtig machst.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://endurance-events.de/blog/tapering.html">
+<meta property="og:image" content="https://endurance-events.de/bilder/blog/tapering.webp">
+<meta property="article:published_time" content="2026-11-04">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Tapering: Warum weniger Training vor dem Rennen dich schneller macht", "description": "In den letzten Wochen vor dem Start holt dein Körper nach, was er im Training aufgebaut hat: volle Speicher, kräftigere Muskelfasern, besserer Schlaf. Was beim Tapering passiert und wie du es richtig machst.", "datePublished": "2026-11-04", "inLanguage": "de", "image": "https://endurance-events.de/bilder/blog/tapering.webp", "mainEntityOfPage": "https://endurance-events.de/blog/tapering.html", "publisher": {"@type": "Organization", "name": "Endurance Events", "url": "https://endurance-events.de"}}</script>
+<link rel="stylesheet" href="../vendor/fonts/barlow.css">
+<link rel="stylesheet" href="../site.css?v=8fe729d6">
+<link rel="stylesheet" href="../blog.css?v=13e54636">
+</head>
+<body>
+
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). -->
+<header class="site-header top-bar">
+  <a class="brand" href="../index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Seiten">
+    <a class="nav-link" href="../events.html" id="nav-events">Events</a>
+    <a class="nav-link nav-neu" href="../clubs.html" id="nav-clubs">Clubs<span class="nav-neu-text">new</span></a>
+    <a class="nav-link" href="../karte.html" id="nav-map">Karte</a>
+    <a class="nav-link active" href="../blog.html" id="nav-blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+
+
+<div class="lese-fortschritt" aria-hidden="true"><span id="lese-balken"></span></div>
+<main class="blog-main">
+<article class="beitrag">
+  <a class="beitrag-zurueck" href="../blog.html" id="blog-zurueck">← Alle Beiträge</a>
+  <header class="beitrag-hero">
+    <img class="beitrag-hero-bild" src="../bilder/blog/tapering.webp" srcset="../bilder/blog/tapering-480.webp 480w, ../bilder/blog/tapering.webp 960w" sizes="(max-width: 1120px) 100vw, 1120px" alt="Läuferfeld beim London Marathon, von oben fotografiert" width="960" height="640" fetchpriority="high">
+    <div class="beitrag-hero-text">
+      <div class="blog-meta">
+        <span class="blog-tag sport-laufen">Laufen</span><span>4. November 2026</span><span aria-hidden="true">·</span><span>7 Min. Lesezeit</span>
+      </div>
+      <h1>Tapering: Warum weniger Training vor dem Rennen dich schneller macht</h1>
+    </div>
+  </header>
+  <p class="beitrag-nachweis">London Marathon 2026, Upper Thames Street. Foto: Acabashi, <a href="https://commons.wikimedia.org/wiki/File:2026_London_Marathon_Upper_Thames_Street_from_Blackfriars_Bridge_01.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a></p>
+  <div class="beitrag-spalte">
+  <nav class="beitrag-inhalt" aria-labelledby="inhalt-titel">
+    <h2 id="inhalt-titel">Inhalt</h2>
+    <ol><li><a href="#was-ist-tapering">Was ist Tapering?</a></li><li><a href="#bringt-das-wirklich-etwas">Bringt das wirklich etwas?</a></li><li><a href="#was-dabei-in-deinem-koerper-passiert">Was dabei in deinem Körper passiert</a></li><li><a href="#so-machst-du-es-richtig">So machst du es richtig</a></li><li><a href="#ein-beispiel">Ein Beispiel</a></li><li><a href="#das-taper-gefuehl-ist-ganz-normal">Das „Taper-Gefühl“ ist ganz normal</a></li><li><a href="#fazit">Fazit</a></li></ol>
+  </nav>
+<p class="beitrag-lead">Die harte Arbeit ist getan, das Rennen steht vor der Tür – und jetzt sollst du weniger trainieren? Genau das ist der Trick. In den letzten ein, zwei Wochen holt dein Körper nach, was er im Training aufgebaut hat. Hier erfährst du, was dabei passiert und wie du es richtig machst.</p>
+
+<div class="beitrag-text">
+
+<h2 id="was-ist-tapering">Was ist Tapering?</h2>
+<p>„Taper“ ist englisch und heißt so viel wie „schmaler werden“ – wie eine Kerze, die nach oben spitz zuläuft. Gemeint sind die letzten Tage oder Wochen vor einem wichtigen Rennen, in denen du dein Training deutlich zurückfährst. Damit du dich von der Vorbereitung erholst und am Start frisch und voller Energie bist<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>.</p>
+<p>Das Prinzip dahinter ist einfach: Training macht dich fitter – aber auch müde. Die Müdigkeit verschwindet schneller als die Fitness. Fährst du also kurz vor dem Rennen das Training herunter, ist die Müdigkeit weg, die Form aber noch da<sup class="q"><a href="#q2" aria-label="Quelle 2">[2]</a></sup>.</p>
+
+<h2 id="bringt-das-wirklich-etwas">Bringt das wirklich etwas?</h2>
+<p>Ja – Tapering gehört zu den am besten untersuchten Themen im Ausdauersport. Mehrere große Auswertungen vieler Studien kommen zum selben Ergebnis: Nach einer guten Taper-Phase sind Sportlerinnen und Sportler im Wettkampf schneller<sup class="q"><a href="#q3" aria-label="Quelle 3">[3]</a></sup><sup class="q"><a href="#q4" aria-label="Quelle 4">[4]</a></sup>.</p>
+<p>Und das gilt nicht nur für Profis. Forschende haben die Trainingsdaten von über 158.000 Freizeit-Marathonläuferinnen und -läufern ausgewertet. Wer in den letzten drei Wochen sein Training Woche für Woche zurückfuhr, war im Ziel im Schnitt gut fünfeinhalb Minuten schneller als jemand, der fast bis zum Schluss voll trainierte<sup class="q"><a href="#q5" aria-label="Quelle 5">[5]</a></sup>.</p>
+
+<h2 id="was-dabei-in-deinem-koerper-passiert">Was dabei in deinem Körper passiert</h2>
+<ul>
+  <li><strong>Volle Energiespeicher:</strong> Deine Muskeln füllen ihre Glykogenspeicher auf – den wichtigsten Treibstoff für lange Strecken<sup class="q"><a href="#q2" aria-label="Quelle 2">[2]</a></sup>. Ausreichend Kohlenhydrate in den Tagen vor dem Rennen helfen dabei<sup class="q"><a href="#q7" aria-label="Quelle 7">[7]</a></sup>.</li>
+  <li><strong>Mehr rote Blutkörperchen:</strong> Der Körper bildet mehr neue Blutzellen, die Sauerstoff zu den Muskeln bringen<sup class="q"><a href="#q2" aria-label="Quelle 2">[2]</a></sup>.</li>
+  <li><strong>Kräftigere Muskeln:</strong> Die Muskelfasern erholen sich und werden kräftiger und schneller. Bei Schwimmern ließ sich das nach drei Wochen Tapering sogar direkt in den einzelnen Fasern messen<sup class="q"><a href="#q6" aria-label="Quelle 6">[6]</a></sup>.</li>
+  <li><strong>Besserer Schlaf, bessere Laune:</strong> Viele schlafen besser, fühlen sich wohler, und die gleiche Belastung fühlt sich leichter an<sup class="q"><a href="#q2" aria-label="Quelle 2">[2]</a></sup>.</li>
+</ul>
+<p>Kurz gesagt: Du wirst nicht nur fitter – du fühlst dich auch so.</p>
+
+<h2 id="so-machst-du-es-richtig">So machst du es richtig</h2>
+<div class="beitrag-tabelle-huelle">
+<table class="zweispaltig">
+  <thead><tr><th>Was?</th><th>Wie?</th></tr></thead>
+  <tbody>
+    <tr class="empfohlen"><td><strong>Umfang</strong></td><td>etwa halbieren</td></tr>
+    <tr class="empfohlen"><td><strong>Tempo</strong></td><td>beibehalten – weiter kurze, zügige Abschnitte laufen</td></tr>
+    <tr class="empfohlen"><td><strong>Trainingstage</strong></td><td>beibehalten – nicht einfach Läufe streichen</td></tr>
+    <tr><td><strong>Dauer</strong></td><td>etwa zwei Wochen, beim Marathon gern bis zu drei</td></tr>
+    <tr><td><strong>Verlauf</strong></td><td>Schritt für Schritt weniger, nicht von heute auf morgen</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="beitrag-stand">Diese Leitplanken fassen die großen Studienauswertungen zusammen<sup class="q"><a href="#q3" aria-label="Quelle 3">[3]</a></sup><sup class="q"><a href="#q4" aria-label="Quelle 4">[4]</a></sup>.</p>
+<p>Der wichtigste Punkt: <strong>Spar an den Kilometern, nicht am Tempo.</strong> Wer in der Taper-Phase nur noch gemütlich trabt, fühlt sich am Renntag oft träge. Ein paar zügige Abschnitte halten die Beine spritzig<sup class="q"><a href="#q1" aria-label="Quelle 1">[1]</a></sup>.</p>
+
+<h2 id="ein-beispiel">Ein Beispiel</h2>
+<p>Angenommen, du bist in deiner stärksten Woche 50 Kilometer an vier Tagen gelaufen:</p>
+<ul>
+  <li><strong>Zwei Wochen vor dem Rennen:</strong> rund 35 Kilometer, weiter an vier Tagen. Der lange Lauf wird kürzer, ein paar Kilometer im Renntempo bleiben drin.</li>
+  <li><strong>Rennwoche:</strong> rund 20 bis 25 Kilometer – kurze, lockere Läufe mit ein paar kurzen Steigerungen.</li>
+  <li><strong>Die letzten ein, zwei Tage:</strong> ganz locker oder frei, so wie es sich für dich gut anfühlt.</li>
+</ul>
+<p>Für einen 10-Kilometer-Lauf reichen meist ein paar Tage, für einen Marathon darf es länger sein.</p>
+
+<h2 id="das-taper-gefuehl-ist-ganz-normal">Das „Taper-Gefühl“ ist ganz normal</h2>
+<p>Viele kennen es: In der Taper-Woche fühlen sich die Beine manchmal schwer an, man wird unruhig und fragt sich, ob man Form verliert. Keine Sorge – das tust du nicht. Nutz die freie Zeit lieber für das, was sonst zu kurz kommt: früher ins Bett, Anreise planen, Startunterlagen und Ausrüstung bereitlegen, die Strecke anschauen. Und dann: Vorfreude.</p>
+
+<h2 id="fazit">Fazit</h2>
+<p>Tapering ist keine Faulheit, sondern der letzte Baustein deines Trainings. Weniger Kilometer, gleicher Rhythmus, ein bisschen Tempo – und du stehst ausgeruht, mit vollen Speichern und frischen Beinen am Start.</p>
+
+<section class="beitrag-cta">
+  <h2>Finde dein nächstes Rennen</h2>
+  <p>Für die Planung deiner Saison: alle Laufveranstaltungen in Deutschland, Österreich, der Schweiz und Südtirol. Und wie du dich auf deinen ersten Halbmarathon vorbereitest, steht in unserem <a href="erster-halbmarathon.html">Halbmarathon-Leitfaden</a>.</p>
+  <div class="cta-knoepfe">
+    <a class="cta-knopf" href="../events.html?sportart=Laufen">Laufevents ansehen</a>
+    <a class="cta-knopf leise" href="erster-halbmarathon.html">Zum Halbmarathon-Leitfaden</a>
+  </div>
+</section>
+
+<section class="beitrag-quellen" aria-labelledby="quellen-titel">
+  <h2 id="quellen-titel">Quellen</h2>
+  <ol>
+    <li id="q1">Mujika I.: Intense training: the key to optimal performance before and during the taper. Scand J Med Sci Sports 2010;20 Suppl 2:24–31. <a href="https://doi.org/10.1111/j.1600-0838.2010.01189.x" rel="noopener">doi:10.1111/j.1600-0838.2010.01189.x</a></li>
+    <li id="q2">Mujika I., Padilla S., Pyne D., Busso T.: Physiological changes associated with the pre-event taper in athletes. Sports Med 2004;34:891–927. <a href="https://doi.org/10.2165/00007256-200434130-00003" rel="noopener">doi:10.2165/00007256-200434130-00003</a></li>
+    <li id="q3">Bosquet L., Montpetit J., Arvisais D., Mujika I.: Effects of tapering on performance: a meta-analysis. Med Sci Sports Exerc 2007;39:1358–1365. <a href="https://doi.org/10.1249/mss.0b013e31806010e0" rel="noopener">doi:10.1249/mss.0b013e31806010e0</a></li>
+    <li id="q4">Wang Z., Wang Y. T., Gao W., Zhong Y.: Effects of tapering on performance in endurance athletes: a systematic review and meta-analysis. PLoS One 2023;18:e0282838. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10171681/" rel="noopener">PMC10171681</a></li>
+    <li id="q5">Smyth B., Lawlor A.: Longer disciplined tapers improve marathon performance for recreational runners. Front Sports Act Living 2021;3:735220. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8506252/" rel="noopener">PMC8506252</a></li>
+    <li id="q6">Trappe S., Costill D., Thomas R.: Effect of swim taper on whole muscle and single muscle fiber contractile properties. Med Sci Sports Exerc 2001;33:48–56. <a href="https://doi.org/10.1097/00005768-200101000-00009" rel="noopener">doi:10.1097/00005768-200101000-00009</a></li>
+    <li id="q7">Burke L. M., Hawley J. A., Wong S. H., Jeukendrup A. E.: Carbohydrates for training and competition. J Sports Sci 2011;29 Suppl 1:S17–27. <a href="https://doi.org/10.1080/02640414.2011.585473" rel="noopener">doi:10.1080/02640414.2011.585473</a></li>
+  </ol>
+  <p>Alle Quellen abgerufen am 4. November 2026. Das Beispiel ist ein Erfahrungswert.</p>
+</section>
+
+</div>
+  <div class="beitrag-teilen">
+    <span id="teilen-text">Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.</span>
+    <button type="button" class="cta-knopf leise" id="teilen-knopf">Beitrag teilen</button>
+  </div>
+  </div>
+  <section class="beitrag-weitere" aria-labelledby="weitere-titel">
+    <h2 id="weitere-titel">Weitere Beiträge</h2>
+    <ul class="blog-liste">
+    <li class="blog-karte"><a href="krafttraining-fuer-laeufer.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/krafttraining-fuer-laeufer-480.webp" alt="Läuferfeld beim Vienna City Marathon auf der Reichsbrücke, von hinten fotografiert" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Laufen</span></div>
+      <div class="blog-karte-text"><h3>Krafttraining für Läufer: Die besten Übungen und warum sie helfen</h3><div class="blog-meta"><span>5. November 2026</span><span aria-hidden="true">·</span><span>4 Min.</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="silvesterlaeufe.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/silvesterlaeufe-480.webp" alt="Zuschauer in Winterjacken an der Strecke des Zürcher Silvesterlaufs, von hinten fotografiert" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Laufen</span></div>
+      <div class="blog-karte-text"><h3>Silvesterläufe: Das Jahr laufend beenden – die schönsten Läufe zum Jahreswechsel</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>3 Min.</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="carboloading.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/carboloading-480.webp" alt="Läuferfeld beim London Marathon zwischen Zuschauerreihen, von oben fotografiert" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Laufen</span></div>
+      <div class="blog-karte-text"><h3>Carboloading: Was du in den Tagen vor dem Rennen essen solltest</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>3 Min.</span></div></div>
+    </a></li>
+    </ul>
+  </section>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="../impressum.html">Impressum</a>
+    <a id="footer-datenschutz" href="../datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script defer src="../vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="../vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="../firebase-config.js"></script>
+<script defer src="../auth.js"></script>
+<script defer src="../stats.js?v=6ea036f4"></script>
+<script>
+(function () {
+  // Der Beitrag selbst ist deutsch; DE/EN schaltet nur die Bedienung um.
+  var T = {
+    de: { events: 'Events', clubs: 'Clubs', map: 'Karte', blog: 'Blog', back: '← Alle Beiträge', share: 'Beitrag teilen', share_text: 'Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.', copied: 'Link kopiert', imprint: 'Impressum', privacy: 'Datenschutz' },
+    en: { events: 'Events', clubs: 'Clubs', map: 'Map', blog: 'Blog', back: '← All articles', share: 'Share article', share_text: 'Found this helpful? Share it with your training partners.', copied: 'Link copied', imprint: 'Legal notice', privacy: 'Privacy' }
+  };
+  function setze(lang) {
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    var t = T[lang];
+    document.getElementById('nav-events').textContent = t.events;
+    // Nur den Text setzen – das Schildchen „new“ bleibt stehen.
+    document.getElementById('nav-clubs').firstChild.nodeValue = t.clubs;
+    document.getElementById('nav-map').textContent = t.map;
+    document.getElementById('nav-blog').textContent = t.blog;
+    document.getElementById('blog-zurueck').textContent = t.back;
+    document.getElementById('teilen-knopf').textContent = t.share;
+    document.getElementById('teilen-text').textContent = t.share_text;
+    document.getElementById('footer-impressum').textContent = t.imprint;
+    document.getElementById('footer-datenschutz').textContent = t.privacy;
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+  }
+  var lang = 'de';
+  try { var s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  document.querySelectorAll('.lang-btn').forEach(function (b) { b.addEventListener('click', function () { lang = b.dataset.lang; setze(lang); }); });
+  setze(lang);
+  // Teilen: Teilen-Dialog des Geräts, sonst den Link kopieren.
+  var knopf = document.getElementById('teilen-knopf');
+  knopf.addEventListener('click', function () {
+    var daten = { title: document.title, url: location.href.split('#')[0] };
+    if (navigator.share) { navigator.share(daten).catch(function () {}); return; }
+    if (navigator.clipboard) navigator.clipboard.writeText(daten.url).then(function () {
+      knopf.textContent = T[lang].copied;
+      setTimeout(function () { knopf.textContent = T[lang].share; }, 2000);
+    }).catch(function () {});
+  });
+  // Lesefortschritt oben am Rand – nur Anzeige, nichts wird gespeichert.
+  var balken = document.getElementById('lese-balken');
+  var artikel = document.querySelector('.beitrag-spalte');
+  var geplant = false;
+  function fortschritt() {
+    geplant = false;
+    var r = artikel.getBoundingClientRect();
+    var weg = Math.min(Math.max(-r.top / Math.max(r.height - innerHeight, 1), 0), 1);
+    balken.style.transform = 'scaleX(' + weg.toFixed(3) + ')';
+  }
+  addEventListener('scroll', function () { if (!geplant) { geplant = true; requestAnimationFrame(fortschritt); } }, { passive: true });
+  fortschritt();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-adventlauf-tulln-10km-tulln-an-der-donau@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Adventlauf Tulln
+LOCATION:Tulln an der Donau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.ultralauf
+ teamtulln.at/4.-adventlauf-tulln-2026/
+TRANSP:TRANSPARENT
+URL:https://www.ultralaufteamtulln.at/4.-adventlauf-tulln-2026/
+END:VEVENT
+END:VCALENDAR

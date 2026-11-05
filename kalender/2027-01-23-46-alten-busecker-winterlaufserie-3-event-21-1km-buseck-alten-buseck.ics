@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-46-alten-busecker-winterlaufserie-3-event-21-1km-buseck-alt
+ en-buseck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:46. Alten-Busecker Winterlaufserie - 3. Event
+LOCATION:Buseck/Alten-Buseck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.tsg-alt
+ en-buseck.com
+TRANSP:TRANSPARENT
+URL:https://www.tsg-alten-buseck.com
+END:VEVENT
+END:VCALENDAR

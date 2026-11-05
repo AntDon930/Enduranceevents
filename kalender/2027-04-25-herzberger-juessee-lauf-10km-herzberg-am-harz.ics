@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-herzberger-juessee-lauf-10km-herzberg-am-harz@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Herzberger Juessee-Lauf
+LOCATION:Herzberg am Harz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://mtvherzberg.d
+ e/juessee-lauf/
+TRANSP:TRANSPARENT
+URL:https://mtvherzberg.de/juessee-lauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-designon-allgau-radmarathon-80km-isny-im-allgau@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:designOn Allgäu Radmarathon – 80-km-Runde
+LOCATION:Isny im Allgäu\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 80 km\nhttps://www.allgaeu-
+ radmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.allgaeu-radmarathon.de/
+END:VEVENT
+END:VCALENDAR

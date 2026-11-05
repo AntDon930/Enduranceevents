@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-100-jahre-rund-in-serrig-x-serrig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270705
+SUMMARY:100 Jahre Rund in Serrig
+LOCATION:Serrig\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://rv-serrig.de/eve
+ nt/nationales-strassenradrennen-rund-in-serrig/
+TRANSP:TRANSPARENT
+URL:https://rv-serrig.de/event/nationales-strassenradrennen-rund-in-serrig
+ /
+END:VEVENT
+END:VCALENDAR

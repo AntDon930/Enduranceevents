@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-16-rund-um-den-ohmbachsee-5km-brucken-pfalz@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270416
+DTEND;VALUE=DATE:20270417
+SUMMARY:Rund um den Ohmbachsee
+LOCATION:Brücken (Pfalz)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tvbruecken
+ .de/ohmbachseelauf/
+TRANSP:TRANSPARENT
+URL:https://www.tvbruecken.de/ohmbachseelauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-pump-the-village-st-radegund-x-st-radegund@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Pump The Village St. Radegund – Pumptrack
+LOCATION:St. Radegund\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttp://www.bike.sk
+ i-radegund.at/
+TRANSP:TRANSPARENT
+URL:http://www.bike.ski-radegund.at/
+END:VEVENT
+END:VCALENDAR

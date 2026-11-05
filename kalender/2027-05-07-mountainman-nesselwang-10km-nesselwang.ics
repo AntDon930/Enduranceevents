@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-mountainman-nesselwang-10km-nesselwang@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270509
+SUMMARY:Mountainman Nesselwang – 10 km \, 800+ hm\, 1 Verpflegungspunkt\, 
+ optional mit Hund
+LOCATION:Nesselwang\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://mountainman.de
+ /trailrunning-events/alps/nesselwang/
+TRANSP:TRANSPARENT
+URL:https://mountainman.de/trailrunning-events/alps/nesselwang/
+END:VEVENT
+END:VCALENDAR

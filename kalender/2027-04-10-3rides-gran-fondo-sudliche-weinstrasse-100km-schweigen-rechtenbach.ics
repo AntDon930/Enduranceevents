@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-3rides-gran-fondo-sudliche-weinstrasse-100km-schweigen-rech
+ tenbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:3Rides Gran Fondo Südliche Weinstraße – Gran Fondo 100 km
+LOCATION:Schweigen-Rechtenbach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 100 km\nhttps://3rides.de/s
+ uedliche-weinstrasse
+TRANSP:TRANSPARENT
+URL:https://3rides.de/suedliche-weinstrasse
+END:VEVENT
+END:VCALENDAR

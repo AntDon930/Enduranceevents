@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-neusser-sommernachtslauf-10km-neuss@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Neusser Sommernachtslauf
+LOCATION:Neuss\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://tg-neuss.de/s
+ ommernachtslauf/
+TRANSP:TRANSPARENT
+URL:https://tg-neuss.de/sommernachtslauf/
+END:VEVENT
+END:VCALENDAR

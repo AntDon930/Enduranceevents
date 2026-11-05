@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-powerman-alsdorf-80km-alsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:POWERMAN Alsdorf – Europe Triathlon Powerman Middle Distance Duath
+ lon Championships 80 km (10 km Laufen / 60 km Rad / 10 km Laufen)
+LOCATION:Alsdorf\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 80 km\nhttps://www.powe
+ rman-alsdorf.de
+TRANSP:TRANSPARENT
+URL:https://www.powerman-alsdorf.de
+END:VEVENT
+END:VCALENDAR

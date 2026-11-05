@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-21-silent-light-run-5km-luzern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270121
+DTEND;VALUE=DATE:20270122
+SUMMARY:Silent Light Run
+LOCATION:Luzern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.6weeks.ch/
+ mehr/news-events/event-detail/silent-light-run/
+TRANSP:TRANSPARENT
+URL:https://www.6weeks.ch/mehr/news-events/event-detail/silent-light-run/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-16-running-festival-mannheim-10km-mannheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271018
+SUMMARY:Running Festival Mannheim – 10 km Run und 10 km Firmen-Cup
+LOCATION:Mannheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://longevity-hea
+ lth-club.de/running-festival-mannheim
+TRANSP:TRANSPARENT
+URL:https://longevity-health-club.de/running-festival-mannheim
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-44-leipziger-triathlon-2027-x-leipzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:44. Leipziger Triathlon 2027 – Olympisch
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.leipziger-
+ triathlon.de/veranstaltungen/leipziger-triathlon/
+TRANSP:TRANSPARENT
+URL:https://www.leipziger-triathlon.de/veranstaltungen/leipziger-triathlon
+ /
+END:VEVENT
+END:VCALENDAR

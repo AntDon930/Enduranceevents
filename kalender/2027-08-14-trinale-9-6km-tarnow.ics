@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-trinale-9-6km-tarnow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:Trinale – Eliminator-Triathlon 9\,6 km je Lauf (0\,25 km Schwimmen
+  / 7\,6 km Rad / 1\,7 km Laufen)
+LOCATION:Tarnow\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 9.6 km\nhttps://trifun.de
+ /events/trinale
+TRANSP:TRANSPARENT
+URL:https://trifun.de/events/trinale
+END:VEVENT
+END:VCALENDAR

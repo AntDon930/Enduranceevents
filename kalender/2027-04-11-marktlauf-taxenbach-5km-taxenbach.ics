@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-marktlauf-taxenbach-5km-taxenbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Marktlauf Taxenbach
+LOCATION:Taxenbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.marktlauf-
+ taxenbach.at/
+TRANSP:TRANSPARENT
+URL:https://www.marktlauf-taxenbach.at/
+END:VEVENT
+END:VCALENDAR

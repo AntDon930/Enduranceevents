@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-44-seubersdorfer-silvesterlauf-9-4km-seubersdorf@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:44. Seubersdorfer Silvesterlauf
+LOCATION:Seubersdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.4 km\nhttps://www.sv-eintr
+ acht-seubersdorf.de/silvesterlauf
+TRANSP:TRANSPARENT
+URL:https://www.sv-eintracht-seubersdorf.de/silvesterlauf
+END:VEVENT
+END:VCALENDAR

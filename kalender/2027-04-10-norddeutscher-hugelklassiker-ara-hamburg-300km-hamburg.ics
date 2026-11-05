@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-norddeutscher-hugelklassiker-ara-hamburg-300km-hamburg@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Norddeutscher-Hügelklassiker - ARA Hamburg – Brevet 300 km
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 300 km\nhttps://audax-rando
+ nneure.de/startorte/hamburg
+TRANSP:TRANSPARENT
+URL:https://audax-randonneure.de/startorte/hamburg
+END:VEVENT
+END:VCALENDAR

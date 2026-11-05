@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-vorfruhlings-crosslauf-worpswede-x-worpswede@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:Vorfrühlings-Crosslauf Worpswede
+LOCATION:Worpswede\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://ladv.de/ausschreib
+ ung/detail/49336/53.-Vorfr%C3%BChlings-Crosslauf-Worpswede-Worpswede.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49336/53.-Vorfr%C3%BChlings-Cross
+ lauf-Worpswede-Worpswede.htm
+END:VEVENT
+END:VCALENDAR

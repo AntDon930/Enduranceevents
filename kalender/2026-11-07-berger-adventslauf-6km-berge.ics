@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-berger-adventslauf-6km-berge@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Berger Adventslauf
+LOCATION:Berge\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.tus-berge.
+ de/lauftreff/berger-adventslauf-2/berger-adventslauf-2025/
+TRANSP:TRANSPARENT
+URL:https://www.tus-berge.de/lauftreff/berger-adventslauf-2/berger-advents
+ lauf-2025/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-slowup-schaffhausen-hegau-38km-schaffhausen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:slowUp Schaffhausen-Hegau – Volksradfahren 38 km
+LOCATION:Schaffhausen\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 38 km\nhttps://www.sl
+ owup.ch/schaffhausen-hegau/de
+TRANSP:TRANSPARENT
+URL:https://www.slowup.ch/schaffhausen-hegau/de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-tortuga-run-5-5km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Tortuga Run – 3 Seemeilen (5\,5 km)
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://tortuga-run.
+ com/tortuga-run-2027/
+TRANSP:TRANSPARENT
+URL:https://tortuga-run.com/tortuga-run-2027/
+END:VEVENT
+END:VCALENDAR
