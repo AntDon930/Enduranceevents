@@ -28,7 +28,7 @@ auf der Live-Seite (Entwicklungs-Branch, beide Live-Namen). Seit dem 04.11.2026 
 | Mo 09.11.2026 | [x] `laufen-im-winter` (04.11.) | L | Laufen | Laufen im Winter: So macht Training bei Kälte und Dunkelheit Spaß |
 | Do 12.11.2026 | [x] `silvesterlaeufe` (04.11.) | E | Laufen | Silvesterläufe: Das Jahr laufend beenden – die schönsten Läufe zum Jahreswechsel |
 | Mo 16.11.2026 | [x] `krafttraining-fuer-laeufer` (05.11.) | Q | Laufen | Krafttraining für Läufer: Die besten Übungen und warum sie helfen |
-| Do 19.11.2026 | [ ] | E | Laufen | Crossläufe und Winterlaufserien: Wettkampfspaß in der kalten Jahreszeit |
+| Do 19.11.2026 | [x] `crosslaeufe-winterlaufserien` (09.11.) | E | Laufen | Crossläufe und Winterlaufserien: Wettkampfspaß in der kalten Jahreszeit |
 | Mo 23.11.2026 | [ ] | L | Triathlon | Wintertraining im Triathlon: Schwimmen, Rolle und Laufband sinnvoll kombinieren |
 | Do 26.11.2026 | [ ] | L | Fahrrad | Rollentraining im Winter: So bleibst du auf dem Rad fit, bis die Saison startet |
 | Mo 30.11.2026 | [ ] | Q | alle | Regeneration: Schlaf, Muskelkater und lockere Tage richtig nutzen |

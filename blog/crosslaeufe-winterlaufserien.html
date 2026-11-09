@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<!-- Erzeugt von scripts/build_blog.py aus blog.json und scripts/blog_texte/crosslaeufe-winterlaufserien.html – nicht von Hand ändern. -->
+<title>Crossläufe und Winterlaufserien: Wettkampfspaß in der kalten Jahreszeit – Endurance Events</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="canonical" href="https://endurance-events.de/blog/crosslaeufe-winterlaufserien.html">
+<meta name="theme-color" content="#0b1220">
+<!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('../wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
+})();
+</script>
+<!-- Farbschema hell/dunkel: wortgleich wie in den anderen Seiten (test_farbschema_skript). -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<meta name="description" content="Matsch, Wiese und Termine bis in den März: Was einen Crosslauf ausmacht, warum eine Winterlaufserie dich durch den Winter trägt – und wo du von November bis März starten kannst.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Crossläufe und Winterlaufserien: Wettkampfspaß in der kalten Jahreszeit">
+<meta property="og:description" content="Matsch, Wiese und Termine bis in den März: Was einen Crosslauf ausmacht, warum eine Winterlaufserie dich durch den Winter trägt – und wo du von November bis März starten kannst.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://endurance-events.de/blog/crosslaeufe-winterlaufserien.html">
+<meta property="og:image" content="https://endurance-events.de/bilder/blog/crosslaeufe-winterlaufserien.webp">
+<meta property="article:published_time" content="2026-11-09">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Crossläufe und Winterlaufserien: Wettkampfspaß in der kalten Jahreszeit", "description": "Matsch, Wiese und Termine bis in den März: Was einen Crosslauf ausmacht, warum eine Winterlaufserie dich durch den Winter trägt – und wo du von November bis März starten kannst.", "datePublished": "2026-11-09", "inLanguage": "de", "image": "https://endurance-events.de/bilder/blog/crosslaeufe-winterlaufserien.webp", "mainEntityOfPage": "https://endurance-events.de/blog/crosslaeufe-winterlaufserien.html", "publisher": {"@type": "Organization", "name": "Endurance Events", "url": "https://endurance-events.de"}}</script>
+<link rel="stylesheet" href="../vendor/fonts/barlow.css">
+<link rel="stylesheet" href="../site.css?v=8fe729d6">
+<link rel="stylesheet" href="../blog.css?v=13e54636">
+</head>
+<body>
+
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). -->
+<header class="site-header top-bar">
+  <a class="brand" href="../index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Seiten">
+    <a class="nav-link" href="../events.html" id="nav-events">Events</a>
+    <a class="nav-link nav-neu" href="../clubs.html" id="nav-clubs">Clubs<span class="nav-neu-text">new</span></a>
+    <a class="nav-link" href="../karte.html" id="nav-map">Karte</a>
+    <a class="nav-link active" href="../blog.html" id="nav-blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+
+
+<div class="lese-fortschritt" aria-hidden="true"><span id="lese-balken"></span></div>
+<main class="blog-main">
+<article class="beitrag">
+  <a class="beitrag-zurueck" href="../blog.html" id="blog-zurueck">← Alle Beiträge</a>
+  <header class="beitrag-hero">
+    <img class="beitrag-hero-bild" src="../bilder/blog/crosslaeufe-winterlaufserien.webp" srcset="../bilder/blog/crosslaeufe-winterlaufserien-480.webp 480w, ../bilder/blog/crosslaeufe-winterlaufserien.webp 960w" sizes="(max-width: 1120px) 100vw, 1120px" alt="Läuferinnen und Läufer auf einer matschigen Crossstrecke über eine Wiese im Winter, im Hintergrund kahle Bäume" width="960" height="640" fetchpriority="high">
+    <div class="beitrag-hero-text">
+      <div class="blog-meta">
+        <span class="blog-tag sport-laufen">Laufen</span><span>9. November 2026</span><span aria-hidden="true">·</span><span>5 Min. Lesezeit</span>
+      </div>
+      <h1>Crossläufe und Winterlaufserien: Wettkampfspaß in der kalten Jahreszeit</h1>
+    </div>
+  </header>
+  <p class="beitrag-nachweis">Manchester Area Cross Country League, Heaton Park, Februar 2026. Foto: King Februarius, <a href="https://commons.wikimedia.org/wiki/File:Cross-country_runners_at_Heaton_Park_MACCL.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener">CC0</a></p>
+  <div class="beitrag-spalte">
+  <nav class="beitrag-inhalt" aria-labelledby="inhalt-titel">
+    <h2 id="inhalt-titel">Inhalt</h2>
+    <ol><li><a href="#crosslauf-zurueck-zu-den-wurzeln">Crosslauf: zurück zu den Wurzeln</a></li><li><a href="#winterlaufserie-dranbleiben-mit-system">Winterlaufserie: dranbleiben mit System</a></li><li><a href="#winterlaufserien-zum-mitmachen">Winterlaufserien zum Mitmachen</a></li><li><a href="#crosslaeufe-und-crossserien">Crossläufe und Crossserien</a></li><li><a href="#so-kommst-du-gut-durch-matsch-und-kaelte">So kommst du gut durch Matsch und Kälte</a></li><li><a href="#so-findest-du-deinen-lauf">So findest du deinen Lauf</a></li><li><a href="#fazit">Fazit</a></li></ol>
+  </nav>
+<p class="beitrag-lead">Wenn die Tage kurz werden, fängt für viele Läuferinnen und Läufer die schönste Wettkampfzeit erst an: Crossläufe über Wiesen und Waldwege und Winterlaufserien mit mehreren Terminen bis in den März. In unserer Liste stehen von November bis März rund 90 Crossläufe und über 130 Termine von Winterlaufserien. Hier erfährst du, was dich erwartet – und wo du starten kannst.</p>
+
+<div class="beitrag-text">
+
+<h2 id="crosslauf-zurueck-zu-den-wurzeln">Crosslauf: zurück zu den Wurzeln</h2>
+<p>Ein Crosslauf führt abseits der Straße über Gras, Waldboden, kleine Hügel und manchmal durch richtig viel Matsch. Die Strecken sind meist kurz – oft 5 bis 10 Kilometer, häufig als Runde, die mehrmals gelaufen wird. Das macht Crossläufe ideal für den Winter: Du bist nie lange unterwegs, die Zuschauer sehen dich mehrmals vorbeikommen, und die Stimmung ist familiär.</p>
+<p>Das Schönste daran: Auf einer Crossstrecke zählt die Uhr weniger als sonst. Jede Runde ist anders, jeder Anstieg kostet Kraft, und am Ende sind alle gleich schmutzig. Viele erleben das als Befreiung vom Blick auf die Pace. Nebenbei trainierst du Kraft, Gleichgewicht und Laufstil – genau das, was dich im Frühjahr auf der Straße schneller macht. Wer das gezielt unterstützen will, findet in <a href="krafttraining-fuer-laeufer.html">„Krafttraining für Läufer“</a> passende Übungen.</p>
+
+<h2 id="winterlaufserie-dranbleiben-mit-system">Winterlaufserie: dranbleiben mit System</h2>
+<p>Eine Winterlaufserie ist eine Reihe von Läufen am selben Ort, meist alle zwei bis vier Wochen. Oft werden die Strecken von Termin zu Termin länger – ein eingebauter Trainingsplan, der viele bis zum ersten Halbmarathon im Frühjahr trägt. Wer alle Läufe schafft, kommt in die Gesamtwertung, und schon dieser Termin im Kalender hilft, im Winter nicht auf dem Sofa zu bleiben.</p>
+<p>In unserer Liste ist jede Serie <strong>eine</strong> Veranstaltung: Klappst du sie auf, siehst du jeden Termin mit seiner eigenen Distanz.</p>
+
+<h2 id="winterlaufserien-zum-mitmachen">Winterlaufserien zum Mitmachen</h2>
+<table class="zweispaltig">
+  <thead><tr><th>Serie</th><th>Termine und Distanzen</th></tr></thead>
+  <tbody>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=Ismaninger%20Winterlaufserie">Ismaninger Winterlaufserie</a> (bei München)</td><td>13.12., 17.01. und 21.02. – 13, 17 und 21,1 km</td></tr>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=N%C3%BCrnberger%20Winterlaufserie">Nürnberger Winterlaufserie</a></td><td>15.11., 17.01. und 07.02. – 5 bis 20 km</td></tr>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=B%C3%BChlauer%20Winterlauf">Bühlauer Winterlauf Serie</a> (Dresden)</td><td>05.12. bis 06.03., vier Termine – bis 40 km</td></tr>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=Bramfelder%20Winterlaufserie">Bramfelder Winterlaufserie</a> (Hamburg)</td><td>15.11. bis 21.03., fünf Termine – 9,3 bis 23,3 km</td></tr>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=Winterlaufserie%20Wilhelmsburg">Winterlaufserie Wilhelmsburg</a> (Hamburg)</td><td>10.01., 07.02. und 07.03. – 5 bis 20 km</td></tr>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=HKK-Winterlaufserie">HKK-Winterlaufserie</a> (Bremen)</td><td>10.01., 07.02. und 07.03. – 5 bis 20 km</td></tr>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=Winterlaufserie%20Alfter">Winterlaufserie Alfter</a> (bei Bonn)</td><td>15.11. bis 24.01., alle zwei Wochen – 10, 15 und 20 km</td></tr>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=Winterlaufserie%20Rheinzabern">Winterlaufserie Rheinzabern</a> (Pfalz)</td><td>13.12., 10.01. und 07.02. – 10, 15 und 20 km</td></tr>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=ASV%20Duisburg%20Winterlaufserie">ASV Duisburg Winterlaufserie</a></td><td>23.01., 13.02. und 13.03. – 5 bis 21,1 km</td></tr>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=VCM%20Winterlauf">VCM Winterlauf</a> (Wien)</td><td>13.12., 24.01. und 07.03. – 5 bis 21,1 km</td></tr>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=Winterlauf%20Linz">Winterlauf Linz</a></td><td>20.12. und 28.02. – 5, 10 und 15 km</td></tr>
+    <tr><td><a href="../events.html?sportart=Laufen&amp;s=Floro%20Winterlaufcup">Floro Winterlaufcup Gmunden</a></td><td>13.12. bis 28.02., vier Termine – rund 8 km</td></tr>
+  </tbody>
+</table>
+<p><a href="../events.html?sportart=Laufen&amp;s=Winterlauf">Alle Winterläufe und Winterlaufserien in der Liste</a></p>
+
+<h2 id="crosslaeufe-und-crossserien">Crossläufe und Crossserien</h2>
+<ul>
+  <li><strong><a href="../events.html?sportart=Laufen&amp;s=G%C3%B6ttinger%20Cross-Serie">Göttinger Cross-Serie</a></strong>: drei Läufe am 14.11., 05.12. und 09.01., jeweils 5 und 10 km – schon in der 63. Auflage.</li>
+  <li><strong><a href="../events.html?sportart=Laufen&amp;s=Hamelner%20Cross">Hamelner Cross-Winterlaufserie</a></strong>: von November bis Ende Februar, 5 und 10 km.</li>
+  <li><strong><a href="../events.html?sportart=Laufen&amp;s=Hegau-Bodensee%20Crosslaufserie">Hegau-Bodensee Crosslaufserie</a></strong>: Radolfzell, Stockach, Konstanz und die Insel Reichenau – 6,6 bis 9 km.</li>
+  <li><strong><a href="../events.html?sportart=Laufen&amp;s=Crosslaufserie%20Oberschwaben">Crosslaufserie Oberschwaben</a></strong>: Blitzenreute, Bad Waldsee, Vogt und Birkenhard, je 7 bis 8 km.</li>
+  <li><strong><a href="../events.html?sportart=Laufen&amp;s=Winter%20Crosslaufserie">Winter Crosslaufserie Goldbach</a></strong> (Unterfranken): jeden Sonntag im Spätherbst ein Termin über 10 km.</li>
+  <li><strong><a href="../events.html?sportart=Laufen&amp;s=Rennbahncross">Rennbahncross in Herxheim</a></strong> (Pfalz, 15.11.): 5 und 9 km rund um die Rennbahn.</li>
+  <li><strong><a href="../events.html?sportart=Laufen&amp;s=Friedeholz%20Cross">88. Friedeholz Cross</a></strong> in Syke (29.11.): einer der traditionsreichsten Crossläufe im Norden.</li>
+  <li><strong><a href="../events.html?sportart=Laufen&amp;s=Crosslauf%20Wei%C3%9Fenseer">161. Crosslauf des Weißenseer Sportvereins</a></strong> (Berlin, 06.12.): 12 km.</li>
+  <li><strong><a href="../events.html?sportart=Laufen&amp;s=Schokocross">Schokocross</a></strong> in Bremen am 26. Dezember: 8,2 km gegen das Weihnachtsessen.</li>
+  <li><strong><a href="../events.html?sportart=Laufen&amp;s=STB%20Cross">STB Cross</a></strong> in Bern (23.01.) und <strong><a href="../events.html?sportart=Laufen&amp;s=SuperCross%20Biel-Benken">SuperCross Biel-Benken</a></strong> bei Basel (31.01.) für alle in der Schweiz.</li>
+  <li><strong><a href="../events.html?sportart=Laufen&amp;s=Crosslauf%20Freistadt">Crosslauf Freistadt</a></strong> (15.11.), <strong><a href="../events.html?sportart=Laufen&amp;s=Crosslauf%20im%20Zwettltal">Crosslauf im Zwettltal</a></strong> (05.12.) und <strong><a href="../events.html?sportart=Laufen&amp;s=Crosslauf%20Horn">Crosslauf Horn</a></strong> (28.11.) in Österreich.</li>
+</ul>
+<p>Rund um Silvester gibt es auch Crossläufe – etwa den Gummersbacher Silvestercrosslauf. Mehr dazu im Beitrag <a href="silvesterlaeufe.html">„Silvesterläufe“</a>.</p>
+<p><a href="../events.html?sportart=Laufen&amp;s=Cross">Alle Crossläufe in der Liste</a></p>
+
+<h2 id="so-kommst-du-gut-durch-matsch-und-kaelte">So kommst du gut durch Matsch und Kälte</h2>
+<ul>
+  <li><strong>Schuhe mit Profil:</strong> Trailschuhe greifen auf nassem Gras viel besser als Straßenschuhe. Spikes brauchst du für den Anfang nicht.</li>
+  <li><strong>Schuhe fest schnüren:</strong> Im tiefen Boden zieht der Schlamm gern am Schuh. Ein Doppelknoten erspart dir die Suche.</li>
+  <li><strong>Lieber zu leicht als zu warm:</strong> Beim Start darf dir ruhig etwas kühl sein. Mütze und Handschuhe sind trotzdem eine gute Idee – die kannst du unterwegs ausziehen.</li>
+  <li><strong>Gut aufwärmen:</strong> Bei Kälte brauchen die Muskeln länger. Ein paar Minuten lockeres Einlaufen machen den Start viel angenehmer.</li>
+  <li><strong>Tempo nach Gefühl:</strong> Am Hang und im Matsch hilft die Pace auf der Uhr wenig. Lauf nach Atmung und Gefühl.</li>
+  <li><strong>Trockene Sachen für danach:</strong> Wechselkleidung und eine Tüte für die schmutzigen Schuhe gehören in jede Crosstasche.</li>
+</ul>
+<p>Noch mehr Tipps für die kalte Jahreszeit stehen in <a href="laufen-im-winter.html">„Laufen im Winter“</a>.</p>
+
+<div class="beitrag-kasten">
+<p><strong>Tipp:</strong> Viele Crossläufe und Winterserien sind kleine Vereinsveranstaltungen, oft mit Nachmeldung am Lauftag. Schau trotzdem vorher auf die Seite des Veranstalters, denn manche Serien haben ein Teilnehmerlimit. Und nimm deine Laufgruppe mit: Gemeinsam macht der Matsch doppelt so viel Spaß.</p>
+</div>
+
+<h2 id="so-findest-du-deinen-lauf">So findest du deinen Lauf</h2>
+<ol>
+  <li>Öffne die Liste mit <a href="../events.html?sportart=Laufen&amp;s=Cross">allen Crossläufen</a> oder <a href="../events.html?sportart=Laufen&amp;s=Winterlauf">allen Winterläufen</a>.</li>
+  <li>Stell unter <strong>„Ort &amp; Umkreis“</strong> deinen Wohnort ein – so siehst du sofort, was in deiner Nähe liegt.</li>
+  <li>Oder such auf der <a href="../karte.html?sportart=Laufen&amp;s=Cross">Karte</a> den Lauf mit der schönsten Strecke.</li>
+</ol>
+
+<h2 id="fazit">Fazit</h2>
+<p>Der Winter ist keine Wettkampfpause. Ein Crosslauf bringt Abwechslung und Spaß in die dunkle Jahreszeit, eine Winterlaufserie gibt dir Termine, an denen du dranbleibst. Such dir einen Lauf in deiner Nähe aus und stell dich an die Startlinie. Im Frühjahr wirst du merken, wie gut dir der Winter getan hat.</p>
+
+<section class="beitrag-cta">
+  <h2>Finde deinen Winterlauf</h2>
+  <p>Crossläufe und Winterlaufserien in Deutschland, Österreich, der Schweiz und Südtirol – mit Terminen, Distanzen und Link zum Veranstalter.</p>
+  <div class="cta-knoepfe">
+    <a class="cta-knopf" href="../events.html?sportart=Laufen&amp;s=Cross">Crossläufe ansehen</a>
+    <a class="cta-knopf leise" href="../events.html?sportart=Laufen&amp;s=Winterlauf">Winterlaufserien ansehen</a>
+  </div>
+</section>
+
+<p class="beitrag-stand">Termine und Distanzen nach unserer Liste, Stand 9. November 2026. Ob ein Lauf schon ausgebucht ist und ob du nachmelden kannst, steht beim Veranstalter.</p>
+
+</div>
+  <div class="beitrag-teilen">
+    <span id="teilen-text">Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.</span>
+    <button type="button" class="cta-knopf leise" id="teilen-knopf">Beitrag teilen</button>
+  </div>
+  </div>
+  <section class="beitrag-weitere" aria-labelledby="weitere-titel">
+    <h2 id="weitere-titel">Weitere Beiträge</h2>
+    <ul class="blog-liste">
+    <li class="blog-karte"><a href="krafttraining-fuer-laeufer.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/krafttraining-fuer-laeufer-480.webp" alt="Läuferfeld beim Vienna City Marathon auf der Reichsbrücke, von hinten fotografiert" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Laufen</span></div>
+      <div class="blog-karte-text"><h3>Krafttraining für Läufer: Die besten Übungen und warum sie helfen</h3><div class="blog-meta"><span>5. November 2026</span><span aria-hidden="true">·</span><span>4 Min.</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="silvesterlaeufe.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/silvesterlaeufe-480.webp" alt="Zuschauer in Winterjacken an der Strecke des Zürcher Silvesterlaufs, von hinten fotografiert" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Laufen</span></div>
+      <div class="blog-karte-text"><h3>Silvesterläufe: Das Jahr laufend beenden – die schönsten Läufe zum Jahreswechsel</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>3 Min.</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="carboloading.html">
+      <div class="blog-karte-bild"><img src="../bilder/blog/carboloading-480.webp" alt="Läuferfeld beim London Marathon zwischen Zuschauerreihen, von oben fotografiert" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Laufen</span></div>
+      <div class="blog-karte-text"><h3>Carboloading: Was du in den Tagen vor dem Rennen essen solltest</h3><div class="blog-meta"><span>4. November 2026</span><span aria-hidden="true">·</span><span>3 Min.</span></div></div>
+    </a></li>
+    </ul>
+  </section>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="../impressum.html">Impressum</a>
+    <a id="footer-datenschutz" href="../datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script defer src="../vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="../vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="../firebase-config.js"></script>
+<script defer src="../auth.js"></script>
+<script defer src="../stats.js?v=6ea036f4"></script>
+<script>
+(function () {
+  // Der Beitrag selbst ist deutsch; DE/EN schaltet nur die Bedienung um.
+  var T = {
+    de: { events: 'Events', clubs: 'Clubs', map: 'Karte', blog: 'Blog', back: '← Alle Beiträge', share: 'Beitrag teilen', share_text: 'Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.', copied: 'Link kopiert', imprint: 'Impressum', privacy: 'Datenschutz' },
+    en: { events: 'Events', clubs: 'Clubs', map: 'Map', blog: 'Blog', back: '← All articles', share: 'Share article', share_text: 'Found this helpful? Share it with your training partners.', copied: 'Link copied', imprint: 'Legal notice', privacy: 'Privacy' }
+  };
+  function setze(lang) {
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    var t = T[lang];
+    document.getElementById('nav-events').textContent = t.events;
+    // Nur den Text setzen – das Schildchen „new“ bleibt stehen.
+    document.getElementById('nav-clubs').firstChild.nodeValue = t.clubs;
+    document.getElementById('nav-map').textContent = t.map;
+    document.getElementById('nav-blog').textContent = t.blog;
+    document.getElementById('blog-zurueck').textContent = t.back;
+    document.getElementById('teilen-knopf').textContent = t.share;
+    document.getElementById('teilen-text').textContent = t.share_text;
+    document.getElementById('footer-impressum').textContent = t.imprint;
+    document.getElementById('footer-datenschutz').textContent = t.privacy;
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+  }
+  var lang = 'de';
+  try { var s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  document.querySelectorAll('.lang-btn').forEach(function (b) { b.addEventListener('click', function () { lang = b.dataset.lang; setze(lang); }); });
+  setze(lang);
+  // Teilen: Teilen-Dialog des Geräts, sonst den Link kopieren.
+  var knopf = document.getElementById('teilen-knopf');
+  knopf.addEventListener('click', function () {
+    var daten = { title: document.title, url: location.href.split('#')[0] };
+    if (navigator.share) { navigator.share(daten).catch(function () {}); return; }
+    if (navigator.clipboard) navigator.clipboard.writeText(daten.url).then(function () {
+      knopf.textContent = T[lang].copied;
+      setTimeout(function () { knopf.textContent = T[lang].share; }, 2000);
+    }).catch(function () {});
+  });
+  // Lesefortschritt oben am Rand – nur Anzeige, nichts wird gespeichert.
+  var balken = document.getElementById('lese-balken');
+  var artikel = document.querySelector('.beitrag-spalte');
+  var geplant = false;
+  function fortschritt() {
+    geplant = false;
+    var r = artikel.getBoundingClientRect();
+    var weg = Math.min(Math.max(-r.top / Math.max(r.height - innerHeight, 1), 0), 1);
+    balken.style.transform = 'scaleX(' + weg.toFixed(3) + ')';
+  }
+  addEventListener('scroll', function () { if (!geplant) { geplant = true; requestAnimationFrame(fortschritt); } }, { passive: true });
+  fortschritt();
+})();
+</script>
+
+</body>
+</html>
