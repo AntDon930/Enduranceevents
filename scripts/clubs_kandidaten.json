@@ -569,6 +569,18 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
+  "schluessel": "club:bayreuth-werunbt",
+  "name": "werunbt® Lauftreff",
+  "stadt": "Bayreuth",
+  "art": "Laufen",
+  "letzter_beleg": "2026-10-31",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "instagram": "https://www.instagram.com/werunbt",
+  "webseite": "https://www.werunbt.de/"
+ },
+ {
   "schluessel": "ig:6ksocial.berlin",
   "name": "6k Social Berlin",
   "stadt": "Berlin",
@@ -1451,6 +1463,28 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
+  "schluessel": "club:berlin-paws-and-pace",
+  "name": "PAWS & Pace",
+  "stadt": "Berlin",
+  "art": "Laufen",
+  "letzter_beleg": "2026-10-25",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "instagram": "https://www.instagram.com/pawsandpace.run/"
+ },
+ {
+  "schluessel": "club:berlin-trek-gravel-einsteigerrunde",
+  "name": "Trek Bicycle Berlin",
+  "stadt": "Berlin",
+  "art": "Fahrrad",
+  "letzter_beleg": "2026-11-07",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "strava": "https://www.strava.com/clubs/trekberlin"
+ },
+ {
   "schluessel": "ig:saneclub",
   "name": "Community Club in Bern, Biel, (Basel), Thun & Zurich",
   "stadt": "Bern",
@@ -1641,6 +1675,18 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:bielefeld-cycling-bats",
+  "name": "Cycling Bats",
+  "stadt": "Bielefeld",
+  "art": "Fahrrad",
+  "letzter_beleg": "2026-11-02",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "strava": "https://www.strava.com/clubs/1098712",
+  "instagram": "https://www.instagram.com/cycling_bats/"
  },
  {
   "schluessel": "ig:europeancyclingindustries",
@@ -2004,6 +2050,17 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
+  "schluessel": "club:braunschweig-gravel-braunschweig",
+  "name": "Gravel Braunschweig",
+  "stadt": "Braunschweig",
+  "art": "Fahrrad",
+  "letzter_beleg": "2026-11-02",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "strava": "https://www.strava.com/clubs/gravel-braunschweig"
+ },
+ {
   "schluessel": "ig:ballernballern",
   "name": "BALLERN",
   "stadt": "Bregenz",
@@ -2053,6 +2110,18 @@
   "letzter_beleg": null,
   "grund": "Laut Strava-Text wöchentlich 18 Uhr ab RIHA BIKES, Buntentorsteinweg 201 (Wochentag fehlt); Strava 403, Webseite nennt die Gruppe nicht, kein datierter Beleg",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:bremen-absolute-run-coffee-run",
+  "name": "Absolute Run Bremen Coffee Run (Kaffee-Launch mit Kalle Coffee Roasters)",
+  "stadt": "Bremen",
+  "art": "Laufen",
+  "letzter_beleg": "2026-10-24",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "instagram": "https://www.instagram.com/absoluterunbremen/",
+  "webseite": "https://absolute-run-bremen.de/"
  },
  {
   "schluessel": "ig:bert.gpole",
@@ -2336,6 +2405,17 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:duesseldorf-coterie-running-club",
+  "name": "The Coterie Running Club",
+  "stadt": "Düsseldorf",
+  "art": "Laufen",
+  "letzter_beleg": "2026-11-01",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "webseite": "https://www.meetup.com/the-coterie-dusseldorf/"
  },
  {
   "schluessel": "ig:beyond.runclub",
@@ -2659,6 +2739,18 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:graz-runningraz-sunset-rave-run",
+  "name": "runninGraz – Sunset Rave Run",
+  "stadt": "Graz",
+  "art": "Laufen",
+  "letzter_beleg": "2026-10-22",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "instagram": "https://www.instagram.com/werungrz/",
+  "webseite": "https://www.runningraz.at/"
  },
  {
   "schluessel": "ig:adfc_hamburg",
@@ -3104,6 +3196,17 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:klagenfurt-oats-run-club",
+  "name": "oats. Run Club",
+  "stadt": "Klagenfurt",
+  "art": "Laufen",
+  "letzter_beleg": "2026-10-31",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "instagram": "https://www.instagram.com/oats.runclub/"
  },
  {
   "schluessel": "strava:laufgemeinschaft-kuchl-116149",
@@ -4388,6 +4491,17 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
+  "schluessel": "club:muenchen-peopleon-bikes-social-run",
+  "name": "peopleon bikes After Work Social Run",
+  "stadt": "München",
+  "art": "Laufen",
+  "letzter_beleg": "2026-11-03",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "strava": "https://www.strava.com/clubs/1542628"
+ },
+ {
   "schluessel": "strava:lemoncyclingclub",
   "name": "Lemon Cycling Club",
   "stadt": "Neuss",
@@ -4478,6 +4592,18 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:rostock-unirunclub",
+  "name": "UniRunClub (Hochschulsport Uni Rostock)",
+  "stadt": "Rostock",
+  "art": "Laufen",
+  "letzter_beleg": "2026-10-21",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "instagram": "https://www.instagram.com/hochschulsportrostock/",
+  "webseite": "https://hochschulsport.uni-rostock.de/angebote/aktueller_zeitraum/_UniRunClub.html"
  },
  {
   "schluessel": "ig:bloom.running.club",
@@ -5004,6 +5130,17 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:wuerzburg-casual-miles",
+  "name": "Casual Miles by Casual Cadence",
+  "stadt": "Würzburg",
+  "art": "Fahrrad",
+  "letzter_beleg": "2026-10-24",
+  "geprueft": "2026-11-09",
+  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 09.11.2026",
+  "webseite": "https://www.grouprides.cc/rides/casual-miles-by-casual-cadence-2026-10-24-fycp1lrtbh"
  },
  {
   "schluessel": "ig:runclubzug",

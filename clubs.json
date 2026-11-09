@@ -5566,12 +5566,6 @@
     "rhythmus": "woechentlich",
     "wochentag": 6,
     "uhrzeit": "11:00"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-31",
-    "uhrzeit": "11:00",
-    "bezeichnung": "Saisonstart"
    }
   ],
   "kosten": {
@@ -6548,48 +6542,6 @@
   "strava": "https://www.strava.com/clubs/runninGraz"
  },
  {
-  "id": "graz-runningraz-sunset-rave-run",
-  "name": "runninGraz – Sunset Rave Run",
-  "art": "Laufen",
-  "stadt": "Graz",
-  "treffpunkt": "Gigasport Graz, Kaiser-Franz-Josef-Kai 8, 8010 Graz (Haupteingang)",
-  "lat": 47.07169,
-  "lon": 15.4356,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-22",
-    "uhrzeit": "18:00",
-    "bezeichnung": "Sunset Rave Run (Gigasport, Brooks & Garmin)"
-   }
-  ],
-  "anmeldung": "pflicht",
-  "webseite": "https://www.runningraz.at/",
-  "instagram": "https://www.instagram.com/werungrz/",
-  "sprachen": [
-   "de"
-  ],
-  "merkmale": [
-   "anfaengerfreundlich"
-  ],
-  "beschreibung_de": "Einzeltermin von runninGraz mit Gigasport, Brooks und Garmin am Donnerstag, 22.10.2026, lockeres Tempo, Anmeldung nötig.",
-  "beschreibung_en": "One-off runninGraz event with Gigasport, Brooks and Garmin on Thursday 22 Oct 2026, easy pace, registration required.",
-  "quelle": [
-   "https://www.runningraz.at/",
-   "https://www.sportaktiv.com/runningraz-die-laufcommunity-der-zweitgroessten-stadt-oesterreichs",
-   "https://www.runningraz.at/events/sunset-rave-run?date=2026-10-22",
-   "https://www.runningraz.at/trainings",
-   "https://www.eventbrite.com/e/gigasport-sunset-rave-run-mit-brooks-garmin-tickets-2002935574220"
-  ],
-  "land": "Österreich",
-  "geprueft": "2026-10-20",
-  "anmeldung_ueber": "Eventbrite (ausverkauft)",
-  "pace": {
-   "von": "7:30",
-   "bis": "8:00"
-  }
- },
- {
   "id": "graz-socialrunclub",
   "name": "SocialRunClub Graz",
   "art": "Laufen",
@@ -6797,18 +6749,6 @@
   "lat": 47.78605,
   "lon": 13.08815,
   "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-29",
-    "uhrzeit": "18:00",
-    "bezeichnung": "Community Run – Ludwig-Schmederer-Platz"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-04",
-    "uhrzeit": "18:00",
-    "bezeichnung": "Community Run – Kapitelplatz"
-   },
    {
     "rhythmus": "einmalig",
     "datum": "2026-11-12",
@@ -8081,49 +8021,6 @@
   ],
   "land": "Deutschland",
   "geprueft": "2026-10-19"
- },
- {
-  "id": "bayreuth-werunbt",
-  "name": "werunbt® Lauftreff",
-  "art": "Laufen",
-  "stadt": "Bayreuth",
-  "treffpunkt": "Intersport Gießübel, Bayreuth",
-  "lat": 49.93156,
-  "lon": 11.56473,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-31",
-    "uhrzeit": "16:00",
-    "bezeichnung": "werunbt® Part CXXXIII (Einlass 15:30)"
-   }
-  ],
-  "distanz_km": [
-   10,
-   10
-  ],
-  "kosten": {
-   "gratis": true,
-   "betrag_eur": null,
-   "text": null
-  },
-  "anmeldung": "nein",
-  "webseite": "https://www.werunbt.de/",
-  "instagram": "https://www.instagram.com/werunbt",
-  "merkmale": [
-   "anfaengerfreundlich"
-  ],
-  "beschreibung_de": "Freier, vereinsunabhängiger Lauftreff einmal im Monat über rund 10 km, jeder in seinem Tempo; danach Obst, Getränke und eine kleine Challenge.",
-  "beschreibung_en": "Free, independent monthly running meet-up over about 10 km, everyone at their own pace; fruit, drinks and a small challenge afterwards.",
-  "quelle": [
-   "https://www.werunbt.de/",
-   "https://www.werunbt.de/de/events/",
-   "https://socialrunclubs.de/bayreuth/werunbt/"
-  ],
-  "pruefung_offen": true,
-  "pruefung_grund": "werunbt.de kündigt jeden Termin einzeln an (nächster: Part CXXXIII, Sa 31.10.2026, Einlass 15:30, Start 16:00, bei Intersport Gießübel); Regel 'letzter Samstag' widerlegt (22.08.2026 war nicht der letzte Samstag) – deshalb nur der Einzeltermin eingetragen; Filialadresse von Intersport Gießübel nennt die Seite nicht (Otto-Hahn-Str. 1 angenommen)",
-  "land": "Deutschland",
-  "geprueft": "2026-10-20"
  },
  {
   "id": "garmisch-gap-pub-run",
@@ -19561,75 +19458,6 @@
   ]
  },
  {
-  "land": "Österreich",
-  "geprueft": "2026-10-19",
-  "id": "klagenfurt-oats-run-club",
-  "name": "oats. Run Club",
-  "art": "Laufen",
-  "stadt": "Klagenfurt",
-  "treffpunkt": "Klagenfurt (Treffpunkt je Termin auf Instagram)",
-  "lat": 46.62472,
-  "lon": 14.30528,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-31",
-    "uhrzeit": "18:00",
-    "bezeichnung": "Halloween Special"
-   }
-  ],
-  "instagram": "https://www.instagram.com/oats.runclub/",
-  "beschreibung_de": "Run Club in Klagenfurt mit Social, Trail und Training Runs nach Monatsplan.",
-  "beschreibung_en": "Run club in Klagenfurt with social, trail and training runs on a monthly schedule.",
-  "quelle": [
-   "https://www.instagram.com/oats.runclub/",
-   "Instagram-Profil @oats.runclub (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
-  ],
-  "pruefung_offen": true,
-  "pruefung_grund": "Oktoberplan nennt nur Tage – Uhrzeiten (hier geschätzt) und Treffpunkte stehen nur in Stories/Linktree"
- },
- {
-  "id": "berlin-paws-and-pace",
-  "name": "PAWS & Pace",
-  "art": "Laufen",
-  "stadt": "Berlin",
-  "land": "Deutschland",
-  "treffpunkt": "Krumme Lanke, Waldspielplatz am Fischerhüttenweg",
-  "lat": 52.45308,
-  "lon": 13.21824,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-25",
-    "uhrzeit": "10:00"
-   }
-  ],
-  "distanz_km": [
-   5,
-   5
-  ],
-  "kosten": {
-   "gratis": true,
-   "betrag_eur": null,
-   "text": null
-  },
-  "anmeldung": "empfohlen",
-  "anmeldung_ueber": "Instagram-Nachricht",
-  "instagram": "https://www.instagram.com/pawsandpace.run/",
-  "sprachen": [
-   "de"
-  ],
-  "merkmale": [
-   "anfaengerfreundlich"
-  ],
-  "beschreibung_de": "Gemeinsamer Lauf über etwa 5 km an der Krummen Lanke, mit oder ohne Hund; Termine werden einzeln angekündigt.",
-  "beschreibung_en": "Group run of about 5 km at Krumme Lanke, with or without a dog; dates are announced one by one.",
-  "quelle": [
-   "https://www.instagram.com/pawsandpace.run/"
-  ],
-  "geprueft": "2026-10-19"
- },
- {
   "id": "offenbach-069-runclub",
   "name": "069 Runclub",
   "art": "Laufen",
@@ -20271,50 +20099,6 @@
   "pruefung_grund": "Strava-Club (laut Suchsnippet) 'weekly Wednesday run at Franky's Farm' ohne Uhrzeit; 19:00 nur aus rausgegangen.de (05/2025, Seite inzwischen 403) – Uhrzeit bestätigen"
  },
  {
-  "id": "rostock-unirunclub",
-  "name": "UniRunClub (Hochschulsport Uni Rostock)",
-  "art": "Laufen",
-  "stadt": "Rostock",
-  "land": "Deutschland",
-  "treffpunkt": "Universitätssporthalle, Justus-von-Liebig-Weg 3 (Am Waldessaum)",
-  "lat": 54.07453,
-  "lon": 12.0966,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-21",
-    "uhrzeit": "18:00",
-    "bezeichnung": "UniRunClub All Paces"
-   }
-  ],
-  "distanz_km": [
-   6,
-   7
-  ],
-  "dauer_min": 60,
-  "kosten": {
-   "gratis": true,
-   "betrag_eur": null,
-   "text": null
-  },
-  "anmeldung": "pflicht",
-  "anmeldung_ueber": "Buchungssystem des Hochschulsports Rostock (kostenlos)",
-  "webseite": "https://hochschulsport.uni-rostock.de/angebote/aktueller_zeitraum/_UniRunClub.html",
-  "instagram": "https://www.instagram.com/hochschulsportrostock/",
-  "merkmale": [
-   "mehrere_gruppen"
-  ],
-  "beschreibung_de": "Monatlicher Gemeinschaftslauf des Hochschulsports mit kurzer Erwärmung und 6–7 km in zwei Tempogruppen, kostenlos mit Anmeldung.",
-  "beschreibung_en": "Monthly community run by the university sports centre with a short warm-up and 6–7 km in two pace groups, free with registration.",
-  "quelle": [
-   "https://hochschulsport.uni-rostock.de/angebote/aktueller_zeitraum/_UniRunClub.html",
-   "https://socialrunclubs.de/rostock/unirunclub/"
-  ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Einmal im Monat, Tag wechselt; belegt ist nur der nächste Termin Mi 21.10.2026 18:00 (Buchungsseite); Anmeldung über das Hochschulsport-Buchungssystem – unklar, ob Externe (Nicht-Studierende) buchen können; weitere Termine nachtragen"
- },
- {
   "id": "wuerzburg-koer-running-community",
   "name": "koer Running Community",
   "art": "Laufen",
@@ -20505,42 +20289,6 @@
   "geprueft": "2026-10-19",
   "pruefung_offen": true,
   "pruefung_grund": "Nur Lauf-Seite der Stadt St. Gallen (Di 17:30 AZSG, Winterhalbjahr, Anmeldung nötig, ohne Datum); eigene Seite/Instagram des Clubs nicht gefunden, Saisondaten geschätzt"
- },
- {
-  "id": "bremen-absolute-run-coffee-run",
-  "name": "Absolute Run Bremen Coffee Run (Kaffee-Launch mit Kalle Coffee Roasters)",
-  "art": "Laufen",
-  "stadt": "Bremen",
-  "land": "Deutschland",
-  "treffpunkt": "Absolute Run Bremen, Am Wall 143",
-  "lat": 53.07557,
-  "lon": 8.81254,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-24",
-    "uhrzeit": "10:00",
-    "bezeichnung": "Coffee Run zum Launch des eigenen Kaffee-Blends"
-   }
-  ],
-  "anmeldung": "empfohlen",
-  "anmeldung_ueber": "Instagram",
-  "webseite": "https://absolute-run-bremen.de/",
-  "instagram": "https://www.instagram.com/absoluterunbremen/",
-  "sprachen": [
-   "de"
-  ],
-  "merkmale": [
-   "kaffee"
-  ],
-  "beschreibung_de": "Einmaliger gemeinsamer Lauf ab dem Laufladen Absolute Run am Wall zum Start eines eigenen Kaffee-Blends mit Kalle Coffee Roasters, danach Kaffee im Laden.",
-  "beschreibung_en": "One-off group run from the Absolute Run shop on Am Wall to launch its own coffee blend with Kalle Coffee Roasters, followed by coffee in the shop.",
-  "quelle": [
-   "https://absolute-run-bremen.de/"
-  ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Einzeltermin Sa 24.10.2026, 10:00 im Laden Am Wall 143 auf absolute-run-bremen.de bestätigt; Distanz, Tempo, Kosten nicht genannt (Anmeldung über Link in der Instagram-Bio) – nach dem 24.10.2026 entfernen"
  },
  {
   "id": "zuerich-sheruns-zurich",
@@ -21778,12 +21526,6 @@
     "wochentag": 2,
     "uhrzeit": "17:45",
     "bezeichnung": "Tuesday Socialrun"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-29",
-    "uhrzeit": "17:45",
-    "bezeichnung": "ab Grano Pasta, 5 km"
    }
   ],
   "distanz_km": [
@@ -27501,52 +27243,6 @@
   "pruefung_grund": "gravel-club.com bestätigt 'unser monatlicher Chill/Rookie Ride' (Anfänger, 48 km), aber nur ein Termin (Sa 14.11.2026, 10:00, S-Bhf Buch); ob immer 2. Samstag und immer ab Buch, nicht belegt"
  },
  {
-  "id": "wuerzburg-casual-miles",
-  "name": "Casual Miles by Casual Cadence",
-  "art": "Fahrrad",
-  "stadt": "Würzburg",
-  "land": "Deutschland",
-  "treffpunkt": "Biergarten am Zollhaus, Mergentheimer Straße 19",
-  "lat": 49.77532,
-  "lon": 9.92858,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-24",
-    "uhrzeit": "11:00"
-   }
-  ],
-  "distanz_km": [
-   32,
-   32
-  ],
-  "pace": {
-   "von": 22,
-   "bis": 22
-  },
-  "kosten": {
-   "gratis": true,
-   "betrag_eur": null,
-   "text": null
-  },
-  "anmeldung": "empfohlen",
-  "anmeldung_ueber": "grouprides.cc",
-  "webseite": "https://www.grouprides.cc/rides/casual-miles-by-casual-cadence-2026-10-24-fycp1lrtbh",
-  "sprachen": [
-   "de"
-  ],
-  "merkmale": [
-   "anfaengerfreundlich"
-  ],
-  "rad_typ": "Gravel",
-  "beschreibung_de": "Winter-Community-Ride auf Schotterstraßen ohne Trails, Gravelbike oder Mountainbike, ohne Leistungsdruck.",
-  "beschreibung_en": "Winter community ride on gravel roads without trails, gravel bike or mountain bike, no pressure.",
-  "quelle": [
-   "https://www.grouprides.cc/rides/casual-miles-by-casual-cadence-2026-10-24-fycp1lrtbh"
-  ],
-  "geprueft": "2026-10-20"
- },
- {
   "id": "bocholt-fritz-brauser-gravel-social-ride",
   "name": "Fritz Brauser Gravel Social Ride",
   "art": "Fahrrad",
@@ -29097,21 +28793,9 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-07",
-    "uhrzeit": "08:30",
-    "bezeichnung": "GravelGranFondo November, 100 km+"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-12-12",
     "uhrzeit": "08:30",
     "bezeichnung": "GravelGranFondo Dezember, 100 km+"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-02",
-    "uhrzeit": "17:30",
-    "bezeichnung": "Tornesch: Anstieg? Abfahrt! – Abendrunde ab Hamburger Straße 8, Tornesch (~25 km/h, kein Warten)"
    }
   ],
   "distanz_km": [
@@ -29363,12 +29047,6 @@
     "rhythmus": "woechentlich",
     "wochentag": 3,
     "uhrzeit": "18:30"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-10-31",
-    "uhrzeit": "09:00",
-    "bezeichnung": "Test & Try ASICS – Morning Run mit Frühstück (Reservierung)"
    }
   ],
   "anmeldung": "nein",
@@ -29690,12 +29368,6 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-07",
-    "uhrzeit": "10:00",
-    "bezeichnung": "Warm-Up"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-11-15",
     "uhrzeit": "10:00",
     "bezeichnung": "Warm-Up"
@@ -29771,46 +29443,6 @@
   ],
   "geprueft": "2026-10-26",
   "zuletzt_aktiv": "2026-10-26"
- },
- {
-  "id": "duesseldorf-coterie-running-club",
-  "name": "The Coterie Running Club",
-  "art": "Laufen",
-  "stadt": "Düsseldorf",
-  "land": "Deutschland",
-  "treffpunkt": "Rheinterrasse, Joseph-Beuys-Ufer 33",
-  "lat": 51.23621,
-  "lon": 6.77104,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-01",
-    "uhrzeit": "10:00"
-   }
-  ],
-  "distanz_km": [
-   5,
-   5
-  ],
-  "pace": {
-   "von": "6:00",
-   "bis": "6:30"
-  },
-  "anmeldung": "empfohlen",
-  "anmeldung_ueber": "Meetup",
-  "webseite": "https://www.meetup.com/the-coterie-dusseldorf/",
-  "sprachen": [
-   "en"
-  ],
-  "beschreibung_de": "Gelegentlicher 5-km-Lauf der Düsseldorfer Coterie-Gruppe im Tempo 6:00–6:30 min/km an den Rheinterrassen.",
-  "beschreibung_en": "Occasional 5 km run of the Coterie Düsseldorf group at 6:00–6:30 min/km near the Rheinterrassen.",
-  "quelle": [
-   "https://www.meetup.com/the-coterie-dusseldorf/events/317069511/"
-  ],
-  "geprueft": "2026-10-26",
-  "zuletzt_aktiv": "2026-10-26",
-  "pruefung_offen": true,
-  "pruefung_grund": "Meetup nennt nur 'Rheinterrassen' ohne genaue Adresse (Ort 'Needs a location'); kein fester Rhythmus, nur Einzeltermin; unklar, ob Gäste ohne Coterie-Mitgliedschaft willkommen sind"
  },
  {
   "id": "oberschleissheim-bmw-radsport-dienstagsausfahrt",
@@ -30360,159 +29992,5 @@
   ],
   "geprueft": "2026-11-02",
   "zuletzt_aktiv": "2026-11-02"
- },
- {
-  "id": "bielefeld-cycling-bats",
-  "name": "Cycling Bats",
-  "art": "Fahrrad",
-  "rad_typ": "Gravel",
-  "stadt": "Bielefeld",
-  "land": "Deutschland",
-  "treffpunkt": "Siegfriedplatz („Siggi“), 33615 Bielefeld",
-  "lat": 52.02813,
-  "lon": 8.5225,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-02",
-    "uhrzeit": "18:45",
-    "bezeichnung": "CB x active: gemeinsamer Lauf 45 min (5:30–7:00 min/km) ab Niederwall 8"
-   }
-  ],
-  "distanz_km": [
-   44.6,
-   44.6
-  ],
-  "merkmale": [
-   "no_drop"
-  ],
-  "instagram": "https://www.instagram.com/cycling_bats/",
-  "strava": "https://www.strava.com/clubs/1098712",
-  "beschreibung_de": "Radgruppe aus Bielefeld mit angekündigten Ausfahrten, als Nächstes ein Gravel Ride über 44,6 km ab dem Siegfriedplatz, gemeinsam und ohne Zurücklassen.",
-  "beschreibung_en": "Cycling group from Bielefeld with announced rides; next up a 44.6 km no-drop gravel ride from Siegfriedplatz.",
-  "quelle": [
-   "https://www.strava.com/clubs/1098712",
-   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
-  ],
-  "geprueft": "2026-11-02",
-  "zuletzt_aktiv": "2026-11-02",
-  "pruefung_offen": true,
-  "pruefung_grund": "Bisher nur Einzeltermine auf Strava; prüfen, ob es einen festen Rhythmus gibt (Instagram)."
- },
- {
-  "id": "braunschweig-gravel-braunschweig",
-  "name": "Gravel Braunschweig",
-  "art": "Fahrrad",
-  "rad_typ": "Gravel",
-  "stadt": "Braunschweig",
-  "land": "Deutschland",
-  "treffpunkt": "Marienstraße 34",
-  "lat": 52.26478,
-  "lon": 10.5495,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-02",
-    "uhrzeit": "18:00",
-    "bezeichnung": "Graviér Petit „Against the Novemberblues“, No Drop"
-   }
-  ],
-  "strava": "https://www.strava.com/clubs/gravel-braunschweig",
-  "beschreibung_de": "Gravel-Gemeinschaft aus Braunschweig mit angekündigten Ausfahrten, etwa der Feierabendrunde „Graviér Petit“ ab der Marienstraße.",
-  "beschreibung_en": "Gravel community from Braunschweig with announced rides, such as the after-work loop “Graviér Petit” from Marienstraße.",
-  "quelle": [
-   "https://www.strava.com/clubs/1049586",
-   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
-  ],
-  "geprueft": "2026-11-02",
-  "zuletzt_aktiv": "2026-11-02",
-  "pruefung_offen": true,
-  "pruefung_grund": "Bisher nur Einzeltermine auf Strava (28.10., 02.11.); prüfen, ob „Graviér Petit“ einen festen Rhythmus hat."
- },
- {
-  "id": "berlin-trek-gravel-einsteigerrunde",
-  "name": "Trek Bicycle Berlin",
-  "art": "Fahrrad",
-  "rad_typ": "Gravel",
-  "stadt": "Berlin",
-  "land": "Deutschland",
-  "treffpunkt": "Trek Store Adlershof, Dörpfeldstraße 5",
-  "lat": 52.43571,
-  "lon": 13.5424,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-07",
-    "uhrzeit": "10:30",
-    "bezeichnung": "Gravel-Einsteigerrunde, ca. 40 km, ~18 km/h, No Drop, Treffen 10:15, danach Kaffee im Store"
-   }
-  ],
-  "distanz_km": [
-   40,
-   40
-  ],
-  "pace": {
-   "von": 18,
-   "bis": 18
-  },
-  "stufen": [
-   "anfaenger"
-  ],
-  "merkmale": [
-   "no_drop",
-   "kaffee",
-   "anfaengerfreundlich"
-  ],
-  "strava": "https://www.strava.com/clubs/trekberlin",
-  "beschreibung_de": "Der Trek Store Adlershof lädt zu Gravelrunden ein, als Nächstes eine einsteigerfreundliche Runde über rund 40 km in gemäßigtem Tempo ohne Zurücklassen, danach Kaffee im Laden.",
-  "beschreibung_en": "Trek Store Adlershof hosts gravel rides; next up a beginner-friendly no-drop loop of about 40 km at a moderate pace, with coffee at the store afterwards.",
-  "quelle": [
-   "https://www.strava.com/clubs/1030482",
-   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
-  ],
-  "geprueft": "2026-11-02",
-  "zuletzt_aktiv": "2026-11-02",
-  "pruefung_offen": true,
-  "pruefung_grund": "Bisher nur ein Einzeltermin auf Strava; prüfen, ob es regelmäßige Ausfahrten gibt."
- },
- {
-  "id": "muenchen-peopleon-bikes-social-run",
-  "name": "peopleon bikes After Work Social Run",
-  "art": "Laufen",
-  "stadt": "München",
-  "land": "Deutschland",
-  "treffpunkt": "Professor-Huber-Platz, am Ostbrunnen (Maxvorstadt)",
-  "lat": 48.15085,
-  "lon": 11.58196,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-03",
-    "uhrzeit": "17:30",
-    "bezeichnung": "After Work Social Run, 5 km (6:30–7:00 min/km)"
-   }
-  ],
-  "distanz_km": [
-   5,
-   5
-  ],
-  "pace": {
-   "von": "6:30",
-   "bis": "7:00"
-  },
-  "stufen": [
-   "anfaenger"
-  ],
-  "strava": "https://www.strava.com/clubs/1542628",
-  "beschreibung_de": "Lockerer After-Work-Lauf über 5 km im Tempo 6:30–7:00 min/km, der Treffpunkt wechselt von Termin zu Termin.",
-  "beschreibung_en": "Easy 5 km after-work run at 6:30–7:00 min/km; the meeting point changes from run to run.",
-  "quelle": [
-   "https://www.strava.com/clubs/1542628",
-   "Strava-Club-Termine, abgerufen am 02.11.2026 über das Strava-Konto des Betreibers"
-  ],
-  "geprueft": "2026-11-02",
-  "zuletzt_aktiv": "2026-11-02",
-  "pruefung_offen": true,
-  "pruefung_grund": "Einzeltermine mit wechselndem Treffpunkt und Wochentag (29.10. Lerchenauer Straße, 03.11. Professor-Huber-Platz); prüfen, ob es einen festen Rhythmus gibt."
  }
 ]
