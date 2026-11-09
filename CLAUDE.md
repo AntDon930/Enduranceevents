@@ -5970,7 +5970,15 @@ auch auf `main`** (Commit `c7344d8`, vom Nutzer freigegeben). **Am
 Veranstaltung“), das Deploy-Gate hielt den Datenlauf auf, live blieb der
 Stand vom Vormittag. **Nach jedem Montagslauf den Deploy-Lauf ansehen** –
 ein roter heißt: die neuen Daten warten, bis jemand den Fehler behebt und
-pusht.
+pusht. **Am 09.11.2026 eine zweite Sorte Rot**: Lauf 42670691828
+(`workflow_dispatch` zum Bot-Commit `74c34c0b`, 8.406 → 8.648 Events) –
+beide Testjobs grün, der Job `deploy` wurde aber gar nicht angelegt, die
+API listete nur die zwei Testjobs, keine Annotation nannte einen Grund.
+Ein „Re-run all jobs“ (einmal, wie bei einem Abbruch vor dem ersten
+Testschritt) lief komplett grün durch, samt `abo` (326 neu sichtbar,
+1 Mail). **Fehlt `deploy` in der Jobliste eines roten Laufs mit grünen
+Tests, ist es GitHub, nicht die Seite** – einmal neu starten, nicht im
+Code suchen.
 **Workflow-Läufe zu einem Commit immer mit dem VOLLEN SHA abfragen**
 (`actions/runs?head_sha=<40 Zeichen>`): Mit sieben Zeichen liefert die
 API still null Treffer – so entstand am 13.10. erst eine falsche
