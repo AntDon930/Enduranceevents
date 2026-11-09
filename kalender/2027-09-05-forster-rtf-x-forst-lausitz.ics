@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-forster-rtf-x-forst-lausitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Forster RTF – RTF (Termin vorläufig)
+LOCATION:Forst (Lausitz)\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / St
+ raße\nLänge: -\nhttps://psv-forst-lausitz.de/de/sparten/rtf.html
+TRANSP:TRANSPARENT
+URL:https://psv-forst-lausitz.de/de/sparten/rtf.html
+END:VEVENT
+END:VCALENDAR

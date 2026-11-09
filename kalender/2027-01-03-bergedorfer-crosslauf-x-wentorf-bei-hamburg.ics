@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-bergedorfer-crosslauf-x-wentorf-bei-hamburg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:Bergedorfer Crosslauf
+LOCATION:Wentorf bei Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
+ 377786/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/377786/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-09-zellerreiter-herbstwaldlauf-7-5km-ramerberg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271009
+DTEND;VALUE=DATE:20271010
+SUMMARY:Zellerreiter Herbstwaldlauf – 7500 m Franz Maier Hauptlauf\, Jahrg
+ ang 2010 und älter
+LOCATION:Ramerberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://wsv-zellerre
+ it.de/zellerreiter-herbstwaldlauf/
+TRANSP:TRANSPARENT
+URL:https://wsv-zellerreit.de/zellerreiter-herbstwaldlauf/
+END:VEVENT
+END:VCALENDAR

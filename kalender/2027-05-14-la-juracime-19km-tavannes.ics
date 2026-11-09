@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-14-la-juracime-19km-tavannes@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270514
+DTEND;VALUE=DATE:20270518
+SUMMARY:La Juracime
+LOCATION:Tavannes\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 19 km\nhttps://www.mso.swiss
+ /events/2601-la-juracime
+TRANSP:TRANSPARENT
+URL:https://www.mso.swiss/events/2601-la-juracime
+END:VEVENT
+END:VCALENDAR

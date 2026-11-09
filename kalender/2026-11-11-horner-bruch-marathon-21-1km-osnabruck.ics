@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-11-horner-bruch-marathon-21-1km-osnabruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:Hörner Bruch Marathon – Halbmarathon
+LOCATION:Osnabrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
+ lt.com/433497/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/433497/
+END:VEVENT
+END:VCALENDAR

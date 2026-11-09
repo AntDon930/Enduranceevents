@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-14-berner-wanderwege-raus-aus-der-komfortzone-17km-muhleberg@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270414
+DTEND;VALUE=DATE:20270415
+SUMMARY:Berner Wanderwege – Raus aus der Komfortzone
+LOCATION:Mühleberg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 17 km\nhttps://www.schweizer
+ -wanderwege.ch/de/gefuehrte-wanderungen/6052/Raus-aus-der-Komfortzone
+TRANSP:TRANSPARENT
+URL:https://www.schweizer-wanderwege.ch/de/gefuehrte-wanderungen/6052/Raus
+ -aus-der-Komfortzone
+END:VEVENT
+END:VCALENDAR

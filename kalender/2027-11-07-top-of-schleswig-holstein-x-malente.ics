@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-07-top-of-schleswig-holstein-x-malente@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271107
+DTEND;VALUE=DATE:20271108
+SUMMARY:Top of Schleswig- Holstein – CTF
+LOCATION:Malente\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.radspo
+ rt-team-malente.de
+TRANSP:TRANSPARENT
+URL:https://www.radsport-team-malente.de
+END:VEVENT
+END:VCALENDAR

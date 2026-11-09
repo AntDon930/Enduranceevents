@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-06-dienstag-abendrennen-x-mohlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270406
+DTEND;VALUE=DATE:20270407
+SUMMARY:Dienstag Abendrennen – Jedermannrennen
+LOCATION:Möhlin\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttp://www.cyclingbeider
+ basel.ch/
+TRANSP:TRANSPARENT
+URL:http://www.cyclingbeiderbasel.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-crosslauf-rund-um-den-herthasee-x-holzappel@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Crosslauf Rund um den Herthasee
+LOCATION:Holzappel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://ladv.de/ausschreib
+ ung/detail/49229/48.-Crosslauf-Rund-um-den-Herthasee-Holzappel.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49229/48.-Crosslauf-Rund-um-den-H
+ erthasee-Holzappel.htm
+END:VEVENT
+END:VCALENDAR

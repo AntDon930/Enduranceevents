@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-alzeyer-kunst-und-kultur-ultra-46km-alzey@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Alzeyer Kunst- und Kultur-Ultra
+LOCATION:Alzey\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://my.raceresult
+ .com/432430/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/432430/
+END:VEVENT
+END:VCALENDAR

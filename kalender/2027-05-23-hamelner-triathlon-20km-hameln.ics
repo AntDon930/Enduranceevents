@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-hamelner-triathlon-20km-hameln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Hamelner Triathlon
+LOCATION:Hameln\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 20 km\nhttps://www.hameln
+ ertriathlon.de
+TRANSP:TRANSPARENT
+URL:https://www.hamelnertriathlon.de
+END:VEVENT
+END:VCALENDAR

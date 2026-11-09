@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-spowo-lauf-des-sv-gluck-auf-kleinleipisch-10-5km-lauchhamme
+ r@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:SpoWo-Lauf des SV Glück Auf Kleinleipisch – 10\,5 km Lauf\, Teilna
+ hmegebühr 12 Euro bis 30.07.
+LOCATION:Lauchhammer\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://lausitzer-s
+ portevents.de/anmeldung/anm.php?N=2027083
+TRANSP:TRANSPARENT
+URL:https://lausitzer-sportevents.de/anmeldung/anm.php?N=2027083
+END:VEVENT
+END:VCALENDAR

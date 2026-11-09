@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-osnabrucker-ringweg-ultramarathon-70km-hasbergen@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Osnabrücker Ringweg Ultramarathon
+LOCATION:Hasbergen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 70 km\nhttps://my.raceresult
+ .com/432029/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/432029/
+END:VEVENT
+END:VCALENDAR

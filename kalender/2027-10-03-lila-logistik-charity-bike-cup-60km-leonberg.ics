@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-03-lila-logistik-charity-bike-cup-60km-leonberg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271003
+DTEND;VALUE=DATE:20271004
+SUMMARY:Lila Logistik Charity Bike Cup – Jedermannrennen 60 km
+LOCATION:Leonberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße · Charity\nLänge: 60 km\nhttps://ch
+ arity-bike-cup.de/
+TRANSP:TRANSPARENT
+URL:https://charity-bike-cup.de/
+END:VEVENT
+END:VCALENDAR

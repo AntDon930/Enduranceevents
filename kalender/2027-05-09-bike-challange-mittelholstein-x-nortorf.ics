@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-bike-challange-mittelholstein-x-nortorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Bike Challange Mittelholstein – RTF
+LOCATION:Nortorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.nortorf.bike
+TRANSP:TRANSPARENT
+URL:https://www.nortorf.bike
+END:VEVENT
+END:VCALENDAR

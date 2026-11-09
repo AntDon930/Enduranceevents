@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-spartan-interlaken-weekend-5km-interlaken@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Spartan Interlaken Weekend
+LOCATION:Interlaken\, Schweiz
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 5 km\nhttps://www.spartan
+ .com/en/race/detail/11775/overview
+TRANSP:TRANSPARENT
+URL:https://www.spartan.com/en/race/detail/11775/overview
+END:VEVENT
+END:VCALENDAR

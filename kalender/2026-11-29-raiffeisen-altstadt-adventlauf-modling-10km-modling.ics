@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-raiffeisen-altstadt-adventlauf-modling-10km-modling@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Raiffeisen Altstadt Adventlauf Mödling
+LOCATION:Mödling\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.time-now-
+ sports.at/altstadt-adventlauf-moedling-2026/
+TRANSP:TRANSPARENT
+URL:https://www.time-now-sports.at/altstadt-adventlauf-moedling-2026/
+END:VEVENT
+END:VCALENDAR

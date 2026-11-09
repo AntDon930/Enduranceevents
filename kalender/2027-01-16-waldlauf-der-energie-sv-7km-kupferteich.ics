@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-waldlauf-der-energie-sv-7km-kupferteich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Waldlauf der Energie SV – Mittelstrecke 7\,03 km
+LOCATION:Kupferteich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://athleticon.bsv
+ hh.de/public/
+TRANSP:TRANSPARENT
+URL:https://athleticon.bsvhh.de/public/
+END:VEVENT
+END:VCALENDAR

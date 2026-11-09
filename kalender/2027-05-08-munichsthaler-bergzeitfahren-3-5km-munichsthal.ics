@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-munichsthaler-bergzeitfahren-3-5km-munichsthal@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Münichsthaler Bergzeitfahren – Einzelzeitfahren 3.5 km
+LOCATION:Münichsthal\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 3.5 km\nhttps://www.wei
+ nviertler-radcup.at/pfoesing.php
+TRANSP:TRANSPARENT
+URL:https://www.weinviertler-radcup.at/pfoesing.php
+END:VEVENT
+END:VCALENDAR

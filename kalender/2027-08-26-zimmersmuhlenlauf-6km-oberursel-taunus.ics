@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-26-zimmersmuhlenlauf-6km-oberursel-taunus@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270826
+DTEND;VALUE=DATE:20270827
+SUMMARY:Zimmersmühlenlauf
+LOCATION:Oberursel (Taunus)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://zimmersmuehlen
+ lauf.de/
+TRANSP:TRANSPARENT
+URL:https://zimmersmuehlenlauf.de/
+END:VEVENT
+END:VCALENDAR

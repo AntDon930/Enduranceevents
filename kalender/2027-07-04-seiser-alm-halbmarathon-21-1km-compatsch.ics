@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-seiser-alm-halbmarathon-21-1km-compatsch@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Seiser Alm Halbmarathon – Just for Fun 21.1km
+LOCATION:Compatsch\, Italien (Südtirol)
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://running.seis
+ eralm.it/
+TRANSP:TRANSPARENT
+URL:http://running.seiseralm.it/
+END:VEVENT
+END:VCALENDAR

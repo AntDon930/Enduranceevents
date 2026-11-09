@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20270807
 DTEND;VALUE=DATE:20270808
 SUMMARY:Glacier 3000 Run
 LOCATION:Saanen\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 26 km\nhttps://glacier3000ru
- n.ch/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 26 km\nhttps://glacier3000run
+ .ch/
 TRANSP:TRANSPARENT
 URL:https://glacier3000run.ch/
 END:VEVENT

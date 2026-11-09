@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-nebel-cup-x-markisch-buchholz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261116
+SUMMARY:Nebel-Cup
+LOCATION:Märkisch Buchholz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.kolv.de/index
+ .php?m=4&m2=16&m3=3
+TRANSP:TRANSPARENT
+URL:https://www.kolv.de/index.php?m=4&m2=16&m3=3
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-18-the-great-crossing-epic-ii-2050km-munich@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:The Great Crossing Epic II
+LOCATION:Munich\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 2050 km\nhttps://ultracycli
+ ngchallenges.com
+TRANSP:TRANSPARENT
+URL:https://ultracyclingchallenges.com
+END:VEVENT
+END:VCALENDAR

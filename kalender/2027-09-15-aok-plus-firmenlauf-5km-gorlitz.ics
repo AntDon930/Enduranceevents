@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-15-aok-plus-firmenlauf-5km-gorlitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270915
+DTEND;VALUE=DATE:20270916
+SUMMARY:AOK PLUS Firmenlauf
+LOCATION:Görlitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.europamara
+ thon.de/lauf/aok-plus-firmenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.europamarathon.de/lauf/aok-plus-firmenlauf/
+END:VEVENT
+END:VCALENDAR

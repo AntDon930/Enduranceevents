@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-taunus-ultratrail-70km-schlangenbad@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Taunus-Ultratrail
+LOCATION:Schlangenbad\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 70 km\nhttps://taunus-ultratr
+ ail.de/Hauptlauf/
+TRANSP:TRANSPARENT
+URL:https://taunus-ultratrail.de/Hauptlauf/
+END:VEVENT
+END:VCALENDAR

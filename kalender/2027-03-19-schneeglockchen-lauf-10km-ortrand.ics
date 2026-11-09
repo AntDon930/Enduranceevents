@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270319
 DTEND;VALUE=DATE:20270322
 SUMMARY:Schneeglöckchen-Lauf
 LOCATION:Ortrand\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 10 km\nhttps://lausitzer-
- sportevents.de/anmeldung/anm.php?N=2027031
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 10 km\nhttps://schneegloc
+ ke.de/
 TRANSP:TRANSPARENT
-URL:https://lausitzer-sportevents.de/anmeldung/anm.php?N=2027031
+URL:https://schneeglocke.de/
 END:VEVENT
 END:VCALENDAR

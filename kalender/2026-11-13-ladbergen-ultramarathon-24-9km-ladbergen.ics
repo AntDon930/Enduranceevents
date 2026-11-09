@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-13-ladbergen-ultramarathon-24-9km-ladbergen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:Ladbergen Ultramarathon – Halbmarathon
+LOCATION:Ladbergen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24.9 km\nhttps://ultra-uwe-u
+ nterwegs.de/veranstaltungen/uwes-laufangebote/
+TRANSP:TRANSPARENT
+URL:https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/
+END:VEVENT
+END:VCALENDAR

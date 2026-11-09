@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-hallwilersee-triathlon-26-5km-meisterschwanden@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Hallwilersee Triathlon
+LOCATION:Meisterschwanden\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 26.5 km\nhttps://mumagesi
+ -triathlon.ch/hallwilersee-triathlon/
+TRANSP:TRANSPARENT
+URL:https://mumagesi-triathlon.ch/hallwilersee-triathlon/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-02-19-elbspitze-760km-dresden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270702
+DTEND;VALUE=DATE:20270704
+SUMMARY:19. ElbSpitze – Radmarathon 760 km
+LOCATION:Dresden\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 760 km\nhttps://elbspitze.d
+ e/track2027.php
+TRANSP:TRANSPARENT
+URL:https://elbspitze.de/track2027.php
+END:VEVENT
+END:VCALENDAR

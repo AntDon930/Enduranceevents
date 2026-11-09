@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270710
 DTEND;VALUE=DATE:20270711
 SUMMARY:Weesensteiner Rundenlauf
 LOCATION:Dohna\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 4 h\nhttps://running.life/de
- /termine/weesensteiner-rundenlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 4 h\nhttps://www.msv-meusega
+ st.de/veranstaltungen/stundenlauf/
 TRANSP:TRANSPARENT
-URL:https://running.life/de/termine/weesensteiner-rundenlauf
+URL:https://www.msv-meusegast.de/veranstaltungen/stundenlauf/
 END:VEVENT
 END:VCALENDAR
