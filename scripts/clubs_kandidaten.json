@@ -19,7 +19,7 @@
   "letzter_beleg": null,
   "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:fastrada.eu",
@@ -89,7 +89,8 @@
   "instagram": "https://www.instagram.com/runs/",
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:sabiemu",
@@ -141,7 +142,7 @@
   "letzter_beleg": null,
   "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:fabiochristen",
@@ -776,10 +777,10 @@
   "stadt": "Berlin",
   "art": "Fahrrad",
   "strava": "https://www.strava.com/clubs/bike-pivo",
-  "letzter_beleg": "2026-11-02",
-  "grund": "Strava: nur Einzelevents (Himmelpfort 28.11., WinterGravelGlühen 05.12.), kein fester Treff.",
+  "letzter_beleg": "2026-11-09",
+  "grund": "Strava: nur Einzelevents an wechselnden Orten (Eberswalde 14.11., Himmelpfort ab Oranienburg 28.11., WinterGravelGlühen 05.12.), kein fester Treff.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-11-02"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:blackwomenrunberlin",
@@ -1122,7 +1123,7 @@
   "letzter_beleg": null,
   "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "meetup:outrunners-berlin",
@@ -1163,7 +1164,7 @@
   "letzter_beleg": null,
   "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:prohibitedclo",
@@ -1196,7 +1197,7 @@
   "letzter_beleg": null,
   "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:queerswhosweat",
@@ -1249,7 +1250,7 @@
   "letzter_beleg": "2026-10-09",
   "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:rapha_rcc",
@@ -1340,7 +1341,7 @@
   "letzter_beleg": null,
   "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:_spinclub",
@@ -1474,17 +1475,6 @@
   "instagram": "https://www.instagram.com/pawsandpace.run/"
  },
  {
-  "schluessel": "club:berlin-trek-gravel-einsteigerrunde",
-  "name": "Trek Bicycle Berlin",
-  "stadt": "Berlin",
-  "art": "Fahrrad",
-  "letzter_beleg": "2026-11-07",
-  "geprueft": "2026-11-09",
-  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
-  "hinweis": "aus clubs.json übernommen am 09.11.2026",
-  "strava": "https://www.strava.com/clubs/trekberlin"
- },
- {
   "schluessel": "ig:saneclub",
   "name": "Community Club in Bern, Biel, (Basel), Thun & Zurich",
   "stadt": "Bern",
@@ -1534,7 +1524,7 @@
   "letzter_beleg": null,
   "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:biennecrit",
@@ -1675,18 +1665,6 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "club:bielefeld-cycling-bats",
-  "name": "Cycling Bats",
-  "stadt": "Bielefeld",
-  "art": "Fahrrad",
-  "letzter_beleg": "2026-11-02",
-  "geprueft": "2026-11-09",
-  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
-  "hinweis": "aus clubs.json übernommen am 09.11.2026",
-  "strava": "https://www.strava.com/clubs/1098712",
-  "instagram": "https://www.instagram.com/cycling_bats/"
  },
  {
   "schluessel": "ig:europeancyclingindustries",
@@ -1907,7 +1885,7 @@
   "letzter_beleg": null,
   "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:club_corsa",
@@ -2048,17 +2026,6 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "club:braunschweig-gravel-braunschweig",
-  "name": "Gravel Braunschweig",
-  "stadt": "Braunschweig",
-  "art": "Fahrrad",
-  "letzter_beleg": "2026-11-02",
-  "geprueft": "2026-11-09",
-  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
-  "hinweis": "aus clubs.json übernommen am 09.11.2026",
-  "strava": "https://www.strava.com/clubs/gravel-braunschweig"
  },
  {
   "schluessel": "ig:ballernballern",
@@ -2212,7 +2179,7 @@
   "letzter_beleg": null,
   "grund": "Strava beigetreten 27.10.2026: Serien seit 2014 (So 11:00 Hobby-Ausfahrt ab Rest. Kreuz, Di Indoor) – ob sie 2026 noch stattfinden, ist nicht belegt.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:dortmundrunclub",
@@ -2354,7 +2321,7 @@
   "letzter_beleg": null,
   "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-10-27"
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:conceptgluecklich",
@@ -2840,7 +2807,7 @@
   "stadt": "Hamburg",
   "art": "Fahrrad",
   "letzter_beleg": "2026-10-30",
-  "geprueft": "2026-11-02",
+  "geprueft": "2026-11-09",
   "grund": "War Club mit Einzelterminen; seit dem letzten keine weiteren auf Strava (nur virtuelle Zwift-Termine o. Ä.). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
   "hinweis": "aus clubs.json übernommen am 02.11.2026",
   "strava": "https://www.strava.com/clubs/716641"
@@ -3422,18 +3389,6 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "club:koeln-sportscheck-community",
-  "name": "SportScheck Community Köln",
-  "stadt": "Köln",
-  "art": "Laufen",
-  "letzter_beleg": "2026-10-28",
-  "geprueft": "2026-11-02",
-  "grund": "War Club mit Einzelterminen; seit dem letzten keine weiteren auf Strava (nur virtuelle Zwift-Termine o. Ä.). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
-  "hinweis": "aus clubs.json übernommen am 02.11.2026",
-  "strava": "https://www.strava.com/clubs/260630",
-  "webseite": "https://www.sportscheck.com/"
  },
  {
   "schluessel": "ig:trailrunning_cologne",
@@ -4061,7 +4016,7 @@
   "stadt": "München",
   "art": "Laufen",
   "letzter_beleg": "2026-10-29",
-  "geprueft": "2026-11-02",
+  "geprueft": "2026-11-09",
   "grund": "War Club mit Einzelterminen; seit dem letzten keine weiteren auf Strava (nur virtuelle Zwift-Termine o. Ä.). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
   "hinweis": "aus clubs.json übernommen am 02.11.2026",
   "strava": "https://www.strava.com/clubs/1065107"
@@ -4326,7 +4281,8 @@
   "instagram": "https://www.instagram.com/ruckzuck.running/",
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:munich.run",
@@ -4336,7 +4292,8 @@
   "instagram": "https://www.instagram.com/munich.run/",
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:spin_bar_",
@@ -4458,7 +4415,8 @@
   "strava": "https://www.strava.com/clubs/262663",
   "letzter_beleg": null,
   "grund": "Strava-Club für Rad-Ausfahrten im Münchner Westen; Strava 403, keine Termine/Treffpunkt auffindbar",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-09"
  },
  {
   "schluessel": "ig:velovibes_cyclingclub",
@@ -4489,17 +4447,6 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "club:muenchen-peopleon-bikes-social-run",
-  "name": "peopleon bikes After Work Social Run",
-  "stadt": "München",
-  "art": "Laufen",
-  "letzter_beleg": "2026-11-03",
-  "geprueft": "2026-11-09",
-  "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
-  "hinweis": "aus clubs.json übernommen am 09.11.2026",
-  "strava": "https://www.strava.com/clubs/1542628"
  },
  {
   "schluessel": "strava:lemoncyclingclub",
