@@ -29,7 +29,11 @@ auf der Live-Seite (Entwicklungs-Branch, beide Live-Namen). Seit dem 04.11.2026 
   `bild_nachweis_en`. `build_blog.py` baut daraus `blog/en/<slug>.html`;
   `test_blog` ist rot, solange die englische Fassung fehlt. Im Bericht an
   den Nutzer beide Links nennen (`/blog/<slug>.html` und
-  `/blog/en/<slug>.html`). Einzelheiten README „Blog“, Punkt „Sprache“.
+  `/blog/en/<slug>.html`). Die englische Fassung wird NEU geschrieben,
+  nicht übersetzt: flüssig wie ein englischer Laufblog, eigener knackiger
+  Titel (Vorbild des Nutzers: „Tapering: slow is smooth, and smooth is
+  fast“), spannende Zwischenüberschriften – Fakten, Fußnoten und Links wie
+  im deutschen Text. Einzelheiten README „Blog“, Punkt „Sprache“.
 
 | Termin | Status | Typ | Sportart | Thema |
 |---|---|---|---|---|

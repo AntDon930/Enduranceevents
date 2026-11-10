@@ -4072,6 +4072,20 @@ Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` un
     Verbandsnamen im Original, Suchbegriffe in `?s=` deutsch (die Namen in
     der Liste sind es), Bedienelemente wie auf der englischen Seite („Place
     & radius“, „Date“, „Category“).
+  - **Neu schreiben, nicht übersetzen** (vom Nutzer am 10.11.2026 nach der
+    ersten Fassung: „Irgendwie ist es noch nicht ganz flüssig geschrieben.
+    Man könnte auch bisschen die Überschriften spannender machen.
+    ‚Tapering: Slow is smooth and smooth is fast‘ for example … intensiver
+    gestalten“): Die englische Fassung klingt wie ein englischer Laufblog –
+    Kurzformen (you'll, don't), wechselnde Satzlängen, Bilder statt
+    Satzbau-Kopie („cashes in on all your hard work“, „Taper madness is
+    real“), jede Zwischenüberschrift ein kleiner Haken statt einer
+    Etikette, Schluss „The bottom line“. Der TITEL ist eine eigene Pointe
+    mit Doppelpunkt, nicht der übersetzte deutsche („Tapering: slow is
+    smooth, and smooth is fast“, „Run out the year: the best New Year's Eve
+    races“, „Ride or race? Find the cycling event that's right for you“).
+    Inhalt, Zahlen, Fußnoten und Links bleiben exakt die des deutschen
+    Textes – nur die Sprache ist frei.
   - **In `blog.json`**: `titel_en`, `teaser_en`, `bild_alt_en`,
     `bild_nachweis_en` (im Nachweis nur der Text vor dem Link übersetzt).
   - **`build_blog.py`** schreibt `blog/en/<slug>.html` (`lang="en"`, Kopf,

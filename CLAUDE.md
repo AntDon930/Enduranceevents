@@ -6045,6 +6045,13 @@ Testschritt) lief komplett grün durch, samt `abo` (326 neu sichtbar,
 1 Mail). **Fehlt `deploy` in der Jobliste eines roten Laufs mit grünen
 Tests, ist es GitHub, nicht die Seite** – einmal neu starten, nicht im
 Code suchen.
+**Scheitert dagegen der Job `deploy` NACH dem Hochladen** („Fetching artifact
+metadata failed … No artifacts named github-pages were found“, 10.11.2026,
+Lauf 476), **nicht im selben Lauf neu starten**: Der Neustart lädt ein
+zweites Paket „github-pages“ hoch, und `deploy-pages` bricht dann mit
+„Multiple artifacts named github-pages … Artifact count is 2“ ab – so
+geschehen. Stattdessen einen neuen Lauf anstoßen (nächster Push oder
+`workflow_dispatch` auf `pages.yml`).
 **Workflow-Läufe zu einem Commit immer mit dem VOLLEN SHA abfragen**
 (`actions/runs?head_sha=<40 Zeichen>`): Mit sieben Zeichen liefert die
 API still null Treffer – so entstand am 13.10. erst eine falsche

@@ -2135,7 +2135,7 @@ def test_blog() -> None:
         check(f"blog/en/{b['slug']}.html: alle Verweise zeigen auf vorhandene Dateien", fehlend, [])
         check(f"blog/en/{b['slug']}.html: englisch, Wartung zwei Ebenen höher, nichts von fremden Servern",
               ('<html lang="en">' in html_en, "location.replace('../../wartung.html')" in html_en,
-               _re.findall(r'\ssrc="(https?://[^"]+)"', html_en), b["titel_en"] in html_en.replace("&#x27;", "'")),
+               _re.findall(r'\ssrc="(https?://[^"]+)"', html_en), __import__("html").escape(b["titel_en"]) in html_en),
               (True, True, [], True))
         check(f"blog/{b['slug']}.html ↔ en: hreflang in beiden Fassungen",
               all(f'hreflang="{s}" href="{build_blog.url_von(b, s)}"' in h
