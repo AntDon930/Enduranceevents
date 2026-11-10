@@ -265,27 +265,43 @@ def themenseite(seite: dict, nr: int, gesamt: int, thema_nr: int) -> Image.Image
     y += 70
     # Figur unten rechts; die Punkte werden daneben schmaler
     fig_x, fig_y = _figur_einsetzen(img, seite.get("figur", "stehen"), 450, B - 36, H - 96)
-    g_text = 47
-    zeilen_h = 62
     tx = RAND + 86
-    for p in seite["punkte"]:
-        y0 = y
 
-        def max_b(i, y0=y0):
-            unten = y0 + (i + 1) * zeilen_h
-            return (fig_x - tx + 10) if unten > fig_y + 40 else (B - RAND - tx)
-        zeilen = _absatz(p.get("fett", ""), p.get("text", ""), g_text, max_b)
-        _zeichen(d, p.get("zeichen", "info"), RAND + 30, y0 + 30, hell)
+    def anordnen(g_text: int):
+        """Setzt die Punkte probehalber; gibt (Zeilen je Punkt, Ende) zurück."""
+        zeilen_h = int(g_text * 1.32)
+        yy = y
+        satz = []
+        for p in seite["punkte"]:
+            y0 = yy
+
+            def max_b(i, y0=y0):
+                unten = y0 + (i + 1) * zeilen_h
+                return (fig_x - tx + 10) if unten > fig_y + 40 else (B - RAND - tx)
+            zeilen = _absatz(p.get("fett", ""), p.get("text", ""), g_text, max_b)
+            satz.append((p, y0, zeilen))
+            yy += len(zeilen) * zeilen_h + int(g_text * 0.72)
+        return satz, yy, zeilen_h
+
+    # so groß wie möglich, aber über der Fußzeile
+    g_text = 47
+    satz, ende, zeilen_h = anordnen(g_text)
+    while ende > H - 110 and g_text > 34:
+        g_text -= 3
+        satz, ende, zeilen_h = anordnen(g_text)
+    fett = text_schrift(g_text, True)
+    for p, y0, zeilen in satz:
+        _zeichen(d, p.get("zeichen", "info"), RAND + 30, y0 + int(g_text * 0.64), hell)
+        yy = y0
         for z in zeilen:
             x = tx
             for i, (w, f) in enumerate(z):
                 if i:
                     x += text_schrift(g_text).getlength(" ")
-                farbe = (CORAL if not hell else MIDNIGHT) if f is text_schrift(g_text, True) else text
-                d.text((x, y), w, font=f, fill=farbe)
+                farbe = (CORAL if not hell else MIDNIGHT) if f is fett else text
+                d.text((x, yy), w, font=f, fill=farbe)
                 x += f.getlength(w)
-            y += zeilen_h
-        y += 34
+            yy += zeilen_h
     _fusszeile(d, hell, True)
     return img
 

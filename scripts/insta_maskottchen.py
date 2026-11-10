@@ -35,10 +35,17 @@ CORAL = (253, 110, 110)         # #FD6E6E
 WEISS = (255, 255, 255)
 
 KONTUR = MIDNIGHT
-HAUT = (246, 207, 168)
-HAUT_SCHATTEN = (226, 184, 146)
-HAAR = (74, 48, 36)
-BACKE = (244, 140, 130)
+HAUT = (240, 200, 166)
+HAUT_SCHATTEN = (222, 178, 142)
+HAAR = (62, 44, 34)           # dunkelbraun
+BART = (132, 100, 76)         # kurzer Vollbart, heller als das Haar
+BRILLE = (176, 104, 52)       # Hornbrille, Schildpatt
+GLAS = (205, 228, 238)
+SHIRT = (22, 70, 100)         # Laufshirt: dunkles Petrol, Soft-Blue-Streifen
+SHIRT_STREIFEN = SOFT_BLUE
+HOSE = (54, 60, 70)
+HOLZ = (176, 122, 78)
+HOLZ_DUNKEL = (140, 94, 58)
 NUDEL = (246, 206, 92)
 SOSSE = (226, 72, 58)
 BANANE = (250, 214, 74)
@@ -55,8 +62,8 @@ BODEN = 344            # Fußsohlen
 POSEN: dict[str, dict] = {
     "stehen": {"links": (20, 20), "rechts": (20, 20), "mund": "laecheln"},
     "winken": {"links": (20, 20), "rechts": (150, 175), "mund": "lachen", "zubehoer": ["wink"]},
-    "nudeln": {"links": (-25, -95), "rechts": (-15, -150), "mund": "kauen",
-               "zubehoer": ["schuessel", "gabel"]},
+    "nudeln": {"links": (-35, -70), "rechts": (-10, -150), "mund": "kauen",
+               "zubehoer": ["stuhl", "tisch", "gabel"], "sitzen": True},
     "banane": {"links": (20, 25), "rechts": (120, 150), "mund": "lachen", "zubehoer": ["banane"]},
     "zeigen": {"links": (-35, -95), "rechts": (125, 140), "mund": "laecheln", "zubehoer": ["zeigefinger"]},
     "denken": {"links": (-30, -110), "rechts": (-20, -160), "mund": "o", "zubehoer": ["fragezeichen"]},
@@ -141,7 +148,10 @@ def _schrift(g: int) -> ImageFont.FreeTypeFont | None:
 
 
 def _zubehoer_hinten(s: _Stift, name: str, haende: dict) -> None:
-    """Zubehör, das HINTER der Figur liegt (Waage unter den Füßen)."""
+    """Zubehör, das HINTER der Figur liegt (Waage unter den Füßen, Stuhl)."""
+    if name == "stuhl":
+        s.rechteck(92, 150, 208, 270, HOLZ_DUNKEL, radius=14)
+        s.rechteck(104, 162, 196, 270, HOLZ, radius=10, kontur=False)
     if name == "waage":
         s.rechteck(84, BODEN - 4, 216, BODEN + 14, WEISS, radius=8)
         s.rechteck(130, BODEN + 1, 170, BODEN + 10, CORAL, radius=3, kontur=False)
@@ -150,7 +160,25 @@ def _zubehoer_hinten(s: _Stift, name: str, haende: dict) -> None:
 def _zubehoer(s: _Stift, name: str, haende: dict, img: Image.Image) -> None:
     hl, hr = haende["links"], haende["rechts"]
     k = s.k
-    if name == "schuessel":
+    if name == "tisch":
+        # Tischplatte vor dem Bauch, Tischtuch in Soft Blue, Teller Nudeln
+        s.rechteck(18, 252, 282, 272, HOLZ, radius=6)
+        s.rechteck(26, 270, 274, 314, SOFT_BLUE, radius=4)
+        for x in range(36, 270, 24):
+            s.d.line([s.p(x, 272), s.p(x, 312)], fill=WEISS, width=int(5 * s.k))
+        for x in (44, 256):
+            s.rechteck(x - 7, 314, x + 7, BODEN + 6, HOLZ_DUNKEL, radius=3)
+        # Teller mit Nudeln und Soße
+        x, y = 196, 252
+        s.ellipse(x - 52, y - 16, x + 52, y + 10, WEISS)
+        for i, dx in enumerate((-30, -16, -2, 12, 26)):
+            s.linie([(x + dx, y - 4), (x + dx + 7, y - 20 - (i % 2) * 6), (x + dx + 14, y - 6)], 4.4, NUDEL)
+        s.kreis(x - 4, y - 16, 8, SOSSE, kontur=False)
+        s.kreis(x + 14, y - 12, 4, (90, 150, 70), kontur=False)
+        # Glas Wasser links
+        s.rechteck(52, 214, 76, 252, (220, 238, 246), radius=3)
+        s.d.rectangle([s.p(55, 226)[0], s.p(55, 226)[1], s.p(73, 250)[0], s.p(73, 250)[1]], fill=SOFT_BLUE)
+    elif name == "schuessel":
         x, y = hl[0] + 30, hl[1] - 4
         # Nudelberg, dann die Schüssel davor
         for i, dx in enumerate((-26, -12, 2, 16, 28)):
@@ -233,13 +261,13 @@ def _zubehoer(s: _Stift, name: str, haende: dict, img: Image.Image) -> None:
 def _mund(s: _Stift, art: str, mx: float, my: float) -> None:
     k = s.k
     if art == "lachen":
-        s.d.chord([(mx - 18) * k, (my - 14) * k, (mx + 18) * k, (my + 18) * k], 0, 180, fill=KONTUR)
-        s.d.chord([(mx - 9) * k, (my + 6) * k, (mx + 9) * k, (my + 16) * k], 180, 360, fill=CORAL)
+        s.d.chord([(mx - 18) * k, (my - 10) * k, (mx + 18) * k, (my + 18) * k], 0, 180, fill=KONTUR)
+        s.d.chord([(mx - 15) * k, (my - 6) * k, (mx + 15) * k, (my + 8) * k], 0, 180, fill=WEISS)
     elif art == "o":
         s.d.ellipse([(mx - 8) * k, (my - 4) * k, (mx + 8) * k, (my + 14) * k], fill=KONTUR)
     elif art == "kauen":
         s.d.ellipse([(mx - 14) * k, (my - 2) * k, (mx + 14) * k, (my + 12) * k], fill=KONTUR)
-        s.d.ellipse([(mx - 8) * k, (my + 1) * k, (mx + 8) * k, (my + 9) * k], fill=SOSSE)
+        s.d.ellipse([(mx - 8) * k, (my + 1) * k, (mx + 8) * k, (my + 9) * k], fill=(150, 60, 60))
     elif art == "streng":
         s.linie([(mx - 14, my + 6), (mx + 14, my + 6)], 5, KONTUR)
     else:  # laecheln
@@ -248,48 +276,84 @@ def _mund(s: _Stift, art: str, mx: float, my: float) -> None:
 
 
 def _kopf(s: _Stift, pose: str, mund: str) -> None:
-    mx, my, r = 150, 104, 66
+    """Der Kopf nach den Fotos des Nutzers (10.11.2026, „Kannst du mich
+    darstellen als Maskottchen“): ovales Gesicht, dunkelbraunes, volles
+    Haar mit Seitenscheitel und Schwung nach rechts, kurzer Vollbart mit
+    Schnurrbart, runde Hornbrille (Schildpatt)."""
+    mx, my = 150, 108
+    rx, ry = 58, 70
     k = s.k
-    # Haare hinten, Kopf, Stirnband, Haarschopf
-    s.kreis(mx, my, r, HAUT)
-    s.d.chord([(mx - r) * k, (my - r) * k, (mx + r) * k, (my + r) * k], 206, 334, fill=HAAR)
-    for dx, dy in ((-30, -66), (-6, -74), (18, -70), (38, -60)):
-        s.d.ellipse([(mx + dx - 14) * k, (my + dy - 10) * k, (mx + dx + 14) * k, (my + dy + 14) * k], fill=HAAR)
-    # Stirnband (Coral) mit Knoten und zwei Bandenden rechts
-    s.d.rectangle([(mx - r + 2) * k, (my - 40) * k, (mx + r - 2) * k, (my - 24) * k], fill=CORAL)
-    s.glied([(mx + r - 4, my - 32), (mx + r + 22, my - 46)], 9, CORAL)
-    s.glied([(mx + r - 4, my - 30), (mx + r + 26, my - 22)], 9, CORAL)
-    # Kontur des Gesichts erneut (über Haar/Band)
-    s.d.arc([(mx - r) * k, (my - r) * k, (mx + r) * k, (my + r) * k], 0, 360, fill=KONTUR, width=int(5 * k))
+    # Haare hinten: glatt, mittellang, bis über die Ohren
+    s.ellipse(mx - rx - 10, my - ry - 18, mx + rx + 12, my + 12, HAAR)
+    s.rechteck(mx - rx - 8, my - 30, mx - rx + 12, my + 6, HAAR, radius=8)
+    s.rechteck(mx + rx - 10, my - 30, mx + rx + 12, my + 8, HAAR, radius=8)
     # Ohren
     for sx in (-1, 1):
-        s.kreis(mx + sx * (r + 2), my + 8, 11, HAUT)
-    s.kreis(mx, my, r - 1, HAUT, kontur=False)
-    s.d.chord([(mx - r + 1) * k, (my - r + 1) * k, (mx + r - 1) * k, (my + r - 1) * k], 206, 334, fill=HAAR)
-    s.d.rectangle([(mx - r + 4) * k, (my - 40) * k, (mx + r - 4) * k, (my - 24) * k], fill=CORAL)
+        s.kreis(mx + sx * (rx + 3), my + 10, 11, HAUT)
+    # Gesicht
+    s.ellipse(mx - rx, my - ry, mx + rx, my + ry, HAUT)
+    # Bart: unterer Teil des Gesichts, oben bis zur Wange
+    bart = [s.p(mx + rx * math.cos(math.radians(w)), my + ry * math.sin(math.radians(w)))
+            for w in range(-8, 189, 4)]
+    wange = [s.p(mx - 44, my + 34), s.p(mx - 24, my + 30), s.p(mx, my + 30),
+             s.p(mx + 24, my + 30), s.p(mx + 44, my + 34)]
+    s.d.polygon(bart[::-1] + [s.p(mx - rx, my + 8)] + wange + [s.p(mx + rx, my + 8)], fill=BART)
+    # Stoppeln an der Bartkante
+    for i in range(14):
+        x = mx - 46 + i * 7
+        y = my + 28 + abs(i - 6.5) * 1.2
+        s.d.ellipse([(x - 1.4) * k, (y - 1.4) * k, (x + 1.4) * k, (y + 1.4) * k], fill=BART)
+    # Gesichtskontur neu über dem Bart
+    s.d.ellipse([(mx - rx) * k, (my - ry) * k, (mx + rx) * k, (my + ry) * k], outline=KONTUR,
+                width=int(5 * k))
+    # Haar vorn: Seitenscheitel links, Schwung nach rechts über die Stirn
+    vorn = [(mx - rx - 6, my - 4), (mx - rx - 4, my - 50), (mx - 34, my - 82), (mx + 4, my - 90),
+            (mx + 42, my - 82), (mx + rx + 10, my - 52), (mx + rx + 10, my - 6), (mx + rx - 2, my - 34),
+            (mx + 30, my - 50), (mx - 4, my - 54), (mx - 32, my - 48), (mx - 50, my - 32)]
+    s.d.polygon([s.p(*q) for q in vorn], fill=HAAR, outline=KONTUR, width=int(5 * k))
+    s.linie([(mx - 26, my - 80), (mx - 42, my - 40)], 3, (40, 28, 22))
+    s.linie([(mx - 6, my - 84), (mx + 40, my - 64), (mx + 60, my - 30)], 3.5, (96, 70, 54))
+    # Brauen
+    for sx in (-1, 1):
+        bx, by = mx + sx * 25, my - 20
+        if mund == "streng":
+            innen, aussen = by + 4, by - 4
+        else:
+            innen = aussen = by
+        s.linie([(bx - sx * 12, innen), (bx + sx * 12, aussen - 2)], 6, HAAR)
     # Augen
     zwinker = pose == "daumen"
     for sx in (-1, 1):
-        ax, ay = mx + sx * 24, my + 4
+        ax, ay = mx + sx * 25, my + 2
         if zwinker and sx == 1:
-            s.d.arc([(ax - 10) * k, (ay - 8) * k, (ax + 10) * k, (ay + 6) * k], 200, 340,
-                     fill=KONTUR, width=int(5 * k))
+            s.d.arc([(ax - 9) * k, (ay - 6) * k, (ax + 9) * k, (ay + 6) * k], 200, 340,
+                     fill=KONTUR, width=int(4.5 * k))
             continue
-        s.d.ellipse([(ax - 8) * k, (ay - 10) * k, (ax + 8) * k, (ay + 10) * k], fill=KONTUR)
-        s.d.ellipse([(ax - 1) * k, (ay - 7) * k, (ax + 5) * k, (ay - 1) * k], fill=WEISS)
-    # Brauen (streng = zur Mitte hin schräg nach unten)
+        s.d.ellipse([(ax - 6.5) * k, (ay - 8) * k, (ax + 6.5) * k, (ay + 8) * k], fill=KONTUR)
+        s.d.ellipse([(ax - 0.5) * k, (ay - 5.5) * k, (ax + 4) * k, (ay - 1) * k], fill=WEISS)
+    # Runde Hornbrille: Gläser leicht getönt, Steg, Bügel
     for sx in (-1, 1):
-        bx, by = mx + sx * 24, my - 15
-        if mund == "streng":
-            innen, aussen = by + 3, by - 5
-        else:
-            innen = aussen = by - 2
-        s.linie([(bx - sx * 9, innen), (bx + sx * 9, aussen)], 4, HAAR)
-    # Bäckchen
+        ax, ay = mx + sx * 25, my + 2
+        r = 19
+        s.d.ellipse([(ax - r) * k, (ay - r) * k, (ax + r) * k, (ay + r) * k], outline=KONTUR,
+                    width=int(10 * k))
+        s.d.ellipse([(ax - r + 2) * k, (ay - r + 2) * k, (ax + r - 2) * k, (ay + r - 2) * k],
+                    outline=BRILLE, width=int(5 * k))
+        s.d.arc([(ax - 12) * k, (ay - 13) * k, (ax + 4) * k, (ay + 3) * k], 200, 260,
+                fill=WEISS, width=int(3 * k))
+        s.linie([(ax + sx * (r - 1), ay - 6), (mx + sx * rx, my - 6)], 4.5, BRILLE)
+    s.d.arc([(mx - 8) * k, (my - 4) * k, (mx + 8) * k, (my + 8) * k], 200, 340, fill=BRILLE,
+            width=int(5 * k))
+    # Nase
+    s.d.arc([(mx - 7) * k, (my + 8) * k, (mx + 7) * k, (my + 22) * k], 300, 60, fill=HAUT_SCHATTEN,
+            width=int(4 * k))
+    s.d.arc([(mx - 7) * k, (my + 10) * k, (mx + 9) * k, (my + 24) * k], 20, 120, fill=KONTUR,
+            width=int(3.5 * k))
+    # Schnurrbart
     for sx in (-1, 1):
-        bx, by = mx + sx * 40, my + 26
-        s.d.ellipse([(bx - 11) * k, (by - 7) * k, (bx + 11) * k, (by + 7) * k], fill=BACKE)
-    _mund(s, mund, mx, my + 34)
+        s.d.chord([(mx - (24 if sx < 0 else 0)) * k, (my + 23) * k, (mx + (0 if sx < 0 else 24)) * k,
+                   (my + 37) * k], 180, 360, fill=(84, 58, 44))
+    _mund(s, mund, mx, my + 40)
 
 
 def _figur_gross(pose: str) -> Image.Image:
@@ -307,30 +371,36 @@ def _figur_gross(pose: str) -> Image.Image:
     zub = p.get("zubehoer", [])
     for z in zub:
         _zubehoer_hinten(s, z, haende)
-    # Beine und Schuhe
+    sitzt = p.get("sitzen", False)
+    if not sitzt:
+        # Beine und Schuhe
+        for sx in (-1, 1):
+            hx = 150 + sx * 20
+            s.glied([(hx, 270), (hx + sx * 4, BODEN - 14)], 21, HAUT)
+            s.glied([(hx + sx * 2, BODEN - 6), (hx + sx * 22, BODEN - 6)], 18, WEISS)
+            s.linie([(hx + sx * 4, BODEN - 10), (hx + sx * 18, BODEN - 10)], 4, CORAL)
+        # Laufhose
+        s.rechteck(110, 252, 190, 292, HOSE, radius=10)
+        s.d.line([s.p(150, 262), s.p(150, 292)], fill=KONTUR, width=int(3 * k))
+    # Laufshirt mit breiten Schultern, Soft-Blue-Streifen an der Seite
+    s.rechteck(104, 174, 196, 266, SHIRT, radius=26)
     for sx in (-1, 1):
-        hx = 150 + sx * 20
-        s.glied([(hx, 270), (hx + sx * 4, BODEN - 14)], 20, HAUT)
-        s.glied([(hx + sx * 2, BODEN - 6), (hx + sx * 22, BODEN - 6)], 18, WEISS)
-        s.linie([(hx + sx * 4, BODEN - 10), (hx + sx * 18, BODEN - 10)], 4, CORAL)
-    # Hose
-    s.rechteck(112, 252, 188, 290, MIDNIGHT, radius=10)
-    s.d.line([s.p(150, 262), s.p(150, 290)], fill=WEISS, width=int(3 * k))
-    # Arme hinter dem Rumpf? Nein: Rumpf zuerst, dann Arme davor
-    s.rechteck(108, 176, 192, 266, CORAL, radius=30)
+        s.d.line([s.p(150 + sx * 40, 190), s.p(150 + sx * 40, 262)], fill=SHIRT_STREIFEN, width=int(6 * k))
+    s.d.arc([s.p(130, 164)[0], s.p(130, 164)[1], s.p(170, 188)[0], s.p(170, 188)[1]], 20, 160,
+            fill=SHIRT_STREIFEN, width=int(5 * k))
     # Startnummer mit Routenzeichen
-    s.rechteck(126, 212, 174, 246, WEISS, radius=5)
-    route = [(132, 240), (142, 224), (152, 233), (166, 218)]
+    s.rechteck(124, 210, 176, 246, WEISS, radius=5)
+    route = [(131, 239), (142, 222), (152, 232), (167, 216)]
     s.linie(route, 4, MIDNIGHT)
-    s.d.ellipse([s.p(163, 215)[0], s.p(163, 215)[1], s.p(169, 221)[0], s.p(169, 221)[1]], fill=CORAL)
+    s.d.ellipse([s.p(164, 213)[0], s.p(164, 213)[1], s.p(170, 219)[0], s.p(170, 219)[1]], fill=CORAL)
     for seite in ("links", "rechts"):
         sh, e, h = schultern[seite], ellbogen[seite], haende[seite]
-        s.glied([sh, e, h], 17, HAUT)
-        s.glied([sh, (sh[0] + (e[0] - sh[0]) * 0.32, sh[1] + (e[1] - sh[1]) * 0.32)], 26, CORAL)
+        s.glied([sh, e, h], 19, HAUT)
+        s.glied([sh, (sh[0] + (e[0] - sh[0]) * 0.34, sh[1] + (e[1] - sh[1]) * 0.34)], 28, SHIRT)
         eigene_hand = (seite == "rechts" and any(z in zub for z in ("stopphand", "daumen", "banane"))) \
             or "kalender" in zub
         if not eigene_hand:
-            s.kreis(h[0], h[1], 10, HAUT)
+            s.kreis(h[0], h[1], 11, HAUT)
     _kopf(s, pose, p.get("mund", "laecheln"))
     for z in zub:
         _zubehoer(s, z, haende, img)

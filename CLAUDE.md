@@ -5521,10 +5521,20 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   <slug> --aus <ordner>` schreibt `01.jpg …` + `caption.txt`; Seiten
   abwechselnd Soft Blue und Midnight Navy, Nummer im Coral-Kreis, Figur
   unten rechts, Text daneben schmaler. Das Maskottchen
-  (`insta_maskottchen.figur(pose, hoehe)`) steht von vorn, Coral-Shirt mit
-  Startnummer, Stirnband, Sticker-Rand; Posen in `POSEN` (stehen, winken,
-  nudeln, banane, zeigen, denken, stopp, daumen, waage, kalender, jubeln),
-  neue Pose = Eintrag + Zubehör in `_zubehoer()`. Noch ohne Namen, noch
+  (`insta_maskottchen.figur(pose, hoehe)`) ist **der Nutzer selbst als
+  Karikatur** (vom Nutzer am 10.11.2026 mit vier Fotos: „Der Typ sieht
+  bisschen zu feminin aus. Bitte ihn nicht in komplett rosa machen. Und
+  auch kein Stirnband … Kannst du mich darstellen als Maskottchen“):
+  dunkelbraunes, glattes Haar mit Seitenscheitel, kurzer Vollbart mit
+  Schnurrbart, runde Hornbrille (Schildpatt), Laufshirt in dunklem Petrol
+  mit Soft-Blue-Streifen und Startnummer, dunkle Hose, weiße Schuhe – KEIN
+  Stirnband, KEIN Rosa/Coral als Kleidung, keine Bäckchen. Geht es ums
+  Essen, sitzt er am Tisch (Pose `nudeln`: Stuhl, Tisch mit Tischtuch,
+  Teller, Gabel; `sitzen: True` lässt Beine und Hose weg). Posen in
+  `POSEN` (stehen, winken, nudeln, banane, zeigen, denken, stopp, daumen,
+  waage, kalender, jubeln), neue Pose = Eintrag + Zubehör in
+  `_zubehoer()`. Die Punkte einer Themenseite werden kleiner (47 → 34 px),
+  bis sie über der Fußzeile enden. Noch ohne Namen, noch
   nicht im Wochenplan, noch kein Posten über die API (Karussell =
   `media_type CAROUSEL`) – der Nutzer postet von Hand. Wer einen
   Blogbeitrag schreibt, kann die Karussell-Datei gleich mit anlegen.
