@@ -102,6 +102,7 @@ den Entwicklungs-Branch (auf `main` seit dem 04.11.2026, Commit
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
 | `scripts/insta_inhalte.py`, `insta_video.py`, `insta_figur.py`, `insta_musik.py`, `insta_veranstalter.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions + Stories, Reel- und Story-Render (Pillow + ffmpeg, eigener Beat; Logo-Formate auf blauem Grund mit laufender Figur, `insta_figur.py`), @-Erwähnung der Veranstalter (Name von deren Seite), Auswertung, Upload über die Instagram-API (seit 16.10.2026 **Anmeldung über Instagram**: Video kurz im Google-Speicher, Schlüssel im Google-Tresor, beides ohne Schlüsseldatei über Workload Identity; einmal einrichten mit `scripts/instagram_google_einrichten.sh` in der Cloud Shell), alles in einem Aufruf – siehe „Instagram" |
+| `scripts/insta_karussell.py`, `scripts/insta_maskottchen.py`, `marketing/instagram/karussell/<blog-slug>.json` | **Karussell zum Blogbeitrag** (seit 10.11.2026): Titelseite, 3–8 Themenseiten (Do's, Don'ts, Regeln), Schlussseite, 1080 × 1350, mit dem **Maskottchen** in einer Pose je Seite – siehe „Instagram“, Bullet „Karussell zum Blogbeitrag“ |
 | `scripts/insta_freigabe.py`, `marketing/instagram/plan.json` | **Freigabe mit einem Klick** (14.10.2026): `plan.json` (im Pages-Workflow erzeugt, nie committet) nennt die Beiträge der nächsten 14 Tage mit Kennung des Inhalts; das Dashboard (`admin.html`, Karte „Instagram-Freigabe") schreibt `insta_freigaben/<Datum>` in Firestore; der Abendlauf fragt `insta_freigabe.darf_posten()` – siehe „Instagram" |
 | `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `humor.json` (eigene Läuferwitze für das Format „humor"), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` (dort auch `instagram_namen.json`) nicht im Repo |
 | `scripts/insta_logos.py`, `marketing/instagram/grosse_events.json`, `marketing/instagram/logos/` | **Logo-Reels** (seit 27.10.2026): die großen Events mit Starterzahl und Anmeldestart (je mit Quelle) und ihre GEPRÜFTEN Logos (`logos/<slug>.png`, Quelle in `logos/logos.json`); `insta_logos.py sammeln|uebernehmen|bogen` – siehe „Instagram", Bullet „Logo-Reels" |
@@ -5505,6 +5506,35 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   prüft beides. Die Landfläche der Karte ist heller als der Grund
   (`LAND`). Wer ein neues Format mit Logos baut, nimmt es in
   `BLAU_FORMATE` auf und hält den Inhalt über 1430.
+- **Karussell zum Blogbeitrag und das Maskottchen (10.11.2026, vom Nutzer:
+  „ein neues Format … das wir mit den Blogposts verbinden können … Auf der
+  ersten Seite sollte in groß stehen um was das Thema geht … Dann auf den
+  nächsten 4-5 Seiten kommt jeweils ein Thema“ und „einen fiktiven
+  Charakter …, der einen auf den Seiten begleitet und immer eine Aktivität
+  macht … So ein bisschen ein Maskottchen, das auf allen Instagram Posts
+  begleitet“)**: `marketing/instagram/karussell/<slug>.json` je Beitrag
+  (`blog` = Slug aus `blog.json`, `titel`, `untertitel`, `einleitung`,
+  `figur`, `seiten[]` mit `art` do/dont/info, `titel`, `figur`, `punkte[]`
+  aus `zeichen` ja/nein/info + `fett` + `text`, `schluss`, `caption`),
+  NUR mit Aussagen, die der Blogtext belegt (die Quellen stehen dort, die
+  Caption verweist auf den Blog). `python3 scripts/insta_karussell.py
+  <slug> --aus <ordner>` schreibt `01.jpg …` + `caption.txt`; Seiten
+  abwechselnd Soft Blue und Midnight Navy, Nummer im Coral-Kreis, Figur
+  unten rechts, Text daneben schmaler. Das Maskottchen
+  (`insta_maskottchen.figur(pose, hoehe)`) steht von vorn, Coral-Shirt mit
+  Startnummer, Stirnband, Sticker-Rand; Posen in `POSEN` (stehen, winken,
+  nudeln, banane, zeigen, denken, stopp, daumen, waage, kalender, jubeln),
+  neue Pose = Eintrag + Zubehör in `_zubehoer()`. Noch ohne Namen, noch
+  nicht im Wochenplan, noch kein Posten über die API (Karussell =
+  `media_type CAROUSEL`) – der Nutzer postet von Hand. Wer einen
+  Blogbeitrag schreibt, kann die Karussell-Datei gleich mit anlegen.
+  `test_insta_karussell`.
+- **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
+  „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
+  Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für
+  Karussells UND Reels (`insta_video`: NAVY, SIGNAL, SONNE, SOFT_BLUE,
+  blauer Grund, Laufen-Farbe; `insta_figur`, `insta_logos`). Die
+  Webseite behält den Style Guide – nur Instagram ist umgestellt.
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,

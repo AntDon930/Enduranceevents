@@ -74,14 +74,18 @@ TEXT_BREITE = 880           # 80 … 960, rechts bleibt Platz für die App-Leist
 OBEN = 230
 UNTEN = 1500
 
-NAVY = (11, 27, 51)
-TIEFE = (22, 59, 107)
-SIGNAL = (232, 89, 12)
-SONNE = (249, 115, 22)
+# Die Instagram-Farben seit dem 10.11.2026 (vom Nutzer: „Die Farben für
+# alle neuen Insta posts bitte dem Bild entnehmen“): Midnight Navy #002941,
+# Coral Orange #FD6E6E, Soft Blue #B6DFED. Die Webseite behält ihre Farben.
+NAVY = (0, 41, 65)
+TIEFE = (16, 74, 104)
+SIGNAL = (240, 92, 92)
+SONNE = (253, 110, 110)
+SOFT_BLUE = (182, 223, 237)
 KREIDE = (244, 242, 237)
 WEISS = (255, 255, 255)
 GRAU = (190, 198, 212)
-SPORTFARBE = {"Laufen": (232, 89, 12), "Fahrrad": (61, 181, 90),
+SPORTFARBE = {"Laufen": (253, 110, 110), "Fahrrad": (61, 181, 90),
               "Schwimmen": (74, 155, 230), "Triathlon": (154, 123, 240)}
 
 # Wie lange eine Folie steht (Sekunden) - je nach Textmenge. Mit Beat
@@ -517,7 +521,7 @@ def logo_karte(img: Image.Image, d: ImageDraw.ImageDraw, box: tuple, logo_id: st
 
 # ------------------------------------------------------------- Karte
 
-LAND = (42, 96, 164)          # Landfläche der Karte, heller als der blaue Grund
+LAND = (52, 112, 146)         # Landfläche der Karte, heller als der blaue Grund
 KARTE_GRENZEN = (5.8, 45.75, 17.25, 55.1)      # lon0, lat0, lon1, lat1: DE, AT, CH, Südtirol
 _umrisse: list | None = None
 
@@ -1387,14 +1391,14 @@ def blauer_grund(sport: str | None = None) -> Image.Image:
     Sportfarbe unten und einem feinen Punktraster (wie die Karte der
     Seite). Ein Bild, für das ganze Reel - Bewegung bringen Schnitte,
     Wisch, Lichtfleck und die Figur."""
-    oben, unten_f = (16, 36, 68), (7, 18, 37)
+    oben, unten_f = (0, 54, 84), (0, 28, 46)
     verlauf = Image.new("RGB", (1, H))
     for y in range(H):
         q = y / (H - 1)
         verlauf.putpixel((0, y), tuple(int(oben[i] + (unten_f[i] - oben[i]) * q) for i in range(3)))
     bild = verlauf.resize((B, H)).convert("RGBA")
     g = Image.radial_gradient("L").resize((1700, 1700), Image.BILINEAR)
-    glanz = Image.new("RGBA", (1700, 1700), (38, 92, 162, 0))
+    glanz = Image.new("RGBA", (1700, 1700), (60, 140, 178, 0))
     glanz.putalpha(g.point(lambda v: int(max(0, 230 - v) * 0.72)))
     bild.alpha_composite(glanz, (B // 2 - 850, 780 - 850))
     akzent = SPORTFARBE.get(sport, SIGNAL) if sport else SIGNAL

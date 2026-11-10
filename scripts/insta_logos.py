@@ -456,7 +456,7 @@ def uebersicht(ziel: Path, ordner: Path | None = None, gepruefte: bool = False) 
         logo = Image.open(pfad).convert("RGBA") if pfad and pfad.is_file() else None
         hell = bool(logo and ist_hell(logo))
         d.rounded_rectangle([x + 10, y + 10, x + kw - 10, y + kh - 50], radius=16,
-                            fill=(11, 27, 51) if hell else (255, 255, 255),
+                            fill=(0, 41, 65) if hell else (255, 255, 255),
                             outline=None if logo else (220, 30, 30), width=4)
         if logo:
             logo.thumbnail((kw - 50, kh - 90))

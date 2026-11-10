@@ -7272,8 +7272,43 @@ def test_insta_logos() -> None:
            F.vor_start("2026-11-05", "2026-11-05")), (True, False, False))
 
 
+def test_insta_karussell() -> None:
+    """Karussell zum Blogbeitrag (10.11.2026): jede Datei in
+    marketing/instagram/karussell/ ist gültig, verweist auf einen
+    vorhandenen Beitrag, jede Pose des Maskottchens lässt sich zeichnen,
+    die Seiten sind 1080 × 1350 und die Farben die des Nutzers."""
+    import json as _json
+    print("\nInstagram-Karussell (insta_karussell, insta_maskottchen):")
+    import insta_karussell as K
+    import insta_maskottchen as M
+    check("Farben des Nutzers", (M.SOFT_BLUE, M.MIDNIGHT, M.CORAL),
+          ((0xB6, 0xDF, 0xED), (0x00, 0x29, 0x41), (0xFD, 0x6E, 0x6E)))
+    for pose in M.POSEN:
+        bild = M.figur(pose, 200)
+        check(f"Pose {pose} gezeichnet", bild.height > 200 and bild.getbbox() is not None, True)
+    blog = {b["slug"] for b in _json.loads((K.ROOT / "blog.json").read_text(encoding="utf-8"))}
+    dateien = sorted(K.ORDNER.glob("*.json"))
+    check("mindestens ein Karussell", len(dateien) >= 1, True)
+    for f in dateien:
+        daten = K.lade(f.stem)
+        check(f"{f.stem}: Blogbeitrag vorhanden", daten["blog"] in blog, True)
+        check(f"{f.stem}: Caption verweist auf den Blog", "endurance-events.de" in K.caption(daten), True)
+    daten = K.lade(dateien[0].stem)
+    bilder = K.seiten(daten)
+    check("Seitenzahl = Themen + Titel + Schluss", len(bilder), len(daten["seiten"]) + 2)
+    check("Format 4:5", {b.size for b in bilder}, {(1080, 1350)})
+    for kaputt in ({**daten, "seiten": daten["seiten"][:2]},
+                   {**daten, "figur": "gibtsnicht"},
+                   {**daten, "seiten": [{**daten["seiten"][0], "punkte": [{"zeichen": "vielleicht"}]}] * 3}):
+        try:
+            K.pruefe(kaputt)
+            check("ungültiges Karussell abgewiesen", False, True)
+        except ValueError:
+            check("ungültiges Karussell abgewiesen", True, True)
+
+
 def main() -> int:
-    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_instagram_konten, test_insta_freigabe, test_insta_logos,
+    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_instagram_konten, test_insta_freigabe, test_insta_logos, test_insta_karussell,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung, test_namensrand,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien, test_web_data,

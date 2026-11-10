@@ -24,10 +24,10 @@ from functools import lru_cache
 
 from PIL import Image, ImageDraw, ImageFilter
 
-NAVY = (11, 27, 51)
+NAVY = (0, 41, 65)            # Instagram-Farben seit 10.11.2026 (insta_video)
 WEISS = (255, 255, 255)
-SIGNAL = (232, 89, 12)
-SONNE = (249, 115, 22)
+SIGNAL = (240, 92, 92)
+SONNE = (253, 110, 110)
 HAUT = (246, 207, 168)
 HAUT_HINTEN = (222, 178, 140)
 HOSE = (44, 90, 146)
@@ -124,7 +124,7 @@ def _arm(s: _Stift, schulter: tuple[float, float], q: float, hinten: bool,
     s.kreis(hx, hy, 8.5, haut)
     # kurzer Ärmel
     s.glied([(sx, sy), (sx + 9 * math.sin(ua), sy + 9 * math.cos(ua))], 22,
-            SIGNAL if not hinten else (200, 74, 8))
+            SIGNAL if not hinten else (214, 78, 78))
 
 
 def _kopf(s: _Stift, mx: float, my: float, p: float, img: Image.Image) -> None:
