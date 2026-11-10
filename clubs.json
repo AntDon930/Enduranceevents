@@ -320,6 +320,12 @@
     "rhythmus": "woechentlich",
     "wochentag": 3,
     "uhrzeit": "19:30"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-11",
+    "uhrzeit": "18:00",
+    "bezeichnung": "After Hours Ride: ca. 45 km um den Deich, um 28 km/h, ab Sperrwerk Billwerder (Kaltehofe-Hauptdeich)"
    }
   ],
   "dauer_min": 120,
@@ -336,15 +342,16 @@
    "https://radcrew.hamburg/events/",
    "https://www.strava.com/clubs/1283051/group_events/1976379",
    "https://www.strava.com/clubs/1283051",
-   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-11-09",
+  "geprueft": "2026-11-10",
   "pace": {
    "von": 28,
    "bis": 40
   },
-  "zuletzt_aktiv": "2026-11-09"
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "berlin-parkrun-hasenheide",
@@ -786,6 +793,12 @@
     "rhythmus": "woechentlich",
     "wochentag": 1,
     "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Bergfest Gravel Ride in zwei Gruppen: Fast Pace und Social Pace (21–23 km/h)"
    }
   ],
   "dauer_min": 120,
@@ -798,10 +811,13 @@
   "beschreibung_en": "Monday ride of the GRX Bande, in winter run as a short, easy two-hour shake-out ride to loosen the legs; helmet required.",
   "quelle": [
    "https://www.strava.com/clubs/1014321/group_events/3395325614216680584",
-   "https://rundedrehen.de/grouprides/berlin"
+   "https://rundedrehen.de/grouprides/berlin",
+   "https://www.strava.com/clubs/1014321",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-10",
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "leipzig-parkrun-kuechenholz",
@@ -1344,19 +1360,26 @@
   "name": "The Rolling Mile",
   "art": "Laufen",
   "stadt": "Berlin",
-  "treffpunkt": "Café La Maison, Paul-Lincke-Ufer 17 (Kreuzberg)",
-  "lat": 52.4933,
-  "lon": 13.4311,
+  "treffpunkt": "Futura House, Paul-Lincke-Ufer 39-40, Hof 3 (Kreuzberg); Donnerstag Columbiadamm 111",
+  "lat": 52.49611,
+  "lon": 13.42229,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 3,
-    "uhrzeit": "07:15"
+    "uhrzeit": "07:30",
+    "bezeichnung": "Canal Social Run, 7 km am Landwehrkanal, Treffen 7:15"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Intervall-Training am TiB-Hockeyplatz, Columbiadamm 111 (alle Niveaus)"
    }
   ],
   "anmeldung": "nein",
   "instagram": "https://www.instagram.com/therollingmile/",
-  "strava": "https://www.strava.com/clubs/therollingmile",
+  "strava": "https://www.strava.com/clubs/1297784",
   "merkmale": [
    "kaffee"
   ],
@@ -1367,12 +1390,13 @@
    "https://www.strava.com/clubs/therollingmile",
    "https://www.runningclubsberlin.de/clubs/the-rolling-mile",
    "https://urbansportsclub.com/en/venues/the-rolling-mile",
-   "https://urbansportsclub.com/en/venues/the-rolling-mile-futura-house"
+   "https://urbansportsclub.com/en/venues/the-rolling-mile-futura-house",
+   "https://www.strava.com/clubs/1297784",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "pruefung_offen": true,
-  "pruefung_grund": "Mittwoch 7:15 Uhr bestätigt (runningclubsberlin.de), Treffpunkt dreifach widersprüchlich: socialrunclubs Café La Maison (Paul-Lincke-Ufer 17), runningclubsberlin.de CIC Berlin (Lohmühlenstraße 65), Urban Sports Club 'Social Run' Futura House (Paul-Lincke-Ufer 39-40, Hof 3); Teilnahme evtl. über USC/Mitgliedschaft – Treffpunkt und Kosten auf Instagram bestätigen",
   "land": "Deutschland",
-  "geprueft": "2026-10-20"
+  "geprueft": "2026-11-10",
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "berlin-treptrunners",
@@ -9616,7 +9640,8 @@
    {
     "rhythmus": "woechentlich",
     "wochentag": 4,
-    "uhrzeit": "18:00"
+    "uhrzeit": "18:30",
+    "bezeichnung": "Thursday Ride, verschiedene Gruppen (nicht jede Gruppe jede Woche)"
    }
   ],
   "strava": "https://www.strava.com/clubs/248185",
@@ -9627,21 +9652,21 @@
   "quelle": [
    "https://rundedrehen.de/grouprides/basel",
    "https://www.strava.com/clubs/248185",
-   "https://www.voyagecyclingstore.ch/club"
+   "https://www.voyagecyclingstore.ch/club",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "pruefung_offen": true,
-  "pruefung_grund": "Clubseite voyagecyclingstore.ch/club: „VCC THURSDAY RIDE … weekly in Basel every Thursday evening during Daylight Saving Time“, nicht jede Gruppe jede Woche, Details im Strava-Event; Uhrzeit nur aus der Spezialausgabe 13.08.2026 (Treffen 18:00, Abfahrt 18:30 am Voyage Cycling Store) – reguläre Uhrzeit bestätigen; Saison endet mit der Sommerzeit (25.10.2026)",
   "land": "Schweiz",
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-10",
   "webseite": "https://voyagecyclingclub.ch/",
   "saison": {
    "von": "03-29",
    "bis": "10-25"
-  }
+  },
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "basel-chezvelo-donnerstag",
-  "name": "ChezVelo en Route – Donnerstagabend-Ausfahrt",
+  "name": "ChezVelo en Route",
   "art": "Fahrrad",
   "stadt": "Basel",
   "treffpunkt": "ChezVelo, Vogesenstrasse 86",
@@ -9649,28 +9674,55 @@
   "lon": 7.57691,
   "termine": [
    {
-    "rhythmus": "woechentlich",
-    "wochentag": 4,
-    "uhrzeit": "18:15"
+    "rhythmus": "einmalig",
+    "datum": "2026-11-14",
+    "uhrzeit": "10:00",
+    "bezeichnung": "Gravel-Ausfahrt, Abfahrt 10:15"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-28",
+    "uhrzeit": "10:00",
+    "bezeichnung": "Gravel-Ausfahrt, Abfahrt 10:15"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-12-05",
+    "uhrzeit": "10:00",
+    "bezeichnung": "SamstagMorgenAusfahrt (Strasse), Abfahrt 10:15"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-12-12",
+    "uhrzeit": "10:00",
+    "bezeichnung": "Gravel-Ausfahrt, Abfahrt 10:15"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-12-19",
+    "uhrzeit": "10:00",
+    "bezeichnung": "SamstagMorgenAusfahrt (Strasse), Abfahrt 10:15"
    }
   ],
   "strava": "https://www.strava.com/clubs/chezvelo",
   "anmeldung": "nein",
   "anmeldung_ueber": "Strava",
-  "beschreibung_de": "Donnerstagabend-Ausfahrt ab dem Veloladen ChezVelo im St. Johann.",
-  "beschreibung_en": "Thursday evening ride from the ChezVelo bike shop in St. Johann.",
+  "beschreibung_de": "Gemeinsame Ausfahrten ab dem Veloladen ChezVelo im St. Johann: im Winter samstags um 10 Uhr abwechselnd Gravel und Strasse, ab dem 8. April 2027 wieder alle zwei Wochen donnerstagabends. Kein Rennen, alle kommen gemeinsam zurück; Helm und Rad mit Dropbar sind Pflicht.",
+  "beschreibung_en": "Group rides from the ChezVelo bike shop in St. Johann: in winter on Saturdays at 10 am, alternating gravel and road, and from 8 April 2027 every other Thursday evening again. No racing, everyone returns together; helmet and a drop-bar bike are required.",
   "quelle": [
    "https://rundedrehen.de/grouprides/basel",
    "https://www.strava.com/clubs/8341",
-   "https://www.strava.com/clubs/chezvelo"
+   "https://www.strava.com/clubs/chezvelo",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Schweiz",
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-10",
   "pace": {
    "von": 25,
    "bis": 28
   },
-  "rad_typ": "Gravel"
+  "rad_typ": "gemischt",
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "basel-obst-gemuese-firestarter",
@@ -11683,43 +11735,56 @@
  },
  {
   "id": "braunschweig-sweet-run-club",
-  "name": "Sweet Run Club",
+  "name": "sweet RUN club",
   "art": "Laufen",
   "stadt": "Braunschweig",
   "land": "Deutschland",
-  "treffpunkt": "sweet spot studio Braunschweig",
+  "treffpunkt": "sweet spot studio, Marienstraße 34 (Östliches Ringgebiet)",
   "lat": 52.26478,
   "lon": 10.5495,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 4,
-    "uhrzeit": "18:15"
+    "uhrzeit": "18:15",
+    "bezeichnung": "Winter Community Run, 7 km (5:30–6:00 min/km), mit Abkürzung 5 km"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-15",
+    "uhrzeit": "10:00",
+    "bezeichnung": "RUN AND RAVE mit der CMD Society: Spendenlauf, 4 km ohne Pace-Vorgabe mit DJ-Set"
    }
   ],
   "distanz_km": [
-   6,
-   10
+   5,
+   7
   ],
   "instagram": "https://www.instagram.com/sweet_spot_studio_/",
-  "strava": "https://www.strava.com/clubs/sw33t",
+  "strava": "https://www.strava.com/clubs/1319911",
   "merkmale": [
    "mehrere_gruppen"
   ],
-  "anmeldung": "nein",
+  "anmeldung": "empfohlen",
   "kosten": {
    "gratis": true,
    "betrag_eur": null,
    "text": null
   },
-  "beschreibung_de": "Donnerstagslauf über 6 bis 10 km ab einem Fitnessstudio, meist in zwei Tempogruppen.",
-  "beschreibung_en": "Thursday run over 6 to 10 km from a fitness studio, usually in two pace groups.",
+  "beschreibung_de": "Lauftreff des sweet spot studio (Café und Radstudio): im Winter jeden Donnerstag 7 km auf derselben Runde, angeführt von Run Captains, mit 5-km-Abkürzung; zum Schluss treffen sich alle im Café. Stirnlampe oder Reflektoren mitbringen.",
+  "beschreibung_en": "Run club of sweet spot studio (café and bike studio): every Thursday in winter 7 km on the same loop, led by run captains, with a 5 km shortcut; everyone meets in the café afterwards. Bring a headlamp or reflectors.",
   "quelle": [
-   "https://socialrunclubs.de/braunschweig/sweet-run-club/"
+   "https://socialrunclubs.de/braunschweig/sweet-run-club/",
+   "https://www.strava.com/clubs/1319911",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Do 18:15 nur Sammelseite (19.05.2026); der verlinkte Strava-Club 'sw33t' ist die Rad-Community des sweet spot studio (Café & Community, 1.381 Mitglieder) und nennt keinen Lauftreff; Studioadresse nur aus Kartenpunkt"
+  "geprueft": "2026-11-10",
+  "pace": {
+   "von": "5:30",
+   "bis": "6:00"
+  },
+  "anmeldung_ueber": "Strava",
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "braunschweig-miles-collective",
@@ -16413,12 +16478,14 @@
    {
     "rhythmus": "woechentlich",
     "wochentag": 2,
-    "uhrzeit": "07:15"
+    "uhrzeit": "19:15",
+    "bezeichnung": "LassLaufen 5–8 km (6:30–7:00 min/km) und Slow Run 4,5 km (7:30–8:00 min/km, Gehpausen möglich)"
    },
    {
     "rhythmus": "woechentlich",
     "wochentag": 6,
-    "uhrzeit": "10:15"
+    "uhrzeit": "10:15",
+    "bezeichnung": "Offener Samstagstreff, 5–8 km (6:30–7:00 min/km)"
    }
   ],
   "distanz_km": [
@@ -16436,9 +16503,12 @@
   "beschreibung_en": "Easy 5–8 km runs on Tuesday mornings and Saturday mornings from Haltestulle, no sign-up needed.",
   "quelle": [
    "https://socialrunclubs.de/bielefeld/lasslaufen/",
-   "https://www.nw.de/nachrichten/zwischen_weser_und_rhein/24273804_Running-Clubs-in-OWL-16-Lauftreffs-mit-Zeiten-und-Paces-im-Ueberblick.html"
+   "https://www.nw.de/nachrichten/zwischen_weser_und_rhein/24273804_Running-Clubs-in-OWL-16-Lauftreffs-mit-Zeiten-und-Paces-im-Ueberblick.html",
+   "https://www.strava.com/clubs/1618912",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-10",
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "bielefeld-teilzeitlaeufer",
@@ -16492,6 +16562,13 @@
     "rhythmus": "woechentlich",
     "wochentag": 7,
     "uhrzeit": "10:30"
+   },
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 3,
+    "ab": "2026-11-18",
+    "uhrzeit": "19:00",
+    "bezeichnung": "Interval Session auf der Bahn an der Rußheide (Mühlenstraße 121), Tempo frei wählbar"
    }
   ],
   "merkmale": [
@@ -16503,9 +16580,11 @@
   "beschreibung_en": "Relaxed Sunday runs of 5–7 km (6:30–7:30 min/km) followed by time together at the café; on the first Sunday of the month also a longer loop of up to 15 km.",
   "quelle": [
    "https://socialrunclubs.de/bielefeld/up-running-club-bielefeld/",
-   "https://www.nw.de/nachrichten/zwischen_weser_und_rhein/24273804_Running-Clubs-in-OWL-16-Lauftreffs-mit-Zeiten-und-Paces-im-Ueberblick.html"
+   "https://www.nw.de/nachrichten/zwischen_weser_und_rhein/24273804_Running-Clubs-in-OWL-16-Lauftreffs-mit-Zeiten-und-Paces-im-Ueberblick.html",
+   "https://www.strava.com/clubs/1276964",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-11-10",
   "distanz_km": [
    5,
    7
@@ -16513,7 +16592,8 @@
   "pace": {
    "von": "6:30",
    "bis": "7:30"
-  }
+  },
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "bonn-absolute-run",
@@ -19044,15 +19124,15 @@
    },
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-19",
-    "uhrzeit": "18:30",
-    "bezeichnung": "Trail Lab Olympia: Bergintervalle vor der ZHS (Start einer wöchentlichen Reihe)"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-11-14",
     "uhrzeit": "09:02",
     "bezeichnung": "Saturday Trail in Lenggries: 22 km, 1.210 Hm; Zug 9:02 ab München Hbf Gleis 33 oder 10:11 am Bahnhof Lenggries"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Trail Lab Olympia: Bergintervalle am Olympiaberg, Start vor dem ZHS (ca. 3 km Einlaufen 6:00–6:15 min/km)"
    }
   ],
   "strava": "https://www.strava.com/clubs/1313031",
@@ -19061,16 +19141,17 @@
   "quelle": [
    "https://www.strava.com/clubs/1313031",
    "Instagram-Profil @runandchill.club (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026",
-   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-11-09",
+  "geprueft": "2026-11-10",
   "merkmale": [
    "kaffee"
   ],
   "instagram": "https://www.instagram.com/runandchill.club/",
   "anmeldung": "empfohlen",
   "anmeldung_ueber": "Strava",
-  "zuletzt_aktiv": "2026-11-09"
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "muenchen-run-and-chill-mermaid-swim",
@@ -20567,11 +20648,8 @@
    {
     "rhythmus": "woechentlich",
     "wochentag": 6,
-    "uhrzeit": "09:30",
-    "distanz_km": [
-     8,
-     10
-    ]
+    "uhrzeit": "09:00",
+    "bezeichnung": "Distance Community Run, 10-km-Runde (5:30–5:45 min/km)"
    }
   ],
   "distanz_km": [
@@ -20598,11 +20676,11 @@
   "beschreibung_en": "Saturday 8–10 km run at about 6:00 min/km from café La Sprezza.",
   "quelle": [
    "https://swissrunclubhub.ch/",
-   "https://www.strava.com/clubs/1313882"
+   "https://www.strava.com/clubs/1313882",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Eigener Strava-Club (874 Mitglieder) nennt nur „Community Runs“ und „Track Thursdays“ ohne Tag/Uhrzeit/Ort; Sa 09:30 La Sprezza nur über Swiss Run Club Hub"
+  "geprueft": "2026-11-10",
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "basel-dragons-running-club",
@@ -23992,27 +24070,41 @@
   "art": "Laufen",
   "stadt": "Berlin",
   "land": "Deutschland",
-  "treffpunkt": "Dudenstraße 22",
-  "lat": 52.48523,
-  "lon": 13.38218,
+  "treffpunkt": "Di Holi Collective (Schützenstraße 70, Mitte), Mi Dietrich Bar (Reichenberger Straße 103), So Yorckstraße 27",
+  "lat": 52.50873,
+  "lon": 13.3914,
   "termine": [
    {
     "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Community Run 7,5 km (ca. 6:30 min/km), Treffen 17:45 am Holi Collective, Schützenstraße 70 (Mitte)"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Social Run 5 km mit der Dietrich Bar, Treffen 18:15, Reichenberger Straße 103 (Kreuzberg)"
+   },
+   {
+    "rhythmus": "woechentlich",
     "wochentag": 7,
-    "uhrzeit": "10:00"
+    "uhrzeit": "10:15",
+    "bezeichnung": "Sunday Long Run 10 km, Yorckstraße 27, danach Kaffee bei 42 Inspiring Coffee"
    }
   ],
   "instagram": "https://www.instagram.com/mystikrun/",
   "strava": "https://www.strava.com/clubs/1373230",
   "merkmale": [],
-  "beschreibung_de": "Sonntagslauf ab der Dudenstraße am Viktoriapark.",
-  "beschreibung_en": "Sunday run from Dudenstraße near Viktoriapark.",
+  "beschreibung_de": "Entspannter Running Club in Berlin: dienstags 7,5 km ab dem Holi Collective in Mitte, mittwochs 5 km mit Bar-Abschluss in Kreuzberg und sonntags ein 10-km-Long-Run mit Kaffee danach. Anfänger willkommen, niemand wird zurückgelassen.",
+  "beschreibung_en": "Relaxed running club in Berlin: 7.5 km on Tuesdays from Holi Collective in Mitte, 5 km on Wednesdays ending at a bar in Kreuzberg, and a 10 km long run with coffee on Sundays. Beginners welcome, no one gets left behind.",
   "quelle": [
-   "https://socialrunclubs.de/berlin/mystik-running-club/"
+   "https://socialrunclubs.de/berlin/mystik-running-club/",
+   "https://www.strava.com/clubs/1373230",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "So 10:00 Dudenstraße 22 nur Sammelseite (09/2025); Strava-Club (284 Mitglieder, 'Chill Running Club', Berlin | Buenos Aires) nennt keinen Termin"
+  "geprueft": "2026-11-10",
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "berlin-run-n-rave",
@@ -29268,9 +29360,9 @@
  },
  {
   "id": "braunschweig-project19-coffee-ride",
-  "name": "Project 19 Velo Club – Sonntags-Coffeeride",
+  "name": "Project 19 Velo Club – offene Ausfahrten",
   "art": "Fahrrad",
-  "rad_typ": "Rennrad",
+  "rad_typ": "gemischt",
   "stadt": "Braunschweig",
   "land": "Deutschland",
   "treffpunkt": "Ampelkreuzung am Schöppenstedter Turm, 38126 Braunschweig",
@@ -29279,13 +29371,22 @@
   "termine": [
    {
     "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Gravel-Montagsrunde, ca. 2 h auf breiten Feldwegen, lockeres Tempo, Licht mitbringen"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "17:00",
+    "bezeichnung": "BlueTrain: schnelle Rennradrunde, 32+ km/h, bergauf wird gewartet"
+   },
+   {
+    "rhythmus": "woechentlich",
     "wochentag": 7,
-    "uhrzeit": "10:00"
+    "uhrzeit": "10:00",
+    "bezeichnung": "Sonntagsausfahrt mit TaT, je nach Wetter kurz oder lang"
    }
-  ],
-  "distanz_km": [
-   80,
-   80
   ],
   "kosten": {
    "gratis": true,
@@ -29293,17 +29394,17 @@
    "text": null
   },
   "anmeldung": "nein",
-  "strava": "https://www.strava.com/clubs/P19VCandFriends",
+  "strava": "https://www.strava.com/clubs/545898",
   "instagram": "https://www.instagram.com/project19veloclub/",
-  "beschreibung_de": "Sonntägliche Rennradrunde von rund 80 km in gemäßigtem Tempo, gemeinsam mit TaT, mit Start am Schöppenstedter Turm.",
-  "beschreibung_en": "Sunday road ride of about 80 km at a moderate pace, together with TaT, starting at the Schöppenstedter Turm.",
+  "beschreibung_de": "Offene Ausfahrten des Project 19 Velo Club am Schöppenstedter Turm im Osten Braunschweigs: montags eine lockere Gravelrunde, freitags der schnelle „BlueTrain“ auf dem Rennrad und sonntags eine Ausfahrt mit TaT durch die Region.",
+  "beschreibung_en": "Open rides by Project 19 Velo Club from Schöppenstedter Turm in the east of Braunschweig: an easy gravel loop on Mondays, the fast “BlueTrain” road ride on Fridays and a regional ride with TaT on Sundays.",
   "quelle": [
-   "https://www.strava.com/clubs/P19VCandFriends"
+   "https://www.strava.com/clubs/P19VCandFriends",
+   "https://www.strava.com/clubs/545898",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-26",
-  "zuletzt_aktiv": "2026-10-26",
-  "pruefung_offen": true,
-  "pruefung_grund": "Aktivität nur indirekt: Strava zeigt am 26.10.2026 ein kommendes Club-Event (Datum nur angemeldet sichtbar); Saisonstart 21.03.2026 deutet auf Saisonbetrieb – Winterpause prüfen."
+  "geprueft": "2026-11-10",
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "braunschweig-unlimited-watts-rides",
@@ -30077,6 +30178,12 @@
     "wochentag": 4,
     "uhrzeit": "18:00",
     "bezeichnung": "Social Run, 6 km (6:30–7:00 min/km), Stirnlampe mitbringen"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-11",
+    "uhrzeit": "17:30",
+    "bezeichnung": "After Work Social Run, ca. 5,5 km (6:30–7:00 min/km), Treffpunkt Professor-Huber-Platz am Englischen Garten"
    }
   ],
   "distanz_km": [
@@ -30095,10 +30202,11 @@
   "beschreibung_en": "Easy Thursday run of 6 km at 6:30–7:00 min/km from Willi-Gebhardt-Ufer; bring a headlamp in winter.",
   "quelle": [
    "https://www.strava.com/clubs/1542628",
-   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-11-09",
-  "zuletzt_aktiv": "2026-11-09"
+  "geprueft": "2026-11-10",
+  "zuletzt_aktiv": "2026-11-10"
  },
  {
   "id": "bielefeld-cycling-bats",
@@ -30331,5 +30439,114 @@
   "geprueft": "2026-11-10",
   "pruefung_offen": true,
   "pruefung_grund": "Treffpunkt und Zeiten aus der Wellhub-Seite (ohne Wochentag); der Newsletter vom 19.02.2026 nennt wöchentliche Social Runs in München ohne Tag – Sonntag vermutet, Termine nur für Strava-Mitglieder sichtbar"
+ },
+ {
+  "id": "innsbruck-plant-paced",
+  "name": "Plant Paced Innsbruck",
+  "art": "Laufen",
+  "stadt": "Innsbruck",
+  "land": "Österreich",
+  "treffpunkt": "Marktplatz Innsbruck (am Inn)",
+  "lat": 47.26788,
+  "lon": 11.39084,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Weekly Run"
+   }
+  ],
+  "anmeldung_ueber": "Strava",
+  "strava": "https://www.strava.com/clubs/2057243",
+  "beschreibung_de": "Innsbrucker Ableger von Plant Paced: jeden Dienstag um 18 Uhr ein gemeinsamer Lauf ab dem Marktplatz.",
+  "beschreibung_en": "Innsbruck branch of Plant Paced: a group run from Marktplatz every Tuesday at 6 pm.",
+  "quelle": [
+   "https://www.strava.com/clubs/2057243",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Strava-Termin ohne Beschreibung: Distanz, Tempo und ob Gäste ohne Anmeldung mitlaufen, sind nicht belegt.",
+  "geprueft": "2026-11-10",
+  "zuletzt_aktiv": "2026-11-10"
+ },
+ {
+  "id": "braunschweig-sweet-gravel-ride",
+  "name": "sweet GRAVEL ride",
+  "art": "Fahrrad",
+  "stadt": "Braunschweig",
+  "land": "Deutschland",
+  "treffpunkt": "sweet spot studio, Marienstraße 34 (Östliches Ringgebiet)",
+  "lat": 52.26478,
+  "lon": 10.5495,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-14",
+    "uhrzeit": "10:30",
+    "bezeichnung": "Social Gravel Ride, Abfahrt 11:00, 21–22 km/h"
+   }
+  ],
+  "pace": {
+   "von": 21,
+   "bis": 22
+  },
+  "rad_typ": "Gravel",
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "strava": "https://www.strava.com/clubs/1319911",
+  "beschreibung_de": "Gravel-Ausfahrt des sweet spot studio in Wald und Feld rund um Braunschweig: gefahren wird im Plaudertempo, auf die Letzten wird gewartet. Helmpflicht.",
+  "beschreibung_en": "Gravel ride by sweet spot studio through the woods and fields around Braunschweig at conversational pace; nobody gets dropped. Helmet required.",
+  "quelle": [
+   "https://www.strava.com/clubs/1319911",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-10",
+  "zuletzt_aktiv": "2026-11-10"
+ },
+ {
+  "id": "berlin-rapha-clubhouse-rides",
+  "name": "Rapha Berlin – Clubhouse Rides",
+  "art": "Fahrrad",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "Rapha Clubhouse Berlin, Alte Schönhauser Straße 5 (Mitte)",
+  "lat": 52.52766,
+  "lon": 13.40836,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Tuesday Night Ride, ca. 50 km um 30 km/h, Licht Pflicht"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "07:00",
+    "bezeichnung": "Wednesday Early Bird zum Flughafen, um 30 km/h, gegen 9:30 zurück"
+   }
+  ],
+  "pace": {
+   "von": 28,
+   "bis": 32
+  },
+  "rad_typ": "Rennrad",
+  "anmeldung": "pflicht",
+  "anmeldung_ueber": "RCC-App bzw. events.rapha.cc",
+  "strava": "https://www.strava.com/clubs/raphaberlin",
+  "instagram": "https://www.instagram.com/rapha_berlin/",
+  "webseite": "https://content.rapha.cc/de/de/clubhouses/berlin",
+  "beschreibung_de": "Rennradausfahrten ab dem Rapha Clubhouse in Mitte: dienstagabends rund 50 km durch die Stadt und über die Havelchaussee, mittwochs früh zum Flughafen in mehreren Gruppen. Mittleres Tempo um 30 km/h.",
+  "beschreibung_en": "Road rides from the Rapha Clubhouse in Mitte: about 50 km through the city and along Havelchaussee on Tuesday evenings, early Wednesday rides to the airport in several groups. Medium pace around 30 km/h.",
+  "quelle": [
+   "https://www.strava.com/clubs/320304",
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers",
+   "https://events.rapha.cc/rapha-berlin"
+  ],
+  "pruefung_offen": true,
+  "pruefung_grund": "Anmeldung über die RCC-App für Mitglieder; Gäste laut Strava nur bei offenen Plätzen über events.rapha.cc – Gästeregel und Kosten bestätigen.",
+  "geprueft": "2026-11-10",
+  "zuletzt_aktiv": "2026-11-10"
  }
 ]

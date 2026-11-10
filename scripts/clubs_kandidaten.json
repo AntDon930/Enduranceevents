@@ -1240,19 +1240,6 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
-  "schluessel": "strava:raphaberlin",
-  "name": "Rapha Berlin",
-  "stadt": "Berlin",
-  "art": "Fahrrad",
-  "strava": "https://www.strava.com/clubs/raphaberlin",
-  "instagram": "https://www.instagram.com/rapha_berlin/",
-  "webseite": "https://content.rapha.cc/de/de/clubhouses/berlin",
-  "letzter_beleg": "2026-10-09",
-  "grund": "Strava beigetreten 27.10.2026: keine Termine im Club.",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-11-09"
- },
- {
   "schluessel": "ig:rapha_rcc",
   "name": "Rapha Cycling Club",
   "stadt": "Berlin",
