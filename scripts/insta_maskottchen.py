@@ -51,9 +51,15 @@ HAAR_SIE = (122, 80, 50)      # mittelbraun, Pferdeschwanz
 # mal ich. Das ist einfach random. Die Posts sollen aber nicht nach
 # mansplaining aussehen“): „er“ = der Nutzer, „sie“ = eine Läuferin mit
 # Pferdeschwanz. Beide gleichwertig: dieselben Posen, dieselbe Rolle.
+# Sportkleidung (vom Nutzer: „Muss sie in nur rosa sein … sie muss bisschen
+# sportlicher aussehen. Sportklamotten oder so bei beiden“): Funktionsshirt
+# mit Raglan-Ärmeln und Seitenstreifen, Laufhose bzw. 3/4-Tights, Uhr,
+# Laufschuhe mit farbiger Sohle.
 PERSONEN = {
-    "er": {"haar": HAAR, "shirt": (22, 70, 100), "streifen": SOFT_BLUE, "hose": HOSE},
-    "sie": {"haar": HAAR_SIE, "shirt": CORAL, "streifen": MIDNIGHT, "hose": MIDNIGHT},
+    "er": {"haar": HAAR, "shirt": (22, 70, 100), "aermel": SOFT_BLUE, "akzent": SOFT_BLUE,
+           "hose": MIDNIGHT, "hose_streifen": CORAL, "tights": False, "sohle": CORAL},
+    "sie": {"haar": HAAR_SIE, "shirt": SOFT_BLUE, "aermel": MIDNIGHT, "akzent": CORAL,
+            "hose": MIDNIGHT, "hose_streifen": SOFT_BLUE, "tights": True, "sohle": SOFT_BLUE},
 }
 HOLZ = (176, 122, 78)
 HOLZ_DUNKEL = (140, 94, 58)
@@ -335,7 +341,7 @@ def _haar_sie_hinten(s: _Stift, mx=150, my=108, rx=56) -> None:
     zopf = [(mx + 40, my - 58), (mx + 78, my - 52), (mx + 96, my - 20), (mx + 92, my + 30),
             (mx + 78, my + 62), (mx + 74, my + 24), (mx + 66, my - 10), (mx + 44, my - 30)]
     s.d.polygon([s.p(*q) for q in zopf], fill=HAAR_SIE, outline=KONTUR, width=int(5 * s.k))
-    s.rechteck(mx + 52, my - 62, mx + 66, my - 42, CORAL, radius=4)
+    s.rechteck(mx + 52, my - 62, mx + 66, my - 42, MIDNIGHT, radius=4)
 
 
 def _haar_sie_vorn(s: _Stift, mx, my, rx) -> None:
@@ -373,15 +379,9 @@ def _gesicht(s: _Stift, pose: str, mund: str, mx, my, person: str) -> None:
             continue
         s.d.ellipse([(ax - 6.5) * k, (ay - 7.5) * k, (ax + 6.5) * k, (ay + 7.5) * k], fill=KONTUR)
         s.d.ellipse([(ax - 0.5) * k, (ay - 5) * k, (ax + 3.5) * k, (ay - 1) * k], fill=WEISS)
-        if person == "sie":       # zwei kleine Wimpern außen
-            s.linie([(ax + sx * 5, ay - 6), (ax + sx * 10, ay - 10)], 2.6, KONTUR)
-            s.linie([(ax + sx * 6.5, ay - 2), (ax + sx * 11.5, ay - 4)], 2.6, KONTUR)
     # Nase
     s.d.arc([(mx - 6) * k, (my + 10) * k, (mx + 8) * k, (my + 24) * k], 20, 130, fill=KONTUR,
             width=int(3.5 * k))
-    if person == "sie":           # kleine Ohrstecker
-        for sx in (-1, 1):
-            s.kreis(mx + sx * 58, my + 18, 3.2, CORAL, kontur=False)
     _mund(s, mund, mx, my + 40)
 
 
@@ -403,23 +403,33 @@ def _figur_gross(pose: str, person: str = "er") -> Image.Image:
         _zubehoer_hinten(s, z, haende)
     sitzt = p.get("sitzen", False)
     if not sitzt:
-        # Beine und Schuhe
         for sx in (-1, 1):
             hx = 150 + sx * 20
-            s.glied([(hx, 270), (hx + sx * 4, BODEN - 14)], 21, HAUT)
-            s.glied([(hx + sx * 2, BODEN - 6), (hx + sx * 22, BODEN - 6)], 18, WEISS)
-            s.linie([(hx + sx * 4, BODEN - 10), (hx + sx * 18, BODEN - 10)], 4, CORAL)
-        # Laufhose
-        s.rechteck(110, 252, 190, 292, farben["hose"], radius=10)
-        s.d.line([s.p(150, 262), s.p(150, 292)], fill=KONTUR, width=int(3 * k))
-    # Laufshirt mit breiten Schultern, Soft-Blue-Streifen an der Seite
-    breit = 0 if person == "er" else 6          # sie: etwas schmalere Schultern
+            unten = (hx + sx * 4, BODEN - 14)
+            s.glied([(hx, 270), unten], 21, HAUT)
+            if farben["tights"]:         # 3/4-Tights bis unters Knie
+                s.glied([(hx, 270), (hx + sx * 2.6, 312)], 23, farben["hose"])
+                s.linie([(hx + sx * 9, 286), (hx + sx * 9.5, 308)], 3, farben["hose_streifen"])
+            # kurze Laufsocke, Laufschuh mit farbiger Sohle und Streifen
+            s.glied([(hx + sx * 4, BODEN - 20), (hx + sx * 4, BODEN - 16)], 22, WEISS)
+            s.glied([(hx + sx * 1, BODEN - 9), (hx + sx * 23, BODEN - 7)], 18, WEISS)
+            s.linie([(hx - sx * 4, BODEN + 1), (hx + sx * 30, BODEN + 2)], 5.5, farben["sohle"])
+            s.linie([(hx + sx * 8, BODEN - 14), (hx + sx * 18, BODEN - 6)], 3.6, MIDNIGHT)
+        # Laufhose mit seitlichem Schlitz und Streifen
+        s.rechteck(110, 252, 190, 290, farben["hose"], radius=10)
+        for sx in (-1, 1):
+            s.linie([(150 + sx * 36, 258), (150 + sx * 36, 286)], 4, farben["hose_streifen"])
+        s.d.line([s.p(150, 266), s.p(150, 290)], fill=WEISS, width=int(2.5 * k))
+    # Funktionsshirt: Raglan-Ärmel, Seitenstreifen, kleiner V-Ausschnitt
+    breit = 0 if person == "er" else 4
     s.rechteck(104 + breit, 174, 196 - breit, 266, farben["shirt"], radius=26)
     for sx in (-1, 1):
-        s.d.line([s.p(150 + sx * (40 - breit), 190), s.p(150 + sx * (40 - breit), 262)],
-                 fill=farben["streifen"], width=int(6 * k))
-    s.d.arc([s.p(130, 164)[0], s.p(130, 164)[1], s.p(170, 188)[0], s.p(170, 188)[1]], 20, 160,
-            fill=farben["streifen"], width=int(5 * k))
+        x0 = 150 + sx * (44 - breit)
+        s.d.polygon([s.p(x0, 186), s.p(x0 - sx * 7, 190), s.p(x0 - sx * 7, 262), s.p(x0, 262)],
+                    fill=farben["akzent"])
+        # Raglan-Naht von der Achsel zum Kragen
+        s.linie([(150 + sx * 18, 176), (150 + sx * (42 - breit), 200)], 3, farben["aermel"])
+    s.d.polygon([s.p(138, 174), s.p(150, 190), s.p(162, 174)], fill=farben["aermel"])
     # Startnummer mit Routenzeichen
     s.rechteck(124, 210, 176, 246, WEISS, radius=5)
     route = [(131, 239), (142, 222), (152, 232), (167, 216)]
@@ -428,7 +438,11 @@ def _figur_gross(pose: str, person: str = "er") -> Image.Image:
     for seite in ("links", "rechts"):
         sh, e, h = schultern[seite], ellbogen[seite], haende[seite]
         s.glied([sh, e, h], 19, HAUT)
-        s.glied([sh, (sh[0] + (e[0] - sh[0]) * 0.34, sh[1] + (e[1] - sh[1]) * 0.34)], 28, farben["shirt"])
+        s.glied([sh, (sh[0] + (e[0] - sh[0]) * 0.36, sh[1] + (e[1] - sh[1]) * 0.36)], 28, farben["aermel"])
+        if seite == "links":             # Sportuhr am linken Handgelenk
+            u = (e[0] + (h[0] - e[0]) * 0.72, e[1] + (h[1] - e[1]) * 0.72)
+            s.kreis(u[0], u[1], 7.5, MIDNIGHT)
+            s.kreis(u[0], u[1], 4, SOFT_BLUE, kontur=False)
         eigene_hand = (seite == "rechts" and any(z in zub for z in ("stopphand", "daumen", "banane"))) \
             or "kalender" in zub
         if not eigene_hand:

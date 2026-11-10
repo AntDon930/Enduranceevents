@@ -5534,8 +5534,14 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Läuferin** („auch noch bitte eine weibliche Person … mal die weibliche
   Person in einem Post und mal ich. Das ist einfach random. Die Posts
   sollen aber nicht nach mansplaining aussehen“): `PERSONEN` „er“/„sie“,
-  sie mit mittelbraunem Pferdeschwanz, Coral-Shirt mit Navy-Streifen,
-  Ohrsteckern; dieselben Posen, dieselbe Rolle. `figur(pose, hoehe,
+  sie mit mittelbraunem Pferdeschwanz (navy Haargummi), sonst bewusst
+  nicht betont weiblich (keine Wimpern, kein Schmuck, kein Rosa – „Muss
+  sie in nur rosa sein … bisschen sportlicher … Sportklamotten bei
+  beiden“); dieselben Posen, dieselbe Rolle. **Beide in Sportkleidung**:
+  Funktionsshirt mit Raglan-Ärmeln, Seitenstreifen und V-Ausschnitt (er:
+  Petrol mit Soft-Blue-Ärmeln, sie: Soft Blue mit Navy-Ärmeln), Laufhose
+  mit Streifen (sie zusätzlich 3/4-Tights), Sportuhr links, Laufsocken,
+  Laufschuhe mit farbiger Sohle. `figur(pose, hoehe,
   person)`; `insta_karussell.person_fuer()` wählt je Beitrag zufällig,
   aber fest (Seed = Blog-Slug), `"person"` im JSON überschreibt. Gegen
   „Mansplaining“: beide gleichwertig, Texte sprechen „du“ an, keine Figur
