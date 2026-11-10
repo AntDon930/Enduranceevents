@@ -33,7 +33,9 @@ auf der Live-Seite (Entwicklungs-Branch, beide Live-Namen). Seit dem 04.11.2026 
   nicht übersetzt: flüssig wie ein englischer Laufblog, eigener knackiger
   Titel (Vorbild des Nutzers: „Tapering: slow is smooth, and smooth is
   fast“), spannende Zwischenüberschriften – Fakten, Fußnoten und Links wie
-  im deutschen Text. Einzelheiten README „Blog“, Punkt „Sprache“.
+  im deutschen Text. Keine ausgedachten Vergleiche (vom Nutzer: „Das
+  Beispiel mit der Kerze. Das sagt doch niemand so“) – ein Bild nur, wenn es
+  geläufig ist, in beiden Sprachen. Einzelheiten README „Blog“, Punkt „Sprache“.
 
 | Termin | Status | Typ | Sportart | Thema |
 |---|---|---|---|---|

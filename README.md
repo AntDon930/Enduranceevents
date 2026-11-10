@@ -4086,6 +4086,13 @@ Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` un
     races“, „Ride or race? Find the cycling event that's right for you“).
     Inhalt, Zahlen, Fußnoten und Links bleiben exakt die des deutschen
     Textes – nur die Sprache ist frei.
+  - **Keine ausgedachten Vergleiche – in beiden Sprachen** (vom Nutzer am
+    10.11.2026: „Das Beispiel mit der Kerze. Das sagt doch niemand so“):
+    Ein Bild nur, wenn es geläufig ist. Gestrichen wurden „wie eine Kerze,
+    die nach oben spitz zuläuft“ (Tapering, DE und EN), „Dress like an
+    onion“ (das Zwiebelprinzip ist deutsch, englisch heißt es „Layer up“)
+    und „winter sofa syndrome“. Im Zweifel ohne Bild sagen, was gemeint ist,
+    und Redewendungen nicht wörtlich in die andere Sprache tragen.
   - **In `blog.json`**: `titel_en`, `teaser_en`, `bild_alt_en`,
     `bild_nachweis_en` (im Nachweis nur der Text vor dem Link übersetzt).
   - **`build_blog.py`** schreibt `blog/en/<slug>.html` (`lang="en"`, Kopf,
