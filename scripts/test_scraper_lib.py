@@ -2103,6 +2103,46 @@ def test_blog() -> None:
               "location.replace('../wartung.html')" in html, True)
         check(f"blog/{b['slug']}.html: lädt nichts von fremden Servern",
               _re.findall(r'\ssrc="(https?://[^"]+)"', html), [])
+    # Englische Fassung (10.11.2026, vom Nutzer: „Alles auf Englisch“):
+    # Jeder Beitrag hat sie, ganz – titel_en/teaser_en und der Text gehören
+    # zusammen (blog.html verlinkt blog/en/<slug>.html, sobald titel_en und
+    # teaser_en da sind; ohne Text gäbe es die Seite nicht, also 404). Die
+    # Blog-Aufgabe läuft diesen Test vor ihrem Push: Ein Beitrag ohne
+    # Englisch kommt so gar nicht erst live. Build und Übersicht kommen auch
+    # ohne aus (dann bleibt der Beitrag deutsch, mit Hinweis).
+    check("jeder Beitrag hat eine englische Fassung (README „Blog“, Sprache)",
+          [b["slug"] for b in beitraege if not build_blog.hat_en(b)], [])
+    halb = []
+    for b in beitraege:
+        teile = {"titel_en": bool(b.get("titel_en")), "teaser_en": bool(b.get("teaser_en")),
+                 "bild_alt_en": bool(b.get("bild_alt_en")),
+                 "text": (build_blog.TEXTE_EN / f"{b['slug']}.html").exists()}
+        if any(teile.values()) and not all(teiles for teiles in teile.values()):
+            halb.append(f"{b['slug']}: {', '.join(k for k, v in teile.items() if not v)} fehlt")
+    check("englische Fassung ganz oder gar nicht (titel_en, teaser_en, bild_alt_en, Text)", halb, [])
+    texte_en = {p.stem for p in build_blog.TEXTE_EN.glob("*.html")} if build_blog.TEXTE_EN.exists() else set()
+    check("kein englischer Text ohne Eintrag in blog.json", sorted(texte_en - {b["slug"] for b in beitraege}), [])
+    en = [b for b in beitraege if build_blog.hat_en(b)]
+    seiten_en = {p.stem for p in (wurzel / "blog" / "en").glob("*.html")}
+    check("blog/en/: genau die Beiträge mit englischer Fassung", sorted(seiten_en), sorted(b["slug"] for b in en))
+    for b in en:
+        html_de = (wurzel / "blog" / f"{b['slug']}.html").read_text(encoding="utf-8")
+        html_en = (wurzel / "blog" / "en" / f"{b['slug']}.html").read_text(encoding="utf-8")
+        verweise = _re.findall(r'(?:src|href)="\.\./\.\./([^"?#]+)', html_en)
+        fehlend = sorted({v for v in verweise if not (wurzel / v).exists()})
+        fehlend += sorted({v for v in _re.findall(r'href="([a-z0-9-]+\.html)"', html_en)
+                           if not (wurzel / "blog" / "en" / v).exists()})
+        check(f"blog/en/{b['slug']}.html: alle Verweise zeigen auf vorhandene Dateien", fehlend, [])
+        check(f"blog/en/{b['slug']}.html: englisch, Wartung zwei Ebenen höher, nichts von fremden Servern",
+              ('<html lang="en">' in html_en, "location.replace('../../wartung.html')" in html_en,
+               _re.findall(r'\ssrc="(https?://[^"]+)"', html_en), b["titel_en"] in html_en.replace("&#x27;", "'")),
+              (True, True, [], True))
+        check(f"blog/{b['slug']}.html ↔ en: hreflang in beiden Fassungen",
+              all(f'hreflang="{s}" href="{build_blog.url_von(b, s)}"' in h
+                  for h in (html_de, html_en) for s in ("de", "en")), True)
+        check(f"blog/en/{b['slug']}.html: kein deutsches Wort der Seite stehen geblieben",
+              [w for w in ("Alle Beiträge", "Weitere Beiträge", "Quellen</h2>", "Min. Lesezeit", "Beitrag teilen", ">Karte<")
+               if w in html_en.split("<script>\n(function () {\n  // Diese Seite")[0]], [])
     nav = {}
     for name in ("index.html", "events.html", "karte.html", "clubs.html", "admin.html", "blog.html"):
         html = (wurzel / name).read_text(encoding="utf-8")
@@ -2110,6 +2150,11 @@ def test_blog() -> None:
     check("Reiter „Blog“ in der Navigation jeder Seite", [n for n, ok in nav.items() if not ok], [])
     stats = (wurzel / "stats.js").read_text(encoding="utf-8")
     check("stats.js zählt Beiträge als Seite „blog“", "return 'blog'" in stats, True)
+    m = _re.search(r"if \(/([^\n]+?)/\.test\(global\.location\.pathname[^\n]*\) return 'blog'", stats)
+    muster = _re.compile(m.group(1).replace("\\/", "/")) if m else None
+    check("stats.js: auch englische Beiträge (blog/en/<slug>.html) zählen als „blog“",
+          [bool(muster and muster.search(p)) for p in ("/blog/tapering.html", "/blog/en/tapering.html", "/blog.html")],
+          [True, True, False])
 
 
 def test_farbschema_skript() -> None:

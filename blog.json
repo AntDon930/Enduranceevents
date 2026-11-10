@@ -2,7 +2,9 @@
  {
   "slug": "crosslaeufe-winterlaufserien",
   "titel": "Crossläufe und Winterlaufserien: Wettkampfspaß in der kalten Jahreszeit",
+  "titel_en": "Cross-country and winter running series: racing fun in the cold season",
   "teaser": "Matsch, Wiese und Termine bis in den März: Was einen Crosslauf ausmacht, warum eine Winterlaufserie dich durch den Winter trägt – und wo du von November bis März starten kannst.",
+  "teaser_en": "Mud, meadows and race dates through to March: what makes a cross-country race, why a winter running series carries you through the winter – and where you can race from November to March.",
   "datum": "2026-11-09",
   "sportart": "Laufen",
   "kategorie": "Events",
@@ -10,12 +12,16 @@
   "bild": "bilder/blog/crosslaeufe-winterlaufserien.webp",
   "bild_klein": "bilder/blog/crosslaeufe-winterlaufserien-480.webp",
   "bild_alt": "Läuferinnen und Läufer auf einer matschigen Crossstrecke über eine Wiese im Winter, im Hintergrund kahle Bäume",
-  "bild_nachweis": "Manchester Area Cross Country League, Heaton Park, Februar 2026. Foto: King Februarius, <a href=\"https://commons.wikimedia.org/wiki/File:Cross-country_runners_at_Heaton_Park_MACCL.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\" rel=\"noopener\">CC0</a>"
+  "bild_alt_en": "Runners on a muddy cross-country course across a meadow in winter, with bare trees in the background",
+  "bild_nachweis": "Manchester Area Cross Country League, Heaton Park, Februar 2026. Foto: King Februarius, <a href=\"https://commons.wikimedia.org/wiki/File:Cross-country_runners_at_Heaton_Park_MACCL.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\" rel=\"noopener\">CC0</a>",
+  "bild_nachweis_en": "Manchester Area Cross Country League, Heaton Park, February 2026. Photo: King Februarius, <a href=\"https://commons.wikimedia.org/wiki/File:Cross-country_runners_at_Heaton_Park_MACCL.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\" rel=\"noopener\">CC0</a>"
  },
  {
   "slug": "krafttraining-fuer-laeufer",
   "titel": "Krafttraining für Läufer: Die besten Übungen und warum sie helfen",
+  "titel_en": "Strength training for runners: the best exercises and why they help",
   "teaser": "Zweimal pro Woche 25 Minuten: Warum ein bisschen Kraft dich sparsamer und schneller laufen lässt, warum du davon nicht schwerer wirst – und sieben Übungen ohne Fitnessstudio.",
+  "teaser_en": "25 minutes twice a week: why a little strength makes you run more economically and faster, why it won't make you heavier – and seven exercises without a gym.",
   "datum": "2026-11-05",
   "sportart": "Laufen",
   "kategorie": "Training",
@@ -23,12 +29,16 @@
   "bild": "bilder/blog/krafttraining-fuer-laeufer.webp",
   "bild_klein": "bilder/blog/krafttraining-fuer-laeufer-480.webp",
   "bild_alt": "Läuferfeld beim Vienna City Marathon auf der Reichsbrücke, von hinten fotografiert",
-  "bild_nachweis": "Vienna City Marathon 2015, Reichsbrücke. Foto: C.Stadler/Bwag, <a href=\"https://commons.wikimedia.org/wiki/File:Vienna_City_Marathon_2015_-_Reichsbr%C3%BCcke_(2).JPG\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+  "bild_alt_en": "Field of runners at the Vienna City Marathon on the Reichsbrücke, photographed from behind",
+  "bild_nachweis": "Vienna City Marathon 2015, Reichsbrücke. Foto: C.Stadler/Bwag, <a href=\"https://commons.wikimedia.org/wiki/File:Vienna_City_Marathon_2015_-_Reichsbr%C3%BCcke_(2).JPG\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>",
+  "bild_nachweis_en": "Vienna City Marathon 2015, Reichsbrücke. Photo: C.Stadler/Bwag, <a href=\"https://commons.wikimedia.org/wiki/File:Vienna_City_Marathon_2015_-_Reichsbr%C3%BCcke_(2).JPG\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
  },
  {
   "slug": "silvesterlaeufe",
   "titel": "Silvesterläufe: Das Jahr laufend beenden – die schönsten Läufe zum Jahreswechsel",
+  "titel_en": "New Year's Eve runs: finish the year running – the best races at the turn of the year",
   "teaser": "Über 100 Läufe am 30. und 31. Dezember: große Stadtläufe, kleine Läufe mit Aussicht und Ultras für die Langen – quer durch Deutschland, Österreich, die Schweiz und Südtirol.",
+  "teaser_en": "More than 100 runs on 30 and 31 December: big city races, small runs with a view and ultras for the long-distance fans – all across Germany, Austria, Switzerland and South Tyrol.",
   "datum": "2026-11-04",
   "sportart": "Laufen",
   "kategorie": "Events",
@@ -36,12 +46,16 @@
   "bild": "bilder/blog/silvesterlaeufe.webp",
   "bild_klein": "bilder/blog/silvesterlaeufe-480.webp",
   "bild_alt": "Zuschauer in Winterjacken an der Strecke des Zürcher Silvesterlaufs, von hinten fotografiert",
-  "bild_nachweis": "Zürcher Silvesterlauf 2024, Limmatquai. Foto: Zürcher Silvesterlauf fernblau, <a href=\"https://commons.wikimedia.org/wiki/File:Silvesterlauf-D%C3%B6rfli_2024.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+  "bild_alt_en": "Spectators in winter jackets along the course of the Zurich New Year's Eve run, photographed from behind",
+  "bild_nachweis": "Zürcher Silvesterlauf 2024, Limmatquai. Foto: Zürcher Silvesterlauf fernblau, <a href=\"https://commons.wikimedia.org/wiki/File:Silvesterlauf-D%C3%B6rfli_2024.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>",
+  "bild_nachweis_en": "Zürcher Silvesterlauf 2024, Limmatquai. Photo: Zürcher Silvesterlauf fernblau, <a href=\"https://commons.wikimedia.org/wiki/File:Silvesterlauf-D%C3%B6rfli_2024.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
  },
  {
   "slug": "carboloading",
   "titel": "Carboloading: Was du in den Tagen vor dem Rennen essen solltest",
+  "titel_en": "Carb loading: what to eat in the days before your race",
   "teaser": "Volle Speicher für die zweite Rennhälfte: Für wen sich Carboloading lohnt, wie viel genug ist, warum zwei Tage reichen – und warum die Waage am Renntag mehr zeigen darf.",
+  "teaser_en": "Full stores for the second half of the race: who carb loading is worth it for, how much is enough, why two days are enough – and why the scales may show more on race day.",
   "datum": "2026-11-04",
   "sportart": "Laufen",
   "kategorie": "Ernährung",
@@ -49,12 +63,16 @@
   "bild": "bilder/blog/carboloading.webp",
   "bild_klein": "bilder/blog/carboloading-480.webp",
   "bild_alt": "Läuferfeld beim London Marathon zwischen Zuschauerreihen, von oben fotografiert",
-  "bild_nachweis": "London Marathon 2026, Upper Thames Street. Foto: Acabashi, <a href=\"https://commons.wikimedia.org/wiki/File:2026_London_Marathon_Upper_Thames_Street_from_Blackfriars_Bridge_06.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+  "bild_alt_en": "Field of runners at the London Marathon between rows of spectators, photographed from above",
+  "bild_nachweis": "London Marathon 2026, Upper Thames Street. Foto: Acabashi, <a href=\"https://commons.wikimedia.org/wiki/File:2026_London_Marathon_Upper_Thames_Street_from_Blackfriars_Bridge_06.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>",
+  "bild_nachweis_en": "London Marathon 2026, Upper Thames Street. Photo: Acabashi, <a href=\"https://commons.wikimedia.org/wiki/File:2026_London_Marathon_Upper_Thames_Street_from_Blackfriars_Bridge_06.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
  },
  {
   "slug": "laufen-im-winter",
   "titel": "Laufen im Winter: So macht Training bei Kälte und Dunkelheit Spaß",
+  "titel_en": "Running in winter: how to enjoy training in the cold and dark",
   "teaser": "Zwiebelprinzip, Licht, Halt auf glattem Boden und Tricks gegen den inneren Schweinehund: So bleibst du im Winter dran – und startest mit Vorsprung ins Frühjahr.",
+  "teaser_en": "The onion principle, lights, grip on slippery ground and tricks against your inner couch potato: how to keep going in winter – and start spring with a head start.",
   "datum": "2026-11-04",
   "sportart": "Laufen",
   "kategorie": "Training",
@@ -62,12 +80,16 @@
   "bild": "bilder/blog/winterlaufen.webp",
   "bild_klein": "bilder/blog/winterlaufen-480.webp",
   "bild_alt": "Start des Zürcher Silvesterlaufs im Dezember, das Läuferfeld aus der Ferne zwischen Zuschauern",
-  "bild_nachweis": "Start des Zürcher Silvesterlaufs 2024. Foto: Zürcher Silvesterlauf fernblau, <a href=\"https://commons.wikimedia.org/wiki/File:Z%C3%BCrcher_Silvesterlauf_2024.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+  "bild_alt_en": "Start of the Zurich New Year's Eve run in December, the field of runners seen from a distance between spectators",
+  "bild_nachweis": "Start des Zürcher Silvesterlaufs 2024. Foto: Zürcher Silvesterlauf fernblau, <a href=\"https://commons.wikimedia.org/wiki/File:Z%C3%BCrcher_Silvesterlauf_2024.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>",
+  "bild_nachweis_en": "Start of the Zürcher Silvesterlauf 2024. Photo: Zürcher Silvesterlauf fernblau, <a href=\"https://commons.wikimedia.org/wiki/File:Z%C3%BCrcher_Silvesterlauf_2024.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
  },
  {
   "slug": "erster-triathlon",
   "titel": "Dein erster Triathlon: So findest du das passende Rennen",
+  "titel_en": "Your first triathlon: how to find the right race",
   "teaser": "Welche Distanz passt zum Einstieg, woran erkennst du ein einsteigerfreundliches Rennen, und wie kommst du in zwölf Wochen gut vorbereitet an den Start? Ein Leitfaden mit Checkliste.",
+  "teaser_en": "Which distance is right for getting started, how do you spot a beginner-friendly race, and how do you get to the start well prepared in twelve weeks? A guide with a checklist.",
   "datum": "2026-11-04",
   "sportart": "Triathlon",
   "kategorie": "Einsteiger",
@@ -75,12 +97,16 @@
   "bild": "bilder/triathlon.webp",
   "bild_klein": "bilder/triathlon-480.webp",
   "bild_alt": "Schwimmstart eines Triathlons: viele Athleten mit Badekappen im Wasser",
-  "bild_nachweis": "Schwimmstart beim Triathlon Weiswampach. Foto: Steven Fruitsmaak, <a href=\"https://commons.wikimedia.org/w/index.php?curid=2594074\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" rel=\"noopener\">CC BY-SA 3.0</a>"
+  "bild_alt_en": "Swim start of a triathlon: lots of athletes in swim caps in the water",
+  "bild_nachweis": "Schwimmstart beim Triathlon Weiswampach. Foto: Steven Fruitsmaak, <a href=\"https://commons.wikimedia.org/w/index.php?curid=2594074\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" rel=\"noopener\">CC BY-SA 3.0</a>",
+  "bild_nachweis_en": "Swim start at the Triathlon Weiswampach. Photo: Steven Fruitsmaak, <a href=\"https://commons.wikimedia.org/w/index.php?curid=2594074\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" rel=\"noopener\">CC BY-SA 3.0</a>"
  },
  {
   "slug": "erster-halbmarathon",
   "titel": "Dein erster Halbmarathon: Was die Forschung über Training, Tempo und Renntag sagt",
+  "titel_en": "Your first half marathon: what research says about training, pace and race day",
   "teaser": "Wie du dein Training aufbaust, wie viel du locker läufst, was du am Renntag isst und trinkst und wie du dich danach erholst – ein Leitfaden mit Quellen aus der Sportwissenschaft.",
+  "teaser_en": "How to build up your training, how much to run easy, what to eat and drink on race day and how to recover afterwards – a guide with sources from sports science.",
   "datum": "2026-11-04",
   "sportart": "Laufen",
   "kategorie": "Einsteiger",
@@ -88,12 +114,16 @@
   "bild": "bilder/blog/halbmarathon.webp",
   "bild_klein": "bilder/blog/halbmarathon-480.webp",
   "bild_alt": "Läuferfeld von hinten auf der Reichsbrücke beim Vienna City Marathon",
-  "bild_nachweis": "Vienna City Marathon 2015, Reichsbrücke. Foto: C.Stadler/Bwag, <a href=\"https://commons.wikimedia.org/wiki/File:Vienna_City_Marathon_2015_-_Reichsbr%C3%BCcke_(1).JPG\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+  "bild_alt_en": "Field of runners from behind on the Reichsbrücke at the Vienna City Marathon",
+  "bild_nachweis": "Vienna City Marathon 2015, Reichsbrücke. Foto: C.Stadler/Bwag, <a href=\"https://commons.wikimedia.org/wiki/File:Vienna_City_Marathon_2015_-_Reichsbr%C3%BCcke_(1).JPG\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>",
+  "bild_nachweis_en": "Vienna City Marathon 2015, Reichsbrücke. Photo: C.Stadler/Bwag, <a href=\"https://commons.wikimedia.org/wiki/File:Vienna_City_Marathon_2015_-_Reichsbr%C3%BCcke_(1).JPG\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
  },
  {
   "slug": "rtf-radmarathon-gran-fondo",
   "titel": "RTF, Radmarathon, Jedermannrennen oder Gran Fondo: Welches Radevent passt zu dir?",
+  "titel_en": "RTF, cycling marathon, “Jedermann” race or Gran Fondo: which cycling event suits you?",
   "teaser": "Tour oder Rennen, mit oder ohne Zeitnahme, Lizenz, Helmpflicht und StVO: Was hinter den Begriffen im Radsport steckt – nach den Regelwerken von German Cycling, Cycling Austria und UCI.",
+  "teaser_en": "Tour or race, with or without timing, licence, helmet rules and traffic law: what's behind the terms in cycling – according to the rules of German Cycling, Cycling Austria and the UCI.",
   "datum": "2026-11-04",
   "sportart": "Fahrrad",
   "kategorie": "Einsteiger",
@@ -101,12 +131,16 @@
   "bild": "bilder/blog/radevents.webp",
   "bild_klein": "bilder/blog/radevents-480.webp",
   "bild_alt": "Radfahrerfeld auf einer Landstraße im Rhonetal vor Bergen",
-  "bild_nachweis": "Peloton der Tour de France Femmes 2026 bei Vionnaz, Wallis. Foto: Christian David, <a href=\"https://commons.wikimedia.org/wiki/File:Peloton_of_the_2026_Tour_de_France_Femmes,_Vionnaz,_Valais.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+  "bild_alt_en": "Peloton on a country road in the Rhône valley in front of mountains",
+  "bild_nachweis": "Peloton der Tour de France Femmes 2026 bei Vionnaz, Wallis. Foto: Christian David, <a href=\"https://commons.wikimedia.org/wiki/File:Peloton_of_the_2026_Tour_de_France_Femmes,_Vionnaz,_Valais.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>",
+  "bild_nachweis_en": "Peloton of the Tour de France Femmes 2026 near Vionnaz, Valais. Photo: Christian David, <a href=\"https://commons.wikimedia.org/wiki/File:Peloton_of_the_2026_Tour_de_France_Femmes,_Vionnaz,_Valais.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
  },
  {
   "slug": "freiwasserschwimmen-sicher",
   "titel": "Freiwasserschwimmen: So startest du gut vorbereitet in See und Fluss",
+  "titel_en": "Open water swimming: how to start well prepared in lakes and rivers",
   "teaser": "Kühles Wasser, Neoprenregeln, der Start im Pulk und das Schwimmen im Fluss: So wird dein erstes Freiwasser-Event ein Erlebnis – mit Tipps von DLRG, SLRG, World Aquatics und aus der Forschung.",
+  "teaser_en": "Cool water, wetsuit rules, the crowded start and swimming in rivers: how to make your first open water event a great experience – with tips from DLRG, SLRG, World Aquatics and research.",
   "datum": "2026-11-04",
   "sportart": "Schwimmen",
   "kategorie": "Sicherheit",
@@ -114,12 +148,16 @@
   "bild": "bilder/blog/freiwasser.webp",
   "bild_klein": "bilder/blog/freiwasser-480.webp",
   "bild_alt": "Massenstart im See: viele Schwimmer mit Badekappen vor dem Ufer",
-  "bild_nachweis": "Schwimmstart beim Ironman Austria 2012 im Wörthersee. Foto: Johann Schwarz, <a href=\"https://commons.wikimedia.org/wiki/File:Swim_Start_at_Ironman_Austria_2012.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by/2.0/\" rel=\"noopener\">CC BY 2.0</a>"
+  "bild_alt_en": "Mass start in a lake: lots of swimmers in swim caps in front of the shore",
+  "bild_nachweis": "Schwimmstart beim Ironman Austria 2012 im Wörthersee. Foto: Johann Schwarz, <a href=\"https://commons.wikimedia.org/wiki/File:Swim_Start_at_Ironman_Austria_2012.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by/2.0/\" rel=\"noopener\">CC BY 2.0</a>",
+  "bild_nachweis_en": "Swim start at Ironman Austria 2012 in the Wörthersee. Photo: Johann Schwarz, <a href=\"https://commons.wikimedia.org/wiki/File:Swim_Start_at_Ironman_Austria_2012.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by/2.0/\" rel=\"noopener\">CC BY 2.0</a>"
  },
  {
   "slug": "tapering",
   "titel": "Tapering: Warum weniger Training vor dem Rennen dich schneller macht",
+  "titel_en": "Tapering: why training less before a race makes you faster",
   "teaser": "In den letzten Wochen vor dem Start holt dein Körper nach, was er im Training aufgebaut hat: volle Speicher, kräftigere Muskelfasern, besserer Schlaf. Was beim Tapering passiert und wie du es richtig machst.",
+  "teaser_en": "In the last weeks before the start, your body catches up on everything it has built in training: full stores, stronger muscle fibres, better sleep. What happens during the taper and how to get it right.",
   "datum": "2026-11-04",
   "sportart": "Laufen",
   "kategorie": "Training",
@@ -127,6 +165,8 @@
   "bild": "bilder/blog/tapering.webp",
   "bild_klein": "bilder/blog/tapering-480.webp",
   "bild_alt": "Läuferfeld beim London Marathon, von oben fotografiert",
-  "bild_nachweis": "London Marathon 2026, Upper Thames Street. Foto: Acabashi, <a href=\"https://commons.wikimedia.org/wiki/File:2026_London_Marathon_Upper_Thames_Street_from_Blackfriars_Bridge_01.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+  "bild_alt_en": "Field of runners at the London Marathon, photographed from above",
+  "bild_nachweis": "London Marathon 2026, Upper Thames Street. Foto: Acabashi, <a href=\"https://commons.wikimedia.org/wiki/File:2026_London_Marathon_Upper_Thames_Street_from_Blackfriars_Bridge_01.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>",
+  "bild_nachweis_en": "London Marathon 2026, Upper Thames Street. Photo: Acabashi, <a href=\"https://commons.wikimedia.org/wiki/File:2026_London_Marathon_Upper_Thames_Street_from_Blackfriars_Bridge_01.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
  }
 ]

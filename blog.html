@@ -125,13 +125,16 @@
 <script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
-<script defer src="stats.js?v=6ea036f4"></script>
+<script defer src="stats.js?v=21731166"></script>
 
 <script>
 (async function () {
   // Die Beiträge stehen in blog.json (neueste zuerst); jeder Beitrag ist
   // eine eigene Seite unter blog/<slug>.html, damit Suchmaschinen ihn
-  // finden. Die Beiträge sind deutsch, die Bedienung zweisprachig.
+  // finden – seit dem 10.11.2026 auch auf Englisch unter blog/en/<slug>.html
+  // (titel_en/teaser_en in blog.json, scripts/build_blog.py). Auf Englisch
+  // zeigt die Übersicht die englischen Titel und verlinkt die englische
+  // Fassung; ein Beitrag ohne sie bleibt deutsch, dann steht der Hinweis da.
   const I18N = {
     de: {
       title: 'Blog',
@@ -153,7 +156,7 @@
       title: 'Blog',
       nav_events: 'Events', nav_clubs: 'Clubs', nav_map: 'Map', nav_blog: 'Blog',
       intro: 'Guides, tips and background on running, cycling, swimming and triathlon – to help you find your next race and start well prepared.',
-      sprache: 'Our articles are currently written in German.',
+      sprache: 'Some articles are only available in German.',
       lesezeit: (n) => `${n} min read`,
       weiter: 'Read more →',
       leer: 'No articles yet.',
@@ -183,6 +186,12 @@
   let filter = '';
   try { const f = new URLSearchParams(location.search).get('sportart'); if (SPORT_REIHE.includes(f)) filter = f; } catch (e) { /* ignorieren */ }
 
+  // Englische Fassung da? test_blog hält fest, dass zu titel_en auch der
+  // Text und damit die Seite blog/en/<slug>.html gehört.
+  const hatEn = (b) => !!(b.titel_en && b.teaser_en);
+  const inSprache = (b, f) => (lang === 'en' && hatEn(b) && b[f + '_en']) || b[f];
+  const linkVon = (b) => `blog/${lang === 'en' && hatEn(b) ? 'en/' : ''}${encodeURIComponent(b.slug)}.html`;
+
   const tagHtml = (b) => b.sportart
     ? `<span class="blog-tag ${SPORT_KLASSE[b.sportart] || ''}">${esc(t('sport')[b.sportart] || b.sportart)}</span>` : '';
 
@@ -207,15 +216,15 @@
     // Der neueste Beitrag steht groß oben (Aufmacher), die anderen als Kacheln.
     liste.innerHTML = sicht.map((b, i) => `
       <li class="blog-karte${i === 0 ? ' ist-aufmacher' : ''}">
-        <a href="blog/${encodeURIComponent(b.slug)}.html">
+        <a href="${linkVon(b)}"${lang === 'en' && !hatEn(b) ? ' hreflang="de" lang="de"' : ''}>
           <div class="blog-karte-bild">
-            <img src="${esc(i === 0 ? b.bild : (b.bild_klein || b.bild))}"${i === 0 && b.bild_klein ? ` srcset="${esc(b.bild_klein)} 480w, ${esc(b.bild)} 960w" sizes="(max-width: 900px) 100vw, 640px"` : ''} alt="${esc(b.bild_alt || '')}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} width="960" height="640">
+            <img src="${esc(i === 0 ? b.bild : (b.bild_klein || b.bild))}"${i === 0 && b.bild_klein ? ` srcset="${esc(b.bild_klein)} 480w, ${esc(b.bild)} 960w" sizes="(max-width: 900px) 100vw, 640px"` : ''} alt="${esc(inSprache(b, 'bild_alt') || '')}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} width="960" height="640">
             ${tagHtml(b)}
           </div>
           <div class="blog-karte-text">
             <div class="blog-meta"><span>${esc(datum(b.datum))}</span><span aria-hidden="true">·</span><span>${esc(t('lesezeit', b.lesezeit_min))}</span></div>
-            <h3>${esc(b.titel)}</h3>
-            <p>${esc(b.teaser)}</p>
+            <h3>${esc(inSprache(b, 'titel'))}</h3>
+            <p>${esc(inSprache(b, 'teaser'))}</p>
             <span class="blog-weiter">${esc(t('weiter'))}</span>
           </div>
         </a>
@@ -233,6 +242,13 @@
     zeichne();
   });
 
+  // „Nur auf Deutsch“ nur, wenn es wirklich einen Beitrag ohne englische Fassung gibt.
+  function zeigeSprachhinweis() {
+    const fehlt = beitraege !== null && beitraege.some(b => !hatEn(b));
+    el('blog-sprache').textContent = t('sprache');
+    el('blog-sprache').hidden = !t('sprache') || !fehlt;
+  }
+
   function setLanguage(neu) {
     lang = neu;
     try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
@@ -249,8 +265,7 @@
     el('abo-text').textContent = t('abo_text');
     el('abo-knopf').textContent = t('abo_knopf');
     el('abo-events').textContent = t('abo_events');
-    el('blog-sprache').textContent = t('sprache');
-    el('blog-sprache').hidden = !t('sprache');
+    zeigeSprachhinweis();
     el('footer-impressum').textContent = t('footer_imprint');
     el('footer-datenschutz').textContent = t('footer_privacy');
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
@@ -267,6 +282,7 @@
     el('blog-liste').innerHTML = `<li class="blog-leer">${esc(t('fehler'))}</li>`;
     return;
   }
+  zeigeSprachhinweis();
   zeichne();
 })();
 </script>

@@ -3114,6 +3114,13 @@ def pruefe_blog(ctx, basis):
         ueberspringe("blog.json ist leer")
         return
     seite, probleme = seite_oeffnen(ctx, basis + "/blog.html", warten=".blog-karte")
+    # Die Sprache gilt für den ganzen Kontext (localStorage): Andere
+    # Prüfungen schalten auf EN, und eine deutsche Beitragsseite leitet bei
+    # gewählter EN-Sprache zur englischen weiter (seit dem 10.11.2026).
+    if seite.evaluate("() => localStorage.getItem('endurance-lang')") != "de":
+        seite.evaluate("() => localStorage.setItem('endurance-lang', 'de')")
+        seite.reload(wait_until="domcontentloaded")
+        seite.wait_for_selector(".blog-karte", timeout=15000)
     pruefe_kopf(seite, "blog.html")
     pruefe(not probleme, "blog.html: lädt ohne Fehler (%s)" % ("; ".join(probleme[:3]) or "keine"))
     pruefe(seite.locator(".blog-karte").count() == len(beitraege),
@@ -3134,6 +3141,52 @@ def pruefe_blog(ctx, basis):
     seite.click("#blog-zurueck")
     seite.wait_for_selector(".blog-karte", timeout=15000)
     pruefe(seite.url.endswith("/blog.html"), "Beitrag: „Alle Beiträge“ führt zur Übersicht")
+
+    # Englisch (10.11.2026, vom Nutzer: „Alles auf Englisch“): EN in der
+    # Übersicht zeigt die englischen Titel und verlinkt blog/en/<slug>.html;
+    # dort steht alles auf Englisch, DE führt zurück zur deutschen Fassung,
+    # und wer EN gewählt hat, landet von der deutschen Adresse auf der
+    # englischen.
+    if not erster.get("titel_en"):
+        ueberspringe("Blog englisch: der neueste Beitrag hat noch keine englische Fassung")
+        seite.close()
+        return
+    seite.click('.lang-btn[data-lang="en"]')
+    seite.wait_for_function("() => document.documentElement.lang === 'en'", timeout=5000)
+    kachel = seite.evaluate("""() => { const a = document.querySelector('.blog-karte a');
+        return { titel: a.querySelector('h3').textContent.trim(), href: a.getAttribute('href'),
+                 hinweis: !document.getElementById('blog-sprache').hidden }; }""")
+    pruefe(kachel["titel"] == erster["titel_en"] and kachel["href"] == "blog/en/%s.html" % erster["slug"],
+           "Blog EN: Kachel mit englischem Titel, Link auf blog/en/ (%s)" % kachel)
+    alle_en = all(b.get("titel_en") for b in beitraege)
+    pruefe(kachel["hinweis"] != alle_en, "Blog EN: Hinweis „only in German“ nur, wenn ein Beitrag ohne englische Fassung ist")
+    seite.close()
+    seite, probleme = seite_oeffnen(ctx, basis + "/blog.html", warten=".blog-karte")
+    seite.click(".blog-karte a")
+    seite.wait_for_selector(".beitrag h1", timeout=15000)
+    stand = seite.evaluate("""() => ({ url: location.pathname, lang: document.documentElement.lang,
+        h1: document.querySelector('.beitrag h1').textContent.trim(),
+        karte: document.getElementById('nav-map').textContent.trim(),
+        zurueck: document.getElementById('blog-zurueck').textContent.trim(),
+        aktiv: (document.querySelector('.lang-btn.active') || {}).textContent,
+        hreflang: document.querySelectorAll('link[rel=alternate][hreflang]').length })""")
+    pruefe(stand["url"].endswith("/blog/en/%s.html" % erster["slug"]) and stand["lang"] == "en"
+           and stand["h1"] == erster["titel_en"] and stand["karte"] == "Map"
+           and stand["zurueck"] == "← All articles" and stand["aktiv"] == "EN" and stand["hreflang"] == 3,
+           "Blog EN: Beitragsseite englisch (%s)" % stand)
+    pruefe(not probleme, "Blog EN: lädt ohne Fehler und ohne 404 (%s)" % ("; ".join(probleme[:3]) or "keine"))
+    with seite.expect_navigation(timeout=10000):
+        seite.click('.lang-btn[data-lang="de"]')
+    seite.wait_for_selector(".beitrag h1", timeout=10000)
+    titel = seite.locator(".beitrag h1").inner_text().strip()
+    pruefe(seite.url.endswith("/blog/%s.html" % erster["slug"]) and titel == erster["titel"],
+           "Blog: DE auf der englischen Seite führt zur deutschen Fassung (%s)" % seite.url)
+    seite.evaluate("() => localStorage.setItem('endurance-lang', 'en')")
+    seite.goto(basis + "/blog/%s.html" % erster["slug"], wait_until="domcontentloaded")
+    seite.wait_for_url("**/blog/en/%s.html" % erster["slug"], timeout=10000)
+    pruefe(seite.url.endswith("/blog/en/%s.html" % erster["slug"]),
+           "Blog: mit gewählter Sprache EN führt die deutsche Adresse zur englischen (%s)" % seite.url)
+    seite.evaluate("() => localStorage.setItem('endurance-lang', 'de')")
     seite.close()
 
 

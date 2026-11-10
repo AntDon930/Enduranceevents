@@ -10,7 +10,12 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="canonical" href="https://endurance-events.de/blog/krafttraining-fuer-laeufer.html">
+<link rel="alternate" hreflang="de" href="https://endurance-events.de/blog/krafttraining-fuer-laeufer.html">
+<link rel="alternate" hreflang="en" href="https://endurance-events.de/blog/en/krafttraining-fuer-laeufer.html">
+<link rel="alternate" hreflang="x-default" href="https://endurance-events.de/blog/krafttraining-fuer-laeufer.html">
 <meta name="theme-color" content="#0b1220">
+<!-- Gewählte Sprache EN: gleich zur anderen Fassung (build_blog.py). -->
+<script>try { if (localStorage.getItem('endurance-lang') === 'en') { window.EE_UMLEITUNG = true; location.replace('en/krafttraining-fuer-laeufer.html' + location.hash); } } catch (e) { /* ignorieren */ }</script>
 <!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
 <script>
 (function () {
@@ -54,6 +59,7 @@
 <meta property="og:title" content="Krafttraining für Läufer: Die besten Übungen und warum sie helfen">
 <meta property="og:description" content="Zweimal pro Woche 25 Minuten: Warum ein bisschen Kraft dich sparsamer und schneller laufen lässt, warum du davon nicht schwerer wirst – und sieben Übungen ohne Fitnessstudio.">
 <meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_GB">
 <meta property="og:url" content="https://endurance-events.de/blog/krafttraining-fuer-laeufer.html">
 <meta property="og:image" content="https://endurance-events.de/bilder/blog/krafttraining-fuer-laeufer.webp">
 <meta property="article:published_time" content="2026-11-05">
@@ -223,10 +229,13 @@
 <script defer src="../vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
 <script defer src="../firebase-config.js"></script>
 <script defer src="../auth.js"></script>
-<script defer src="../stats.js?v=6ea036f4"></script>
+<script defer src="../stats.js?v=21731166"></script>
 <script>
 (function () {
-  // Der Beitrag selbst ist deutsch; DE/EN schaltet nur die Bedienung um.
+  // Diese Seite ist deutsch. Gibt es die andere Fassung, wechselt DE/EN
+  // dorthin; sonst schaltet DE/EN nur die Bedienung um.
+  if (window.EE_UMLEITUNG) return;
+  var SEITE = 'de', ANDERE = 'en/krafttraining-fuer-laeufer.html';
   var T = {
     de: { events: 'Events', clubs: 'Clubs', map: 'Karte', blog: 'Blog', back: '← Alle Beiträge', share: 'Beitrag teilen', share_text: 'Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.', copied: 'Link kopiert', imprint: 'Impressum', privacy: 'Datenschutz' },
     en: { events: 'Events', clubs: 'Clubs', map: 'Map', blog: 'Blog', back: '← All articles', share: 'Share article', share_text: 'Found this helpful? Share it with your training partners.', copied: 'Link copied', imprint: 'Legal notice', privacy: 'Privacy' }
@@ -246,9 +255,19 @@
     document.getElementById('footer-datenschutz').textContent = t.privacy;
     document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
   }
-  var lang = 'de';
-  try { var s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
-  document.querySelectorAll('.lang-btn').forEach(function (b) { b.addEventListener('click', function () { lang = b.dataset.lang; setze(lang); }); });
+  var lang = SEITE;
+  if (!ANDERE) {
+    try { var s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  }
+  document.querySelectorAll('.lang-btn').forEach(function (b) { b.addEventListener('click', function () {
+    lang = b.dataset.lang;
+    if (ANDERE && lang !== SEITE) {
+      try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+      location.href = ANDERE;
+      return;
+    }
+    setze(lang);
+  }); });
   setze(lang);
   // Teilen: Teilen-Dialog des Geräts, sonst den Link kopieren.
   var knopf = document.getElementById('teilen-knopf');

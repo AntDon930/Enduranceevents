@@ -21,6 +21,15 @@ auf der Live-Seite (Entwicklungs-Branch, beide Live-Namen). Seit dem 04.11.2026 
 - Bild aus `marketing/instagram/hintergruende/` (Bildregel: keine
   erkennbaren Gesichter), nach `bilder/blog/<slug>.webp` + `-480`.
 - Abwechseln zwischen Sportarten.
+- **Jeder Beitrag auch auf Englisch** (seit dem 10.11.2026, vom Nutzer
+  gewählt: „Alles auf Englisch“): Text zusätzlich als
+  `scripts/blog_texte/en/<slug>.html` (gleicher Aufbau, gleiche Fußnoten,
+  „Sources“/„All sources accessed on …“, Verweise auf andere Beiträge ohne
+  Pfad) und in `blog.json` `titel_en`, `teaser_en`, `bild_alt_en`,
+  `bild_nachweis_en`. `build_blog.py` baut daraus `blog/en/<slug>.html`;
+  `test_blog` ist rot, solange die englische Fassung fehlt. Im Bericht an
+  den Nutzer beide Links nennen (`/blog/<slug>.html` und
+  `/blog/en/<slug>.html`). Einzelheiten README „Blog“, Punkt „Sprache“.
 
 | Termin | Status | Typ | Sportart | Thema |
 |---|---|---|---|---|

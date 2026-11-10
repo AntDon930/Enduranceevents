@@ -4059,8 +4059,43 @@ Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` un
   Abschlusskasten `beitrag-cta` zählt nicht), Text, **Teilen** (Teilen-
   Dialog, sonst Link kopieren), **Weitere Beiträge** (bis drei, gleiche
   Sportart zuerst) und ein dünner **Lesefortschritt** oben am Rand.
-- **Sprache**: Die Beiträge sind deutsch, die Bedienung schaltet DE/EN um;
-  `blog.html` sagt auf Englisch, dass die Beiträge deutsch sind.
+- **Sprache – jeder Beitrag deutsch UND englisch** (seit dem 10.11.2026,
+  vom Nutzer gewählt: „Alles auf Englisch“; vorher waren die Beiträge nur
+  deutsch und `blog.html` sagte das auf Englisch):
+  - **Englischer Text** in `scripts/blog_texte/en/<slug>.html` – derselbe
+    Aufbau, dieselben Klassen und Fußnoten (`aria-label="Source N"`,
+    Überschrift „Sources“, „All sources accessed on …“). Links auf
+    `../events.html`/`../karte.html` schreibt man wie im deutschen Text,
+    `build_blog.py` setzt sie für die zweite Ordnerebene um; Verweise auf
+    andere Beiträge stehen ohne Pfad (`tapering.html`) und zeigen damit auf
+    deren englische Fassung. Britisches Englisch, du → you, Event- und
+    Verbandsnamen im Original, Suchbegriffe in `?s=` deutsch (die Namen in
+    der Liste sind es), Bedienelemente wie auf der englischen Seite („Place
+    & radius“, „Date“, „Category“).
+  - **In `blog.json`**: `titel_en`, `teaser_en`, `bild_alt_en`,
+    `bild_nachweis_en` (im Nachweis nur der Text vor dem Link übersetzt).
+  - **`build_blog.py`** schreibt `blog/en/<slug>.html` (`lang="en"`, Kopf,
+    Menü „Map“, Fuß, Datum, „5 min read“, „Contents“, „More articles“ auf
+    Englisch, Pfade `../../`), `hreflang` de/en/x-default in BEIDEN
+    Fassungen, beide Adressen in der `sitemap.xml`, und räumt englische
+    Seiten ohne Fassung weg (`verwaist()`).
+  - **Sprachwahl**: DE/EN auf einer Beitragsseite wechselt zur anderen
+    Fassung (merkt die Wahl in `endurance-lang`); wer EN gewählt hat,
+    landet von einer deutschen Adresse auf der englischen und umgekehrt
+    (kleines Skript im Kopf, `location.replace`, Merker `EE_UMLEITUNG`,
+    damit die Seite davor nichts speichert – sonst schickten sich die
+    beiden Fassungen gegenseitig hin und her). Suchmaschinen haben keine
+    gespeicherte Wahl und bleiben auf der aufgerufenen Adresse.
+    `blog.html` zeigt auf Englisch die englischen Titel und verlinkt
+    `blog/en/`; der Hinweis „Some articles are only available in German“
+    erscheint nur, wenn ein Beitrag keine englische Fassung hat.
+  - **Statistik**: `stats.js` zählt `blog/en/<slug>.html` wie die deutschen
+    Beiträge als Seite `blog`.
+  - **`test_blog` verlangt die englische Fassung für JEDEN Beitrag**
+    (ganz: Titel, Teaser, Bildtext, Text) – die Blog-Aufgabe läuft die Tests
+    vor dem Push, ein Beitrag ohne Englisch kommt so nicht live. Der
+    Rauchtest (`pruefe_blog`) schaltet die Übersicht auf EN, öffnet die
+    englische Seite, wechselt zurück auf DE und prüft die Weiterleitung.
 - **Statistik**: Beiträge zählen als Seite `blog` (`stats.js`,
   `STATS_SEITEN` in `functions/index.js` – wirkt erst nach dem nächsten
   Functions-Deploy, vorher verwirft `collect` die Aufrufe still).

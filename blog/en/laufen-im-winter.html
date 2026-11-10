@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<!-- Erzeugt von scripts/build_blog.py aus blog.json und scripts/blog_texte/en/laufen-im-winter.html – nicht von Hand ändern. -->
+<title>Running in winter: how to enjoy training in the cold and dark – Endurance Events</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="canonical" href="https://endurance-events.de/blog/en/laufen-im-winter.html">
+<link rel="alternate" hreflang="de" href="https://endurance-events.de/blog/laufen-im-winter.html">
+<link rel="alternate" hreflang="en" href="https://endurance-events.de/blog/en/laufen-im-winter.html">
+<link rel="alternate" hreflang="x-default" href="https://endurance-events.de/blog/laufen-im-winter.html">
+<meta name="theme-color" content="#0b1220">
+<!-- Gewählte Sprache DE: gleich zur anderen Fassung (build_blog.py). -->
+<script>try { if (localStorage.getItem('endurance-lang') === 'de') { window.EE_UMLEITUNG = true; location.replace('../laufen-im-winter.html' + location.hash); } } catch (e) { /* ignorieren */ }</script>
+<!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('../../wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
+})();
+</script>
+<!-- Farbschema hell/dunkel: wortgleich wie in den anderen Seiten (test_farbschema_skript). -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<meta name="description" content="The onion principle, lights, grip on slippery ground and tricks against your inner couch potato: how to keep going in winter – and start spring with a head start.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Running in winter: how to enjoy training in the cold and dark">
+<meta property="og:description" content="The onion principle, lights, grip on slippery ground and tricks against your inner couch potato: how to keep going in winter – and start spring with a head start.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:url" content="https://endurance-events.de/blog/en/laufen-im-winter.html">
+<meta property="og:image" content="https://endurance-events.de/bilder/blog/winterlaufen.webp">
+<meta property="article:published_time" content="2026-11-04">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Running in winter: how to enjoy training in the cold and dark", "description": "The onion principle, lights, grip on slippery ground and tricks against your inner couch potato: how to keep going in winter – and start spring with a head start.", "datePublished": "2026-11-04", "inLanguage": "en", "image": "https://endurance-events.de/bilder/blog/winterlaufen.webp", "mainEntityOfPage": "https://endurance-events.de/blog/en/laufen-im-winter.html", "publisher": {"@type": "Organization", "name": "Endurance Events", "url": "https://endurance-events.de"}}</script>
+<link rel="stylesheet" href="../../vendor/fonts/barlow.css">
+<link rel="stylesheet" href="../../site.css?v=8fe729d6">
+<link rel="stylesheet" href="../../blog.css?v=13e54636">
+</head>
+<body>
+
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). -->
+<header class="site-header top-bar">
+  <a class="brand" href="../../index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Pages">
+    <a class="nav-link" href="../../events.html" id="nav-events">Events</a>
+    <a class="nav-link nav-neu" href="../../clubs.html" id="nav-clubs">Clubs<span class="nav-neu-text">new</span></a>
+    <a class="nav-link" href="../../karte.html" id="nav-map">Map</a>
+    <a class="nav-link active" href="../../blog.html" id="nav-blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+
+
+<div class="lese-fortschritt" aria-hidden="true"><span id="lese-balken"></span></div>
+<main class="blog-main">
+<article class="beitrag">
+  <a class="beitrag-zurueck" href="../../blog.html" id="blog-zurueck">← All articles</a>
+  <header class="beitrag-hero">
+    <img class="beitrag-hero-bild" src="../../bilder/blog/winterlaufen.webp" srcset="../../bilder/blog/winterlaufen-480.webp 480w, ../../bilder/blog/winterlaufen.webp 960w" sizes="(max-width: 1120px) 100vw, 1120px" alt="Start of the Zurich New Year&#x27;s Eve run in December, the field of runners seen from a distance between spectators" width="960" height="640" fetchpriority="high">
+    <div class="beitrag-hero-text">
+      <div class="blog-meta">
+        <span class="blog-tag sport-laufen">Running</span><span>4 November 2026</span><span aria-hidden="true">·</span><span>3 min read</span>
+      </div>
+      <h1>Running in winter: how to enjoy training in the cold and dark</h1>
+    </div>
+  </header>
+  <p class="beitrag-nachweis">Start of the Zürcher Silvesterlauf 2024. Photo: Zürcher Silvesterlauf fernblau, <a href="https://commons.wikimedia.org/wiki/File:Z%C3%BCrcher_Silvesterlauf_2024.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a></p>
+  <div class="beitrag-spalte">
+  <nav class="beitrag-inhalt" aria-labelledby="inhalt-titel">
+    <h2 id="inhalt-titel">Contents</h2>
+    <ol><li><a href="#dress-like-an-onion">Dress like an onion</a></li><li><a href="#see-and-be-seen">See and be seen</a></li><li><a href="#when-it-gets-slippery">When it gets slippery</a></li><li><a href="#how-to-stick-with-it">How to stick with it</a></li><li><a href="#easy-is-the-new-fast">Easy is the new fast</a></li><li><a href="#indoors-works-too">Indoors works too</a></li><li><a href="#conclusion">Conclusion</a></li></ol>
+  </nav>
+<p class="beitrag-lead">It gets dark early, it's cold outside, and the sofa is so cosy. And yet: a run on a clear winter morning, with frost on the meadows and your breath steaming, is one of the best runs of the year. With a few tricks, winter becomes real fun – and in spring you'll be one step ahead of the competition.</p>
+
+<div class="beitrag-text">
+
+<h2 id="dress-like-an-onion">Dress like an onion</h2>
+<p>The secret is layers instead of one thick jacket. Three thin layers keep you warmer than one thick one and can be adjusted on the go:</p>
+<ul>
+  <li><strong>Inside:</strong> a technical shirt that wicks sweat away. Cotton stays wet and gets cold.</li>
+  <li><strong>Middle:</strong> a light long-sleeved top or a thin fleece – when it's really cold.</li>
+  <li><strong>Outside:</strong> a jacket against wind and drizzle.</li>
+</ul>
+<p>A good rule of thumb: you should feel a little chilly when you set off. After ten minutes you'll be warm – and if you start out too wrapped up, you'll end up soaked in sweat.</p>
+<p>Your head, hands and neck lose heat quickly. A hat or headband, thin gloves and a neck tube are the best investments for winter. In frosty weather you can pull the tube over your mouth and nose, so the air you breathe in is a little warmer.</p>
+
+<h2 id="see-and-be-seen">See and be seen</h2>
+<p>In winter you often run in the dark. That can actually be really lovely – as long as you are easy to see and can see well yourself:</p>
+<ul>
+  <li><strong>Bright and reflective:</strong> a vest or jacket with reflectors, plus reflective bands on your ankles – drivers notice the movement in particular.</li>
+  <li><strong>A head torch</strong> shows you roots, puddles and kerbs before you trip over them.</li>
+  <li><strong>Choose lit routes:</strong> parks with street lamps, riverside paths in town or a running group that heads out together.</li>
+</ul>
+
+<h2 id="when-it-gets-slippery">When it gets slippery</h2>
+<p>On snow and ice it helps to shorten your stride a little and land with your foot flat beneath your body – just like walking on a slippery surface. Trail shoes with a chunky tread grip better than road shoes, and for icy paths there are slip-on spikes.</p>
+<p>And honestly: on days with black ice, a rest day, a treadmill run or a session on the turbo trainer is the smarter choice. Your training isn't going anywhere.</p>
+
+<h2 id="how-to-stick-with-it">How to stick with it</h2>
+<ul>
+  <li><strong>Fixed appointments:</strong> plan your runs like dates. If you know you run on Tuesday at 6 pm, you don't have to argue with yourself every evening.</li>
+  <li><strong>Run in a group:</strong> when someone is waiting for you, you go out even in drizzle. Many clubs and running groups run all winter long.</li>
+  <li><strong>Use your lunch break:</strong> if you can, run in daylight – a short run in the midday sun lifts your mood for the whole day.</li>
+  <li><strong>A goal in your calendar:</strong> a New Year's Eve run, a cross-country race or a winter running series gives your training a purpose. Our tip: take a look at the list below.</li>
+  <li><strong>Reward yourself:</strong> a hot shower, a cup of tea, that great feeling afterwards. You were outside – while others were on the sofa.</li>
+</ul>
+
+<h2 id="easy-is-the-new-fast">Easy is the new fast</h2>
+<p>Winter is the perfect time for calm, steady runs. You don't need to chase personal bests now. Lots of easy kilometres build the foundation that will make you fast in spring. If you do want some speed: short strides at the end of a run, once you're properly warm.</p>
+<p>In the cold, warm up a little longer and take the first few minutes deliberately easy. And after your run: get out of your wet clothes quickly, before you cool down.</p>
+
+<h2 id="indoors-works-too">Indoors works too</h2>
+<p>On days when going outside just isn't possible, alternatives aren't giving up: the treadmill, cycling on the turbo trainer, swimming or a few exercises for your core and legs. Strength work in particular pays off when the season starts again.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>Good layers, a light, a running group or a fixed goal – that's all it takes. If you keep going through winter, you start spring with a head start. And the best photos of the year are taken on frosty mornings anyway.</p>
+
+<section class="beitrag-cta">
+  <h2>Your goal for the winter</h2>
+  <p>New Year's Eve runs, cross-country races and winter running series near you – all running events in Germany, Austria, Switzerland and South Tyrol.</p>
+  <div class="cta-knoepfe">
+    <a class="cta-knopf" href="../../events.html?sportart=Laufen">Browse running events</a>
+    <a class="cta-knopf leise" href="silvesterlaeufe.html">The best New Year's Eve runs</a>
+  </div>
+</section>
+
+<p class="beitrag-stand">All tips in this article are based on experience.</p>
+
+</div>
+  <div class="beitrag-teilen">
+    <span id="teilen-text">Found this helpful? Share it with your training partners.</span>
+    <button type="button" class="cta-knopf leise" id="teilen-knopf">Share article</button>
+  </div>
+  </div>
+  <section class="beitrag-weitere" aria-labelledby="weitere-titel">
+    <h2 id="weitere-titel">More articles</h2>
+    <ul class="blog-liste">
+    <li class="blog-karte"><a href="crosslaeufe-winterlaufserien.html">
+      <div class="blog-karte-bild"><img src="../../bilder/blog/crosslaeufe-winterlaufserien-480.webp" alt="Runners on a muddy cross-country course across a meadow in winter, with bare trees in the background" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Running</span></div>
+      <div class="blog-karte-text"><h3>Cross-country and winter running series: racing fun in the cold season</h3><div class="blog-meta"><span>9 November 2026</span><span aria-hidden="true">·</span><span>5 min</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="krafttraining-fuer-laeufer.html">
+      <div class="blog-karte-bild"><img src="../../bilder/blog/krafttraining-fuer-laeufer-480.webp" alt="Field of runners at the Vienna City Marathon on the Reichsbrücke, photographed from behind" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Running</span></div>
+      <div class="blog-karte-text"><h3>Strength training for runners: the best exercises and why they help</h3><div class="blog-meta"><span>5 November 2026</span><span aria-hidden="true">·</span><span>4 min</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="silvesterlaeufe.html">
+      <div class="blog-karte-bild"><img src="../../bilder/blog/silvesterlaeufe-480.webp" alt="Spectators in winter jackets along the course of the Zurich New Year&#x27;s Eve run, photographed from behind" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Running</span></div>
+      <div class="blog-karte-text"><h3>New Year&#x27;s Eve runs: finish the year running – the best races at the turn of the year</h3><div class="blog-meta"><span>4 November 2026</span><span aria-hidden="true">·</span><span>3 min</span></div></div>
+    </a></li>
+    </ul>
+  </section>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="../../impressum.html">Legal notice</a>
+    <a id="footer-datenschutz" href="../../datenschutz.html">Privacy</a>
+  </div>
+</footer>
+
+<script defer src="../../vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="../../vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="../../firebase-config.js"></script>
+<script defer src="../../auth.js"></script>
+<script defer src="../../stats.js?v=21731166"></script>
+<script>
+(function () {
+  // Diese Seite ist englisch. Gibt es die andere Fassung, wechselt DE/EN
+  // dorthin; sonst schaltet DE/EN nur die Bedienung um.
+  if (window.EE_UMLEITUNG) return;
+  var SEITE = 'en', ANDERE = '../laufen-im-winter.html';
+  var T = {
+    de: { events: 'Events', clubs: 'Clubs', map: 'Karte', blog: 'Blog', back: '← Alle Beiträge', share: 'Beitrag teilen', share_text: 'Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.', copied: 'Link kopiert', imprint: 'Impressum', privacy: 'Datenschutz' },
+    en: { events: 'Events', clubs: 'Clubs', map: 'Map', blog: 'Blog', back: '← All articles', share: 'Share article', share_text: 'Found this helpful? Share it with your training partners.', copied: 'Link copied', imprint: 'Legal notice', privacy: 'Privacy' }
+  };
+  function setze(lang) {
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    var t = T[lang];
+    document.getElementById('nav-events').textContent = t.events;
+    // Nur den Text setzen – das Schildchen „new“ bleibt stehen.
+    document.getElementById('nav-clubs').firstChild.nodeValue = t.clubs;
+    document.getElementById('nav-map').textContent = t.map;
+    document.getElementById('nav-blog').textContent = t.blog;
+    document.getElementById('blog-zurueck').textContent = t.back;
+    document.getElementById('teilen-knopf').textContent = t.share;
+    document.getElementById('teilen-text').textContent = t.share_text;
+    document.getElementById('footer-impressum').textContent = t.imprint;
+    document.getElementById('footer-datenschutz').textContent = t.privacy;
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+  }
+  var lang = SEITE;
+  if (!ANDERE) {
+    try { var s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  }
+  document.querySelectorAll('.lang-btn').forEach(function (b) { b.addEventListener('click', function () {
+    lang = b.dataset.lang;
+    if (ANDERE && lang !== SEITE) {
+      try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+      location.href = ANDERE;
+      return;
+    }
+    setze(lang);
+  }); });
+  setze(lang);
+  // Teilen: Teilen-Dialog des Geräts, sonst den Link kopieren.
+  var knopf = document.getElementById('teilen-knopf');
+  knopf.addEventListener('click', function () {
+    var daten = { title: document.title, url: location.href.split('#')[0] };
+    if (navigator.share) { navigator.share(daten).catch(function () {}); return; }
+    if (navigator.clipboard) navigator.clipboard.writeText(daten.url).then(function () {
+      knopf.textContent = T[lang].copied;
+      setTimeout(function () { knopf.textContent = T[lang].share; }, 2000);
+    }).catch(function () {});
+  });
+  // Lesefortschritt oben am Rand – nur Anzeige, nichts wird gespeichert.
+  var balken = document.getElementById('lese-balken');
+  var artikel = document.querySelector('.beitrag-spalte');
+  var geplant = false;
+  function fortschritt() {
+    geplant = false;
+    var r = artikel.getBoundingClientRect();
+    var weg = Math.min(Math.max(-r.top / Math.max(r.height - innerHeight, 1), 0), 1);
+    balken.style.transform = 'scaleX(' + weg.toFixed(3) + ')';
+  }
+  addEventListener('scroll', function () { if (!geplant) { geplant = true; requestAnimationFrame(fortschritt); } }, { passive: true });
+  fortschritt();
+})();
+</script>
+
+</body>
+</html>
