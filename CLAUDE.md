@@ -5061,6 +5061,16 @@ beim Arbeiten wissen muss:
   Reihenfarbe durch (zu wenig Chroma). Balken ≤ 24 px, oben gerundet,
   Hairline-Raster, Legende mit Linienschlüsseln, Tooltip über Crosshair,
   Tabelle und CSV als Zweitweg.
+- **Die Tagestabelle passt aufs Handy** (10.11.2026, vom Nutzer mit
+  iPhone-Foto gemeldet: „steht über“ – 469 px Tabelle in einer 358-px-Karte,
+  die ganze Seite wurde breiter und das Handy zoomte heraus): bis 600 px das
+  kurze Datum „Di 10.11.“ (Jahr nur über einen Jahreswechsel,
+  `fmtTagKurz`), kurze Köpfe (`th_*_kurz`: Aufrufe, Abspr., Ø min) über
+  `.nur-breit`/`.nur-schmal`, Zahlen ohne Umbruch, `.matrix-wrap` als
+  Rückfall (auf 320 px scrollt sie in der Karte); `.stat-zwei` mit
+  `minmax(min(320px, 100%), 1fr)`. Passt genau auf 360–390 px – wer eine
+  Spalte dazunimmt, misst nach. Rauchtest: Tabelle AUFGEKLAPPT (zugeklappt
+  sah er den Fehler nie).
 - **Was die Zahlen bedeuten (dem Nutzer am 14.10.2026 erklärt)**: Das
   Balkendiagramm „Tageszeit" zählt SEITENAUFRUFE je Stunde, keine
   Besucher. „Besucher" = Kombination IP + Browser je Tag – iCloud

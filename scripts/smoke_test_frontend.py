@@ -1818,6 +1818,20 @@ def pruefe_statistik_dashboard(ctx, basis):
         pruefe("liste-oben" in stand["werbung"] and "%" in stand["werbung"],
                "Werbeplätze: Einblendungen, Klicks und Klickrate")
         pruefe(stand["ueberlauf"] <= 0, "kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
+        # Die Tagestabelle aufgeklappt (10.11.2026, vom Nutzer auf dem iPhone
+        # gemeldet: „steht über" – 469 px Tabelle in der 358-px-Karte, die
+        # Seite wurde breiter). Zugeklappt sah der Test das nie.
+        tab = seite.evaluate("""() => {
+            const t = document.getElementById('tabelle-verlauf');
+            t.closest('details').open = true;
+            const w = t.parentElement, kurz = t.querySelector('tbody td .nur-schmal');
+            return { seite: document.documentElement.scrollWidth - innerWidth,
+                     innen: w.scrollWidth - w.clientWidth,
+                     kurz: kurz ? kurz.textContent : '' }; }""")
+        pruefe(tab["seite"] <= 0 and tab["innen"] <= 1 and not re.search(r"\d{4}$", tab["kurz"]),
+               "Tagestabelle aufgeklappt passt auf 390 px, Datum ohne Jahr (%+d/%+d px, %s)"
+               % (tab["seite"], tab["innen"], tab["kurz"]))
+        seite.evaluate("document.getElementById('tabelle-verlauf').closest('details').open = false")
 
         # Instagram-Freigabe (14.10.2026): Zeilen aus plan.json, ein Klick
         # schreibt das Dokument (die Attrappe speichert), Status wechselt;

@@ -150,7 +150,7 @@
   .stat-section { display: grid; gap: 14px; margin-bottom: 14px; }
   .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-bottom: 14px; }
   .stat-section-title { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin: 10px 0 0; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
-  .stat-zwei { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+  .stat-zwei { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 14px; }
   .stat-card.breit { grid-column: 1 / -1; }
   /* Tabellen in Karten (Monate, Sportart je Region, Werbeplätze, Bericht) */
   table.matrix { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 0.9rem; }
@@ -198,6 +198,20 @@
   details.tabelle table { width: 100%; border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
   details.tabelle th, details.tabelle td { text-align: right; padding: 5px 8px; border-bottom: 1px solid var(--border); }
   details.tabelle th:first-child, details.tabelle td:first-child { text-align: left; }
+  /* Tagestabelle (10.11.2026, vom Nutzer auf dem iPhone gemeldet: „steht
+     über"): 469 px Tabelle in einer 358-px-Karte, die ganze Seite wurde
+     breiter. Zahlen brechen nicht um, auf dem Handy steht das kurze Datum
+     und der kurze Spaltenkopf (.nur-schmal), und was trotzdem nicht passt,
+     scrollt in der Karte (.matrix-wrap) statt über ihren Rand. */
+  details.tabelle td { white-space: nowrap; }
+  .nur-schmal { display: none; }
+  @media (max-width: 600px) {
+    .nur-breit { display: none; }
+    .nur-schmal { display: inline; }
+    details.tabelle table { font-size: 0.82rem; }
+    details.tabelle th, details.tabelle td { padding: 5px 4px; }
+    details.tabelle th { font-size: 0.74rem; }
+  }
 
   /* Listen mit Balken */
   .liste { list-style: none; margin: 0; padding: 0; }
@@ -281,7 +295,7 @@
         </div>
         <details class="tabelle">
           <summary id="t-tabelle"></summary>
-          <table id="tabelle-verlauf"></table>
+          <div class="matrix-wrap"><table id="tabelle-verlauf"></table></div>
         </details>
       </section>
       <!-- Monate (14.10.2026): Werbung wird je Monat verkauft - die zwölf
@@ -473,7 +487,7 @@
       wochentage_titel: 'Wochentag', wochentage_sub: 'Ø Seitenaufrufe je Tag', tage_n: 'Tage',
       monate_titel: 'Monate', monate_sub: 'die letzten zwölf Monate', th_monat: 'Monat', th_je_besuch: 'Seiten je Besuch', th_abos: 'Abos (Monatsende)',
       tabelle: 'Als Tabelle anzeigen', tabelle_monate: 'Monatswerte (Mediadaten)',
-      th_tag: 'Tag', th_besucher: 'Besucher', th_besuche: 'Besuche', th_pv: 'Seitenaufrufe', th_absprung: 'Absprünge', th_dauer: 'Ø Dauer',
+      th_tag: 'Tag', th_besucher: 'Besucher', th_besuche: 'Besuche', th_pv: 'Seitenaufrufe', th_pv_kurz: 'Aufrufe', th_absprung: 'Absprünge', th_absprung_kurz: 'Abspr.', th_dauer: 'Ø Dauer', th_dauer_kurz: 'Ø min',
       keine_daten: 'Noch keine Daten in diesem Zeitraum. Die Auswertung läuft stündlich (Minute 7) – bis dahin bleibt es leer.',
       mehr: 'Mehr anzeigen', weniger: 'Weniger anzeigen', leer: 'Noch nichts',
       s_zielgruppe: 'Zielgruppe', s_kunden: 'Für Veranstalter und Werbekunden',
@@ -618,7 +632,7 @@
       wochentage_titel: 'Weekday', wochentage_sub: 'avg. page views per day', tage_n: 'days',
       monate_titel: 'Months', monate_sub: 'the last twelve months', th_monat: 'Month', th_je_besuch: 'Pages per visit', th_abos: 'Subscriptions (month end)',
       tabelle: 'Show as table', tabelle_monate: 'Monthly figures (media kit)',
-      th_tag: 'Day', th_besucher: 'Visitors', th_besuche: 'Visits', th_pv: 'Page views', th_absprung: 'Bounces', th_dauer: 'Avg. duration',
+      th_tag: 'Day', th_besucher: 'Visitors', th_besuche: 'Visits', th_pv: 'Page views', th_pv_kurz: 'Views', th_absprung: 'Bounces', th_absprung_kurz: 'Bounces', th_dauer: 'Avg. duration', th_dauer_kurz: 'Ø min',
       keine_daten: 'No data in this period yet. Aggregation runs hourly (at minute 7) – until then this stays empty.',
       mehr: 'Show more', weniger: 'Show less', leer: 'Nothing yet',
       s_zielgruppe: 'Audience', s_kunden: 'For organisers and advertisers',
@@ -716,6 +730,16 @@
   function tageZwischen(von, bis) {
     const a = Date.parse(von + 'T00:00:00Z'), b = Date.parse(bis + 'T00:00:00Z');
     return Math.round((b - a) / 86400000) + 1;
+  }
+  // Tag mit Wochentag, ohne Jahr (die Tagestabelle auf dem Handy):
+  // „Di 10.11." bzw. „Tue 10 Nov"; mit `mitJahr` zweistellig dahinter.
+  function fmtTagKurz(iso, mitJahr) {
+    const [j, m, d] = iso.split('-').map(Number);
+    const wt = I18N[lang].wochentage[new Date(Date.UTC(j, m - 1, d)).getUTCDay()];
+    const jj = String(j).slice(2);
+    if (lang === 'de') return `${wt} ${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.${mitJahr ? jj : ''}`;
+    const mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][m - 1];
+    return `${wt} ${d} ${mon}${mitJahr ? ' ' + jj : ''}`;
   }
   function fmtTag(iso, kurz) {
     const [j, m, d] = iso.split('-').map(Number);
@@ -1514,9 +1538,21 @@
     document.getElementById('t-tabelle').textContent = t('tabelle');
     const tbl = document.getElementById('tabelle-verlauf');
     const zeilen = aktuell.tage.filter(x => x.doc);
-    tbl.innerHTML = `<thead><tr><th>${escapeHtml(t('th_tag'))}</th><th>${escapeHtml(t('th_besucher'))}</th><th>${escapeHtml(t('th_besuche'))}</th><th>${escapeHtml(t('th_pv'))}</th><th>${escapeHtml(t('th_absprung'))}</th><th>${escapeHtml(t('th_dauer'))}</th></tr></thead><tbody>` +
+    // Auf dem Handy das kurze Datum („Di 10.11.") und der kurze Kopf; das
+    // Jahr nur, wenn der Zeitraum über einen Jahreswechsel reicht.
+    const mehrereJahre = new Set(zeilen.map(z => z.d.slice(0, 4))).size > 1;
+    const zwei = (lang_, kurz) => kurz && kurz !== lang_
+      ? `<span class="nur-breit">${escapeHtml(lang_)}</span><span class="nur-schmal">${escapeHtml(kurz)}</span>`
+      : escapeHtml(lang_);
+    const kopf = (k) => zwei(t(k), I18N[lang][k + '_kurz'] || '');
+    const dauer = (doc) => {
+      if (!doc.dauer_n) return '–';
+      const d = fmtDauer(doc.dauer_sek / doc.dauer_n);
+      return zwei(d, d.replace(/ min$/, ''));
+    };
+    tbl.innerHTML = `<thead><tr><th>${kopf('th_tag')}</th><th>${kopf('th_besucher')}</th><th>${kopf('th_besuche')}</th><th>${kopf('th_pv')}</th><th>${kopf('th_absprung')}</th><th>${kopf('th_dauer')}</th></tr></thead><tbody>` +
       zeilen.slice().reverse().map(({ d, doc }) =>
-        `<tr><td>${escapeHtml(fmtTag(d))}</td><td>${fmtInt(doc.besucher)}</td><td>${fmtInt(doc.besuche)}</td><td>${fmtInt(doc.pv)}</td><td>${fmtInt(doc.absprung)}</td><td>${escapeHtml(doc.dauer_n ? fmtDauer(doc.dauer_sek / doc.dauer_n) : '–')}</td></tr>`
+        `<tr><td>${zwei(fmtTag(d), fmtTagKurz(d, mehrereJahre))}</td><td>${fmtInt(doc.besucher)}</td><td>${fmtInt(doc.besuche)}</td><td>${fmtInt(doc.pv)}</td><td>${fmtInt(doc.absprung)}</td><td>${dauer(doc)}</td></tr>`
       ).join('') + '</tbody>';
   }
 
