@@ -129,6 +129,9 @@ KEIN_EVENT_KONTO = {
     "paznaunischgl_crew": "der Tourismusverband Paznaun-Ischgl",
     "ischgl_com": "der Tourismusverband Paznaun-Ischgl",
     "pitztal": "der Tourismusverband Pitztal",
+    "latzoumaz": "das Office du Tourisme La Tzoumaz, nicht der Trail Blanc (Durchsicht 10.11.2026)",
+    "messeried": "die Messe Ried (Gastgeber), nicht ihr Messe-Lauf (Durchsicht 10.11.2026)",
+    "triathlon_team_braunschweig": "der Verein, nicht sein Heidbergsee-Triathlon (Durchsicht 10.11.2026)",
     "lenzerheide": "der Tourismusverband Lenzerheide",
 }
 VEREIN = set(VEREIN_KUERZEL) | set(VEREIN_WORT) | {

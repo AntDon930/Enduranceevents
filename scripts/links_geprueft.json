@@ -19428,5 +19428,37 @@
     "quelle": "Nutzer",
     "alt": "https://harsewinkel.dlrg.de/",
     "notiz": "Startseite des Vereins durch die Seite des 24-Stunden-Schwimmens ersetzt (vom Nutzer genannt)."
+  },
+  "ORC 5 - Cyclocross de la Riviera|2026-11-14": {
+    "am": "2026-11-10",
+    "ergebnis": "korrigiert",
+    "quelle": "MSO-Serienkalender",
+    "alt": "https://www.omniumromand.com",
+    "neu": "https://veloclubvevey.ch/cyclocross-de-la-riviera-2026/",
+    "notiz": "Linkprüfung 2026-11-10: Vélo Club Vevey: „Cyclocross de la Riviera … samedi 14 novembre 2026 autour du Stade de la Saussaz à Montreux“."
+  },
+  "ORC 6 - Cyclocross de Martigny|2026-11-21": {
+    "am": "2026-11-10",
+    "ergebnis": "korrigiert",
+    "quelle": "MSO-Serienkalender",
+    "alt": "https://www.omniumromand.com",
+    "neu": "https://crossroadbikeclub.ch/cyclo-cross-doctodure/",
+    "notiz": "Linkprüfung 2026-11-10: Crossroad Kids Bike Club, Seite „Cyclo-Cross d’Octodure“ (= Martigny); Termin nur im MSO-Serienkalender (21.11.2026) – Handbeleg, die Seite nennt Martigny nicht beim Namen."
+  },
+  "OCR 7 - Cyclocross des Princes-Évêques|2026-11-28": {
+    "am": "2026-11-10",
+    "ergebnis": "korrigiert",
+    "quelle": "MSO-Serienkalender",
+    "alt": "https://www.omniumromand.com",
+    "neu": "https://www.cclesvouivres.ch/cx-princes-eveques",
+    "notiz": "Linkprüfung 2026-11-10: Club Cycliste les Vouivres: „Cyclocross (CX) de Porrentruy 28 novembre 2026“."
+  },
+  "ORC 8 - Cyclocross de Bramois|2026-12-06": {
+    "am": "2026-11-10",
+    "ergebnis": "korrigiert",
+    "quelle": "MSO-Serienkalender",
+    "alt": "https://www.omniumromand.com",
+    "neu": "https://www.cyclophilesedunois.ch/orc-sion/",
+    "notiz": "Linkprüfung 2026-11-10: Cyclophile Sédunois: „manche finale de l’Omnium Romand Cyclocross 2026 le dimanche 6 décembre 2026 au Centre Sportif des Glareys à Bramois“."
   }
 }

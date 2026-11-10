@@ -3337,6 +3337,9 @@ PORTAL_DOMAINS = (
     "kilometerliebe.de", "lck.it", "lv-pfalz.de", "vss.bz.it", "crosscup.org", "dsergebnis.de",
     "radsport-weser-ems.de", "swiss-cycling-boe.ch", "swisscycling-fricktal.ch",
     "radsport-sh.de", "gregorhoops.de", "zpn-timing.de", "dealgrid.de",
+    # Serienseite des Omnium Romand de Cyclocross (10.11.2026): verlinkt die
+    # Rennen nicht, die Seite des ausrichtenden Clubs steht im MSO-Serienkalender.
+    "omniumromand.com",
 )
 
 

@@ -6707,6 +6707,16 @@ Verweise auf alte Nummern stehen in Klammern.
    → Push. Jede geprüfte Zeile wird damit auf endurance-events.de sichtbar
    (`pruefung_offen`, siehe „Livegang“); am 19.10.2026 nach dem Datenlauf
    1.606 Event- und 273 Club-Zeilen.
+   **10.11.2026**: 36 Antworten waren am 20.10. übernommen; neu nur ein
+   Kommentar OHNE Status zu „ORC 3 – Cyclocross Eagle“ („am 3. Oktober
+   schon stattgefunden?“) – Termin 24.10. in Aigle war richtig, aber die
+   Quelle hatte die Seite von ORC 1 Les Diablerets (03.10.) verlinkt. Als
+   Klasse: Die Serie Omnium Romand de Cyclocross stand mit der Serienseite
+   `omniumromand.com` da (jetzt in `PORTAL_DOMAINS`); die vier kommenden
+   Rennen tragen die Seite des ausrichtenden Clubs (Club laut
+   MSO-Serienkalender), Aigle und Rennaz sind im Gedächtnis korrigiert.
+   Ein Kommentar ohne Status übernimmt `einlesen` nicht – im Chat
+   beantworten.
 2. **GitHub-Domain-Verifizierung** (alt 33, kostenlos, freiwillig):
    (1) github.com → Profilbild → **Settings** (persönlich) → **Pages** →
    „Add a domain" → `endurance-events.de` → GitHub zeigt einen
@@ -6817,23 +6827,7 @@ Verweise auf alte Nummern stehen in Klammern.
     `strava_kandidaten.xlsx` (neu erzeugen aus `scripts/clubs_kandidaten.json`,
     alle Einträge mit `strava`); ein Kandidat mit Treff wird als Club
     angelegt und aus der Kandidatenliste genommen.
-13. **Montag 02.11.2026: den ersten Datenlauf mit Instagram-Prüfung und
-    360 Minuten ansehen** (Claude, eingetragen am 27.10.2026): (a)
-    Laufzeit des Laufs „Events automatisch aktualisieren“ (Grenze jetzt
-    360 – bleibt er über ~330, den Lauf teilen, siehe „Automatik“);
-    (b) im Log „Instagram-Konten: … Seiten geprüft“ – lief die Prüfung
-    durch, wurde `instagram_konten.json` mitcommittet; (c) die NEU
-    zugeordneten Konten im Abschnitt „Instagram-Konto der Veranstaltung“
-    des Aufräum-Logs durchsehen, Fehltreffer als Regel oder in
-    `KEIN_EVENT_KONTO` (Frontend-Fallen, „Das Instagram-Zeichen großer
-    Veranstaltungen“); (d) der Deploy-Lauf danach grün (sonst warten die
-    Daten hinter dem Gate) und die Abo-Mail im neuen Aussehen (Punkt 10).
-    Dabei kommen fünf Zeilen aus der Liste der großen Events dazu, die die
-    parallele Sitzung am 27.10. ergänzt hat (10 km de Payerne, Spartan
-    Munich, Wings for Life Munich) – kein Fehler, nur noch nicht
-    aufgeräumt.
-
-14. **Meta blockiert den Instagram-Schlüssel – seit dem 23.10.2026**
+13. **Meta blockiert den Instagram-Schlüssel – seit dem 23.10.2026**
     (gefunden am 04.11.2026; nur der Nutzer): Jeder Lauf von
     `instagram.yml`, der den Schlüssel pflegt, endet rot mit „Schlüssel
     erneuern: HTTP 400 – API access blocked (OAuthException, code 200)".
@@ -6849,9 +6843,14 @@ Verweise auf alte Nummern stehen in Klammern.
     Schlüssel. **Zweiter Befund**: Die Zeitpläne von GitHub laufen 4–8 h
     zu spät (Morgenlauf 06:47 UTC kam um 13:30–15:00, Abendlauf 15:47 UTC
     um 20:00–23:15) – am 02.11. lief der Abendlauf nach Mitternacht
-    deutscher Zeit und plante schon den Dienstag. Bevor wieder automatisch
-    gepostet wird: dem Abendlauf das Datum mitgeben oder früher ansetzen.
-15. **Content: Video „Marathon in Zahlen“ entwerfen** (eingetragen am
+    deutscher Zeit und plante schon den Dienstag. **Behoben am 10.11.2026**
+    (ohne Änderung auf `main`): `insta_lauf.lauf_datum()` – ein
+    Zeitplan-Lauf mit `--posten` vor 12 Uhr Berlin gilt für den Vortag
+    (am 09.11. startete der Abendlauf um 00:51 Berlin), Morgenlauf und
+    Handlauf bleiben bei heute; Test in `test_instagram`. Offen bleibt nur
+    der Teil des Nutzers; am 10.11.2026 meldete der Lauf weiter „API
+    access blocked“.
+14. **Content: Video „Marathon in Zahlen“ entwerfen** (eingetragen am
     04.11.2026, vom Nutzer: „In Deutschland finishen XX Personen jährlich
     einen Marathon, davon in XX Zeit, Geschlecht usw … als content to-do
     das wir so ein Video entwerfen“). Idee: animierte Statistik-Grafik wie
@@ -6869,7 +6868,30 @@ Verweise auf alte Nummern stehen in Klammern.
     Zahlen recherchieren und dem Nutzer zur Abnahme zeigen, dann das
     Format (`insta_inhalte` + Folientyp in `insta_video`) bauen, Vorschau
     im Dashboard.
-16. **Runway mit Claude testen** (eingetragen am 04.11.2026, vom Nutzer:
+    **Recherche 10.11.2026 (wartet auf die Abnahme des Nutzers)**:
+    (a) HDsports-Analyse „Marathon-Rekordwelle 2026“, veröffentlicht auf
+    news.germanroadraces.de am 02.11.2026: **123.608 Finisher** bei den 15
+    größten deutschen Marathons 2026 (+15 %; 2025: 107.624; alter Rekord
+    2005: 108.835; 2022: 65.776 – fast verdoppelt), **Frauenanteil 29 %**
+    (drittes Jahr in Folge; Berlin 36 %, 3-Länder 30 %, Hamburg 28 %, Bonn
+    und Baden 18 %), Finisher je Lauf (Berlin 50.167, Hamburg 15.523,
+    Frankfurt 13.334, Köln 9.625, München 9.134 +76 %, Hannover 4.881 …).
+    Gezählt nur, wer die Marathondistanz regelkonform beendet hat.
+    (b) German Road Races, „Statistik der Anmeldungen der
+    Mitgliedsveranstaltungen 2024/2025“ (Stand 18.01.2026; PDF – aus der
+    Sandbox 403, über WebFetch lesbar): 35 Marathons der Mitglieder 2025,
+    111.859 Anmeldungen, **96.275 Finisher** (+26,4 %), Finisherquote 86,1 %,
+    52,0 % aller Marathonläufer liefen in Berlin (2024: 60,8 %) –
+    **Mitgliedsläufe, mit Luzern und Reschensee, also nicht „Deutschland“**.
+    **Nicht belegt gefunden**: Zielzeit-Verteilung und Durchschnittsalter
+    für ganz Deutschland (nur eine private Statistikseite und US-Zahlen von
+    RunRepeat) – weglassen oder aus EINER offiziellen Ergebnisliste mit
+    Namen des Laufs. **Vorbehalt bei (a)**: hdsports.at/.de/.org untersagt
+    laut Impressum die „Verwendung in anderen elektronischen Medien“
+    (README, Quellentabelle) – einzelne Zahlen mit Quellenangabe zu nennen
+    ist nicht dasselbe wie die Analyse zu übernehmen, aber das entscheidet
+    der Nutzer; ohne sein Ja nur (b) und offizielle Zahlen der Veranstalter.
+15. **Runway mit Claude testen** (eingetragen am 04.11.2026, vom Nutzer:
     „Schreib in die To-do Liste das ich Runway mit Claude testen will“;
     Anlass: die Frage, wie sich das Cartoon-Erklärvideo für
     endurance-events.de bauen lässt – Skript liegt im Chat vom
@@ -6886,7 +6908,8 @@ Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
 (36), Functions-Deploy für die Abo-Kennzahl (37), Probe des
 Wartungsmodus (38) – alle 13./14.10.2026; Instagram einrichten (39) –
 16.10.2026; RADRACE als Veranstalter (40) – 17.10.2026; Timeout des
-Datenlaufs auf 360 Minuten (41) – 27.10.2026.)
+Datenlaufs auf 360 Minuten (41) – 27.10.2026; Datenläufe mit
+Instagram-Prüfung ansehen (42) – 10.11.2026.)
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
@@ -7539,6 +7562,19 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     `main` und Entwicklungs-Branch leer. Anlass: Der Lauf vom 26.10.2026
     brauchte 262 von 300 Minuten, dazu kam die Instagram-Prüfung. 360 ist
     das Maximum für gehostete Läufer.
+42. ~~**Datenläufe mit Instagram-Prüfung ansehen**~~ **erledigt**
+    (10.11.2026; bis dahin Punkt 13 der neuen Liste): Beide Läufe grün,
+    02.11. 13:02–17:32 UTC, 09.11. 13:34–18:04 UTC – je ~270 der 360
+    Minuten, kein Teilen nötig. Die Instagram-Prüfung lief durch (09.11.:
+    194 Seiten, 101 mit Link, 0 noch fällig; `instagram_konten.json`
+    mitcommittet). Neu zugeordnet: 39 Konten am 02.11., 32 am 09.11.,
+    alle durchgesehen; drei Fehltreffer in `KEIN_EVENT_KONTO` (`latzoumaz` =
+    Office du Tourisme, `messeried` = die Messe als Gastgeber,
+    `triathlon_team_braunschweig` = der Verein). `dielaufgesellschaft`
+    beim Hamburg Halbmarathon bleibt (recherchiert in `grosse_events.json`,
+    Veranstalter-Konto). Deploy 09.11. erst nach einem Neustart grün (siehe
+    „Automatik“). Ob die Abo-Mail schon im neuen Aussehen kam, sieht nur
+    der Nutzer (Punkt 10).
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
     Termin – rein oder raus?~~ **erledigt** (09.10.2026, vom Nutzer: „Ne

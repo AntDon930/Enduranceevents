@@ -1490,7 +1490,7 @@
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
     "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://www.omniumromand.com",
+    "veranstalter_url": "https://veloclubvevey.ch/cyclocross-de-la-riviera-2026/",
     "pruefung_offen": true
   },
   {
@@ -4181,7 +4181,7 @@
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
     "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://www.omniumromand.com",
+    "veranstalter_url": "https://crossroadbikeclub.ch/cyclo-cross-doctodure/",
     "pruefung_offen": true
   },
   {
@@ -5634,7 +5634,7 @@
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
     "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://www.omniumromand.com/",
+    "veranstalter_url": "https://www.cclesvouivres.ch/cx-princes-eveques",
     "pruefung_offen": true
   },
   {
@@ -9439,7 +9439,7 @@
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
     "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://www.omniumromand.com/",
+    "veranstalter_url": "https://www.cyclophilesedunois.ch/orc-sion/",
     "pruefung_offen": true
   },
   {
@@ -23683,8 +23683,7 @@
     "datum_ende": "2027-01-31",
     "laenge_km": 17.0,
     "wettbewerb": "17 km mit 880 m Höhendifferenz",
-    "veranstalter_url": "https://www.latzoumaz.ch/trailblanc/",
-    "instagram": "latzoumaz"
+    "veranstalter_url": "https://www.latzoumaz.ch/trailblanc/"
   },
   {
     "land": "Schweiz",
@@ -23698,8 +23697,7 @@
     "datum_ende": "2027-01-31",
     "laenge_km": 12.0,
     "wettbewerb": "12 km mit 660 m Höhendifferenz (ab 15 Jahren zugänglich)",
-    "veranstalter_url": "https://www.latzoumaz.ch/trailblanc/",
-    "instagram": "latzoumaz"
+    "veranstalter_url": "https://www.latzoumaz.ch/trailblanc/"
   },
   {
     "land": "Deutschland",
@@ -30281,19 +30279,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "53. Königsforst-Marathon Bensberg",
-    "standort": "Bensberg",
-    "lat": 51.2323776,
-    "lon": 9.3541143,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-14",
-    "datum_ende": "2027-03-14",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://koenigsforst-marathon.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "Bad Windsheimer Weinturmlauf",
     "standort": "Bad Windsheim",
     "lat": 49.5031221,
@@ -30957,7 +30942,6 @@
     "datum_start": "2027-03-14",
     "datum_ende": "2027-03-14",
     "veranstalter_url": "http://www.sportmesse-ried.at/themenwelt/laufbewerbe",
-    "instagram": "messeried",
     "pruefung_offen": true
   },
   {
@@ -82450,7 +82434,6 @@
     "datum_start": "2027-06-27",
     "datum_ende": "2027-06-27",
     "veranstalter_url": "https://triathlon-team-bs.de/heidbergsee-triathlon/",
-    "instagram": "triathlon_team_braunschweig",
     "pruefung_offen": true
   },
   {

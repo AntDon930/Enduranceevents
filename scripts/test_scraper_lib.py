@@ -6034,6 +6034,16 @@ def test_instagram() -> None:
     text = L.auswertung_text(P.auswertung(z, "NEU-SCHLUESSEL", session=StorySitzung()))
     check("Auswertung als Tabelle mit Format aus dem Wochenplan (16.10.2026 = Fr = wochenende)",
           ["12 Follower" in text, "| wochenende |" in text, "Schnitt je Format" in text], [True, True, True])
+    from zoneinfo import ZoneInfo as _ZI
+    _b = _ZI("Europe/Berlin")
+    _io = __import__("io"); _ctx = __import__("contextlib"); _dtm = __import__("datetime")
+    with _ctx.redirect_stdout(_io.StringIO()):
+        tage = [L.lauf_datum(_dtm.datetime(2026, 11, 10, 0, 51, tzinfo=_b), True, "schedule"),
+                L.lauf_datum(_dtm.datetime(2026, 11, 9, 17, 51, tzinfo=_b), True, "schedule"),
+                L.lauf_datum(_dtm.datetime(2026, 11, 10, 0, 51, tzinfo=_b), True, "workflow_dispatch"),
+                L.lauf_datum(_dtm.datetime(2026, 11, 10, 9, 30, tzinfo=_b), False, "schedule")]
+    check("Abendlauf nach Mitternacht gilt für den Vortag, Handlauf und Morgenlauf für heute",
+          [t.isoformat() for t in tage], ["2026-11-09", "2026-11-09", "2026-11-10", "2026-11-10"])
 
     alt_gcp = _os.environ.pop("GCP_ACCESS_TOKEN", None)
     check("ohne Google-Zugang: kein Zugang (nur rendern)", P.zugang(), None)

@@ -63,6 +63,22 @@ def zusammenfassung(text: str) -> None:
             fh.write(text + "\n")
 
 
+def lauf_datum(jetzt: dt.datetime, posten: bool, ereignis: str) -> dt.date:
+    """Der Tag, für den dieser Lauf gilt (Europe/Berlin).
+
+    Der Abendlauf (15:47 UTC, `--posten`) startet bei GitHub oft Stunden zu
+    spät, am 09.11.2026 um 00:51 Berlin – mit „heute“ hätte er den Beitrag
+    des NÄCHSTEN Tages genommen. Ein Zeitplan-Lauf mit
+    `--posten` vor 12 Uhr Berlin gehört deshalb zum Vortag; der Morgenlauf
+    (ohne `--posten`) und jeder Handlauf bleiben bei heute.
+    """
+    tag = jetzt.date()
+    if posten and ereignis == "schedule" and jetzt.hour < 12:
+        print(f"Abendlauf erst um {jetzt:%H:%M} Berlin gestartet – er gilt für den {tag - dt.timedelta(days=1)}.")
+        return tag - dt.timedelta(days=1)
+    return tag
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[1])
     ap.add_argument("--datum", help="YYYY-MM-DD, Vorgabe: heute (Europe/Berlin)")
@@ -80,7 +96,8 @@ def main() -> int:
                          "ist oder INSTAGRAM_AUTOPOST=ja gilt (insta_freigabe.py)")
     a = ap.parse_args()
 
-    datum = dt.date.fromisoformat(a.datum) if a.datum else dt.datetime.now(ZoneInfo("Europe/Berlin")).date()
+    datum = dt.date.fromisoformat(a.datum) if a.datum else lauf_datum(
+        dt.datetime.now(ZoneInfo("Europe/Berlin")), a.posten, os.environ.get("GITHUB_EVENT_NAME", ""))
     ziel = a.ausgabe or AUSGABE / datum.isoformat()
     if not a.format and not inhalte.postet_am(datum):
         # Pausentag oder vor dem Start: kein Beitrag - aber die Vorschauen

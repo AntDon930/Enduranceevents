@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:ORC 8 - Cyclocross de Bramois – Cyclocross
 LOCATION:Bramois\, Schweiz
-DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.omniumro
- mand.com/
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.cyclophi
+ lesedunois.ch/orc-sion/
 TRANSP:TRANSPARENT
-URL:https://www.omniumromand.com/
+URL:https://www.cyclophilesedunois.ch/orc-sion/
 END:VEVENT
 END:VCALENDAR
