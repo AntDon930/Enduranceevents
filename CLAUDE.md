@@ -5536,12 +5536,11 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   sollen aber nicht nach mansplaining aussehen“): `PERSONEN` „er“/„sie“,
   sie mit mittelbraunem Pferdeschwanz (navy Haargummi), sonst bewusst
   nicht betont weiblich (keine Wimpern, kein Schmuck, kein Rosa – „Muss
-  sie in nur rosa sein … bisschen sportlicher … Sportklamotten bei
-  beiden“); dieselben Posen, dieselbe Rolle. **Beide in Sportkleidung**:
-  Funktionsshirt mit Raglan-Ärmeln, Seitenstreifen und V-Ausschnitt (er:
-  Petrol mit Soft-Blue-Ärmeln, sie: Soft Blue mit Navy-Ärmeln), Laufhose
-  mit Streifen (sie zusätzlich 3/4-Tights), Sportuhr links, Laufsocken,
-  Laufschuhe mit farbiger Sohle. `figur(pose, hoehe,
+  sie in nur rosa sein“); dieselben Posen, dieselbe Rolle. **Kleidung
+  bleibt schlicht**: einfarbiges Laufshirt mit zwei Seitenstreifen (er
+  Petrol/Soft Blue, sie Soft Blue/Navy), kurze Laufhose, weiße Schuhe. Ein
+  Versuch mit Raglan-Ärmeln, Uhr, Tights und Socken wurde verworfen („Das
+  ist zu viel“) – nicht wieder aufrüsten, ohne zu fragen. `figur(pose, hoehe,
   person)`; `insta_karussell.person_fuer()` wählt je Beitrag zufällig,
   aber fest (Seed = Blog-Slug), `"person"` im JSON überschreibt. Gegen
   „Mansplaining“: beide gleichwertig, Texte sprechen „du“ an, keine Figur
