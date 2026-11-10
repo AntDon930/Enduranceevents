@@ -344,9 +344,11 @@ def _haar_sie_vorn(s: _Stift, mx, my, rx) -> None:
     haar = [(mx - rx - 3, my + 4), (mx - rx - 6, my - 32), (mx - 38, my - 68), (mx - 4, my - 80),
             (mx + 34, my - 74), (mx + rx + 2, my - 40), (mx + rx + 3, my + 4), (mx + rx - 6, my - 24),
             (mx + 30, my - 46), (mx - 6, my - 50), (mx - 34, my - 36), (mx - rx + 4, my - 6)]
-    s.d.polygon([s.p(*q) for q in haar], fill=HAAR_SIE, outline=KONTUR, width=int(5 * k))
-    s.linie([(mx - 22, my - 72), (mx - 30, my - 40)], 3.2, (150, 104, 70))
-    s.linie([(mx + 4, my - 76), (mx + 36, my - 56)], 3.2, (150, 104, 70))
+    # ohne Kontur: das Haar liegt auf dem gleichfarbigen Hinterkopf, eine
+    # Kontur zöge dunkle Striche durchs Haar; nur der Haaransatz zur Stirn
+    # bekommt eine Linie
+    s.d.polygon([s.p(*q) for q in haar], fill=HAAR_SIE)
+    s.linie(haar[6:] + haar[:1], 4.5, KONTUR)
 
 
 def _gesicht(s: _Stift, pose: str, mund: str, mx, my, person: str) -> None:
