@@ -19107,31 +19107,39 @@
   "art": "Laufen",
   "stadt": "München",
   "land": "Deutschland",
-  "treffpunkt": "Wiener Platz, Haidhausen",
+  "treffpunkt": "Wiener Platz, Haidhausen (Café)",
   "lat": 48.13436,
   "lon": 11.59607,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 1,
-    "uhrzeit": "06:45"
+    "uhrzeit": "07:00",
+    "bezeichnung": "Coffee Run, ca. 8 km (5:30 min/km), Treffen ab 6:45, Start 7:00, danach Kaffee"
    }
   ],
   "strava": "https://www.strava.com/clubs/boldrunningclub",
-  "beschreibung_de": "Früher Lauf am Montagmorgen mit Kaffee danach.",
-  "beschreibung_en": "Early Monday morning run followed by coffee.",
+  "beschreibung_de": "Montagmorgenlauf über rund 8 km im Tempo 5:30 min/km ab dem Wiener Platz in Haidhausen: Treffen ab 6:45, Start pünktlich um 7 Uhr, gegen 7:45 zurück am Café; Gepäckabgabe möglich.",
+  "beschreibung_en": "Monday morning run of about 8 km at 5:30 min/km from Wiener Platz in Haidhausen: meet from 6:45, start at 7 sharp, back at the café around 7:45; bag drop available.",
   "quelle": [
    "https://www.strava.com/clubs/1203782",
    "https://www.strava.com/clubs/boldrunningclub",
    "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-11-09",
+  "geprueft": "2026-11-10",
   "merkmale": [
-   "kaffee"
+   "kaffee",
+   "gepaeck"
   ],
-  "pruefung_offen": true,
-  "pruefung_grund": "Treffpunkt Wiener Platz und Montag aus der Strava-Clubbeschreibung („every monday seven am“); Strava-Termin nennt 06:45 – ob 06:45 Treffen und 07:00 Start, bestätigen; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt",
-  "zuletzt_aktiv": "2026-11-09"
+  "zuletzt_aktiv": "2026-11-09",
+  "distanz_km": [
+   8,
+   8
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "5:30"
+  }
  },
  {
   "id": "muenchen-pas-normal-studios",
@@ -19189,27 +19197,29 @@
   "art": "Laufen",
   "stadt": "München",
   "land": "Deutschland",
-  "treffpunkt": "Altstadt-Lehel, 80539 München",
+  "treffpunkt": "Hofgarten, München",
   "lat": 48.14238,
   "lon": 11.5789,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 2,
-    "uhrzeit": "19:00"
+    "uhrzeit": "19:00",
+    "bezeichnung": "Team-Intervallsession, für alle Niveaus, Programm wechselt jede Woche"
    }
   ],
   "strava": "https://www.strava.com/clubs/1074516",
-  "beschreibung_de": "Wöchentliches Intervalltraining am Dienstagabend.",
-  "beschreibung_en": "Weekly Tuesday evening interval session.",
+  "beschreibung_de": "Intervalltraining von CATO jeden Dienstag um 19 Uhr im Hofgarten, offen für alle Leistungsstufen, das Programm wechselt jede Woche.",
+  "beschreibung_en": "CATO interval session every Tuesday at 7 pm in the Hofgarten, open to all levels, with a different programme each week.",
   "quelle": [
    "https://www.strava.com/clubs/1074516",
    "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-11-09",
-  "pruefung_offen": true,
-  "pruefung_grund": "Treffpunkt im Strava-Termin nur als Postleitzahl 80539 angegeben; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt",
-  "zuletzt_aktiv": "2026-11-09"
+  "geprueft": "2026-11-10",
+  "zuletzt_aktiv": "2026-11-09",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ]
  },
  {
   "id": "muenchen-runningsociety",
@@ -30281,5 +30291,45 @@
   ],
   "geprueft": "2026-11-09",
   "zuletzt_aktiv": "2026-11-09"
+ },
+ {
+  "id": "muenchen-salty-sports-club",
+  "name": "Salty Sports Club – Social Run München",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Odeonsplatz",
+  "lat": 48.14243,
+  "lon": 11.57746,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "08:55",
+    "bezeichnung": "Easy Run 10 km um 8:55, 5 km um 9:25"
+   }
+  ],
+  "distanz_km": [
+   5,
+   10
+  ],
+  "merkmale": [
+   "anfaengerfreundlich",
+   "mehrere_gruppen"
+  ],
+  "anmeldung": "empfohlen",
+  "anmeldung_ueber": "Strava",
+  "strava": "https://www.strava.com/clubs/saltysportsclub",
+  "instagram": "https://www.instagram.com/saltysportsclub/",
+  "beschreibung_de": "Wöchentlicher Social Run der Münchner Laufmarke Salty Sports Club ab dem Odeonsplatz: Easy Run über 10 km um 8:55 oder 5 km um 9:25, für Einsteiger und Fortgeschrittene.",
+  "beschreibung_en": "Weekly social run by Munich running brand Salty Sports Club from Odeonsplatz: 10 km easy run at 8:55 or 5 km at 9:25, for beginners and experienced runners.",
+  "quelle": [
+   "https://wellhub.com/de-de/search/partners/salty-sports-club-munchen/",
+   "https://saltysportsclub.beehiiv.com/p/read-this-before-sunday",
+   "https://www.strava.com/clubs/saltysportsclub"
+  ],
+  "geprueft": "2026-11-10",
+  "pruefung_offen": true,
+  "pruefung_grund": "Treffpunkt und Zeiten aus der Wellhub-Seite (ohne Wochentag); der Newsletter vom 19.02.2026 nennt wöchentliche Social Runs in München ohne Tag – Sonntag vermutet, Termine nur für Strava-Mitglieder sichtbar"
  }
 ]
