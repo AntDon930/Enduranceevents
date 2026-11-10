@@ -275,84 +275,77 @@ def _mund(s: _Stift, art: str, mx: float, my: float) -> None:
                 fill=KONTUR, width=int(5 * k))
 
 
+def _mische(a, b, t):
+    return tuple(int(a[i] + (b[i] - a[i]) * t) for i in range(3))
+
+
 def _kopf(s: _Stift, pose: str, mund: str) -> None:
-    """Der Kopf nach den Fotos des Nutzers (10.11.2026, „Kannst du mich
-    darstellen als Maskottchen“): ovales Gesicht, dunkelbraunes, volles
-    Haar mit Seitenscheitel und Schwung nach rechts, kurzer Vollbart mit
-    Schnurrbart, runde Hornbrille (Schildpatt)."""
+    """Der Kopf nach den Fotos des Nutzers (10.11.2026: „Kannst du mich
+    darstellen als Maskottchen“ – dann: „Mach mich sofort schöner. Kurze
+    Haare und 3 Tage Bart. Keine Brille“): ovales Gesicht mit kräftigem
+    Kinn, kurze dunkelbraune Haare mit etwas Schwung vorn, Dreitagebart,
+    keine Brille."""
     mx, my = 150, 108
-    rx, ry = 58, 70
+    rx, ry = 56, 68
     k = s.k
-    # Haare hinten: glatt, mittellang, bis über die Ohren
-    s.ellipse(mx - rx - 10, my - ry - 18, mx + rx + 12, my + 12, HAAR)
-    s.rechteck(mx - rx - 8, my - 30, mx - rx + 12, my + 6, HAAR, radius=8)
-    s.rechteck(mx + rx - 10, my - 30, mx + rx + 12, my + 8, HAAR, radius=8)
+    stoppeln = _mische(HAUT, HAAR, 0.26)
+    stoppel_punkt = _mische(HAUT, HAAR, 0.48)
     # Ohren
     for sx in (-1, 1):
-        s.kreis(mx + sx * (rx + 3), my + 10, 11, HAUT)
-    # Gesicht
-    s.ellipse(mx - rx, my - ry, mx + rx, my + ry, HAUT)
-    # Bart: unterer Teil des Gesichts, oben bis zur Wange
-    bart = [s.p(mx + rx * math.cos(math.radians(w)), my + ry * math.sin(math.radians(w)))
-            for w in range(-8, 189, 4)]
-    wange = [s.p(mx - 44, my + 34), s.p(mx - 24, my + 30), s.p(mx, my + 30),
-             s.p(mx + 24, my + 30), s.p(mx + 44, my + 34)]
-    s.d.polygon(bart[::-1] + [s.p(mx - rx, my + 8)] + wange + [s.p(mx + rx, my + 8)], fill=BART)
-    # Stoppeln an der Bartkante
-    for i in range(14):
-        x = mx - 46 + i * 7
-        y = my + 28 + abs(i - 6.5) * 1.2
-        s.d.ellipse([(x - 1.4) * k, (y - 1.4) * k, (x + 1.4) * k, (y + 1.4) * k], fill=BART)
-    # Gesichtskontur neu über dem Bart
-    s.d.ellipse([(mx - rx) * k, (my - ry) * k, (mx + rx) * k, (my + ry) * k], outline=KONTUR,
-                width=int(5 * k))
-    # Haar vorn: Seitenscheitel links, Schwung nach rechts über die Stirn
-    vorn = [(mx - rx - 6, my - 4), (mx - rx - 4, my - 50), (mx - 34, my - 82), (mx + 4, my - 90),
-            (mx + 42, my - 82), (mx + rx + 10, my - 52), (mx + rx + 10, my - 6), (mx + rx - 2, my - 34),
-            (mx + 30, my - 50), (mx - 4, my - 54), (mx - 32, my - 48), (mx - 50, my - 32)]
-    s.d.polygon([s.p(*q) for q in vorn], fill=HAAR, outline=KONTUR, width=int(5 * k))
-    s.linie([(mx - 26, my - 80), (mx - 42, my - 40)], 3, (40, 28, 22))
-    s.linie([(mx - 6, my - 84), (mx + 40, my - 64), (mx + 60, my - 30)], 3.5, (96, 70, 54))
+        s.kreis(mx + sx * (rx + 2), my + 8, 11, HAUT)
+    # Gesicht: Oval, unten etwas kantiger (Kinn)
+    form = []
+    for w in range(0, 360, 4):
+        r = math.radians(w)
+        x, y = math.cos(r), math.sin(r)
+        if y > 0:                       # untere Hälfte: breiterer Kiefer
+            x *= 1.0 + 0.08 * y
+        form.append((mx + rx * x, my + ry * y))
+    o = s.o
+    s.d.polygon([s.p(*q) for q in form], fill=HAUT, outline=KONTUR, width=int(5 * k))
+    # Dreitagebart: Kiefer, Kinn und Oberlippe in einem Hauch dunkler
+    bart = [q for q in form if q[1] > my + 16]          # rechts → links über das Kinn
+    wange = [(mx - 50, my + 18), (mx - 30, my + 28), (mx - 12, my + 24), (mx, my + 26),
+             (mx + 12, my + 24), (mx + 30, my + 28), (mx + 50, my + 18)]
+    s.d.polygon([s.p(*q) for q in bart + wange], fill=stoppeln)
+    import random as _random
+    r = _random.Random(7)
+    for _ in range(110):
+        x = r.uniform(mx - 50, mx + 50)
+        y = r.uniform(my + 24, my + ry + 4)
+        nx, ny = (x - mx) / (rx * 1.06), (y - my) / ry
+        if nx * nx + ny * ny < 0.9:
+            d = 0.9
+            s.d.ellipse([(x - d) * k, (y - d) * k, (x + d) * k, (y + d) * k], fill=stoppel_punkt)
+    s.d.polygon([s.p(*q) for q in form], outline=KONTUR, width=int(5 * k))
+    # Kurze Haare: eng am Kopf, vorn ein kleiner Schwung nach rechts
+    haar = [(mx - rx - 3, my + 2), (mx - rx - 6, my - 30), (mx - 40, my - 64), (mx - 8, my - 78),
+            (mx + 30, my - 76), (mx + 52, my - 56), (mx + rx + 4, my - 26), (mx + rx + 3, my + 2),
+            (mx + rx - 6, my - 20), (mx + 34, my - 40), (mx + 6, my - 46), (mx - 20, my - 44),
+            (mx - 42, my - 34), (mx - rx + 6, my - 14)]
+    s.d.polygon([s.p(*q) for q in haar], fill=HAAR, outline=KONTUR, width=int(5 * k))
+    s.linie([(mx - 14, my - 70), (mx + 22, my - 62), (mx + 44, my - 46)], 3.2, (98, 72, 56))
     # Brauen
     for sx in (-1, 1):
-        bx, by = mx + sx * 25, my - 20
+        bx, by = mx + sx * 23, my - 14
         if mund == "streng":
             innen, aussen = by + 4, by - 4
         else:
-            innen = aussen = by
-        s.linie([(bx - sx * 12, innen), (bx + sx * 12, aussen - 2)], 6, HAAR)
-    # Augen
+            innen, aussen = by - 1, by - 1
+        s.linie([(bx - sx * 11, innen), (bx, by - 4), (bx + sx * 11, aussen + 1)], 5, HAAR)
+    # Augen: freundlich, mit Lichtpunkt
     zwinker = pose == "daumen"
     for sx in (-1, 1):
-        ax, ay = mx + sx * 25, my + 2
+        ax, ay = mx + sx * 23, my + 4
         if zwinker and sx == 1:
             s.d.arc([(ax - 9) * k, (ay - 6) * k, (ax + 9) * k, (ay + 6) * k], 200, 340,
                      fill=KONTUR, width=int(4.5 * k))
             continue
-        s.d.ellipse([(ax - 6.5) * k, (ay - 8) * k, (ax + 6.5) * k, (ay + 8) * k], fill=KONTUR)
-        s.d.ellipse([(ax - 0.5) * k, (ay - 5.5) * k, (ax + 4) * k, (ay - 1) * k], fill=WEISS)
-    # Runde Hornbrille: Gläser leicht getönt, Steg, Bügel
-    for sx in (-1, 1):
-        ax, ay = mx + sx * 25, my + 2
-        r = 19
-        s.d.ellipse([(ax - r) * k, (ay - r) * k, (ax + r) * k, (ay + r) * k], outline=KONTUR,
-                    width=int(10 * k))
-        s.d.ellipse([(ax - r + 2) * k, (ay - r + 2) * k, (ax + r - 2) * k, (ay + r - 2) * k],
-                    outline=BRILLE, width=int(5 * k))
-        s.d.arc([(ax - 12) * k, (ay - 13) * k, (ax + 4) * k, (ay + 3) * k], 200, 260,
-                fill=WEISS, width=int(3 * k))
-        s.linie([(ax + sx * (r - 1), ay - 6), (mx + sx * rx, my - 6)], 4.5, BRILLE)
-    s.d.arc([(mx - 8) * k, (my - 4) * k, (mx + 8) * k, (my + 8) * k], 200, 340, fill=BRILLE,
-            width=int(5 * k))
+        s.d.ellipse([(ax - 6.5) * k, (ay - 7.5) * k, (ax + 6.5) * k, (ay + 7.5) * k], fill=KONTUR)
+        s.d.ellipse([(ax - 0.5) * k, (ay - 5) * k, (ax + 3.5) * k, (ay - 1) * k], fill=WEISS)
     # Nase
-    s.d.arc([(mx - 7) * k, (my + 8) * k, (mx + 7) * k, (my + 22) * k], 300, 60, fill=HAUT_SCHATTEN,
-            width=int(4 * k))
-    s.d.arc([(mx - 7) * k, (my + 10) * k, (mx + 9) * k, (my + 24) * k], 20, 120, fill=KONTUR,
+    s.d.arc([(mx - 6) * k, (my + 10) * k, (mx + 8) * k, (my + 24) * k], 20, 130, fill=KONTUR,
             width=int(3.5 * k))
-    # Schnurrbart
-    for sx in (-1, 1):
-        s.d.chord([(mx - (24 if sx < 0 else 0)) * k, (my + 23) * k, (mx + (0 if sx < 0 else 24)) * k,
-                   (my + 37) * k], 180, 360, fill=(84, 58, 44))
     _mund(s, mund, mx, my + 40)
 
 

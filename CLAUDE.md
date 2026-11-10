@@ -5525,8 +5525,10 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Karikatur** (vom Nutzer am 10.11.2026 mit vier Fotos: „Der Typ sieht
   bisschen zu feminin aus. Bitte ihn nicht in komplett rosa machen. Und
   auch kein Stirnband … Kannst du mich darstellen als Maskottchen“):
-  dunkelbraunes, glattes Haar mit Seitenscheitel, kurzer Vollbart mit
-  Schnurrbart, runde Hornbrille (Schildpatt), Laufshirt in dunklem Petrol
+  am selben Tag nachgeschärft („Mach mich sofort schöner. Kurze Haare
+  und 3 Tage Bart. Keine Brille“): kurze dunkelbraune Haare mit etwas
+  Schwung vorn, Dreitagebart, KEINE Brille, ovales Gesicht mit kräftigem
+  Kinn, Laufshirt in dunklem Petrol
   mit Soft-Blue-Streifen und Startnummer, dunkle Hose, weiße Schuhe – KEIN
   Stirnband, KEIN Rosa/Coral als Kleidung, keine Bäckchen. Geht es ums
   Essen, sitzt er am Tisch (Pose `nudeln`: Stuhl, Tisch mit Tischtuch,
