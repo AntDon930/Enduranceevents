@@ -44,6 +44,17 @@ GLAS = (205, 228, 238)
 SHIRT = (22, 70, 100)         # Laufshirt: dunkles Petrol, Soft-Blue-Streifen
 SHIRT_STREIFEN = SOFT_BLUE
 HOSE = (54, 60, 70)
+HAAR_SIE = (122, 80, 50)      # mittelbraun, Pferdeschwanz
+
+# Zwei Figuren, die sich abwechseln (vom Nutzer am 10.11.2026: „auch noch
+# bitte eine weibliche Person … mal die weibliche Person in einem Post und
+# mal ich. Das ist einfach random. Die Posts sollen aber nicht nach
+# mansplaining aussehen“): „er“ = der Nutzer, „sie“ = eine Läuferin mit
+# Pferdeschwanz. Beide gleichwertig: dieselben Posen, dieselbe Rolle.
+PERSONEN = {
+    "er": {"haar": HAAR, "shirt": (22, 70, 100), "streifen": SOFT_BLUE, "hose": HOSE},
+    "sie": {"haar": HAAR_SIE, "shirt": CORAL, "streifen": MIDNIGHT, "hose": MIDNIGHT},
+}
 HOLZ = (176, 122, 78)
 HOLZ_DUNKEL = (140, 94, 58)
 NUDEL = (246, 206, 92)
@@ -279,17 +290,15 @@ def _mische(a, b, t):
     return tuple(int(a[i] + (b[i] - a[i]) * t) for i in range(3))
 
 
-def _kopf(s: _Stift, pose: str, mund: str) -> None:
-    """Der Kopf nach den Fotos des Nutzers (10.11.2026: „Kannst du mich
-    darstellen als Maskottchen“ – dann: „Mach mich sofort schöner. Kurze
-    Haare und 3 Tage Bart. Keine Brille“): ovales Gesicht mit kräftigem
-    Kinn, kurze dunkelbraune Haare mit etwas Schwung vorn, Dreitagebart,
-    keine Brille."""
+def _kopf(s: _Stift, pose: str, mund: str, person: str = "er") -> None:
+    """Der Kopf. „er“ nach den Fotos des Nutzers (10.11.2026: „Kannst du
+    mich darstellen als Maskottchen“, dann „Kurze Haare … Keine Brille“ und
+    zuletzt „Dann ohne Bart“): ovales Gesicht, kurze dunkelbraune Haare
+    mit etwas Schwung vorn, kein Bart, keine Brille. „sie“: dieselbe
+    Gesichtsform, mittelbraunes Haar mit Pferdeschwanz, Ohrstecker."""
     mx, my = 150, 108
     rx, ry = 56, 68
     k = s.k
-    stoppeln = _mische(HAUT, HAAR, 0.26)
-    stoppel_punkt = _mische(HAUT, HAAR, 0.48)
     # Ohren
     for sx in (-1, 1):
         s.kreis(mx + sx * (rx + 2), my + 8, 11, HAUT)
@@ -301,30 +310,48 @@ def _kopf(s: _Stift, pose: str, mund: str) -> None:
         if y > 0:                       # untere Hälfte: breiterer Kiefer
             x *= 1.0 + 0.08 * y
         form.append((mx + rx * x, my + ry * y))
-    o = s.o
     s.d.polygon([s.p(*q) for q in form], fill=HAUT, outline=KONTUR, width=int(5 * k))
-    # Dreitagebart: Kiefer, Kinn und Oberlippe in einem Hauch dunkler
-    bart = [q for q in form if q[1] > my + 16]          # rechts → links über das Kinn
-    wange = [(mx - 50, my + 18), (mx - 30, my + 28), (mx - 12, my + 24), (mx, my + 26),
-             (mx + 12, my + 24), (mx + 30, my + 28), (mx + 50, my + 18)]
-    s.d.polygon([s.p(*q) for q in bart + wange], fill=stoppeln)
-    import random as _random
-    r = _random.Random(7)
-    for _ in range(110):
-        x = r.uniform(mx - 50, mx + 50)
-        y = r.uniform(my + 24, my + ry + 4)
-        nx, ny = (x - mx) / (rx * 1.06), (y - my) / ry
-        if nx * nx + ny * ny < 0.9:
-            d = 0.9
-            s.d.ellipse([(x - d) * k, (y - d) * k, (x + d) * k, (y + d) * k], fill=stoppel_punkt)
-    s.d.polygon([s.p(*q) for q in form], outline=KONTUR, width=int(5 * k))
-    # Kurze Haare: eng am Kopf, vorn ein kleiner Schwung nach rechts
+    if person == "sie":
+        _haar_sie_vorn(s, mx, my, rx)
+    else:
+        _haar_er(s, mx, my, rx)
+    _gesicht(s, pose, mund, mx, my, person)
+
+
+def _haar_er(s: _Stift, mx, my, rx) -> None:
+    """Kurze Haare: eng am Kopf, vorn ein kleiner Schwung nach rechts."""
+    k = s.k
     haar = [(mx - rx - 3, my + 2), (mx - rx - 6, my - 30), (mx - 40, my - 64), (mx - 8, my - 78),
             (mx + 30, my - 76), (mx + 52, my - 56), (mx + rx + 4, my - 26), (mx + rx + 3, my + 2),
             (mx + rx - 6, my - 20), (mx + 34, my - 40), (mx + 6, my - 46), (mx - 20, my - 44),
             (mx - 42, my - 34), (mx - rx + 6, my - 14)]
     s.d.polygon([s.p(*q) for q in haar], fill=HAAR, outline=KONTUR, width=int(5 * k))
     s.linie([(mx - 14, my - 70), (mx + 22, my - 62), (mx + 44, my - 46)], 3.2, (98, 72, 56))
+
+
+def _haar_sie_hinten(s: _Stift, mx=150, my=108, rx=56) -> None:
+    """Hinterkopf und Pferdeschwanz (hinter dem Gesicht)."""
+    s.ellipse(mx - rx - 6, my - 80, mx + rx + 6, my + 20, HAAR_SIE)
+    zopf = [(mx + 40, my - 58), (mx + 78, my - 52), (mx + 96, my - 20), (mx + 92, my + 30),
+            (mx + 78, my + 62), (mx + 74, my + 24), (mx + 66, my - 10), (mx + 44, my - 30)]
+    s.d.polygon([s.p(*q) for q in zopf], fill=HAAR_SIE, outline=KONTUR, width=int(5 * s.k))
+    s.rechteck(mx + 52, my - 62, mx + 66, my - 42, CORAL, radius=4)
+
+
+def _haar_sie_vorn(s: _Stift, mx, my, rx) -> None:
+    """Haar vorn: zurückgekämmt mit einer seitlichen Strähne."""
+    k = s.k
+    haar = [(mx - rx - 3, my + 4), (mx - rx - 6, my - 32), (mx - 38, my - 68), (mx - 4, my - 80),
+            (mx + 34, my - 74), (mx + rx + 2, my - 40), (mx + rx + 3, my + 4), (mx + rx - 6, my - 24),
+            (mx + 30, my - 46), (mx - 6, my - 50), (mx - 34, my - 36), (mx - rx + 4, my - 6)]
+    s.d.polygon([s.p(*q) for q in haar], fill=HAAR_SIE, outline=KONTUR, width=int(5 * k))
+    s.linie([(mx - 22, my - 72), (mx - 30, my - 40)], 3.2, (150, 104, 70))
+    s.linie([(mx + 4, my - 76), (mx + 36, my - 56)], 3.2, (150, 104, 70))
+
+
+def _gesicht(s: _Stift, pose: str, mund: str, mx, my, person: str) -> None:
+    k = s.k
+    haar = PERSONEN[person]["haar"]
     # Brauen
     for sx in (-1, 1):
         bx, by = mx + sx * 23, my - 14
@@ -332,7 +359,8 @@ def _kopf(s: _Stift, pose: str, mund: str) -> None:
             innen, aussen = by + 4, by - 4
         else:
             innen, aussen = by - 1, by - 1
-        s.linie([(bx - sx * 11, innen), (bx, by - 4), (bx + sx * 11, aussen + 1)], 5, HAAR)
+        s.linie([(bx - sx * 11, innen), (bx, by - 4), (bx + sx * 11, aussen + 1)],
+                5 if person == "er" else 3.8, haar)
     # Augen: freundlich, mit Lichtpunkt
     zwinker = pose == "daumen"
     for sx in (-1, 1):
@@ -343,14 +371,21 @@ def _kopf(s: _Stift, pose: str, mund: str) -> None:
             continue
         s.d.ellipse([(ax - 6.5) * k, (ay - 7.5) * k, (ax + 6.5) * k, (ay + 7.5) * k], fill=KONTUR)
         s.d.ellipse([(ax - 0.5) * k, (ay - 5) * k, (ax + 3.5) * k, (ay - 1) * k], fill=WEISS)
+        if person == "sie":       # zwei kleine Wimpern außen
+            s.linie([(ax + sx * 5, ay - 6), (ax + sx * 10, ay - 10)], 2.6, KONTUR)
+            s.linie([(ax + sx * 6.5, ay - 2), (ax + sx * 11.5, ay - 4)], 2.6, KONTUR)
     # Nase
     s.d.arc([(mx - 6) * k, (my + 10) * k, (mx + 8) * k, (my + 24) * k], 20, 130, fill=KONTUR,
             width=int(3.5 * k))
+    if person == "sie":           # kleine Ohrstecker
+        for sx in (-1, 1):
+            s.kreis(mx + sx * 58, my + 18, 3.2, CORAL, kontur=False)
     _mund(s, mund, mx, my + 40)
 
 
-def _figur_gross(pose: str) -> Image.Image:
+def _figur_gross(pose: str, person: str = "er") -> Image.Image:
     p = POSEN[pose]
+    farben = PERSONEN[person]
     k = SS
     img = Image.new("RGBA", (EIN_B * k, EIN_H * k), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
@@ -373,14 +408,16 @@ def _figur_gross(pose: str) -> Image.Image:
             s.glied([(hx + sx * 2, BODEN - 6), (hx + sx * 22, BODEN - 6)], 18, WEISS)
             s.linie([(hx + sx * 4, BODEN - 10), (hx + sx * 18, BODEN - 10)], 4, CORAL)
         # Laufhose
-        s.rechteck(110, 252, 190, 292, HOSE, radius=10)
+        s.rechteck(110, 252, 190, 292, farben["hose"], radius=10)
         s.d.line([s.p(150, 262), s.p(150, 292)], fill=KONTUR, width=int(3 * k))
     # Laufshirt mit breiten Schultern, Soft-Blue-Streifen an der Seite
-    s.rechteck(104, 174, 196, 266, SHIRT, radius=26)
+    breit = 0 if person == "er" else 6          # sie: etwas schmalere Schultern
+    s.rechteck(104 + breit, 174, 196 - breit, 266, farben["shirt"], radius=26)
     for sx in (-1, 1):
-        s.d.line([s.p(150 + sx * 40, 190), s.p(150 + sx * 40, 262)], fill=SHIRT_STREIFEN, width=int(6 * k))
+        s.d.line([s.p(150 + sx * (40 - breit), 190), s.p(150 + sx * (40 - breit), 262)],
+                 fill=farben["streifen"], width=int(6 * k))
     s.d.arc([s.p(130, 164)[0], s.p(130, 164)[1], s.p(170, 188)[0], s.p(170, 188)[1]], 20, 160,
-            fill=SHIRT_STREIFEN, width=int(5 * k))
+            fill=farben["streifen"], width=int(5 * k))
     # Startnummer mit Routenzeichen
     s.rechteck(124, 210, 176, 246, WEISS, radius=5)
     route = [(131, 239), (142, 222), (152, 232), (167, 216)]
@@ -389,12 +426,14 @@ def _figur_gross(pose: str) -> Image.Image:
     for seite in ("links", "rechts"):
         sh, e, h = schultern[seite], ellbogen[seite], haende[seite]
         s.glied([sh, e, h], 19, HAUT)
-        s.glied([sh, (sh[0] + (e[0] - sh[0]) * 0.34, sh[1] + (e[1] - sh[1]) * 0.34)], 28, SHIRT)
+        s.glied([sh, (sh[0] + (e[0] - sh[0]) * 0.34, sh[1] + (e[1] - sh[1]) * 0.34)], 28, farben["shirt"])
         eigene_hand = (seite == "rechts" and any(z in zub for z in ("stopphand", "daumen", "banane"))) \
             or "kalender" in zub
         if not eigene_hand:
             s.kreis(h[0], h[1], 11, HAUT)
-    _kopf(s, pose, p.get("mund", "laecheln"))
+    if person == "sie":
+        _haar_sie_hinten(s)
+    _kopf(s, pose, p.get("mund", "laecheln"), person)
     for z in zub:
         _zubehoer(s, z, haende, img)
     return img
@@ -410,12 +449,14 @@ def _sticker(img: Image.Image, rand: int) -> Image.Image:
 
 
 @lru_cache(maxsize=64)
-def figur(pose: str, hoehe: int = 400) -> Image.Image:
+def figur(pose: str, hoehe: int = 400, person: str = "er") -> Image.Image:
     """Die Figur in der Pose `pose`, `hoehe` Pixel hoch, mit weißem
     Sticker-Rand und weichem Schatten; RGBA, freigestellt."""
     if pose not in POSEN:
         raise KeyError(f"unbekannte Pose: {pose} (bekannt: {', '.join(POSEN)})")
-    gross = _figur_gross(pose)
+    if person not in PERSONEN:
+        raise KeyError(f"unbekannte Person: {person} (bekannt: {', '.join(PERSONEN)})")
+    gross = _figur_gross(pose, person)
     b = round(EIN_B * hoehe / EIN_H)
     klein = gross.resize((b, hoehe), Image.LANCZOS)
     rand = max(3, hoehe // 70)
@@ -435,7 +476,7 @@ def figur(pose: str, hoehe: int = 400) -> Image.Image:
 if __name__ == "__main__":
     import sys
     ziel = sys.argv[1] if len(sys.argv) > 1 else "maskottchen.png"
-    bilder = [figur(p, 360) for p in POSEN]
+    bilder = [figur(p, 360, person) for person in PERSONEN for p in POSEN]
     w = sum(b.width for b in bilder) + 20 * (len(bilder) + 1)
     h = max(b.height for b in bilder) + 40
     bogen = Image.new("RGB", (w, h), SOFT_BLUE)

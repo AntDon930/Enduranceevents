@@ -5526,11 +5526,20 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   bisschen zu feminin aus. Bitte ihn nicht in komplett rosa machen. Und
   auch kein Stirnband … Kannst du mich darstellen als Maskottchen“):
   am selben Tag nachgeschärft („Mach mich sofort schöner. Kurze Haare
-  und 3 Tage Bart. Keine Brille“): kurze dunkelbraune Haare mit etwas
-  Schwung vorn, Dreitagebart, KEINE Brille, ovales Gesicht mit kräftigem
-  Kinn, Laufshirt in dunklem Petrol
+  und 3 Tage Bart. Keine Brille“, dann zum Bart: „Was ist das? Dann ohne
+  Bart“): kurze dunkelbraune Haare mit etwas Schwung vorn, KEIN Bart,
+  KEINE Brille, ovales Gesicht, Laufshirt in dunklem Petrol
   mit Soft-Blue-Streifen und Startnummer, dunkle Hose, weiße Schuhe – KEIN
-  Stirnband, KEIN Rosa/Coral als Kleidung, keine Bäckchen. Geht es ums
+  Stirnband, KEIN Rosa/Coral als Kleidung, keine Bäckchen. **Dazu eine
+  Läuferin** („auch noch bitte eine weibliche Person … mal die weibliche
+  Person in einem Post und mal ich. Das ist einfach random. Die Posts
+  sollen aber nicht nach mansplaining aussehen“): `PERSONEN` „er“/„sie“,
+  sie mit mittelbraunem Pferdeschwanz, Coral-Shirt mit Navy-Streifen,
+  Ohrsteckern; dieselben Posen, dieselbe Rolle. `figur(pose, hoehe,
+  person)`; `insta_karussell.person_fuer()` wählt je Beitrag zufällig,
+  aber fest (Seed = Blog-Slug), `"person"` im JSON überschreibt. Gegen
+  „Mansplaining“: beide gleichwertig, Texte sprechen „du“ an, keine Figur
+  belehrt die andere – nie beide zusammen mit Rollen „erklärt/hört zu“. Geht es ums
   Essen, sitzt er am Tisch (Pose `nudeln`: Stuhl, Tisch mit Tischtuch,
   Teller, Gabel; `sitzen: True` lässt Beine und Hose weg). Posen in
   `POSEN` (stehen, winken, nudeln, banane, zeigen, denken, stopp, daumen,

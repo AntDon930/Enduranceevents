@@ -61,6 +61,8 @@ def lade(slug: str) -> dict:
 def pruefe(daten: dict) -> None:
     """Wirft ValueError, wenn ein Pflichtfeld fehlt oder eine Pose/ein
     Zeichen unbekannt ist."""
+    if daten.get("person") not in (None, *maskottchen.PERSONEN):
+        raise ValueError(f"unbekannte Person: {daten.get('person')}")
     for feld in ("titel", "seiten", "schluss", "caption", "blog"):
         if not daten.get(feld):
             raise ValueError(f"Feld fehlt: {feld}")
@@ -200,8 +202,23 @@ def _absatz(fett: str, text: str, g: int, max_b) -> list[list[tuple[str, object]
     return zeilen
 
 
+def person_fuer(daten: dict) -> str:
+    """Wer durch das Karussell führt: „er“ (der Nutzer) oder „sie“ (die
+    Läuferin) – vom Nutzer am 10.11.2026: „mal die weibliche Person in einem
+    Post und mal ich. Das ist einfach random.“ Fest im JSON (`person`) oder
+    zufällig, aber je Beitrag immer gleich (Seed = Slug), damit ein neues
+    Rendern dieselbe Figur zeigt."""
+    import random
+    if daten.get("person") in maskottchen.PERSONEN:
+        return daten["person"]
+    return random.Random(daten["blog"]).choice(sorted(maskottchen.PERSONEN))
+
+
+_PERSON = {"wer": "er"}
+
+
 def _figur_einsetzen(img: Image.Image, pose: str, hoehe: int, x_rechts: int, y_unten: int) -> tuple[int, int]:
-    fig = maskottchen.figur(pose, hoehe)
+    fig = maskottchen.figur(pose, hoehe, _PERSON["wer"])
     x = x_rechts - fig.width
     y = y_unten - fig.height
     img.paste(fig, (x, y), fig)
@@ -343,6 +360,7 @@ def schlussseite(daten: dict, nr: int, gesamt: int) -> Image.Image:
 
 def seiten(daten: dict) -> list[Image.Image]:
     gesamt = len(daten["seiten"]) + 2
+    _PERSON["wer"] = person_fuer(daten)
     bilder = [titelseite(daten, gesamt)]
     for i, s in enumerate(daten["seiten"]):
         bilder.append(themenseite(s, i + 2, gesamt, i + 1))

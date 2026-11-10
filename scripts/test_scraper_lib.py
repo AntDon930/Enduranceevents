@@ -7283,9 +7283,15 @@ def test_insta_karussell() -> None:
     import insta_maskottchen as M
     check("Farben des Nutzers", (M.SOFT_BLUE, M.MIDNIGHT, M.CORAL),
           ((0xB6, 0xDF, 0xED), (0x00, 0x29, 0x41), (0xFD, 0x6E, 0x6E)))
-    for pose in M.POSEN:
-        bild = M.figur(pose, 200)
-        check(f"Pose {pose} gezeichnet", bild.height > 200 and bild.getbbox() is not None, True)
+    for person in M.PERSONEN:
+        for pose in M.POSEN:
+            bild = M.figur(pose, 200, person)
+            check(f"Pose {pose} ({person}) gezeichnet", bild.height > 200 and bild.getbbox() is not None, True)
+    check("zwei Figuren: er und sie", sorted(M.PERSONEN), ["er", "sie"])
+    gezogen = {K.person_fuer({"blog": f"beitrag-{i}"}) for i in range(20)}
+    check("beide Figuren kommen vor", gezogen, {"er", "sie"})
+    check("Figur je Beitrag fest", K.person_fuer({"blog": "x"}), K.person_fuer({"blog": "x"}))
+    check("Figur im JSON gewinnt", K.person_fuer({"blog": "x", "person": "sie"}), "sie")
     blog = {b["slug"] for b in _json.loads((K.ROOT / "blog.json").read_text(encoding="utf-8"))}
     dateien = sorted(K.ORDNER.glob("*.json"))
     check("mindestens ein Karussell", len(dateien) >= 1, True)
