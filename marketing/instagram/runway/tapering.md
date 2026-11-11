@@ -29,8 +29,8 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 ## Szene 2 – Was ist Tapering? (4–8 s)
 
-- **Sprecher**: „Das nennt man Tapering: Die Müdigkeit verschwindet, die Form bleibt – und du stehst frisch am Start.“
-- **Einblendung**: TAPERING = Müdigkeit weg, Form bleibt
+- **Sprecher**: „Das nennt man Tapering: Dein Körper erholt sich, deine Fitness bleibt – und du stehst frisch am Start.“
+- **Einblendung**: TAPERING = erholt, aber fit
 - **Runway-Prompt**: *A single runner seen from behind jogging slowly and relaxed along a quiet river path in the early morning, mist over the water, calm atmosphere, slow camera follow, vertical 9:16.*
 
 ## Szene 3 – So geht's (8–12 s)
