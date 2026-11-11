@@ -1,18 +1,18 @@
-# Runway-Skript: Tapering (Reel, 9:16, ca. 15 s)
+# Runway-Skript: Tapering (Reel, 9:16, ca. 20 s)
 
 Grundlage: Blogbeitrag `scripts/blog_texte/tapering.html` – jede Aussage
 steht dort mit Quelle, hier kommt nichts dazu. Stand: dritter Entwurf zum
 Probelesen (11.11.2026, mit Sprecher), noch nichts bei Runway in Auftrag gegeben.
 
-**Vorgaben des Nutzers (11.11.2026)**: ca. 15 Sekunden, **echte Szenen** –
+**Vorgaben des Nutzers (11.11.2026)**: ca. 20 Sekunden (erst 15, dann: „15 ist zu kurz um das Thema zu erklären“), **echte Szenen** –
 das Maskottchen gehört zu den informativen Posts/Slides, nicht in die
 Runway-Videos; **gesprochen** („Das ganze soll schon von jemanden
 gesprochen werden“).
 
-**Aufbau**: Runway erzeugt nur die Bilder (4 Clips à 5 s, danach auf die
+**Aufbau**: Runway erzeugt nur die Bilder (5 Clips à 5 s, danach auf die
 Länge geschnitten, ohne Schrift – KI-Videos schreiben deutschen Text
-unzuverlässig), dazu die Sprecherstimme über Runway (Text unten, ca. 45
-Worte ≈ 16 s in zügigem Tempo). Einblendungen und leisen Beat unter der
+unzuverlässig), dazu die Sprecherstimme über Runway (Text unten, ca. 60
+Worte ≈ 20 s in zügigem Tempo). Einblendungen und leisen Beat unter der
 Stimme setzen wir danach selbst darüber, in Soft Blue / Midnight Navy /
 Coral. Die Einblendungen greifen nur das Stichwort auf.
 
@@ -33,13 +33,19 @@ Läufer von hinten, Füße, Hände, Gruppen.
 - **Einblendung**: TAPERING = erholt, aber fit
 - **Runway-Prompt**: *A single runner seen from behind jogging slowly and relaxed along a quiet river path in the early morning, mist over the water, calm atmosphere, slow camera follow, vertical 9:16.*
 
-## Szene 3 – So geht's (8–12 s)
+## Szene 3 – Bringt das was? (8–12 s)
+
+- **Sprecher**: „Eine Studie mit über 158.000 Marathonläufern zeigt: Wer so tapert, ist im Schnitt gut fünfeinhalb Minuten schneller.“
+- **Einblendung**: 158.000 Läufer · ⌀ 5,5 Min. schneller
+- **Runway-Prompt**: *Aerial drone shot of a large city marathon field running between buildings, thousands of runners seen from above, morning sun, vertical 9:16, epic.*
+
+## Szene 4 – So geht's (12–16 s)
 
 - **Sprecher**: „Umfang halbieren, Tempo halten – zwei bis drei Wochen lang.“
 - **Einblendung** (nacheinander): Umfang ½ · Tempo bleibt · 2–3 Wochen
 - **Runway-Prompt**: *Runner's feet doing short, fast strides on an empty running track, low camera angle, dynamic, vertical 9:16.*
 
-## Szene 4 – Kernsatz & Schluss (12–16 s)
+## Szene 5 – Kernsatz & Schluss (16–20 s)
 
 - **Sprecher**: „Spar an den Kilometern, nicht am Tempo. Mehr dazu im Blog!“
 - **Einblendung**: SPAR AN DEN KILOMETERN – NICHT AM TEMPO. → klein darunter: Mehr im Blog · Link in der Bio
@@ -61,8 +67,8 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 ## Kosten (grob)
 
-4 Clips à 5 s – je nach Modell etwa 200–800 der 2.250 Credits; die
-Stimme (ca. 15 s) kostet nur wenige Credits.
+5 Clips à 5 s – je nach Modell etwa 250–1.000 der 2.250 Credits; die
+Stimme (ca. 20 s) kostet nur wenige Credits.
 
 ## Stimme
 

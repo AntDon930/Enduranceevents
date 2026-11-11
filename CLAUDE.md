@@ -5576,8 +5576,8 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
 - **Runway (KI-Video, seit 11.11.2026)**: Connector „Runway“ auf claude.ai
   (`https://mcp.runwayml.com/mcp`), Workspace „Anton“, Credits aus dem Abo –
   nichts in Auftrag geben ohne Ja des Nutzers. Skripte in
-  `marketing/instagram/runway/<thema>.md`. Vom Nutzer: Reels ca. 15 s,
-  **echte Szenen** – das Maskottchen gehört zu den informativen
+  `marketing/instagram/runway/<thema>.md`. Vom Nutzer: Reels ca. 20 s (15 s war zu kurz,
+  um ein Thema zu erklären), gesprochen, **echte Szenen** – das Maskottchen gehört zu den informativen
   Posts/Slides, nicht in Runway-Videos. Runway liefert nur Bilder (keine
   Schrift), Einblendungen und Beat setzen wir selbst; keine Gesichter in
   Nahaufnahme (Bildregel der Startseite).
