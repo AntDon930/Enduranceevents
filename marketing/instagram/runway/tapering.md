@@ -34,7 +34,7 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 ## Szene 2 – Was ist Tapering? (4–8 s)
 
-- **Sprecher**: „Das nennt man Tapering: Dein Körper erholt sich, deine Fitness bleibt – und du stehst frisch am Start.“
+- **Sprecher**: „Das nennt man Tapering: Dein Körper erholt sich, deine Fitness bleibt.“
 - **Einblendung**: TAPERING = erholt, aber fit
 - **Runway-Prompt**: *A single runner seen from behind jogging slowly and relaxed along a quiet river path in the early morning, mist over the water, easy training pace, slow camera follow, vertical 9:16.*
 
@@ -79,6 +79,6 @@ Stimme (ca. 20 s) kostet nur wenige Credits.
 
 ## Stimme
 
-Deutsch, energisch und freundlich, wie ein Lauftrainer – nicht wie
-Werbung. Vor dem Auftrag suche ich bei Runway zwei, drei passende
-Stimmen (männlich/weiblich) heraus; du wählst.
+**Dennis – Authentic German Narrator** (Runway/Eleven v4, voiceId
+`bGkjVHUyQ9rRhorWJufM`, Sprache de, Tempo 1,08) – vom Nutzer am
+11.11.2026 gewählt (Probe gegen Laura, `LB5G0Z4EP98YaEgL654m`).
