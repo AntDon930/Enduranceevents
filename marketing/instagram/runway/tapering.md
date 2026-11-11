@@ -54,8 +54,8 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 ## Szene 5 – Kernsatz & Schluss (16–20 s)
 
-- **Sprecher**: „Spar an den Kilometern, nicht am Tempo. Mehr dazu im Blog!“
-- **Einblendung**: SPAR AN DEN KILOMETERN – NICHT AM TEMPO. → klein darunter: Mehr im Blog · Link in der Bio
+- **Sprecher**: „Spar an den Kilometern, nicht am Tempo. Schwere Beine in der Rennwoche? Ganz normal – am Start bist du bereit.“
+- **Einblendung**: SPAR AN DEN KILOMETERN – NICHT AM TEMPO. → Schwere Beine? Ganz normal. → klein am Ende: Link in der Bio
 - **Runway-Prompt**: *At the start of a huge international big-city marathon, a runner standing in the very front row behind the start line, bouncing lightly on the spot, shaking out the legs and warming up, ready and confident; behind him tens of thousands of runners filling a wide boulevard, a giant start arch, flags, confetti in the air, aerial camera rising slowly, filmed from behind and from a low angle at the legs, no close-up of faces, no real event logos, morning sun, vertical 9:16, cinematic and epic.*
 
 ---
