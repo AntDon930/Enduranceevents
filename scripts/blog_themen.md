@@ -35,7 +35,9 @@ auf der Live-Seite (Entwicklungs-Branch, beide Live-Namen). Seit dem 04.11.2026 
   fast“), spannende Zwischenüberschriften – Fakten, Fußnoten und Links wie
   im deutschen Text. Keine ausgedachten Vergleiche (vom Nutzer: „Das
   Beispiel mit der Kerze. Das sagt doch niemand so“) – ein Bild nur, wenn es
-  geläufig ist, in beiden Sprachen. Einzelheiten README „Blog“, Punkt „Sprache“.
+  geläufig ist, in beiden Sprachen. Nur Wendungen, die es im Englischen
+  wirklich gibt (vom Nutzer: „Run out the year – das ist kein gutes Englisch“;
+  richtig war „Finish the year strong“). Einzelheiten README „Blog“, Punkt „Sprache“.
 
 | Termin | Status | Typ | Sportart | Thema |
 |---|---|---|---|---|

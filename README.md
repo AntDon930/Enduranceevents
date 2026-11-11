@@ -4082,7 +4082,7 @@ Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` un
     real“), jede Zwischenüberschrift ein kleiner Haken statt einer
     Etikette, Schluss „The bottom line“. Der TITEL ist eine eigene Pointe
     mit Doppelpunkt, nicht der übersetzte deutsche („Tapering: slow is
-    smooth, and smooth is fast“, „Run out the year: the best New Year's Eve
+    smooth, and smooth is fast“, „Finish the year strong: the best New Year's Eve
     races“, „Ride or race? Find the cycling event that's right for you“).
     Inhalt, Zahlen, Fußnoten und Links bleiben exakt die des deutschen
     Textes – nur die Sprache ist frei.
@@ -4093,6 +4093,15 @@ Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` un
     onion“ (das Zwiebelprinzip ist deutsch, englisch heißt es „Layer up“)
     und „winter sofa syndrome“. Im Zweifel ohne Bild sagen, was gemeint ist,
     und Redewendungen nicht wörtlich in die andere Sprache tragen.
+  - **Nur Wendungen, die es im Englischen gibt** (vom Nutzer am
+    11.11.2026: „Run out the year – das ist kein gutes Englisch“; „to run
+    out“ heißt „ausgehen, zur Neige gehen“). Jetzt „Finish the year
+    strong“; dabei auch „your training plan with race bibs“ → „training
+    with a bib on“, „races to get muddy at“ → „races worth getting muddy
+    for“, „Which races is it worth it for?“ → „When is it worth it?“.
+    Vor dem Schreiben eines Titels prüfen: Würde ein englischer Laufblog
+    genau so formulieren? Wortspiele mit Verben (run out, run down, run
+    off) meiden – sie kippen fast immer in eine andere Bedeutung.
   - **In `blog.json`**: `titel_en`, `teaser_en`, `bild_alt_en`,
     `bild_nachweis_en` (im Nachweis nur der Text vor dem Link übersetzt).
   - **`build_blog.py`** schreibt `blog/en/<slug>.html` (`lang="en"`, Kopf,
