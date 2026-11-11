@@ -3217,6 +3217,10 @@ def pruefe_clubs(ctx, basis):
     pruefe(karten == len(clubs), "clubs.html: jeder Club eine Kachel (%d von %d)" % (karten, len(clubs)))
     nav = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link')).map(a => a.firstChild.textContent.trim())")
     pruefe(nav == ["Events", "Clubs", "Karte", "Blog"], "clubs.html: Navigation Events – Clubs – Karte – Blog (%s)" % " – ".join(nav))
+    hinweis = seite.evaluate("() => { const h = document.getElementById('club-hinweis');"
+                             " return h ? { text: h.textContent.trim(), sichtbar: h.getBoundingClientRect().height > 0 } : null; }")
+    pruefe(bool(hinweis) and hinweis["sichtbar"] and "jede Woche neue Clubs" in hinweis["text"],
+           "clubs.html: Hinweis „jede Woche neue Clubs“ neben der Zahl (%s)" % hinweis)
     erster = seite.locator(".club-karte").first
     name = erster.locator(".ck-name").inner_text().strip()
     erster.click()

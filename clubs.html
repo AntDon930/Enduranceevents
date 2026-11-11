@@ -121,6 +121,7 @@
   <section>
     <div class="club-kopf">
       <div class="result-count" id="result-count"></div>
+      <span class="club-hinweis" id="club-hinweis"></span>
       <button type="button" class="reset-btn" id="reset-btn" hidden></button>
     </div>
     <ul class="club-liste" id="club-liste" aria-live="polite"></ul>
@@ -178,6 +179,8 @@
       fehler: (m) => `Konnte clubs.json nicht laden: ${m}`,
       box_leer: 'Wähle einen Club, um Treffpunkt, Termine und Tempo zu sehen.',
       vorschlag: 'Dein Club fehlt? Schreib uns an',
+      // Vom Nutzer am 11.11.2026: Die Liste wächst noch jede Woche.
+      hinweis: 'Wir ergänzen zurzeit jede Woche neue Clubs.',
       kein_termin: 'Saisonpause',
       footer_imprint: 'Impressum', footer_privacy: 'Datenschutz'
     },
@@ -198,6 +201,7 @@
       fehler: (m) => `Could not load clubs.json: ${m}`,
       box_leer: 'Pick a club to see its meeting point, sessions and pace.',
       vorschlag: 'Missing your club? Write to',
+      hinweis: 'We’re adding new clubs every week.',
       kein_termin: 'Off-season',
       footer_imprint: 'Legal notice', footer_privacy: 'Privacy'
     }
@@ -392,6 +396,7 @@
     el('chk-gratis-text').textContent = t('gratis');
     el('karte-btn-text').textContent = t('karte');
     el('reset-btn').textContent = t('reset');
+    el('club-hinweis').textContent = t('hinweis');
     el('club-vorschlag').innerHTML = `${esc(t('vorschlag'))} <a href="mailto:info@endurance-events.de?subject=Club">info@endurance-events.de</a>`;
     el('footer-impressum').textContent = t('footer_imprint');
     el('footer-datenschutz').textContent = t('footer_privacy');
