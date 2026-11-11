@@ -33,11 +33,13 @@ Läufer von hinten, Füße, Hände, Gruppen.
 - **Einblendung**: TAPERING = erholt, aber fit
 - **Runway-Prompt**: *A single runner seen from behind jogging slowly and relaxed along a quiet river path in the early morning, mist over the water, calm atmosphere, slow camera follow, vertical 9:16.*
 
-## Szene 3 – Bringt das was? (8–12 s)
+## Szene 3 – Was im Körper passiert (8–12 s)
 
-- **Sprecher**: „Eine Studie mit über 158.000 Marathonläufern zeigt: Wer so tapert, ist im Schnitt gut fünfeinhalb Minuten schneller.“
-- **Einblendung**: 158.000 Läufer · ⌀ 5,5 Min. schneller
-- **Runway-Prompt**: *Aerial drone shot of a large city marathon field running between buildings, thousands of runners seen from above, morning sun, vertical 9:16, epic.*
+(Keine Studie im Video – vom Nutzer: „Das müssen wir nicht mehr beweisen“.)
+
+- **Sprecher**: „Deine Energiespeicher füllen sich, die Muskeln werden kräftiger – und du schläfst besser.“
+- **Einblendung** (nacheinander): Speicher voll · kräftigere Muskeln · besserer Schlaf
+- **Runway-Prompt**: *A runner stretching legs on a yoga mat in a bright living room, soft morning light through the window, relaxed and calm, filmed from the side without showing the face, slow camera move, vertical 9:16.*
 
 ## Szene 4 – So geht's (12–16 s)
 
@@ -57,7 +59,7 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 > ⏳ Tapering: Warum du vor dem Rennen WENIGER trainieren solltest
 >
-> Training macht fit – aber auch müde. Die Müdigkeit verschwindet schneller als die Fitness. Also: Umfang etwa halbieren, Tempo und Trainingstage beibehalten, etwa zwei Wochen (beim Marathon bis zu drei). Eine Auswertung von über 158.000 Freizeit-Marathonläufern: Wer Schritt für Schritt zurückfuhr, war im Schnitt gut fünfeinhalb Minuten schneller.
+> Training macht fit – aber auch müde. Die Müdigkeit verschwindet schneller als die Fitness. Also: Umfang etwa halbieren, Tempo und Trainingstage beibehalten, etwa zwei Wochen (beim Marathon bis zu drei).
 >
 > Alle Details und Quellen im Blog auf endurance-events.de 👉 Link in der Bio
 >
