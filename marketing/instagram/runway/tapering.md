@@ -1,8 +1,8 @@
 # Runway-Skript: Tapering (Reel, 9:16, ca. 15 s)
 
 Grundlage: Blogbeitrag `scripts/blog_texte/tapering.html` – jede Aussage
-steht dort mit Quelle, hier kommt nichts dazu. Stand: zweiter Entwurf zum
-Probelesen (11.11.2026, dritte Fassung: mit Sprecher), noch nichts bei Runway in Auftrag gegeben.
+steht dort mit Quelle, hier kommt nichts dazu. Stand: dritter Entwurf zum
+Probelesen (11.11.2026, mit Sprecher), noch nichts bei Runway in Auftrag gegeben.
 
 **Vorgaben des Nutzers (11.11.2026)**: ca. 15 Sekunden, **echte Szenen** –
 das Maskottchen gehört zu den informativen Posts/Slides, nicht in die
