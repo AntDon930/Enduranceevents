@@ -3384,6 +3384,12 @@ sagt es).
   - Rauchtest: `pruefe_startseite`, dazu die niedrigen Laptop-Fenster in
     `pruefe_plattformen` (die ersten beiden Infos samt „Klick hier“ im
     ersten Bild – dafür die Stufe `max-height: 700px`).
+  - **Kein Nachfedern am Seitenende** (`overscroll-behavior-y: none` auf
+    `html`/`body`, `html` in der Farbe der Fußzeile): Safari ließ die Seite
+    über die Fußzeile hinausziehen, darunter stand eine leere Fläche (vom
+    Nutzer am 11.11.2026 gemeldet: „So weiter muss man gar nicht
+    runterscrollen. Bitte das blockieren.“). Die Seite selbst endet an der
+    Fußzeile – der Rauchtest prüft `scrollHeight` gegen ihre Unterkante.
   - Die Vorschau liegt weiter als privates Artifact (Reise-Startseite);
     sie ist NICHT die Quelle – geändert wird `index.html`.
 - **„Mehr erfahren" auf der Startseite ist ein Link** (bis 11.11.2026, mit der Reise entfallen) (`<a

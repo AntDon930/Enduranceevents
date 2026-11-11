@@ -766,6 +766,12 @@ def pruefe_startseite(ctx, basis):
     pruefe(stand["land"] == 1 and stand["punkte"] > 100,
            "die Karte hat Umriss und Punkte (%d Umriss, %d Punkte)" % (stand["land"], stand["punkte"]))
     pruefe(stand["aktiv"] == ["events"], "oben ist „Events“ orange markiert (%s)" % stand["aktiv"])
+    ende = seite.evaluate("""() => ({
+        fuss: Math.round(document.querySelector('.site-footer').getBoundingClientRect().bottom + scrollY),
+        hoehe: document.documentElement.scrollHeight,
+        federn: getComputedStyle(document.documentElement).overscrollBehaviorY })""")
+    pruefe(ende["hoehe"] <= ende["fuss"] + 1 and ende["federn"] == "none",
+           "die Seite endet an der Fußzeile und federt nicht nach (%s)" % ende)
     erwartet = {"events>events.html", "clubs>clubs.html", "events-laufen>events.html?sportart=Laufen",
                 "events-rad>events.html?sportart=Fahrrad", "events-schwimmen>events.html?sportart=Schwimmen",
                 "events-triathlon>events.html?sportart=Triathlon", "karte>karte.html", "blog>blog.html"}

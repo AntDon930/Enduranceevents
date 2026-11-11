@@ -113,6 +113,14 @@
      Kopfzeile folgt dem Schema (site.css). Einzelheiten in CLAUDE.md
      („Die Startseite ist eine Reise“). */
   html, body { overflow-x: clip; }
+  /* Am Ende ist Schluss: Safari federt die Seite sonst über die Fußzeile
+     hinaus nach (mit Trackpad oder Finger lässt sich das sogar halten), und
+     darunter stand eine leere Fläche - vom Nutzer am 11.11.2026 gemeldet:
+     „So weiter muss man gar nicht runterscrollen. Bitte das blockieren.“
+     Wo ein älterer Browser trotzdem nachfedert, zeigt er die Farbe der
+     Fußzeile statt einer leeren Fläche. */
+  html, body { overscroll-behavior-y: none; }
+  html { background: var(--footer-bg); }
   body.gesperrt { overflow: hidden; }
   .reise-seite {
     --r-nacht: #0b1b33;
