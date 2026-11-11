@@ -1,0 +1,22 @@
+{
+  "_note": "Schnittvorlage zum Skript tapering.md. Szenenwechsel in den Sprechpausen der Aufnahme (Dennis, Tempo 1,08, 25,7 s). Clips und Stimme liegen nicht im Repo (Runway-Bibliothek).",
+  "stimme": "tapering-dennis-v2.mp3",
+  "beat_seed": 11,
+  "szenen": [
+    {"clip": "s1.mp4", "von": 0, "bis": 4.1, "texte": [
+      {"text": "Rennen in 2 Wochen?", "von": 0.1, "bis": 2.0, "art": "gross"},
+      {"text": "Zeit, die Kilometer zu reduzieren.", "von": 2.0, "bis": 4.1, "art": "gross"}]},
+    {"clip": "s2.mp4", "von": 4.1, "bis": 8.55, "texte": [
+      {"text": "Beim 10-km-Lauf reichen ein paar Tage", "von": 4.6, "bis": 8.5, "art": "text"}]},
+    {"clip": "s3.mp4", "von": 8.55, "bis": 13.9, "texte": [
+      {"text": "Bonus", "von": 9.0, "bis": 13.8, "art": "gross"},
+      {"text": "mehr rote Blutkörperchen = mehr Sauerstoff für die Muskeln", "von": 9.0, "bis": 13.8, "art": "liste"}]},
+    {"clip": "s4.mp4", "von": 13.9, "bis": 18.3, "texte": [
+      {"text": "Beispiel: 50 km pro Woche", "von": 14.1, "bis": 18.2, "art": "text"},
+      {"text": "2 Wochen vorher: ~35 km", "von": 15.2, "bis": 18.2, "art": "liste"},
+      {"text": "Rennwoche: 20–25 km", "von": 16.4, "bis": 18.2, "art": "liste"}]},
+    {"clip": "s5.mp4", "von": 18.3, "bis": 26.2, "texte": [
+      {"text": "Letzte 1–2 Tage: ganz locker oder frei", "von": 18.7, "bis": 23.4, "art": "text"},
+      {"text": "Alle Rennen: Link in der Bio", "von": 23.6, "bis": 26.1, "art": "gross"}]}
+  ]
+}

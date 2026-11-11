@@ -7356,15 +7356,28 @@ def test_insta_karussell() -> None:
             check("ungültiges Karussell abgewiesen", False, True)
         except ValueError:
             check("ungültiges Karussell abgewiesen", True, True)
-        # Reel-Fassung: je Themenseite Überschrift + ein Bild je Punkt, Lesezeit
-        daten = K.lade("carboloading")
-        bilder = K.reel_bilder(daten)
-        punkte = sum(len(x["punkte"]) for x in daten["seiten"])
-        check("Reel: Bilder = Titel + Überschriften + Punkte + Schluss",
-              len(bilder), 2 + len(daten["seiten"]) + punkte)
-        check("Reel: 1080 × 1920", {b.size for b, _, _ in bilder}, {(1080, 1920)})
-        check("Reel: jeder Punkt mindestens 2,6 s", min(t for _, t, neu in bilder[1:-1] if not neu) >= 2.6, True)
-        check("Reel: neue Seiten markiert", sum(1 for _, _, neu in bilder if neu), len(daten["seiten"]) + 2)
+    # Reel-Fassung: je Themenseite Überschrift + ein Bild je Punkt, Lesezeit
+    daten = K.lade("carboloading")
+    bilder = K.reel_bilder(daten)
+    punkte = sum(len(x["punkte"]) for x in daten["seiten"])
+    check("Reel: Bilder = Titel + Überschriften + Punkte + Schluss",
+          len(bilder), 2 + len(daten["seiten"]) + punkte)
+    check("Reel: 1080 × 1920", {b.size for b, _, _ in bilder}, {(1080, 1920)})
+    check("Reel: jeder Punkt mindestens 2,6 s", min(t for _, t, neu in bilder[1:-1] if not neu) >= 2.6, True)
+    check("Reel: neue Seiten markiert", sum(1 for _, _, neu in bilder if neu), len(daten["seiten"]) + 2)
+    # Runway-Schnitt: Vorlage passt, Einblendungen liegen im oberen Drittel
+    import tempfile as _tf
+    import insta_runway_schnitt as RS
+    import json as _js
+    from PIL import Image
+    vor = _js.loads((K.ROOT / "marketing/instagram/runway/tapering.json").read_text(encoding="utf-8"))
+    zeiten = [(sz["von"], sz["bis"]) for sz in vor["szenen"]]
+    check("Runway-Vorlage: Szenen lückenlos", all(a[1] == b[0] for a, b in zip(zeiten, zeiten[1:])), True)
+    check("Runway-Vorlage: Texte innerhalb ihrer Szene",
+          all(sz["von"] <= t["von"] < t["bis"] <= sz["bis"] for sz in vor["szenen"] for t in sz["texte"]), True)
+    with _tf.TemporaryDirectory() as _d:
+        eb = RS.einblendungen(vor["szenen"], Path(_d))
+        check("Runway-Einblendungen über der Reels-Leiste", max(y + Image.open(f).height for f, _, _, y in eb) < 1300, True)
 
 
 def main() -> int:

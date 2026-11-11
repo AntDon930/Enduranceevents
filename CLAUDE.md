@@ -5581,6 +5581,14 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Posts/Slides, nicht in Runway-Videos. Runway liefert nur Bilder (keine
   Schrift), Einblendungen und Beat setzen wir selbst; keine Gesichter in
   Nahaufnahme (Bildregel der Startseite).
+  Ablauf: Skript abstimmen → Stimme (Dennis, voiceId
+  `bGkjVHUyQ9rRhorWJufM`, Tempo 1,08) → Clips (kling-4, 1080p, 9:16,
+  5–6 s, ~90 Credits je Clip) → `scripts/insta_runway_schnitt.py
+  <thema>.json --medien <ordner> --aus reel.mp4` (Schnitte in die
+  Sprechpausen – `ffmpeg … silencedetect` –, Einblendungen im oberen
+  Drittel in Midnight Navy mit Coral-Kante, leiser eigener Beat). Die
+  Einblendungen zeigen zusätzliche Fakten, nicht den Sprechertext (außer
+  im Hook – viele schauen ohne Ton). Clips und Stimme liegen nicht im Repo.
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für
