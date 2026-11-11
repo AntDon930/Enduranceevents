@@ -53,13 +53,13 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 - **Sprecher**: „Umfang halbieren, Tempo halten – etwa zwei Wochen vor dem Rennen.“
 - **Einblendung**: Beispiel: 50 km/Woche → 2 Wochen vorher ~35 km → Rennwoche 20–25 km · Trainingstage nicht streichen
-- **Runway-Prompt**: *After a training run, a runner stretching calves and hamstrings at a park bench, filmed from the side without showing the face, soft morning light, relaxed, not exhausted, slow camera move, vertical 9:16.*
+- **Runway-Prompt** (zweiter Versuch, Standbild aus Szene 3 als Referenzbild): *On the same red running track with white lane lines as in image 1, a runner in black shorts, white socks and red-white running shoes stretches after a training run: calf stretch and hamstring stretch standing on the track, filmed from behind and low at the legs, only legs, hips and hands visible, no face, soft morning light, calm and relaxed, slow camera move, vertical 9:16, cinematic. No text, no logos.*
 
 ## Szene 5 – Kernsatz & Schluss (20–26 s)
 
 - **Sprecher**: „Spar an den Kilometern, nicht am Tempo. Schwere Beine in der Rennwoche? Ganz normal – am Start bist du bereit.“
 - **Einblendung**: Letzte 1–2 Tage: ganz locker oder frei → klein am Ende: Link in der Bio
-- **Runway-Prompt**: *At the start of a huge international big-city marathon, a runner standing in the very front row behind the start line, bouncing lightly on the spot, shaking out the legs and warming up, ready and confident; behind him tens of thousands of runners filling a wide boulevard, a giant start arch, flags, confetti in the air, aerial camera rising slowly, filmed from behind and from a low angle at the legs, no close-up of faces, no real event logos, morning sun, vertical 9:16, cinematic and epic.*
+- **Runway-Prompt** (zweiter Versuch – der erste zeigte künstliche Menschen und Kauderwelsch auf dem Startbogen): *Low-angle shot from behind at the legs of a runner standing in the front row at the start line of a big marathon, bouncing lightly on the spot and shaking out the legs, ready to go. Shallow depth of field: only the runner's legs and running shoes are sharp; the other runners beside and the spectators along the barriers are completely out of focus, soft bokeh, no faces visible. A wide empty road ahead under a large plain start arch without any text, flags and a few confetti pieces drifting, warm morning sun, natural and realistic, documentary style, vertical 9:16. No text, no logos.*
 
 ---
 

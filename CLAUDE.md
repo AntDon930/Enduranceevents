@@ -5589,6 +5589,11 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Drittel in Midnight Navy mit Coral-Kante, leiser eigener Beat). Die
   Einblendungen zeigen zusätzliche Fakten, nicht den Sprechertext (außer
   im Hook – viele schauen ohne Ton). Clips und Stimme liegen nicht im Repo.
+  Lehren aus dem ersten Reel (Tapering): Menschenmengen wirken künstlich
+  und Schrift auf Bögen wird Kauderwelsch – lieber Beine/Schuhe scharf,
+  Umfeld unscharf; Profil-Gesichter kommen trotz „no face“ – „filmed from
+  behind, only legs and hands“; gleiche Kulisse über ein Standbild der
+  vorigen Szene als `referenceImages`.
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für
