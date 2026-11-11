@@ -98,402 +98,180 @@
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
 <link rel="stylesheet" href="site.css?v=8fe729d6">
 <style>
-  /* Farben, Kopfzeile und Fußzeile stehen in site.css; hier nur, was
-     allein die Startseite hat: Hero, Kennzahlen, Sportarten, Schritte. */
+  /* Die Startseite ist seit dem 11.11.2026 eine REISE (vom Nutzer nach einem
+     Instagram-Reel gewünscht und in einer privaten Vorschau abgestimmt): Von
+     oben nach unten läuft eine Strecke aus der Vogelperspektive - Start,
+     Laufen (Stadt), Rad (Passstraße), Schwimmen (See), Triathlon
+     (Wechselzone), Clubs (Sportplatz), Karte (die Straße führt durch die
+     echte Karte mit allen Events), Blog, Ziel. Links und rechts stehen auf
+     Höhe jeder Station die Infos mit den echten Zahlen („Entdecke … – Klick
+     hier“); ein Klick zoomt in die Strecke hinein und öffnet die Seite im
+     selben Fenster. Die Kopfzeile bleibt stehen, ihr Menüpunkt wird orange,
+     sobald man im Abschnitt ist, und ein Klick darauf fährt die Reise erst
+     bis zur Station. Die Welt ist in BEIDEN Farbschemata dunkel (wie vorher
+     der Hero) - deshalb feste Farben in eigenen Variablen (--r-*); die
+     Kopfzeile folgt dem Schema (site.css). Einzelheiten in CLAUDE.md
+     („Die Startseite ist eine Reise“). */
+  html, body { overflow-x: clip; }
+  body.gesperrt { overflow: hidden; }
+  .reise-seite {
+    --r-nacht: #0b1b33;
+    --r-boden: #16294a;
+    --r-linie: #2a3a56;
+    --r-text: #edf1f7;
+    --r-grau: #a3afc2;
+    --r-sonne: #f97316;
+    --r-laufen: #f97316;
+    --r-rad: #3db55a;
+    --r-schwimmen: #4a9be6;
+    --r-tri: #9a7bf0;
+    --r-club: #ffb27a;
+    --r-blog: #c4b3fa;
+    background: var(--r-nacht);
+    color: var(--r-text);
+  }
 
-  /* ---------- Hero ----------
-     Seit dem 05.10.2026 ein FOTO statt der Illustration (vom Nutzer so
-     gewünscht: "modern, motivierend, nicht wirklich Natur … Bilder
-     verwenden und die Startseite neu aufbauen"): Läuferfeld in der
-     Stadt (bilder/hero.webp, Lizenz siehe Impressum), darüber ein
-     Navy-Verlauf von links (Text lesbar) nach rechts (Foto sichtbar) -
-     der "zweite Schritt" des Style Guides (Foto unter Navy-Fläche mit
-     55-65 % Deckung, selbst gehostet als WebP). Feste Farben mit
-     Absicht: Der Hero sieht in beiden Farbschemata gleich aus. */
+  /* ---------- Kopfzeile bleibt stehen ----------
+     Fest statt sticky: Auf dem Handy klappt die zweite Zeile (Hell/Dunkel,
+     DE/EN, Anmelden) beim Scrollen weg (body.kopf-klein) - ein Element im
+     Fluss würde dabei die Seite verschieben. Die Höhe misst das Skript
+     (--kopf-h), der Kopf der Reise rückt um sie nach unten. */
+  .site-header.top-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 30; }
+  .site-nav .nav-link.aktiv { color: var(--brand); }
+  .fortschritt { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; pointer-events: none; }
+  .fortschritt i { display: block; height: 100%; width: 0; background: var(--brand); }
+  @media (max-width: 900px) {
+    body.kopf-klein .site-header.top-bar .top-actions { display: none; }
+  }
+
+  /* ---------- Kopf der Reise ----------
+     Er liegt über dem oberen Ende der Landschaft (die Reise rückt per
+     negativem Rand darunter): oben deckt Navy, nach unten wird es
+     durchsichtig, und das Läuferfeld läuft aus der Überschrift heraus auf
+     die Startlinie (vom Nutzer: „einen fließenden Übergang zu der
+     Überschrift, das es einfach in sich verläuft“). */
   .hero {
-    position: relative;
-    min-height: 640px;
-    min-height: min(78vh, 760px);
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    background: #0b1b33;
-    color: #fff;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 60% 50%;
-    display: block;
-  }
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(100deg, rgba(11, 27, 51, 0.94) 0%, rgba(11, 27, 51, 0.82) 38%, rgba(11, 27, 51, 0.45) 68%, rgba(11, 27, 51, 0.25) 100%),
-      linear-gradient(180deg, rgba(11, 27, 51, 0.25) 0%, rgba(11, 27, 51, 0) 40%, rgba(11, 27, 51, 0.55) 100%);
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 820px;
-    padding: 72px var(--seite-rand) 120px;
-    width: 100%;
-  }
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    padding: 7px 14px;
-    border-radius: 999px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    backdrop-filter: blur(6px);
-  }
-  .hero-eyebrow .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--hero-cta);
-    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.25);
-  }
-  /* Display: Barlow Condensed 88 px / 700 (Guide), auf dem Handy kleiner.
-     Das Ausrufezeichen und die zweite Zeile in Signalfarbe geben der
-     Zeile den Antrieb, den der Nutzer wollte ("dynamischer und aktiver"). */
-  .hero h1 {
-    margin: 0 0 18px;
-    color: #fff;
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 7.5vw, 5.5rem);
-    line-height: 0.98;
-    font-weight: 700;
-    letter-spacing: 0;
-    text-wrap: balance;
-  }
-  .hero h1 .akzent { color: var(--hero-cta); }
-  /* Lead: Barlow 20 px / 400. */
-  .hero p.lead {
-    margin: 0 0 32px;
-    max-width: 600px;
-    color: rgba(255, 255, 255, 0.88);
-    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-    line-height: 1.5;
-  }
-  /* Niedrige Fenster am Rechner (14.10.2026): Auf einem Windows-Laptop mit
-     1366 x 768 bleiben dem Browser rund 640 px Höhe, bei 1280 x 720 und
-     150 % Skalierung 577 - und die Überschrift stand dort in drei Zeilen
-     zu 88 px, die beiden Knöpfe lagen unter dem Bildrand (gemessen:
-     Unterkante 660 px). Zwei Stufen: bis 700 px Höhe die Überschrift auf
-     zwei Zeilen (68 px bei 1366), bis 620 px noch etwas kleiner; Knöpfe
-     und Kennzahlen stehen dann im ersten Bild. Auf dem Handy (bis 900 px
-     Breite) gilt weiter die Regel oben. */
-  @media (min-width: 901px) and (max-height: 700px) {
-    .hero-content { padding: 40px var(--seite-rand) 72px; }
-    .hero-eyebrow { margin-bottom: 16px; }
-    .hero h1 { font-size: clamp(2.6rem, 5.4vw, 4.25rem); }
-    .hero p.lead { margin-bottom: 22px; }
-  }
-  @media (min-width: 901px) and (max-height: 620px) {
-    .hero-content { padding: 32px var(--seite-rand) 56px; }
-    .hero h1 { font-size: clamp(2.4rem, 4.8vw, 3.6rem); }
-  }
-  /* Der Hero-CTA ist die EINE orange Fläche der Seite (Sonne, mit
-     Navy-Text); alle anderen Knöpfe sind Navy bzw. hier auf dem Foto
-     ein heller Geisterknopf. */
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--hero-cta);
-    color: var(--on-hero-cta);
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 15px 26px;
-    border-radius: var(--radius-ctl);
-    text-decoration: none;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
-  }
-  .cta-btn .arrow { font-size: 1.15rem; transition: transform 0.15s ease; }
-  .cta-btn:hover .arrow { transform: translateX(3px); }
-  .cta-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #fff;
-    border: 1.5px solid rgba(255, 255, 255, 0.55);
-    background: rgba(255, 255, 255, 0.06);
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 14px 22px;
-    border-radius: var(--radius-ctl);
-    text-decoration: none;
-    transition: background 0.15s ease, border-color 0.15s ease;
-  }
-  .cta-ghost:hover { background: rgba(255, 255, 255, 0.14); border-color: #fff; }
-  .hero-cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 14px;
-  }
-  /* Drei Fakten direkt unter den Knöpfen - die Zahlen kommen aus den
-     Daten (ladeZahlen), bis dahin steht nur die Beschriftung. */
-  .hero-facts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 28px;
-    margin-top: 38px;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
-  }
-  .hero-facts b {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.1;
-  }
-  .hero-facts b[hidden] { display: none; }
-
-  html { scroll-behavior: smooth; }
-  /* "Mehr erfahren" ist ein Link auf den Abschnitt darunter - samt dem
-     Pfeil: Der ganze Block ist EIN <a>, der Pfeil ein 44-px-Kreis darin
-     (vom Nutzer am 05.10.2026: "sollte man auch auf den Pfeil klicken
-     können"; vorher war der Pfeil ein 10-px-Winkel, auf dem iPad kaum
-     zu treffen). */
-  .scroll-hint {
-    text-decoration: none;
-    cursor: pointer;
-    position: absolute;
-    left: 50%;
-    bottom: 22px;
-    transform: translateX(-50%);
-    color: rgba(255,255,255,0.85);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 10px;
-  }
-  .scroll-hint:hover, .scroll-hint:focus-visible { color: #fff; }
-  .scroll-hint .chev-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(255,255,255,0.6);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    animation: bob 1.8s ease-in-out infinite;
-    transition: background 0.15s ease;
-  }
-  .scroll-hint:hover .chev-btn { background: rgba(255,255,255,0.14); }
-  @keyframes bob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(5px); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .scroll-hint .chev-btn { animation: none; }
-  }
-  @media (max-width: 600px) {
-    .hero { min-height: 560px; }
-    .hero-content { padding: 44px var(--seite-rand) 120px; }
-    .hero-overlay {
-      background:
-        linear-gradient(180deg, rgba(11, 27, 51, 0.78) 0%, rgba(11, 27, 51, 0.72) 60%, rgba(11, 27, 51, 0.9) 100%);
-    }
-  }
-
-  /* ---------- Kennzahlen ---------- */
-  .stats {
-    background: var(--panel);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .stats-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 26px 24px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .stat {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    justify-content: center;
-    text-align: left;
-  }
-  .stat svg { flex-shrink: 0; color: var(--brand); }
-  .stat-num { font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; color: var(--text); }
-  .stat-label { font-size: 0.85rem; color: var(--text-muted); }
-  @media (max-width: 760px) {
-    .stats-inner { grid-template-columns: 1fr; }
-    .stat { justify-content: flex-start; }
-  }
-
-  /* ---------- Sportarten: vier Foto-Kacheln ----------
-     Reihenfolge Laufen, Rad, Schwimmen, Triathlon (vom Nutzer am
-     05.10.2026 festgelegt). Jede Kachel ein Foto (bilder/*.webp, lazy)
-     unter einem Verlauf in der Sportfarbe; Name und Anzahl unten links. */
-  .sports {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 64px 24px 72px;
-  }
-  .sports h2 {
+    position: relative; z-index: 3;
+    display: flex; flex-direction: column; align-items: center;
     text-align: center;
-    font-family: var(--font-display);
-    font-size: clamp(1.9rem, 3.4vw, 2.75rem);
-    font-weight: 600;
-    margin: 0 0 8px;
-    color: var(--text);
-  }
-  .sports p.sub {
-    text-align: center;
-    color: var(--text-muted);
-    margin: 0 0 36px;
-    font-size: 1rem;
-  }
-  .sport-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-  @media (max-width: 820px) {
-    .sport-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  }
-  .sport-card {
-    --sport: var(--sport-laufen);
-    position: relative;
-    display: block;
-    text-decoration: none;
-    border-radius: 16px;
-    overflow: hidden;
-    aspect-ratio: 3 / 4;
-    background: #0b1b33;
-    color: #fff;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .sport-card.sport-fahrrad { --sport: var(--sport-fahrrad); }
-  .sport-card.sport-schwimmen { --sport: var(--sport-schwimmen); }
-  .sport-card.sport-triathlon { --sport: var(--sport-triathlon); }
-  .sport-card img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  .sport-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(11,27,51,0) 30%, rgba(11,27,51,0.55) 65%, rgba(11,27,51,0.92) 100%);
-  }
-  .sport-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(0,0,0,0.3); }
-  .sport-card:hover img { transform: scale(1.05); }
-  .sport-card:focus-visible { outline: 3px solid var(--sport); outline-offset: 3px; }
-  .sport-text {
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-    z-index: 1;
-  }
-  .sport-card .mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    background: var(--sport);
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  .sport-card .name { font-family: var(--font-display); font-weight: 700; color: #fff; font-size: 1.6rem; line-height: 1; }
-  /* Die Anzahl unter dem Namen der Sportart - erst da, wenn die Daten da sind. */
-  .sport-count { margin-top: 6px; font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.82); }
-  .sport-count[hidden] { display: none; }
-  .sport-card .go {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    z-index: 1;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.14);
-    border: 1px solid rgba(255,255,255,0.35);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 1.05rem;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-  .sport-card:hover .go { background: var(--sport); transform: translateX(2px); }
-
-  /* ---------- Schluss-CTA: Navy-Band ---------- */
-  .final-cta {
-    background: #0b1b33;
-    color: #fff;
-    text-align: center;
-    padding: 64px 24px 72px;
-    position: relative;
-    overflow: hidden;
-  }
-  .final-cta::before {
-    content: "";
-    position: absolute;
-    inset: -40% -10% auto auto;
-    width: 60%;
-    height: 180%;
-    background: radial-gradient(closest-side, rgba(249,115,22,0.28), rgba(249,115,22,0));
+    padding: calc(var(--kopf-h, 73px) + clamp(40px, 6vh, 76px)) var(--seite-rand) clamp(100px, 18vh, 180px);
+    background: linear-gradient(to bottom, var(--r-nacht) 0%, var(--r-nacht) 38%, rgba(11, 27, 51, .72) 66%, rgba(11, 27, 51, .25) 86%, rgba(11, 27, 51, 0) 100%);
     pointer-events: none;
   }
-  .final-cta h2 {
-    position: relative;
-    margin: 0 0 10px;
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 700;
-    color: #fff;
+  .hero .eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--r-club); }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 700; line-height: .98; color: #fff;
+    font-size: clamp(2rem, 4.6vw, 3.8rem);
+    margin: 20px auto 22px; max-width: 22ch; text-wrap: balance;
   }
-  .final-cta p { position: relative; margin: 0 auto 28px; max-width: 560px; color: rgba(255,255,255,0.82); font-size: 1.05rem; }
-  .final-cta .cta-btn { position: relative; box-shadow: 0 10px 26px rgba(0,0,0,0.35); }
+  .hero p { margin: 0 auto; max-width: 60ch; font-size: clamp(1rem, 2.2vw, 1.2rem); color: var(--r-grau); text-wrap: balance; }
+  /* Niedrige Fenster am Rechner (Windows-Laptop 1366 x 768 lässt dem Browser
+     ~640 px, 1280 x 720 bei 150 % 577): Überschrift kleiner und weniger
+     Luft, damit die ersten beiden Infos samt „Klick hier“ im ersten Bild
+     stehen (Rauchtest, pruefe_plattformen). */
+  @media (min-width: 761px) and (max-height: 700px) {
+    .hero { padding: calc(var(--kopf-h, 73px) + 26px) var(--seite-rand) 70px; }
+    .hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); margin: 12px auto 14px; }
+  }
 
+  /* ---------- Die Reise ---------- */
+  .reise { position: relative; }
+  .streifen { position: absolute; top: 0; left: 0; right: 0; overflow: hidden; background: var(--r-boden); }
+  .streifen svg { display: block; overflow: visible; }
+  /* Das Bild füllt die ganze Breite; links und rechts dunkelt ein Verlauf es
+     ab, damit die Infos lesbar bleiben. Oben blendet er ein (keine Kante). */
+  .schatten {
+    position: absolute; top: 0; bottom: 0; z-index: 1; pointer-events: none;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 220px);
+    mask-image: linear-gradient(to bottom, transparent, #000 220px);
+  }
+  .schatten.l { left: 0; background: linear-gradient(to right, rgba(11, 27, 51, .84), rgba(11, 27, 51, .66) 72%, rgba(11, 27, 51, 0)); }
+  .schatten.r { right: 0; background: linear-gradient(to left, rgba(11, 27, 51, .84), rgba(11, 27, 51, .66) 72%, rgba(11, 27, 51, 0)); }
+
+  /* Die Infos sind Links (ohne Skript führen sie direkt zur Seite). */
+  .info {
+    position: absolute; z-index: 2;
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 14px 4px; border-radius: 14px;
+    text-align: left; align-items: flex-start;
+    color: var(--r-text); text-decoration: none;
+  }
+  .info.links { text-align: right; align-items: flex-end; }
+  .info:focus-visible { outline: 2px solid var(--r-sonne); outline-offset: 3px; }
+  .info .kennung { display: inline-flex; align-items: center; gap: 8px; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--r-grau); }
+  .info .kennung i { width: 10px; height: 10px; border-radius: 50%; background: var(--farbe); }
+  .info .satz {
+    font-family: var(--font-display); font-weight: 700; line-height: 1.02; color: #fff;
+    font-size: clamp(1.7rem, 2.6vw, 2.6rem); text-wrap: balance;
+  }
+  .info .satz b { color: var(--farbe); font-variant-numeric: tabular-nums; }
+  .info .zeile { color: var(--r-grau); font-size: 1rem; line-height: 1.4; max-width: 34ch; }
+  .info .los {
+    margin-top: 6px; display: inline-flex; align-items: center; gap: 8px;
+    min-height: 42px; padding: 0 16px; border-radius: 999px;
+    border: 1.5px solid var(--farbe); color: var(--farbe); font-weight: 600; font-size: .95rem;
+    transition: background .2s, color .2s;
+  }
+  .info:hover .los, .info:focus-visible .los { background: var(--farbe); color: var(--r-nacht); }
+  /* Steg vom Text zur Strecke */
+  .info::after { content: ""; position: absolute; top: 50%; width: var(--steg, 0px); border-top: 2px dashed var(--farbe); opacity: .5; }
+  .info.links::after { left: 100%; }
+  .info.rechts::after { right: 100%; }
+  .info.gross .satz { font-size: clamp(2rem, 3.4vw, 3.4rem); }
+  .info.gross .los { background: var(--r-sonne); border-color: var(--r-sonne); color: var(--r-nacht); }
+  .legende { display: grid; grid-template-columns: auto auto; gap: 4px 16px; margin: 4px 0 0; padding: 0; list-style: none; font-size: .95rem; }
+  .legende li { display: flex; align-items: center; gap: 8px; }
+  .legende i { width: 9px; height: 9px; border-radius: 50%; background: var(--farbe); flex: none; }
+  .legende b { font-variant-numeric: tabular-nums; font-weight: 600; margin-left: auto; padding-left: 10px; }
+  .legende:empty { display: none; }
+  .saison { width: min(300px, 100%); }
+  .saison svg { display: block; width: 100%; height: 76px; overflow: visible; }
+  .saison .achse { fill: var(--r-grau); font-size: 10px; font-family: var(--font-text); }
+
+  /* ---------- Ankunft: hineinzoomen, dann die Seite ----------
+     Der Kreis öffnet sich in der Farbe der Seiten (--bg des Schemas), die
+     gleich geladen wird; in der Mitte das Abzeichen der Station. */
+  .ankunft {
+    position: fixed; inset: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg); color: var(--text);
+    clip-path: circle(0px at 50% 50%);
+  }
+  .ankunft[hidden] { display: none; }
+  .ankunft-mitte { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .ankunft-mitte svg { width: 72px; height: 72px; overflow: visible; }
+  .ankunft-mitte b { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; }
+
+  /* Handy: Strecke über die ganze Breite, Infos als kleine Karten darüber */
+  @media (max-width: 760px) {
+    .schatten { display: none; }
+    .info, .info.links {
+      text-align: left; align-items: flex-start; gap: 3px;
+      padding: 10px 12px 12px;
+      background: rgba(11, 27, 51, .9); border: 1px solid var(--r-linie);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    }
+    .info::after { display: none; }
+    .info .satz { font-size: 1.05rem; line-height: 1.1; }
+    .info .satz b { display: block; font-size: 2rem; line-height: 1; }
+    .info .zeile { display: none; }
+    .info .los { min-height: 34px; padding: 0 12px; font-size: .84rem; margin-top: 4px; }
+    .info.gross .satz { font-size: 1.3rem; }
+    .legende { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .info .los { transition: none; }
+  }
 </style>
 </head>
 <body>
-<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). Der Weg zur Liste
-     steht links von der Anmeldung (die Liste ist der Zweck der Seite,
-     das Konto nur Zubehör); .events-btn prüft der Rauchtest. -->
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css); hier bleibt sie beim
+     Scrollen stehen, ihr Menüpunkt wird im passenden Abschnitt orange, und
+     ein Klick darauf fährt die Reise erst bis zur Station (data-station).
+     Der Weg zur Liste steht links von der Anmeldung; .events-btn prüft der
+     Rauchtest. -->
 <header class="site-header site-header--navy top-bar">
-  <a class="brand" href="index.html">
+  <a class="brand" href="index.html" id="marke">
     <span class="brand-logo" aria-hidden="true">
       <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
            stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -503,10 +281,10 @@
     <span class="brand-name">Endurance Events</span>
   </a>
   <nav class="site-nav" aria-label="Seiten">
-    <a class="nav-link events-btn" href="events.html" data-i="nav_events">Events</a>
-    <a class="nav-link nav-neu" href="clubs.html" id="nav-clubs">Clubs<span class="nav-neu-text">new</span></a>
-    <a class="nav-link" href="karte.html" data-i="nav_map">Karte</a>
-    <a class="nav-link" href="blog.html" data-i="nav_blog">Blog</a>
+    <a class="nav-link events-btn" href="events.html" data-i="nav_events" data-station="events">Events</a>
+    <a class="nav-link nav-neu" href="clubs.html" id="nav-clubs" data-station="clubs">Clubs<span class="nav-neu-text">new</span></a>
+    <a class="nav-link" href="karte.html" data-i="nav_map" data-station="karte">Karte</a>
+    <a class="nav-link" href="blog.html" data-i="nav_blog" data-station="blog">Blog</a>
   </nav>
   <div class="top-actions">
     <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
@@ -519,329 +297,898 @@
     </div>
     <div id="auth-mount"></div>
   </div>
+  <div class="fortschritt" aria-hidden="true"><i id="balken"></i></div>
 </header>
-<div class="hero">
-  <!-- Das Hero-Foto (Lizenz und Urheber im Impressum unter "Datenquellen
-       und Lizenzen"; Quellen auch in bilder/QUELLEN.md). Dekorativ, deshalb
-       alt="". fetchpriority="high": Es ist das Erste, was man sieht. -->
-  <!-- srcset: das Handy holt die 800er (105 statt 328 KB), der Rechner
-       die 1600er - beide aus derselben Vorlage (bilder/QUELLEN.md). -->
-  <img class="hero-bg" src="bilder/hero.webp" srcset="bilder/hero-800.webp 800w, bilder/hero.webp 1600w" sizes="100vw"
-       width="1600" height="900" alt="" fetchpriority="high" decoding="async">
-  <div class="hero-overlay" aria-hidden="true"></div>
 
-  <div class="hero-content">
-    <span class="hero-eyebrow"><span class="dot" aria-hidden="true"></span><span data-i="eyebrow">Laufen · Rad · Schwimmen · Triathlon</span></span>
-    <h1><span data-i="headline1">Finde jetzt deine</span> <span class="akzent" data-i="headline2">nächste Herausforderung!</span></h1>
-    <p class="lead" data-i="lead">Tausende Rennen in Deutschland, Österreich, der Schweiz und Südtirol – nach Sportart, Strecke und Umkreis gefiltert. Aussuchen, anmelden, loslegen.</p>
-    <div class="hero-cta-row">
-      <a class="cta-btn" href="events.html">
-        <span data-i="cta">Events entdecken</span><span class="arrow">→</span>
-      </a>
-      <a class="cta-ghost" href="karte.html">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg>
-        <span data-i="cta2">Auf der Karte suchen</span>
-      </a>
-    </div>
-    <!-- Die Zahlen kommen aus den Daten (ladeZahlen) - bis dahin bleiben
-         sie verborgen, nur die Beschriftung steht. -->
-    <div class="hero-facts" aria-live="polite">
-      <div><b data-fact="events" hidden></b><span data-i="fact_events">Events in der Liste</span></div>
-      <div><b data-fact="orte" hidden></b><span data-i="fact_orte">Orte auf der Karte</span></div>
-      <div><b data-i="fact_regionen_n">4</b><span data-i="fact_regionen">Regionen</span></div>
-    </div>
-  </div>
+<div id="seite" class="reise-seite">
+  <section class="hero">
+    <div class="eyebrow" data-i="eyebrow">Laufen · Rad · Schwimmen · Triathlon</div>
+    <h1 data-i="headline">Finde jetzt deine nächste Herausforderung!</h1>
+    <p id="hero-lead">Events in Deutschland, Österreich, der Schweiz und Südtirol.</p>
+  </section>
 
-  <a class="scroll-hint" href="#mehr">
-    <span data-i="scroll">Mehr erfahren</span>
-    <span class="chev-btn" aria-hidden="true">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-    </span>
-  </a>
-</div>
+  <!-- Die Reise: Landschaft als SVG (vom Skript gezeichnet), darüber die
+       Infos. data-y ist die Höhe der Station in Weltkoordinaten (Breite
+       1000, die Strecke läuft bei x 100-900), data-yh dieselbe auf dem
+       Handy; data-seite, auf welcher Seite der Strecke die Info steht. -->
+  <div class="reise" id="reise">
+    <div class="streifen" id="streifen">
+      <svg role="img" aria-label="Die Strecke von oben: Start, Stadtlauf, Passstraße, See, Wechselzone, Sportplatz, Karte, Blog und Ziel"></svg>
+    </div>
+    <div class="schatten l" id="schatten-l"></div>
+    <div class="schatten r" id="schatten-r"></div>
 
-<div class="stats" id="mehr">
-  <div class="stats-inner">
-    <div class="stat">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg>
-      <div>
-        <div class="stat-num" data-i="stat1n">4 Sportarten</div>
-        <div class="stat-label" data-i="stat1l">Laufen, Rad, Schwimmen, Triathlon</div>
-      </div>
-    </div>
-    <div class="stat">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 0 1-8 0L7 4Z"/><path d="M5 5H3v2a4 4 0 0 0 4 4M19 5h2v2a4 4 0 0 1-4 4"/></svg>
-      <div>
-        <div class="stat-num" data-i="stat2n">Jede Woche neu</div>
-        <div class="stat-label" data-i="stat2l">Neue Events und Termine konstant geupdated</div>
-      </div>
-    </div>
-    <div class="stat">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.5 6 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-6-3.5-9s1-6.5 3.5-9Z"/></svg>
-      <div>
-        <div class="stat-num" data-i="stat3n">4 Regionen</div>
-        <div class="stat-label" data-i="stat3l">Deutschland, Österreich, Schweiz, Südtirol</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="sports">
-  <h2 data-i="sportsTitle">Wähle deine Disziplin</h2>
-  <p class="sub" data-i="sportsSub">Tippe auf eine Sportart und spring direkt in die gefilterte Liste.</p>
-  <div class="sport-grid">
-    <a class="sport-card sport-laufen" href="events.html?sportart=Laufen">
-      <img src="bilder/laufen.webp" srcset="bilder/laufen-480.webp 480w, bilder/laufen.webp 960w" sizes="(max-width: 820px) 50vw, 25vw" width="960" height="640" alt="" loading="lazy" decoding="async">
-      <span class="go" aria-hidden="true">→</span>
-      <div class="sport-text">
-        <span class="mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16.5" cy="5.5" r="2"/><path d="M9 20l3-5 2 2 3-1M6 20l3.5-6.5L7 11l2-4 4 1 1 3 3 1"/></svg></span>
-        <div class="name" data-i="sportRun">Laufen</div>
-        <div class="sport-count" data-sport="Laufen" hidden></div>
-      </div>
+    <a class="info" href="events.html" data-ziel="events" data-station="events" data-y="160" data-seite="links" style="--farbe: var(--r-sonne)">
+      <span class="kennung"><i></i><span data-i="k_alle">Alle Sportarten</span></span>
+      <span class="satz" data-satz="events">Entdecke alle Events</span>
+      <span class="zeile" data-i="z_events">Laufen, Rad, Schwimmen und Triathlon in Deutschland, Österreich, der Schweiz und Südtirol.</span>
+      <span class="los" data-i="los">Klick hier →</span>
     </a>
-    <a class="sport-card sport-fahrrad" href="events.html?sportart=Fahrrad">
-      <img src="bilder/fahrrad.webp" srcset="bilder/fahrrad-480.webp 480w, bilder/fahrrad.webp 960w" sizes="(max-width: 820px) 50vw, 25vw" width="960" height="640" alt="" loading="lazy" decoding="async">
-      <span class="go" aria-hidden="true">→</span>
-      <div class="sport-text">
-        <span class="mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-9h3l4 9M10 8h3M13 8l2 3.5"/></svg></span>
-        <div class="name" data-i="sportBike">Rad</div>
-        <div class="sport-count" data-sport="Fahrrad" hidden></div>
-      </div>
+    <a class="info" href="clubs.html" data-ziel="clubs" data-y="160" data-seite="rechts" style="--farbe: var(--r-club)">
+      <span class="kennung"><i></i><span data-i="k_clubs">Clubs</span></span>
+      <span class="satz" data-satz="clubs_start">Finde Lauftreffs und Clubs</span>
+      <span class="zeile" data-i="z_clubs_start">Jede Woche gemeinsam trainieren, offen für alle.</span>
+      <span class="los" data-i="los">Klick hier →</span>
     </a>
-    <a class="sport-card sport-schwimmen" href="events.html?sportart=Schwimmen">
-      <img src="bilder/schwimmen.webp" srcset="bilder/schwimmen-480.webp 480w, bilder/schwimmen.webp 960w" sizes="(max-width: 820px) 50vw, 25vw" width="960" height="640" alt="" loading="lazy" decoding="async">
-      <span class="go" aria-hidden="true">→</span>
-      <div class="sport-text">
-        <span class="mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="6" r="1.6"/><path d="M4 12l3-2 3 2 3-2 2 1.5"/><path d="M2 17c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0"/><path d="M8 12l1-4 4-1 2 3"/></svg></span>
-        <div class="name" data-i="sportSwim">Schwimmen</div>
-        <div class="sport-count" data-sport="Schwimmen" hidden></div>
-      </div>
+    <a class="info" href="events.html?sportart=Laufen" data-ziel="events-laufen" data-y="640" data-seite="rechts" style="--farbe: var(--r-laufen)">
+      <span class="kennung"><i></i><span data-i="k_laufen">Laufen</span></span>
+      <span class="satz" data-satz="laufen">Entdecke die Lauf-Events</span>
+      <span class="zeile" data-i="z_laufen">Vom 5-km-Stadtlauf über den Marathon bis zum Ultratrail.</span>
+      <span class="los" data-i="los">Klick hier →</span>
     </a>
-    <a class="sport-card sport-triathlon" href="events.html?sportart=Triathlon">
-      <img src="bilder/triathlon.webp" srcset="bilder/triathlon-480.webp 480w, bilder/triathlon.webp 960w" sizes="(max-width: 820px) 50vw, 25vw" width="960" height="640" alt="" loading="lazy" decoding="async">
-      <span class="go" aria-hidden="true">→</span>
-      <div class="sport-text">
-        <span class="mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.7"/><path d="M12 6.5v5l-3 3v6M12 11.5l3 3v6M6 12l3-1.5M18 12l-3-1.5"/></svg></span>
-        <div class="name" data-i="sportTri">Triathlon</div>
-        <div class="sport-count" data-sport="Triathlon" hidden></div>
-      </div>
+    <a class="info" href="events.html?sportart=Fahrrad" data-ziel="events-rad" data-y="1250" data-seite="links" style="--farbe: var(--r-rad)">
+      <span class="kennung"><i></i><span data-i="k_rad">Rad</span></span>
+      <span class="satz" data-satz="rad">Entdecke die Rad-Events</span>
+      <span class="zeile" data-i="z_rad">Radmarathons, Gravel, Cyclocross und Jedermann-Rennen, auch über die Alpenpässe.</span>
+      <span class="los" data-i="los">Klick hier →</span>
+    </a>
+    <a class="info" href="events.html?sportart=Schwimmen" data-ziel="events-schwimmen" data-y="2000" data-seite="rechts" style="--farbe: var(--r-schwimmen)">
+      <span class="kennung"><i></i><span data-i="k_schwimmen">Schwimmen</span></span>
+      <span class="satz" data-satz="schwimmen">Entdecke die Schwimm-Events</span>
+      <span class="zeile" data-i="z_schwimmen">Seequerungen, Freiwasser und 24-Stunden-Schwimmen, ab 500 m.</span>
+      <span class="los" data-i="los">Klick hier →</span>
+    </a>
+    <a class="info" href="events.html?sportart=Triathlon" data-ziel="events-triathlon" data-y="2520" data-seite="links" style="--farbe: var(--r-tri)">
+      <span class="kennung"><i></i><span data-i="k_tri">Triathlon</span></span>
+      <span class="satz" data-satz="tri">Entdecke die Triathlons</span>
+      <span class="zeile" data-i="z_tri">Vom Super-Sprint bis zur Langdistanz, dazu Duathlon und Swimrun.</span>
+      <span class="los" data-i="los">Klick hier →</span>
+    </a>
+    <a class="info" href="clubs.html" data-ziel="clubs" data-station="clubs" data-y="3050" data-seite="rechts" style="--farbe: var(--r-club)">
+      <span class="kennung"><i></i><span data-i="k_clubs">Clubs</span></span>
+      <span class="satz" data-satz="clubs">Finde Clubs in deiner Nähe</span>
+      <span class="zeile" data-i="z_clubs">Lauftreffs, Radgruppen und Schwimmtreffs, viele davon kostenlos und offen für alle.</span>
+      <span class="los" data-i="los">Klick hier →</span>
+    </a>
+    <a class="info" href="karte.html" data-ziel="karte" data-station="karte" data-y="3760" data-yh="3360" data-seite="links" style="--farbe: var(--r-sonne)">
+      <span class="kennung"><i></i><span data-i="k_karte">Karte</span></span>
+      <span class="satz" data-satz="karte">Alle Events auf der Karte</span>
+      <ul class="legende" id="legende"></ul>
+      <span class="los" data-i="los_karte">Klick hier für die Karte →</span>
+    </a>
+    <a class="info" href="karte.html" data-ziel="karte" data-y="3960" data-yh="4260" data-seite="rechts" style="--farbe: var(--r-sonne)">
+      <span class="kennung"><i></i><span data-i="k_saison">Nächste 12 Monate</span></span>
+      <span class="satz" id="hochsaison">Events je Monat</span>
+      <span class="saison"><svg id="saison" viewBox="0 0 300 76" preserveAspectRatio="none" role="img" aria-label="Events je Monat in den nächsten zwölf Monaten"></svg></span>
+      <span class="los" data-i="los_karte">Klick hier für die Karte →</span>
+    </a>
+    <a class="info" href="blog.html" data-ziel="blog" data-station="blog" data-y="4580" data-seite="links" style="--farbe: var(--r-blog)">
+      <span class="kennung"><i></i><span data-i="k_blog">Blog</span></span>
+      <span class="satz" data-satz="blog">Lies die Beiträge im Blog</span>
+      <span class="zeile" data-i="z_blog">Tipps für dein nächstes Rennen, jeden Montag und Donnerstag ein neuer.</span>
+      <span class="los" data-i="los">Klick hier →</span>
+    </a>
+    <a class="info gross" href="events.html" data-ziel="events" data-y="4880" data-seite="rechts" style="--farbe: var(--r-sonne)">
+      <span class="kennung"><i></i><span data-i="k_ziel">Ziel</span></span>
+      <span class="satz" data-i="ziel_titel">Bereit für den Startschuss?</span>
+      <span class="zeile" data-i="z_ziel">Such dir jetzt dein nächstes Rennen aus.</span>
+      <span class="los" data-i="los_ziel">Events entdecken →</span>
     </a>
   </div>
+
+  <!-- Impressum und Datenschutz müssen von JEDER Seite aus unmittelbar
+       erreichbar sein (§ 5 DDG) - dieselbe Zeile steht in allen Seiten.
+       Die Namensnennungen (GeoNames, OpenStreetMap, Natural Earth …)
+       stehen im Impressum unter "Datenquellen und Lizenzen". -->
+  <footer class="site-footer">
+    <span data-i="footer">Endurance Events – Ausdauersport im deutschsprachigen Raum</span>
+    <div class="seiten-footer">
+      <a href="impressum.html" data-i="footer_imprint">Impressum</a>
+      <a href="datenschutz.html" data-i="footer_privacy">Datenschutz</a>
+    </div>
+  </footer>
 </div>
 
-<div class="final-cta">
-  <h2 data-i="finalTitle">Bereit für den Startschuss?</h2>
-  <p data-i="finalLead">Dein nächstes Rennen steht schon in der Liste. Such es dir aus.</p>
-  <a class="cta-btn" href="events.html">
-    <span data-i="ctaFinal">Zur Event-Liste</span><span class="arrow">→</span>
-  </a>
+<!-- Ankunft: der Kreis, in den hineingezoomt wird, bis die Seite lädt. -->
+<div class="ankunft" id="ankunft" hidden aria-hidden="true">
+  <div class="ankunft-mitte"><svg viewBox="-34 -34 68 68" id="ankunft-symbol" aria-hidden="true"></svg><b id="ankunft-titel"></b></div>
 </div>
-
-<!-- Impressum und Datenschutz müssen von JEDER Seite aus unmittelbar
-     erreichbar sein (§ 5 DDG) - dieselbe Zeile steht auch in
-     events.html und karte.html.
-
-     Die Namensnennung für die Ortsdaten (GeoNames, CC BY 4.0) stand
-     früher hier; sie steht jetzt im Impressum unter "Datenquellen und
-     Lizenzen", zusammen mit OpenStreetMap, Leaflet und dem
-     Firebase-SDK. Das Impressum ist von überall verlinkt, damit ist der
-     Namensnennung Genüge getan - und die Fußzeile bleibt kurz.
-     Der Sprachumschalter setzt textContent je [data-i]-Element. -->
-<footer class="site-footer">
-  <span data-i="footer">Endurance Events – Ausdauersport im deutschsprachigen Raum</span>
-  <div class="seiten-footer">
-    <a href="impressum.html" data-i="footer_imprint">Impressum</a>
-    <a href="datenschutz.html" data-i="footer_privacy">Datenschutz</a>
-  </div>
-</footer>
 
 <!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
-     firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
-     "Anmelden"-Button einen Hinweis statt kaputter Funktionalität. -->
-<!-- `defer`: laedt parallel zum Seitenaufbau und laeuft erst danach.
-     Ohne das wartete das Inline-Skript dieser Seite auf ~200 KB
-     Firebase, bevor es events.json ueberhaupt anforderte.
-     firebase-firestore-compat.js (344 KB) fehlt hier absichtlich -
-     auth.js laedt es erst nach, wenn wirklich geschrieben wird. -->
+     firebase-config.js. `defer`: lädt parallel zum Seitenaufbau und läuft
+     erst danach. firebase-firestore-compat.js fehlt hier absichtlich -
+     auth.js lädt es erst nach, wenn wirklich geschrieben wird. -->
 <script defer src="vendor/firebase-10.14.1/firebase-app-compat.js"></script>
 <script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
-<!-- filters.js liefert hier nur zwei Dinge: dropPastEvents() (welche
-     Events "aktuell" sind - dieselbe Grenze wie in der Liste) und
-     formatInt() (Tausendertrennzeichen je nach DE/EN, nicht nach der
-     Browsersprache). Beides nachzubauen wäre eine zweite Kopie, die beim
-     nächsten Umbau ausschert - genau das, was das Modul verhindern soll.
-     `defer` blockiert den Seitenaufbau nicht, und events.html, das diese
-     Seite ohnehin per prefetch vorlädt, braucht die Datei danach sowieso:
-     Der Abruf wärmt also den Cache für den nächsten Klick. -->
+<!-- filters.js: derselbe Loader wie in der Liste (EF.loadEvents, dropPastEvents,
+     groupKey, formatInt) - die Startseite zählt dieselben Events wie die
+     Liste. clubs.js: dieselbe Auswahl wie clubs.html (loadClubs). -->
 <script defer src="filters.js?v=52e85793"></script>
+<script defer src="clubs.js?v=0f750a40"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
 <!-- Besucherstatistik ohne Cookies (eigene Cloud Function, siehe stats.js). -->
 <script defer src="stats.js?v=21731166"></script>
-
 <script>
 (function () {
+  'use strict';
+  // ---------- Texte DE/EN ----------
+  // Die Sätze mit Zahl sind Funktionen: z(schlüssel) setzt die Zahl als
+  // <b data-zahl> ein, die beim ersten Sichtbarwerden hochzählt.
   const I18N = {
     de: {
       eyebrow: 'Laufen · Rad · Schwimmen · Triathlon',
-      headline1: 'Finde jetzt deine', headline2: 'nächste Herausforderung!',
-      lead: 'Tausende Rennen in Deutschland, Österreich, der Schweiz und Südtirol – nach Sportart, Strecke und Umkreis gefiltert. Aussuchen, anmelden, loslegen.',
-      nav_events: 'Events',
-      nav_clubs: 'Clubs',
-      nav_map: 'Karte',
-      nav_blog: 'Blog',
-      cta: 'Events entdecken',
-      cta2: 'Auf der Karte suchen',
-      fact_events: 'Events in der Liste', fact_orte: 'Orte auf der Karte', fact_regionen_n: '4', fact_regionen: 'Regionen',
-      ctaFinal: 'Zur Event-Liste',
-      finalTitle: 'Bereit für den Startschuss?',
-      finalLead: 'Dein nächstes Rennen steht schon in der Liste. Such es dir aus.',
-      scroll: 'Mehr erfahren',
-      stat1n: '4 Sportarten', stat1l: 'Laufen, Rad, Schwimmen, Triathlon',
-      stat2n: 'Jede Woche neu', stat2l: 'Neue Events und Termine konstant geupdated',
-      stat3n: '4 Regionen', stat3l: 'Deutschland, Österreich, Schweiz, Südtirol',
-      sportsTitle: 'Wähle deine Disziplin',
-      sportsSub: 'Tippe auf eine Sportart und spring direkt in die gefilterte Liste.',
-      sportRun: 'Laufen', sportBike: 'Rad', sportSwim: 'Schwimmen', sportTri: 'Triathlon',
-      sportCount: (n) => `${n} Events`,
-      sportCount1: '1 Event',
+      headline: 'Finde jetzt deine nächste Herausforderung!',
+      lead: (n) => (n ? n + ' Events' : 'Events') + ' in Deutschland, Österreich, der Schweiz und Südtirol.',
+      nav_events: 'Events', nav_map: 'Karte', nav_blog: 'Blog',
+      welt: 'Die Strecke von oben: Start, Stadtlauf, Passstraße, See, Wechselzone, Sportplatz, Karte, Blog und Ziel',
+      k_alle: 'Alle Sportarten', k_clubs: 'Clubs', k_laufen: 'Laufen', k_rad: 'Rad', k_schwimmen: 'Schwimmen',
+      k_tri: 'Triathlon', k_karte: 'Karte', k_saison: 'Nächste 12 Monate', k_blog: 'Blog', k_ziel: 'Ziel',
+      satz_events: (z) => `Entdecke ${z('gesamt')} Events`,
+      satz_clubs_start: (z) => `Finde ${z('clubs')} Lauftreffs und Clubs`,
+      satz_laufen: (z) => `Entdecke ${z('Laufen')} Lauf-Events`,
+      satz_rad: (z) => `Entdecke ${z('Fahrrad')} Rad-Events`,
+      satz_schwimmen: (z) => `Entdecke ${z('Schwimmen')} Schwimm-Events`,
+      satz_tri: (z) => `Entdecke ${z('Triathlon')} Triathlons`,
+      satz_clubs: (z) => `Finde ${z('clubs')} Clubs in deiner Nähe`,
+      satz_karte: (z) => `${z('gesamt')} Events an ${z('orte')} Orten`,
+      satz_blog: (z) => `Lies ${z('blog')} Beiträge im Blog`,
+      z_events: 'Laufen, Rad, Schwimmen und Triathlon in Deutschland, Österreich, der Schweiz und Südtirol.',
+      z_clubs_start: 'Jede Woche gemeinsam trainieren, offen für alle.',
+      z_laufen: 'Vom 5-km-Stadtlauf über den Marathon bis zum Ultratrail.',
+      z_rad: 'Radmarathons, Gravel, Cyclocross und Jedermann-Rennen, auch über die Alpenpässe.',
+      z_schwimmen: 'Seequerungen, Freiwasser und 24-Stunden-Schwimmen, ab 500 m.',
+      z_tri: 'Vom Super-Sprint bis zur Langdistanz, dazu Duathlon und Swimrun.',
+      z_clubs: 'Lauftreffs, Radgruppen und Schwimmtreffs, viele davon kostenlos und offen für alle.',
+      z_blog: 'Tipps für dein nächstes Rennen, jeden Montag und Donnerstag ein neuer.',
+      ziel_titel: 'Bereit für den Startschuss?',
+      z_ziel: 'Such dir jetzt dein nächstes Rennen aus.',
+      los: 'Klick hier →', los_karte: 'Klick hier für die Karte →', los_ziel: 'Events entdecken →',
+      saison_titel: 'Events je Monat',
+      hochsaison: (m, n) => `Hochsaison im ${m}: <b>${n}</b> Events`,
+      saison_label: 'Events je Monat in den nächsten zwölf Monaten',
+      monat_events: (m, n) => `${m}: ${n} Events`,
+      monate: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+      sport: { Laufen: 'Laufen', Fahrrad: 'Rad', Schwimmen: 'Schwimmen', Triathlon: 'Triathlon' },
+      ankunft: { events: 'Events', 'events-laufen': 'Events · Laufen', 'events-rad': 'Events · Rad', 'events-schwimmen': 'Events · Schwimmen', 'events-triathlon': 'Events · Triathlon', clubs: 'Clubs', karte: 'Karte', blog: 'Blog' },
       footer: 'Endurance Events – Ausdauersport im deutschsprachigen Raum',
-      footer_imprint: 'Impressum',
-      footer_privacy: 'Datenschutz'
+      footer_imprint: 'Impressum', footer_privacy: 'Datenschutz'
     },
     en: {
       eyebrow: 'Running · Cycling · Swimming · Triathlon',
-      headline1: 'Find your', headline2: 'next challenge now!',
-      lead: 'Thousands of races across Germany, Austria, Switzerland and South Tyrol – filtered by sport, distance and radius. Pick one, sign up, go.',
-      nav_events: 'Events',
-      nav_clubs: 'Clubs',
-      nav_map: 'Map',
-      nav_blog: 'Blog',
-      cta: 'Explore events',
-      cta2: 'Search on the map',
-      fact_events: 'events in the list', fact_orte: 'places on the map', fact_regionen_n: '4', fact_regionen: 'regions',
-      ctaFinal: 'See the event list',
-      finalTitle: 'Ready for the starting gun?',
-      finalLead: 'Your next race is already in the list. Go and pick it.',
-      scroll: 'Learn more',
-      stat1n: '4 sports', stat1l: 'Running, cycling, swimming, triathlon',
-      stat2n: 'Fresh every week', stat2l: 'New events and dates constantly updated',
-      stat3n: '4 regions', stat3l: 'Germany, Austria, Switzerland, South Tyrol',
-      sportsTitle: 'Choose your discipline',
-      sportsSub: 'Tap a sport and jump straight into the filtered list.',
-      sportRun: 'Running', sportBike: 'Cycling', sportSwim: 'Swimming', sportTri: 'Triathlon',
-      sportCount: (n) => `${n} events`,
-      sportCount1: '1 event',
+      headline: 'Find your next challenge now!',
+      lead: (n) => (n ? n + ' events' : 'Events') + ' in Germany, Austria, Switzerland and South Tyrol.',
+      nav_events: 'Events', nav_map: 'Map', nav_blog: 'Blog',
+      welt: 'The route from above: start, city run, mountain pass, lake, transition zone, sports ground, map, blog and finish',
+      k_alle: 'All sports', k_clubs: 'Clubs', k_laufen: 'Running', k_rad: 'Cycling', k_schwimmen: 'Swimming',
+      k_tri: 'Triathlon', k_karte: 'Map', k_saison: 'Next 12 months', k_blog: 'Blog', k_ziel: 'Finish',
+      satz_events: (z) => `Discover ${z('gesamt')} events`,
+      satz_clubs_start: (z) => `Find ${z('clubs')} run clubs and groups`,
+      satz_laufen: (z) => `Discover ${z('Laufen')} running events`,
+      satz_rad: (z) => `Discover ${z('Fahrrad')} cycling events`,
+      satz_schwimmen: (z) => `Discover ${z('Schwimmen')} swimming events`,
+      satz_tri: (z) => `Discover ${z('Triathlon')} triathlons`,
+      satz_clubs: (z) => `Find ${z('clubs')} clubs near you`,
+      satz_karte: (z) => `${z('gesamt')} events in ${z('orte')} places`,
+      satz_blog: (z) => `Read ${z('blog')} articles on the blog`,
+      z_events: 'Running, cycling, swimming and triathlon in Germany, Austria, Switzerland and South Tyrol.',
+      z_clubs_start: 'Train together every week, open to everyone.',
+      z_laufen: 'From 5K city runs to marathons and ultra trails.',
+      z_rad: 'Gran fondos, gravel, cyclocross and amateur races, including the Alpine passes.',
+      z_schwimmen: 'Lake crossings, open water and 24-hour swims, from 500 m.',
+      z_tri: 'From super sprint to full distance, plus duathlon and swimrun.',
+      z_clubs: 'Run clubs, cycling groups and swim meet-ups, many of them free and open to everyone.',
+      z_blog: 'Tips for your next race, a new one every Monday and Thursday.',
+      ziel_titel: 'Ready for the starting gun?',
+      z_ziel: 'Pick your next race now.',
+      los: 'Click here →', los_karte: 'Click here for the map →', los_ziel: 'Explore events →',
+      saison_titel: 'Events per month',
+      hochsaison: (m, n) => `Peak season in ${m}: <b>${n}</b> events`,
+      saison_label: 'Events per month over the next twelve months',
+      monat_events: (m, n) => `${m}: ${n} events`,
+      monate: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      sport: { Laufen: 'Running', Fahrrad: 'Cycling', Schwimmen: 'Swimming', Triathlon: 'Triathlon' },
+      ankunft: { events: 'Events', 'events-laufen': 'Events · Running', 'events-rad': 'Events · Cycling', 'events-schwimmen': 'Events · Swimming', 'events-triathlon': 'Events · Triathlon', clubs: 'Clubs', karte: 'Map', blog: 'Blog' },
       footer: 'Endurance Events – endurance sport in the German-speaking region',
-      footer_imprint: 'Legal notice',
-      footer_privacy: 'Privacy'
+      footer_imprint: 'Legal notice', footer_privacy: 'Privacy'
     }
   };
-
   let lang = 'de';
   try {
-    const saved = localStorage.getItem('endurance-lang');
-    if (saved === 'de' || saved === 'en') lang = saved;
-  } catch (e) { /* ignorieren */ }
+    const gespeichert = localStorage.getItem('endurance-lang');
+    if (gespeichert === 'de' || gespeichert === 'en') lang = gespeichert;
+  } catch (e) { /* privater Modus */ }
+  const T = () => I18N[lang];
 
+  // ---------- Welt ----------
+  const NS = 'http://www.w3.org/2000/svg';
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => Array.from(document.querySelectorAll(s));
+  const ruhig = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const glatt = (t) => t * t * (3 - 2 * t);
+  const SPORTARTEN = ['Laufen', 'Fahrrad', 'Schwimmen', 'Triathlon'];
+  const SPORT_FARBE = ['#f97316', '#3db55a', '#4a9be6', '#9a7bf0'];
+  const FONT = 'Barlow Condensed, Arial Narrow, sans-serif';
+  // Weltkoordinaten: Breite 1000, die Strecke läuft bei x 100-900; Höhe H
+  const X0 = 100, BREITE = 800, H = 5060, LINKS = -800, RECHTS = 1800;
+  const OBEN = 420; // so weit reicht die Landschaft über die Startlinie hinaus, hinter die Überschrift
+  const MENGE = ['#edf1f7', '#f97316', '#4a9be6', '#9a7bf0', '#3db55a', '#ffb27a'];
+  // Texte in der Landschaft (Schilder, Städte) wechseln mit der Sprache
+  const SPRACHE = [];
+  const STADT_EN = { 'München': 'Munich', 'Köln': 'Cologne', 'Zürich': 'Zurich', 'Wien': 'Vienna', 'Hannover': 'Hanover', 'Bozen': 'Bolzano' };
+  let saat = 11;
+  const zufall = () => { saat |= 0; saat = saat + 0x6D2B79F5 | 0; let t = Math.imul(saat ^ saat >>> 15, 1 | saat); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+
+  // ---------- Karte in Weltkoordinaten ----------
+  const BBOX = { lon1: 5.85, lon2: 17.2, lat1: 45.75, lat2: 55.1 };
+  const KOS = Math.cos(50.4 * Math.PI / 180);
+  const KARTE = { x: 200, y: 3480, b: 600 };
+  KARTE.s = KARTE.b / ((BBOX.lon2 - BBOX.lon1) * KOS);
+  KARTE.h = (BBOX.lat2 - BBOX.lat1) * KARTE.s;
+  const proj = (lon, lat) => [KARTE.x + (lon - BBOX.lon1) * KOS * KARTE.s, KARTE.y + (BBOX.lat2 - lat) * KARTE.s];
+  // An der Straße: ein ruhiger Bogen von Nord nach Süd; die anderen Städte stehen nur zur Orientierung
+  const STAEDTE = [['Kiel', 10.13, 54.32], ['Hamburg', 9.99, 53.55], ['Hannover', 9.73, 52.37], ['Frankfurt', 8.68, 50.11], ['München', 11.58, 48.14], ['Innsbruck', 11.39, 47.27], ['Bozen', 11.35, 46.50]];
+  const ANDERE = [['Berlin', 13.40, 52.52], ['Leipzig', 12.37, 51.34], ['Köln', 6.96, 50.94], ['Stuttgart', 9.18, 48.78], ['Zürich', 8.54, 47.37], ['Wien', 16.37, 48.21], ['Graz', 15.44, 47.07], ['Basel', 7.59, 47.56], ['Dresden', 13.74, 51.05]];
+
+  // ---------- Die Strecke (y steigt überall) ----------
+  let d = 'M 500 40 L 500 420 C 500 500 700 500 700 580 L 700 760 C 700 840 300 840 300 920 L 300 980';
+  // Passstraße: drei weiche Bögen, die Passhöhe liegt in der Lücke zwischen den Gipfeln (x 500, y 1250)
+  d += ' C 300 1060 660 1060 660 1150 C 660 1250 340 1250 340 1350 C 340 1440 500 1450 500 1530 L 500 1700';
+  d += ' C 500 1780 680 1790 680 1860 C 680 1960 320 1980 320 2070 C 320 2160 500 2180 500 2260 L 500 2720';
+  d += ' C 500 2810 350 2860 350 2960 L 350 3140 C 350 3230 480 3240 480 3305 L 480 3390';
+  {
+    let [px, py] = [480, 3390];
+    for (const [, lon, lat] of STAEDTE) {
+      const [x, y] = proj(lon, lat);
+      const dy = y - py;
+      d += ` C ${px.toFixed(1)} ${(py + dy * .5).toFixed(1)} ${x.toFixed(1)} ${(y - dy * .5).toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)}`;
+      [px, py] = [x, y];
+    }
+    d += ` C ${px.toFixed(1)} ${(py + 70).toFixed(1)} 500 4280 500 4340`;
+  }
+  d += ' L 500 4390 C 500 4450 470 4460 470 4510 L 470 4660 C 470 4720 500 4730 500 4780 L 500 5040';
+  const ZIEL_Y = 4860;
+  const FARBE_AB = [[900, SPORT_FARBE[0]], [1640, SPORT_FARBE[1]], [2380, SPORT_FARBE[2]], [2720, SPORT_FARBE[3]], [3410, '#ffb27a'], [99999, '#e8590c']];
+
+  const streifen = $('#streifen');
+  const svg = streifen.querySelector('svg');
+  svg.setAttribute('viewBox', `${X0} 0 ${BREITE} ${H}`);
+  const el = (tag, attrs, eltern) => {
+    const n = document.createElementNS(NS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    (eltern || svg).appendChild(n);
+    return n;
+  };
+  const text = (inhalt, attrs, eltern) => { const t = el('text', Object.assign({ 'font-family': FONT, 'font-weight': 700, 'text-anchor': 'middle' }, attrs), eltern); t.textContent = inhalt; return t; };
+  const defs = el('defs', {});
+  const messpfad = el('path', { d, fill: 'none' });
+  const LAENGE = messpfad.getTotalLength();
+  const PROBEN = [];
+  for (let l = 0; l <= LAENGE; l += 3) { const q = messpfad.getPointAtLength(l); PROBEN.push([l, q.x, q.y]); }
+  messpfad.remove();
+  const nah = (x1, y1, x2, y2, ab) => {
+    for (const [, x, y] of PROBEN) {
+      if (y < y1 - ab || y > y2 + ab) continue;
+      const dx = Math.max(x1 - x, 0, x - x2), dy = Math.max(y1 - y, 0, y - y2);
+      if (dx * dx + dy * dy < ab * ab) return true;
+    }
+    return false;
+  };
+  const sprachText = (inhalt, attrs, eltern) => { const t = text('', attrs, eltern); SPRACHE.push([t, inhalt]); return t; };
+  // Schild an der Strecke; die Breite folgt dem Text der Sprache
+  const schild = (x, y, inhalt, grund, schrift) => {
+    const r = el('rect', { y: y - 22, height: 36, rx: 6, fill: grund });
+    const t = text('', { x, y: y + 5, fill: schrift, 'font-size': 24, 'letter-spacing': 1 });
+    SPRACHE.push([t, inhalt, (txt) => { const b = txt.length * 15 + 26; r.setAttribute('x', x - b / 2); r.setAttribute('width', b); }]);
+  };
+  const karierteLinie = (y, g) => {
+    for (let i = 0; i < 20; i++) for (let j = 0; j < 2; j++) el('rect', { x: 420 + i * 8, y: y + j * 8, width: 8, height: 8, fill: (i + j) % 2 ? '#0b1b33' : '#f4f2ed' }, g);
+    el('rect', { x: 404, y: y - 12, width: 192, height: 8, rx: 4, fill: '#e8590c' }, g);
+    el('circle', { cx: 404, cy: y - 8, r: 9, fill: '#f4f2ed' }, g);
+    el('circle', { cx: 596, cy: y - 8, r: 9, fill: '#f4f2ed' }, g);
+  };
+  const baum = (x, y, g) => el('circle', { cx: x.toFixed(1), cy: y.toFixed(1), r: (6 + zufall() * 8).toFixed(1), fill: zufall() < .5 ? '#1f4a3c' : '#245744' }, g);
+
+  el('rect', { x: LINKS, y: -OBEN - 10, width: RECHTS - LINKS, height: H + OBEN + 20, fill: '#16294a' });
+
+  // --- Start: die Straße kommt aus der Überschrift, das Läuferfeld wird zur Startlinie hin dichter ---
+  {
+    const g = el('g', {});
+    el('rect', { x: 420, y: -OBEN - 10, width: 160, height: 450 + OBEN, fill: '#22324d' }, g);
+    for (const x of [414, 586]) el('line', { x1: x, y1: -OBEN, x2: x, y2: 430, stroke: '#edf1f7', 'stroke-opacity': '.3', 'stroke-width': 3, 'stroke-dasharray': '18 8' }, g);
+    for (let i = 0; i < 330; i++) {
+      const x = 432 + zufall() * 136, y = 148 - Math.pow(zufall(), 1.7) * (OBEN + 148);
+      if (Math.abs(x - 500) < 14 && y > 20) continue;
+      el('circle', { cx: x.toFixed(1), cy: y.toFixed(1), r: (2.6 + zufall() * 1.6).toFixed(1), fill: MENGE[Math.floor(zufall() * 6)], opacity: (.55 + zufall() * .4).toFixed(2) }, g);
+    }
+    karierteLinie(166, g);
+    el('rect', { x: 236, y: 146, width: 150, height: 52, rx: 8, fill: '#e8590c' }, g);
+    text('START', { x: 311, y: 186, fill: '#ffffff', 'font-size': 40, 'letter-spacing': 5 }, g);
+  }
+
+  // --- Stadt ---
+  {
+    // Ein Grund für die ganze Reise. Rund um den Start liegt ein Park mit Zuschauern
+    const park = el('g', {});
+    for (let i = 0; i < 300; i++) {
+      const x = LINKS + zufall() * (RECHTS - LINKS), y = -OBEN + zufall() * (OBEN + 260);
+      if (x > 220 && x < 620 && y > 120 && y < 230) continue;
+      if (Math.abs(x - 500) < 110) continue;
+      el('circle', { cx: x.toFixed(1), cy: y.toFixed(1), r: (6 + zufall() * 8).toFixed(1), fill: zufall() < .5 ? '#1f4a3c' : '#245744', opacity: clamp(.35 + (y + OBEN) / (OBEN + 260) * .55, 0, 1).toFixed(2) }, park);
+    }
+    for (let i = 0; i < 150; i++) {
+      const seite = zufall() < .5 ? -1 : 1, x = 500 + seite * (96 + zufall() * 40), y = 220 - Math.pow(zufall(), 1.4) * (OBEN + 200);
+      el('circle', { cx: x.toFixed(1), cy: y.toFixed(1), r: (2.4 + zufall() * 1.4).toFixed(1), fill: MENGE[Math.floor(zufall() * 6)], opacity: (.4 + zufall() * .4).toFixed(2) }, park);
+    }
+    // statt Häuserblöcken lockerer Wald wie überall auf der Reise; an der Straße stehen die Zuschauer
+    const g = el('g', {});
+    for (let i = 0; i < 190; i++) {
+      const x = LINKS + zufall() * (RECHTS - LINKS), y = 250 + zufall() * 690;
+      if (x > 400 && x < 600 && y < 440) continue;
+      if (nah(x - 8, y - 8, x + 8, y + 8, 46)) continue;
+      baum(x, y, g);
+    }
+  }
+
+  // --- Pass ---
+  {
+    const g = el('g', {});
+    // zurückhaltend: jede Stufe nur wenig heller als der Boden, die Gipfel ohne grelles Weiß
+    const farben = ['#172b4e', '#192e52', '#1c3256', '#1f365b', '#223a60', '#263f66'];
+    for (const [cx, cy, R] of [[-430, 1250, 360], [1430, 1190, 360], [-180, 990, 200], [1180, 1500, 200], [110, 1215, 330], [890, 1205, 330], [500, 1000, 160], [500, 1520, 160]]) {
+      const phase = zufall() * 6;
+      for (let k = 0; k < 7; k++) {
+        const r = R * (1 - k / 7.4);
+        let p = '';
+        for (let a = 0; a <= 64; a++) {
+          const wi = a / 64 * Math.PI * 2;
+          const rr = r * (1 + .1 * Math.sin(wi * 3 + phase + k * .4) + .06 * Math.sin(wi * 5 + phase * 2));
+          p += (a ? ' L ' : 'M ') + (cx + Math.cos(wi) * rr).toFixed(1) + ' ' + (cy + Math.sin(wi) * rr * .8).toFixed(1);
+        }
+        const schnee = k === 6 && R > 300;
+        el('path', { d: p + ' Z', fill: schnee ? '#34507c' : farben[Math.min(k, 5)], stroke: '#edf1f7', 'stroke-opacity': schnee ? 0 : .04, 'stroke-width': 2 }, g);
+      }
+    }
+    for (let i = 0; i < 200; i++) {
+      const x = LINKS + zufall() * (RECHTS - LINKS), y = 950 + zufall() * 680;
+      if (nah(x - 8, y - 8, x + 8, y + 8, 30)) continue;
+      if (Math.hypot(x - 110, (y - 1215) / .8) < 240 || Math.hypot(x - 890, (y - 1205) / .8) < 240) continue;
+      if (Math.hypot(x + 430, (y - 1250) / .8) < 260 || Math.hypot(x - 1430, (y - 1190) / .8) < 260) continue;
+      baum(x, y, g);
+    }
+  }
+
+  // --- Wald neben See, Wechselzone, Sportplatz und Karte (das Bild reicht bis an den Rand) ---
+  {
+    const g = el('g', {});
+    const frei = (x, y) =>
+      Math.hypot((x - 500) / 420, (y - 2000) / 330) < 1 ||           // See
+      (x > 160 && x < 840 && y > 2360 && y < 2660) ||                  // Wechselzone
+      (x > 236 && x < 764 && y > 2700 && y < 3396) ||                  // Sportplatz
+      (x > 130 && x < 870 && y > 3420 && y < 4316);                    // Karte
+    for (let i = 0; i < 560; i++) {
+      const x = LINKS + zufall() * (RECHTS - LINKS), y = 1650 + zufall() * 2680;
+      if (frei(x, y) || nah(x - 8, y - 8, x + 8, y + 8, 34)) continue;
+      baum(x, y, g);
+    }
+  }
+
+  // --- See ---
+  const see = el('g', {});
+  {
+    const v = el('radialGradient', { id: 'see', cx: '50%', cy: '45%', r: '60%' }, defs);
+    el('stop', { offset: '0', 'stop-color': '#2f7fcf' }, v);
+    el('stop', { offset: '1', 'stop-color': '#1a4f8c' }, v);
+    let p = '';
+    for (let a = 0; a <= 80; a++) {
+      const wi = a / 80 * Math.PI * 2;
+      const rx = 380 * (1 + .06 * Math.sin(wi * 3 + 1) + .04 * Math.sin(wi * 7));
+      const ry = 300 * (1 + .05 * Math.sin(wi * 2 + 2));
+      p += (a ? ' L ' : 'M ') + (500 + Math.cos(wi) * rx).toFixed(1) + ' ' + (2000 + Math.sin(wi) * ry).toFixed(1);
+    }
+    el('path', { d: p + ' Z', fill: '#1f6e4f', stroke: '#2b6a4f', 'stroke-width': 30, opacity: '.55' }, see);
+    el('path', { d: p + ' Z', fill: 'url(#see)', stroke: '#4a9be6', 'stroke-opacity': '.55', 'stroke-width': 6 }, see);
+    for (let i = 0; i < 20; i++) {
+      const x = 180 + zufall() * 640, y = 1740 + zufall() * 520;
+      if (Math.hypot((x - 500) / 360, (y - 2000) / 280) > .9) continue;
+      el('path', { d: `M ${x.toFixed(0)} ${y.toFixed(0)} q 9 -6 18 0 t 18 0`, fill: 'none', stroke: '#9cc8f5', 'stroke-opacity': '.35', 'stroke-width': 2, 'stroke-linecap': 'round' }, see);
+    }
+    el('rect', { x: 478, y: 1670, width: 44, height: 80, rx: 4, fill: '#8a6b4a' }, see);
+    for (let y = 1678; y < 1745; y += 12) el('line', { x1: 478, y1: y, x2: 522, y2: y, stroke: '#6b5238', 'stroke-width': 2 }, see);
+    el('rect', { x: 470, y: 2280, width: 60, height: 46, rx: 4, fill: '#2a3a56' }, see);
+  }
+
+  // --- Wechselzone ---
+  {
+    const g = el('g', {});
+    el('rect', { x: 180, y: 2380, width: 640, height: 270, rx: 12, fill: '#1b2d4a', stroke: '#9a7bf0', 'stroke-width': 4, 'stroke-dasharray': '16 10' }, g);
+    sprachText({ de: 'WECHSELZONE', en: 'TRANSITION' }, { x: 190, y: 2366, fill: '#c4b3fa', 'font-size': 30, 'letter-spacing': 4, 'text-anchor': 'start' }, g);
+    for (let y = 2415; y < 2630; y += 50) {
+      for (const [x1, x2] of [[210, 440], [560, 790]]) {
+        el('line', { x1, y1: y, x2, y2: y, stroke: '#a3afc2', 'stroke-width': 3 }, g);
+        for (let x = x1 + 10; x < x2 - 10; x += 22) {
+          if (zufall() < .2) continue;
+          const f = MENGE[Math.floor(zufall() * 6)];
+          el('line', { x1: x, y1: y - 16, x2: x, y2: y + 16, stroke: f, 'stroke-width': 4, 'stroke-linecap': 'round' }, g);
+          el('line', { x1: x - 7, y1: y - 10, x2: x + 7, y2: y - 10, stroke: f, 'stroke-width': 2, 'stroke-linecap': 'round' }, g);
+        }
+      }
+    }
+  }
+
+  // --- Clubs: Sportplatz mit 400-m-Bahn und Lauftreff ---
+  {
+    const g = el('g', {});
+    el('rect', { x: 260, y: 2720, width: 480, height: 660, rx: 44, fill: '#183a35' }, g);
+    // Bahn mittig auf dem Rasen: Mitte (500, 3050), Geraden 2960–3140, außen r 180 → 60 Rand ringsum
+    const oval = (r) => `M ${500 - r} 2960 L ${500 - r} 3140 A ${r} ${r} 0 0 0 ${500 + r} 3140 L ${500 + r} 2960 A ${r} ${r} 0 0 0 ${500 - r} 2960 Z`;
+    el('path', { d: oval(150), fill: 'none', stroke: '#b4472a', 'stroke-width': 60 }, g);
+    for (const r of [122, 136, 150, 164, 178]) el('path', { d: oval(r), fill: 'none', stroke: '#f4f2ed', 'stroke-opacity': '.45', 'stroke-width': 1.6 }, g);
+    el('path', { d: oval(120), fill: '#22573f' }, g);
+    for (let k = 0; k < 6; k++) el('rect', { x: 382, y: 2970 + k * 30, width: 236, height: 15, fill: '#255f45' }, g);
+    for (let i = 0; i < 22; i++) {
+      const wi = zufall() * Math.PI * 2, r = 14 + zufall() * 36;
+      el('circle', { cx: (548 + Math.cos(wi) * r).toFixed(1), cy: (3025 + Math.sin(wi) * r).toFixed(1), r: (3 + zufall() * 1.6).toFixed(1), fill: MENGE[Math.floor(zufall() * 6)], opacity: '.9' }, g);
+    }
+    el('line', { x1: 548, y1: 3025, x2: 548, y2: 2970, stroke: '#f4f2ed', 'stroke-width': 3 }, g);
+    el('path', { d: 'M 548 2970 L 582 2980 L 548 2992 Z', fill: '#e8590c' }, g);
+  }
+
+  // --- Karte (wird nach dem Laden gefüllt) ---
+  el('rect', { x: KARTE.x - 50, y: KARTE.y - 40, width: KARTE.b + 100, height: KARTE.h + 80, rx: 24, fill: '#0b1b33', stroke: '#2a3a56', 'stroke-width': 3 });
+  const landG = el('g', {});
+
+  // --- Blog und Ziel ---
+  {
+    const g = el('g', {});
+    for (let i = 0; i < 220; i++) {
+      const x = LINKS + zufall() * (RECHTS - LINKS), y = 4340 + zufall() * 700;
+      if (x > 400 && x < 600 && y > 4710) continue;
+      if (nah(x - 8, y - 8, x + 8, y + 8, 40)) continue;
+      if (x > 520 && x < 900 && y > 4370 && y < 4720) continue;
+      baum(x, y, g);
+    }
+    el('rect', { x: 600, y: 4380, width: 150, height: 96, rx: 6, fill: '#3a2f2a' }, g);
+    el('path', { d: 'M 600 4428 L 750 4428', stroke: '#5a473b', 'stroke-width': 6 }, g);
+    el('rect', { x: 548, y: 4520, width: 316, height: 170, rx: 8, fill: '#6b5238' }, g);
+    el('rect', { x: 560, y: 4532, width: 292, height: 146, rx: 4, fill: '#8a6b4a' }, g);
+    [[572, 4544, -3], [668, 4548, 2], [764, 4542, -1]].forEach(([x, y, r]) => {
+      const k = el('g', { transform: `rotate(${r} ${x + 40} ${y + 55})` }, g);
+      el('rect', { x, y, width: 78, height: 112, rx: 3, fill: '#f4f2ed' }, k);
+      el('rect', { x: x + 8, y: y + 10, width: 62, height: 32, rx: 2, fill: '#4a9be6', opacity: '.6' }, k);
+      for (let i = 0; i < 4; i++) el('rect', { x: x + 8, y: y + 52 + i * 12, width: i === 3 ? 34 : 62, height: 5, rx: 2, fill: '#a3afc2' }, k);
+      el('circle', { cx: x + 39, cy: y + 4, r: 6, fill: '#e8590c' }, k);
+    });
+    text('BLOG', { x: 706, y: 4510, fill: '#f4f2ed', 'font-size': 28, 'letter-spacing': 6 }, g);
+    el('rect', { x: 420, y: 4720, width: 160, height: 360, fill: '#22324d' }, g);
+    for (const x of [414, 586]) el('line', { x1: x, y1: 4730, x2: x, y2: 5060, stroke: '#edf1f7', 'stroke-opacity': '.3', 'stroke-width': 3, 'stroke-dasharray': '18 8' }, g);
+    karierteLinie(ZIEL_Y, g);
+    el('rect', { x: 226, y: ZIEL_Y - 18, width: 160, height: 52, rx: 8, fill: '#f4f2ed' }, g);
+    text('FINISH', { x: 306, y: ZIEL_Y + 22, fill: '#0b1b33', 'font-size': 40, 'letter-spacing': 5 }, g);
+  }
+
+  // Zuschauer (Stadt und Zielgerade)
+  {
+    const g = el('g', {});
+    PROBEN.forEach(([, x, y], i) => {
+      if (i % 4) return;
+      if (!((y > 240 && y < 920) || (y > 4740 && y < 5040))) return;
+      const q = PROBEN[Math.min(PROBEN.length - 1, i + 1)];
+      const dx = q[1] - x, dy = q[2] - y, n = Math.hypot(dx, dy) || 1;
+      for (const seite of [-1, 1]) {
+        if (zufall() < .25) continue;
+        const ab = 34 + zufall() * 18;
+        el('circle', { cx: (x - dy / n * ab * seite).toFixed(1), cy: (y + dx / n * ab * seite).toFixed(1), r: (2.4 + zufall() * 1.4).toFixed(1), fill: MENGE[Math.floor(zufall() * 6)], opacity: (.45 + zufall() * .4).toFixed(2) }, g);
+      }
+    });
+  }
+  schild(810, 660, { de: 'KM 21,1', en: 'KM 21.1' }, '#f4f2ed', '#0b1b33');
+  schild(175, 995, '10 %', '#f4f2ed', '#e8590c');
+  schild(385, 1212, { de: 'PASSHÖHE', en: 'SUMMIT' }, '#3db55a', '#ffffff');
+  schild(515, 3120, { de: 'TREFF · DO 18:30', en: 'MEET-UP · THU 6:30 PM' }, '#f4f2ed', '#0b1b33');
+  [[705, 1850], [295, 2080]].forEach(([x, y], i) => {
+    el('circle', { cx: x, cy: y, r: 17, fill: '#f97316', stroke: '#fff', 'stroke-width': 3 });
+    text(String(i + 1), { x, y: y + 7, fill: '#0b1b33', 'font-size': 20 });
+  });
+
+  // --- Strecke: Unterlage (im See unsichtbar, auf der Karte schmaler), Vorschau, Fortschritt ---
+  const kz = { x: KARTE.x - 50, y: KARTE.y - 40, b: KARTE.b + 100, h: KARTE.h + 80 };
+  const ohneKarte = el('clipPath', { id: 'ohneKarte' }, defs);
+  el('path', { d: `M ${LINKS} -10 H ${RECHTS} V ${H + 10} H ${LINKS} Z M ${kz.x} ${kz.y} v ${kz.h} h ${kz.b} v ${-kz.h} Z`, 'clip-rule': 'evenodd' }, ohneKarte);
+  const nurKarte = el('clipPath', { id: 'nurKarte' }, defs);
+  el('rect', { x: kz.x, y: kz.y, width: kz.b, height: kz.h }, nurKarte);
+  svg.insertBefore(el('path', { d, fill: 'none', stroke: '#2b3d5c', 'stroke-width': 22, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'clip-path': 'url(#ohneKarte)' }), see);
+  el('path', { d, fill: 'none', stroke: '#2b3d5c', 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'clip-path': 'url(#nurKarte)', opacity: '.9' });
+  el('path', { d, fill: 'none', stroke: '#edf1f7', 'stroke-opacity': '.28', 'stroke-width': 2.5, 'stroke-dasharray': '10 12' });
+  const stadtG = el('g', {});
+  const linie = el('path', { d, fill: 'none', stroke: '#e8590c', 'stroke-width': 9, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-dasharray': `${LAENGE} ${LAENGE}`, 'stroke-dashoffset': LAENGE });
+  const gruppe = [];
+  for (let k = 1; k <= 7; k++) gruppe.push(el('circle', { r: (8 - k * .55).toFixed(2), fill: '#f97316', opacity: 0 }));
+  const halo = el('circle', { r: 44, fill: '#e8590c', opacity: '.25' });
+  // Der Punkt ist ein Abzeichen mit dem Symbol des Abschnitts (Laufen, Rad, Schwimmen,
+  // Triathlon = Läufer, Clubs = mehrere Läufer, Karte = Pin, Blog = Buch)
+  const LAEUFER = '<circle cx="15.4" cy="4.2" r="2.3" fill="#fff" stroke="none"/><path d="M14 8.3 L11.2 13.6"/><path d="M13.5 9.4 L16.9 11.5 L19 10.2"/><path d="M13.5 9.4 L9.7 9.7 L7.7 12.3"/><path d="M11.2 13.6 L14.7 16.2 L13.3 20.7"/><path d="M11.2 13.6 L9 17.4 L5 18.4"/>';
+  const SYMBOLE = {
+    lauf: LAEUFER,
+    rad: '<circle cx="5.6" cy="16.2" r="4"/><circle cx="18.4" cy="16.2" r="4"/><path d="M5.6 16.2 L11 16.2 L9.4 8.9 Z"/><path d="M9.4 8.9 L16.1 9.4 L11 16.2"/><path d="M16.1 9.4 L18.4 16.2"/><path d="M16.1 9.4 L15.5 6.6 L18 6.2"/><path d="M7.9 8.4 L11 8.4"/>',
+    schwimm: '<circle cx="17.6" cy="8.4" r="2.3" fill="#fff" stroke="none"/><path d="M3.5 13 L9.2 10.6 L14.2 12.4"/><path d="M9.2 10.6 Q11.8 4.6 16.4 5"/><path d="M2.5 16.8 q2.4 -2 4.8 0 t4.8 0 t4.8 0 t4.8 0"/><path d="M2.5 20.8 q2.4 -2 4.8 0 t4.8 0 t4.8 0 t4.8 0"/>',
+    clubs: [[-1.6, -1.8, .58, .6], [8.2, -1.8, .58, .6], [1.6, 8.2, .6, 1], [11.2, 8.2, .6, 1]]
+    .map(([x, y, k, o]) => `<g transform="translate(${x} ${y}) scale(${k})" stroke-width="${(1.9 / k).toFixed(2)}" opacity="${o}">${LAEUFER}</g>`).join(''),
+    karte: '<path d="M12 21.4 C12 21.4 5 14.8 5 9.6 A7 7 0 0 1 19 9.6 C19 14.8 12 21.4 12 21.4 Z"/><circle cx="12" cy="9.6" r="2.6"/>',
+    blog: '<path d="M12 7 C10 5.4 6.8 5 3 5.4 V18.4 C6.8 18 10 18.4 12 20 C14 18.4 17.2 18 21 18.4 V5.4 C17.2 5 14 5.4 12 7 Z"/><path d="M12 7 V20"/>',
+  };
+  const symbolBei = (y) => y < 900 ? 'lauf' : y < 1640 ? 'rad' : y < 2380 ? 'schwimm' : y < 2720 ? 'lauf' : y < 3410 ? 'clubs' : y < 4310 ? 'karte' : 'blog';
+  const punkt = el('g', {});
+  el('circle', { r: 27, fill: '#e8590c', stroke: '#fff', 'stroke-width': 4 }, punkt);
+  const symbolG = el('g', { transform: 'translate(-18.6 -18.6) scale(1.55)', fill: 'none', stroke: '#fff', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, punkt);
+  let punktX = 0, punktY = 0, aktivSymbol = null, popAb = -1e9, popFrame = 0;
+  function setzePunkt() {
+    const t = (performance.now() - popAb) / 380;
+    const k = t < 1 ? 1 + .3 * Math.sin(Math.PI * clamp(t, 0, 1)) : 1;
+    punkt.setAttribute('transform', `translate(${punktX} ${punktY}) scale(${k.toFixed(3)})`);
+    if (t < 1 && !popFrame) popFrame = requestAnimationFrame(() => { popFrame = 0; setzePunkt(); });
+  }
+  for (const [name, lon, lat] of STAEDTE.concat(ANDERE)) {
+    const [x, y] = proj(lon, lat);
+    const anStrasse = STAEDTE.some((st) => st[0] === name);
+    el('circle', { cx: x, cy: y, r: anStrasse ? 6 : 4, fill: '#f4f2ed', stroke: '#0b1b33', 'stroke-width': 2 }, stadtG);
+    const rechts = x < 500;
+    SPRACHE.push([el('text', { x: x + (rechts ? 12 : -12), y: y + 5, 'text-anchor': rechts ? 'start' : 'end', fill: anStrasse ? '#f4f2ed' : '#a3afc2', 'font-family': 'Barlow, system-ui, sans-serif', 'font-weight': 600, 'font-size': anStrasse ? 16 : 14, stroke: '#0b1b33', 'stroke-width': 4, 'paint-order': 'stroke' }, stadtG), { de: name, en: STADT_EN[name] || name }]);
+  }
+  const konfetti = [];
+  const KONF_FARBEN = ['#f97316', '#3db55a', '#4a9be6', '#9a7bf0', '#f4f2ed'];
+  for (let i = 0; i < 80; i++) konfetti.push({ n: el('rect', { width: 9, height: 15, rx: 2, fill: KONF_FARBEN[i % 5], opacity: 0 }), w: zufall() * Math.PI * 2, v: 140 + zufall() * 300, dreh: zufall() * 720 });
+
+  function karteFuellen(laender, punkte) {
+    let p = '';
+    for (const name in laender) for (const ring of laender[name]) {
+      ring.forEach(([lon, lat], i) => { const [x, y] = proj(lon, lat); p += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1); });
+      p += 'Z';
+    }
+    el('path', { d: p, fill: '#1e3558', 'fill-rule': 'evenodd', stroke: '#3a5683', 'stroke-width': 1.6, 'stroke-linejoin': 'round' }, landG);
+    for (let sp = 0; sp < 4; sp++) {
+      let q = '';
+      for (const [lon, lat, art] of punkte) if (art === sp) { const [x, y] = proj(lon, lat); q += `M${x.toFixed(1)} ${y.toFixed(1)}h0`; }
+      el('path', { d: q, stroke: SPORT_FARBE[sp], 'stroke-width': 5.2, 'stroke-linecap': 'round', 'stroke-opacity': '.85' }, landG);
+    }
+  }
+
+
+  // ---------- Größe und Lage ----------
+  const reise = $('#reise');
+  const kopf = $('.site-header');
+  let vw = innerWidth, vh = innerHeight, handy = vw < 761, s = 1, streifenL = 0, streifenB = 0, reiseOben = 0, kopfH = 73;
+  function groesse() {
+    vw = document.documentElement.clientWidth; vh = innerHeight; handy = vw < 761;
+    // Die Höhe der vollen Kopfzeile (auf dem Handy zwei Zeilen) - nur messen,
+    // solange sie nicht eingeklappt ist, sonst springt der Kopf der Reise.
+    if (!document.body.classList.contains('kopf-klein')) {
+      kopfH = kopf.offsetHeight;
+      document.documentElement.style.setProperty('--kopf-h', kopfH + 'px');
+    }
+    streifenB = handy ? vw : Math.round(vw / 3);
+    streifenL = handy ? 0 : Math.round((vw - streifenB) / 2);
+    s = handy ? vw / 720 : streifenB / BREITE;
+    // Das Bild füllt die ganze Breite, die Strecke bleibt im mittleren Drittel
+    const sichtB = vw / s;
+    svg.setAttribute('viewBox', `${(500 - sichtB / 2).toFixed(1)} ${-OBEN} ${sichtB.toFixed(1)} ${H + OBEN}`);
+    const hoehe = ((H + OBEN) * s).toFixed(1) + 'px';
+    streifen.style.height = svg.style.height = reise.style.height = hoehe;
+    svg.style.width = vw + 'px';
+    // Die Landschaft rückt unter den Kopf: das Stück über der Startlinie liegt hinter der Überschrift
+    reise.style.marginTop = (-OBEN * s).toFixed(1) + 'px';
+    for (const id of ['#schatten-l', '#schatten-r']) { $(id).style.width = (handy ? 0 : streifenL + 30) + 'px'; $(id).style.top = (OBEN * s).toFixed(1) + 'px'; }
+    reiseOben = reise.getBoundingClientRect().top + scrollY + OBEN * s; // Bildschirm-y von Welt-y 0
+    // Infos: links und rechts der Strecke, auf Höhe ihrer Station, ohne sich zu überlappen
+    const abstand = handy ? 12 : clamp(vw * .025, 20, 44);
+    const spalte = handy ? Math.min(180, vw * .46) : Math.min(420, streifenL - abstand - 16);
+    const letzte = { links: OBEN * s - 18, rechts: OBEN * s - 18 }; // nie über die Startlinie hinaus in den Kopf
+    $$('.info').forEach((t) => {
+      const links = t.dataset.seite === 'links';
+      t.classList.toggle('links', links); t.classList.toggle('rechts', !links);
+      t.style.width = spalte + 'px';
+      t.style.left = (handy ? (links ? 12 : vw - 12 - spalte) : (links ? streifenL - abstand - spalte : streifenL + streifenB + abstand)) + 'px';
+      t.style.setProperty('--steg', (abstand - 6) + 'px');
+    });
+    $$('.info').map((t) => ({ t, y: (+(handy && t.dataset.yh ? t.dataset.yh : t.dataset.y) + OBEN) * s })).sort((a, b) => a.y - b.y).forEach(({ t, y }) => {
+      const seite = t.dataset.seite, hoehe = t.offsetHeight;
+      const oben = Math.max(y - hoehe / 2, letzte[seite] + 18);
+      t.style.top = oben.toFixed(1) + 'px';
+      letzte[seite] = oben + hoehe;
+    });
+  }
+
+  // ---------- Punkt auf der Strecke ----------
+  const probeBeiY = (y) => {
+    let lo = 0, hi = PROBEN.length - 1;
+    if (y <= PROBEN[0][2]) return 0;
+    if (y >= PROBEN[hi][2]) return hi;
+    while (hi - lo > 1) { const m = (lo + hi) >> 1; if (PROBEN[m][2] < y) lo = m; else hi = m; }
+    return hi;
+  };
+  const farbeBei = (y) => FARBE_AB.find(([bis]) => y < bis)[1];
+  const balken = $('#balken');
+  const navLinks = $$('.site-nav .nav-link[data-station]');
+  let offen = false, aktivBereich = null;
+  function alles() {
+    const max = document.documentElement.scrollHeight - vh;
+    balken.style.width = (clamp(scrollY / Math.max(1, max), 0, 1) * 100).toFixed(2) + '%';
+    // Auf dem Handy klappt die zweite Kopfzeile beim Scrollen weg
+    document.body.classList.toggle('kopf-klein', vw <= 900 && scrollY > 40);
+    const zielY = (scrollY + vh * .5 - reiseOben) / s;
+    const i = probeBeiY(zielY);
+    const [len, x, y] = PROBEN[i];
+    linie.setAttribute('stroke-dashoffset', (LAENGE - len).toFixed(1));
+    punktX = x; punktY = y;
+    const sym = symbolBei(y);
+    if (sym !== aktivSymbol) {
+      symbolG.innerHTML = SYMBOLE[sym];
+      if (aktivSymbol && !ruhig) popAb = performance.now();
+      aktivSymbol = sym;
+    }
+    setzePunkt();
+    halo.setAttribute('cx', x); halo.setAttribute('cy', y);
+    const farbe = farbeBei(y);
+    // Die Kopfzeile zeigt, wo man gerade ist
+    const bereich = y < 2730 ? 'events' : y < 3420 ? 'clubs' : y < 4310 ? 'karte' : 'blog';
+    if (bereich !== aktivBereich) {
+      aktivBereich = bereich;
+      navLinks.forEach((b) => { const an = b.dataset.station === bereich; b.classList.toggle('aktiv', an); if (an) b.setAttribute('aria-current', 'location'); else b.removeAttribute('aria-current'); });
+    }
+    gruppe.forEach((c, k) => {
+      const j = i - (k + 1) * 11;
+      if (j < 0) { c.setAttribute('opacity', 0); return; }
+      const q = PROBEN[j], q2 = PROBEN[Math.min(PROBEN.length - 1, j + 1)];
+      const dx = q2[1] - q[1], dy = q2[2] - q[2], n = Math.hypot(dx, dy) || 1;
+      const wackeln = ruhig ? 0 : Math.sin(q[0] / 20 + k * 1.7) * 8;
+      c.setAttribute('cx', (q[1] - dy / n * wackeln).toFixed(1)); c.setAttribute('cy', (q[2] + dx / n * wackeln).toFixed(1));
+      c.setAttribute('fill', farbe);
+      c.setAttribute('opacity', (.85 - k * .09).toFixed(2));
+    });
+    const nachZiel = clamp((zielY - ZIEL_Y + 20) / 220, 0, 1);
+    konfetti.forEach((k) => {
+      if (nachZiel <= 0 || ruhig) { k.n.setAttribute('opacity', 0); return; }
+      const t = nachZiel;
+      const kx = 500 + Math.cos(k.w) * k.v * t, ky = ZIEL_Y + Math.sin(k.w) * k.v * t * .7 + 100 * t * t;
+      k.n.setAttribute('x', kx.toFixed(1)); k.n.setAttribute('y', ky.toFixed(1));
+      k.n.setAttribute('transform', `rotate(${(k.dreh * t).toFixed(0)} ${kx.toFixed(1)} ${ky.toFixed(1)})`);
+      k.n.setAttribute('opacity', (1 - clamp((t - .65) / .35, 0, 1)).toFixed(2));
+    });
+  }
+  let geplant = false;
+  addEventListener('scroll', () => { if (!geplant) { geplant = true; requestAnimationFrame(() => { geplant = false; if (!offen) alles(); }); } }, { passive: true });
+  addEventListener('resize', () => { groesse(); alles(); });
+
+  // ---------- Zahlen ----------
+  // Sie kommen aus denselben Quellen wie die Zielseiten (siehe ladeDaten);
+  // bis sie da sind, steht „…“. Beim ersten Sichtbarwerden zählen sie hoch.
+  const ZAHLEN = {};
+  const fmt = (n) => {
+    const EF = window.EnduranceFilters;
+    return EF && EF.formatInt ? EF.formatInt(Math.round(n), lang) : String(Math.round(n));
+  };
+  const zahlText = (k) => ZAHLEN[k] == null ? '…' : fmt(ZAHLEN[k]);
+  const gezaehlt = new WeakSet(), sichtbar = new WeakSet();
+  function zeichneSaetze() {
+    $$('[data-satz]').forEach((n) => {
+      const f = T()['satz_' + n.dataset.satz];
+      if (f) n.innerHTML = f((k) => `<b data-zahl="${k}">${zahlText(k)}</b>`);
+    });
+    $('#hero-lead').textContent = T().lead(ZAHLEN.gesamt == null ? '' : fmt(ZAHLEN.gesamt));
+    $('#legende').innerHTML = ZAHLEN.Laufen == null ? '' : SPORTARTEN.map((sp, i) =>
+      `<li style="--farbe:${SPORT_FARBE[i]}"><i></i>${T().sport[sp]}<b>${fmt(ZAHLEN[sp] || 0)}</b></li>`).join('');
+    zeichneSaison();
+  }
+  function zaehle(t) {
+    const zahlen = t.querySelectorAll('[data-zahl]');
+    if (gezaehlt.has(t) || !zahlen.length || Array.from(zahlen).some((z) => ZAHLEN[z.dataset.zahl] == null)) return;
+    gezaehlt.add(t);
+    if (ruhig) return;
+    zahlen.forEach((z) => {
+      const ziel = ZAHLEN[z.dataset.zahl];
+      const start = performance.now();
+      const schritt = (jetzt) => {
+        if (!z.isConnected) return;
+        const p = clamp((jetzt - start) / 1100, 0, 1);
+        z.textContent = fmt(ziel * glatt(p));
+        if (p < 1) requestAnimationFrame(schritt);
+      };
+      z.textContent = fmt(0);
+      requestAnimationFrame(schritt);
+    });
+  }
+  const beobachter = 'IntersectionObserver' in window
+    ? new IntersectionObserver((e) => e.forEach((x) => { if (x.isIntersecting) { sichtbar.add(x.target); zaehle(x.target); } }), { threshold: .6 })
+    : null;
+  $$('.info').forEach((t) => { if (beobachter) beobachter.observe(t); else sichtbar.add(t); });
+  function zahlenNeu() {
+    zeichneSaetze();
+    $$('.info').forEach((t) => { if (sichtbar.has(t)) zaehle(t); });
+    groesse(); alles();
+  }
+
+  // Events je Monat in den nächsten zwölf Monaten (Veranstaltungen nach
+  // ihrem ersten Tag), dazu der stärkste Monat.
+  let monate = null, monatStart = 0;
+  function zeichneSaison() {
+    const sv = $('#saison');
+    sv.setAttribute('aria-label', T().saison_label);
+    if (!monate) return;
+    sv.innerHTML = '';
+    const max = Math.max(1, ...monate), b = 300 / 12;
+    const mk = (tag, a) => { const n = document.createElementNS(NS, tag); for (const k in a) n.setAttribute(k, a[k]); sv.appendChild(n); return n; };
+    monate.forEach((z, i) => {
+      const mon = (monatStart + i) % 12, jahr = Math.floor((monatStart + i) / 12);
+      const h = 56 * z / max;
+      const r = mk('rect', { x: i * b + 3, width: b - 6, y: 56 - h, height: h, rx: 3, fill: z === max ? '#f97316' : '#e8590c', opacity: z === max ? 1 : .7 });
+      mk('text', { x: i * b + b / 2, y: 72, 'text-anchor': 'middle', class: 'achse' }).textContent = T().monate[mon][0];
+      const titel = document.createElementNS(NS, 'title');
+      titel.textContent = T().monat_events(`${T().monate[mon]} ${jahr}`, fmt(z));
+      r.appendChild(titel);
+    });
+    const spitze = (monatStart + monate.indexOf(Math.max(...monate))) % 12;
+    $('#hochsaison').innerHTML = T().hochsaison(T().monate[spitze], fmt(Math.max(...monate)));
+  }
+
+  function ladeDaten() {
+    const EF = window.EnduranceFilters, EC = window.EnduranceClubs;
+    let laender = null, punkte = null;
+    // Die Karte ist Beiwerk: Fehlt etwas, bleibt sie leer, die Zahlen kommen trotzdem
+    const karte = () => { if (laender && punkte) { try { karteFuellen(laender, punkte); } catch (e) { /* leer lassen */ } laender = null; } };
+    // laender.json: dieselben Umrisse wie die Maske auf karte.html ({ laender: { Name: [Ring …] } })
+    fetch('laender.json').then((r) => r.ok ? r.json() : null).then((l) => { laender = l && l.laender; karte(); }).catch(() => { /* Karte ohne Umriss */ });
+    if (EF && EF.loadEvents && EF.dropPastEvents && EF.groupKey) {
+      EF.loadEvents().then((geladen) => {
+        // Gezählt werden VERANSTALTUNGEN (EF.groupKey), nicht Strecken -
+        // dieselbe Zahl wie die Liste beim Zusammenfassen (vom Nutzer am
+        // 30.09.2026 so gewünscht), nach EF.dropPastEvents wie in der Liste.
+        const gesehen = new Set(), orte = new Set(), je = {};
+        const jetzt = new Date();
+        monatStart = jetzt.getFullYear() * 12 + jetzt.getMonth();
+        monate = new Array(12).fill(0);
+        punkte = [];
+        EF.dropPastEvents(geladen.events).forEach((e) => {
+          if (e.standort) orte.add(String(e.standort).toLowerCase());
+          const key = EF.groupKey(e);
+          if (gesehen.has(key)) return;
+          gesehen.add(key);
+          je[e.art1] = (je[e.art1] || 0) + 1;
+          const sp = SPORTARTEN.indexOf(e.art1);
+          if (sp >= 0 && typeof e.lat === 'number' && typeof e.lon === 'number') punkte.push([e.lon, e.lat, sp]);
+          const m = /^(\d{4})-(\d{2})/.exec(String(e.datum_start || ''));
+          if (m) { const i = (+m[1]) * 12 + (+m[2] - 1) - monatStart; if (i >= 0 && i < 12) monate[i]++; }
+        });
+        Object.assign(ZAHLEN, { gesamt: gesehen.size, orte: orte.size });
+        SPORTARTEN.forEach((sp) => { ZAHLEN[sp] = je[sp] || 0; });
+        karte();
+        zahlenNeu();
+      }).catch(() => { /* ohne Zahlen bleibt „…“ stehen, die Links führen trotzdem */ });
+    }
+    if (EC && EC.loadClubs) EC.loadClubs().then((l) => { ZAHLEN.clubs = l.length; zahlenNeu(); }).catch(() => { /* ebenso */ });
+    fetch('blog.json').then((r) => r.ok ? r.json() : Promise.reject(new Error(r.status)))
+      .then((b) => { if (Array.isArray(b)) { ZAHLEN.blog = b.length; zahlenNeu(); } }).catch(() => { /* ebenso */ });
+  }
+
+  // ---------- Sprache ----------
   function applyLang(l) {
     lang = l;
     try { localStorage.setItem('endurance-lang', l); } catch (e) { /* ignorieren */ }
     document.documentElement.lang = l;
-    document.querySelectorAll('[data-i]').forEach(el => {
-      const key = el.getAttribute('data-i');
-      if (I18N[l][key] != null) el.textContent = I18N[l][key];
+    $$('[data-i]').forEach((n) => { const v = T()[n.dataset.i]; if (typeof v === 'string') n.textContent = v; });
+    $$('.lang-btn').forEach((b) => b.classList.toggle('active', b.dataset.lang === l));
+    svg.setAttribute('aria-label', T().welt);
+    SPRACHE.forEach(([t, inhalt, nachher]) => {
+      const txt = typeof inhalt === 'string' ? inhalt : inhalt[l];
+      t.textContent = txt;
+      if (nachher) nachher(txt);
     });
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-    // Die Zahlen tragen das Tausendertrennzeichen der gewählten Sprache
-    // ("1.889" / "1,889") und müssen deshalb mit umschalten. Sie haben
-    // kein data-i: Ihr Text entsteht aus den Daten, nicht aus I18N.
-    zeigeZahlen();
+    zeichneSaetze();
+    groesse(); alles();
   }
+  $$('.lang-btn').forEach((b) => b.addEventListener('click', () => applyLang(b.dataset.lang)));
 
-  // ---------- Wie viele Events je Sportart? ----------
-  //
-  // Vom Nutzer am 21.09.2026 gewünscht: "Können wir auf der Startseite
-  // bitte noch bei den 4 Blöcken (schwimmen, Rennrad, laufen, triathlon)
-  // immer noch die Anzahl der jeweiligen Events dann hinzufügen die
-  // aktuell in der Liste sind."
-  //
-  // "aktuell in der Liste" ist wörtlich zu nehmen: Gezählt wird nach
-  // EF.dropPastEvents(), also mit derselben Grenze, die events.html beim
-  // Laden zieht - sonst verspräche die Startseite Events, die einen Klick
-  // später nicht mehr da sind. Zwischen zwei Datenläufen liegt eine
-  // Woche, in der Zeit fallen durchaus welche heraus.
-  //
-  // Die Zahlen stehen erst da, wenn sie stimmen: Die Felder sind `hidden`,
-  // bis der Abruf zurück ist. Eine "0" oder ein Platzhalter, der später
-  // springt, wäre schlechter als eine Karte ohne Zahl - und schlägt der
-  // Abruf fehl (oder fehlt filters.js), bleibt die Seite genau so, wie sie
-  // vorher war. Die Zahl ist Beiwerk, die vier Kacheln sind der Zweck.
-  let zaehlung = null;
-
-  function zeigeZahlen() {
-    if (!zaehlung) return;
-    // Die zwei großen Zahlen im Hero (Veranstaltungen, Orte).
-    const EF = window.EnduranceFilters;
-    document.querySelectorAll('.hero-facts [data-fact]').forEach(el => {
-      const n = el.dataset.fact === 'events' ? zaehlung._veranstaltungen : zaehlung._orte;
-      if (!n) { el.hidden = true; return; }
-      el.textContent = EF.formatInt(n, lang);
-      el.hidden = false;
-    });
-    document.querySelectorAll('.sport-count').forEach(el => {
-      const n = zaehlung[el.dataset.sport] || 0;
-      if (!n) { el.hidden = true; return; }
-      el.textContent = n === 1
-        ? I18N[lang].sportCount1
-        : I18N[lang].sportCount(window.EnduranceFilters.formatInt(n, lang));
-      el.hidden = false;
-    });
+  // ---------- Fahrt zur Station ----------
+  let fahrt = null;
+  const brich = () => { if (fahrt) { cancelAnimationFrame(fahrt); fahrt = null; } };
+  for (const ev of ['wheel', 'touchstart', 'keydown']) addEventListener(ev, brich, { passive: true });
+  // Der Punkt der Strecke, an dem eine Station liegt (für den Zoom)
+  const stationImBild = (yWelt) => {
+    const [, x, y] = PROBEN[probeBeiY(yWelt)];
+    return [vw / 2 + (x - 500) * s, reiseOben + y * s - scrollY];
+  };
+  const kartenMitte = () => [streifenL + streifenB / 2, reiseOben + (KARTE.y + KARTE.h * .5) * s - scrollY];
+  function stationsZiel(station) {
+    const t = $(`.info[data-station="${station}"]`);
+    const yWelt = station === 'karte' ? KARTE.y + KARTE.h * .5 : +t.dataset.y;
+    return { y: reiseOben + yWelt * s - vh * .5, knopf: t };
   }
-
-  function ladeZahlen() {
-    const EF = window.EnduranceFilters;
-    if (!EF || !EF.dropPastEvents || !EF.formatInt || !EF.loadEvents) return;
-    // events.web.json zuerst, sonst events.json - derselbe Loader wie in
-    // der Liste, damit die Startseite dieselben Events zählt.
-    EF.loadEvents()
-      .then(geladen => {
-        // Gezählt werden VERANSTALTUNGEN (EF.groupKey: Name + Tag + Ort),
-        // nicht Strecken - dieselbe Zahl wie die Liste beim
-        // Zusammenfassen. Vom Nutzer am 30.09.2026 gemeldet: "Hier bitte
-        // wirklich die Events eintragen und nicht die einzelnen Läufe.
-        // Triathlon wär 281 anstatt 500."
-        zaehlung = {};
-        const gesehen = new Set();
-        const orte = new Set();
-        EF.dropPastEvents(geladen.events).forEach(e => {
-          const key = EF.groupKey ? EF.groupKey(e) : `${e.name}|${e.datum_start}|${e.standort}`;
-          if (e.standort) orte.add(String(e.standort).toLowerCase());
-          if (gesehen.has(key)) return;
-          gesehen.add(key);
-          zaehlung[e.art1] = (zaehlung[e.art1] || 0) + 1;
-        });
-        // Für die zwei Zahlen im Hero (Schlüssel mit _, damit sie nicht
-        // als Sportart gelten).
-        zaehlung._veranstaltungen = gesehen.size;
-        zaehlung._orte = orte.size;
-        zeigeZahlen();
-      })
-      .catch(() => { /* still bleiben - siehe oben */ });
+  function fahreZu(station) {
+    brich();
+    const ziel = stationsZiel(station);
+    const von = scrollY, nach = clamp(ziel.y, 0, document.documentElement.scrollHeight - vh);
+    const dauer = ruhig ? 0 : clamp(500 + Math.abs(nach - von) * .3, 700, 2600);
+    const start = performance.now();
+    const ankommen = () => setTimeout(() => oeffne(ziel.knopf), ruhig ? 0 : 200);
+    if (!dauer) { scrollTo(0, nach); alles(); ankommen(); return; }
+    const schritt = (jetzt) => {
+      const p = clamp((jetzt - start) / dauer, 0, 1);
+      const e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+      scrollTo(0, von + (nach - von) * e);
+      if (p < 1) fahrt = requestAnimationFrame(schritt); else { fahrt = null; ankommen(); }
+    };
+    fahrt = requestAnimationFrame(schritt);
   }
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  // Ein normaler Klick fährt bzw. zoomt; Strg/Cmd/Umschalt/Mittelklick
+  // bleiben beim Browser (neuer Tab), ebenso alles ohne Skript.
+  const eigenerKlick = (e) => !(e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey);
+  navLinks.forEach((a) => a.addEventListener('click', (e) => {
+    if (!eigenerKlick(e) || offen) return;
+    e.preventDefault();
+    fahreZu(a.dataset.station);
+  }));
+  $('#marke').addEventListener('click', (e) => {
+    if (!eigenerKlick(e)) return;
+    e.preventDefault(); brich();
+    scrollTo({ top: 0, behavior: ruhig ? 'auto' : 'smooth' });
   });
 
-  applyLang(lang);
-  // Nach `defer`: filters.js ist dann geladen (dieselbe Reihenfolge wie
-  // EE_AUTH_QUEUE in events.html - dieses Inline-Skript läuft davor).
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', ladeZahlen);
-  } else {
-    ladeZahlen();
+  // ---------- Hineinzoomen, dann die Seite im selben Fenster ----------
+  const ankunft = $('#ankunft'), seite = $('#seite');
+  const DAUER = 650;
+  const radius = (x, y) => Math.hypot(Math.max(x, vw - x), Math.max(y, vh - y)) + 20;
+  function oeffne(knopf) {
+    const ziel = knopf.dataset.ziel, url = knopf.getAttribute('href');
+    if (offen) return;
+    if (ruhig) { location.assign(url); return; }
+    offen = true;
+    brich();
+    // Hineingezoomt wird in die Strecke, an der Stelle der Station
+    let mitte = ziel === 'karte' ? kartenMitte() : stationImBild(+knopf.dataset.y);
+    mitte = [clamp(mitte[0], 0, vw), clamp(mitte[1], kopfH, vh)];
+    $('#ankunft-titel').textContent = T().ankunft[ziel] || '';
+    $('#ankunft-symbol').innerHTML = '<circle r="27" fill="#e8590c" stroke="#fff" stroke-width="4"/><g transform="translate(-18.6 -18.6) scale(1.55)" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+      + SYMBOLE[{ events: 'lauf', 'events-laufen': 'lauf', 'events-rad': 'rad', 'events-schwimmen': 'schwimm', 'events-triathlon': 'lauf', clubs: 'clubs', karte: 'karte', blog: 'blog' }[ziel] || 'lauf'] + '</g>';
+    ankunft.hidden = false;
+    const [cx, cy] = mitte;
+    seite.style.transformOrigin = `${cx}px ${scrollY + cy}px`;
+    seite.animate([{ transform: 'scale(1)', filter: 'blur(0px)' }, { transform: 'scale(3.4)', filter: 'blur(5px)' }], { duration: DAUER, easing: 'cubic-bezier(.6,0,.3,1)', fill: 'forwards' });
+    ankunft.animate([{ clipPath: `circle(0px at ${cx}px ${cy}px)` }, { clipPath: `circle(${radius(cx, cy)}px at ${cx}px ${cy}px)` }], { duration: DAUER, easing: 'cubic-bezier(.7,0,.25,1)', fill: 'forwards', delay: 60 });
+    document.body.classList.add('gesperrt');
+    setTimeout(() => location.assign(url), DAUER + 60);
   }
+  // Zurück aus der Zielseite (Safari/Chrome holen die Seite aus dem
+  // Zwischenspeicher, samt Zoom): alles wieder zurücksetzen.
+  addEventListener('pageshow', (e) => {
+    if (!e.persisted && !offen) return;
+    offen = false;
+    ankunft.hidden = true;
+    document.body.classList.remove('gesperrt');
+    for (const n of [ankunft, seite]) n.getAnimations().forEach((x) => x.cancel());
+    groesse(); alles();
+  });
+  $$('.info').forEach((a) => a.addEventListener('click', (e) => {
+    if (!eigenerKlick(e)) return;
+    e.preventDefault();
+    brich();
+    oeffne(a);
+  }));
+
+  applyLang(lang);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { groesse(); alles(); });
+  // filters.js und clubs.js tragen `defer` und laufen erst nach diesem Skript
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ladeDaten);
+  else ladeDaten();
 })();
 </script>
 </body>

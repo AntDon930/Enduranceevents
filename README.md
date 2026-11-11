@@ -2325,8 +2325,7 @@ und die Karte füllt den Bildschirm bis zur Fußzeile. Am Rechner ist das
 Blatt nur eine unsichtbare Hülle (`display: contents`) um dieselben
 Pillen – kein zweites Markup. Die Spaltenköpfe der Tabelle sind auf dem
 Handy ausgeblendet (die Sortierung steckt im Knopf), alle Tippflächen
-sind mindestens 44 px hoch, die Fotos der Startseite kommen in halber Breite
-(`srcset`), und ein Web-Manifest macht aus „Zum Home-Bildschirm" eine
+sind mindestens 44 px hoch, und ein Web-Manifest macht aus „Zum Home-Bildschirm" eine
 App mit Namen und Farbe. Einzelheiten in `CLAUDE.md` („Handy: das
 Filter-Blatt").
 
@@ -3336,6 +3335,30 @@ damit niemand ganz Italien erwartet. Was dafür umgebaut wurde:
 Daten aus Südtirol kommen erst mit einer Quelle, die der Nutzer
 freigibt (Fahrplan, Punkt 1) – die Regeln stehen bereit.
 
+## Die Startseite: eine Reise von oben (seit 11.11.2026)
+
+Die Startseite (`index.html`) ist eine Strecke aus der Vogelperspektive,
+die man herunterscrollt: Start → Laufen → Rad (Passstraße) → Schwimmen
+(See) → Triathlon (Wechselzone) → Clubs (Sportplatz) → Karte (die Straße
+führt durch die Karte mit allen Events) → Blog → Ziel. Links und rechts
+stehen auf Höhe jeder Station die echten Zahlen („Entdecke 2.409
+Lauf-Events – Klick hier“); ein Klick zoomt in die Strecke hinein und
+öffnet die Seite im selben Fenster, die Lauf-, Rad-, Schwimm- und
+Triathlon-Infos gleich mit dem Filter der Sportart. Die Kopfzeile bleibt
+stehen, ihr Menüpunkt wird im passenden Abschnitt orange, und ein Klick
+darauf fährt die Reise erst bis zur Station. Der Punkt auf der Strecke
+trägt das Symbol des Abschnitts.
+
+Gezeichnet wird alles im Browser (ein SVG, keine Bilder, keine fremden
+Server). Die Zahlen kommen aus denselben Quellen wie die Zielseiten:
+`events.web.json` über `filters.js` (Veranstaltungen, wie die Liste beim
+Zusammenfassen), `clubs.json` über `clubs.js`, `blog.json`, die Umrisse
+aus `laender.json`. Ohne Skript sind die Infos ganz normale Links.
+Entstanden ist sie nach einem Instagram-Reel des Nutzers, abgestimmt in
+einer privaten Vorschau; die Einzelheiten stehen in `CLAUDE.md` („Die
+Startseite ist eine Reise“). Die fünf Fotos der früheren Startseite
+liegen weiter in `bilder/` (Instagram-Hintergründe).
+
 ## Der Style Guide (Design-System v1)
 
 Seit dem 21.09.2026 richtet sich die Gestaltung nach dem Style Guide des
@@ -4200,7 +4223,8 @@ Browser-Blase, beide Wege in der Null-Treffer-Box), dass **alle Zeilen
 der Tabelle gleich hoch** sind und dass die Distanz im Deutschen mit
 Komma und im Englischen mit Punkt steht, die **Mastersuche** (findet
 Orte UND Namen, Chip, `?s=` in der Adresse), das **zweizeilige Datum**
-bei mehrtägigen Rennen, den **Events-Knopf der Startseite**, den
+bei mehrtägigen Rennen, die **Startseite als Reise** (Zahlen, Karte, Menüpunkt im
+Abschnitt, Zoom und Seite im selben Fenster, Rückweg), den
 **Kartenrahmen** (Herauszoomen endet bei Europa, keine zweite Weltkarte
 daneben), die **graue Maske** (vorhanden, unter den Markern, fängt keine
 Klicks ab) sowie die Filter über den Weg Liste → Karte → Liste.

@@ -693,41 +693,117 @@ def pruefe_plattformen(ctx, basis):
     for breite, hoehe in ((1366, 641), (1280, 577)):
         start.set_viewport_size({"width": breite, "height": hoehe})
         start.goto(basis + "/index.html", wait_until="domcontentloaded")
-        start.wait_for_selector(".cta-btn")
-        start.wait_for_timeout(300)
-        cta = start.evaluate("() => Math.round(document.querySelector('.cta-btn').getBoundingClientRect().bottom)")
-        pruefe(cta <= hoehe, "Startseite %d x %d: der Knopf 'Events entdecken' liegt im ersten Bild (Unterkante %d px)" % (breite, hoehe, cta))
+        start.wait_for_selector('.info[data-ziel="events"] .los')
+        start.wait_for_timeout(500)
+        # Seit der Reise (11.11.2026): die beiden ersten Infos der Strecke
+        # („Entdecke … Events“ und die Clubs) samt „Klick hier“
+        cta = start.evaluate("""() => Math.round(Math.max(...['.info[data-station="events"] .los', '.info[data-ziel="clubs"]:not([data-station]) .los']
+            .map(s => document.querySelector(s).getBoundingClientRect().bottom)))""")
+        pruefe(cta <= hoehe, "Startseite %d x %d: „Klick hier“ der ersten beiden Infos liegt im ersten Bild (Unterkante %d px)" % (breite, hoehe, cta))
     start.close()
 
 
 def pruefe_startseite(ctx, basis):
-    """Der Weg von der Startseite in die Liste - oben im Kopf und im Bild.
+    """Die Startseite als Reise (seit 11.11.2026).
 
-    Bis jetzt führte nur der Knopf mitten im Bild ("Events entdecken")
-    dorthin; wer schon weiß, was er will, musste erst scrollen. Beide
-    müssen dasselbe Ziel haben.
+    Geprüft wird, was beim Bau zählte: der Weg in die Liste oben im Kopf
+    und in der ersten Info (dasselbe Ziel), die echten Zahlen (dieselben
+    wie Liste, Clubs und Blog), die Karte mit Umriss und Punkten, der
+    Menüpunkt, der im Abschnitt orange wird, die Ziele der Infos, der
+    Zoom mit der Seite im SELBEN Fenster, der Rückweg (Seite wieder
+    benutzbar) und dass ein Menüpunkt erst zur Station fährt.
     """
-    print("\nStartseite")
+    print("\nStartseite (Reise)")
     seite, probleme = seite_oeffnen(ctx, basis + "/index.html", ".top-bar")
     pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    try:
+        seite.wait_for_function("() => !document.querySelector('[data-zahl]') || Array.from(document.querySelectorAll('[data-zahl]')).every(z => z.textContent !== '…')", timeout=15000)
+    except Exception:  # noqa: BLE001
+        pass
     seite.wait_for_timeout(600)
     stand = seite.evaluate("""() => {
         const oben = document.querySelector('.top-bar .events-btn');
-        const mitte = document.querySelector('.hero-cta-row a.cta-btn');
+        const mitte = document.querySelector('.info[data-station="events"]');
         const anmelden = document.querySelector('#auth-mount');
+        const z = {};
+        document.querySelectorAll('[data-zahl]').forEach(b => { z[b.dataset.zahl] = b.textContent; });
         return {
             text: oben ? oben.textContent.trim() : null,
             ziel: oben ? oben.getAttribute('href') : null,
-            heroZiel: mitte ? mitte.getAttribute('href') : null,
+            infoZiel: mitte ? mitte.getAttribute('href') : null,
             vorAnmelden: !!(oben && anmelden
-                && oben.getBoundingClientRect().left < anmelden.getBoundingClientRect().left)
+                && oben.getBoundingClientRect().left < anmelden.getBoundingClientRect().left),
+            zahlen: z,
+            ziele: Array.from(document.querySelectorAll('.info')).map(a => a.dataset.ziel + '>' + a.getAttribute('href')),
+            land: document.querySelectorAll('#streifen svg path[fill="#1e3558"]').length,
+            punkte: Array.from(document.querySelectorAll('#streifen svg path[stroke-width="5.2"]')).reduce((n, p) => n + (p.getAttribute('d').match(/M/g) || []).length, 0),
+            aktiv: Array.from(document.querySelectorAll('.site-nav .nav-link.aktiv')).map(a => a.dataset.station),
         };
     }""")
     pruefe(bool(stand["text"]), "im Kopf steht ein Events-Knopf (%s)" % stand["text"])
-    pruefe(stand["ziel"] == stand["heroZiel"] == "events.html",
-           "er führt zur Liste, wie „Events entdecken“ (%s / %s)"
-           % (stand["ziel"], stand["heroZiel"]))
+    pruefe(stand["ziel"] == stand["infoZiel"] == "events.html",
+           "er führt zur Liste, wie die erste Info „Entdecke … Events“ (%s / %s)"
+           % (stand["ziel"], stand["infoZiel"]))
     pruefe(stand["vorAnmelden"], "er steht links von der Anmeldung")
+
+    # Die Zahlen: dieselben wie auf den Zielseiten
+    with open(os.path.join(WURZEL, "events.json"), encoding="utf-8") as f:
+        heute = datetime.date.today().isoformat()
+        ev = [e for e in json.load(f)
+              if not e.get("pruefung_offen") and (e.get("datum_ende") or e.get("datum_start") or "9") >= heute]
+    with open(os.path.join(WURZEL, "blog.json"), encoding="utf-8") as f:
+        erwartet_blog = len(json.load(f))
+    zahl = lambda s: int(re.sub(r"\D", "", s or "") or -1)  # noqa: E731
+    pruefe(zahl(stand["zahlen"].get("blog")) == erwartet_blog,
+           "Blog: so viele Beiträge wie blog.json (%s / %d)" % (stand["zahlen"].get("blog"), erwartet_blog))
+    pruefe(0 < zahl(stand["zahlen"].get("gesamt")) <= len(ev),
+           "Events: Veranstaltungen gezählt, höchstens so viele wie sichtbare Strecken (%s / %d)"
+           % (stand["zahlen"].get("gesamt"), len(ev)))
+    teile = sum(zahl(stand["zahlen"].get(k)) for k in ("Laufen", "Fahrrad", "Schwimmen", "Triathlon"))
+    pruefe(teile == zahl(stand["zahlen"].get("gesamt")),
+           "die vier Sportarten ergeben zusammen die Gesamtzahl (%d / %s)" % (teile, stand["zahlen"].get("gesamt")))
+    pruefe(zahl(stand["zahlen"].get("clubs")) > 0, "Clubs: eine Zahl steht da (%s)" % stand["zahlen"].get("clubs"))
+    pruefe(stand["land"] == 1 and stand["punkte"] > 100,
+           "die Karte hat Umriss und Punkte (%d Umriss, %d Punkte)" % (stand["land"], stand["punkte"]))
+    pruefe(stand["aktiv"] == ["events"], "oben ist „Events“ orange markiert (%s)" % stand["aktiv"])
+    erwartet = {"events>events.html", "clubs>clubs.html", "events-laufen>events.html?sportart=Laufen",
+                "events-rad>events.html?sportart=Fahrrad", "events-schwimmen>events.html?sportart=Schwimmen",
+                "events-triathlon>events.html?sportart=Triathlon", "karte>karte.html", "blog>blog.html"}
+    pruefe(set(stand["ziele"]) == erwartet, "jede Info führt auf ihre Seite (%s)" % sorted(set(stand["ziele"]) ^ erwartet))
+
+    # Scrollen: der Menüpunkt des Abschnitts wird orange
+    seite.evaluate("""() => { const t = document.querySelector('.info[data-station="clubs"]'); const r = t.getBoundingClientRect();
+        scrollTo(0, r.top + scrollY + r.height / 2 - innerHeight / 2); }""")
+    seite.wait_for_timeout(500)
+    aktiv = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link.aktiv')).map(a => a.dataset.station)")
+    pruefe(aktiv == ["clubs"], "beim Sportplatz ist „Clubs“ orange (%s)" % aktiv)
+
+    # Klick auf eine Info: Zoom, dann die Seite im selben Fenster
+    with seite.expect_navigation(timeout=10000):
+        seite.click('.info[data-station="clubs"]')
+    pruefe(seite.url.endswith("/clubs.html"), "ein Klick auf die Clubs-Info öffnet clubs.html im selben Fenster (%s)" % seite.url.rsplit("/", 1)[-1])
+    seite.go_back()
+    seite.wait_for_timeout(1200)
+    zurueck = seite.evaluate("() => ({ ankunft: document.getElementById('ankunft').hidden, gesperrt: document.body.classList.contains('gesperrt') })")
+    pruefe(zurueck["ankunft"] and not zurueck["gesperrt"], "zurück auf der Startseite ist sie wieder benutzbar (%s)" % zurueck)
+
+    # Ein Menüpunkt fährt erst zur Station, dann öffnet sich die Seite
+    seite.evaluate("scrollTo(0, 0)")
+    seite.wait_for_timeout(300)
+    with seite.expect_navigation(timeout=15000):
+        seite.click('.site-nav .nav-link[data-station="blog"]')
+    pruefe(seite.url.endswith("/blog.html"), "der Menüpunkt „Blog“ fährt zur Station und öffnet blog.html (%s)" % seite.url.rsplit("/", 1)[-1])
+    seite.close()
+
+    # Strg/Cmd-Klick und ohne Skript: ein ganz normaler Link
+    seite, _ = seite_oeffnen(ctx, basis + "/index.html", ".top-bar")
+    seite.wait_for_timeout(400)
+    with ctx.expect_page(timeout=8000) as neu:
+        seite.click('.info[data-ziel="events-rad"]', modifiers=["Control"])
+    neu.value.wait_for_load_state("domcontentloaded")
+    pruefe("events.html?sportart=Fahrrad" in neu.value.url and seite.url.endswith("/index.html"),
+           "Strg-Klick öffnet die Rad-Events in einem neuen Tab, die Reise bleibt")
+    neu.value.close()
     seite.close()
 
 

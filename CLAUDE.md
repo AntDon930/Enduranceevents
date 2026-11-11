@@ -49,13 +49,13 @@ den Entwicklungs-Branch (auf `main` seit dem 04.11.2026, Commit
 | Datei | Zweck |
 |---|---|
 | `events.json` | die Daten (**~450 KB**, wächst mit jedem Lauf) |
-| `index.html` | Startseite (statisch, kein Kartenlink – bewusst entfernt) |
+| `index.html` | **Startseite als Reise** (seit 11.11.2026): Strecke von oben (Start → Laufen → Rad → Schwimmen → Triathlon → Clubs → Karte → Blog → Ziel) als SVG, links/rechts die Infos mit echten Zahlen, Klick zoomt hinein und öffnet die Seite im selben Fenster – siehe Frontend-Fallen „Die Startseite ist eine Reise“ |
 | `events.html` | die Liste; Tabelle mit 7 Spalten, Filter pro Spalte |
 | `places.json` | **~1,5 MB**, alle Orte + PLZ von DE/AT/CH und Südtirol (GeoNames IT, nur Provinz Bozen) für die Umkreissuche (nie komplett lesen) |
 | `laender.json` | **73 KB**, Umrisse von DE/AT/CH und Südtirol für die Maske und die Landfläche der Karte – und für `scraper_lib.in_suedtirol()` |
 | `scripts/build_laender.py` | baut `laender.json` aus Natural Earth (Staaten aus admin_0, Südtirol als Provinz IT-BZ aus admin_1); läuft nicht im Workflow mit |
 | `scripts/build_places.py` | baut `places.json` aus GeoNames (`TEILGEBIET`: Italien nur admin2 „BZ"); läuft nicht im Workflow mit |
-| `bilder/` | die **fünf Fotos der Startseite** als WebP (Hero 1600×900, vier Sport-Kacheln 960×640, seit dem 13.10.2026 je dazu die **halbe Breite** `hero-800.webp` / `*-480.webp` für das Handy, per `srcset` in `index.html`), alle von Wikimedia Commons unter CC0/CC BY/CC BY-SA – Quellen und das Pillow-Rezept für die kleinen Fassungen in `bilder/QUELLEN.md`, Namensnennung im Impressum („Datenquellen und Lizenzen"); wer ein Bild tauscht, zieht alle drei nach |
+| `bilder/` | die **fünf Fotos der früheren Startseite** als WebP (Hero 1600×900, vier Sport-Kacheln 960×640, dazu die **halbe Breite** `hero-800.webp` / `*-480.webp`) – seit der Reise (11.11.2026) nicht mehr auf der Seite, aber weiter im Hintergrund-Pool der Instagram-Reels (`insta_video.foto_wahl`), alle von Wikimedia Commons unter CC0/CC BY/CC BY-SA – Quellen und das Pillow-Rezept für die kleinen Fassungen in `bilder/QUELLEN.md`, Namensnennung im Impressum („Datenquellen und Lizenzen"); wer ein Bild tauscht, zieht alle drei nach |
 | `favicon.svg`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `manifest.webmanifest` | das Zeichen des Style Guides (Navy-Kachel, weiße Route, oranger Punkt); die PNGs entstehen aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 bzw. 192/512 px, randvoll ohne Rundung), `cairosvg` gibt es in der Sandbox nicht. Das **Manifest** (seit 13.10.2026, in allen sechs Seiten verlinkt) macht aus „Zum Home-Bildschirm" eine App mit Namen, Navy-Farbe und eigenem Fenster (`display: standalone`) |
 | `vendor/fonts/` | **Barlow und Barlow Condensed** als woff2 (SIL OFL, Lizenztexte daneben), eingebunden über `vendor/fonts/barlow.css` in allen fünf Seiten – selbst gehostet, nichts von Google-Servern; ohne Stempel wie alles in `vendor/` |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
@@ -180,8 +180,11 @@ Seiten-Scroll), „Wir haben dein Event nicht?"
 Wege bei null Treffern), gleiche Zeilenhöhe aller Zeilen und das
 Dezimaltrennzeichen in DE und EN, die **Mastersuche** (Ort UND Name,
 Chip, `?s=` in der Adresse, das ✕), das **zweizeilige Datum** bei
-mehrtägigen Rennen, der **Events-Knopf der Startseite** (gleiches Ziel
-wie „Events entdecken“, links von der Anmeldung), der **Kartenrahmen**
+mehrtägigen Rennen, die **Startseite als Reise** (`pruefe_startseite`: Events-Knopf
+im Kopf mit demselben Ziel wie die erste Info, links von der Anmeldung; echte
+Zahlen, Karte mit Umriss und Punkten, Menüpunkt orange im Abschnitt, Ziel jeder
+Info, Zoom und Seite im selben Fenster, Rückweg, Menü fährt erst zur Station,
+Strg-Klick = neuer Tab), der **Kartenrahmen**
 (Herauszoomen hat eine Grenze, keine zweite Weltkarte daneben), die
 **graue Maske** (vorhanden, unter den Markern, fängt keine Klicks ab,
 Länder ausgespart), der **Aufbau der Karte nach der Vorlage** (Legende
@@ -3080,8 +3083,10 @@ sagt es).
     „Deutschland" mitten im Wort. Die Melde-Box bricht bis 1432 px um.
   - **Startseite auf niedrigen Fenstern** (1366×768 lässt dem Browser
     ~640 px, 1280×720 bei 150 % 577): die Überschrift stand dreizeilig
-    zu 88 px, die Knöpfe lagen unter dem Bildrand. Zwei Stufen in
-    `index.html` (`max-height: 700px` / `620px`, nur ab 901 px Breite).
+    zu 88 px, die Knöpfe lagen unter dem Bildrand. Damals zwei Stufen in
+    `index.html`; seit der Reise (11.11.2026) EINE Stufe `max-height:
+    700px` ab 761 px Breite – die ersten beiden Infos samt „Klick hier“
+    stehen im ersten Bild.
   - **Android 360 px** (Samsung Galaxy, die häufigste Android-Breite –
     das iPhone hat 390/393): Teilen, Hell/Dunkel, DE/EN und „Anmelden"
     brauchten 336 px bei 328 Platz, „Anmelden" rutschte in eine DRITTE
@@ -3324,13 +3329,70 @@ sagt es).
   fehlt?" (`#notify-fehlt-btn`, dieselben `.fehlt-box`-Klassen, derselbe
   Dialog). `removeNotifyPrompt()` nimmt die Klasse wieder weg. Ab 901 px
   hält `margin-bottom: auto` die Fußzeile unten.
-- **„Mehr erfahren" auf der Startseite ist ein Link** (`<a
+- **Die Startseite ist eine Reise (seit 11.11.2026)** – vom Nutzer nach
+  einem Instagram-Reel („Websites after GPT-6.1“) gewünscht, in einer
+  privaten Vorschau (claude.ai-Artifact) über rund zwanzig Runden
+  abgestimmt und dann freigegeben („Okay, dann bauen wir das so live
+  ein“). Was daran nicht zurückgedreht werden soll, alles in `index.html`:
+  - **Aufbau**: Von oben nach unten eine Strecke aus der Vogelperspektive
+    – Start (Läuferfeld aus der Überschrift heraus) → Laufen (Wald,
+    Zuschauer, KM 21,1) → Rad (Passstraße in drei WEICHEN Bögen, Berge
+    zurückhaltend: „nicht so extrem zick zack“, „die Berge nicht so in
+    den Vordergrund“) → Schwimmen (See mit Bojen) → Triathlon
+    (Wechselzone) → Clubs (Sportplatz, die Bahn MITTIG auf dem Rasen) →
+    Karte (die Straße führt in einem ruhigen Bogen Kiel–Hamburg–Hannover–
+    Frankfurt–München–Innsbruck–Bozen durch die echte Karte mit allen
+    Events) → Blog → Ziel. **EIN Hintergrund für alles** (keine eigene
+    Fläche für Stadt oder Pass – „überall den gleichen Hintergrund“),
+    **keine Häuserblöcke**, keine Fußballfelder. Die Strecke liegt im
+    mittleren Drittel, das Bild füllt die ganze Breite, die Infos stehen
+    links und rechts („Entdecke 2.409 Lauf-Events – Klick hier“).
+    Weltkoordinaten: Breite 1000 (Strecke x 100–900), Höhe `H`, `OBEN`
+    reicht hinter die Überschrift; die Strecke ist überall y-monoton
+    (`probeBeiY` sucht binär).
+  - **Der Punkt** folgt der Bildmitte und trägt das Symbol des Abschnitts
+    (Läufer, Fahrrad, Schwimmer, Triathlon wieder Läufer, Clubs vier
+    Läufer, Karte Pin, Blog Buch – `SYMBOLE`, `symbolBei`), beim Wechsel
+    springt er kurz auf; dahinter eine Gruppe Punkte in der Sportfarbe.
+  - **Zahlen aus denselben Quellen wie die Zielseiten**: Events über
+    `EF.loadEvents()` + `dropPastEvents` + `groupKey` (Veranstaltungen,
+    wie die Liste beim Zusammenfassen), Orte = verschiedene `standort`,
+    Clubs über `EnduranceClubs.loadClubs()` (deshalb lädt die Startseite
+    `clubs.js`), Blog = Länge von `blog.json`, Karte = ein Punkt je
+    Veranstaltung auf den Umrissen aus `laender.json` (`{ laender: … }`),
+    Saison = Veranstaltungen je Monat der nächsten zwölf Monate. Bis die
+    Daten da sind, steht „…“; beim ersten Sichtbarwerden zählen sie hoch.
+  - **Die Infos sind Links** (`<a class="info" href=…>`): ohne Skript, mit
+    Strg/Cmd/Mittelklick ganz normal. Ein gewöhnlicher Klick zoomt in die
+    Strecke an der Station (`#seite` × 3,4, Kreis in `--bg` mit dem
+    Abzeichen) und lädt die Seite **im selben Fenster** (`location.assign`).
+    In der Vorschau ging das nicht (eingebettet in claude.ai, Safari
+    blockt den neuen Tab nach der Animation) – auf der echten Seite gibt
+    es deshalb keinen „Seite öffnen“-Knopf. `pageshow` (`persisted`) setzt
+    den Zoom zurück, wenn man mit „Zurück“ aus dem Zwischenspeicher kommt.
+  - **Die Kopfzeile bleibt stehen** (fest, `--kopf-h` misst ihre Höhe),
+    der Menüpunkt des Abschnitts ist orange (`.aktiv`, `aria-current`),
+    oben läuft ein Fortschrittsbalken; ein Klick auf Events/Clubs/Karte/
+    Blog **fährt erst die Reise bis zur Station**, zoomt dann und öffnet
+    die Seite (`fahreZu`; Mausrad, Wischen oder eine Taste brechen die
+    Fahrt ab). Auf dem Handy klappt die zweite Zeile (Hell/Dunkel, DE/EN,
+    Anmelden) beim Scrollen weg (`body.kopf-klein`).
+  - **Die Welt ist in beiden Farbschemata dunkel** (wie vorher der Hero),
+    die Kopfzeile folgt dem Schema; feste Farben nur in `--r-*` auf
+    `.reise-seite`. Texte DE/EN in `I18N`, die Schilder und Städte der
+    Landschaft über `SPRACHE` (München → Munich …).
+  - Rauchtest: `pruefe_startseite`, dazu die niedrigen Laptop-Fenster in
+    `pruefe_plattformen` (die ersten beiden Infos samt „Klick hier“ im
+    ersten Bild – dafür die Stufe `max-height: 700px`).
+  - Die Vorschau liegt weiter als privates Artifact (Reise-Startseite);
+    sie ist NICHT die Quelle – geändert wird `index.html`.
+- **„Mehr erfahren" auf der Startseite ist ein Link** (bis 11.11.2026, mit der Reise entfallen) (`<a
   class="scroll-hint" href="#mehr">`, `scroll-behavior: smooth`) – der
   Nutzer las den Hinweis als Knopf (30.09.2026). **Seit dem 05.10.2026
   ist der Pfeil ein 44-px-Kreis INNERHALB des Links** (`.chev-btn`),
   denn der Nutzer tippte auf den Pfeil und nichts geschah („sollte man
   auch auf den Pfeil klicken können") – Wort und Pfeil sind ein Ziel.
-- **Die Startseite ist seit dem 05.10.2026 mit FOTOS gebaut** (vom
+- **Die Startseite war vom 05.10. bis 11.11.2026 mit FOTOS gebaut** (seit dem 11.11.2026 die Reise, siehe oben) (vom
   Nutzer: „das Hintergrundbild … noch ziemlich einfach und nicht wirklich
   ansprechend … es soll modern sein und auch motivieren und nicht
   wirklich Natur. Können wir hier keine Bilder verwenden und die
@@ -3491,8 +3553,9 @@ sagt es).
     genannte zweite Schritt: unter einer Navy-Fläche, selbst gehostet
     als WebP in `bilder/`) – Hero und vier Sport-Kacheln, Sportszenen
     statt Natur, auf Wunsch des Nutzers. Die frühere Illustration
-    (Bergketten-SVG) ist weg. Siehe „Die Startseite ist seit dem
-    05.10.2026 mit FOTOS gebaut".
+    (Bergketten-SVG) ist weg. Seit dem 11.11.2026 ist die Startseite
+    die gezeichnete Reise (keine Fotos mehr auf der Seite) – siehe „Die
+    Startseite ist eine Reise“.
   - Die beiden Textseiten (`seite.css`) tragen dieselben Farben und
     Schriften, folgen aber weiter der Systemeinstellung (kein Knopf).
   - **Die Seite nennt sich „Ausdauersport im deutschsprachigen Raum"**
@@ -3586,7 +3649,7 @@ sagt es).
     Werkzeugleiste, nicht mehr als Kasten über der Karte; Marker orange,
     Kacheln leicht abgedunkelt; das Popup behält feste helle Farben
     (Leaflet-Popup ist immer weiß).
-  - **Startseite**: dieselbe Kopfzeile über dem Hero (der `.events-btn`
+  - **Startseite** (bis 11.11.2026, heute die Reise): dieselbe Kopfzeile über dem Hero (der `.events-btn`
     ist der Navigationslink „Events“, links von der Anmeldung; seit dem
     13.10.2026 im hellen Schema weiß, im dunklen Navy – siehe „Fußzeile
     ist Navy"), Hero dunkel mit orangem Schimmer, Fußzeile wie überall.
