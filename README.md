@@ -4096,8 +4096,8 @@ Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` un
   - **Nur Wendungen, die es im Englischen gibt** (vom Nutzer am
     11.11.2026: „Run out the year – das ist kein gutes Englisch“; „to run
     out“ heißt „ausgehen, zur Neige gehen“). Jetzt „Finish the year
-    strong“; dabei auch „your training plan with race bibs“ → „training
-    with a bib on“, „races to get muddy at“ → „races worth getting muddy
+    strong“; dabei auch „your training plan with race bibs“ → „your training
+    plan, race days included“, „races to get muddy at“ → „races worth getting muddy
     for“, „Which races is it worth it for?“ → „When is it worth it?“.
     Drei Titel vom Nutzer selbst (11.11.2026): „Into the blue“ (statt
     „Into the open“ – Anspielung auf den Film), „Your first triathlon:
