@@ -23,8 +23,8 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 ## Szene 1 – Hook (0–3 s)
 
-- **Sprecher**: „Dein Rennen ist in zwei Wochen? Dann trainier weniger!“
-- **Einblendung**: RENNEN IN 2 WOCHEN? → **TRAINIER WENIGER.**
+- **Sprecher**: „Dein Rennen ist in zwei Wochen? Zeit, die Kilometer zu reduzieren.“
+- **Einblendung**: RENNEN IN 2 WOCHEN? → **ZEIT, DIE KILOMETER ZU REDUZIEREN.**
 - **Runway-Prompt**: *Close-up of a runner's hands tying running shoe laces at dawn, a paper wall calendar in the soft-focus background with one date circled in red marker, warm morning light, shallow depth of field, vertical 9:16, cinematic.*
 
 ## Szene 2 – Das Prinzip (3–7 s)
