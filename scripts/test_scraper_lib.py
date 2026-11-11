@@ -7356,6 +7356,15 @@ def test_insta_karussell() -> None:
             check("ungültiges Karussell abgewiesen", False, True)
         except ValueError:
             check("ungültiges Karussell abgewiesen", True, True)
+        # Reel-Fassung: je Themenseite Überschrift + ein Bild je Punkt, Lesezeit
+        daten = K.lade("carboloading")
+        bilder = K.reel_bilder(daten)
+        punkte = sum(len(x["punkte"]) for x in daten["seiten"])
+        check("Reel: Bilder = Titel + Überschriften + Punkte + Schluss",
+              len(bilder), 2 + len(daten["seiten"]) + punkte)
+        check("Reel: 1080 × 1920", {b.size for b, _, _ in bilder}, {(1080, 1920)})
+        check("Reel: jeder Punkt mindestens 2,6 s", min(t for _, t, neu in bilder[1:-1] if not neu) >= 2.6, True)
+        check("Reel: neue Seiten markiert", sum(1 for _, _, neu in bilder if neu), len(daten["seiten"]) + 2)
 
 
 def main() -> int:

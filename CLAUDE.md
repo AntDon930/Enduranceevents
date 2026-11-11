@@ -5565,6 +5565,14 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   `media_type CAROUSEL`) – der Nutzer postet von Hand. Wer einen
   Blogbeitrag schreibt, kann die Karussell-Datei gleich mit anlegen.
   `test_insta_karussell`.
+  **Als Reel** (11.11.2026: das Karussell bekam 8 Aufrufe – Instagram zeigt
+  Karussells vor allem Followern; vom Nutzer: „keiner kann so schnell
+  lesen“): `insta_karussell.py <slug> --aus <ordner> --reel` schreibt
+  `reel.mp4` (1080 × 1920, eigener Beat): Seite mittig auf derselben Fläche
+  (`REEL_DY` 288, Raster nahtlos), je Themenseite erst die Überschrift
+  (1,6 s), dann ein Punkt nach dem anderen, jeder mit Lesezeit
+  (`lesezeit()`: Worte / 2,5 + 1,2 s, mindestens 2,6 s); kein „Wischen“.
+  Carboloading ≈ 105 s. Solange das Konto klein ist: Karussells als Reel.
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für

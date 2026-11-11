@@ -83,21 +83,23 @@ def pruefe(daten: dict) -> None:
 
 # ---------------------------------------------------------------- Bausteine
 
-def _grund(farbe, seed: int) -> Image.Image:
+def _grund(farbe, seed: int, hoehe: int = H, dy: int = 0) -> Image.Image:
     """Einfarbige Fläche mit feinem Punktraster und zwei weichen Kreisen –
-    ruhig genug für Text, nicht ganz leer."""
-    img = Image.new("RGB", (B, H), farbe)
+    ruhig genug für Text, nicht ganz leer. `hoehe`/`dy` für das Reel: die
+    Fläche ist höher und die Seite liegt `dy` tiefer (ein Vielfaches von
+    72, damit Raster und Kreise nahtlos in die Seite übergehen)."""
+    img = Image.new("RGB", (B, hoehe), farbe)
     hell = farbe == SOFT_BLUE
-    deko = Image.new("RGBA", (B, H), (0, 0, 0, 0))
+    deko = Image.new("RGBA", (B, hoehe), (0, 0, 0, 0))
     d = ImageDraw.Draw(deko)
     punkt = (255, 255, 255, 70) if hell else (182, 223, 237, 26)
-    for y in range(40, H, 36):
+    for y in range(40, hoehe, 36):
         for x in range(40 + (y // 36 % 2) * 18, B, 36):
             d.ellipse([x - 2, y - 2, x + 2, y + 2], fill=punkt)
     kreis = (255, 255, 255, 60) if hell else (182, 223, 237, 22)
     cx = 860 if seed % 2 == 0 else 920
-    d.ellipse([cx - 360, 820 - 360, cx + 360, 820 + 360], fill=kreis)
-    d.ellipse([-180, -160, 220, 240], fill=(253, 110, 110, 38 if hell else 30))
+    d.ellipse([cx - 360, 820 + dy - 360, cx + 360, 820 + dy + 360], fill=kreis)
+    d.ellipse([-180, -160 + dy, 220, 240 + dy], fill=(253, 110, 110, 38 if hell else 30))
     img.paste(deko, (0, 0), deko)
     return img
 
@@ -126,7 +128,7 @@ def _kopfzeile(d: ImageDraw.ImageDraw, nr: int, gesamt: int, hell: bool) -> None
 def _fusszeile(d: ImageDraw.ImageDraw, hell: bool, wischen: bool) -> None:
     farbe = MIDNIGHT if hell else SOFT_BLUE
     d.text((RAND, H - 64), BIO_HINWEIS, font=text_schrift(28, True), fill=farbe, anchor="lm")
-    if wischen:
+    if wischen and not _PERSON.get("reel"):
         x = RAND + breite(text_schrift(28, True), BIO_HINWEIS) + 34
         d.text((x, H - 64), "Wischen", font=text_schrift(28), fill=farbe, anchor="lm")
         x += breite(text_schrift(28), "Wischen") + 16
@@ -259,7 +261,9 @@ def titelseite(daten: dict, gesamt: int) -> Image.Image:
     return img
 
 
-def themenseite(seite: dict, nr: int, gesamt: int, thema_nr: int) -> Image.Image:
+def themenseite(seite: dict, nr: int, gesamt: int, thema_nr: int, sichtbar: int | None = None) -> Image.Image:
+    """`sichtbar`: nur die ersten N Punkte zeichnen (Reel) – gesetzt wird
+    trotzdem mit allen, damit nichts springt, wenn der nächste dazukommt."""
     hell = nr % 2 == 1
     grund = SOFT_BLUE if hell else MIDNIGHT
     img = _grund(grund, nr)
@@ -307,7 +311,7 @@ def themenseite(seite: dict, nr: int, gesamt: int, thema_nr: int) -> Image.Image
         g_text -= 3
         satz, ende, zeilen_h = anordnen(g_text)
     fett = text_schrift(g_text, True)
-    for p, y0, zeilen in satz:
+    for p, y0, zeilen in satz[:sichtbar]:
         _zeichen(d, p.get("zeichen", "info"), RAND + 30, y0 + int(g_text * 0.64), hell)
         yy = y0
         for z in zeilen:
@@ -368,6 +372,82 @@ def seiten(daten: dict) -> list[Image.Image]:
     return bilder
 
 
+# ---------------------------------------------------------------- Reel
+
+# Vom Nutzer am 11.11.2026: Das Karussell bekam 8 Aufrufe (Instagram zeigt
+# Karussells vor allem Followern), es kommt als Reel noch einmal – „aber
+# keiner kann so schnell lesen“. Deshalb erscheinen die Punkte einzeln, und
+# jeder steht so lange, wie man zum Lesen braucht.
+REEL_H = 1920
+REEL_DY = 288          # Seite (1350) mittig genug, Vielfaches von 36 fürs Raster
+LESEN_WORTE_S = 2.5    # gemütliches Lesetempo auf dem Handy
+LESEN_PLUS_S = 1.2     # Augen finden den neuen Punkt
+TITEL_S = 3.5
+UEBERSCHRIFT_S = 1.6
+SCHLUSS_S = 5.0
+
+
+def lesezeit(punkt: dict) -> float:
+    worte = len(f"{punkt.get('fett', '')} {punkt.get('text', '')}".split())
+    return round(max(2.6, worte / LESEN_WORTE_S + LESEN_PLUS_S), 2)
+
+
+def _hochkant(seite: Image.Image, hell: bool, nr: int) -> Image.Image:
+    bild = _grund(SOFT_BLUE if hell else MIDNIGHT, nr, REEL_H, REEL_DY)
+    bild.paste(seite, (0, REEL_DY))
+    return bild
+
+
+def reel_bilder(daten: dict) -> list[tuple[Image.Image, float, bool]]:
+    """(Bild 1080 × 1920, Dauer s, neue Seite?) – je Themenseite erst die
+    Überschrift, dann ein Bild mehr je Punkt."""
+    gesamt = len(daten["seiten"]) + 2
+    _PERSON["wer"] = person_fuer(daten)
+    _PERSON["reel"] = True
+    try:
+        aus = [(_hochkant(titelseite(daten, gesamt), True, 0), TITEL_S, True)]
+        for i, s in enumerate(daten["seiten"]):
+            nr = i + 2
+            hell = nr % 2 == 1
+            aus.append((_hochkant(themenseite(s, nr, gesamt, i + 1, 0), hell, nr), UEBERSCHRIFT_S, True))
+            for k, p in enumerate(s["punkte"], 1):
+                aus.append((_hochkant(themenseite(s, nr, gesamt, i + 1, k), hell, nr), lesezeit(p), False))
+        hell = gesamt % 2 == 1
+        aus.append((_hochkant(schlussseite(daten, gesamt, gesamt), hell, gesamt), SCHLUSS_S, True))
+    finally:
+        _PERSON["reel"] = False
+    return aus
+
+
+def schreibe_reel(daten: dict, ziel: Path, arbeit: Path) -> float:
+    """Rendert das Reel als MP4 mit eigenem Beat; gibt die Länge zurück."""
+    import subprocess
+    import zlib
+    import insta_musik
+
+    arbeit.mkdir(parents=True, exist_ok=True)
+    bilder = reel_bilder(daten)
+    liste, t, schnitte = [], 0.0, []
+    for i, (bild, dauer, neu) in enumerate(bilder):
+        datei = arbeit / f"r{i:03d}.png"
+        bild.save(datei)
+        if neu and i:
+            schnitte.append(t)
+        liste.append(f"file '{datei.name}'\nduration {dauer}")
+        t += dauer
+    liste.append(f"file '{datei.name}'")  # concat braucht das letzte Bild doppelt
+    (arbeit / "liste.txt").write_text("\n".join(liste) + "\n", encoding="utf-8")
+    seed = zlib.crc32(daten["blog"].encode()) % 10000
+    insta_musik.schreibe_wav(arbeit / "beat.wav", t + 0.5, seed, schnitte=schnitte,
+                             schlusspunkt=t - SCHLUSS_S)
+    subprocess.run(
+        ["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(arbeit / "liste.txt"),
+         "-i", str(arbeit / "beat.wav"), "-vf", "fps=30,format=yuv420p", "-c:v", "libx264", "-preset", "medium",
+         "-crf", "20", "-c:a", "aac", "-b:a", "160k", "-t", f"{t:.2f}", "-movflags", "+faststart", str(ziel)],
+        check=True)
+    return t
+
+
 def caption(daten: dict) -> str:
     return "\n\n".join(daten["caption"])
 
@@ -376,10 +456,17 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("slug", help="Name der Datei in marketing/instagram/karussell/ (ohne .json)")
     ap.add_argument("--aus", required=True, help="Zielordner für die Bilder")
+    ap.add_argument("--reel", action="store_true",
+                    help="statt der Bilder ein Reel (reel.mp4, 1080 × 1920) mit eigenem Beat")
     a = ap.parse_args(argv)
     daten = lade(a.slug)
     aus = Path(a.aus)
     aus.mkdir(parents=True, exist_ok=True)
+    if a.reel:
+        t = schreibe_reel(daten, aus / "reel.mp4", aus / ".reel")
+        (aus / "caption.txt").write_text(caption(daten) + "\n", encoding="utf-8")
+        print(f"reel.mp4 ({t:.0f} s) + caption.txt in {aus}")
+        return 0
     for i, bild in enumerate(seiten(daten), 1):
         bild.save(aus / f"{i:02d}.jpg", quality=92)
     (aus / "caption.txt").write_text(caption(daten) + "\n", encoding="utf-8")
