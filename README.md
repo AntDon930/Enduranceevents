@@ -4081,9 +4081,15 @@ Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` un
     Satzbau-Kopie („cashes in on all your hard work“, „Taper madness is
     real“), jede Zwischenüberschrift ein kleiner Haken statt einer
     Etikette, Schluss „The bottom line“. Der TITEL ist eine eigene Pointe
-    mit Doppelpunkt, nicht der übersetzte deutsche („Tapering: slow is
-    smooth, and smooth is fast“, „Finish the year strong: the best New Year's Eve
+    mit Doppelpunkt, nicht der übersetzte deutsche („Tapering: train less,
+    race faster“, „Finish the year strong: the best New Year's Eve
     races“, „Ride or race? Find the cycling event that's right for you“).
+    **Die Pointe muss zum Inhalt passen**: „Slow is smooth, and smooth is
+    fast“ stand bis zum 11.11.2026 über dem Tapering-Beitrag und ist
+    zurückgenommen (vom Nutzer: „passt beim tapering nicht. Weil man soll
+    ja nur reduzieren und nicht langsam laufen“) – beim Tapering sinkt
+    der Umfang, das Tempo bleibt. Ein Spruch, der gut klingt, aber das
+    Falsche sagt, ist schlechter als ein schlichter Titel.
     Inhalt, Zahlen, Fußnoten und Links bleiben exakt die des deutschen
     Textes – nur die Sprache ist frei.
   - **Keine ausgedachten Vergleiche – in beiden Sprachen** (vom Nutzer am

@@ -31,8 +31,9 @@ auf der Live-Seite (Entwicklungs-Branch, beide Live-Namen). Seit dem 04.11.2026 
   den Nutzer beide Links nennen (`/blog/<slug>.html` und
   `/blog/en/<slug>.html`). Die englische Fassung wird NEU geschrieben,
   nicht übersetzt: flüssig wie ein englischer Laufblog, eigener knackiger
-  Titel (Vorbild des Nutzers: „Tapering: slow is smooth, and smooth is
-  fast“), spannende Zwischenüberschriften – Fakten, Fußnoten und Links wie
+  Titel („Tapering: train less, race faster“ – die Pointe muss stimmen:
+  „slow is smooth, and smooth is fast“ wurde zurückgenommen, weil man beim
+  Tapering nur den Umfang senkt, nicht langsamer läuft), spannende Zwischenüberschriften – Fakten, Fußnoten und Links wie
   im deutschen Text. Keine ausgedachten Vergleiche (vom Nutzer: „Das
   Beispiel mit der Kerze. Das sagt doch niemand so“) – ein Bild nur, wenn es
   geläufig ist, in beiden Sprachen. Nur Wendungen, die es im Englischen
