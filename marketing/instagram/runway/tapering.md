@@ -11,8 +11,8 @@ gesprochen werden“).
 
 **Aufbau**: Runway erzeugt nur die Bilder (4 Clips à 5 s, danach auf die
 Länge geschnitten, ohne Schrift – KI-Videos schreiben deutschen Text
-unzuverlässig), dazu die Sprecherstimme über Runway (Text unten, ca. 36
-Worte ≈ 15 s in zügigem Tempo). Einblendungen und leisen Beat unter der
+unzuverlässig), dazu die Sprecherstimme über Runway (Text unten, ca. 45
+Worte ≈ 16 s in zügigem Tempo). Einblendungen und leisen Beat unter der
 Stimme setzen wir danach selbst darüber, in Soft Blue / Midnight Navy /
 Coral. Die Einblendungen greifen nur das Stichwort auf.
 
@@ -21,25 +21,25 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 ---
 
-## Szene 1 – Hook (0–3 s)
+## Szene 1 – Hook (0–4 s)
 
 - **Sprecher**: „Dein Rennen ist in zwei Wochen? Zeit, die Kilometer zu reduzieren.“
 - **Einblendung**: RENNEN IN 2 WOCHEN? → **ZEIT, DIE KILOMETER ZU REDUZIEREN.**
 - **Runway-Prompt**: *Close-up of a runner's hands tying running shoe laces at dawn, a paper wall calendar in the soft-focus background with one date circled in red marker, warm morning light, shallow depth of field, vertical 9:16, cinematic.*
 
-## Szene 2 – Das Prinzip (3–7 s)
+## Szene 2 – Was ist Tapering? (4–8 s)
 
-- **Sprecher**: „Die Müdigkeit verschwindet schneller als deine Fitness.“
-- **Einblendung**: Müdigkeit geht schneller als Fitness.
+- **Sprecher**: „Das nennt man Tapering: Die Müdigkeit verschwindet, die Form bleibt – und du stehst frisch am Start.“
+- **Einblendung**: TAPERING = Müdigkeit weg, Form bleibt
 - **Runway-Prompt**: *A single runner seen from behind jogging slowly and relaxed along a quiet river path in the early morning, mist over the water, calm atmosphere, slow camera follow, vertical 9:16.*
 
-## Szene 3 – So geht's (7–11 s)
+## Szene 3 – So geht's (8–12 s)
 
 - **Sprecher**: „Umfang halbieren, Tempo halten – zwei bis drei Wochen lang.“
 - **Einblendung** (nacheinander): Umfang ½ · Tempo bleibt · 2–3 Wochen
 - **Runway-Prompt**: *Runner's feet doing short, fast strides on an empty running track, low camera angle, dynamic, vertical 9:16.*
 
-## Szene 4 – Kernsatz & Schluss (11–15 s)
+## Szene 4 – Kernsatz & Schluss (12–16 s)
 
 - **Sprecher**: „Spar an den Kilometern, nicht am Tempo. Mehr dazu im Blog!“
 - **Einblendung**: SPAR AN DEN KILOMETERN – NICHT AM TEMPO. → klein darunter: Mehr im Blog · Link in der Bio
