@@ -16,6 +16,11 @@ Worte ≈ 20 s in zügigem Tempo). Einblendungen und leisen Beat unter der
 Stimme setzen wir danach selbst darüber, in Soft Blue / Midnight Navy /
 Coral. Die Einblendungen greifen nur das Stichwort auf.
 
+**Bildfolge (vom Nutzer, 11.11.2026)**: Szene 1–4 nur Trainingsszenen –
+z. B. jemand beendet sein Training, ist aber nicht komplett fertig (frisch,
+nicht erschöpft). Am Ende steht jemand vorn am Start eines Laufevents,
+hüpft ein bisschen, wärmt sich auf und fühlt sich bereit.
+
 **Bildregel** (wie auf der Startseite): keine Gesichter in Nahaufnahme –
 Läufer von hinten, Füße, Hände, Gruppen.
 
@@ -25,13 +30,13 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 - **Sprecher**: „Dein Rennen ist in zwei Wochen? Zeit, die Kilometer zu reduzieren.“
 - **Einblendung**: RENNEN IN 2 WOCHEN? → **ZEIT, DIE KILOMETER ZU REDUZIEREN.**
-- **Runway-Prompt**: *Close-up of a runner's hands tying running shoe laces at dawn, a paper wall calendar in the soft-focus background with one date circled in red marker, warm morning light, shallow depth of field, vertical 9:16, cinematic.*
+- **Runway-Prompt**: *Side and rear view of a runner finishing an easy training run on a park path in the morning, slowing down to a walk and stopping the sports watch, breathing calmly, relaxed and fresh – not exhausted, face not visible, warm morning light, vertical 9:16, cinematic.*
 
 ## Szene 2 – Was ist Tapering? (4–8 s)
 
 - **Sprecher**: „Das nennt man Tapering: Dein Körper erholt sich, deine Fitness bleibt – und du stehst frisch am Start.“
 - **Einblendung**: TAPERING = erholt, aber fit
-- **Runway-Prompt**: *A single runner seen from behind jogging slowly and relaxed along a quiet river path in the early morning, mist over the water, calm atmosphere, slow camera follow, vertical 9:16.*
+- **Runway-Prompt**: *A single runner seen from behind jogging slowly and relaxed along a quiet river path in the early morning, mist over the water, easy training pace, slow camera follow, vertical 9:16.*
 
 ## Szene 3 – Was im Körper passiert (8–12 s)
 
@@ -39,19 +44,19 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 - **Sprecher**: „Deine Energiespeicher füllen sich, die Muskeln werden kräftiger – und du schläfst besser.“
 - **Einblendung** (nacheinander): Speicher voll · kräftigere Muskeln · besserer Schlaf
-- **Runway-Prompt**: *A runner stretching legs on a yoga mat in a bright living room, soft morning light through the window, relaxed and calm, filmed from the side without showing the face, slow camera move, vertical 9:16.*
+- **Runway-Prompt**: *After a training run, a runner stretching calves and hamstrings at a park bench, filmed from the side without showing the face, soft morning light, relaxed, not exhausted, slow camera move, vertical 9:16.*
 
 ## Szene 4 – So geht's (12–16 s)
 
 - **Sprecher**: „Umfang halbieren, Tempo halten – etwa zwei Wochen vor dem Rennen.“
 - **Einblendung** (nacheinander): Umfang ½ · Tempo bleibt · ca. 2 Wochen
-- **Runway-Prompt**: *Runner's feet doing short, fast strides on an empty running track, low camera angle, dynamic, vertical 9:16.*
+- **Runway-Prompt**: *Runner's feet doing short, fast strides on an empty running track during training, low camera angle, dynamic, vertical 9:16.*
 
 ## Szene 5 – Kernsatz & Schluss (16–20 s)
 
 - **Sprecher**: „Spar an den Kilometern, nicht am Tempo. Mehr dazu im Blog!“
 - **Einblendung**: SPAR AN DEN KILOMETERN – NICHT AM TEMPO. → klein darunter: Mehr im Blog · Link in der Bio
-- **Runway-Prompt**: *A race bib with safety pins, running shoes and an energy gel neatly laid out on a bed the evening before a race, warm lamp light, anticipation mood, slow overhead camera move, vertical 9:16.*
+- **Runway-Prompt**: *At the start line of a city road race, a runner in the very front row bouncing lightly on the spot, shaking out the legs and warming up, ready and confident, start arch and crowd of runners behind, filmed from behind and from a low angle at the legs, no close-up of faces, morning sun, energetic atmosphere, vertical 9:16, cinematic.*
 
 ---
 
