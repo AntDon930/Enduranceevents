@@ -4089,7 +4089,9 @@ Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` un
     zurückgenommen (vom Nutzer: „passt beim tapering nicht. Weil man soll
     ja nur reduzieren und nicht langsam laufen“) – beim Tapering sinkt
     der Umfang, das Tempo bleibt. Ein Spruch, der gut klingt, aber das
-    Falsche sagt, ist schlechter als ein schlichter Titel.
+    Falsche sagt, ist schlechter als ein schlichter Titel. Der Spruch ist
+    für einen Zone-2-Artikel vorgemerkt (vom Nutzer, `blog_themen.md`,
+    Do 03.12.2026) – dort stimmt er.
     Inhalt, Zahlen, Fußnoten und Links bleiben exakt die des deutschen
     Textes – nur die Sprache ist frei.
   - **Keine ausgedachten Vergleiche – in beiden Sprachen** (vom Nutzer am
