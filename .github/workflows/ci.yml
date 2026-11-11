@@ -141,10 +141,21 @@ jobs:
       - name: Python-Abhängigkeiten
         run: pip install --quiet -r scripts/requirements.txt
 
+      # Chromium kommt vom Playwright-Server, die Systempakete per apt.
+      # Am 11.11.2026 erreichte der Runner (ubuntu-26.04) die
+      # Ubuntu-Spiegel zweimal hintereinander nicht ("Temporary failure
+      # resolving 'security.ubuntu.com'"), und "install --with-deps" brach
+      # nach zehn Minuten ab, obwohl alle Bibliotheken schon auf dem Image
+      # waren - es fehlten nur Zusatzschriften (CJK, Unifont). Deshalb:
+      # Browser zuerst, Systempakete danach mit Zeitgrenze und ohne den
+      # Lauf aufzuhalten. Fehlt wirklich eine Bibliothek, scheitert der
+      # Rauchtest mit einer klaren Meldung.
       - name: Playwright und Chromium
         run: |
           python3 -m pip install --quiet playwright
-          python3 -m playwright install --with-deps chromium
+          python3 -m playwright install chromium
+          timeout 300 python3 -m playwright install-deps chromium \
+            || echo "::warning::Systempakete fuer Chromium nicht installiert (apt nicht erreichbar) - der Rauchtest nutzt die Bibliotheken des Runners."
 
       # Das Skript startet selbst einen Server auf einem freien Port und
       # prüft die drei Seiten auf Handybreite (390 px). Ohne Playwright

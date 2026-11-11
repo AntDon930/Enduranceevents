@@ -6203,7 +6203,13 @@ Nutzer bekam zwei Fehler-Mails je Push, weil die CI außerdem auf
 `push` UND `pull_request` lief (PR #1 hängt am Entwicklungs-Branch);
 seitdem nur `push` auf den drei Branches. **Ein roter Rauchtest in
 der CI nach 30 Sekunden ist ein Umgebungsfehler, kein Seitenfehler** –
-erst das Log lesen, dann suchen.
+erst das Log lesen, dann suchen. **Dasselbe bei einem Abbruch im Schritt
+„Playwright und Chromium“** (11.11.2026, zweimal hintereinander, Lauf 505
+mit Neustart): Der Runner (ubuntu-26.04) erreichte die Ubuntu-Spiegel
+nicht, `install --with-deps` brach nach zehn Minuten ab, der Rauchtest
+lief nie. Seitdem lädt der Schritt Chromium ohne apt und versucht
+`install-deps` mit 300 s Grenze, ohne den Lauf aufzuhalten (die
+Bibliotheken liegen auf dem Image, es fehlen nur Zusatzschriften).
 
 `.github/workflows/update-events.yml` läuft **wöchentlich montags 5:00 UTC**
 (vorher täglich – solange die Seite nicht live ist, bringt ein täglicher
