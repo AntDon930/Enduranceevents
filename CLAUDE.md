@@ -5573,6 +5573,14 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   (1,6 s), dann ein Punkt nach dem anderen, jeder mit Lesezeit
   (`lesezeit()`: Worte / 2,5 + 1,2 s, mindestens 2,6 s); kein „Wischen“.
   Carboloading ≈ 105 s. Solange das Konto klein ist: Karussells als Reel.
+- **Runway (KI-Video, seit 11.11.2026)**: Connector „Runway“ auf claude.ai
+  (`https://mcp.runwayml.com/mcp`), Workspace „Anton“, Credits aus dem Abo –
+  nichts in Auftrag geben ohne Ja des Nutzers. Skripte in
+  `marketing/instagram/runway/<thema>.md`. Vom Nutzer: Reels ca. 15 s,
+  **echte Szenen** – das Maskottchen gehört zu den informativen
+  Posts/Slides, nicht in Runway-Videos. Runway liefert nur Bilder (keine
+  Schrift), Einblendungen und Beat setzen wir selbst; keine Gesichter in
+  Nahaufnahme (Bildregel der Startseite).
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für
