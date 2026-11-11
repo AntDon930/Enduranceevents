@@ -43,8 +43,8 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 ## Szene 4 – So geht's (12–16 s)
 
-- **Sprecher**: „Umfang halbieren, Tempo halten – zwei bis drei Wochen lang.“
-- **Einblendung** (nacheinander): Umfang ½ · Tempo bleibt · 2–3 Wochen
+- **Sprecher**: „Umfang halbieren, Tempo halten – etwa zwei Wochen vor dem Rennen.“
+- **Einblendung** (nacheinander): Umfang ½ · Tempo bleibt · ca. 2 Wochen
 - **Runway-Prompt**: *Runner's feet doing short, fast strides on an empty running track, low camera angle, dynamic, vertical 9:16.*
 
 ## Szene 5 – Kernsatz & Schluss (16–20 s)
@@ -59,7 +59,7 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 > ⏳ Tapering: Warum du vor dem Rennen WENIGER trainieren solltest
 >
-> Training macht fit – aber auch müde. Die Müdigkeit verschwindet schneller als die Fitness. Also: Umfang etwa halbieren, Tempo und Trainingstage beibehalten, etwa zwei Wochen (beim Marathon bis zu drei).
+> Training macht fit – aber auch müde. Die Müdigkeit verschwindet schneller als die Fitness. Also: Umfang etwa halbieren, Tempo und Trainingstage beibehalten, etwa zwei Wochen vor dem Rennen.
 >
 > Alle Details und Quellen im Blog auf endurance-events.de 👉 Link in der Bio
 >
