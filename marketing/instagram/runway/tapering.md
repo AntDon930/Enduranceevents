@@ -18,7 +18,7 @@ Coral. Die Einblendungen greifen nur das Stichwort auf.
 
 **Bildfolge (vom Nutzer, 11.11.2026)**: Szene 1–4 nur Trainingsszenen –
 z. B. jemand beendet sein Training, ist aber nicht komplett fertig (frisch,
-nicht erschöpft). Am Ende steht jemand vorn am Start eines Laufevents,
+nicht erschöpft). Das Dehnen kommt als letzte Trainingsszene (Szene 4). Am Ende steht jemand vorn am Start eines großen Marathons (größer als ein Stadtlauf),
 hüpft ein bisschen, wärmt sich auf und fühlt sich bereit.
 
 **Bildregel** (wie auf der Startseite): keine Gesichter in Nahaufnahme –
@@ -44,19 +44,19 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 - **Sprecher**: „Deine Energiespeicher füllen sich, die Muskeln werden kräftiger – und du schläfst besser.“
 - **Einblendung** (nacheinander): Speicher voll · kräftigere Muskeln · besserer Schlaf
-- **Runway-Prompt**: *After a training run, a runner stretching calves and hamstrings at a park bench, filmed from the side without showing the face, soft morning light, relaxed, not exhausted, slow camera move, vertical 9:16.*
+- **Runway-Prompt**: *Runner's feet doing short, fast strides on an empty running track during training, low camera angle, dynamic, vertical 9:16.*
 
 ## Szene 4 – So geht's (12–16 s)
 
 - **Sprecher**: „Umfang halbieren, Tempo halten – etwa zwei Wochen vor dem Rennen.“
 - **Einblendung** (nacheinander): Umfang ½ · Tempo bleibt · ca. 2 Wochen
-- **Runway-Prompt**: *Runner's feet doing short, fast strides on an empty running track during training, low camera angle, dynamic, vertical 9:16.*
+- **Runway-Prompt**: *After a training run, a runner stretching calves and hamstrings at a park bench, filmed from the side without showing the face, soft morning light, relaxed, not exhausted, slow camera move, vertical 9:16.*
 
 ## Szene 5 – Kernsatz & Schluss (16–20 s)
 
 - **Sprecher**: „Spar an den Kilometern, nicht am Tempo. Mehr dazu im Blog!“
 - **Einblendung**: SPAR AN DEN KILOMETERN – NICHT AM TEMPO. → klein darunter: Mehr im Blog · Link in der Bio
-- **Runway-Prompt**: *At the start line of a city road race, a runner in the very front row bouncing lightly on the spot, shaking out the legs and warming up, ready and confident, start arch and crowd of runners behind, filmed from behind and from a low angle at the legs, no close-up of faces, morning sun, energetic atmosphere, vertical 9:16, cinematic.*
+- **Runway-Prompt**: *At the start of a huge international big-city marathon, a runner standing in the very front row behind the start line, bouncing lightly on the spot, shaking out the legs and warming up, ready and confident; behind him tens of thousands of runners filling a wide boulevard, a giant start arch, flags, confetti in the air, aerial camera rising slowly, filmed from behind and from a low angle at the legs, no close-up of faces, no real event logos, morning sun, vertical 9:16, cinematic and epic.*
 
 ---
 
