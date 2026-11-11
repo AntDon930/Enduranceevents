@@ -4099,6 +4099,11 @@ Menüpunkt „Clubs“ (live mit Schildchen „coming soon“ – `blog.html` un
     strong“; dabei auch „your training plan with race bibs“ → „training
     with a bib on“, „races to get muddy at“ → „races worth getting muddy
     for“, „Which races is it worth it for?“ → „When is it worth it?“.
+    Drei Titel vom Nutzer selbst (11.11.2026): „Into the blue“ (statt
+    „Into the open“ – Anspielung auf den Film), „Your first triathlon:
+    finding the right entry matters“, „Your first half marathon: from ‚Can
+    I really do this?‘ to ‚I'm signing up for a marathon‘“ – ein Titel
+    darf eine Pointe haben, die über den Text hinauszeigt.
     Vor dem Schreiben eines Titels prüfen: Würde ein englischer Laufblog
     genau so formulieren? Wortspiele mit Verben (run out, run down, run
     off) meiden – sie kippen fast immer in eine andere Bedeutung.
