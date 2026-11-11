@@ -14,7 +14,10 @@ Länge geschnitten, ohne Schrift – KI-Videos schreiben deutschen Text
 unzuverlässig), dazu die Sprecherstimme über Runway (Text unten, ca. 60
 Worte ≈ 26 s in zügigem Tempo). Einblendungen und leisen Beat unter der
 Stimme setzen wir danach selbst darüber, in Soft Blue / Midnight Navy /
-Coral. Die Einblendungen greifen nur das Stichwort auf.
+Coral. **Die Einblendungen wiederholen nicht den Sprecher** (vom Nutzer:
+„Ich brauch nicht immer das einblenden das der Sprecher sagt“), sondern
+zeigen zusätzliche Fakten aus dem Blog – außer im Hook, der auch ohne Ton
+funktionieren muss.
 
 **Bildfolge (vom Nutzer, 11.11.2026)**: Szene 1–4 nur Trainingsszenen –
 z. B. jemand beendet sein Training, ist aber nicht komplett fertig (frisch,
@@ -29,13 +32,13 @@ Läufer von hinten, Füße, Hände, Gruppen.
 ## Szene 1 – Hook (0–5 s)
 
 - **Sprecher**: „Dein Rennen ist in zwei Wochen? Zeit, die Kilometer zu reduzieren.“
-- **Einblendung**: RENNEN IN 2 WOCHEN? → **ZEIT, DIE KILOMETER ZU REDUZIEREN.**
+- **Einblendung**: RENNEN IN 2 WOCHEN? → **ZEIT, DIE KILOMETER ZU REDUZIEREN.** (bleibt wie gesprochen – der Hook muss auch ohne Ton greifen)
 - **Runway-Prompt**: *Side and rear view of a runner finishing an easy training run on a park path in the morning, slowing down to a walk and stopping the sports watch, breathing calmly, relaxed and fresh – not exhausted, face not visible, warm morning light, vertical 9:16, cinematic.*
 
 ## Szene 2 – Was ist Tapering? (5–10 s)
 
 - **Sprecher**: „Das nennt man Tapering: Dein Körper erholt sich, deine Fitness bleibt.“
-- **Einblendung**: TAPERING = erholt, aber fit
+- **Einblendung**: Beim 10-km-Lauf reichen ein paar Tage
 - **Runway-Prompt**: *A single runner seen from behind jogging slowly and relaxed along a quiet river path in the early morning, mist over the water, easy training pace, slow camera follow, vertical 9:16.*
 
 ## Szene 3 – Was im Körper passiert (10–15 s)
@@ -43,19 +46,19 @@ Läufer von hinten, Füße, Hände, Gruppen.
 (Keine Studie im Video – vom Nutzer: „Das müssen wir nicht mehr beweisen“.)
 
 - **Sprecher**: „Deine Energiespeicher füllen sich, die Muskeln werden kräftiger – und du schläfst besser.“
-- **Einblendung** (nacheinander): Speicher voll · kräftigere Muskeln · besserer Schlaf
+- **Einblendung**: Bonus: mehr rote Blutkörperchen = mehr Sauerstoff für die Muskeln
 - **Runway-Prompt**: *Runner's feet doing short, fast strides on an empty running track during training, low camera angle, dynamic, vertical 9:16.*
 
 ## Szene 4 – So geht's (15–20 s)
 
 - **Sprecher**: „Umfang halbieren, Tempo halten – etwa zwei Wochen vor dem Rennen.“
-- **Einblendung** (nacheinander): Umfang ½ · Tempo bleibt · ca. 2 Wochen
+- **Einblendung**: Beispiel: 50 km/Woche → 2 Wochen vorher ~35 km → Rennwoche 20–25 km · Trainingstage nicht streichen
 - **Runway-Prompt**: *After a training run, a runner stretching calves and hamstrings at a park bench, filmed from the side without showing the face, soft morning light, relaxed, not exhausted, slow camera move, vertical 9:16.*
 
 ## Szene 5 – Kernsatz & Schluss (20–26 s)
 
 - **Sprecher**: „Spar an den Kilometern, nicht am Tempo. Schwere Beine in der Rennwoche? Ganz normal – am Start bist du bereit.“
-- **Einblendung**: SPAR AN DEN KILOMETERN – NICHT AM TEMPO. → Schwere Beine? Ganz normal. → klein am Ende: Link in der Bio
+- **Einblendung**: Letzte 1–2 Tage: ganz locker oder frei → klein am Ende: Link in der Bio
 - **Runway-Prompt**: *At the start of a huge international big-city marathon, a runner standing in the very front row behind the start line, bouncing lightly on the spot, shaking out the legs and warming up, ready and confident; behind him tens of thousands of runners filling a wide boulevard, a giant start arch, flags, confetti in the air, aerial camera rising slowly, filmed from behind and from a low angle at the legs, no close-up of faces, no real event logos, morning sun, vertical 9:16, cinematic and epic.*
 
 ---
