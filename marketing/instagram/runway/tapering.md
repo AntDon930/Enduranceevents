@@ -57,9 +57,9 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 ## Caption (Entwurf)
 
-> ⏳ Tapering: Warum du vor dem Rennen WENIGER trainieren solltest
+> ⏳ Tapering: Warum du vor dem Rennen die Kilometer reduzieren solltest
 >
-> Training macht fit – aber auch müde. Die Müdigkeit verschwindet schneller als die Fitness. Also: Umfang etwa halbieren, Tempo und Trainingstage beibehalten, etwa zwei Wochen vor dem Rennen.
+> Weniger Kilometer kurz vor dem Rennen: Dein Körper erholt sich, deine Fitness bleibt. So geht's: Umfang etwa halbieren, Tempo und Trainingstage beibehalten, etwa zwei Wochen vor dem Rennen.
 >
 > Alle Details und Quellen im Blog auf endurance-events.de 👉 Link in der Bio
 >
