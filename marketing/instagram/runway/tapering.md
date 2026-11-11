@@ -2,17 +2,19 @@
 
 Grundlage: Blogbeitrag `scripts/blog_texte/tapering.html` – jede Aussage
 steht dort mit Quelle, hier kommt nichts dazu. Stand: zweiter Entwurf zum
-Probelesen (11.11.2026), noch nichts bei Runway in Auftrag gegeben.
+Probelesen (11.11.2026, dritte Fassung: mit Sprecher), noch nichts bei Runway in Auftrag gegeben.
 
 **Vorgaben des Nutzers (11.11.2026)**: ca. 15 Sekunden, **echte Szenen** –
 das Maskottchen gehört zu den informativen Posts/Slides, nicht in die
-Runway-Videos.
+Runway-Videos; **gesprochen** („Das ganze soll schon von jemanden
+gesprochen werden“).
 
 **Aufbau**: Runway erzeugt nur die Bilder (4 Clips à 5 s, danach auf die
 Länge geschnitten, ohne Schrift – KI-Videos schreiben deutschen Text
-unzuverlässig). Einblendungen und Beat setzen wir danach selbst darüber,
-in Soft Blue / Midnight Navy / Coral. Wenige Worte je Einblendung, damit
-man in der Zeit mitlesen kann.
+unzuverlässig), dazu die Sprecherstimme über Runway (Text unten, ca. 36
+Worte ≈ 15 s in zügigem Tempo). Einblendungen und leisen Beat unter der
+Stimme setzen wir danach selbst darüber, in Soft Blue / Midnight Navy /
+Coral. Die Einblendungen greifen nur das Stichwort auf.
 
 **Bildregel** (wie auf der Startseite): keine Gesichter in Nahaufnahme –
 Läufer von hinten, Füße, Hände, Gruppen.
@@ -21,21 +23,25 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 ## Szene 1 – Hook (0–3 s)
 
+- **Sprecher**: „Dein Rennen ist in zwei Wochen? Dann trainier weniger!“
 - **Einblendung**: RENNEN IN 2 WOCHEN? → **TRAINIER WENIGER.**
 - **Runway-Prompt**: *Close-up of a runner's hands tying running shoe laces at dawn, a paper wall calendar in the soft-focus background with one date circled in red marker, warm morning light, shallow depth of field, vertical 9:16, cinematic.*
 
 ## Szene 2 – Das Prinzip (3–7 s)
 
+- **Sprecher**: „Die Müdigkeit verschwindet schneller als deine Fitness.“
 - **Einblendung**: Müdigkeit geht schneller als Fitness.
 - **Runway-Prompt**: *A single runner seen from behind jogging slowly and relaxed along a quiet river path in the early morning, mist over the water, calm atmosphere, slow camera follow, vertical 9:16.*
 
 ## Szene 3 – So geht's (7–11 s)
 
+- **Sprecher**: „Umfang halbieren, Tempo halten – zwei bis drei Wochen lang.“
 - **Einblendung** (nacheinander): Umfang ½ · Tempo bleibt · 2–3 Wochen
 - **Runway-Prompt**: *Runner's feet doing short, fast strides on an empty running track, low camera angle, dynamic, vertical 9:16.*
 
 ## Szene 4 – Kernsatz & Schluss (11–15 s)
 
+- **Sprecher**: „Spar an den Kilometern, nicht am Tempo. Mehr dazu im Blog!“
 - **Einblendung**: SPAR AN DEN KILOMETERN – NICHT AM TEMPO. → klein darunter: Mehr im Blog · Link in der Bio
 - **Runway-Prompt**: *A race bib with safety pins, running shoes and an energy gel neatly laid out on a bed the evening before a race, warm lamp light, anticipation mood, slow overhead camera move, vertical 9:16.*
 
@@ -55,5 +61,11 @@ Läufer von hinten, Füße, Hände, Gruppen.
 
 ## Kosten (grob)
 
-4 Clips à 5 s – je nach Modell etwa 200–800 der 2.250 Credits. Ohne
-Sprecher (bei 15 s und Einblendungen nicht nötig).
+4 Clips à 5 s – je nach Modell etwa 200–800 der 2.250 Credits; die
+Stimme (ca. 15 s) kostet nur wenige Credits.
+
+## Stimme
+
+Deutsch, energisch und freundlich, wie ein Lauftrainer – nicht wie
+Werbung. Vor dem Auftrag suche ich bei Runway zwei, drei passende
+Stimmen (männlich/weiblich) heraus; du wählst.
