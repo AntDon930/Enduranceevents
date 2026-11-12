@@ -3717,6 +3717,12 @@
     "rhythmus": "woechentlich",
     "wochentag": 3,
     "uhrzeit": "18:00"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-21",
+    "uhrzeit": "10:00",
+    "bezeichnung": "Heartbeat Ultra x Freiburg Community Trailrun: 23 km in zwei Tempogruppen (ca. 5:10 und 6:40 min/km), Start Sandfangweg"
    }
   ],
   "instagram": "https://www.instagram.com/freiburgcommunitytrailrun/",
@@ -3725,11 +3731,14 @@
   "beschreibung_en": "Wednesday evening trail run from the Schwabentorsteg bridge.",
   "quelle": [
    "https://socialrunclubs.de/freiburg-im-breisgau/freiburg-community-trailrun/",
-   "https://www.strava.com/clubs/CommunityTrailrunFreiburg"
+   "https://www.strava.com/clubs/CommunityTrailrunFreiburg",
+   "https://www.strava.com/clubs/1285788",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-12",
   "pruefung_offen": true,
-  "pruefung_grund": "Strava-Club (1.116 Mitglieder) bestätigt Treffpunkt Schwabentorsteg, 10–14 km, 5:10–5:30 min/km und wöchentliche Events, nennt aber Tag/Uhrzeit nicht (nur in Events nach Anmeldung) und erwähnt „(SAT)“ – ob Mittwoch 18:00 (socialrunclubs.de) oder auch/stattdessen Samstag, unklar; Runde 4 (20.10.2026): Strava-Beschreibung erneut gelesen, unverändert ohne Tag/Uhrzeit"
+  "pruefung_grund": "Strava-Club (1.116 Mitglieder) bestätigt Treffpunkt Schwabentorsteg, 10–14 km, 5:10–5:30 min/km und wöchentliche Events, nennt aber Tag/Uhrzeit nicht (nur in Events nach Anmeldung) und erwähnt „(SAT)“ – ob Mittwoch 18:00 (socialrunclubs.de) oder auch/stattdessen Samstag, unklar; Runde 4 (20.10.2026): Strava-Beschreibung erneut gelesen, unverändert ohne Tag/Uhrzeit",
+  "zuletzt_aktiv": "2026-11-12"
  },
  {
   "id": "freiburg-lavender-run-club",
@@ -17156,18 +17165,22 @@
   "art": "Laufen",
   "stadt": "Düsseldorf",
   "land": "Deutschland",
-  "treffpunkt": "Café Don Melone, Unterbilk",
-  "lat": 51.21194,
-  "lon": 6.76403,
+  "treffpunkt": "Café Don Melone, Bilker Allee 6 (Unterbilk)",
+  "lat": 51.21193,
+  "lon": 6.76405,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 6,
     "uhrzeit": "10:10",
-    "distanz_km": [
-     5.4,
-     5.4
-    ]
+    "bezeichnung": "Social Run, 5,3 km zur Rheinkniebrücke und zurück, zwei Pace-Gruppen (6:30 und 7:00 min/km), Treffen 10:00"
+   },
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 3,
+    "ab": "2026-11-25",
+    "uhrzeit": "19:30",
+    "bezeichnung": "Long Run 12+ km (ca. 6:30 min/km), Treffpunkt vor dem Rheinturm"
    }
   ],
   "distanz_km": [
@@ -17187,11 +17200,12 @@
   "beschreibung_en": "5.4 km social run to the Rheinknie bridge, across the Rhine meadows and back to the café.",
   "quelle": [
    "https://socialrunclubs.de/duesseldorf/jade-runners/",
-   "https://www.strava.com/clubs/JadeRunners"
+   "https://www.strava.com/clubs/JadeRunners",
+   "https://www.strava.com/clubs/1804965",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "eigene Strava-Seite nennt nur 'Saturday Community run' und 'Wednesday training' (Halbmarathon-Vorbereitung, Anfänger/Mittel) ohne Uhrzeit/Ort; Sa 10:10 ab Café Don Melone nur Sammelseite; Websuche 20.10.2026 ohne Treffer"
+  "geprueft": "2026-11-12",
+  "zuletzt_aktiv": "2026-11-12"
  },
  {
   "id": "duesseldorf-lauftreff-wersten",
@@ -17199,14 +17213,21 @@
   "art": "Laufen",
   "stadt": "Düsseldorf",
   "land": "Deutschland",
-  "treffpunkt": "Grünzug Wersten, Wiese zwischen Pferdekoppel und Mitmachzirkus, parallel zum Ohmweg",
+  "treffpunkt": "Sonntag Grünzug Wersten am Ohmweg; Dienstag Aufm Rott 49B",
   "lat": 51.18639,
   "lon": 6.80729,
   "termine": [
    {
     "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Dienstagslauf, Treffpunkt Aufm Rott 49B"
+   },
+   {
+    "rhythmus": "woechentlich",
     "wochentag": 7,
-    "uhrzeit": "10:30"
+    "uhrzeit": "09:00",
+    "bezeichnung": "Sonntagslauf im Grünzug Wersten (Ohmweg)"
    }
   ],
   "distanz_km": [
@@ -17219,11 +17240,12 @@
   "beschreibung_en": "Sunday running group covering at least 5 km along the Brückerbach stream (meet from 10:15).",
   "quelle": [
    "https://socialrunclubs.de/duesseldorf/lauftreff-wersten/",
-   "https://www.strava.com/clubs/LauftreffWersten"
+   "https://www.strava.com/clubs/LauftreffWersten",
+   "https://www.strava.com/clubs/1837359",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Sonntag und Treffpunkt im Grünzug Wersten durch die eigene Strava-Clubseite bestätigt (‚aktuell sonntags‘, Freiwilligengruppe mit WhatsApp-Gruppe); Uhrzeit 10:30 (Treff 10:15) nur von der Sammelseite; Runde 4 (20.10.2026): Strava-Beschreibung erneut gelesen – nennt weiter nur „aktuell sonntags“ und den Treffpunkt, keine Uhrzeit"
+  "geprueft": "2026-11-12",
+  "zuletzt_aktiv": "2026-11-12"
  },
  {
   "id": "duesseldorf-oace",
@@ -17333,6 +17355,24 @@
     "rhythmus": "woechentlich",
     "wochentag": 2,
     "uhrzeit": "18:30"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-16",
+    "uhrzeit": "19:00",
+    "bezeichnung": "Light up the night"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-12-21",
+    "uhrzeit": "18:30",
+    "bezeichnung": "Pre Christmas Run"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2027-01-03",
+    "uhrzeit": "09:30",
+    "bezeichnung": "New Years Run"
    }
   ],
   "pace": {
@@ -17348,11 +17388,14 @@
   "beschreibung_en": "Deliberately slow run club at 7:00–7:30 min/km on Tuesday evenings.",
   "quelle": [
    "https://socialrunclubs.de/duesseldorf/zone-2-running-club/",
-   "https://www.strava.com/clubs/zone2"
+   "https://www.strava.com/clubs/zone2",
+   "https://www.strava.com/clubs/1648356",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-12",
   "pruefung_offen": true,
-  "pruefung_grund": "Di 18:30 Theodor-Heuss-Brücke nur Sammelseite; eigene Strava-Seite bestätigt nur Düsseldorf und lockeres Tempo für alle, Termin nur für Mitglieder sichtbar; genauer Treffpunkt an der Brücke unklar; Runde 4 (20.10.2026): Strava-Beschreibung gelesen (lockeres Tempo, niemand wird abgehängt), weiterhin keine Zeit/kein Treffpunkt"
+  "pruefung_grund": "Di 18:30 Theodor-Heuss-Brücke nur Sammelseite; eigene Strava-Seite bestätigt nur Düsseldorf und lockeres Tempo für alle, Termin nur für Mitglieder sichtbar; genauer Treffpunkt an der Brücke unklar; Runde 4 (20.10.2026): Strava-Beschreibung gelesen (lockeres Tempo, niemand wird abgehängt), weiterhin keine Zeit/kein Treffpunkt",
+  "zuletzt_aktiv": "2026-11-12"
  },
  {
   "id": "duesseldorf-tru-running-club",
@@ -19916,6 +19959,12 @@
      "von": "6:30",
      "bis": "7:00"
     }
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-14",
+    "uhrzeit": "10:15",
+    "bezeichnung": "Community Run BSAG Special: 24 km entlang der Straßenbahnlinie 1 (6:30 min/km), Treffen 10:05 Bahnhof Mahndorf"
    }
   ],
   "distanz_km": [
@@ -19942,9 +19991,11 @@
   "beschreibung_en": "Free running group without sign-up and several pace groups, Thursdays in Bürgerpark and Sundays from PAPP Café in the Neustadt.",
   "quelle": [
    "https://run-believable-bremen.finels.chatgpt.site/",
-   "https://www.strava.com/clubs/1254712"
+   "https://www.strava.com/clubs/1254712",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20"
+  "geprueft": "2026-11-12",
+  "zuletzt_aktiv": "2026-11-12"
  },
  {
   "id": "heidelberg-velociraptors-feierabendrunde",
@@ -22904,29 +22955,31 @@
   "art": "Laufen",
   "stadt": "Frankfurt am Main",
   "land": "Deutschland",
-  "treffpunkt": "Fontana Club",
-  "lat": 50.1023,
-  "lon": 8.69109,
+  "treffpunkt": "Kuku Kane, Frankfurt",
+  "lat": 50.11143,
+  "lon": 8.6863,
   "termine": [
    {
     "rhythmus": "zweiwoechentlich",
-    "wochentag": 6,
-    "uhrzeit": "10:00",
-    "ab": "2026-10-24"
+    "wochentag": 7,
+    "ab": "2026-11-22",
+    "uhrzeit": "11:00",
+    "bezeichnung": "Sunday Social: Easy 6–7 km (6:00–6:30 min/km) oder Not so easy 9–11 km (5:30–6:00 min/km), danach Kaffee"
    }
   ],
   "instagram": "https://www.instagram.com/heartcore_runners/",
-  "strava": "https://www.strava.com/clubs/heartcorerunner",
+  "strava": "https://www.strava.com/clubs/1281423",
   "merkmale": [],
   "beschreibung_de": "Social Run alle zwei Wochen am Samstagvormittag.",
   "beschreibung_en": "Social run every other Saturday morning.",
   "quelle": [
    "https://socialrunclubs.de/frankfurt-am-main/heartcore-runners/",
-   "https://freizeit.journal-frankfurt.de/freizeit_aufmacher/Freizeit-163/Lauftreffs-in-Frankfurt-Run-Clubs-Laufen-Kaffee-trinken-neue-Leute-kennenlernen-45460.html"
+   "https://freizeit.journal-frankfurt.de/freizeit_aufmacher/Freizeit-163/Lauftreffs-in-Frankfurt-Run-Clubs-Laufen-Kaffee-trinken-neue-Leute-kennenlernen-45460.html",
+   "https://www.strava.com/clubs/1281423",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Termin und Treffpunkt nur über socialrunclubs.de (Eintrag vom 2025-08-25) belegt; Instagram/Strava des Clubs nicht lesbar – Aktualität prüfen; „alle 2 Wochen“ – Startdatum (ab) geschätzt, Rhythmus prüfen; Runde 4 (20.10.2026): Strava-Club (122 Mitglieder) ohne Termine in der Beschreibung; Websuche ohne Treffer"
+  "geprueft": "2026-11-12",
+  "zuletzt_aktiv": "2026-11-12"
  },
  {
   "id": "frankfurt-irregular-practice-run-club",
@@ -24762,11 +24815,14 @@
   "beschreibung_en": "Weekly Sunday run in all weather from the Another Cotton Lab store in the Carlstadt, 10 km and 5 km with staggered starts.",
   "quelle": [
    "https://www.eventbrite.de/e/dusseldorf-sunday-running-club-tickets-1979300247321",
-   "https://socialrunclubs.de/duesseldorf/another-cotton/"
+   "https://socialrunclubs.de/duesseldorf/another-cotton/",
+   "https://www.strava.com/clubs/1249640",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-11-12",
   "webseite": "https://www.eventbrite.de/e/dusseldorf-sunday-running-club-tickets-1979300247321",
-  "anmeldung_ueber": "Eventbrite"
+  "anmeldung_ueber": "Eventbrite",
+  "zuletzt_aktiv": "2026-11-12"
  },
  {
   "id": "koeln-sunday-running-club",
@@ -24819,15 +24875,18 @@
   "quelle": [
    "https://www.eventbrite.de/e/koln-sunday-running-club-tickets-1989918854862",
    "https://rausgegangen.de/en/events/sunday-running-club-x-koln-12/",
-   "https://rausgegangen.de/en/events/sunday-running-club-x-koln-7/"
+   "https://rausgegangen.de/en/events/sunday-running-club-x-koln-7/",
+   "https://www.strava.com/clubs/1249640",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-11-12",
   "pace": {
    "von": "6:30",
    "bis": "6:30"
   },
   "anmeldung_ueber": "Eventbrite",
-  "webseite": "https://www.eventbrite.de/e/koln-sunday-running-club-tickets-1989918854862"
+  "webseite": "https://www.eventbrite.de/e/koln-sunday-running-club-tickets-1989918854862",
+  "zuletzt_aktiv": "2026-11-12"
  },
  {
   "id": "berlin-neighborhood-run-skechers",
@@ -25160,9 +25219,12 @@
   "beschreibung_en": "Weekly Sunday run by Another Cotton Lab from a café in Lehel, 10 km and 5 km with staggered starts.",
   "quelle": [
    "https://www.eventbrite.de/e/munchen-sunday-running-club-tickets-1987830529625",
-   "https://www.eventbrite.com/b/germany--m%C3%BCnchen/sports-and-fitness/running/"
+   "https://www.eventbrite.com/b/germany--m%C3%BCnchen/sports-and-fitness/running/",
+   "https://www.strava.com/clubs/1249640",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-12",
+  "zuletzt_aktiv": "2026-11-12"
  },
  {
   "id": "berlin-female-run-club-mitte-after-work",
@@ -25359,9 +25421,12 @@
   "beschreibung_en": "Weekly Sunday run by Another Cotton Lab from a café in the old town, 10 km and 5 km with staggered starts.",
   "quelle": [
    "https://www.eventbrite.de/e/hamburg-sunday-running-club-tickets-1987825039203",
-   "https://www.eventbrite.com/b/germany--hamburg/sports-and-fitness/running/"
+   "https://www.eventbrite.com/b/germany--hamburg/sports-and-fitness/running/",
+   "https://www.strava.com/clubs/1249640",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-12",
+  "zuletzt_aktiv": "2026-11-12"
  },
  {
   "id": "hamburg-lululemon-run-club",
@@ -30548,5 +30613,88 @@
   "pruefung_grund": "Anmeldung über die RCC-App für Mitglieder; Gäste laut Strava nur bei offenen Plätzen über events.rapha.cc – Gästeregel und Kosten bestätigen.",
   "geprueft": "2026-11-10",
   "zuletzt_aktiv": "2026-11-10"
+ },
+ {
+  "id": "duesseldorf-absolute-run-crew",
+  "name": "Absolute RUN Crew Düsseldorf",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "Roßstraße 69 (Derendorf)",
+  "lat": 51.24615,
+  "lon": 6.77919,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Community Run, 60 min in Pace-Gruppen von 5:30 bis 7:00 min/km, ohne Anmeldung"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-15",
+    "uhrzeit": "09:30",
+    "bezeichnung": "Sunday Community Run an der Jugendherberge (Oberkassel)"
+   }
+  ],
+  "dauer_min": 60,
+  "pace": {
+   "von": "5:30",
+   "bis": "7:00"
+  },
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "anmeldung": "nein",
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "strava": "https://www.strava.com/clubs/1323342",
+  "beschreibung_de": "Kostenloser, offener Community Run jeden Mittwoch: 60 Minuten in Pace-Gruppen von 5:30 bis 7:00 min/km, Taschenablage und Getränke danach. Dazu ab und zu ein Sunday Community Run an der Jugendherberge.",
+  "beschreibung_en": "Free, open community run every Wednesday: 60 minutes in pace groups from 5:30 to 7:00 min/km, with bag drop and drinks afterwards. Plus an occasional Sunday community run at the youth hostel.",
+  "quelle": [
+   "https://www.strava.com/clubs/1323342",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-12",
+  "zuletzt_aktiv": "2026-11-12"
+ },
+ {
+  "id": "duesseldorf-then-and-there-running-club",
+  "name": "THEN 'N' THERE Running Club by afew",
+  "art": "Laufen",
+  "stadt": "Düsseldorf",
+  "land": "Deutschland",
+  "treffpunkt": "afew Store, Jacobistraße 2",
+  "lat": 51.23092,
+  "lon": 6.78764,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 7,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Sunday Run durch Hofgarten und am Rhein, 8–10 km (ca. 6:00 min/km)"
+   }
+  ],
+  "distanz_km": [
+   8,
+   10
+  ],
+  "pace": {
+   "von": "5:45",
+   "bis": "6:00"
+  },
+  "anmeldung_ueber": "Strava",
+  "strava": "https://www.strava.com/clubs/1314047",
+  "beschreibung_de": "Lockerer Sonntagslauf des afew Store: 8 bis 10 km durch den Hofgarten und am Rhein entlang, rund 6:00 min/km, niemand wird zurückgelassen.",
+  "beschreibung_en": "Relaxed Sunday run hosted by the afew store: 8 to 10 km through the Hofgarten and along the Rhine at around 6:00 min/km; nobody gets dropped.",
+  "quelle": [
+   "https://www.strava.com/clubs/1314047",
+   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-12",
+  "zuletzt_aktiv": "2026-11-12"
  }
 ]
