@@ -2472,6 +2472,44 @@ Der Rauchtest prüft das Dashboard seitdem mit einer **Firebase-Attrappe**
 das erfundene Tagesdokumente liefert und die Anmeldung durchwinkt) –
 alle Karten, Monatswechsel, Bericht-Wechsel, DE/EN.
 
+## Was ansteht: der Kalender im Dashboard (seit 12.11.2026)
+
+Vom Nutzer gewünscht: „Ich brauch auf der admin Seite bitte eine Übersicht
+was alles ansteht. Also ich brauch die Woche (nächsten 7 Tage inkl. Heute)
+in Kalenderformat und dann was alles ansteht. Wann suchst du nach welchen
+Daten, wann wird ein Blog veröffentlicht, welcher Blog wird veröffentlicht,
+Wann suchst du nach weiteren Events,…“
+
+Ganz oben in `admin.html` steht der Bereich **„Was ansteht“**: sieben
+Spalten ab heute (auf dem Handy ein Tag je Zeile), je Termin Uhrzeit, Titel
+und wer ihn erledigt (automatisch, geplante Aufgabe, mit Claude in deiner
+Sitzung, du); Antippen zeigt die Einzelheiten. Darunter „Laufend“
+(Instagram-Vorschau jeden Morgen, Statistik stündlich, Deploy bei jedem
+Push, Korrekturseite) und „Danach“ (die nächste Monatssuche, Quartals-Check,
+Erinnerungen).
+
+Die Daten kommen aus `wochenplan.json`, gebaut von `scripts/wochenplan.py`
+im Pages-Workflow (nach dem Instagram-Plan, nie committet, 60 Tage weit):
+
+| Termin | Woher |
+|---|---|
+| Datenlauf (montags), Club-Profile auf Instagram | `cron` in `update-events.yml` und `instagram.yml`, UTC → deutsche Zeit |
+| Blog (Mo + Do 06:37) mit Thema | die nächsten offenen Zeilen in `scripts/blog_themen.md` der Reihe nach; erschienene Beiträge aus `blog.json` mit Link |
+| Instagram | `marketing/instagram/plan.json` (Format und erster Satz der Caption) |
+| Clubs-Abgleich (Mo + Do 08:56), Monatssuche (1. des Monats 10:41), Erinnerungen | geplante Aufgaben auf claude.ai – stehen nicht im Repo, deshalb als `GEPLANTE_AUFGABEN` im Skript; bei jeder Änderung einer Aufgabe nachziehen |
+| Wochen-Check, Quartals-Check, Saisonstart, Firebase-Konsole, Monatsauswertung | die Rhythmen aus CLAUDE.md („Die längeren Rhythmen“) |
+
+**Die große Monatssuche** (geplante Aufgabe seit dem 12.11.2026, vom Nutzer:
+„Wir haben ja mal gesagt das wir nach neuen scraper Seiten alle 3 Monate
+schauen, das würde ich aber gerne jeden Monat machen. Das wir eine große
+Suche nach neuen Clubs und neuen Events die wir noch gar nicht auf dem
+Schirm haben jeden Monatsanfang machen.“): am 1. jedes Monats neue Quellen
+je Sportart und Region (Rechtslage live geprüft, ein Scraper nur mit Ja des
+Nutzers), gesperrte Quellen erneut ansehen, neue Clubs, fehlende Events
+(einzeln an der Veranstalterseite geprüft), dazu die Monatsroutine
+(raceresult-Kontaktseiten, Seitenabgleich). Bericht als
+`scripts/monatssuche/<JJJJ-MM>.md`.
+
 ## Instagram: der Account „AusdauerMaschine" (seit 14.10.2026)
 
 Vom Nutzer gewünscht: ein Instagram-Account, der „so automatisiert wie

@@ -92,6 +92,16 @@ jobs:
           python3 scripts/insta_inhalte.py --plan 14 --json marketing/instagram/plan.json \
             || { echo "::warning::Instagram-Plan nicht erzeugt – die Website geht trotzdem raus"; exit 1; }
 
+      # Was ansteht (12.11.2026): der Kalender im Dashboard (admin.html,
+      # Bereich „Was ansteht“) - Datenlauf, Blog mit Thema, Instagram (aus
+      # dem Plan eben), Clubs, Monatssuche, die Aufgaben des Nutzers; nie
+      # committet. Wie beim Instagram-Plan hält ein Fehler den Deploy nicht auf.
+      - name: Wochenplan erzeugen
+        continue-on-error: true
+        run: |
+          python3 scripts/wochenplan.py --json wochenplan.json \
+            || { echo "::warning::Wochenplan nicht erzeugt – die Website geht trotzdem raus"; exit 1; }
+
       # Die Korrekturseite ist ein privates claude.ai-Artifact (CLAUDE.md,
       # „Korrekturseite“): Ihr Quelltext lädt Google-Schriften und ohne das
       # Artifact keine Daten – auf endurance-events.de hat er nichts verloren

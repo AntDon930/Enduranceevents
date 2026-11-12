@@ -69,7 +69,8 @@ den Entwicklungs-Branch (auf `main` seit dem 04.11.2026, Commit
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
 | `stats.js` | **Besucherstatistik im Browser** (seit 13.10.2026): ein Seitenaufruf je Seite plus Aktionen (Event geöffnet, Veranstalter-Klick, Kalender, Teilen, Abo, Meldung, Suche, Filter) an die Cloud Function `collect`; schweigt auf localhost, bei `webdriver`, DNT/GPC und nach dem Abschalten in der Datenschutzerklärung; alle sechs Seiten laden es mit `?v=`-Stempel |
-| `admin.html` | **das Dashboard** – nur für den Betreiber (Anmeldung + Dokument `admins/<uid>` in Firestore), liest `stats_daily`; nicht in der Navigation verlinkt. Seit dem 14.10.2026 mit den Kennzahlen für Werbekunden (Monat, Abos, Wochentag, Zielgruppe, Bericht je Veranstaltung, Werbeplätze). **Seit dem 16.10.2026 in fünf Bereichen, je Linie + Überschrift (`hr.stat-trenner` + `h2.stat-bereich`, Reihenfolge vom Nutzer): Dashboard (Zeitraum, Kennzahlen) – Graphen – Auswertungen (`#stat-listen`, `ABSCHNITTE`) – Instagram (`#ig-card`, `#stat-listen-ig` mit `ABSCHNITTE_IG`, Freigabe) – Wartung**; der Rauchtest prüft die Reihenfolge |
+| `admin.html` | **das Dashboard** – nur für den Betreiber (Anmeldung + Dokument `admins/<uid>` in Firestore), liest `stats_daily`; nicht in der Navigation verlinkt. Seit dem 14.10.2026 mit den Kennzahlen für Werbekunden (Monat, Abos, Wochentag, Zielgruppe, Bericht je Veranstaltung, Werbeplätze). **Seit dem 16.10.2026 in fünf Bereichen, je Linie + Überschrift (`hr.stat-trenner` + `h2.stat-bereich`, Reihenfolge vom Nutzer): Dashboard (Zeitraum, Kennzahlen) – Graphen – Auswertungen (`#stat-listen`, `ABSCHNITTE`) – Instagram (`#ig-card`, `#stat-listen-ig` mit `ABSCHNITTE_IG`, Freigabe) – Wartung**; seit dem 12.11.2026 davor **„Was ansteht“** (`#plan-card`: die nächsten 7 Tage als Kalender aus `wochenplan.json`, darunter „Laufend“ und „Danach“); der Rauchtest prüft die Reihenfolge |
+| `scripts/wochenplan.py` | baut **`wochenplan.json`** für „Was ansteht“ im Dashboard (Pages-Workflow, nie committet): Datenlauf und Instagram aus den Workflow-Zeitplänen, Blog (nächste offene Themen aus `blog_themen.md`, erschienene aus `blog.json`), Clubs-Abgleich, Monatssuche, Quartal, Erinnerungen, die Aufgaben des Nutzers – `GEPLANTE_AUFGABEN` nachziehen, wenn sich eine geplante Aufgabe ändert; `test_wochenplan` |
 | `functions/stats_aggregate.js` | die Rechenregeln der Statistik (Besuche, Absprung, Dauer, Listen) ohne Firestore – `aggregateStats` ruft sie, `test_statistik` rechnet sie mit node nach |
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
 | `scripts/*_scraper.py` | ein Skript pro Quelle (seit dem 17.10.2026 auch `mammutmarsch_scraper.py` und `megamarsch_scraper.py`, Kategorie „Marsch“, Datenregel 25; seit dem 24.09.2026 auch `schwimmkalender_scraper.py`, seit dem 30.09.2026 `datasport_scraper.py`, siehe „Quellen") |
@@ -6373,8 +6374,38 @@ nach, ob etwas fällig ist, und sagt es dem Nutzer – das Datum der
 letzten Erledigung steht in Klammern dahinter (beim Erledigen
 nachtragen). Routine geht vor Entwicklung: Reichen die Tokens nicht,
 wartet die Entwicklung, nicht der Wochenablauf.
-- *Monatlich, Claude* – fällig ab dem 1. jedes Monats (zuletzt: –):
-  - Clubs-Korrekturliste durchsehen (Clubs-Branch, `clubs_korrekturliste.py`).
+- *Monatlich, Claude* – **seit dem 12.11.2026 als geplante Aufgabe
+  „Monatsanfang: große Suche (Quellen, Clubs, fehlende Events)“**
+  (`trig_01NhaaENGay2NUU5tZLraZiP`, am 1. jedes Monats 10:41 Berlin, in
+  der Sitzung „Clubs I“ `session_01L57Yy3FBRNA6iNmqDySEXr` wie Blog und
+  Clubs; Bericht als `scripts/monatssuche/<JJJJ-MM>.md`, der nächste Lauf
+  setzt dort fort). Vom Nutzer am 12.11.2026: „Wir haben ja mal gesagt das
+  wir nach neuen scraper Seiten alle 3 Monate schauen, das würde ich aber
+  gerne jeden Monat machen. Das wir eine große Suche nach neuen Clubs und
+  neuen Events die wir noch gar nicht auf dem Schirm haben jeden
+  Monatsanfang machen.“ Vier Teile (zuletzt: –):
+  - **A – Neue Quellen, INTENSIV** (bis zum 12.11.2026 quartalsweise; Wunsch
+    des Nutzers: „Das neue Quellen suchen soll dann schon sehr intensive
+    sein“): je Sportart (Rad und Schwimmen zuerst, dann Triathlon, Lauf)
+    und je Region (jedes Bundesland in DE und AT, jeder Kanton-Verband in
+    CH, Südtirol) Landesverbände, Cups und Serien, Zeitnehmer,
+    Anmeldeportale, Vereins- und Regionalkalender, Tourismusseiten; dazu
+    die Kandidaten- und Verbotslisten im README („Quellen für den großen
+    Datenlauf“ und folgende) erneut ansehen. Je Fund robots.txt,
+    Impressum, AGB live lesen und wie viele NEUE Events er bringt (gegen
+    `events.json` gezählt). Ergebnis als Tabelle für den Nutzer – **kein
+    Scraper ohne sein Ja**. Gesperrte Quellen erneut prüfen
+    (robots.txt/Bedingungen geändert?) – nur lesen, nie umgehen; Anfragen
+    an Betreiber gibt es nicht (alt 30, gestrichen).
+  - **B – Neue Clubs**: Lauftreffs, Run Clubs, Rad- und Schwimmtreffs, die
+    noch nicht in `clubs.json`/`clubs_kandidaten.json` stehen, zuerst in
+    großen Städten mit wenigen Clubs; Regeln der Clubs-Aufgabe (aktueller
+    Beleg + Treff mit Tag/Uhrzeit/Ort, sonst Kandidat).
+  - **C – Events, die wir noch nicht kennen**: zuerst die großen aus
+    `marketing/instagram/grosse_events.json`, dann regionale Klassiker;
+    jede Veranstaltung einzeln an der Veranstalterseite geprüft, in
+    `manual_events.json`.
+  - **D – Monatsroutine**:
   - `veranstalter_links.py sammeln --nur-host my.raceresult.com
     --auch-geprueft --pause 8`, dann `anwenden` – Veranstalter tragen
     ihre Seite auf der Kontaktseite nach.
@@ -6384,22 +6415,9 @@ wartet die Entwicklung, nicht der Wochenablauf.
 - *Monatlich, Nutzer*: Statistik-Dashboard und Instagram-Auswertung
   ansehen.
 - *Quartalsweise, Claude* – nach dem Kalender, fällig ab 01.01., 01.04.,
-  01.07. und 01.10. (vom Nutzer am 27.10.2026 so festgelegt); das
-  laufende Quartal (Q4 2026) ist damit schon fällig (zuletzt: –):
-  - **Neue Quellen suchen – INTENSIV** (Wunsch des Nutzers: „Das neue
-    Quellen suchen soll dann schon sehr intensive sein“): je Sportart
-    (Rad und Schwimmen zuerst, dann Triathlon, Lauf) und je Region
-    (jedes Bundesland in DE und AT, jeder Kanton-Verband in CH,
-    Südtirol) Landesverbände, Cups und Serien, Zeitnehmer,
-    Anmeldeportale, Vereins- und Regionalkalender, Tourismusseiten;
-    dazu die Kandidaten- und Verbotslisten im README („Quellen für den
-    großen Datenlauf“ und folgende) erneut ansehen. Je Fund robots.txt,
-    Impressum, AGB live lesen und wie viele NEUE Events er bringt
-    (gegen `events.json` gezählt). Ergebnis als Tabelle für den Nutzer –
-    **kein Scraper ohne sein Ja**.
-  - Gesperrte Quellen erneut prüfen (robots.txt/Bedingungen geändert?) –
-    nur lesen, nie umgehen; Anfragen an Betreiber gibt es nicht
-    (alt 30, gestrichen).
+  01.07. und 01.10. (vom Nutzer am 27.10.2026 so festgelegt); die
+  Quellensuche ist seit dem 12.11.2026 monatlich (oben, Teil A)
+  (zuletzt: –):
   - Geräte-Check (Handy, iPad, Rechner; Rauchtest plus
     `pruefe_plattformen`) und `vendor/` auf Sicherheits-Updates
     (Leaflet, markercluster, Firebase).
@@ -6416,6 +6434,19 @@ wartet die Entwicklung, nicht der Wochenablauf.
   - Saisonwechsel (Herbst/Winter): Gedächtnis-Funde und „geloescht“-
     Wiedervorlagen in der Korrekturliste besonders im Blick behalten.
   - *Nutzer*: Domain bei IONOS verlängern, Firebase-Abrechnung prüfen.
+
+**Das alles steht im Dashboard als Kalender** (seit dem 12.11.2026, vom
+Nutzer: „Ich brauch auf der admin Seite bitte eine Übersicht was alles
+ansteht. Also ich brauch die Woche (nächsten 7 Tage inkl. Heute) in
+Kalenderformat“): Bereich „Was ansteht“ ganz oben in `admin.html`, gebaut
+aus `wochenplan.json` (`scripts/wochenplan.py`, im Pages-Workflow nach dem
+Instagram-Plan erzeugt, nie committet). Die Workflow-Zeiten liest der
+Generator aus den Dateien; **die geplanten Aufgaben stehen nicht im Repo –
+wer eine ändert oder neu anlegt, zieht `GEPLANTE_AUFGABEN` in
+`wochenplan.py` nach** (und hier die Rhythmen). Welcher Blog kommt: die
+offenen Zeilen in `blog_themen.md` der Reihe nach auf die nächsten Mo/Do
+(die Spalte „Termin“ dort ist nur der ursprüngliche Plan). `test_wochenplan`
+und der Rauchtest (`pruefe_statistik_dashboard`) halten es fest.
 
 **Stand beim Livegang**: 1.256 von 6.940 Zeilen ausgeblendet (sichtbar
 5.684; vor der Sternchen-Ausnahme 1.299). Die größten Gruppen: Distanz
@@ -6980,7 +7011,7 @@ Verweise auf alte Nummern stehen in Klammern.
     (neuer Job `clubs-instagram` in `instagram.yml`) die öffentlichen
     Beiträge der Club-Profile (Text, Bilder) auf den Branch
     `daten/clubs-instagram`; die Montagsaufgabe
-    `trig_01MvVHbqKGeJjdmGLQ7mBqd3` („Clubs wöchentlich auslesen“, 08:56
+    `trig_01MvVHbqKGeJjdmGLQ7mBqd3` („Clubs auslesen Mo + Do“, seit dem 12.11.2026 montags und donnerstags, 08:56
     Berlin, aktiv) liest Texte und Monatspläne und trägt die Termine in
     `clubs.json` ein, wie bei einem Bildschirmfoto. Private Konten und
     Konten ohne Business/Creator liefern nichts. **Erst der Nutzer** (er

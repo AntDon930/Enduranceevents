@@ -5492,6 +5492,73 @@ def test_instagram_konten() -> None:
            js.count("detail_instagram:")), (True, True, 2))
 
 
+def test_wochenplan() -> None:
+    """Was ansteht (12.11.2026): der Kalender im Dashboard. Zeiten aus den
+    Workflows (UTC → Berlin, Sommer- und Winterzeit), Blog-Themen der Reihe
+    nach, erschienene Beiträge, die Monatssuche - und dass Generator,
+    Pages-Workflow, gitignore und admin.html zusammenpassen."""
+    import datetime as _dt
+    import json as _json
+    import re as _re
+
+    print("\nWas ansteht (wochenplan.py, Dashboard):")
+    import wochenplan as W
+    wurzel = Path(__file__).resolve().parent.parent
+    wf = wurzel / ".github" / "workflows"
+    datenlauf = W.crons(wf / "update-events.yml")
+    check("Datenlauf hat genau einen Zeitplan", len(datenlauf), 1)
+    check("Montag im Winter: 06:00 Berlin", W.cron_zeit_berlin(datenlauf[0], _dt.date(2026, 11, 16)), "06:00")
+    check("Montag im Sommer: 07:00 Berlin", W.cron_zeit_berlin(datenlauf[0], _dt.date(2027, 6, 7)), "07:00")
+    check("Dienstag: kein Datenlauf", W.cron_zeit_berlin(datenlauf[0], _dt.date(2026, 11, 17)), None)
+    insta = W.crons(wf / "instagram.yml")
+    check("Instagram: Morgen, Abend, Clubs-Profile", len(insta), 3)
+    check("Clubs-Profile nur montags", [bool(W.cron_zeit_berlin(insta[2], _dt.date(2026, 11, 16) + _dt.timedelta(days=i))) for i in range(7)],
+          [True, False, False, False, False, False, False])
+    quellen = W.scraper_quellen()
+    aktiv = [f for f in (wurzel / "scripts").glob("*_scraper.py")
+             if not _re.search(r"^\s*sys\.exit\(0\)", f.read_text(encoding="utf-8"), _re.M)]
+    check("je aktiver Scraper eine Quelle", len(quellen), len(aktiv))
+    check("laufen.de und running.life dabei, ironman nicht", ("laufen.de" in quellen, "running.life" in quellen, "ironman.com" in quellen),
+          (True, True, False))
+
+    md = """| Termin | Status | Typ | Sportart | Thema |
+|---|---|---|---|---|
+| Mo 09.11.2026 | [x] `alt` | L | Laufen | Erschienen |
+| Do 26.11.2026 | [ ] | L | alle | Winterkleidung: So bleibst du warm (Vorschlag des Nutzers 12.11.2026; Zwiebelprinzip ausdrücklich gewünscht) |
+| Mo 30.11.2026 | [ ] | Q | Laufen | Laufschuhe: Worauf es wirklich ankommt (und worauf nicht) |
+| Do 03.12.2026 | [ ] | E | Fahrrad | Drittes Thema |"""
+    themen = W.offene_themen(md)
+    check("offene Themen der Reihe nach", [t["thema"] for t in themen],
+          ["Winterkleidung: So bleibst du warm", "Laufschuhe: Worauf es wirklich ankommt (und worauf nicht)", "Drittes Thema"])
+    tage = [_dt.date(2026, 11, 12) + _dt.timedelta(days=i) for i in range(8)]
+    beitraege = [{"slug": "wintertraining-triathlon", "datum": "2026-11-12", "titel": "Wintertraining", "titel_en": "Winter training"}]
+    blog = W.blog_termine(tage, _dt.date(2026, 11, 12), themen, beitraege)
+    check("Do erschienen, Mo nächstes Thema, Do das übernächste",
+          [(b["datum"], b["titel"]["de"]) for b in blog],
+          [("2026-11-12", "Blog erschienen: Wintertraining"), ("2026-11-16", "Blog: Winterkleidung: So bleibst du warm"),
+           ("2026-11-19", "Blog: Laufschuhe: Worauf es wirklich ankommt (und worauf nicht)")])
+    check("erschienener Beitrag verlinkt beide Sprachen", blog[0]["link"], {"de": "blog/wintertraining-triathlon.html", "en": "blog/en/wintertraining-triathlon.html"})
+    gestern = W.blog_termine(tage, _dt.date(2026, 11, 13), themen, [])
+    check("ein verpasster Termin von gestern bekommt kein Thema", gestern[0]["datum"], "2026-11-16")
+
+    plan = W.plan(_dt.date(2026, 11, 26), 10)
+    arten = {x["art"] for x in plan["termine"]} | {x["art"] for x in plan["laufend"]}
+    wer = {x["wer"] for x in plan["termine"]} | {x["wer"] for x in plan["laufend"]}
+    check("Monatssuche am 1.12. um 10:41", [(x["datum"], x["zeit"]) for x in plan["termine"] if x["art"] == "suche"], [("2026-12-01", "10:41")])
+    check("Datenlauf am Montag 30.11.", any(x["art"] == "daten" and x["datum"] == "2026-11-30" for x in plan["termine"]), True)
+    check("jeder Termin zweisprachig", all(set(x["titel"]) == {"de", "en"} and set(x["text"]) == {"de", "en"} for x in plan["termine"] + plan["laufend"]), True)
+    check("Monatssuche trägt die echte Aufgabe", W.GEPLANTE_AUFGABEN["monatssuche"]["id"].startswith("trig_01"), True)
+    admin = (wurzel / "admin.html").read_text(encoding="utf-8")
+    fehlt = [k for k in [f"pa_{a}" for a in arten] + [f"pw_{w}" for w in wer] if admin.count(f"{k}:") < 2]
+    check("jede Art und jedes „wer“ hat einen Text in admin.html (DE und EN)", fehlt, [])
+    check("admin.html: alle Arten in PLAN_ARTEN", sorted(a for a in arten if f"'{a}'" not in admin.split("PLAN_ARTEN", 1)[1].split("\n", 1)[0]), [])
+    pages = (wf / "pages.yml").read_text(encoding="utf-8")
+    check("Pages-Workflow erzeugt wochenplan.json nach dem Instagram-Plan",
+          0 < pages.find("insta_inhalte.py --plan") < pages.find("scripts/wochenplan.py --json wochenplan.json"), True)
+    check("wochenplan.json steht in .gitignore", "wochenplan.json" in (wurzel / ".gitignore").read_text(encoding="utf-8").split(), True)
+    check("admin.html lädt wochenplan.json", "'wochenplan.json'" in admin, True)
+
+
 def test_insta_freigabe() -> None:
     """Instagram-Freigabe mit einem Klick (14.10.2026): die Kennung des
     Inhalts, der Freigabe-Plan, die Entscheidung des Abendlaufs mit einer
@@ -7381,7 +7448,7 @@ def test_insta_karussell() -> None:
 
 
 def main() -> int:
-    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_instagram_konten, test_insta_freigabe, test_insta_logos, test_insta_karussell,
+    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_instagram_konten, test_wochenplan, test_insta_freigabe, test_insta_logos, test_insta_karussell,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung, test_namensrand,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien, test_web_data,

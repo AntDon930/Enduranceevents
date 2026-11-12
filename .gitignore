@@ -34,6 +34,8 @@ ausgabe/
 # Der Freigabe-Plan (insta_inhalte.py --plan): entsteht im Pages-Workflow
 # und im Rauchtest, wie events.web.json.
 marketing/instagram/plan.json
+# Was ansteht (scripts/wochenplan.py): Kalender im Dashboard, ebenso erzeugt.
+wochenplan.json
 
 clubs_korrekturliste.xlsx
 # Korrekturseite (claude.ai-Artifact): Zeilen erzeugt von scripts/korrektur_seite.py daten

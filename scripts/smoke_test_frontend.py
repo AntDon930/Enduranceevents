@@ -1891,8 +1891,8 @@ def pruefe_statistik_dashboard(ctx, basis):
                "Wochentag-Diagramm: sieben Balken, Montag zuerst (%s)" % stand["wochentagAchse"])
         pruefe("Laufen" in stand["matrix"] and "Deutschland" in stand["matrix"] and "Unbekannt" in stand["matrix"],
                "Zielgruppe: Sportart je Region als Kreuztabelle")
-        pruefe(stand["bereiche"] == ["Dashboard", "Graphen|", "Auswertungen|", "Instagram|", "Wartung|"],
-               "fünf Bereiche in der Reihenfolge des Nutzers, je mit Linie (%s)" % stand["bereiche"])
+        pruefe(stand["bereiche"] == ["Was ansteht", "Dashboard|", "Graphen|", "Auswertungen|", "Instagram|", "Wartung|"],
+               "sechs Bereiche: „Was ansteht“ zuerst, dann die fünf in der Reihenfolge des Nutzers, je mit Linie (%s)" % stand["bereiche"])
         pruefe(stand["igListenImIgBereich"], "Instagram-Auswertungen stehen im Bereich Instagram")
         pruefe(stand["zielgruppeVorSeiten"], "Zielgruppe steht vor den Seiten-Listen")
         pruefe(stand["berichtName"] == e["topEvent"] and stand["berichtKpis"] == 5,
@@ -1900,6 +1900,42 @@ def pruefe_statistik_dashboard(ctx, basis):
         pruefe("liste-oben" in stand["werbung"] and "%" in stand["werbung"],
                "Werbeplätze: Einblendungen, Klicks und Klickrate")
         pruefe(stand["ueberlauf"] <= 0, "kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
+        # Was ansteht (12.11.2026): sieben Tage ab heute aus wochenplan.json,
+        # ein Montag (Datenlauf) und ein Blog-Termin (Mo/Do) liegen immer
+        # darin; Antippen zeigt die Einzelheiten unter dem Tag.
+        seite.wait_for_selector("#plan-card .plan-tag", state="attached", timeout=10000)
+        plan = seite.evaluate("""() => {
+            const tage = Array.from(document.querySelectorAll('#plan-card .plan-tag'));
+            const texte = tage.map(t => t.textContent);
+            return { tage: tage.length, heute: tage[0] && tage[0].classList.contains('heute'),
+                     datenlauf: texte.some(x => x.includes('Datenlauf')),
+                     blog: Array.from(document.querySelectorAll('#plan-card .plan-titel')).some(x => x.textContent.startsWith('Blog')),
+                     monatssuche: document.querySelector('#plan-card').textContent.includes('Monatssuche'),
+                     ueberlauf: document.documentElement.scrollWidth - innerWidth }; }""")
+        pruefe(plan["tage"] == 7 and plan["heute"] and plan["datenlauf"] and plan["blog"],
+               "Was ansteht: sieben Tage ab heute, Datenlauf und Blog darin (%s)" % plan)
+        pruefe(plan["monatssuche"], "Was ansteht: die Monatssuche steht im Kalender oder unter „Danach“")
+        seite.click("#plan-card .plan-termin")
+        seite.wait_for_selector("#plan-detail:not([hidden])", timeout=5000)
+        detail = seite.evaluate("""() => { const d = document.getElementById('plan-detail');
+            return { text: d.textContent.length, unterTag: d.previousElementSibling && d.previousElementSibling.classList.contains('plan-tag'),
+                     ueberlauf: document.documentElement.scrollWidth - innerWidth }; }""")
+        pruefe(detail["text"] > 20 and detail["unterTag"] and detail["ueberlauf"] <= 0 and plan["ueberlauf"] <= 0,
+               "Was ansteht: Antippen öffnet die Einzelheiten direkt unter dem Tag, kein Überlauf auf 390 px (%s)" % detail)
+        # Am Rechner/iPad quer: sieben Spalten nebeneinander, die Einzelheiten
+        # unter dem ganzen Kalender.
+        seite.set_viewport_size({"width": 1180, "height": 820})
+        seite.click("#plan-card .plan-termin")   # schließt
+        seite.click("#plan-card .plan-termin")   # öffnet neu, jetzt breit
+        breit = seite.evaluate("""() => { const t = Array.from(document.querySelectorAll('#plan-card .plan-tag'));
+            const d = document.getElementById('plan-detail');
+            return { reihe: new Set(t.map(x => Math.round(x.getBoundingClientRect().top))).size,
+                     unterWoche: !d.hidden && d.previousElementSibling.classList.contains('plan-woche'),
+                     ueberlauf: document.documentElement.scrollWidth - innerWidth }; }""")
+        pruefe(breit["reihe"] == 1 and breit["unterWoche"] and breit["ueberlauf"] <= 0,
+               "Was ansteht auf 1180 px: sieben Tage in einer Reihe, Einzelheiten darunter (%s)" % breit)
+        seite.set_viewport_size({"width": 390, "height": 844})
+
         # Die Tagestabelle aufgeklappt (10.11.2026, vom Nutzer auf dem iPhone
         # gemeldet: „steht über" – 469 px Tabelle in der 358-px-Karte, die
         # Seite wurde breiter). Zugeklappt sah der Test das nie.
@@ -3413,6 +3449,12 @@ def main() -> int:
     plan_war_da = os.path.exists(plan_datei)
     subprocess.run([sys.executable, os.path.join(WURZEL, "scripts", "insta_inhalte.py"),
                     "--plan", "14", "--json", plan_datei], check=True, capture_output=True)
+    # Und der Wochenplan des Dashboards (Bereich „Was ansteht“), NACH dem
+    # Instagram-Plan - er liest ihn.
+    wochenplan_datei = os.path.join(WURZEL, "wochenplan.json")
+    wochenplan_war_da = os.path.exists(wochenplan_datei)
+    subprocess.run([sys.executable, os.path.join(WURZEL, "scripts", "wochenplan.py"),
+                    "--json", wochenplan_datei], check=True, capture_output=True)
     srv, port = starte_server()
     basis = "http://127.0.0.1:%d" % port
     print("Rauchtest gegen %s (Handybreite 390 px)" % basis)
@@ -3467,6 +3509,8 @@ def main() -> int:
             os.remove(web_daten)
         if not plan_war_da and os.path.exists(plan_datei):
             os.remove(plan_datei)
+        if not wochenplan_war_da and os.path.exists(wochenplan_datei):
+            os.remove(wochenplan_datei)
 
     schlecht = [t for ok, t in ergebnisse if not ok]
     print("\n%d Prüfungen, %d übersprungen" % (len(ergebnisse), len(uebersprungen)))
