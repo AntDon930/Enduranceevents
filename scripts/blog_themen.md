@@ -48,7 +48,7 @@ auf der Live-Seite (Entwicklungs-Branch, beide Live-Namen). Seit dem 04.11.2026 
 | Do 12.11.2026 | [x] `silvesterlaeufe` (04.11.) | E | Laufen | Silvesterläufe: Das Jahr laufend beenden – die schönsten Läufe zum Jahreswechsel |
 | Mo 16.11.2026 | [x] `krafttraining-fuer-laeufer` (05.11.) | Q | Laufen | Krafttraining für Läufer: Die besten Übungen und warum sie helfen |
 | Do 19.11.2026 | [x] `crosslaeufe-winterlaufserien` (09.11.) | E | Laufen | Crossläufe und Winterlaufserien: Wettkampfspaß in der kalten Jahreszeit |
-| Mo 23.11.2026 | [ ] | L | Triathlon | Wintertraining im Triathlon: Schwimmen, Rolle und Laufband sinnvoll kombinieren |
+| Mo 23.11.2026 | [x] `wintertraining-triathlon` (12.11.) | L | Triathlon | Wintertraining im Triathlon: Schwimmen, Rolle und Laufband sinnvoll kombinieren |
 | Do 26.11.2026 | [ ] | L | Fahrrad | Rollentraining im Winter: So bleibst du auf dem Rad fit, bis die Saison startet |
 | Mo 30.11.2026 | [ ] | Q | alle | Regeneration: Schlaf, Muskelkater und lockere Tage richtig nutzen |
 | Do 03.12.2026 | [ ] | Q | alle | Zone-2-Training: Warum langsam trainieren dich schneller macht (EN-Titel vom Nutzer am 11.11.2026: „Zone 2 training: slow is smooth, and smooth is fast“; Laufen und Rad, Grundlagenausdauer im Winter; Zone 2 ist auch ein Modewort – nur versprechen, was Studien zeigen, Zonen über Herzfrequenz/Atmung/„noch reden können“ erklären) |

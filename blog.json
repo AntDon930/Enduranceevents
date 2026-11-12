@@ -1,5 +1,22 @@
 [
  {
+  "slug": "wintertraining-triathlon",
+  "titel": "Wintertraining im Triathlon: Schwimmen, Rolle und Laufband sinnvoll kombinieren",
+  "titel_en": "Winter is where triathlons are won: pool, turbo and treadmill",
+  "teaser": "Nach der Saison ist vor der Saison: Wie du im Winter Hallenbad, Rolle und Laufen in eine Woche packst, Technik und Grundlage aufbaust – und mit Vorsprung ins Frühjahr startest.",
+  "teaser_en": "The off-season is where next season begins: how to fit pool, turbo and running into your week, build technique and base fitness – and start spring one step ahead.",
+  "datum": "2026-11-12",
+  "sportart": "Triathlon",
+  "kategorie": "Training",
+  "lesezeit_min": 5,
+  "bild": "bilder/blog/wintertraining-triathlon.webp",
+  "bild_klein": "bilder/blog/wintertraining-triathlon-480.webp",
+  "bild_alt": "Schwimmstart eines Triathlons auf einem See im Morgennebel, Hunderte Athletinnen und Athleten im Wasser, Zuschauer am Ufer von hinten",
+  "bild_alt_en": "Triathlon swim start on a lake in the morning mist, hundreds of athletes in the water, spectators on the shore seen from behind",
+  "bild_nachweis": "Start beim Ironman Canada 2004 im Okanagan Lake. Foto: Richard Smith, <a href=\"https://commons.wikimedia.org/wiki/File:Swim_start_Ironman_Canada_2004.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by/2.0/\" rel=\"noopener\">CC BY 2.0</a>",
+  "bild_nachweis_en": "Swim start at Ironman Canada 2004, Okanagan Lake. Photo: Richard Smith, <a href=\"https://commons.wikimedia.org/wiki/File:Swim_start_Ironman_Canada_2004.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by/2.0/\" rel=\"noopener\">CC BY 2.0</a>"
+ },
+ {
   "slug": "crosslaeufe-winterlaufserien",
   "titel": "Crossläufe und Winterlaufserien: Wettkampfspaß in der kalten Jahreszeit",
   "titel_en": "Mud, frost and finish lines: why winter is the best racing season",
