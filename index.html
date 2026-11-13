@@ -186,6 +186,14 @@
   .reise { position: relative; }
   .streifen { position: absolute; top: 0; left: 0; right: 0; overflow: hidden; background: var(--r-boden); }
   .streifen svg { display: block; overflow: visible; }
+  /* Was sich beim Scrollen bewegt (orange Linie, Punkt, Gruppe, Konfetti),
+     liegt seit dem 13.11.2026 in einer eigenen SVG-Ebene über der
+     Landschaft: Vorher stand alles in EINEM SVG, und jede Änderung an der
+     Linie (sie reicht über die ganze Strecke) ließ den Browser bei jedem
+     Bild auch Landschaft und Karte mit allen Event-Punkten neu zeichnen -
+     auf dem iPad lief das nicht rund (vom Nutzer gemeldet). Mit eigener
+     Ebene bleibt die Landschaft ein fertiges Bild. */
+  .streifen svg.oben { position: absolute; top: 0; left: 0; pointer-events: none; will-change: transform; }
   /* Das Bild füllt die ganze Breite; links und rechts dunkelt ein Verlauf es
      ab, damit die Infos lesbar bleiben. Oben blendet er ein (keine Kante). */
   .schatten {
@@ -572,6 +580,12 @@
   const streifen = $('#streifen');
   const svg = streifen.querySelector('svg');
   svg.setAttribute('viewBox', `${X0} 0 ${BREITE} ${H}`);
+  // Die Ebene für alles, was sich beim Scrollen bewegt (siehe CSS .oben)
+  const oben = document.createElementNS(NS, 'svg');
+  oben.setAttribute('class', 'oben');
+  oben.setAttribute('aria-hidden', 'true');
+  oben.setAttribute('viewBox', `${X0} 0 ${BREITE} ${H}`);
+  streifen.appendChild(oben);
   const el = (tag, attrs, eltern) => {
     const n = document.createElementNS(NS, tag);
     for (const k in attrs) n.setAttribute(k, attrs[k]);
@@ -820,10 +834,10 @@
   el('path', { d, fill: 'none', stroke: '#2b3d5c', 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'clip-path': 'url(#nurKarte)', opacity: '.9' });
   el('path', { d, fill: 'none', stroke: '#edf1f7', 'stroke-opacity': '.28', 'stroke-width': 2.5, 'stroke-dasharray': '10 12' });
   const stadtG = el('g', {});
-  const linie = el('path', { d, fill: 'none', stroke: '#e8590c', 'stroke-width': 9, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-dasharray': `${LAENGE} ${LAENGE}`, 'stroke-dashoffset': LAENGE });
+  const linie = el('path', { d, fill: 'none', stroke: '#e8590c', 'stroke-width': 9, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-dasharray': `${LAENGE} ${LAENGE}`, 'stroke-dashoffset': LAENGE }, oben);
   const gruppe = [];
-  for (let k = 1; k <= 7; k++) gruppe.push(el('circle', { r: (8 - k * .55).toFixed(2), fill: '#f97316', opacity: 0 }));
-  const halo = el('circle', { r: 44, fill: '#e8590c', opacity: '.25' });
+  for (let k = 1; k <= 7; k++) gruppe.push(el('circle', { r: (8 - k * .55).toFixed(2), fill: '#f97316', opacity: 0 }, oben));
+  const halo = el('circle', { r: 44, fill: '#e8590c', opacity: '.25' }, oben);
   // Der Punkt ist ein Abzeichen mit dem Symbol des Abschnitts (Laufen, Rad, Schwimmen,
   // Triathlon = Läufer, Clubs = mehrere Läufer, Karte = Pin, Blog = Buch)
   const LAEUFER = '<circle cx="15.4" cy="4.2" r="2.3" fill="#fff" stroke="none"/><path d="M14 8.3 L11.2 13.6"/><path d="M13.5 9.4 L16.9 11.5 L19 10.2"/><path d="M13.5 9.4 L9.7 9.7 L7.7 12.3"/><path d="M11.2 13.6 L14.7 16.2 L13.3 20.7"/><path d="M11.2 13.6 L9 17.4 L5 18.4"/>';
@@ -837,7 +851,7 @@
     blog: '<path d="M12 7 C10 5.4 6.8 5 3 5.4 V18.4 C6.8 18 10 18.4 12 20 C14 18.4 17.2 18 21 18.4 V5.4 C17.2 5 14 5.4 12 7 Z"/><path d="M12 7 V20"/>',
   };
   const symbolBei = (y) => y < 900 ? 'lauf' : y < 1640 ? 'rad' : y < 2380 ? 'schwimm' : y < 2720 ? 'lauf' : y < 3410 ? 'clubs' : y < 4310 ? 'karte' : y < ZIEL_Y ? 'blog' : 'lauf'; // über die Ziellinie läuft wieder der Läufer
-  const punkt = el('g', {});
+  const punkt = el('g', {}, oben);
   el('circle', { r: 27, fill: '#e8590c', stroke: '#fff', 'stroke-width': 4 }, punkt);
   const symbolG = el('g', { transform: 'translate(-18.6 -18.6) scale(1.55)', fill: 'none', stroke: '#fff', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, punkt);
   let punktX = 0, punktY = 0, aktivSymbol = null, popAb = -1e9, popFrame = 0;
@@ -856,7 +870,7 @@
   }
   const konfetti = [];
   const KONF_FARBEN = ['#f97316', '#3db55a', '#4a9be6', '#9a7bf0', '#f4f2ed'];
-  for (let i = 0; i < 80; i++) konfetti.push({ n: el('rect', { width: 9, height: 15, rx: 2, fill: KONF_FARBEN[i % 5], opacity: 0 }), w: zufall() * Math.PI * 2, v: 140 + zufall() * 300, dreh: zufall() * 720 });
+  for (let i = 0; i < 80; i++) konfetti.push({ n: el('rect', { width: 9, height: 15, rx: 2, fill: KONF_FARBEN[i % 5], opacity: 0 }, oben), w: zufall() * Math.PI * 2, v: 140 + zufall() * 300, dreh: zufall() * 720 });
 
   function karteFuellen(laender, punkte) {
     let p = '';
@@ -890,10 +904,11 @@
     s = handy ? vw / 720 : streifenB / BREITE;
     // Das Bild füllt die ganze Breite, die Strecke bleibt im mittleren Drittel
     const sichtB = vw / s;
-    svg.setAttribute('viewBox', `${(500 - sichtB / 2).toFixed(1)} ${-OBEN} ${sichtB.toFixed(1)} ${H + OBEN}`);
+    const ansicht = `${(500 - sichtB / 2).toFixed(1)} ${-OBEN} ${sichtB.toFixed(1)} ${H + OBEN}`;
+    svg.setAttribute('viewBox', ansicht); oben.setAttribute('viewBox', ansicht);
     const hoehe = ((H + OBEN) * s).toFixed(1) + 'px';
-    streifen.style.height = svg.style.height = reise.style.height = hoehe;
-    svg.style.width = vw + 'px';
+    streifen.style.height = svg.style.height = oben.style.height = reise.style.height = hoehe;
+    svg.style.width = oben.style.width = vw + 'px';
     // Die Landschaft rückt unter den Kopf: das Stück über der Startlinie liegt hinter der Überschrift
     reise.style.marginTop = (-OBEN * s).toFixed(1) + 'px';
     for (const id of ['#schatten-l', '#schatten-r']) { $(id).style.width = (handy ? 0 : streifenL + 30) + 'px'; $(id).style.top = (OBEN * s).toFixed(1) + 'px'; }
@@ -933,15 +948,19 @@
   // auf und steht am Ende knapp hinter der Ziellinie - vom Nutzer am
   // 13.11.2026: „Jetzt kann der User nicht mehr ins Ziel scrollen … Am Ende
   // muss er scrollen können, ohne dass die Seite sich noch unten bewegt.“
-  // Das Aufholen ist sanft (glatt) und höchstens doppelt so schnell wie der
-  // Finger; die Position wächst mit der Scrollhöhe, nie zurück.
+  // Das Aufholen ist sanft (glatt), beginnt eine Bildschirmhöhe vor dem Ende
+  // und ist höchstens anderthalbmal so schnell wie der Finger (bis zum
+  // 13.11.2026 auf einer halben Bildschirmhöhe und doppelt so schnell – „läuft
+  // nicht ganz rund“); die Position wächst mit der Scrollhöhe, nie zurück.
+  // Federt ein Browser doch nach, bleibt der Punkt stehen (pos geklemmt).
   const ENDE_Y = ZIEL_Y + 90;
   const scrollMax = () => Math.max(0, document.documentElement.scrollHeight - vh);
   function weltY(pos, max) {
+    pos = clamp(pos, 0, max);
     const mitte = (pos + vh * .5 - reiseOben) / s;
     const luecke = (ENDE_Y - (max + vh * .5 - reiseOben) / s) * s; // so viele Pixel fehlen am Ende
     if (luecke <= 0 || max <= 0) return mitte;
-    const strecke = Math.min(max, Math.max(vh * .5, luecke * 1.5));
+    const strecke = Math.min(max, Math.max(vh, luecke * 3));
     return mitte + luecke * glatt(clamp((pos - (max - strecke)) / strecke, 0, 1)) / s;
   }
   // Die Scrollhöhe, bei der der Punkt an einer Stelle der Strecke steht
@@ -956,12 +975,14 @@
   const balken = $('#balken');
   const navLinks = $$('.site-nav .nav-link[data-station]');
   let offen = false, aktivBereich = null;
+  let fingerY = null, sperreAn = false; // Sperre gegen das Nachfedern unten (sperreUnten)
   function alles() {
     const max = scrollMax();
     balken.style.width = (clamp(scrollY / Math.max(1, max), 0, 1) * 100).toFixed(2) + '%';
     // Auf dem Handy klappt die zweite Kopfzeile beim Scrollen weg
     document.body.classList.toggle('kopf-klein', vw <= 900 && scrollY > 40);
     const zielY = weltY(scrollY, max);
+    sperreUnten(scrollY > max - vh);
     const i = probeBeiY(zielY);
     const [len, x, y] = PROBEN[i];
     linie.setAttribute('stroke-dashoffset', (LAENGE - len).toFixed(1));
@@ -1004,6 +1025,34 @@
   let geplant = false;
   addEventListener('scroll', () => { if (!geplant) { geplant = true; requestAnimationFrame(() => { geplant = false; if (!offen) alles(); }); } }, { passive: true });
   addEventListener('resize', () => { groesse(); alles(); });
+
+  // Kein Nachfedern unter der Fußzeile – auch dort, wo der Browser
+  // overscroll-behavior nicht beachtet: In Chrome auf dem iPad ließ sich die
+  // Seite am 13.11.2026 noch über die Fußzeile hinausziehen (vom Nutzer
+  // gemeldet: „der Boden wurde wieder bewegt“). Wer ganz unten steht und
+  // weiter nach unten wischt, bekommt den Zug nicht. Der Zuhörer hängt nur
+  // auf der letzten Bildschirmhöhe: Ein nicht passiver Touch-Zuhörer lässt den
+  // Browser vor jedem Wischen auf das Skript warten, das soll nicht auf der
+  // ganzen Reise so sein. Hoch und zurück wischen geht weiter.
+  const merkeFinger = (e) => { fingerY = e.touches.length === 1 ? e.touches[0].clientY : null; };
+  const halteUnten = (e) => {
+    if (fingerY === null || e.touches.length !== 1 || !e.cancelable) return;
+    const y = e.touches[0].clientY, weiterRunter = y < fingerY;
+    fingerY = y;
+    if (weiterRunter && scrollY >= scrollMax() - 1) e.preventDefault();
+  };
+  function sperreUnten(an) {
+    if (an === sperreAn) return;
+    sperreAn = an;
+    if (an) {
+      addEventListener('touchstart', merkeFinger, { passive: true });
+      addEventListener('touchmove', halteUnten, { passive: false });
+    } else {
+      removeEventListener('touchstart', merkeFinger, { passive: true });
+      removeEventListener('touchmove', halteUnten, { passive: false });
+      fingerY = null;
+    }
+  }
 
   // ---------- Zahlen ----------
   // Sie kommen aus denselben Quellen wie die Zielseiten (siehe ladeDaten);

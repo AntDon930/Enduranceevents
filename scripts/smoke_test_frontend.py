@@ -801,6 +801,32 @@ def pruefe_startseite(ctx, basis):
                "Startseite %d x %d: ganz unten steht der Punkt hinter der Ziellinie, über der Fußzeile (%s)"
                % (breite, hoehe, ziel))
     seite.set_viewport_size(vorher)
+    # Was sich bewegt, liegt in einer eigenen Ebene (sonst zeichnete WebKit bei
+    # jedem Bild Landschaft und Karte neu – auf dem iPad ruckelte es), und
+    # ganz unten nimmt die Seite einen weiteren Zug nach unten nicht an (Chrome
+    # auf iOS federte trotz overscroll-behavior nach); hoch wischen geht, und
+    # oben auf der Reise hängt die Sperre gar nicht.
+    ebene = seite.evaluate("""async () => {
+        const warte = () => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+        const wisch = (y0, y1) => {
+            const t0 = new Touch({ identifier: 1, target: document.body, clientX: 200, clientY: y0 });
+            window.dispatchEvent(new TouchEvent('touchstart', { touches: [t0], cancelable: true }));
+            const t1 = new Touch({ identifier: 1, target: document.body, clientX: 200, clientY: y1 });
+            const ev = new TouchEvent('touchmove', { touches: [t1], cancelable: true });
+            window.dispatchEvent(ev);
+            return ev.defaultPrevented;
+        };
+        const oben = document.querySelector('#streifen svg.oben');
+        const unten = document.querySelector('#streifen svg:not(.oben)');
+        scrollTo(0, document.documentElement.scrollHeight - innerHeight); await warte();
+        const r = { ebene: !!oben && !!oben.querySelector('circle[r="44"]') && !unten.querySelector('circle[r="44"]'),
+                    weiterRunter: wisch(400, 360), zurueckHoch: wisch(400, 440) };
+        scrollTo(0, 0); await warte();
+        r.obenFrei = !wisch(400, 360);
+        return r;
+    }""")
+    pruefe(ebene["ebene"] and ebene["weiterRunter"] and not ebene["zurueckHoch"] and ebene["obenFrei"],
+           "Punkt und Linie in eigener Ebene; ganz unten kein Zug über die Fußzeile, hoch wischen geht (%s)" % ebene)
     seite.evaluate("scrollTo(0, 0)")
     seite.wait_for_timeout(300)
     erwartet = {"events>events.html", "clubs>clubs.html", "events-laufen>events.html?sportart=Laufen",

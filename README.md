@@ -3388,7 +3388,11 @@ darauf fährt die Reise erst bis zur Station. Der Punkt auf der Strecke
 trägt das Symbol des Abschnitts. Die Seite endet an der Fußzeile und
 federt nicht nach; damit der Punkt trotzdem ins Ziel kommt, holt er auf
 dem letzten Stück sanft auf und steht ganz unten knapp hinter der
-Ziellinie (seit 13.11.2026).
+Ziellinie (seit 13.11.2026). Was sich beim Scrollen bewegt (Linie, Punkt,
+Konfetti), liegt in einer eigenen Ebene über der Landschaft – sonst zeichnet
+Safari/WebKit bei jedem Bild die ganze Karte neu und die Fahrt ruckelt; und
+weil Chrome auf iOS das Nachfedern nicht über CSS abschalten lässt, nimmt die
+Seite ganz unten einen weiteren Zug nach unten nicht an.
 
 Gezeichnet wird alles im Browser (ein SVG, keine Bilder, keine fremden
 Server). Die Zahlen kommen aus denselben Quellen wie die Zielseiten:

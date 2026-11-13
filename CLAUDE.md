@@ -3403,7 +3403,25 @@ sagt es).
     über das Menü landet damit genau an der Station. Die Seite selbst wird
     NICHT länger (das wäre wieder Leerfläche unter dem Ziel). Rauchtest: in
     fünf Fenstergrößen steht der Punkt ganz unten hinter der Ziellinie, über
-    der Fußzeile.
+    der Fußzeile. **Am selben Tag nachgebessert** (vom Nutzer: „läuft aber
+    irgendwie nicht ganz rund und der Boden wurde wieder bewegt“, Foto aus
+    Chrome auf dem iPad): (1) **Alles, was sich bewegt** (orange Linie,
+    Gruppe, Halo, Punkt, Konfetti), **liegt in einer eigenen SVG-Ebene**
+    `svg.oben` über der Landschaft (`will-change: transform`, gleiche
+    viewBox, `groesse()` setzt beide) – vorher stand alles in EINEM SVG, und
+    jede Änderung an der Linie ließ WebKit die ganze Landschaft samt Karte
+    neu zeichnen: gemessen in WebKit 215 → 38 ms je Bild am Ende der Reise
+    (Chromium war schon im Takt). Wer etwas Bewegtes dazubaut, hängt es an
+    `oben`, nie an `svg`. (2) Das Aufholen beginnt eine Bildschirmhöhe vor dem
+    Ende und ist höchstens 1,5-mal so schnell wie der Finger; `weltY` klemmt
+    die Scrollhöhe, ein Nachfedern bewegt den Punkt nicht. (3) **Chrome auf
+    iOS beachtet `overscroll-behavior` am Dokument nicht** – auf der letzten
+    Bildschirmhöhe hängt deshalb ein nicht passiver `touchmove`-Zuhörer
+    (`sperreUnten`), der ganz unten einen weiteren Zug nach unten verwirft;
+    hoch wischen geht, weiter oben hängt er gar nicht (er ließe den Browser
+    vor jedem Wischen auf das Skript warten). Den Schwung eines schnellen
+    Wischens kann er nicht abfangen – Safari tut das über
+    `overscroll-behavior`. Rauchtest prüft Ebene und Sperre.
   - Die Vorschau liegt weiter als privates Artifact (Reise-Startseite);
     sie ist NICHT die Quelle – geändert wird `index.html`.
 - **„Mehr erfahren" auf der Startseite ist ein Link** (bis 11.11.2026, mit der Reise entfallen) (`<a
