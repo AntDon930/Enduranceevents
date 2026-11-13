@@ -3385,7 +3385,10 @@ Lauf-Events – Klick hier“); ein Klick zoomt in die Strecke hinein und
 Triathlon-Infos gleich mit dem Filter der Sportart. Die Kopfzeile bleibt
 stehen, ihr Menüpunkt wird im passenden Abschnitt orange, und ein Klick
 darauf fährt die Reise erst bis zur Station. Der Punkt auf der Strecke
-trägt das Symbol des Abschnitts.
+trägt das Symbol des Abschnitts. Die Seite endet an der Fußzeile und
+federt nicht nach; damit der Punkt trotzdem ins Ziel kommt, holt er auf
+dem letzten Stück sanft auf und steht ganz unten knapp hinter der
+Ziellinie (seit 13.11.2026).
 
 Gezeichnet wird alles im Browser (ein SVG, keine Bilder, keine fremden
 Server). Die Zahlen kommen aus denselben Quellen wie die Zielseiten:

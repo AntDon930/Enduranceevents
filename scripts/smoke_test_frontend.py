@@ -772,6 +772,37 @@ def pruefe_startseite(ctx, basis):
         federn: getComputedStyle(document.documentElement).overscrollBehaviorY })""")
     pruefe(ende["hoehe"] <= ende["fuss"] + 1 and ende["federn"] == "none",
            "die Seite endet an der Fußzeile und federt nicht nach (%s)" % ende)
+    # Am Ende ins Ziel (13.11.2026): Ohne Nachfedern kam die Bildmitte nie bis
+    # zur Ziellinie - auf dem iPad quer blieb der Punkt am Ende der Karte
+    # stehen. Er holt auf dem letzten Stück auf, steht am Ende hinter der
+    # Ziellinie über der Fußzeile und läuft dabei nie zurück.
+    vorher = seite.viewport_size
+    for breite, hoehe in ((390, 844), (1000, 712), (820, 1180), (1366, 768), (1920, 1080)):
+        seite.set_viewport_size({"width": breite, "height": hoehe})
+        seite.wait_for_timeout(300)
+        ziel = seite.evaluate("""async () => {
+            const warte = () => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+            const halo = document.querySelector('#streifen svg circle[r="44"]');
+            const max = document.documentElement.scrollHeight - innerHeight;
+            let zurueck = false, vorher = -1;
+            for (let pos = Math.max(0, max - 1500); pos <= max; pos += 50) {
+                scrollTo(0, pos); await warte();
+                const y = +halo.getAttribute('cy');
+                if (y < vorher - .01) zurueck = true;
+                vorher = y;
+            }
+            scrollTo(0, max); await warte();
+            const r = halo.getBoundingClientRect();
+            return { y: Math.round(+halo.getAttribute('cy')), zurueck,
+                     bild: Math.round(r.top + r.height / 2),
+                     fuss: Math.round(document.querySelector('.site-footer').getBoundingClientRect().top) };
+        }""")
+        pruefe(4860 <= ziel["y"] <= 5040 and not ziel["zurueck"] and ziel["bild"] < ziel["fuss"],
+               "Startseite %d x %d: ganz unten steht der Punkt hinter der Ziellinie, über der Fußzeile (%s)"
+               % (breite, hoehe, ziel))
+    seite.set_viewport_size(vorher)
+    seite.evaluate("scrollTo(0, 0)")
+    seite.wait_for_timeout(300)
     erwartet = {"events>events.html", "clubs>clubs.html", "events-laufen>events.html?sportart=Laufen",
                 "events-rad>events.html?sportart=Fahrrad", "events-schwimmen>events.html?sportart=Schwimmen",
                 "events-triathlon>events.html?sportart=Triathlon", "karte>karte.html", "blog>blog.html"}

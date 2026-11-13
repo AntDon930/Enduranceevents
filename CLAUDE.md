@@ -3391,6 +3391,19 @@ sagt es).
     Nutzer am 11.11.2026 gemeldet: „So weiter muss man gar nicht
     runterscrollen. Bitte das blockieren.“). Die Seite selbst endet an der
     Fußzeile – der Rauchtest prüft `scrollHeight` gegen ihre Unterkante.
+  - **Am Ende ins Ziel** (13.11.2026, vom Nutzer nach dem Abschalten des
+    Nachfederns: „Jetzt kann der User nicht mehr ins Ziel scrollen … Am Ende
+    muss er scrollen können, ohne dass die Seite sich noch unten bewegt.“):
+    Der Punkt folgt der Bildmitte, und die kommt an der Fußzeile nie bis zur
+    Ziellinie (iPad quer: Ende der Karte) – vorher half das Nachfedern von
+    Safari. `weltY(pos, max)` lässt ihn auf dem letzten Stück sanft aufholen
+    (`glatt`, höchstens doppelt so schnell wie der Finger, nie rückwärts), am
+    Ende steht er bei `ENDE_Y` = Ziellinie + 90 (Konfetti sichtbar, dahinter
+    wieder das Läufer-Symbol). `scrollFuer(y)` ist die Umkehrung – die Fahrt
+    über das Menü landet damit genau an der Station. Die Seite selbst wird
+    NICHT länger (das wäre wieder Leerfläche unter dem Ziel). Rauchtest: in
+    fünf Fenstergrößen steht der Punkt ganz unten hinter der Ziellinie, über
+    der Fußzeile.
   - Die Vorschau liegt weiter als privates Artifact (Reise-Startseite);
     sie ist NICHT die Quelle – geändert wird `index.html`.
 - **„Mehr erfahren" auf der Startseite ist ein Link** (bis 11.11.2026, mit der Reise entfallen) (`<a
