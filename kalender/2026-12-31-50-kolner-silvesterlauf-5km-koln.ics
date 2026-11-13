@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-50-kolner-silvesterlauf-5km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:50. Kölner Silvesterlauf – 5 km Lauf (ab Jahrgang 2016)
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tuskoeln.d
+ e/silvesterlauf
+TRANSP:TRANSPARENT
+URL:https://www.tuskoeln.de/silvesterlauf
+END:VEVENT
+END:VCALENDAR

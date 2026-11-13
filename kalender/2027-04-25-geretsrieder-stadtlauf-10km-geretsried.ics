@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-geretsrieder-stadtlauf-10km-geretsried@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Geretsrieder Stadtlauf – 10 km Hauptlauf über vier Runden\, amtlic
+ h vermessen
+LOCATION:Geretsried\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://leichtathleti
+ k.tus-geretsried.de/stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://leichtathletik.tus-geretsried.de/stadtlauf/
+END:VEVENT
+END:VCALENDAR

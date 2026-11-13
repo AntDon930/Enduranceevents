@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-pless-vulkan-bergtrail-50km-breitungen-werra@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Pleß-Vulkan-Bergtrail
+LOCATION:Breitungen/Werra\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 50 km\nhttps://runtix.com/sts
+ /10021/3241
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3241
+END:VEVENT
+END:VCALENDAR

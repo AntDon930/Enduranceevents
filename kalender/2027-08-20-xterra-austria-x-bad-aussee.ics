@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-20-xterra-austria-x-bad-aussee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270820
+DTEND;VALUE=DATE:20270822
+SUMMARY:Xterra Austria
+LOCATION:Bad Aussee\, Österreich
+DESCRIPTION:Sportart: Triathlon / Cross\nLänge: -\nhttps://www.xterraplane
+ t.com/event/xterra-austria
+TRANSP:TRANSPARENT
+URL:https://www.xterraplanet.com/event/xterra-austria
+END:VEVENT
+END:VCALENDAR

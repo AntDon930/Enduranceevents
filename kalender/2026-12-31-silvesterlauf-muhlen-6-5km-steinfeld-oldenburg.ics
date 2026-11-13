@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-muhlen-6-5km-steinfeld-oldenburg@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Mühlen – 6\,5 km-Lauf
+LOCATION:Steinfeld (Oldenburg)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://www.gw-muehl
+ en.com/silvesterlauf
+TRANSP:TRANSPARENT
+URL:https://www.gw-muehlen.com/silvesterlauf
+END:VEVENT
+END:VCALENDAR

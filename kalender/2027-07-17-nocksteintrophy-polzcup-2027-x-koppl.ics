@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-nocksteintrophy-polzcup-2027-x-koppl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270719
+SUMMARY:Nocksteintrophy Pölzcup 2027 – Cross-Country\, Short-Track
+LOCATION:Koppl\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.mounta
+ inbikers.at
+TRANSP:TRANSPARENT
+URL:https://www.mountainbikers.at
+END:VEVENT
+END:VCALENDAR

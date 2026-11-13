@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-maxilauf-hamm-21-1km-hamm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:MAXiLauf Hamm – Halbmarathon
+LOCATION:Hamm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://maxilauf.de
+ /
+TRANSP:TRANSPARENT
+URL:https://maxilauf.de/
+END:VEVENT
+END:VCALENDAR

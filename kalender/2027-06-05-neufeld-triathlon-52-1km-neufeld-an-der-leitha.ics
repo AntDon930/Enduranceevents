@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-neufeld-triathlon-52-1km-neufeld-an-der-leitha@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:Neufeld Triathlon
+LOCATION:Neufeld an der Leitha\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 52.1 km\nhttps://www.neuf
+ eld-triathlon.at
+TRANSP:TRANSPARENT
+URL:https://www.neufeld-triathlon.at
+END:VEVENT
+END:VCALENDAR

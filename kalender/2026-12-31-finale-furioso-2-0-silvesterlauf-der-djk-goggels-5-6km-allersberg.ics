@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-finale-furioso-2-0-silvesterlauf-der-djk-goggels-5-6km-alle
+ rsberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Finale Furioso 2.0 - Silvesterlauf der DJK Göggelsbuch – 5.555 m
+LOCATION:Allersberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://www.djk-goeg
+ gelsbuch.de/gruppen/triathlon-crew/silvesterlauf
+TRANSP:TRANSPARENT
+URL:https://www.djk-goeggelsbuch.de/gruppen/triathlon-crew/silvesterlauf
+END:VEVENT
+END:VCALENDAR

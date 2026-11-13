@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-28-oyler-berglauf-10km-marklohe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:28. OYLER Berglauf
+LOCATION:Marklohe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttp://www.jg-oyle.de
+TRANSP:TRANSPARENT
+URL:http://www.jg-oyle.de
+END:VEVENT
+END:VCALENDAR

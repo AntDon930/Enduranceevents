@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-21-39-abendlauf-meinersen-10km-meinersen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270522
+SUMMARY:39. Abendlauf Meinersen
+LOCATION:Meinersen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sv-meiner
+ sen.de/online-anmeldung
+TRANSP:TRANSPARENT
+URL:https://www.sv-meinersen.de/online-anmeldung
+END:VEVENT
+END:VCALENDAR

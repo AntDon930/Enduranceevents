@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-09-megamarsch-frankfurt-100km-frankfurt-am-main@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271009
+DTEND;VALUE=DATE:20271010
+SUMMARY:Megamarsch Frankfurt
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 100 km\nhttps://www.megamars
+ ch.de/frankfurt
+TRANSP:TRANSPARENT
+URL:https://www.megamarsch.de/frankfurt
+END:VEVENT
+END:VCALENDAR

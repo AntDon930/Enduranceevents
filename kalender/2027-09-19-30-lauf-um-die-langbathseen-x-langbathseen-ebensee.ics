@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-30-lauf-um-die-langbathseen-x-langbathseen-ebensee@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:30. Lauf um die Langbathseen
+LOCATION:Langbathseen Ebensee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.langbathseelau
+ f.at
+TRANSP:TRANSPARENT
+URL:http://www.langbathseelauf.at
+END:VEVENT
+END:VCALENDAR

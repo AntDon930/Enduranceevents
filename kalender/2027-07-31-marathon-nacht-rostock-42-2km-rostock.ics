@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-marathon-nacht-rostock-42-2km-rostock@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:Marathon Nacht Rostock – Marathon\, 42\,195 km
+LOCATION:Rostock\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.rostock
+ er-marathon-nacht.com
+TRANSP:TRANSPARENT
+URL:https://www.rostocker-marathon-nacht.com
+END:VEVENT
+END:VCALENDAR

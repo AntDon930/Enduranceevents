@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-generali-geneve-marathon-5km-genf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270510
+SUMMARY:Generali Genève Marathon – 5 km mit Uferziel am Quai Gustave-Ador.
+LOCATION:Genf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.generalige
+ nevemarathon.com/
+TRANSP:TRANSPARENT
+URL:https://www.generaligenevemarathon.com/
+END:VEVENT
+END:VCALENDAR

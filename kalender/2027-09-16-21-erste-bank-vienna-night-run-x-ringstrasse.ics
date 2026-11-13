@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-16-21-erste-bank-vienna-night-run-x-ringstrasse@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270916
+DTEND;VALUE=DATE:20270917
+SUMMARY:21. erste bank vienna night run
+LOCATION:Ringstraße\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.viennanightrun
+ .at
+TRANSP:TRANSPARENT
+URL:http://www.viennanightrun.at
+END:VEVENT
+END:VCALENDAR

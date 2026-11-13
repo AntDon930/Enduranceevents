@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-14-wanzleber-sparkassen-triathlon-51km-wanzleben-borde@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:14. Wanzleber Sparkassen Triathlon
+LOCATION:Wanzleben-Börde\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51 km\nhttps://www.triath
+ lon-wanzleben.de/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-wanzleben.de/
+END:VEVENT
+END:VCALENDAR

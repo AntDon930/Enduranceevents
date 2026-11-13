@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-trostberger-altstadtrun-5-4km-trostberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Trostberger AltstadtRUN
+LOCATION:Trostberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttps://spoferan.com
+ /events/trostberger-altstadtrun-2027
+TRANSP:TRANSPARENT
+URL:https://spoferan.com/events/trostberger-altstadtrun-2027
+END:VEVENT
+END:VCALENDAR

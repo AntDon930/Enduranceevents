@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-bezirksmeisterschaften-crosslauf-5km-velpke@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Bezirksmeisterschaften Crosslauf
+LOCATION:Velpke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.nlv-bezirk-
+ braunschweig.de/
+TRANSP:TRANSPARENT
+URL:https://www.nlv-bezirk-braunschweig.de/
+END:VEVENT
+END:VCALENDAR

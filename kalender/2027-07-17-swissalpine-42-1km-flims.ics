@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-swissalpine-42-1km-flims@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270719
+SUMMARY:Swissalpine – K42
+LOCATION:Flims\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.1 km\nhttps://swissalpine.
+ ch/
+TRANSP:TRANSPARENT
+URL:https://swissalpine.ch/
+END:VEVENT
+END:VCALENDAR

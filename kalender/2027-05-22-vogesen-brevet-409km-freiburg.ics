@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-vogesen-brevet-409km-freiburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Vogesen Brevet – Brevet 409 km
+LOCATION:Freiburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 409 km\nhttps://www.audax-b
+ reisgau.de/brm/vogesen-brevet
+TRANSP:TRANSPARENT
+URL:https://www.audax-breisgau.de/brm/vogesen-brevet
+END:VEVENT
+END:VCALENDAR

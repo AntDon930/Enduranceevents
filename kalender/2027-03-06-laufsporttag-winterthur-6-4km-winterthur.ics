@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-laufsporttag-winterthur-6-4km-winterthur@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:Laufsporttag Winterthur – Run for Fun 6.4km
+LOCATION:Winterthur\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.4 km\nhttps://www.zuerilau
+ fcup.ch/12-laeufe-2023/laufsporttag-winterthur
+TRANSP:TRANSPARENT
+URL:https://www.zuerilaufcup.ch/12-laeufe-2023/laufsporttag-winterthur
+END:VEVENT
+END:VCALENDAR

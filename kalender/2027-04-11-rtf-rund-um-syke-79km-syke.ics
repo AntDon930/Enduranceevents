@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-rtf-rund-um-syke-79km-syke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:RTF - Rund um Syke – RTF 79 km
+LOCATION:Syke\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 79 km\nhttps://www.rsv-bv.d
+ e/syker-radsporttag/
+TRANSP:TRANSPARENT
+URL:https://www.rsv-bv.de/syker-radsporttag/
+END:VEVENT
+END:VCALENDAR

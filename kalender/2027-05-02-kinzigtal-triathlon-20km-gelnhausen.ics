@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-kinzigtal-triathlon-20km-gelnhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Kinzigtal-Triathlon – 20 km Radfahren
+LOCATION:Gelnhausen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 20 km\nhttps://kinzigtal-
+ triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://kinzigtal-triathlon.de/
+END:VEVENT
+END:VCALENDAR

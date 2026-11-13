@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-weissensee-ungetum-50km-weissensee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Weissensee Ungetüm – 50 km \, rund 3.400 Höhenmeter\, Zeitlimit 14
+  Stunden.
+LOCATION:Weißensee\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 50 km\nhttps://time2win.at/ev
+ ent/1165
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1165
+END:VEVENT
+END:VCALENDAR

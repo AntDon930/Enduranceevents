@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-gaufelderlauf-7-7km-gaufelden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:GäuFelderLauf – 7\,7 km Walker und Hauptlauf XL
+LOCATION:Gäufelden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://gaeufelderla
+ uf.de/
+TRANSP:TRANSPARENT
+URL:https://gaeufelderlauf.de/
+END:VEVENT
+END:VCALENDAR

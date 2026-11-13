@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-havelman-brandenburg-25-8km-brandenburg-an-der-havel@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Havelman Brandenburg – Sprint 25\,8 km (0\,75 km Schwimmen / 20 km
+  Rad / 5 km Laufen)
+LOCATION:Brandenburg an der Havel\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.8 km\nhttps://www.have
+ lman-brandenburg.de/
+TRANSP:TRANSPARENT
+URL:https://www.havelman-brandenburg.de/
+END:VEVENT
+END:VCALENDAR

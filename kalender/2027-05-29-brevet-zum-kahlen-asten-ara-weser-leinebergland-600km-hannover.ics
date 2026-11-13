@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-brevet-zum-kahlen-asten-ara-weser-leinebergland-600km-hanno
+ ver@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Brevet "Zum Kahlen Asten" - ARA Weser-Leinebergland – Brevet 600 k
+ m
+LOCATION:Hannover\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 600 km\nhttps://audax-rando
+ nneure.de/startorte/weser_leinebergland
+TRANSP:TRANSPARENT
+URL:https://audax-randonneure.de/startorte/weser_leinebergland
+END:VEVENT
+END:VCALENDAR

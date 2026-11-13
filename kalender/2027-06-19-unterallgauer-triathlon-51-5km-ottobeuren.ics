@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-unterallgauer-triathlon-51-5km-ottobeuren@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Unterallgäuer Triathlon – Olympische Distanz 51\,5 km (1\,5 km Sch
+ wimmen / 40 km Rad / 10 km Laufen)
+LOCATION:Ottobeuren\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://www.tria
+ thlon-ottobeuren.de/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-ottobeuren.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-10-kleine-zeitung-graz-marathon-halbmarathon-vierte-21-1km-gra
+ z@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
+SUMMARY:Kleine Zeitung Graz Marathon / Halbmarathon / Viertelmarathon
+LOCATION:Graz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.grazmara
+ thon.at
+TRANSP:TRANSPARENT
+URL:http://www.grazmarathon.at
+END:VEVENT
+END:VCALENDAR

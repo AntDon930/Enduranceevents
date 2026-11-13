@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-inselmarathon-auf-wilhelmstein-21-1km-steinhuder-meer@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270426
+SUMMARY:Inselmarathon auf Wilhelmstein – Halbmarathon
+LOCATION:Steinhuder Meer\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.steinhu
+ der-meer.de/
+TRANSP:TRANSPARENT
+URL:https://www.steinhuder-meer.de/
+END:VEVENT
+END:VCALENDAR

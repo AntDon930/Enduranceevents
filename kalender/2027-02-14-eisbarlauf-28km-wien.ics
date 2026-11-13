@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-14-eisbarlauf-28km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:Eisbärlauf
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 28 km\nhttps://www.lcc-wien.
+ at/index.php?option=com_content&view=article&id=419%3A2eisbaerlauf-142202
+ 7&catid=42%3Alauf
+TRANSP:TRANSPARENT
+URL:https://www.lcc-wien.at/index.php?option=com_content&view=article&id=4
+ 19%3A2eisbaerlauf-1422027&catid=42%3Alauf
+END:VEVENT
+END:VCALENDAR

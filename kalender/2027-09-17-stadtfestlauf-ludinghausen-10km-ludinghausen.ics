@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-17-stadtfestlauf-ludinghausen-10km-ludinghausen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270917
+DTEND;VALUE=DATE:20270918
+SUMMARY:Stadtfestlauf Lüdinghausen
+LOCATION:Lüdinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lh-lauf.d
+ e
+TRANSP:TRANSPARENT
+URL:https://www.lh-lauf.de
+END:VEVENT
+END:VCALENDAR

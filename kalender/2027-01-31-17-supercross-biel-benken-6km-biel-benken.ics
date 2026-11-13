@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-17-supercross-biel-benken-6km-biel-benken@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:17. SuperCross Biel-Benken – Lauf 6\,0 km
+LOCATION:Biel-Benken\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttp://www.scbiel-benk
+ en.ch
+TRANSP:TRANSPARENT
+URL:http://www.scbiel-benken.ch
+END:VEVENT
+END:VCALENDAR

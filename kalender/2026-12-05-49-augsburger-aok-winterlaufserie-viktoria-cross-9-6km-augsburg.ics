@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-49-augsburger-aok-winterlaufserie-viktoria-cross-9-6km-augs
+ burg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:49. Augsburger AOK-Winterlaufserie Viktoria-Cross
+LOCATION:Augsburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9.6 km\nhttps://tgva.de/augsb
+ urger-winterlaufserie/
+TRANSP:TRANSPARENT
+URL:https://tgva.de/augsburger-winterlaufserie/
+END:VEVENT
+END:VCALENDAR

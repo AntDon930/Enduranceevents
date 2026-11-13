@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-thorberg-trail-13km-krauchthal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Thorberg-Trail
+LOCATION:Krauchthal\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 13 km\nhttps://svkrauchthal.c
+ h/thorberg-trail
+TRANSP:TRANSPARENT
+URL:https://svkrauchthal.ch/thorberg-trail
+END:VEVENT
+END:VCALENDAR

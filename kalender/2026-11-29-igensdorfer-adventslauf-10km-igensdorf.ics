@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-igensdorfer-adventslauf-10km-igensdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Igensdorfer Adventslauf
+LOCATION:Igensdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://fc-stoeckach.
+ de/kurse-und-veranstaltungen/laufen-und-walken/21-adventslauf-fc-st%C3%B6
+ ckach
+TRANSP:TRANSPARENT
+URL:https://fc-stoeckach.de/kurse-und-veranstaltungen/laufen-und-walken/21
+ -adventslauf-fc-st%C3%B6ckach
+END:VEVENT
+END:VCALENDAR

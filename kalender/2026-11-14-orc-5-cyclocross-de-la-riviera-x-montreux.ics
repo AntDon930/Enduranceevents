@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-orc-5-cyclocross-de-la-riviera-x-montreux@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:ORC 5 - Cyclocross de la Riviera – Cyclocross
+LOCATION:Montreux\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://veloclubveve
+ y.ch/cyclocross-de-la-riviera-2026/
+TRANSP:TRANSPARENT
+URL:https://veloclubvevey.ch/cyclocross-de-la-riviera-2026/
+END:VEVENT
+END:VCALENDAR

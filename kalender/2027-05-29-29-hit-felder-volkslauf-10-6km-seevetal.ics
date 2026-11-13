@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-29-hit-felder-volkslauf-10-6km-seevetal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:29. HIT-felder Volkslauf
+LOCATION:Seevetal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.6 km\nhttps://stgk.de/Ver
+ anstaltung_Detail.asp?Code=28
+TRANSP:TRANSPARENT
+URL:https://stgk.de/Veranstaltung_Detail.asp?Code=28
+END:VEVENT
+END:VCALENDAR

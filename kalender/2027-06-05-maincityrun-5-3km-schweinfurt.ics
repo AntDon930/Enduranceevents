@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-maincityrun-5-3km-schweinfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:MainCityRun – Firmenlauf
+LOCATION:Schweinfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttp://laufen-triath
+ lon.de/maincityrun/
+TRANSP:TRANSPARENT
+URL:http://laufen-triathlon.de/maincityrun/
+END:VEVENT
+END:VCALENDAR

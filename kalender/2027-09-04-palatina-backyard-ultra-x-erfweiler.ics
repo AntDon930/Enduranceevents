@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-palatina-backyard-ultra-x-erfweiler@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270906
+SUMMARY:Palatina Backyard Ultra
+LOCATION:Erfweiler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: Open End\nhttps://my
+ .raceresult.com/432363/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/432363/
+END:VEVENT
+END:VCALENDAR

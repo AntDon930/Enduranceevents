@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-internationaler-kaiserstuhllauf-10km-ihringen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Internationaler Kaiserstuhllauf (Termin vorläufig)
+LOCATION:Ihringen\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Laufen / Str
+ aße\nLänge: 10 km\nhttps://www.tv-ihringen.de/internationaler-kaiserstuhl
+ lauf-2026.html
+TRANSP:TRANSPARENT
+URL:https://www.tv-ihringen.de/internationaler-kaiserstuhllauf-2026.html
+END:VEVENT
+END:VCALENDAR

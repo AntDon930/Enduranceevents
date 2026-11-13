@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-marathon-des-terroirs-du-valais-bcvs-5km-martigny@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270524
+SUMMARY:Marathon des terroirs du Valais BCVS
+LOCATION:Martigny\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://marathonvalais
+ .ch/
+TRANSP:TRANSPARENT
+URL:https://marathonvalais.ch/
+END:VEVENT
+END:VCALENDAR

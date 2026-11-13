@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-limmattalerlauf-x-urdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Limmattalerlauf
+LOCATION:Urdorf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://limmattalerlauf.c
+ h/
+TRANSP:TRANSPARENT
+URL:https://limmattalerlauf.ch/
+END:VEVENT
+END:VCALENDAR

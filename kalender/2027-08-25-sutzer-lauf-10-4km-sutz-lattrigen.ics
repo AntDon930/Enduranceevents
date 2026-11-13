@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-25-sutzer-lauf-10-4km-sutz-lattrigen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270825
+DTEND;VALUE=DATE:20270826
+SUMMARY:Sutzer Lauf – 10.4 km Lauf oder Nordic Walking
+LOCATION:Sutz-Lattrigen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.4 km\nhttps://sutzerlauf.
+ ch/de/aktuelles/
+TRANSP:TRANSPARENT
+URL:https://sutzerlauf.ch/de/aktuelles/
+END:VEVENT
+END:VCALENDAR

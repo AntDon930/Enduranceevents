@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-05-trail-nocturne-vallee-de-joux-10km-le-chenit@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270205
+DTEND;VALUE=DATE:20270206
+SUMMARY:Trail Nocturne - Vallée de Joux
+LOCATION:Le Chenit\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://trailnocturnev
+ alleedejoux.ch/
+TRANSP:TRANSPARENT
+URL:https://trailnocturnevalleedejoux.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-8-xantener-sparkassen-stadioncross-7-5km-xanten@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:8. Xantener Sparkassen Stadioncross
+LOCATION:Xanten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttp://www.leichtath
+ letik.tus-xanten.de/
+TRANSP:TRANSPARENT
+URL:http://www.leichtathletik.tus-xanten.de/
+END:VEVENT
+END:VCALENDAR

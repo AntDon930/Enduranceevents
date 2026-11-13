@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-hindernislauf-murzathlon-12km-murzzuschlag@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270830
+SUMMARY:Hindernislauf Mürzathlon
+LOCATION:Mürzzuschlag\, Österreich
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 12 km\nhttps://www.advent
+ ureruns.at/muerzathlon/
+TRANSP:TRANSPARENT
+URL:https://www.adventureruns.at/muerzathlon/
+END:VEVENT
+END:VCALENDAR

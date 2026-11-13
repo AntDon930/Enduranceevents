@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-30-27-nordkirchener-schloss-und-dorflauf-10km-nordkirchen@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:27. Nordkirchener Schloß- und Dorflauf
+LOCATION:Nordkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://fc-nordkirche
+ n.de/schloss_und_dorflauf
+TRANSP:TRANSPARENT
+URL:https://fc-nordkirchen.de/schloss_und_dorflauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-28-w-e-b-waldviertler-crosslaufserie-2026-27-5-l-x-heidenre
+ ichstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:28. W.E.B. Waldviertler Crosslaufserie 2026/27 - 5. Lauf
+LOCATION:Heidenreichstein\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://lcwaldviertel.com/
+ ?page_id=75
+TRANSP:TRANSPARENT
+URL:https://lcwaldviertel.com/?page_id=75
+END:VEVENT
+END:VCALENDAR

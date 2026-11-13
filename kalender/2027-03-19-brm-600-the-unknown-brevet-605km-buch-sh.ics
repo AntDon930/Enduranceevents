@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-19-brm-600-the-unknown-brevet-605km-buch-sh@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270319
+DTEND;VALUE=DATE:20270320
+SUMMARY:BRM 600 THE UNKNOWN BREVET – Gravel Brevet 605 km
+LOCATION:Buch SH\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 605 km\nhttps://www.audaxsu
+ isse.ch/brevets/brm-600-the-unknown-brevet/
+TRANSP:TRANSPARENT
+URL:https://www.audaxsuisse.ch/brevets/brm-600-the-unknown-brevet/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-sportmeilen-run-rosstal-5km-rosstal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Sportmeilen Run Rosstal
+LOCATION:Roßtal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://tsv-rosstal.de
+ /sportmeilenrun/
+TRANSP:TRANSPARENT
+URL:https://tsv-rosstal.de/sportmeilenrun/
+END:VEVENT
+END:VCALENDAR

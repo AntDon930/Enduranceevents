@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-russelcross-duathlon-13km-russelsheim-am-main@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Rüsselcross Duathlon – Jedermann 13 km (2\,3 km Laufen / 10 km MTB
+  / 0\,7 km Laufen)
+LOCATION:Rüsselsheim am Main\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 13 km\nhttps://www.tg-t
+ ria-ruesselsheim.de/ruesselcross-start/
+TRANSP:TRANSPARENT
+URL:https://www.tg-tria-ruesselsheim.de/ruesselcross-start/
+END:VEVENT
+END:VCALENDAR

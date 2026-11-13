@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-10-3-lander-marathon-11km-bregenz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
+SUMMARY:3-Länder-Marathon
+LOCATION:Bregenz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.sparkasse
+ -3-laender-marathon.at/de/home/
+TRANSP:TRANSPARENT
+URL:https://www.sparkasse-3-laender-marathon.at/de/home/
+END:VEVENT
+END:VCALENDAR

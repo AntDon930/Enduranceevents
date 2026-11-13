@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-21-42-michelstadter-stadtlauf-10km-michelstadt@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270522
+SUMMARY:42. Michelstädter Stadtlauf
+LOCATION:Michelstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://tsv-wg.de/
+TRANSP:TRANSPARENT
+URL:https://tsv-wg.de/
+END:VEVENT
+END:VCALENDAR

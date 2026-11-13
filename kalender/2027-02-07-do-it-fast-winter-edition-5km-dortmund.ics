@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-07-do-it-fast-winter-edition-5km-dortmund@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:Do It Fast - Winter Edition – 5 km Lauf
+LOCATION:Dortmund\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://doitfast.de/
+TRANSP:TRANSPARENT
+URL:https://doitfast.de/
+END:VEVENT
+END:VCALENDAR

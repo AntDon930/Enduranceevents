@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-vosendorf-5km-vosendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Vösendorf – 5 km HOBBY Run\, 1 Runde
+LOCATION:Vösendorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://silvesterlauf.
+ georgswoboda.at/
+TRANSP:TRANSPARENT
+URL:https://silvesterlauf.georgswoboda.at/
+END:VEVENT
+END:VCALENDAR

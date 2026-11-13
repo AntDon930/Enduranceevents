@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-16-barocklauf-ludwigsburg-5km-ludwigsburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270716
+DTEND;VALUE=DATE:20270717
+SUMMARY:Barocklauf Ludwigsburg – 5 km OptiMove Pudel Barocklauf
+LOCATION:Ludwigsburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.barocklauf
+ .de/
+TRANSP:TRANSPARENT
+URL:https://www.barocklauf.de/
+END:VEVENT
+END:VCALENDAR

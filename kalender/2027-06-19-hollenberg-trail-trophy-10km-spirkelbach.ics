@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-hollenberg-trail-trophy-10km-spirkelbach@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Höllenberg Trail-Trophy – Trail Run
+LOCATION:Spirkelbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.htt-spirke
+ lbach.de/
+TRANSP:TRANSPARENT
+URL:https://www.htt-spirkelbach.de/
+END:VEVENT
+END:VCALENDAR

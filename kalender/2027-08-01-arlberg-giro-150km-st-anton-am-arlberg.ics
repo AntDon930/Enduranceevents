@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-arlberg-giro-150km-st-anton-am-arlberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Arlberg Giro – 150 km / 2.500 hm
+LOCATION:St. Anton am Arlberg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 150 km\nhttps://arlberg-gir
+ o.com/
+TRANSP:TRANSPARENT
+URL:https://arlberg-giro.com/
+END:VEVENT
+END:VCALENDAR

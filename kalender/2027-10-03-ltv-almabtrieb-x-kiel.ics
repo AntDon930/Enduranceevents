@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-03-ltv-almabtrieb-x-kiel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271003
+DTEND;VALUE=DATE:20271004
+SUMMARY:LTV Almabtrieb – RTF
+LOCATION:Kiel\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.ltvkiel-ost.
+ de
+TRANSP:TRANSPARENT
+URL:https://www.ltvkiel-ost.de
+END:VEVENT
+END:VCALENDAR

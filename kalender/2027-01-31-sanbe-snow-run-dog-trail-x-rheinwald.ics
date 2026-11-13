@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-sanbe-snow-run-dog-trail-x-rheinwald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:SanBe Snow Run & Dog Trail
+LOCATION:Rheinwald\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.performance-ti
+ ming.ch/race-info/432378
+TRANSP:TRANSPARENT
+URL:https://www.performance-timing.ch/race-info/432378
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-dortmunder-fruhlingslauf-5km-dortmund@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Dortmunder Frühlingslauf – 5 km Run/Walk
+LOCATION:Dortmund\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://dortmunder-fru
+ ehlingslauf.de/
+TRANSP:TRANSPARENT
+URL:https://dortmunder-fruehlingslauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-brevet-200-ara-mittelhessen-200km-giessen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Brevet 200 - ARA Mittelhessen – Brevet 200 km
+LOCATION:Gießen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 200 km\nhttps://www.ara-mit
+ telhessen.de/termine.html
+TRANSP:TRANSPARENT
+URL:https://www.ara-mittelhessen.de/termine.html
+END:VEVENT
+END:VCALENDAR

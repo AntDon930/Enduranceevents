@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-spreewald-duathlon-57km-lubbenau-spreewald@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Spreewald Duathlon – Kurzdistanz 57 km (10 km Laufen / 42 km Rad /
+  5 km Laufen)
+LOCATION:Lübbenau/Spreewald\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 57 km\nhttps://www.spre
+ ewald-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.spreewald-triathlon.de/
+END:VEVENT
+END:VCALENDAR

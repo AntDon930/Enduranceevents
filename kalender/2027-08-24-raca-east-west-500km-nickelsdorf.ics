@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-24-raca-east-west-500km-nickelsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270824
+DTEND;VALUE=DATE:20270829
+SUMMARY:RACA East-West – Ultracycling 500 km
+LOCATION:Nickelsdorf\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 500 km\nhttps://www.raceacr
+ ossaustria.com/raca-1000ew
+TRANSP:TRANSPARENT
+URL:https://www.raceacrossaustria.com/raca-1000ew
+END:VEVENT
+END:VCALENDAR

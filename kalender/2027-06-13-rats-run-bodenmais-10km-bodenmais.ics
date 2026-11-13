@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-rats-run-bodenmais-10km-bodenmais@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Rats-Run - Bodenmais
+LOCATION:Bodenmais\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 10 km\nhttps://v2.rats-ru
+ nners.de/bodenmais/
+TRANSP:TRANSPARENT
+URL:https://v2.rats-runners.de/bodenmais/
+END:VEVENT
+END:VCALENDAR

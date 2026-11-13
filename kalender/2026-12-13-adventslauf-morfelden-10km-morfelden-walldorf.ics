@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-adventslauf-morfelden-10km-morfelden-walldorf@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Adventslauf Mörfelden
+LOCATION:Mörfelden-Walldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lg-mw.de/10km
+ lauf/
+TRANSP:TRANSPARENT
+URL:https://lg-mw.de/10kmlauf/
+END:VEVENT
+END:VCALENDAR

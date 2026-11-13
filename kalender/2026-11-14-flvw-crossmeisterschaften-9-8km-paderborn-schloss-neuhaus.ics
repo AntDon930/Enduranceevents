@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-flvw-crossmeisterschaften-9-8km-paderborn-schloss-neuhaus@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:FLVW Crossmeisterschaften – Crosslauf Langstrecke - L9
+LOCATION:Paderborn-Schloß Neuhaus\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9.8 km\nhttps://lanet3.de/ext
+ ernal/dlv/register/12297
+TRANSP:TRANSPARENT
+URL:https://lanet3.de/external/dlv/register/12297
+END:VEVENT
+END:VCALENDAR

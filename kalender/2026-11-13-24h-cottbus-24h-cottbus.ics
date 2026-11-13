@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-13-24h-cottbus-24h-cottbus@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261115
+SUMMARY:24h Cottbus
+LOCATION:Cottbus\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 24 h\nhttps://bez-cottbus
+ .dlrg.de/index.php?id=514000&L=0
+TRANSP:TRANSPARENT
+URL:https://bez-cottbus.dlrg.de/index.php?id=514000&L=0
+END:VEVENT
+END:VCALENDAR

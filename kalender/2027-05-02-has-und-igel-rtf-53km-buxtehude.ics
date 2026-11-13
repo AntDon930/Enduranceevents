@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-has-und-igel-rtf-53km-buxtehude@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Has und Igel RTF – RTF 53 km
+LOCATION:Buxtehude\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 53 km\nhttps://bsv-buxtehud
+ e.de/dein-sport/radsport/
+TRANSP:TRANSPARENT
+URL:https://bsv-buxtehude.de/dein-sport/radsport/
+END:VEVENT
+END:VCALENDAR

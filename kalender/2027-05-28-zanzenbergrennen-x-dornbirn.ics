@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-zanzenbergrennen-x-dornbirn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270530
+SUMMARY:Zanzenbergrennen – Cross-Country
+LOCATION:Dornbirn\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.rv-dor
+ nbirn.at
+TRANSP:TRANSPARENT
+URL:https://www.rv-dornbirn.at
+END:VEVENT
+END:VCALENDAR

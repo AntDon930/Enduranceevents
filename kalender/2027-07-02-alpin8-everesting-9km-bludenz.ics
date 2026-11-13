@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-02-alpin8-everesting-9km-bludenz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270702
+DTEND;VALUE=DATE:20270705
+SUMMARY:Alpin8 Everesting
+LOCATION:Bludenz\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://www.alpin8.eu/
+TRANSP:TRANSPARENT
+URL:https://www.alpin8.eu/
+END:VEVENT
+END:VCALENDAR

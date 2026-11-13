@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-rostocker-jedermann-radrennen-45km-lambrechtshagen@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Rostocker Jedermann Radrennen – Jedermannrennen 45 km
+LOCATION:Lambrechtshagen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 45 km\nhttps://www.jederman
+ n-radrennen.de/rostock
+TRANSP:TRANSPARENT
+URL:https://www.jedermann-radrennen.de/rostock
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-23-point-of-return-koln-x-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271023
+DTEND;VALUE=DATE:20271027
+SUMMARY:Point of Return Köln
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: -\nhttps://www.pointofretur
+ n.de/event-details/point-of-return-23-26-10-2027-in-koln
+TRANSP:TRANSPARENT
+URL:https://www.pointofreturn.de/event-details/point-of-return-23-26-10-20
+ 27-in-koln
+END:VEVENT
+END:VCALENDAR

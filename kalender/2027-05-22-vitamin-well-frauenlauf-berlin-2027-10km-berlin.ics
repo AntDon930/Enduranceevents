@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-vitamin-well-frauenlauf-berlin-2027-10km-berlin@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Vitamin Well Frauenlauf Berlin 2027
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.berliner-
+ frauenlauf.de
+TRANSP:TRANSPARENT
+URL:https://www.berliner-frauenlauf.de
+END:VEVENT
+END:VCALENDAR

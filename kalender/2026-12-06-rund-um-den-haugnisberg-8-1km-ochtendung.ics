@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-rund-um-den-haugnisberg-8-1km-ochtendung@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Rund um den Haugnisberg
+LOCATION:Ochtendung\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.1 km\nhttps://my.raceresul
+ t.com/431185/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/431185/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-34-welser-halbmarathon-21-1km-wels@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:34. Welser Halbmarathon
+LOCATION:Wels\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://welser-halb
+ marathon.at
+TRANSP:TRANSPARENT
+URL:https://welser-halbmarathon.at
+END:VEVENT
+END:VCALENDAR

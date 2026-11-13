@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-otillo-rugen-germany-7km-binz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:ÖTILLÖ Rügen Germany – Rügen Experience 7 km (1 km Schwimmen / 6 k
+ m Laufen)
+LOCATION:Binz\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 7 km\nhttps://otilloswim
+ run.com/races/rugen-germany/
+TRANSP:TRANSPARENT
+URL:https://otilloswimrun.com/races/rugen-germany/
+END:VEVENT
+END:VCALENDAR

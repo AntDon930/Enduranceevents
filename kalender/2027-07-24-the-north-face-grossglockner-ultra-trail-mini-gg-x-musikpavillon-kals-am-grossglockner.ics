@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-the-north-face-grossglockner-ultra-trail-mini-gg-x-musikpav
+ illon-kals-am-grossglockner@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270725
+SUMMARY:The North Face Großglockner Ultra-Trail - MINI GGUT
+LOCATION:Musikpavillon Kals am Großglockner\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.ultratrail.at
+TRANSP:TRANSPARENT
+URL:http://www.ultratrail.at
+END:VEVENT
+END:VCALENDAR

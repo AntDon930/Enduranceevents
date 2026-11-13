@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-innsbruckathlon-x-innsbruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Innsbruckathlon
+LOCATION:Innsbruck\, Österreich
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: -\nhttps://beatthecity.at
+ /innsbruckathlon/
+TRANSP:TRANSPARENT
+URL:https://beatthecity.at/innsbruckathlon/
+END:VEVENT
+END:VCALENDAR

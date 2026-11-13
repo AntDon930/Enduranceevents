@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-17-mungstener-bruckenlauf-10km-solingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271017
+DTEND;VALUE=DATE:20271018
+SUMMARY:Müngstener Brückenlauf
+LOCATION:Solingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.xn--mngst
+ ener-brckenlauf-pecl.de/
+TRANSP:TRANSPARENT
+URL:https://www.xn--mngstener-brckenlauf-pecl.de/
+END:VEVENT
+END:VCALENDAR

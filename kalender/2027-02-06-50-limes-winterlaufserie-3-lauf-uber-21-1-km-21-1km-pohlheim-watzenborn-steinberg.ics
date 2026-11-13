@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-06-50-limes-winterlaufserie-3-lauf-uber-21-1-km-21-1km-pohlhei
+ m-watzenborn-steinberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:50. Limes- Winterlaufserie - 3. Lauf über 21\,1 km
+LOCATION:Pohlheim\, Watzenborn- Steinberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://turnverein07
+ .de
+TRANSP:TRANSPARENT
+URL:http://turnverein07.de
+END:VEVENT
+END:VCALENDAR

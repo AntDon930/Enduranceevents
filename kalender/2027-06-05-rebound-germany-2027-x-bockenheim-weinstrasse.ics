@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-rebound-germany-2027-x-bockenheim-weinstrasse@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:Rebound Germany 2027 – Gravel Ride
+LOCATION:Bockenheim / Weinstrasse\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: -\nhttps://nibelungen-grave
+ l.de
+TRANSP:TRANSPARENT
+URL:https://nibelungen-gravel.de
+END:VEVENT
+END:VCALENDAR

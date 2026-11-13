@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-49-monschau-marathon-run-and-walk-in-nature-42-2km-monschau
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:49. Monschau-Marathon "Run and Walk in Nature"
+LOCATION:Monschau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.monschau
+ -marathon.de
+TRANSP:TRANSPARENT
+URL:http://www.monschau-marathon.de
+END:VEVENT
+END:VCALENDAR

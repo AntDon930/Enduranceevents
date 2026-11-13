@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-17-leipzig-run-10km-leipzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271017
+DTEND;VALUE=DATE:20271018
+SUMMARY:Leipzig Run – 10 km LEIPZIG10k
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://leipzigrun.ma
+ ximalpuls.com
+TRANSP:TRANSPARENT
+URL:https://leipzigrun.maximalpuls.com
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-werrataltriathlon-breitungen-x-breitungen-werra@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Werrataltriathlon Breitungen
+LOCATION:Breitungen/Werra\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Cross\nLänge: -\nhttps://www.triathlonve
+ rein-werratal.de/werrataltriathlon/
+TRANSP:TRANSPARENT
+URL:https://www.triathlonverein-werratal.de/werrataltriathlon/
+END:VEVENT
+END:VCALENDAR

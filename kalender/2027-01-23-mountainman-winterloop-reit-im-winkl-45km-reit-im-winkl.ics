@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-mountainman-winterloop-reit-im-winkl-45km-reit-im-winkl@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270125
+SUMMARY:Mountainman Winterloop Reit im Winkl – Marathon (6 Runden\, ca. 45
+  km)
+LOCATION:Reit im Winkl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45 km\nhttps://mountainman.d
+ e/trailrunning-events/alps/winterloop-reit-im-winkl/
+TRANSP:TRANSPARENT
+URL:https://mountainman.de/trailrunning-events/alps/winterloop-reit-im-win
+ kl/
+END:VEVENT
+END:VCALENDAR

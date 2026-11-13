@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-s3-t-triathlon-13-3km-brig-glis@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:S3-T Triathlon
+LOCATION:Brig-Glis\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 13.3 km\nhttps://www.tr
+ iathlon-oberwallis.ch/s3-t-supersprint-triathlon/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-oberwallis.ch/s3-t-supersprint-triathlon/
+END:VEVENT
+END:VCALENDAR

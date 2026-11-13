@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-09-ulmer-frauenlauf-5km-ulm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270709
+DTEND;VALUE=DATE:20270710
+SUMMARY:Ulmer Frauenlauf
+LOCATION:Ulm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ulmer-frauenla
+ uf.de/
+TRANSP:TRANSPARENT
+URL:https://ulmer-frauenlauf.de/
+END:VEVENT
+END:VCALENDAR

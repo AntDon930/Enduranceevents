@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-munsiger-louf-5-2km-munsingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Münsiger-Louf – 5.2 km Louf
+LOCATION:Münsingen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.2 km\nhttps://www.muensige
+ r-louf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.muensiger-louf.ch/
+END:VEVENT
+END:VCALENDAR

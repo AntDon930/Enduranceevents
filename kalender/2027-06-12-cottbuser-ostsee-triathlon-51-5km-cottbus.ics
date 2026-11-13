@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-cottbuser-ostsee-triathlon-51-5km-cottbus@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Cottbuser Ostsee Triathlon – Olympisch
+LOCATION:Cottbus\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://ostsee-t
+ riathlon.de/
+TRANSP:TRANSPARENT
+URL:https://ostsee-triathlon.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-salzburg-marathon-42-2km-salzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270524
+SUMMARY:Salzburg Marathon – 42\,195 km PUMA Salzburg Marathon
+LOCATION:Salzburg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.dataspo
+ rt.de/anmeldeservice/salzburgmarathon2027
+TRANSP:TRANSPARENT
+URL:https://www.datasport.de/anmeldeservice/salzburgmarathon2027
+END:VEVENT
+END:VCALENDAR

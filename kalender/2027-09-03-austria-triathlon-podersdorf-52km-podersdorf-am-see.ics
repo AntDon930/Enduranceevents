@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-03-austria-triathlon-podersdorf-52km-podersdorf-am-see@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270903
+DTEND;VALUE=DATE:20270904
+SUMMARY:Austria Triathlon Podersdorf
+LOCATION:Podersdorf am See\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 52 km\nhttps://www.austri
+ a-triathlon.at
+TRANSP:TRANSPARENT
+URL:https://www.austria-triathlon.at
+END:VEVENT
+END:VCALENDAR

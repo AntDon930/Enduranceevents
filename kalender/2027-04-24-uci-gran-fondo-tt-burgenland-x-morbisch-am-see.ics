@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-uci-gran-fondo-tt-burgenland-x-morbisch-am-see@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:UCI Gran Fondo TT Burgenland – Einzelzeitfahren\, Paarzeitfahren
+LOCATION:Mörbisch am See\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: -\nhttps://www.neusiedl
+ ersee-radmarathon.com
+TRANSP:TRANSPARENT
+URL:https://www.neusiedlersee-radmarathon.com
+END:VEVENT
+END:VCALENDAR

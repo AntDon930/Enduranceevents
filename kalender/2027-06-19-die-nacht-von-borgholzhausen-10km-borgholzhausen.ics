@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-die-nacht-von-borgholzhausen-10km-borgholzhausen@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Die Nacht Von Borgholzhausen – 10 km Nachtlauf als längere Distanz
+  im Laufe des Abends
+LOCATION:Borgholzhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://rsv-borgholzh
+ ausen.de/nacht
+TRANSP:TRANSPARENT
+URL:https://rsv-borgholzhausen.de/nacht
+END:VEVENT
+END:VCALENDAR

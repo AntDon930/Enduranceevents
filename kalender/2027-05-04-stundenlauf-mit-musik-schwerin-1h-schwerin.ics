@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-04-stundenlauf-mit-musik-schwerin-1h-schwerin@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270504
+DTEND;VALUE=DATE:20270505
+SUMMARY:Stundenlauf mit Musik - Schwerin
+LOCATION:Schwerin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttps://www.fuenf-seen-
+ lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&tx_
+ news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=3&cHash=e8d86cf877214
+ df6ee1588184e66aa8c
+TRANSP:TRANSPARENT
+URL:https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_
+ pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnew
+ s%5D=3&cHash=e8d86cf877214df6ee1588184e66aa8c
+END:VEVENT
+END:VCALENDAR

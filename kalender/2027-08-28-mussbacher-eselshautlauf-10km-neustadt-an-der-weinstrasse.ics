@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-mussbacher-eselshautlauf-10km-neustadt-an-der-weinstrasse@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Mußbacher Eselshautlauf
+LOCATION:Neustadt an der Weinstraße\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://tv-mussbach.d
+ e/1-mussbacher-eselshautlauf
+TRANSP:TRANSPARENT
+URL:https://tv-mussbach.de/1-mussbacher-eselshautlauf
+END:VEVENT
+END:VCALENDAR

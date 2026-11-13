@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-21-21-b2run-basel-5-9km-basel-munchenstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270522
+SUMMARY:21. B2run Basel – Lauf 5\,9 km
+LOCATION:Basel\, Münchenstein\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.9 km\nhttp://www.b2run.ch/
+TRANSP:TRANSPARENT
+URL:http://www.b2run.ch/
+END:VEVENT
+END:VCALENDAR

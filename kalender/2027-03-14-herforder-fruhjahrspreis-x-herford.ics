@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-herforder-fruhjahrspreis-x-herford@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Herforder Frühjahrspreis
+LOCATION:Herford\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.endspurt-her
+ ford.de/events/herforder-fruehjahrspreis
+TRANSP:TRANSPARENT
+URL:https://www.endspurt-herford.de/events/herforder-fruehjahrspreis
+END:VEVENT
+END:VCALENDAR

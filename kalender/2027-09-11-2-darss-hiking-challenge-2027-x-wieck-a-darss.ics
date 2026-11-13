@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-2-darss-hiking-challenge-2027-x-wieck-a-darss@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:2. Darss Hiking Challenge 2027
+LOCATION:Wieck a. Darß\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: -\nhttps://darss-hiking.de/
+TRANSP:TRANSPARENT
+URL:https://darss-hiking.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-weser-elbe-radmarathon-210km-buxtehude@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Weser-Elbe-Radmarathon – Radmarathon 210 km
+LOCATION:Buxtehude\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 210 km\nhttps://www.weser-e
+ lbe-radmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.weser-elbe-radmarathon.de/
+END:VEVENT
+END:VCALENDAR

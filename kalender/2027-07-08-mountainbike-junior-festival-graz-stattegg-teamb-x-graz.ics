@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-08-mountainbike-junior-festival-graz-stattegg-teamb-x-graz@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270708
+DTEND;VALUE=DATE:20270709
+SUMMARY:Mountainbike JUNIOR Festival Graz/Stattegg\, Teambewerb – Cross-Co
+ untry
+LOCATION:Graz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.bike09
+ .at
+TRANSP:TRANSPARENT
+URL:https://www.bike09.at
+END:VEVENT
+END:VCALENDAR

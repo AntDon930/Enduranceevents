@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-slowup-mountain-albula-30km-la-punt-chamues@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:slowUp Mountain Albula – Volksradfahren 30 km
+LOCATION:La Punt Chamues\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 30 km\nhttps://www.sl
+ owup.ch/albula/de
+TRANSP:TRANSPARENT
+URL:https://www.slowup.ch/albula/de
+END:VEVENT
+END:VCALENDAR

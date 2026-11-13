@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-appelhulsener-landlauf-5km-nottuln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Appelhülsener Landlauf – 5\,0 km Kleiner Landlauf M/W 14-95
+LOCATION:Nottuln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.appelhuelse
+ ner-landlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.appelhuelsener-landlauf.de
+END:VEVENT
+END:VCALENDAR

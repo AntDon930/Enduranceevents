@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-15-hiking-loop-koln-100km-fuhlinger-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270118
+SUMMARY:Hiking Loop Köln
+LOCATION:Fühlinger See\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 100 km\nhttps://www.hiking-l
+ oop.de/events/hiking-loop-koln-2027
+TRANSP:TRANSPARENT
+URL:https://www.hiking-loop.de/events/hiking-loop-koln-2027
+END:VEVENT
+END:VCALENDAR

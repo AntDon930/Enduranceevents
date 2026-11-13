@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-langenloiser-weinstadtlauf-5km-langenlois@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Langenloiser Weinstadtlauf – 5 km Hobbylauf.
+LOCATION:Langenlois\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.ulc-langen
+ lois.at/stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://www.ulc-langenlois.at/stadtlauf/
+END:VEVENT
+END:VCALENDAR

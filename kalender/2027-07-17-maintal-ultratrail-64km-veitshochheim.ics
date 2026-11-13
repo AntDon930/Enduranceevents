@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-maintal-ultratrail-64km-veitshochheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Maintal Ultratrail – Ultratrail
+LOCATION:Veitshöchheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 64 km\nhttps://www.mtut.de/
+TRANSP:TRANSPARENT
+URL:https://www.mtut.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-windrader-tour-50km-mainz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Windräder Tour – RTF 50 km
+LOCATION:Mainz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 50 km\nhttps://mrsv.de/even
+ ts/gravel-road-2027-216/
+TRANSP:TRANSPARENT
+URL:https://mrsv.de/events/gravel-road-2027-216/
+END:VEVENT
+END:VCALENDAR

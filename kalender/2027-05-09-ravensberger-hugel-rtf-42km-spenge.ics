@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-ravensberger-hugel-rtf-42km-spenge@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Ravensberger Hügel RTF – RTF 42 km
+LOCATION:Spenge\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 42 km\nhttps://www.lrg-lenz
+ inghausen.de/lrg/lrg-rtf.php
+TRANSP:TRANSPARENT
+URL:https://www.lrg-lenzinghausen.de/lrg/lrg-rtf.php
+END:VEVENT
+END:VCALENDAR

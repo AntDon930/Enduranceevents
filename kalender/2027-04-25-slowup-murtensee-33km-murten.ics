@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-slowup-murtensee-33km-murten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:slowUp Murtensee – Volksradfahren 33 km
+LOCATION:Murten\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 33 km\nhttps://www.slowup.c
+ h/murtensee/de/
+TRANSP:TRANSPARENT
+URL:https://www.slowup.ch/murtensee/de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-12-uplandsteig-wandermarathon-2027-x-willingen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:12. Uplandsteig-Wandermarathon 2027
+LOCATION:Willingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: -\nhttps://www.ugv-willingen
+ .de/wandermarathon2027.html
+TRANSP:TRANSPARENT
+URL:https://www.ugv-willingen.de/wandermarathon2027.html
+END:VEVENT
+END:VCALENDAR

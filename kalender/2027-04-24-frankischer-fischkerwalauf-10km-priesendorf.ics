@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-frankischer-fischkerwalauf-10km-priesendorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270426
+SUMMARY:Fränkischer Fischkerwalauf
+LOCATION:Priesendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://fischkerwalau
+ f.de/
+TRANSP:TRANSPARENT
+URL:https://fischkerwalauf.de/
+END:VEVENT
+END:VCALENDAR

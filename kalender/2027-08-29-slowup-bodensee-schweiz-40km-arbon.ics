@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-slowup-bodensee-schweiz-40km-arbon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:slowUp Bodensee Schweiz – Volksradfahren 40 km
+LOCATION:Arbon\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 40 km\nhttps://www.sl
+ owup.ch/bodensee/de
+TRANSP:TRANSPARENT
+URL:https://www.slowup.ch/bodensee/de
+END:VEVENT
+END:VCALENDAR

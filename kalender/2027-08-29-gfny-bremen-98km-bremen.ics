@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-gfny-bremen-98km-bremen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:GFNY Bremen – Gran Fondo 98 km
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 98 km\nhttps://bremen.gfny.
+ com/
+TRANSP:TRANSPARENT
+URL:https://bremen.gfny.com/
+END:VEVENT
+END:VCALENDAR

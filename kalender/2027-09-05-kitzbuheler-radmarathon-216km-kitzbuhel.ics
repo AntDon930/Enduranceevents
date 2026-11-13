@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-kitzbuheler-radmarathon-216km-kitzbuhel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Kitzbüheler Radmarathon – Radmarathon 216 km
+LOCATION:Kitzbühel\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 216 km\nhttps://kitzbuehele
+ r-radmarathon.at
+TRANSP:TRANSPARENT
+URL:https://kitzbueheler-radmarathon.at
+END:VEVENT
+END:VCALENDAR

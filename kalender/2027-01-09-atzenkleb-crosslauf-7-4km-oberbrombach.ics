@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-atzenkleb-crosslauf-7-4km-oberbrombach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Atzenkleb Crosslauf – Langstrecke Männer\, Frauen\, AK
+LOCATION:Oberbrombach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.4 km\nhttp://302510.webhost
+ ing47.1blu.de/nahecross2/ausschreibung.html
+TRANSP:TRANSPARENT
+URL:http://302510.webhosting47.1blu.de/nahecross2/ausschreibung.html
+END:VEVENT
+END:VCALENDAR

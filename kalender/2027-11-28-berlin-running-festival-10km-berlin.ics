@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-28-berlin-running-festival-10km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271128
+DTEND;VALUE=DATE:20271129
+SUMMARY:Berlin Running Festival
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.runthroug
+ h.co.uk/event/berlin-running-festival-november-2027
+TRANSP:TRANSPARENT
+URL:https://www.runthrough.co.uk/event/berlin-running-festival-november-20
+ 27
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-59-nikolauslauf-des-ahrensburger-tsv-7-9km-ahrensburg@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:59. Nikolauslauf des Ahrensburger TSV – Langstrecke 7940m
+LOCATION:Ahrensburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.9 km\nhttps://www.meinatsv
+ .de/
+TRANSP:TRANSPARENT
+URL:https://www.meinatsv.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-03-nordeifeler-businessrun-5km-simmerath@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270903
+DTEND;VALUE=DATE:20270904
+SUMMARY:Nordeifeler BusinessRun
+LOCATION:Simmerath\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.nordeifele
+ r-businessrun.de/
+TRANSP:TRANSPARENT
+URL:https://www.nordeifeler-businessrun.de/
+END:VEVENT
+END:VCALENDAR

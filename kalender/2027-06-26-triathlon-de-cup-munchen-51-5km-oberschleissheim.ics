@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-triathlon-de-cup-munchen-51-5km-oberschleissheim@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:triathlon.de CUP München – Olympische Distanz 51\,5 km (1\,5 km Sc
+ hwimmen / 40 km Rad / 10 km Laufen)
+LOCATION:Oberschleißheim\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://triathlo
+ n.de/pages/triathlon-de-cup-muenchen-2026
+TRANSP:TRANSPARENT
+URL:https://triathlon.de/pages/triathlon-de-cup-muenchen-2026
+END:VEVENT
+END:VCALENDAR

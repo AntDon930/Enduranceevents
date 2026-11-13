@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-baldeggerseelauf-16km-hitzkirch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Baldeggerseelauf
+LOCATION:Hitzkirch\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16 km\nhttps://baldeggerseel
+ auf.ch/
+TRANSP:TRANSPARENT
+URL:https://baldeggerseelauf.ch/
+END:VEVENT
+END:VCALENDAR

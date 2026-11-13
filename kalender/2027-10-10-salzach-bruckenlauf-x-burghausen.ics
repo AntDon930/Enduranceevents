@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-10-salzach-bruckenlauf-x-burghausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
+SUMMARY:Salzach-Brückenlauf
+LOCATION:Burghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.salzach-bruec
+ kenlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.salzach-brueckenlauf.de/
+END:VEVENT
+END:VCALENDAR

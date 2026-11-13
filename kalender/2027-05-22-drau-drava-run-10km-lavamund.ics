@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-drau-drava-run-10km-lavamund@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Drau-Drava Run – 10 km zwei Runden auf einer 5 km Schleife entlang
+  der Drau
+LOCATION:Lavamünd\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://draudravarun.
+ com/
+TRANSP:TRANSPARENT
+URL:https://draudravarun.com/
+END:VEVENT
+END:VCALENDAR

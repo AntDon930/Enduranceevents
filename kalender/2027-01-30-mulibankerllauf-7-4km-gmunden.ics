@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-30-mulibankerllauf-7-4km-gmunden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:Mülibankerllauf
+LOCATION:Gmunden\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.4 km\nhttps://time2win.at/e
+ vent/1161
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1161
+END:VEVENT
+END:VCALENDAR

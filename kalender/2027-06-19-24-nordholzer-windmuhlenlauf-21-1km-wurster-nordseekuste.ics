@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-24-nordholzer-windmuhlenlauf-21-1km-wurster-nordseekuste@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:24. Nordholzer Windmühlenlauf
+LOCATION:Wurster Nordseeküste\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.windmueh
+ lenlauf.jimdofree.com
+TRANSP:TRANSPARENT
+URL:http://www.windmuehlenlauf.jimdofree.com
+END:VEVENT
+END:VCALENDAR

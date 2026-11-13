@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-41-memmelsdorfer-schlosslauf-10-8km-memmelsdorf@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:41. Memmelsdorfer Schlosslauf – Hauptlauf 10.750 m
+LOCATION:Memmelsdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttps://sc-memmelsd
+ orf.de/schlosslauf/
+TRANSP:TRANSPARENT
+URL:https://sc-memmelsdorf.de/schlosslauf/
+END:VEVENT
+END:VCALENDAR

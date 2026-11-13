@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-wendelsteinrundfahrt-205km-au-bei-bad-feilnbach@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Wendelsteinrundfahrt – Radmarathon 205 km
+LOCATION:Au bei Bad Feilnbach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 205 km\nhttps://www.wendels
+ teinrundfahrt.de/
+TRANSP:TRANSPARENT
+URL:https://www.wendelsteinrundfahrt.de/
+END:VEVENT
+END:VCALENDAR

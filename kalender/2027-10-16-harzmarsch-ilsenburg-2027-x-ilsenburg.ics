@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-16-harzmarsch-ilsenburg-2027-x-ilsenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271017
+SUMMARY:Harzmarsch Ilsenburg 2027
+LOCATION:Ilsenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: -\nhttps://emti-extremwander
+ n.de/veranstaltung/harzmarsch-21-42km-ilsenburg-wandermarathon-16-10-2027
+ /
+TRANSP:TRANSPARENT
+URL:https://emti-extremwandern.de/veranstaltung/harzmarsch-21-42km-ilsenbu
+ rg-wandermarathon-16-10-2027/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-barenfels-sommer-trail-neubrucke-63km-hoppstadten-weiersbac
+ h@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Bärenfels-Sommer-Trail Neubrücke
+LOCATION:Hoppstädten-Weiersbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 63 km\nhttps://baerenfelsteam
+ .de/
+TRANSP:TRANSPARENT
+URL:https://baerenfelsteam.de/
+END:VEVENT
+END:VCALENDAR

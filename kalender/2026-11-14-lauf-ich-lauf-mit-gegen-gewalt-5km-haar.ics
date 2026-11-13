@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-lauf-ich-lauf-mit-gegen-gewalt-5km-haar@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Lauf „Ich Lauf Mit gegen Gewalt“
+LOCATION:Haar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.landkreis-
+ muenchen.de/themen/familie-soziales/lauf-ich-lauf-mit-gegen-gewalt/
+TRANSP:TRANSPARENT
+URL:https://www.landkreis-muenchen.de/themen/familie-soziales/lauf-ich-lau
+ f-mit-gegen-gewalt/
+END:VEVENT
+END:VCALENDAR

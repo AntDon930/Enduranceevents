@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-skytri-crans-montana-46km-crans-montana@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:SkyTri Crans-Montana
+LOCATION:Crans-Montana\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 46 km\nhttps://outlierspo
+ rt.com/skytri-crans-montana/
+TRANSP:TRANSPARENT
+URL:https://outliersport.com/skytri-crans-montana/
+END:VEVENT
+END:VCALENDAR

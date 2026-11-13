@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Erzeugt von scripts/build_blog.py – nicht von Hand ändern. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://endurance-events.de/</loc></url>
+  <url><loc>https://endurance-events.de/events.html</loc></url>
+  <url><loc>https://endurance-events.de/karte.html</loc></url>
+  <url><loc>https://endurance-events.de/clubs.html</loc></url>
+  <url><loc>https://endurance-events.de/blog.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://endurance-events.de/impressum.html</loc></url>
+  <url><loc>https://endurance-events.de/datenschutz.html</loc></url>
+  <url><loc>https://endurance-events.de/blog/wintertraining-triathlon.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/en/wintertraining-triathlon.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/crosslaeufe-winterlaufserien.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/en/crosslaeufe-winterlaufserien.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/krafttraining-fuer-laeufer.html</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/en/krafttraining-fuer-laeufer.html</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/silvesterlaeufe.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/en/silvesterlaeufe.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/carboloading.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/en/carboloading.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/laufen-im-winter.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/en/laufen-im-winter.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/erster-triathlon.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/en/erster-triathlon.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/erster-halbmarathon.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/en/erster-halbmarathon.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/rtf-radmarathon-gran-fondo.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/en/rtf-radmarathon-gran-fondo.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/freiwasserschwimmen-sicher.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/en/freiwasserschwimmen-sicher.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/tapering.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://endurance-events.de/blog/en/tapering.html</loc><lastmod>2026-11-04</lastmod></url>
+</urlset>

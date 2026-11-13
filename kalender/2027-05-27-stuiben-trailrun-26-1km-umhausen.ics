@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-stuiben-trailrun-26-1km-umhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270531
+SUMMARY:Stuiben Trailrun – Stuiben Trail 24K
+LOCATION:Umhausen\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 26.1 km\nhttps://www.oetztal-
+ trailrunning.at/die-running-events/stuiben-trailrun/
+TRANSP:TRANSPARENT
+URL:https://www.oetztal-trailrunning.at/die-running-events/stuiben-trailru
+ n/
+END:VEVENT
+END:VCALENDAR

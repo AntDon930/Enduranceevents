@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-02-13-rotenburger-strandfestlauf-rotenburg-rennt-7-4km-rotenbu
+ rg-a-d-fulda@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270702
+DTEND;VALUE=DATE:20270703
+SUMMARY:13. Rotenburger Strandfestlauf - Rotenburg rennt
+LOCATION:Rotenburg a.d. Fulda\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.4 km\nhttps://www.lcm-rote
+ nburg.de/
+TRANSP:TRANSPARENT
+URL:https://www.lcm-rotenburg.de/
+END:VEVENT
+END:VCALENDAR

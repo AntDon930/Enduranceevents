@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-stadion-crosslauf-8km-dingolfing@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:Stadion-Crosslauf
+LOCATION:Dingolfing\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.lv-geiselho
+ ering.de/archive/category/stadion-crosslauf
+TRANSP:TRANSPARENT
+URL:https://www.lv-geiselhoering.de/archive/category/stadion-crosslauf
+END:VEVENT
+END:VCALENDAR

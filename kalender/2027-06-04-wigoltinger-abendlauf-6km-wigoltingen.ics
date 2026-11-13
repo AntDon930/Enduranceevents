@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-wigoltinger-abendlauf-6km-wigoltingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270605
+SUMMARY:Wigoltinger Abendlauf
+LOCATION:Wigoltingen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://runfitthurgau.
+ ch/panorama-abendlauf/abendlauf/
+TRANSP:TRANSPARENT
+URL:https://runfitthurgau.ch/panorama-abendlauf/abendlauf/
+END:VEVENT
+END:VCALENDAR

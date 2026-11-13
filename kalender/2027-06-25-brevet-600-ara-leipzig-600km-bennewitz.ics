@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-brevet-600-ara-leipzig-600km-bennewitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:Brevet 600 - ARA Leipzig – Brevet 600 km
+LOCATION:Bennewitz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 600 km\nhttps://www.audax-s
+ achsen.de/brevet-termine/
+TRANSP:TRANSPARENT
+URL:https://www.audax-sachsen.de/brevet-termine/
+END:VEVENT
+END:VCALENDAR

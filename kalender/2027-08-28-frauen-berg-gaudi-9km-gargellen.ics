@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-frauen-berg-gaudi-9km-gargellen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270830
+SUMMARY:Frauen Berg Gaudi
+LOCATION:Gargellen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://w3-sports.com/
+ frauen-berg-gaudi/
+TRANSP:TRANSPARENT
+URL:https://w3-sports.com/frauen-berg-gaudi/
+END:VEVENT
+END:VCALENDAR

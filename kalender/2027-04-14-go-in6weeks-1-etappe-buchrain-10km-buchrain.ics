@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-14-go-in6weeks-1-etappe-buchrain-10km-buchrain@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270414
+DTEND;VALUE=DATE:20270415
+SUMMARY:GO-IN6weeks 1. Etappe - Buchrain
+LOCATION:Buchrain\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.6weeks.ch
+ /
+TRANSP:TRANSPARENT
+URL:https://www.6weeks.ch/
+END:VEVENT
+END:VCALENDAR

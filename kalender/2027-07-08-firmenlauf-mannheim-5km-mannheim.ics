@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-08-firmenlauf-mannheim-5km-mannheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270708
+DTEND;VALUE=DATE:20270709
+SUMMARY:Firmenlauf Mannheim
+LOCATION:Mannheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://firmenlauf-man
+ nheim.de/
+TRANSP:TRANSPARENT
+URL:https://firmenlauf-mannheim.de/
+END:VEVENT
+END:VCALENDAR

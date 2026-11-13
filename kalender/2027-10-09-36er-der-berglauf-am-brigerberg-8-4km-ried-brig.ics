@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-09-36er-der-berglauf-am-brigerberg-8-4km-ried-brig@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271009
+DTEND;VALUE=DATE:20271010
+SUMMARY:36er - Der Berglauf am Brigerberg – 36er+
+LOCATION:Ried-Brig\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.4 km\nhttps://36er.ch/
+TRANSP:TRANSPARENT
+URL:https://36er.ch/
+END:VEVENT
+END:VCALENDAR

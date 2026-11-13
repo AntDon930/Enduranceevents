@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-lobichauer-haldenlauf-9km-lobichau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Löbichauer Haldenlauf
+LOCATION:Löbichau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://haldenlauf.de/
+TRANSP:TRANSPARENT
+URL:https://haldenlauf.de/
+END:VEVENT
+END:VCALENDAR

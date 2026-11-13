@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-nordic-winter-opening-x-ramsau-am-dachstein@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Nordic Winter Opening
+LOCATION:Ramsau am Dachstein\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.nordic-openin
+ g.info
+TRANSP:TRANSPARENT
+URL:https://www.nordic-opening.info
+END:VEVENT
+END:VCALENDAR

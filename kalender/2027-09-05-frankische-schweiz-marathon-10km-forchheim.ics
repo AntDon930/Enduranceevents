@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-frankische-schweiz-marathon-10km-forchheim@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Fränkische Schweiz-Marathon – 10 km-Lauf
+LOCATION:Forchheim\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 10 km\nhttps://www.fs-mar
+ athon.de
+TRANSP:TRANSPARENT
+URL:https://www.fs-marathon.de
+END:VEVENT
+END:VCALENDAR

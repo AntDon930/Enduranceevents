@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-des-tsv-poggenhagen-8-2km-neustadt-am-rubenbe
+ rge@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf des TSV Poggenhagen – Hauptlauf 8.200 m
+LOCATION:Neustadt am Rübenberge\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.2 km\nhttps://www.tsv-pogg
+ enhagen1946.de/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-poggenhagen1946.de/
+END:VEVENT
+END:VCALENDAR

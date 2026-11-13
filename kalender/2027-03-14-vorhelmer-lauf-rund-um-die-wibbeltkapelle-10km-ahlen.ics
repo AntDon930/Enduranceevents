@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-vorhelmer-lauf-rund-um-die-wibbeltkapelle-10km-ahlen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Vorhelmer Lauf rund um die Wibbeltkapelle – 10 Kilometer Volks- un
+ d Straßenlauf (2 Runden à 5 Kilometer)
+LOCATION:Ahlen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.lgahlen.de
+ /wibbeltlauf
+TRANSP:TRANSPARENT
+URL:http://www.lgahlen.de/wibbeltlauf
+END:VEVENT
+END:VCALENDAR

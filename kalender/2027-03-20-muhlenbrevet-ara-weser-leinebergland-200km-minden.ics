@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-muhlenbrevet-ara-weser-leinebergland-200km-minden@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Mühlenbrevet - ARA Weser-Leinebergland – Brevet 200 km
+LOCATION:Minden\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 200 km\nhttps://audax-rando
+ nneure.de/startorte/weser_leinebergland
+TRANSP:TRANSPARENT
+URL:https://audax-randonneure.de/startorte/weser_leinebergland
+END:VEVENT
+END:VCALENDAR

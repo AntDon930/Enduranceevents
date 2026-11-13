@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-run-bike-groisbach-13km-alland@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Run & Bike Groisbach – Challenge Lauf - 13 km
+LOCATION:Alland\, Österreich
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 13 km\nhttps://www.ff-g
+ roisbach.at/hillsiderun
+TRANSP:TRANSPARENT
+URL:https://www.ff-groisbach.at/hillsiderun
+END:VEVENT
+END:VCALENDAR

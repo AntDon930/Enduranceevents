@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-course-des-2-chapelles-x-monthey@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Course des 2 Chapelles
+LOCATION:Monthey\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://panathlon-chablais
+ .ch/course-des-2-chapelles/
+TRANSP:TRANSPARENT
+URL:https://panathlon-chablais.ch/course-des-2-chapelles/
+END:VEVENT
+END:VCALENDAR

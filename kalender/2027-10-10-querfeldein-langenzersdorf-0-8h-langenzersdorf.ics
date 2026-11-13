@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-10-querfeldein-langenzersdorf-0-8h-langenzersdorf@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
+SUMMARY:Querfeldein Langenzersdorf – Cyclocross 50 min
+LOCATION:Langenzersdorf\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 50 min\nhttps://www.wei
+ nviertler-radcup.at/langenzersdorf.php
+TRANSP:TRANSPARENT
+URL:https://www.weinviertler-radcup.at/langenzersdorf.php
+END:VEVENT
+END:VCALENDAR

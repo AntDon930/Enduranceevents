@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-chemnitzer-indoor-triathlon-6-2km-chemnitz@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270322
+SUMMARY:Chemnitzer Indoor Triathlon – Super Super Sprint 6\,2 km (200 m Sc
+ hwimmen / 5 km Rad / 1 km Laufen)
+LOCATION:Chemnitz\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Indoor\nLänge: 6.2 km\nhttp://www.indoor
+ triathlon-chemnitz.de
+TRANSP:TRANSPARENT
+URL:http://www.indoortriathlon-chemnitz.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-winterlaufserie-tsv-ippinghausen-15km-wolfhagen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Winterlaufserie TSV Ippinghausen – 15 km auf befestigten und getee
+ rten Waldwegen
+LOCATION:Wolfhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://my.raceresult
+ .com/424603/info
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/424603/info
+END:VEVENT
+END:VCALENDAR

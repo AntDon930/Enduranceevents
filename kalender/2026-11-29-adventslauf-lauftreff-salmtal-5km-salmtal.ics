@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-adventslauf-lauftreff-salmtal-5km-salmtal@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Adventslauf Lauftreff Salmtal – 5 km Adventslauf
+LOCATION:Salmtal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
+ kalender/details/adventslauf-lauftreff-salmtal
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/adventslauf-lauftreff-salmtal
+END:VEVENT
+END:VCALENDAR

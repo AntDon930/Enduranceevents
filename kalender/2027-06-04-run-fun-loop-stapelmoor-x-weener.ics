@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-run-fun-loop-stapelmoor-x-weener@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270605
+SUMMARY:Run Fun Loop Stapelmoor
+LOCATION:Weener\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /432037/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/432037/
+END:VEVENT
+END:VCALENDAR

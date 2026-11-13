@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-kaister-waldlauf-7-8km-kaisten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Kaister Waldlauf – Waldlauf
+LOCATION:Kaisten\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.8 km\nhttps://www.vckaiste
+ n.ch/veranstaltungen/wald-und-schuelerlauf-kaisten
+TRANSP:TRANSPARENT
+URL:https://www.vckaisten.ch/veranstaltungen/wald-und-schuelerlauf-kaisten
+END:VEVENT
+END:VCALENDAR

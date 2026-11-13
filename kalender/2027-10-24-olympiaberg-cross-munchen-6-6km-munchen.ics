@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-24-olympiaberg-cross-munchen-6-6km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271024
+DTEND;VALUE=DATE:20271025
+SUMMARY:Olympiaberg Cross München – 6600 m - Elitelauf U23 und offene Elit
+ eklassen
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.6 km\nhttps://olympiaberg-c
+ ross-muenchen.de/
+TRANSP:TRANSPARENT
+URL:https://olympiaberg-cross-muenchen.de/
+END:VEVENT
+END:VCALENDAR

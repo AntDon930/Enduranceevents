@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-schweriner-sachsenhausen-gedenklauf-10km-raben-steinfeld@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Schweriner Sachsenhausen-Gedenklauf
+LOCATION:Raben Steinfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.fuenf-see
+ n-lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&t
+ x_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=2&cHash=7d4258823fe
+ 0e78e4a4cbf72792878bc
+TRANSP:TRANSPARENT
+URL:https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_
+ pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnew
+ s%5D=2&cHash=7d4258823fe0e78e4a4cbf72792878bc
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-bolchen-brevet-308km-freiburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Bölchen Brevet – Brevet 308 km
+LOCATION:Freiburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 308 km\nhttps://www.audax-b
+ reisgau.de/brm/boelchen-brevet-1
+TRANSP:TRANSPARENT
+URL:https://www.audax-breisgau.de/brm/boelchen-brevet-1
+END:VEVENT
+END:VCALENDAR

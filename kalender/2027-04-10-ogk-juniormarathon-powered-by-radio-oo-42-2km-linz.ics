@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-ogk-juniormarathon-powered-by-radio-oo-42-2km-linz@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:ÖGK Juniormarathon powered by Radio OÖ
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.linzmara
+ thon.at
+TRANSP:TRANSPARENT
+URL:http://www.linzmarathon.at
+END:VEVENT
+END:VCALENDAR

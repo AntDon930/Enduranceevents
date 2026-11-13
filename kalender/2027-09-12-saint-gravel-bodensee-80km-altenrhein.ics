@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-saint-gravel-bodensee-80km-altenrhein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Saint Gravel@Bodensee – Gravel Ride 80 km
+LOCATION:Altenrhein\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 80 km\nhttps://bodensee-rad
+ marathon.ch
+TRANSP:TRANSPARENT
+URL:https://bodensee-radmarathon.ch
+END:VEVENT
+END:VCALENDAR

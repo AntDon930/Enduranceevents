@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-27-int-wachaumarathon-junior-marathon-42-2km-krems-stadtpar
+ k@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:27. Int. WACHAUmarathon - Junior Marathon
+LOCATION:Krems-Stadtpark\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.wachauma
+ rathon.com
+TRANSP:TRANSPARENT
+URL:http://www.wachaumarathon.com
+END:VEVENT
+END:VCALENDAR

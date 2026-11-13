@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-27-opfinger-osterlauf-5-2km-opfingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:Öpfinger Osterlauf – 5\,25 km Freizeitlauf
+LOCATION:Öpfingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.2 km\nhttps://www.oepfinge
+ r-osterlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.oepfinger-osterlauf.de/
+END:VEVENT
+END:VCALENDAR

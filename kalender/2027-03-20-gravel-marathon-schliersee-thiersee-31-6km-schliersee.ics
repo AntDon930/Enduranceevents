@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-gravel-marathon-schliersee-thiersee-31-6km-schliersee@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Gravel Marathon Schliersee-Thiersee – Dreiviertelmarathon
+LOCATION:Schliersee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 31.6 km\nhttps://www.gravel-
+ marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.gravel-marathon.de/
+END:VEVENT
+END:VCALENDAR

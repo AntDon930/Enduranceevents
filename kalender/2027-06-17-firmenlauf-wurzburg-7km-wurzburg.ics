@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-17-firmenlauf-wurzburg-7km-wurzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270617
+DTEND;VALUE=DATE:20270618
+SUMMARY:Firmenlauf Würzburg (Termin vorläufig)
+LOCATION:Würzburg\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Laufen / Str
+ aße\nLänge: 7 km\nhttps://www.datasport.de/anmeldeservice/firmenlaufwuerz
+ burg2027
+TRANSP:TRANSPARENT
+URL:https://www.datasport.de/anmeldeservice/firmenlaufwuerzburg2027
+END:VEVENT
+END:VCALENDAR

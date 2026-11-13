@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-morschied-10km-morschied@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Mörschied
+LOCATION:Mörschied\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.xn--tus-m
+ rschied-8ib.de/index.php/laufen/silvesterlauf/463-moerschieder-silvesterl
+ auf
+TRANSP:TRANSPARENT
+URL:https://www.xn--tus-mrschied-8ib.de/index.php/laufen/silvesterlauf/463
+ -moerschieder-silvesterlauf
+END:VEVENT
+END:VCALENDAR

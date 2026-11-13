@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-3-lauf-der-36-winterlaufserie-der-lg-dornburg-10km-dornburg
+ -wilsenroth@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:3. Lauf der 36 Winterlaufserie der LG Dornburg
+LOCATION:Dornburg-Wilsenroth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.lg-dornbur
+ g.de
+TRANSP:TRANSPARENT
+URL:http://www.lg-dornburg.de
+END:VEVENT
+END:VCALENDAR

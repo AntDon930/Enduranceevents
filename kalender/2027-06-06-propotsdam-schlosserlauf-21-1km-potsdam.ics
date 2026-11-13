@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-propotsdam-schlosserlauf-21-1km-potsdam@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:ProPotsdam Schlösserlauf – Halbmarathon
+LOCATION:Potsdam\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://potsdam-sch
+ loesserlauf.de/
+TRANSP:TRANSPARENT
+URL:https://potsdam-schloesserlauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-himmelswegelauf-42-2km-nebra@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Himmelswegelauf – Marathon
+LOCATION:Nebra\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.himmelsw
+ egelauf.de
+TRANSP:TRANSPARENT
+URL:http://www.himmelswegelauf.de
+END:VEVENT
+END:VCALENDAR

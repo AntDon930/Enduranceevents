@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-nikolauslauf-der-tsg-schnaitheim-5km-heidenheim-an-der-bren
+ z@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Nikolauslauf der TSG Schnaitheim – 5 km Fitnesslauf
+LOCATION:Heidenheim an der Brenz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tsg-schnai
+ theim.de/
+TRANSP:TRANSPARENT
+URL:https://www.tsg-schnaitheim.de/
+END:VEVENT
+END:VCALENDAR

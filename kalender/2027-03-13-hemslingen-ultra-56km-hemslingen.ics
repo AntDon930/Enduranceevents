@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-hemslingen-ultra-56km-hemslingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Hemslingen Ultra
+LOCATION:Hemslingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 56 km\nhttps://my.raceresult
+ .com/426935/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/426935/
+END:VEVENT
+END:VCALENDAR

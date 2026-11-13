@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-relais-50-km-du-footing-vallee-de-joux-25km-le-chenit@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Relais 50 km du Footing Vallée de Joux
+LOCATION:Le Chenit\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25 km\nhttps://www.footingva
+ lleedejoux.ch/relais-50km-et-25km.html
+TRANSP:TRANSPARENT
+URL:https://www.footingvalleedejoux.ch/relais-50km-et-25km.html
+END:VEVENT
+END:VCALENDAR

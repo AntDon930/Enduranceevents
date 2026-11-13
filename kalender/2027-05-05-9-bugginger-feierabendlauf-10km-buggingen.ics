@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-9-bugginger-feierabendlauf-10km-buggingen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:9. Bugginger Feierabendlauf – 10 Hauptlauf
+LOCATION:Buggingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lg-buggingen.
+ de/bugginger-feierabendlauf/
+TRANSP:TRANSPARENT
+URL:https://lg-buggingen.de/bugginger-feierabendlauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-14-emlichheimer-pfingstlauf-10km-emlichheim@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270514
+DTEND;VALUE=DATE:20270515
+SUMMARY:Emlichheimer Pfingstlauf – 10 km Hauptlauf
+LOCATION:Emlichheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.pfingstla
+ uf.de/
+TRANSP:TRANSPARENT
+URL:https://www.pfingstlauf.de/
+END:VEVENT
+END:VCALENDAR

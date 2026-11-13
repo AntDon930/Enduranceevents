@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-7.25 -10.25 80 80" width="1080" height="1080">
+  <!-- Profilbild des Instagram-Accounts „AusdauerMaschine": das Zeichen aus
+       favicon.svg (Navy, weiße Route, oranger Punkt), randvoll Navy, weil
+       Instagram das Bild kreisrund beschneidet; Route und Punkt liegen
+       mittig mit Abstand zum Kreisrand. -->
+  <rect x="-7.25" y="-10.25" width="80" height="80" fill="#0b1b33"/>
+  <path d="M11 46 L26 20 L38 34 L51 17" fill="none" stroke="#ffffff"
+        stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="51" cy="17" r="7" fill="#e8590c"/>
+</svg>

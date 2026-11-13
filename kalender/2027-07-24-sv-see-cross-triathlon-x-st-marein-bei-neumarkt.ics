@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-sv-see-cross-triathlon-x-st-marein-bei-neumarkt@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270725
+SUMMARY:SV See Cross Triathlon – Sprint (Termin vorläufig)
+LOCATION:St. Marein bei Neumarkt\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Cross\nLänge: -\nhttps://www.triathlon-austria.at/de/service-termine
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-austria.at/de/service-termine
+END:VEVENT
+END:VCALENDAR

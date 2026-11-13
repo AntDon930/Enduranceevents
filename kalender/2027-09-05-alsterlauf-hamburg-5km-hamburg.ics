@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-alsterlauf-hamburg-5km-hamburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Alsterlauf Hamburg – 5 km Rundkurs auf dem Ballindamm
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.alsterlauf
+ -hamburg.de
+TRANSP:TRANSPARENT
+URL:https://www.alsterlauf-hamburg.de
+END:VEVENT
+END:VCALENDAR

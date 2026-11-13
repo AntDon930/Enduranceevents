@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-x-mas-lauf-festival-frankisches-seenland-21km-absberg@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:X-Mas Lauf Festival Fränkisches Seenland – 21 km Halbmarathon
+LOCATION:Absberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://seenland-even
+ ts.com/eventreader/x-mas-lauf-festival-fraenkisches-seenland
+TRANSP:TRANSPARENT
+URL:https://seenland-events.com/eventreader/x-mas-lauf-festival-fraenkisch
+ es-seenland
+END:VEVENT
+END:VCALENDAR

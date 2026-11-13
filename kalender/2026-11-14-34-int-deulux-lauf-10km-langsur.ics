@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-34-int-deulux-lauf-10km-langsur@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:34. Int. DEULUX-Lauf – 10 km Volksbank Trier Eifel Hauptlauf
+LOCATION:Langsur\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://deulux-lauf.d
+ e/de/
+TRANSP:TRANSPARENT
+URL:https://deulux-lauf.de/de/
+END:VEVENT
+END:VCALENDAR

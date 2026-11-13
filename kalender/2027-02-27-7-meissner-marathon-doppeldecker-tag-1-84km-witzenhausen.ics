@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-7-meissner-marathon-doppeldecker-tag-1-84km-witzenhausen@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270301
+SUMMARY:7. Meißner Marathon Doppeldecker - Tag 1 – Doppeldecker (2 × Marat
+ hon an zwei Tagen = 84\,4 km)
+LOCATION:Witzenhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 84 km\nhttps://my.raceresult
+ .com/405788/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/405788/
+END:VEVENT
+END:VCALENDAR

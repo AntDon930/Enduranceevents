@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-adventslauf-der-tg-lage-5km-lage@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Adventslauf der TG Lage – 5 km Lauf- und Walkingstrecke
+LOCATION:Lage\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://tglage.de/lauf
+ en.html
+TRANSP:TRANSPARENT
+URL:https://tglage.de/laufen.html
+END:VEVENT
+END:VCALENDAR

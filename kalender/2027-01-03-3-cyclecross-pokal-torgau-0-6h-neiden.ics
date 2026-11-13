@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-3-cyclecross-pokal-torgau-0-6h-neiden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:3. CycleCross-Pokal Torgau – Cyclocross Hobby 35 min
+LOCATION:Neiden\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 35 min\nhttps://timing.
+ rsv-finsterwalde.de/cct-pokal.php
+TRANSP:TRANSPARENT
+URL:https://timing.rsv-finsterwalde.de/cct-pokal.php
+END:VEVENT
+END:VCALENDAR

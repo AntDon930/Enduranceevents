@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-06-8-scs-run-presented-by-adidas-thermentrophy-x-einkaufszentr
+ um-scs@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+SUMMARY:8. SCS Run presented by Adidas (Thermentrophy)
+LOCATION:Einkaufszentrum SCS\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.scs-run.at
+TRANSP:TRANSPARENT
+URL:http://www.scs-run.at
+END:VEVENT
+END:VCALENDAR

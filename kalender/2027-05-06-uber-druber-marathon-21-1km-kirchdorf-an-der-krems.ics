@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-06-uber-druber-marathon-21-1km-kirchdorf-an-der-krems@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+SUMMARY:Über Drüber Marathon – 21\,1 km 1 Runde\, 650 Hm
+LOCATION:Kirchdorf an der Krems\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttps://laufgemeinsc
+ haft.at/?page_id=2523
+TRANSP:TRANSPARENT
+URL:https://laufgemeinschaft.at/?page_id=2523
+END:VEVENT
+END:VCALENDAR

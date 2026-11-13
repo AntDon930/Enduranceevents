@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-sudenburg-lauf-der-lauf-mit-dem-lacheln-x-magdeburg@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Sudenburg-Lauf - Der Lauf Mit Dem Lächeln
+LOCATION:Magdeburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sudenburglauf.de/
+TRANSP:TRANSPARENT
+URL:https://sudenburglauf.de/
+END:VEVENT
+END:VCALENDAR

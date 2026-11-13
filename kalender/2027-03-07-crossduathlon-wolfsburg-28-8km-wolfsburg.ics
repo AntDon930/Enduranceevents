@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-crossduathlon-wolfsburg-28-8km-wolfsburg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:CrossDuathlon Wolfsburg
+LOCATION:Wolfsburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 28.8 km\nhttps://www.cr
+ ossduathlon-wolfsburg.de/
+TRANSP:TRANSPARENT
+URL:https://www.crossduathlon-wolfsburg.de/
+END:VEVENT
+END:VCALENDAR

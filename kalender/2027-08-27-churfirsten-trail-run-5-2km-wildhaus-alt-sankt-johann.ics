@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-27-churfirsten-trail-run-5-2km-wildhaus-alt-sankt-johann@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270827
+DTEND;VALUE=DATE:20270830
+SUMMARY:Churfirsten Trail Run – CT5 Thur Trail
+LOCATION:Wildhaus-Alt Sankt Johann\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.2 km\nhttps://www.churfirst
+ entrailrun.ch/
+TRANSP:TRANSPARENT
+URL:https://www.churfirstentrailrun.ch/
+END:VEVENT
+END:VCALENDAR

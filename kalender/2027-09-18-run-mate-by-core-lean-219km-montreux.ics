@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-run-mate-by-core-lean-219km-montreux@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270920
+SUMMARY:Run Mate by Core Lean
+LOCATION:Montreux\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 219 km\nhttps://www.runmate.
+ org/
+TRANSP:TRANSPARENT
+URL:https://www.runmate.org/
+END:VEVENT
+END:VCALENDAR

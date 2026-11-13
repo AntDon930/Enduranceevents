@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-30-erzsteig-uber-huggel-gipfel-ultratrail-30-8km-hasbergen@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+SUMMARY:Erzsteig über Hüggel-Gipfel UltraTrail – 30\,8 km zwei Runden\, 2/
+ 3 Marathon\, ca. 740 Hm
+LOCATION:Hasbergen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 30.8 km\nhttps://ultra-uwe-un
+ terwegs.de
+TRANSP:TRANSPARENT
+URL:https://ultra-uwe-unterwegs.de
+END:VEVENT
+END:VCALENDAR

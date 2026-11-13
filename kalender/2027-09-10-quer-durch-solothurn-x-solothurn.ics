@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-10-quer-durch-solothurn-x-solothurn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270910
+DTEND;VALUE=DATE:20270911
+SUMMARY:Quer durch Solothurn
+LOCATION:Solothurn\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://querdurch.ch/
+TRANSP:TRANSPARENT
+URL:https://querdurch.ch/
+END:VEVENT
+END:VCALENDAR

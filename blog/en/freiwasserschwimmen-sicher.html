@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<!-- Erzeugt von scripts/build_blog.py aus blog.json und scripts/blog_texte/en/freiwasserschwimmen-sicher.html – nicht von Hand ändern. -->
+<title>Into the blue: your first open water swim, made easy – Endurance Events</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="canonical" href="https://endurance-events.de/blog/en/freiwasserschwimmen-sicher.html">
+<link rel="alternate" hreflang="de" href="https://endurance-events.de/blog/freiwasserschwimmen-sicher.html">
+<link rel="alternate" hreflang="en" href="https://endurance-events.de/blog/en/freiwasserschwimmen-sicher.html">
+<link rel="alternate" hreflang="x-default" href="https://endurance-events.de/blog/freiwasserschwimmen-sicher.html">
+<meta name="theme-color" content="#0b1220">
+<!-- Gewählte Sprache DE: gleich zur anderen Fassung (build_blog.py). -->
+<script>try { if (localStorage.getItem('endurance-lang') === 'de') { window.EE_UMLEITUNG = true; location.replace('../freiwasserschwimmen-sicher.html' + location.hash); } } catch (e) { /* ignorieren */ }</script>
+<!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('../../wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
+})();
+</script>
+<!-- Farbschema hell/dunkel: wortgleich wie in den anderen Seiten (test_farbschema_skript). -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<meta name="description" content="Cold water, wetsuit rules, the crowded start and river swimming: how to make your first open water event an experience to remember – with tips from DLRG, SLRG, World Aquatics and research.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Into the blue: your first open water swim, made easy">
+<meta property="og:description" content="Cold water, wetsuit rules, the crowded start and river swimming: how to make your first open water event an experience to remember – with tips from DLRG, SLRG, World Aquatics and research.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:url" content="https://endurance-events.de/blog/en/freiwasserschwimmen-sicher.html">
+<meta property="og:image" content="https://endurance-events.de/bilder/blog/freiwasser.webp">
+<meta property="article:published_time" content="2026-11-04">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Into the blue: your first open water swim, made easy", "description": "Cold water, wetsuit rules, the crowded start and river swimming: how to make your first open water event an experience to remember – with tips from DLRG, SLRG, World Aquatics and research.", "datePublished": "2026-11-04", "inLanguage": "en", "image": "https://endurance-events.de/bilder/blog/freiwasser.webp", "mainEntityOfPage": "https://endurance-events.de/blog/en/freiwasserschwimmen-sicher.html", "publisher": {"@type": "Organization", "name": "Endurance Events", "url": "https://endurance-events.de"}}</script>
+<link rel="stylesheet" href="../../vendor/fonts/barlow.css">
+<link rel="stylesheet" href="../../site.css?v=8fe729d6">
+<link rel="stylesheet" href="../../blog.css?v=13e54636">
+</head>
+<body>
+
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). -->
+<header class="site-header top-bar">
+  <a class="brand" href="../../index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Pages">
+    <a class="nav-link" href="../../events.html" id="nav-events">Events</a>
+    <a class="nav-link nav-neu" href="../../clubs.html" id="nav-clubs">Clubs<span class="nav-neu-text">new</span></a>
+    <a class="nav-link" href="../../karte.html" id="nav-map">Map</a>
+    <a class="nav-link active" href="../../blog.html" id="nav-blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+
+
+<div class="lese-fortschritt" aria-hidden="true"><span id="lese-balken"></span></div>
+<main class="blog-main">
+<article class="beitrag">
+  <a class="beitrag-zurueck" href="../../blog.html" id="blog-zurueck">← All articles</a>
+  <header class="beitrag-hero">
+    <img class="beitrag-hero-bild" src="../../bilder/blog/freiwasser.webp" srcset="../../bilder/blog/freiwasser-480.webp 480w, ../../bilder/blog/freiwasser.webp 960w" sizes="(max-width: 1120px) 100vw, 1120px" alt="Mass start in a lake: lots of swimmers in swim caps in front of the shore" width="960" height="640" fetchpriority="high">
+    <div class="beitrag-hero-text">
+      <div class="blog-meta">
+        <span class="blog-tag sport-schwimmen">Swimming</span><span>4 November 2026</span><span aria-hidden="true">·</span><span>8 min read</span>
+      </div>
+      <h1>Into the blue: your first open water swim, made easy</h1>
+    </div>
+  </header>
+  <p class="beitrag-nachweis">Swim start at Ironman Austria 2012 in the Wörthersee. Photo: Johann Schwarz, <a href="https://commons.wikimedia.org/wiki/File:Swim_Start_at_Ironman_Austria_2012.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a></p>
+  <div class="beitrag-spalte">
+  <nav class="beitrag-inhalt" aria-labelledby="inhalt-titel">
+    <h2 id="inhalt-titel">Contents</h2>
+    <ol><li><a href="#what-makes-open-water-different">What makes open water different</a></li><li><a href="#those-first-minutes-in-cool-water">Those first minutes in cool water</a></li><li><a href="#wetsuits-when-they-re-a-must-and-when-they-re-banned">Wetsuits: when they&#x27;re a must – and when they&#x27;re banned</a></li><li><a href="#the-start-and-staying-on-course">The start – and staying on course</a></li><li><a href="#training-in-open-water-the-tow-float">Training in open water: the tow float</a></li><li><a href="#going-with-the-flow-river-swimming">Going with the flow: river swimming</a></li><li><a href="#how-clean-is-the-water">How clean is the water?</a></li><li><a href="#after-the-swim-wrap-up-warm">After the swim: wrap up warm</a></li><li><a href="#your-open-water-checklist">Your open water checklist</a></li><li><a href="#the-bottom-line">The bottom line</a></li></ol>
+  </nav>
+<p class="beitrag-lead">Clear water, endless views, no tumble turns at the wall: open water swimming is a whole different world from the pool – and for many swimmers, it's the most beautiful way to swim there is. Here's how to dive into your first open water event fully prepared.</p>
+
+<div class="beitrag-text">
+
+<h2 id="what-makes-open-water-different">What makes open water different</h2>
+<p>No wall to push off, no lane ropes, usually cooler water and a crowd at the start – it all feels new at first, but you'll get used to it fast once you know what's coming.</p>
+<p>The Swiss Life Saving Society (SLRG) puts it in a nutshell: open water – rivers, ponds and lakes – is for good, practised swimmers<sup class="q"><a href="#q7" aria-label="Source 7">[7]</a></sup>. At an organised event you're in safe hands, with lifeguards, boats and a marked course. Add the golden rules of the German Life Saving Association (DLRG)<sup class="q"><a href="#q3" aria-label="Source 3">[3]</a></sup>:</p>
+<ul>
+  <li>Only swim where someone can help if needed – and let someone know you're going in.</li>
+  <li>Cool off before you get in.</li>
+  <li>Only swim when you feel good.</li>
+  <li>Lightning, thunder or heavy rain? Get out of the water straight away.</li>
+</ul>
+
+<h2 id="those-first-minutes-in-cool-water">Those first minutes in cool water</h2>
+<p>If you've ever stepped into cold water, you know the feeling: you gasp, your breathing speeds up, your heart races. It's called cold shock – a completely normal reaction that peaks in the first 30 seconds and fades within two minutes<sup class="q"><a href="#q1" aria-label="Source 1">[1]</a></sup>.</p>
+<p>The UK Met Office, together with the RNLI and RLSS UK, says cold shock can kick in below 15 °C, with the first effects lasting around 90 seconds. Their advice: stay calm, lean back and float, head above water<sup class="q"><a href="#q2" aria-label="Source 2">[2]</a></sup>.</p>
+<div class="beitrag-kasten">
+<p><strong>What that means for you:</strong> wade in slowly instead of jumping, take your first strokes nice and easy, and give your breathing a moment to settle. Out of breath? Roll onto your back, breathe, then carry on. And the more often you swim in cool water, the less you'll notice it – your body gets used to conditions it knows<sup class="q"><a href="#q1" aria-label="Source 1">[1]</a></sup>.</p>
+</div>
+
+<h2 id="wetsuits-when-they-re-a-must-and-when-they-re-banned">Wetsuits: when they're a must – and when they're banned</h2>
+<p>A wetsuit keeps you warm and helps you float. Whether you can – or must – wear one depends on the water temperature and on which rules the event follows.</p>
+<div class="beitrag-tabelle-huelle">
+<table>
+  <thead><tr><th>Rules</th><th>No swimming</th><th>Wetsuit compulsory</th><th>Wetsuit banned</th></tr></thead>
+  <tbody>
+    <tr><td><strong>World Aquatics</strong> (open water races)</td><td>below 16 °C</td><td>below 18 °C</td><td>–</td></tr>
+    <tr><td><strong>DTU triathlon</strong>, age groups, up to 1,500 m</td><td>below 14.0 °C</td><td>14.0–15.9 °C</td><td>from 22.0 °C</td></tr>
+    <tr><td><strong>DTU triathlon</strong>, age groups up to 59, over 1,500 m</td><td>below 14.0 °C</td><td>14.0–15.9 °C</td><td>from 24.6 °C</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="beitrag-stand">World Aquatics takes the temperature two hours before the start, at three points on the course and 40 centimetres below the surface<sup class="q"><a href="#q4" aria-label="Source 4">[4]</a></sup>. The German Triathlon Union has extra rules, for example for over-60s and on cold days<sup class="q"><a href="#q5" aria-label="Source 5">[5]</a></sup>.</p>
+<p>Many lake crossings and open swims set their own rules – some even run separate categories with and without wetsuits. So check the event details. And if you're planning to wear one, test it in open water first: a suit that's too tight can feel suffocating, especially in the first few minutes.</p>
+
+<h2 id="the-start-and-staying-on-course">The start – and staying on course</h2>
+<p>The start is the most exciting moment: lots of swimmers, not much space. That's why good organisers send swimmers off in waves and set out big, bright buoys<sup class="q"><a href="#q1" aria-label="Source 1">[1]</a></sup>. For you, that means:</p>
+<ul>
+  <li><strong>Start at the side or the back:</strong> find your rhythm without elbows and feet in your face.</li>
+  <li><strong>Study the course:</strong> memorise the buoys and a few landmarks on the shore – a church tower, a house, a big tree.</li>
+  <li><strong>Sight regularly:</strong> every few strokes, lift your head for a quick look at the next buoy. Practise it in the pool first.</li>
+</ul>
+
+<h2 id="training-in-open-water-the-tow-float">Training in open water: the tow float</h2>
+<p>When training outside of events, many swimmers tow an inflatable float behind them. Its biggest plus, according to the DLRG, is visibility – to boats, surfers and other swimmers. But it's not a rescue device, especially not in rivers and canals<sup class="q"><a href="#q6" aria-label="Source 6">[6]</a></sup>. Training is more fun with a buddy or a group anyway – ideally close to the shore.</p>
+
+<h2 id="going-with-the-flow-river-swimming">Going with the flow: river swimming</h2>
+<p>River swimming has a magic all of its own – in Basel, a swim in the Rhine is practically a local tradition. The canton of Basel-Stadt has clear advice: big ships can't swerve around swimmers, and their captains can't see much. So steer clear of the shipping lanes, and give moored boats, buoys and bridge piers a wide berth<sup class="q"><a href="#q8" aria-label="Source 8">[8]</a></sup>. The SLRG adds: the colder the water, the shorter your swim, because getting chilled can bring on muscle cramps<sup class="q"><a href="#q7" aria-label="Source 7">[7]</a></sup>.</p>
+<p>At an organised river swim, the course, the entry and exit points and the safety cover are all taken care of. On your own, only swim in a river where it's explicitly allowed and where you know the spot.</p>
+
+<h2 id="how-clean-is-the-water">How clean is the water?</h2>
+<p>Good news: in the 2025 bathing season, 2,291 German bathing sites were tested. 98 per cent met the standards of the EU Bathing Water Directive – and 91 per cent were rated “excellent”. More than half of the temporary swimming bans were down to cyanobacteria, better known as blue-green algae<sup class="q"><a href="#q9" aria-label="Source 9">[9]</a></sup>. Up-to-date results are published by the German states, on the bathing water map linked by the German Environment Agency, and for all of Europe by the European Environment Agency<sup class="q"><a href="#q9" aria-label="Source 9">[9]</a></sup><sup class="q"><a href="#q10" aria-label="Source 10">[10]</a></sup>.</p>
+<p>For blue-green algae, the German Environment Agency has a simple test: stand knee-deep in the water. If you can't see your feet through a green-blue haze, give swimming a miss that day<sup class="q"><a href="#q11" aria-label="Source 11">[11]</a></sup>.</p>
+
+<h2 id="after-the-swim-wrap-up-warm">After the swim: wrap up warm</h2>
+<p>Getting out isn't quite the end of it. You can keep cooling down for a while after you've left the water, and your circulation needs a moment to adjust to dry land<sup class="q"><a href="#q1" aria-label="Source 1">[1]</a></sup>. So take your time standing up, dry off, wrap up warm and grab a hot drink. Feeling dizzy? Sit down for a minute.</p>
+
+<h2 id="your-open-water-checklist">Your open water checklist</h2>
+<ul>
+  <li>Read the event details: course, water temperature, wetsuit rules, cut-off time</li>
+  <li>Get a few open water sessions in beforehand – never alone</li>
+  <li>Test your wetsuit (if allowed) in open water before race day</li>
+  <li>A bright swim cap and goggles – plus a spare pair in your bag</li>
+  <li>Memorise the buoys and landmarks before the start</li>
+  <li>Wade in slowly and start at the side or the back</li>
+  <li>Out of breath? Roll onto your back and breathe</li>
+  <li>Warm clothes and a hot drink for afterwards</li>
+</ul>
+
+<h2 id="the-bottom-line">The bottom line</h2>
+<p>Open water swimming is one of the most beautiful experiences in endurance sport – once you know its quirks: those first minutes in cool water, the wetsuit rules, the scrum at the start and the rules of the river. An organised event with lifeguards is the perfect way in. So pick one and dive in. Slowly, of course.</p>
+
+<section class="beitrag-cta">
+  <h2>Find your first open water event</h2>
+  <p>Lake crossings, open water swims and open water races from 500 metres in Germany, Austria, Switzerland and South Tyrol.</p>
+  <div class="cta-knoepfe">
+    <a class="cta-knopf" href="../../events.html?sportart=Schwimmen&amp;art2=Freiwasser">Browse open water events</a>
+    <a class="cta-knopf leise" href="../../karte.html?sportart=Schwimmen&amp;art2=Freiwasser">View on the map</a>
+  </div>
+</section>
+
+<section class="beitrag-quellen" aria-labelledby="quellen-titel">
+  <h2 id="quellen-titel">Sources</h2>
+  <ol>
+    <li id="q1">Tipton M., Bradford C.: Moving in extreme environments: open water swimming in cold and warm water. Extrem Physiol Med 2014;3:12. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4052348/" rel="noopener">PMC4052348</a></li>
+    <li id="q2">Met Office (UK weather service): Cold water shock – how to stay safe, 10 July 2025, with advice from RNLI and RLSS UK. <a href="https://www.metoffice.gov.uk/blog/2025/cold-water-shock-how-to-stay-safe" rel="noopener">metoffice.gov.uk</a></li>
+    <li id="q3">DLRG: Die Baderegeln (bathing rules flyer, as of 2024). <a href="https://zeitz.dlrg.de/fileadmin/groups/20040020/Flyer/DLRG_Flyer_Baderegeln.pdf" rel="noopener">dlrg.de (PDF)</a></li>
+    <li id="q4">World Aquatics: Science supports safety – new research reinforces 16 °C threshold for open water swimming, 2 April 2026. <a href="https://www.worldaquatics.com/news/4479872/science-supports-safety-new-research-reinforces-16c-world-aquatics-threshold-open-water-swimming" rel="noopener">worldaquatics.com</a></li>
+    <li id="q5">Deutsche Triathlon Union: Sportordnung (SpO), 2026 edition, § 21 Kälteschutzanzug (wetsuit). <a href="https://www.triathlondeutschland.de/verband/dokumente-ordnungen/sportordnung" rel="noopener">triathlondeutschland.de</a></li>
+    <li id="q6">dpa: Schwimmbojen im Freiwasser – mehr Sichtbarkeit, aber kein Schutz vor Ertrinken (tow floats in open water), 28 July 2026 (with information from DLRG Rhineland-Palatinate). <a href="https://www.wochenblatt-reporter.de/c-ratgeber/schwimmbojen-im-freiwasser-mehr-sichtbarkeit-aber-kein-schutz-vor-ertrinken_a837789" rel="noopener">wochenblatt-reporter.de</a></li>
+    <li id="q7">Swiss Life Saving Society (SLRG): Aarekarte 2025 (Aare river map). <a href="https://a.storyblok.com/f/272028/x/569f60bf52/slrg_aarekarte_2025_c_slrg.pdf" rel="noopener">slrg.ch (PDF)</a></li>
+    <li id="q8">Canton of Basel-Stadt, Department of Justice and Security: Mit richtigem Verhalten zum sicheren Schwimmvergnügen im Rhein (safe swimming in the Rhine), press release of 10 July 2020. <a href="https://www.bs.ch/medienmitteilungen/jsd/2020-mit-richtigem-verhalten-zum-sicheren-schwimmvergnuegen-im-rhein-rheinschwimmen-unterhalb-elsaesserrheinweg-nicht-mehr-empfohlen" rel="noopener">bs.ch</a></li>
+    <li id="q9">German Environment Agency (Umweltbundesamt): Wasserqualität in Badegewässern (bathing water quality). <a href="https://www.umweltbundesamt.de/wasserqualitaet-in-badegewaessern" rel="noopener">umweltbundesamt.de</a></li>
+    <li id="q10">European Environment Agency: State of bathing water. <a href="https://www.eea.europa.eu/en/topics/in-depth/bathing-water/state-of-bathing-water" rel="noopener">eea.europa.eu</a></li>
+    <li id="q11">German Environment Agency (Umweltbundesamt): Cyanobakterien – Tipps zum Baden (postcard, 2024). <a href="https://umweltbundesamt.de/system/files/document/UBA_Postkarte_Cyanobaktierien_2024.pdf" rel="noopener">umweltbundesamt.de (PDF)</a></li>
+  </ol>
+  <p>All sources accessed on 4 November 2026. Recommendations without a source are based on experience.</p>
+</section>
+
+</div>
+  <div class="beitrag-teilen">
+    <span id="teilen-text">Found this helpful? Share it with your training partners.</span>
+    <button type="button" class="cta-knopf leise" id="teilen-knopf">Share article</button>
+  </div>
+  </div>
+  <section class="beitrag-weitere" aria-labelledby="weitere-titel">
+    <h2 id="weitere-titel">More articles</h2>
+    <ul class="blog-liste">
+    <li class="blog-karte"><a href="wintertraining-triathlon.html">
+      <div class="blog-karte-bild"><img src="../../bilder/blog/wintertraining-triathlon-480.webp" alt="Triathlon swim start on a lake in the morning mist, hundreds of athletes in the water, spectators on the shore seen from behind" loading="lazy" width="480" height="320"><span class="blog-tag sport-triathlon">Triathlon</span></div>
+      <div class="blog-karte-text"><h3>Swim, spin, run: your triathlon winter plan</h3><div class="blog-meta"><span>12 November 2026</span><span aria-hidden="true">·</span><span>5 min</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="crosslaeufe-winterlaufserien.html">
+      <div class="blog-karte-bild"><img src="../../bilder/blog/crosslaeufe-winterlaufserien-480.webp" alt="Runners on a muddy cross-country course across a meadow in winter, with bare trees in the background" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Running</span></div>
+      <div class="blog-karte-text"><h3>Mud, frost and finish lines: why winter is the best racing season</h3><div class="blog-meta"><span>9 November 2026</span><span aria-hidden="true">·</span><span>5 min</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="krafttraining-fuer-laeufer.html">
+      <div class="blog-karte-bild"><img src="../../bilder/blog/krafttraining-fuer-laeufer-480.webp" alt="Field of runners at the Vienna City Marathon on the Reichsbrücke, photographed from behind" loading="lazy" width="480" height="320"><span class="blog-tag sport-laufen">Running</span></div>
+      <div class="blog-karte-text"><h3>Stronger legs, faster miles: 7 strength moves every runner needs</h3><div class="blog-meta"><span>5 November 2026</span><span aria-hidden="true">·</span><span>4 min</span></div></div>
+    </a></li>
+    </ul>
+  </section>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="../../impressum.html">Legal notice</a>
+    <a id="footer-datenschutz" href="../../datenschutz.html">Privacy</a>
+  </div>
+</footer>
+
+<script defer src="../../vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="../../vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="../../firebase-config.js"></script>
+<script defer src="../../auth.js"></script>
+<script defer src="../../stats.js?v=21731166"></script>
+<script>
+(function () {
+  // Diese Seite ist englisch. Gibt es die andere Fassung, wechselt DE/EN
+  // dorthin; sonst schaltet DE/EN nur die Bedienung um.
+  if (window.EE_UMLEITUNG) return;
+  var SEITE = 'en', ANDERE = '../freiwasserschwimmen-sicher.html';
+  var T = {
+    de: { events: 'Events', clubs: 'Clubs', map: 'Karte', blog: 'Blog', back: '← Alle Beiträge', share: 'Beitrag teilen', share_text: 'Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.', copied: 'Link kopiert', imprint: 'Impressum', privacy: 'Datenschutz' },
+    en: { events: 'Events', clubs: 'Clubs', map: 'Map', blog: 'Blog', back: '← All articles', share: 'Share article', share_text: 'Found this helpful? Share it with your training partners.', copied: 'Link copied', imprint: 'Legal notice', privacy: 'Privacy' }
+  };
+  function setze(lang) {
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    var t = T[lang];
+    document.getElementById('nav-events').textContent = t.events;
+    // Nur den Text setzen – das Schildchen „new“ bleibt stehen.
+    document.getElementById('nav-clubs').firstChild.nodeValue = t.clubs;
+    document.getElementById('nav-map').textContent = t.map;
+    document.getElementById('nav-blog').textContent = t.blog;
+    document.getElementById('blog-zurueck').textContent = t.back;
+    document.getElementById('teilen-knopf').textContent = t.share;
+    document.getElementById('teilen-text').textContent = t.share_text;
+    document.getElementById('footer-impressum').textContent = t.imprint;
+    document.getElementById('footer-datenschutz').textContent = t.privacy;
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+  }
+  var lang = SEITE;
+  if (!ANDERE) {
+    try { var s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  }
+  document.querySelectorAll('.lang-btn').forEach(function (b) { b.addEventListener('click', function () {
+    lang = b.dataset.lang;
+    if (ANDERE && lang !== SEITE) {
+      try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+      location.href = ANDERE;
+      return;
+    }
+    setze(lang);
+  }); });
+  setze(lang);
+  // Teilen: Teilen-Dialog des Geräts, sonst den Link kopieren.
+  var knopf = document.getElementById('teilen-knopf');
+  knopf.addEventListener('click', function () {
+    var daten = { title: document.title, url: location.href.split('#')[0] };
+    if (navigator.share) { navigator.share(daten).catch(function () {}); return; }
+    if (navigator.clipboard) navigator.clipboard.writeText(daten.url).then(function () {
+      knopf.textContent = T[lang].copied;
+      setTimeout(function () { knopf.textContent = T[lang].share; }, 2000);
+    }).catch(function () {});
+  });
+  // Lesefortschritt oben am Rand – nur Anzeige, nichts wird gespeichert.
+  var balken = document.getElementById('lese-balken');
+  var artikel = document.querySelector('.beitrag-spalte');
+  var geplant = false;
+  function fortschritt() {
+    geplant = false;
+    var r = artikel.getBoundingClientRect();
+    var weg = Math.min(Math.max(-r.top / Math.max(r.height - innerHeight, 1), 0), 1);
+    balken.style.transform = 'scaleX(' + weg.toFixed(3) + ')';
+  }
+  addEventListener('scroll', function () { if (!geplant) { geplant = true; requestAnimationFrame(fortschritt); } }, { passive: true });
+  fortschritt();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-adac-brezel-race-region-stuttgart-102km-region-stuttgart@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:ADAC Brezel Race Region Stuttgart – Gran Fondo 102 km
+LOCATION:Region Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 102 km\nhttps://www.brezelr
+ ace.de
+TRANSP:TRANSPARENT
+URL:https://www.brezelrace.de
+END:VEVENT
+END:VCALENDAR

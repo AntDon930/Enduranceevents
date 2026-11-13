@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-9-hahnenkleer-wandermarathon-2027-x-hahnenklee@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:9. Hahnenkleer Wandermarathon 2027
+LOCATION:Hahnenklee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: -\nhttps://www.hahnenklee.de
+ /veranstaltungen/harzerwanderwochen
+TRANSP:TRANSPARENT
+URL:https://www.hahnenklee.de/veranstaltungen/harzerwanderwochen
+END:VEVENT
+END:VCALENDAR

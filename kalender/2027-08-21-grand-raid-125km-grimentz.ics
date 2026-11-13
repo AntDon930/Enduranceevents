@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-grand-raid-125km-grimentz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Grand Raid – MTB-Marathon 125 km
+LOCATION:Grimentz\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 125 km\nhttps://grand
+ -raid-bcvs.ch/
+TRANSP:TRANSPARENT
+URL:https://grand-raid-bcvs.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-magdeburg-5km-magdeburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Magdeburg – 5 km Lauf und Walking ab U12
+LOCATION:Magdeburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://magdeburger-la
+ ufkultur.de/51-silvesterlauf-2026/
+TRANSP:TRANSPARENT
+URL:https://magdeburger-laufkultur.de/51-silvesterlauf-2026/
+END:VEVENT
+END:VCALENDAR

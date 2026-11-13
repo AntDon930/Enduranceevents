@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-grasmoor-ultra-46-2km-bramsche@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Grasmoor Ultra
+LOCATION:Bramsche\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46.2 km\nhttps://lg-lottehal
+ en.jimdofree.com/grasmoor-ultra-16-1/
+TRANSP:TRANSPARENT
+URL:https://lg-lottehalen.jimdofree.com/grasmoor-ultra-16-1/
+END:VEVENT
+END:VCALENDAR

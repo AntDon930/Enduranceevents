@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-stadttriathlon-erding-25-4km-erding@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Stadttriathlon Erding – Volksdistanz 25\,4 km (400 m Schwimmen / 2
+ 0 km Rad / 5 km Laufen)
+LOCATION:Erding\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.4 km\nhttps://trisport
+ -erding.de/stadttriathlon/information-stadttriathlon/
+TRANSP:TRANSPARENT
+URL:https://trisport-erding.de/stadttriathlon/information-stadttriathlon/
+END:VEVENT
+END:VCALENDAR

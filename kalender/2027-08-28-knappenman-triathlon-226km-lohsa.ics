@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-knappenman-triathlon-226km-lohsa@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270830
+SUMMARY:KnappenMan Triathlon
+LOCATION:Lohsa\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 226 km\nhttps://www.knapp
+ enman.com/
+TRANSP:TRANSPARENT
+URL:https://www.knappenman.com/
+END:VEVENT
+END:VCALENDAR

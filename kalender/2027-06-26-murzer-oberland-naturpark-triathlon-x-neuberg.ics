@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-murzer-oberland-naturpark-triathlon-x-neuberg@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Mürzer Oberland Naturpark Triathlon – Olympisch (Termin vorläufig)
+LOCATION:Neuberg\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Aquathlon\nLänge: -\nhttps://fun-sports.at/events/
+TRANSP:TRANSPARENT
+URL:https://fun-sports.at/events/
+END:VEVENT
+END:VCALENDAR

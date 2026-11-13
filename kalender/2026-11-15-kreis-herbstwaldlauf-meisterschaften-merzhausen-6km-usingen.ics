@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-kreis-herbstwaldlauf-meisterschaften-merzhausen-6km-usingen
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Kreis-Herbstwaldlauf Meisterschaften - Merzhausen
+LOCATION:Usingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://lakreishtk.de/
+ ausschreibung/aussch2026/kreisherbst.pdf
+TRANSP:TRANSPARENT
+URL:https://lakreishtk.de/ausschreibung/aussch2026/kreisherbst.pdf
+END:VEVENT
+END:VCALENDAR

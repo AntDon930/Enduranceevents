@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-grenzganger-wandermarathon-trail-run-10km-weissbach-bei-lof
+ er@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Grenzgänger Wandermarathon & Trail Run
+LOCATION:Weißbach bei Lofer\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.grenzgaeng
+ er-trail.com/
+TRANSP:TRANSPARENT
+URL:https://www.grenzgaenger-trail.com/
+END:VEVENT
+END:VCALENDAR

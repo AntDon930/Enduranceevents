@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-internationaler-sonnwendlauf-10km-feldbach@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Internationaler Sonnwendlauf
+LOCATION:Feldbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://tus-feldbach.
+ at/laufen/sonnwendlauf/
+TRANSP:TRANSPARENT
+URL:https://tus-feldbach.at/laufen/sonnwendlauf/
+END:VEVENT
+END:VCALENDAR

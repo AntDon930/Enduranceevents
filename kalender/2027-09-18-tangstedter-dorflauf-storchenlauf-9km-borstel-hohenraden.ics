@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-tangstedter-dorflauf-storchenlauf-9km-borstel-hohenraden@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Tangstedter Dorflauf & Storchenlauf – 9 km Langstrecke\, Jahrgang 
+ 2013 und älter
+LOCATION:Borstel-Hohenraden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://sport-rellinge
+ n.de/dorf-und-storchenlauf/
+TRANSP:TRANSPARENT
+URL:https://sport-rellingen.de/dorf-und-storchenlauf/
+END:VEVENT
+END:VCALENDAR

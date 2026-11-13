@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-gorlitzer-winterseelauf-12km-gorlitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Görlitzer Winterseelauf – 12 km Lauf\, zwei Runden auf der 6-km-St
+ recke
+LOCATION:Görlitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.europamar
+ athon.de/lauf/winterseelauf/
+TRANSP:TRANSPARENT
+URL:https://www.europamarathon.de/lauf/winterseelauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-ironman-70-3-zell-am-see-kaprun-113km-zell-am-see@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Ironman 70.3 Zell am See-Kaprun
+LOCATION:Zell am See\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 113 km\nhttps://www.ironm
+ an.com/races/im703-zell-am-see
+TRANSP:TRANSPARENT
+URL:https://www.ironman.com/races/im703-zell-am-see
+END:VEVENT
+END:VCALENDAR

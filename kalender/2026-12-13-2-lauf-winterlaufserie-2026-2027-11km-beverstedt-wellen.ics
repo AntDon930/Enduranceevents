@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-2-lauf-winterlaufserie-2026-2027-11km-beverstedt-wellen@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:2. Lauf Winterlaufserie 2026/2027
+LOCATION:Beverstedt-Wellen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://www.wellen-mar
+ athon.de
+TRANSP:TRANSPARENT
+URL:http://www.wellen-marathon.de
+END:VEVENT
+END:VCALENDAR

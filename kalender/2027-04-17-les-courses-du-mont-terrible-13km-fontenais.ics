@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-les-courses-du-mont-terrible-13km-fontenais@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270419
+SUMMARY:Les Courses du Mont-Terrible
+LOCATION:Fontenais\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://www.mont-terr
+ ible.ch/
+TRANSP:TRANSPARENT
+URL:https://www.mont-terrible.ch/
+END:VEVENT
+END:VCALENDAR

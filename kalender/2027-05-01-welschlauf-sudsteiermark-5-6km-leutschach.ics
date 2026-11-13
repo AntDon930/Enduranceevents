@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-welschlauf-sudsteiermark-5-6km-leutschach@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:WelschLauf Südsteiermark – Achtelmarathon
+LOCATION:Leutschach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://www.welschla
+ uf.com/
+TRANSP:TRANSPARENT
+URL:https://www.welschlauf.com/
+END:VEVENT
+END:VCALENDAR

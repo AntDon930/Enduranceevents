@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-lauf-in-den-fruhling-freital-10km-freital@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Lauf in den Frühling - Freital – 10 km Lauf\, Altersklassen M/W U1
+ 8 bis 80+
+LOCATION:Freital\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.laufinden
+ fruehling.de/
+TRANSP:TRANSPARENT
+URL:https://www.laufindenfruehling.de/
+END:VEVENT
+END:VCALENDAR

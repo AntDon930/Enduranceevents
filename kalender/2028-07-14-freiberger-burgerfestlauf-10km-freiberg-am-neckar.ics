@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2028-07-14-freiberger-burgerfestlauf-10km-freiberg-am-neckar@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20280714
+DTEND;VALUE=DATE:20280715
+SUMMARY:Freiberger Bürgerfestlauf
+LOCATION:Freiberg am Neckar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.buergerfe
+ stlauf-freiberg.de
+TRANSP:TRANSPARENT
+URL:https://www.buergerfestlauf-freiberg.de
+END:VEVENT
+END:VCALENDAR

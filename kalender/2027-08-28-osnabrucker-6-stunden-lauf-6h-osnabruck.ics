@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-osnabrucker-6-stunden-lauf-6h-osnabruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Osnabrücker 6-Stunden-Lauf
+LOCATION:Osnabrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://www.laufen-os.d
+ e/wettkaempfe/osnabruecker-6-stunden-lauf-2027
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/osnabruecker-6-stunden-lauf-2027
+END:VEVENT
+END:VCALENDAR

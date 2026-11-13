@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-6h-adventslauf-langenhagen-6h-langenhagen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:6h Adventslauf Langenhagen – 6-Stunden-Lauf (Runde 4\,22 km\, 9–15
+  Uhr)
+LOCATION:Langenhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://shinsplinters-l
+ angenhagen.webnode.com/
+TRANSP:TRANSPARENT
+URL:https://shinsplinters-langenhagen.webnode.com/
+END:VEVENT
+END:VCALENDAR

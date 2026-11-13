@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-dorfplatz-itter-kitzbuhel-x-itter@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life - Dorfplatz Itter Kitzbühel
+LOCATION:Itter\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.skiwelt.at/en
+ /itter/events/wings-for-life-run-itter.html
+TRANSP:TRANSPARENT
+URL:https://www.skiwelt.at/en/itter/events/wings-for-life-run-itter.html
+END:VEVENT
+END:VCALENDAR

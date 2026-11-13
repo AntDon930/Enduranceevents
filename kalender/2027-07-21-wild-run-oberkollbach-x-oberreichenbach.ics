@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-21-wild-run-oberkollbach-x-oberreichenbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270721
+DTEND;VALUE=DATE:20270722
+SUMMARY:Wild & Run Oberkollbach
+LOCATION:Oberreichenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sportverein-oberk
+ ollbach.de/wildandrun/
+TRANSP:TRANSPARENT
+URL:https://sportverein-oberkollbach.de/wildandrun/
+END:VEVENT
+END:VCALENDAR

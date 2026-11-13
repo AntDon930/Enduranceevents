@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-shades-of-speed-culinary-ride-festival-306km-bad-feilnbach@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270726
+SUMMARY:Shades of Speed – Culinary.RIDE.Festival – RTF 306 km
+LOCATION:Bad Feilnbach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 306 km\nhttps://www.shades-
+ of-speed.eu
+TRANSP:TRANSPARENT
+URL:https://www.shades-of-speed.eu
+END:VEVENT
+END:VCALENDAR

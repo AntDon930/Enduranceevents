@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-weitersburg-halbmarathon-21-1km-weitersburg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Weitersburg Halbmarathon – Halbmarathon
+LOCATION:Weitersburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.lauftre
+ ff-svweitersburg.de/info.html
+TRANSP:TRANSPARENT
+URL:https://www.lauftreff-svweitersburg.de/info.html
+END:VEVENT
+END:VCALENDAR

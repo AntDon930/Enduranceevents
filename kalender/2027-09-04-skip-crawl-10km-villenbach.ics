@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-skip-crawl-10km-villenbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Skip&Crawl – 10 km Knight Trail\, 28 Hindernisse
+LOCATION:Villenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 10 km\nhttps://skip-crawl
+ .de/
+TRANSP:TRANSPARENT
+URL:https://skip-crawl.de/
+END:VEVENT
+END:VCALENDAR

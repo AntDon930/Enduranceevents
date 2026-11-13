@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-38-hambacher-volkslauf-21-1km-niederzier-hambach@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:38. Hambacher Volkslauf
+LOCATION:Niederzier-Hambach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.djk-loew
+ e-hambach.de
+TRANSP:TRANSPARENT
+URL:http://www.djk-loewe-hambach.de
+END:VEVENT
+END:VCALENDAR

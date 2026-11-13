@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-09-cyclodome-salzburg-mtb-race-x-salzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270909
+DTEND;VALUE=DATE:20270910
+SUMMARY:Cyclodome Salzburg MTB Race – Cross-Country
+LOCATION:Salzburg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.lrv-sa
+ lzburg.at
+TRANSP:TRANSPARENT
+URL:https://www.lrv-salzburg.at
+END:VEVENT
+END:VCALENDAR

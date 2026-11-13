@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-berlin-brandenburgische-crossmeisterschaften-8km-berlin@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Berlin-Brandenburgische Crossmeisterschaften
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://ladv.de/aussch
+ reibung/detail/49367/BBM-BM-BB-Cross-Berlin.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49367/BBM-BM-BB-Cross-Berlin.htm
+END:VEVENT
+END:VCALENDAR
