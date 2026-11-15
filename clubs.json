@@ -7639,6 +7639,12 @@
     "rhythmus": "woechentlich",
     "wochentag": 3,
     "uhrzeit": "17:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "06:45",
+    "bezeichnung": "Morgenlauf mit dem CVJM München: 5–7 km (6:00–6:30 min/km), danach Kaffee und Snacks, Treffpunkt Innenhof Giselastraße 13"
    }
   ],
   "dauer_min": 45,
@@ -7659,11 +7665,14 @@
   "quelle": [
    "https://www.flowoutdoor.de/index.php/flow-trail-mehr-als-gipfelblicke/",
    "https://socialrunclubs.de/muenchen/flow-trail/",
-   "https://www.strava.com/clubs/flowtrail"
+   "https://www.strava.com/clubs/flowtrail",
+   "https://www.strava.com/clubs/1908617",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-19",
-  "strava": "https://www.strava.com/clubs/flowtrail"
+  "geprueft": "2026-11-15",
+  "strava": "https://www.strava.com/clubs/flowtrail",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "muenchen-mobil-lauftreff",
@@ -7777,10 +7786,13 @@
    "https://urbansportsclub.com/de/venues/freanks-athletes-club-run-muc",
    "https://socialrunclubs.de/muenchen/freanks-athletes-club/",
    "https://urbansportsclub.com/en/venues/freanks-athletes-club-run-muc",
-   "https://reboots.com/en/blogs/news/freanks-push-your-limits"
+   "https://reboots.com/en/blogs/news/freanks-push-your-limits",
+   "https://www.strava.com/clubs/1213359",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-20"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "muenchen-26-miles",
@@ -9983,11 +9995,12 @@
   "beschreibung_en": "Sunday run of the enduure community from Brammibal's Donuts on Jungfernstieg, about 9 km at an easy pace around 6:30 min/km.",
   "quelle": [
    "https://www.enduure.de/community",
-   "https://socialrunclubs.de/hamburg/enduure/"
+   "https://socialrunclubs.de/hamburg/enduure/",
+   "https://www.strava.com/clubs/1454329",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Treffpunkt und Wochentag auf enduure.de bestätigt; Uhrzeit (10:45 Treffen / 11:00 Start) und Distanz nur von socialrunclubs.de; Runde 3 (19.10.2026): keine weitere Quelle gefunden (Instagram gesperrt, kein Strava-Club/Linktree/eigene Seite auffindbar); Runde 4 (20.10.2026): Community-Seite erneut gelesen: Sunday Run Hamburg ab Gänsemarkt, Jungfernstieg 47, ohne Uhrzeit/Distanz; Strava-Beschreibung nennt nur Berlin"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "hamburg-grove-running",
@@ -10119,12 +10132,15 @@
   "beschreibung_de": "Donnerstagslauf von Hamburg Running über die Elbinsel Wilhelmsburg, rund 10 km in einer Stunde für Läuferinnen und Läufer mit etwas Erfahrung; Treffen ab 18:45 Uhr, ohne Vereinsmitgliedschaft.",
   "beschreibung_en": "Thursday run by Hamburg Running across the Wilhelmsburg river island, about 10 km in one hour for runners with some experience; meet from 6:45 pm, no club membership needed.",
   "quelle": [
-   "https://hamburg-running.de/training/inselrunners/"
+   "https://hamburg-running.de/training/inselrunners/",
+   "https://www.strava.com/clubs/1209942",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-11-15",
   "sprachen": [
    "de"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "hamburg-sweet-salty-run-club",
@@ -10682,9 +10698,12 @@
   "beschreibung_en": "Community run in any weather, Sundays from Fernsichtbrücke, for beginners and seasoned runners.",
   "quelle": [
    "https://socialrunclubs.de/hamburg/no-matter-the-weather/",
-   "https://www.strava.com/clubs/NOMATTER-THEWEATHER"
+   "https://www.strava.com/clubs/NOMATTER-THEWEATHER",
+   "https://www.strava.com/clubs/1582776",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "hamburg-oace-run-club",
@@ -10721,11 +10740,12 @@
   "beschreibung_de": "Donnerstagslauf über 6 km ab einem Café am Jungfernstieg, jedes Tempo willkommen.",
   "beschreibung_en": "Thursday 6 km run from a café on Jungfernstieg, every pace welcome.",
   "quelle": [
-   "https://socialrunclubs.de/hamburg/oace-club-hamburg/"
+   "https://socialrunclubs.de/hamburg/oace-club-hamburg/",
+   "https://www.strava.com/clubs/1522645",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; Runde 3 (19.10.2026): keine weitere Quelle gefunden (Instagram gesperrt, kein Strava-Club/Linktree/eigene Seite auffindbar); Runde 4 (20.10.2026): Strava-Club (OACE) bestätigt nur wöchentliche Läufe in mehreren Städten"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "hamburg-pace-silhouettes",
@@ -11029,14 +11049,15 @@
   "art": "Laufen",
   "stadt": "Hamburg",
   "land": "Deutschland",
-  "treffpunkt": "TRU Fitness Club",
+  "treffpunkt": "TRU Fitness Club Barmbek",
   "lat": 53.58789,
   "lon": 10.04501,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 3,
-    "uhrzeit": "18:30"
+    "uhrzeit": "18:30",
+    "bezeichnung": "ca. 5 km durch den Stadtpark in zwei Paces (5:30 und 6:30 min/km), danach Drinks und Snacks im TRU"
    }
   ],
   "webseite": "https://trufitnessclub.de/",
@@ -11050,11 +11071,12 @@
   "beschreibung_de": "Mittwochslauf ab dem Fitnessclub TRU.",
   "beschreibung_en": "Wednesday run from the TRU fitness club.",
   "quelle": [
-   "https://socialrunclubs.de/hamburg/tru-running-club/"
+   "https://socialrunclubs.de/hamburg/tru-running-club/",
+   "https://www.strava.com/clubs/2281509",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Mi 18:30 nur von socialrunclubs.de; trufitnessclub.de 403, Strava-Club 403, Urban Sports Club führt bei TRU Hamburg (Krüsistraße 7) Laufen, aber keinen Termin – Termin und genauer Treffpunkt beim Studio bestätigen; Runde 4 (20.10.2026): trufitnessclub.de weiter 403"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "hamburg-alster-lauftreff",
@@ -14409,17 +14431,18 @@
   "beschreibung_de": "Lockerer 6-km-Lauf jeden Donnerstag ab dem Braky Café im Nordend, Tempo um 6:30 min/km, danach Ausklang im Café.",
   "beschreibung_en": "Easy 6 km run every Thursday from Braky Café in the Nordend at about 6:30 min/km, followed by time in the café.",
   "quelle": [
-   "https://socialrunclubs.de/frankfurt-am-main/oace-club-frankfurt/"
+   "https://socialrunclubs.de/frankfurt-am-main/oace-club-frankfurt/",
+   "https://www.strava.com/clubs/1522645",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "pruefung_offen": true,
-  "pruefung_grund": "nur auf Sammelseite socialrunclubs.de belegt, eigene Quelle (Instagram) nicht lesbar; Runde 3 (19.10.2026): keine weitere Quelle gefunden (Instagram gesperrt, kein Strava-Club/Linktree/eigene Seite auffindbar); Runde 4 (20.10.2026): Strava-Club (OACE, 5.830 Mitglieder) bestätigt nur wöchentliche Läufe in mehreren Städten, nicht Frankfurt-Tag/Treffpunkt",
   "land": "Deutschland",
   "art": "Laufen",
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-15",
   "sprachen": [
    "de"
   ],
-  "strava": "https://www.strava.com/clubs/1522645"
+  "strava": "https://www.strava.com/clubs/1522645",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "frankfurt-pancake-run-club",
@@ -17283,11 +17306,12 @@
   "beschreibung_de": "Etwa 6 km über beide Rheinbrücken ohne Tempodruck, für Anfänger wie Erfahrene.",
   "beschreibung_en": "About 6 km across both Rhine bridges with no pace pressure, for beginners and experienced runners.",
   "quelle": [
-   "https://socialrunclubs.de/duesseldorf/oace-club-duesseldorf/"
+   "https://socialrunclubs.de/duesseldorf/oace-club-duesseldorf/",
+   "https://www.strava.com/clubs/1522645",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Do 18:30 ab Café Daily Dose nur Sammelseite; Websuche/Abruf 19.10.2026 ohne eigene Quelle (Instagram/Strava gesperrt); Runde 4 (20.10.2026): öffentliche Strava-Beschreibung (5.830 Mitglieder) bestätigt nur „Every week, different cities, no pace requirements“, nennt aber weder Düsseldorf-Tag noch Treffpunkt; oace.de ist nur Shop ohne Run-Club-Seite"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "duesseldorf-rainbow-runners",
@@ -17420,11 +17444,12 @@
   "beschreibung_en": "Running club of TRU Fitness Club on Wednesday evenings.",
   "quelle": [
    "https://socialrunclubs.de/duesseldorf/tru-running-club/",
-   "https://trufitnessclub.de/location/duesseldorf/"
+   "https://trufitnessclub.de/location/duesseldorf/",
+   "https://www.strava.com/clubs/2281509",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Kursplan auf trufitnessclub.de/location/duesseldorf nennt ‚Running Club | TRU Düsseldorf‘ am Mi 21.10.2026, 18:30–19:30 (passt zur Sammelseite); offen für Nichtmitglieder und wöchentliche Wiederholung dort nicht angegeben; Runde 4 (20.10.2026): trufitnessclub.de antwortet jetzt mit 403, Strava-Club nur Name lesbar – nichts Neues"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "duesseldorf-mondaymiles",
@@ -18069,18 +18094,14 @@
   "art": "Laufen",
   "stadt": "Köln",
   "land": "Deutschland",
-  "treffpunkt": "Crop Coffee, Apostelnstraße 1-3",
-  "lat": 50.937,
-  "lon": 6.94474,
+  "treffpunkt": "Weyerstraßerweg 10A",
+  "lat": 50.91834,
+  "lon": 6.93917,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 4,
-    "uhrzeit": "19:00",
-    "distanz_km": [
-     6,
-     6
-    ]
+    "uhrzeit": "18:30"
    }
   ],
   "distanz_km": [
@@ -18100,11 +18121,12 @@
   "beschreibung_de": "Gemeinsame 6 km am Donnerstagabend in etwa 6:30 min/km, für Anfänger wie Erfahrene.",
   "beschreibung_en": "A 6 km group run on Thursday evenings at about 6:30/km, for beginners and experienced runners.",
   "quelle": [
-   "https://socialrunclubs.de/koeln/oace-club-cologne/"
+   "https://socialrunclubs.de/koeln/oace-club-cologne/",
+   "https://www.strava.com/clubs/1522645",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Strava-Club der Marke OACE (5.830 Mitglieder) bestätigt wöchentliche Runs in mehreren Städten, nennt aber weder Köln-Termin noch Treffpunkt; Do 19:00 ab Crop Coffee nur von socialrunclubs.de; Instagram nicht lesbar"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "koeln-omtra",
@@ -23513,14 +23535,21 @@
   "art": "Laufen",
   "stadt": "München",
   "land": "Deutschland",
-  "treffpunkt": "Milchhäusl im Englischen Garten",
+  "treffpunkt": "Veterinärstraße 18 (am Englischen Garten)",
   "lat": 48.14978,
-  "lon": 11.58554,
+  "lon": 11.58555,
   "termine": [
    {
     "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Community Run, 6–8 km (6:40–7:20 min/km)"
+   },
+   {
+    "rhythmus": "woechentlich",
     "wochentag": 6,
-    "uhrzeit": "10:30"
+    "uhrzeit": "10:30",
+    "bezeichnung": "Community Run"
    }
   ],
   "instagram": "https://www.instagram.com/nopbclub.munich/",
@@ -23532,11 +23561,12 @@
   "beschreibung_de": "Samstagslauf ohne Leistungsdruck für alle, die sich langsam fühlen – niemand wird zurückgelassen.",
   "beschreibung_en": "Saturday run without pressure for anyone who feels slow – no one gets left behind.",
   "quelle": [
-   "https://socialrunclubs.de/muenchen/nopbclub-munich/"
+   "https://socialrunclubs.de/muenchen/nopbclub-munich/",
+   "https://www.strava.com/clubs/1258407",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Termin und Treffpunkt nur über socialrunclubs.de (Eintrag vom 2026-01-24) belegt; Instagram/Strava des Clubs nicht lesbar – Aktualität prüfen; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "muenchen-nymphenrunners",
@@ -23545,13 +23575,26 @@
   "stadt": "München",
   "land": "Deutschland",
   "treffpunkt": "Schloss Nymphenburg",
-  "lat": 48.15826,
-  "lon": 11.50396,
+  "lat": 48.15494,
+  "lon": 11.50626,
   "termine": [
    {
     "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "07:00",
+    "bezeichnung": "Morning Run"
+   },
+   {
+    "rhythmus": "woechentlich",
     "wochentag": 6,
-    "uhrzeit": "09:30"
+    "uhrzeit": "09:30",
+    "bezeichnung": "Community Run (Pace-Gruppen 5:30 und 6:30 min/km)"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Community Run, zweite Gruppe"
    }
   ],
   "instagram": "https://www.instagram.com/nymphenruns/",
@@ -23560,11 +23603,12 @@
   "beschreibung_de": "Samstagslauf am Schloss Nymphenburg.",
   "beschreibung_en": "Saturday run at Nymphenburg Palace.",
   "quelle": [
-   "https://socialrunclubs.de/muenchen/nymphenrunners/"
+   "https://socialrunclubs.de/muenchen/nymphenrunners/",
+   "https://www.strava.com/clubs/1282233",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Termin und Treffpunkt nur über socialrunclubs.de (Eintrag vom 2025-08-12) belegt; Instagram/Strava des Clubs nicht lesbar – Aktualität prüfen; Startzeit 9:30 oder 10:00 Uhr (Quelle nennt beides); dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "muenchen-onma-sports-club",
@@ -25666,11 +25710,12 @@
   "beschreibung_en": "Easy community run of about 6.5 km on Monday evenings from a doughnut café at Alexanderplatz.",
   "quelle": [
    "https://www.enduure.de/community",
-   "https://socialrunclubs.de/berlin/enduure/"
+   "https://socialrunclubs.de/berlin/enduure/",
+   "https://www.strava.com/clubs/1454329",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Wochentag und Treffpunkt auf enduure.de bestätigt (Easy-Runs); Uhrzeit 18:30/18:45 und Distanz nur von socialrunclubs.de (08/2026), enduure.de nennt keine Zeiten"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "berlin-enduure-thursday-run-prenzlauer-berg",
@@ -25711,11 +25756,12 @@
   "beschreibung_en": "Easy 5 km community run on Thursday evenings in Prenzlauer Berg.",
   "quelle": [
    "https://www.enduure.de/community",
-   "https://socialrunclubs.de/berlin/enduure/"
+   "https://socialrunclubs.de/berlin/enduure/",
+   "https://www.strava.com/clubs/1454329",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Wochentag und Treffpunkt auf enduure.de bestätigt (Easy-Runs); Uhrzeit 18:30/18:45 und Distanz nur von socialrunclubs.de (08/2026), enduure.de nennt keine Zeiten"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "berlin-enduure-sunday-run-steglitz",
@@ -25757,11 +25803,12 @@
   "quelle": [
    "https://www.enduure.de/community",
    "https://socialrunclubs.de/berlin/enduure/",
-   "https://www.runningclubsberlin.de/clubs/enduure-endurance-club"
+   "https://www.runningclubsberlin.de/clubs/enduure-endurance-club",
+   "https://www.strava.com/clubs/1454329",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Wochentag und Treffpunkt auf enduure.de bestätigt; Uhrzeit widersprüchlich: socialrunclubs.de 9:45 Treff/10:00 Start, runningclubsberlin.de 'Sundays 9:30 am'"
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "muenchen-lesrun",
@@ -25769,14 +25816,15 @@
   "art": "Laufen",
   "stadt": "München",
   "land": "Deutschland",
-  "treffpunkt": "Kristallbrunnen im Englischen Garten",
-  "lat": 48.15629,
-  "lon": 11.58922,
+  "treffpunkt": "Königinstraße 38 (Englischer Garten, Nähe Kristallbrunnen)",
+  "lat": 48.15601,
+  "lon": 11.58903,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 7,
-    "uhrzeit": "10:00"
+    "uhrzeit": "10:00",
+    "bezeichnung": "Regular Sunday Run"
    }
   ],
   "distanz_km": [
@@ -25797,11 +25845,14 @@
   "beschreibung_de": "Queer-freundlicher Community-Run am Sonntag mit 3, 5 oder 7,5 km und anschließendem Kaffee am Kiosk.",
   "beschreibung_en": "Queer-friendly Sunday community run with 3, 5 or 7.5 km options, followed by coffee at a kiosk.",
   "quelle": [
-   "https://socialrunclubs.de/muenchen/lesrun/"
+   "https://socialrunclubs.de/muenchen/lesrun/",
+   "https://www.strava.com/clubs/1314965",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-15",
   "pruefung_offen": true,
-  "pruefung_grund": "Nur über socialrunclubs.de (Eintrag 09/2025) belegt; Instagram/Strava nicht lesbar – Aktualität und Zielgruppe prüfen; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "pruefung_grund": "Sonntag 10:00 und Treffpunkt per Strava-Termin bestätigt (15.11.2026); offen bleibt nur, an wen sich der Treff richtet (Zielgruppe) – bitte prüfen.",
+  "zuletzt_aktiv": "2026-11-15"
  },
  {
   "id": "berlin-queer-running-club",
@@ -30696,5 +30747,92 @@
   ],
   "geprueft": "2026-11-12",
   "zuletzt_aktiv": "2026-11-12"
+ },
+ {
+  "id": "muenchen-oace",
+  "name": "OACE Club München",
+  "art": "Laufen",
+  "stadt": "München",
+  "land": "Deutschland",
+  "treffpunkt": "Daily Matcha (Schwabing)",
+  "lat": 48.15407,
+  "lon": 11.58345,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "anmeldung_ueber": "Strava",
+  "strava": "https://www.strava.com/clubs/1522645",
+  "beschreibung_de": "Wöchentlicher Social Run des OACE Club (Matcha- und Café-Community) jeden Donnerstag um 18:30 Uhr, danach gemeinsam auf einen Matcha oder Kaffee.",
+  "beschreibung_en": "Weekly social run by OACE Club (a matcha and café community) every Thursday at 6:30 pm, followed by matcha or coffee together.",
+  "quelle": [
+   "https://www.strava.com/clubs/1522645",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
+ },
+ {
+  "id": "berlin-oace",
+  "name": "OACE Club Berlin",
+  "art": "Laufen",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "Zimmerstraße 78 (Mitte)",
+  "lat": 52.50787,
+  "lon": 13.39139,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:30"
+   }
+  ],
+  "anmeldung_ueber": "Strava",
+  "strava": "https://www.strava.com/clubs/1522645",
+  "beschreibung_de": "Wöchentlicher Social Run des OACE Club (Matcha- und Café-Community) jeden Donnerstag um 18:30 Uhr, danach gemeinsam auf einen Matcha oder Kaffee.",
+  "beschreibung_en": "Weekly social run by OACE Club (a matcha and café community) every Thursday at 6:30 pm, followed by matcha or coffee together.",
+  "quelle": [
+   "https://www.strava.com/clubs/1522645",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
+ },
+ {
+  "id": "berlin-enduure-saturday-ride-steglitz",
+  "name": "Enduure x Brammibal's Group Ride Steglitz",
+  "art": "Fahrrad",
+  "stadt": "Berlin",
+  "land": "Deutschland",
+  "treffpunkt": "Brammibal's Donuts, Schloßstraße 31 (Steglitz)",
+  "lat": 52.45832,
+  "lon": 13.32179,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "09:20",
+    "bezeichnung": "Entspannte Gruppenausfahrt um 30 km/h, danach Donuts"
+   }
+  ],
+  "pace": {
+   "von": 28,
+   "bis": 30
+  },
+  "rad_typ": "Rennrad",
+  "anmeldung_ueber": "Strava",
+  "strava": "https://www.strava.com/clubs/1454329",
+  "beschreibung_de": "Wöchentliche Gruppenausfahrt von Enduure ab Brammibal's Donuts in Steglitz: entspannt mit rund 30 km/h im Windschatten, danach Donuts für alle.",
+  "beschreibung_en": "Weekly Enduure group ride from Brammibal's Donuts in Steglitz: relaxed at around 30 km/h in the bunch, with donuts for everyone afterwards.",
+  "quelle": [
+   "https://www.strava.com/clubs/1454329",
+   "Strava-Club-Termine, abgerufen am 15.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-15",
+  "zuletzt_aktiv": "2026-11-15"
  }
 ]
