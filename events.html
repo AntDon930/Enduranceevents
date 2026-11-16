@@ -91,7 +91,7 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=8fe729d6">
+<link rel="stylesheet" href="site.css?v=2e857586">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=acdd5b94">
@@ -205,47 +205,8 @@
     top: 16px;
   }
   .side-panel .detail-panel { width: 100%; }
-  /* Die Melde-Box (siehe Markup): Akzentrand in der Signalfarbe, damit
-     sie neben der ruhigen Detail-Box auffällt, ohne zu schreien. */
-  .fehlt-box {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 14px;
-    border: 1px solid var(--brand);
-    border-left-width: 4px;
-    border-radius: 12px;
-    background: var(--brand-bg, var(--panel));
-    color: var(--text);
-    font-size: 0.9rem;
-  }
-  .fehlt-box-plus {
-    flex-shrink: 0;
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    background: var(--brand);
-    color: #fff;
-    font-weight: 700;
-    font-size: 1.2rem;
-    display: inline-flex; align-items: center; justify-content: center;
-  }
-  .fehlt-box-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-  .fehlt-box-text strong { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.01em; }
-  .fehlt-box-text span { color: var(--text-muted); font-size: 0.84rem; }
-  .fehlt-box-btn {
-    flex-shrink: 0;
-    padding: 8px 12px;
-    border-radius: var(--radius-ctl, 10px);
-    border: 1px solid var(--brand);
-    background: var(--brand);
-    color: #fff;
-    font: inherit;
-    font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .fehlt-box-btn:hover, .fehlt-box-btn:focus-visible { filter: brightness(1.08); }
+  /* Die Melde-Box selbst (.fehlt-box …) steht in site.css – die
+     Clubs-Seite trägt dieselbe („Dein Club fehlt?“, 16.11.2026). */
   @media (max-width: 1432px) {   /* Spalte schmaler als 440 px (siehe .layout) */
     .fehlt-box { flex-wrap: wrap; }
     .fehlt-box-btn { margin-left: 42px; }
@@ -673,21 +634,7 @@
   }
   .report-event-summary strong { display: block; margin-bottom: 2px; }
   .report-event-summary span { color: var(--text-muted); }
-  .report-intro { margin: 0 0 14px; font-size: 0.86rem; color: var(--text-muted); }
-  .ee-field select,
-  .ee-field textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    background: var(--bg);
-    color: var(--text);
-    font-size: 0.92rem;
-    font-family: inherit;
-  }
-  .ee-field textarea { resize: vertical; min-height: 90px; }
-  .report-counter { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 4px; }
-  .ee-field input[type="url"] { font-family: inherit; }
+  /* .report-intro, .ee-field select/textarea, .report-counter: site.css */
 
   @media (max-width: 900px) {
     .layout { padding: 0 var(--seite-rand); }
@@ -3743,6 +3690,9 @@
           setMsg(t('fehlt_thanks'), 'success');
           form.querySelectorAll('.ee-field').forEach(el => el.remove());
           submitEl.remove();
+          // Mit den Feldern geht der Fokus verloren – zurück in den Dialog,
+          // sonst erreicht Escape die Fokusfessel nicht mehr.
+          suggestDialogEl.focus({ preventScroll: true });
           window.setTimeout(() => { if (!suggestOverlay.hidden) closeSuggestModal(); }, 2500);
         })
         .catch((err) => {

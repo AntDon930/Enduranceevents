@@ -3540,6 +3540,16 @@ python3 scripts/review_reports.py suggestions --credentials <serviceaccount.json
 python3 scripts/review_reports.py suggestions --from-json export.json   # ohne Key
 ```
 
+**„Dein Club fehlt?“ (seit dem 16.11.2026)** – derselbe Kasten auf
+`clubs.html`, am Rechner rechts unter der Club-Box, auf dem Handy unter
+der Liste. Der Dialog fragt einen Link (Webseite, Instagram oder Strava;
+`@name` wird zum Instagram-Link), den Namen und – anders als bei den
+Events – die **Stadt**, weil ein Instagram-Konto sie selten nennt.
+Gespeichert wird in dieselbe Collection `eventSuggestions`, mit „Club: “
+vor dem Namen und „Stadt: …“ vorn im Hinweis: keine neue Firestore-Regel,
+kein Deploy, und `review_reports.py suggestions` zeigt Events und Clubs
+zusammen.
+
 **Übernommen wird nichts automatisch.** Ein Hinweis von außen ist eine
 Adresse, kein Datensatz: erst robots.txt und Nutzungsbedingungen der
 Quelle prüfen, dann ein Scraper oder ein Eintrag in

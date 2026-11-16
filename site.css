@@ -346,6 +346,66 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
 /* Anmelde-Dialog (auth.js) auf dunkler Fläche: der Hauptknopf ist hell,
    die Schrift darauf muss dunkel sein. */
 .ee-submit-btn { color: var(--on-accent) !important; }
+/* ---------- „Dein Event fehlt?“ / „Dein Club fehlt?“ ----------
+   Die Melde-Box und die Felder ihres Dialogs teilen events.html und
+   clubs.html (16.11.2026 aus events.html hierher gezogen). */
+/* Die Melde-Box (siehe Markup): Akzentrand in der Signalfarbe, damit
+   sie neben der ruhigen Detail-Box auffällt, ohne zu schreien. */
+.fehlt-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--brand);
+  border-left-width: 4px;
+  border-radius: 12px;
+  background: var(--brand-bg, var(--panel));
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.fehlt-box-plus {
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.fehlt-box-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.fehlt-box-text strong { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.01em; }
+.fehlt-box-text span { color: var(--text-muted); font-size: 0.84rem; }
+.fehlt-box-btn {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-radius: var(--radius-ctl, 10px);
+  border: 1px solid var(--brand);
+  background: var(--brand);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.fehlt-box-btn:hover, .fehlt-box-btn:focus-visible { filter: brightness(1.08); }
+/* Felder der Dialoge (Fehler melden, Event fehlt, Club fehlt) */
+.report-intro { margin: 0 0 14px; font-size: 0.86rem; color: var(--text-muted); }
+.ee-field select,
+.ee-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.92rem;
+  font-family: inherit;
+}
+.ee-field textarea { resize: vertical; min-height: 90px; }
+.report-counter { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 4px; }
+.ee-field input[type="url"] { font-family: inherit; }
 /* Leer, solange alles in Ordnung ist; die Notbremse im Skript schreibt
    hierhin ("Bitte neu laden"). */
 .page-note {

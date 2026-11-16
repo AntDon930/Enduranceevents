@@ -99,7 +99,9 @@ def finde_chromium() -> str | None:
     """Chromium aus PLAYWRIGHT_BROWSERS_PATH, sonst Playwrights eigener Pfad."""
     basis = os.environ.get("PLAYWRIGHT_BROWSERS_PATH")
     if basis:
-        treffer = sorted(glob.glob(os.path.join(basis, "chromium-*/chrome-linux/chrome")))
+        # chrome-linux64 seit Chromium 1243 (neuere Playwright-Fassungen).
+        treffer = sorted(glob.glob(os.path.join(basis, "chromium-*/chrome-linux/chrome"))
+                         + glob.glob(os.path.join(basis, "chromium-*/chrome-linux64/chrome")))
         if treffer:
             return treffer[-1]
     return None
@@ -1641,6 +1643,95 @@ def pruefe_fehlendes_event(ctx, basis):
     seite.wait_for_timeout(500)
     pruefe(seite.evaluate("() => !document.getElementById('suggest-overlay').hidden"),
            "der Knopf in der Box öffnet denselben Dialog")
+    seite.close()
+
+
+def pruefe_club_fehlt(ctx, basis):
+    """„Dein Club fehlt?“ (16.11.2026): derselbe Kasten wie bei den Events.
+
+    Am Rechner rechts unter der Club-Box (und dort auch bei einer langen
+    Box im Bild), auf dem Handy unter der Liste. Der Dialog fragt Link,
+    Name, Stadt und Hinweis, prüft mit eigenen Texten und gibt an
+    suggestEvent() genau das weiter, was eventSuggestions annimmt – das
+    Speichern selbst ersetzt eine Attrappe (kein Firestore im Rauchtest).
+    """
+    print("\nDein Club fehlt? (clubs.html)")
+    seite, probleme = seite_oeffnen(ctx, basis + "/clubs.html", warten=".club-karte")
+    pruefe(not probleme, "lädt ohne Fehler (%s)" % ("; ".join(probleme[:3]) or "keine"))
+    # Handy (390 px): unter der Liste, nicht im Blatt.
+    stand = seite.evaluate("""() => {
+        const sicht = (el) => !!el && el.getBoundingClientRect().height > 0;
+        const unten = document.querySelector('.club-fehlt-unten');
+        const liste = document.getElementById('club-liste');
+        return { unten: sicht(unten), seite: sicht(document.querySelector('.club-fehlt-seite')),
+                 unterDerListe: !!unten && unten.getBoundingClientRect().top >= liste.getBoundingClientRect().bottom,
+                 titel: unten ? unten.querySelector('[data-fehlt-titel]').textContent : '' };
+    }""")
+    pruefe(stand["unten"] and not stand["seite"] and stand["unterDerListe"] and stand["titel"] == "Dein Club fehlt?",
+           "Handy: der Kasten steht unter der Liste (%s)" % stand)
+    seite.locator(".club-fehlt-unten [data-fehlt-btn]").scroll_into_view_if_needed()
+    seite.locator(".club-fehlt-unten [data-fehlt-btn]").click()
+    seite.wait_for_timeout(400)
+    felder = seite.evaluate("() => [...document.querySelectorAll('#suggest-form input, #suggest-form textarea')].map(e => e.id)")
+    pruefe(not seite.evaluate("() => document.getElementById('suggest-overlay').hidden")
+           and felder == ["suggest-url", "suggest-name", "suggest-stadt", "suggest-hinweis"],
+           "Handy: der Knopf öffnet den Dialog mit Link, Name, Stadt, Hinweis (%s)" % ", ".join(felder))
+
+    def fehler():
+        seite.evaluate("() => document.getElementById('suggest-submit').click()")
+        seite.wait_for_timeout(200)
+        return seite.evaluate("() => { const m = document.querySelector('#suggest-msg .ee-form-msg');"
+                              " return m && m.classList.contains('error') ? m.textContent : null; }")
+    pruefe(fehler() == "Bitte einen Link zum Club angeben.", "leer: eigene Fehlermeldung zum Link")
+    seite.fill("#suggest-url", "@lauftreff_test")
+    pruefe(fehler() == "Bitte den Namen des Clubs angeben.", "ohne Namen: eigene Fehlermeldung")
+    seite.fill("#suggest-name", "Lauftreff Test")
+    pruefe(fehler() == "Bitte die Stadt angeben.", "ohne Stadt: eigene Fehlermeldung")
+    seite.fill("#suggest-stadt", "Augsburg")
+    seite.fill("#suggest-hinweis", "Dienstag 19 Uhr")
+    seite.evaluate("""() => { window.__vorschlag = null;
+        window.EndauranceAuth.suggestEvent = (x) => { window.__vorschlag = x; return Promise.resolve(); }; }""")
+    seite.evaluate("() => document.getElementById('suggest-submit').click()")
+    seite.wait_for_timeout(300)
+    gesendet = seite.evaluate("() => window.__vorschlag")
+    pruefe(gesendet == {"url": "https://www.instagram.com/lauftreff_test/", "name": "Club: Lauftreff Test",
+                        "hinweis": "Stadt: Augsburg\nDienstag 19 Uhr"},
+           "gesendet wird Link (@name → Instagram), „Club: “ + Name, Stadt im Hinweis (%s)" % gesendet)
+    pruefe(seite.evaluate("() => { const m = document.querySelector('#suggest-msg .ee-form-msg');"
+                          " return !!m && m.classList.contains('success'); }"), "danach der Dank im Dialog")
+    seite.keyboard.press("Escape")
+    seite.wait_for_timeout(200)
+    pruefe(seite.evaluate("() => document.getElementById('suggest-overlay').hidden"), "Escape schließt den Dialog")
+
+    # Rechner: rechts unter der Club-Box, auch bei gewähltem Club im Bild.
+    seite.set_viewport_size({"width": 1280, "height": 760})
+    seite.wait_for_timeout(200)
+    seite.locator(".club-karte").first.click()
+    seite.wait_for_selector(".club-seite-box .detail-panel h2", timeout=5000)
+    seite.wait_for_timeout(200)
+    breit = seite.evaluate("""() => {
+        const sicht = (el) => !!el && el.getBoundingClientRect().height > 0;
+        const box = document.querySelector('.club-fehlt-seite'), panel = document.querySelector('.club-seite-box .detail-panel');
+        const r = box.getBoundingClientRect();
+        return { seite: sicht(box), unten: sicht(document.querySelector('.club-fehlt-unten')),
+                 unterDerBox: r.top >= panel.getBoundingClientRect().bottom,
+                 imBild: r.bottom <= innerHeight + 1 };
+    }""")
+    pruefe(breit["seite"] and not breit["unten"] and breit["unterDerBox"] and breit["imBild"],
+           "Rechner: der Kasten steht rechts unter der Club-Box und im Bild (%s)" % breit)
+    seite.locator(".club-fehlt-seite [data-fehlt-btn]").click()
+    seite.wait_for_timeout(300)
+    pruefe(not seite.evaluate("() => document.getElementById('suggest-overlay').hidden"),
+           "Rechner: der Knopf öffnet denselben Dialog")
+    seite.keyboard.press("Escape")
+    seite.wait_for_timeout(200)
+    pruefe(seite.evaluate("() => !!document.querySelector('.club-seite-box .detail-panel h2')"),
+           "Escape schließt nur den Dialog, die Club-Box bleibt")
+    seite.click(".lang-btn[data-lang='en']")
+    seite.wait_for_timeout(200)
+    en = seite.evaluate("() => [...document.querySelectorAll('.club-fehlt-seite [data-fehlt-titel], .club-fehlt-seite [data-fehlt-btn]')].map(e => e.textContent)")
+    pruefe(en == ["Missing your club?", "Report a club"], "EN: Titel und Knopf übersetzt (%s)" % en)
+    seite.click(".lang-btn[data-lang='de']")
     seite.close()
 
 
@@ -3379,9 +3470,18 @@ def pruefe_clubs(ctx, basis):
         clubs = json.load(f)
     # Sichtbar ist, was nicht zur Prüfung steht und noch einen Termin hat
     # (nur vergangene Einzeltermine = ausgeblendet, clubs.js loadClubs).
-    heute = datetime.date.today().isoformat()
+    # Wie clubs.js (termineImZeitraum): Ein Einzeltermin von HEUTE ist
+    # vorbei, sobald seine Uhrzeit verstrichen ist – nach dem Datum allein
+    # zählte der Test am Abend einen Club zu viel (16.11.2026, Social Run
+    # Club Vienna um 18:30). Ortszeit wie im Browser des Tests.
+    jetzt = datetime.datetime.now()
+    heute, uhr = jetzt.date().isoformat(), jetzt.strftime("%H:%M")
+
+    def vorbei(t):
+        d = t.get("datum", "")
+        return d < heute or (d == heute and bool(t.get("uhrzeit")) and t["uhrzeit"] < uhr)
     clubs = [c for c in clubs if not c.get("pruefung_offen")
-             and not all(t.get("rhythmus") == "einmalig" and t.get("datum", "") < heute for t in c.get("termine", []))]
+             and not all(t.get("rhythmus") == "einmalig" and vorbei(t) for t in c.get("termine", []))]
     if not clubs:
         ueberspringe("clubs.json ist leer")
         return
@@ -3556,6 +3656,7 @@ def main() -> int:
                 pruefe_wartung(ctx, basis)
                 pruefe_clubs(ctx, basis)
                 pruefe_clubs_neu(ctx, basis)
+                pruefe_club_fehlt(ctx, basis)
                 pruefe_blog(ctx, basis)
                 pruefe_datenrueckfall(ctx, basis, web_daten)
             finally:

@@ -58,10 +58,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="clubs.json" as="fetch" type="application/json" crossorigin="anonymous">
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=8fe729d6">
+<link rel="stylesheet" href="site.css?v=2e857586">
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=acdd5b94">
-<link rel="stylesheet" href="clubs.css?v=dd4c9699">
+<link rel="stylesheet" href="clubs.css?v=6fdfa1e9">
 </head>
 <body>
 
@@ -125,10 +125,44 @@
       <button type="button" class="reset-btn" id="reset-btn" hidden></button>
     </div>
     <ul class="club-liste" id="club-liste" aria-live="polite"></ul>
-    <p class="club-vorschlag" id="club-vorschlag"></p>
+    <!-- „Dein Club fehlt?“ (vom Nutzer am 16.11.2026: derselbe Kasten wie
+         „Dein Event fehlt?“ in der Liste). Zweimal, ein Dialog: auf dem
+         Handy unter der Liste (die Box rechts ist dort ein Blatt), am
+         Rechner rechts unter der Club-Box. -->
+    <div class="fehlt-box club-fehlt-unten" data-club-fehlt>
+      <span class="fehlt-box-plus" aria-hidden="true">+</span>
+      <div class="fehlt-box-text">
+        <strong data-fehlt-titel></strong>
+        <span data-fehlt-text></span>
+      </div>
+      <button type="button" class="fehlt-box-btn" data-fehlt-btn></button>
+    </div>
   </section>
-  <aside class="club-seite-box" id="club-box"></aside>
+  <aside class="club-seite-box" id="club-box">
+    <div class="club-box-panel" id="club-box-panel"></div>
+    <div class="fehlt-box club-fehlt-seite" data-club-fehlt>
+      <span class="fehlt-box-plus" aria-hidden="true">+</span>
+      <div class="fehlt-box-text">
+        <strong data-fehlt-titel></strong>
+        <span data-fehlt-text></span>
+      </div>
+      <button type="button" class="fehlt-box-btn" data-fehlt-btn></button>
+    </div>
+  </aside>
 </main>
+
+<!-- Der Dialog „Wir haben deinen Club nicht?“ – dieselbe Optik wie bei
+     den Events (auth.js: .ee-modal, Fokusfessel). Gespeichert wird über
+     EndauranceAuth.suggestEvent in dieselbe Collection eventSuggestions,
+     mit „Club: “ vor dem Namen und der Stadt im Hinweis – so braucht es
+     keine neue Firestore-Regel, und alle Vorschläge liegen an EINER
+     Stelle (scripts/review_reports.py suggestions). -->
+<div class="ee-modal-overlay" id="suggest-overlay" hidden>
+  <div class="ee-modal" role="dialog" aria-modal="true" aria-labelledby="suggest-heading" tabindex="-1">
+    <button type="button" class="ee-modal-close" id="suggest-close" aria-label="Schließen">&#10005;</button>
+    <div id="suggest-body"></div>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="seiten-footer">
@@ -178,7 +212,29 @@
       laden: 'Lade Clubs…',
       fehler: (m) => `Konnte clubs.json nicht laden: ${m}`,
       box_leer: 'Wähle einen Club, um Treffpunkt, Termine und Tempo zu sehen.',
-      vorschlag: 'Dein Club fehlt? Schreib uns an',
+      fehlt_box_titel: 'Dein Club fehlt?',
+      fehlt_box_text: 'Schick uns die Informationen – wir tragen ihn ein.',
+      fehlt_open: 'Club melden',
+      fehlt_titel: 'Wir haben deinen Club nicht?',
+      fehlt_intro: 'Schick uns einen Link zum Club – Webseite, Instagram oder Strava – und die Stadt. Treffpunkt, Termine und Tempo holen wir uns von dort.',
+      fehlt_url_label: 'Link zum Club (Webseite, Instagram oder Strava)',
+      fehlt_url_placeholder: 'https://… oder @instagram-name',
+      fehlt_name_label: 'Name des Clubs',
+      fehlt_name_placeholder: 'z. B. Lauftreff am Stadtpark',
+      fehlt_stadt_label: 'Stadt',
+      fehlt_stadt_placeholder: 'z. B. München',
+      fehlt_hinweis_label: 'Hinweis (optional)',
+      fehlt_hinweis_placeholder: 'Was wir wissen sollten – z. B. „Treff jeden Dienstag um 19 Uhr“.',
+      fehlt_send: 'Absenden',
+      fehlt_sending: 'Wird gesendet …',
+      fehlt_thanks: 'Danke! Wir schauen uns den Club an und nehmen ihn auf.',
+      fehlt_err_url: 'Bitte einen Link zum Club angeben.',
+      fehlt_err_name: 'Bitte den Namen des Clubs angeben.',
+      fehlt_err_stadt: 'Bitte die Stadt angeben.',
+      fehlt_err_save: 'Der Hinweis konnte nicht gespeichert werden. Bitte später erneut versuchen.',
+      fehlt_err_anon: 'Anonymes Melden ist in diesem Projekt noch nicht aktiviert (Firebase-Anbieter „Anonym“).',
+      fehlt_err_config: 'Melden ist noch nicht eingerichtet (Firebase-Konfiguration fehlt).',
+      schliessen: 'Schließen',
       // Vom Nutzer am 11.11.2026: Die Liste wächst noch jede Woche.
       hinweis: 'Wir ergänzen zurzeit jede Woche neue Clubs.',
       kein_termin: 'Saisonpause',
@@ -200,7 +256,29 @@
       laden: 'Loading clubs…',
       fehler: (m) => `Could not load clubs.json: ${m}`,
       box_leer: 'Pick a club to see its meeting point, sessions and pace.',
-      vorschlag: 'Missing your club? Write to',
+      fehlt_box_titel: 'Missing your club?',
+      fehlt_box_text: 'Send us the details – we will add it.',
+      fehlt_open: 'Report a club',
+      fehlt_titel: 'Is your club missing?',
+      fehlt_intro: 'Send us a link to the club – website, Instagram or Strava – and the city. We will take the meeting point, sessions and pace from there.',
+      fehlt_url_label: 'Link to the club (website, Instagram or Strava)',
+      fehlt_url_placeholder: 'https://… or @instagram-name',
+      fehlt_name_label: 'Name of the club',
+      fehlt_name_placeholder: 'e.g. Riverside Run Club',
+      fehlt_stadt_label: 'City',
+      fehlt_stadt_placeholder: 'e.g. Munich',
+      fehlt_hinweis_label: 'Note (optional)',
+      fehlt_hinweis_placeholder: 'Anything we should know – e.g. "meets every Tuesday at 7 pm".',
+      fehlt_send: 'Send',
+      fehlt_sending: 'Sending …',
+      fehlt_thanks: 'Thank you! We will look at the club and add it.',
+      fehlt_err_url: 'Please enter a link to the club.',
+      fehlt_err_name: 'Please enter the name of the club.',
+      fehlt_err_stadt: 'Please enter the city.',
+      fehlt_err_save: 'Could not save your note. Please try again later.',
+      fehlt_err_anon: 'Anonymous reporting is not enabled yet for this project (Firebase provider "Anonymous").',
+      fehlt_err_config: 'Reporting is not set up yet (Firebase configuration missing).',
+      schliessen: 'Close',
       hinweis: 'We’re adding new clubs every week.',
       kein_termin: 'Off-season',
       footer_imprint: 'Legal notice', footer_privacy: 'Privacy'
@@ -217,7 +295,7 @@
 
   const el = (id) => document.getElementById(id);
   const listeEl = el('club-liste');
-  const boxEl = el('club-box');
+  const boxEl = el('club-box-panel');   // die Club-Box; darunter steht „Dein Club fehlt?“
   const sucheEl = el('club-suche');
   const stadtEl = el('sel-stadt');
   const stufeEl = el('sel-stufe');
@@ -332,6 +410,7 @@
     if (!gewaehlt) {
       document.body.classList.remove('club-offen');
       boxEl.innerHTML = handy() ? '' : `<div class="detail-panel"><div class="detail-empty">${esc(t('box_leer'))}</div></div>`;
+      passeSpalte();
       return;
     }
     const panel = document.createElement('div');
@@ -343,7 +422,24 @@
     boxEl.innerHTML = '';
     boxEl.appendChild(panel);
     document.body.classList.toggle('club-offen', handy());
+    passeSpalte();
   }
+
+  // Die rechte Spalte klebt (sticky), beginnt ganz oben auf der Seite aber
+  // erst unter Kopf und Filtern. Damit „Dein Club fehlt?“ unter einer
+  // langen Club-Box trotzdem im Bild bleibt, reicht ihre Höhe vom eigenen
+  // oberen Rand bis 16 px vor den Fensterrand; die Box scrollt in sich.
+  const spalteEl = el('club-box');
+  let spalteFrame = 0;
+  function passeSpalte() {
+    spalteFrame = 0;
+    if (handy()) { spalteEl.style.maxHeight = ''; return; }
+    const oben = Math.max(16, spalteEl.getBoundingClientRect().top);
+    spalteEl.style.maxHeight = Math.max(240, window.innerHeight - oben - 16) + 'px';
+  }
+  const spalteSpaeter = () => { if (!spalteFrame) spalteFrame = requestAnimationFrame(passeSpalte); };
+  window.addEventListener('scroll', spalteSpaeter, { passive: true });
+  window.addEventListener('resize', spalteSpaeter);
 
   function render(nurListe) {
     const jetzt = new Date();
@@ -374,8 +470,149 @@
     schreibeAdresse();
   }
 
+  // ---------- „Wir haben deinen Club nicht?“ ----------
+  //
+  // Derselbe Weg wie „Wir haben dein Event nicht?“ in events.html: gefragt
+  // wird nach einem Link (Webseite, Instagram, Strava), dem Namen und – neu
+  // gegenüber den Events – der Stadt, denn ein Instagram-Konto nennt sie
+  // selten. Treffpunkt, Termine und Tempo holen wir uns vom Link; nichts
+  // wird automatisch übernommen. Gespeichert wird über suggestEvent() in
+  // eventSuggestions, mit „Club: “ vor dem Namen und „Stadt: …“ vorn im
+  // Hinweis – die Grenzen der Regel (Name 200, Hinweis 600 Zeichen) halten
+  // die maxlength-Werte unten ein.
+  const SUGGEST_URL_MAX = 500;
+  const SUGGEST_NAME_MAX = 190;      // + „Club: “ = höchstens 196
+  const SUGGEST_STADT_MAX = 80;
+  const SUGGEST_HINWEIS_MAX = 500;   // + „Stadt: …\n“ = höchstens 588
+  const suggestOverlay = el('suggest-overlay');
+  const suggestBodyEl = el('suggest-body');
+  let suggestFesselGesetzt = false;
+  let suggestFokusVorher = null;
+
+  el('suggest-close').addEventListener('click', closeSuggestModal);
+  suggestOverlay.addEventListener('click', (evt) => { if (evt.target === suggestOverlay) closeSuggestModal(); });
+  document.querySelectorAll('[data-fehlt-btn]').forEach((b) => b.addEventListener('click', openSuggestModal));
+
+  function closeSuggestModal() {
+    suggestOverlay.hidden = true;
+    suggestBodyEl.innerHTML = '';
+    if (suggestFokusVorher && suggestFokusVorher.isConnected) {
+      try { suggestFokusVorher.focus(); } catch (e) { /* ignorieren */ }
+    }
+    suggestFokusVorher = null;
+  }
+
+  // „run-club.de“ ohne Schema bekommt https:// davor, „@lauftreff“ wird
+  // zum Instagram-Link; ohne Punkt im Hostnamen ist es keine Adresse.
+  function normalisiereUrl(eingabe) {
+    let text = String(eingabe || '').trim();
+    if (!text) return null;
+    const handle = /^@([A-Za-z0-9._]{1,30})$/.exec(text);
+    if (handle) return `https://www.instagram.com/${handle[1]}/`;
+    if (!/^https?:\/\//i.test(text)) {
+      if (/^[a-z]+:\/\//i.test(text)) return null;
+      text = 'https://' + text;
+    }
+    let u;
+    try { u = new URL(text); } catch (e) { return null; }
+    if (!u.hostname.includes('.')) return null;
+    return u.href.slice(0, SUGGEST_URL_MAX);
+  }
+
+  function fehlerText(err) {
+    const code = (err && (err.code || err.message)) || '';
+    if (code === 'not-configured') return t('fehlt_err_config');
+    if (code === 'auth/operation-not-allowed' || code === 'auth/admin-restricted-operation') return t('fehlt_err_anon');
+    return t('fehlt_err_save');
+  }
+
+  function openSuggestModal() {
+    const A = window.EndauranceAuth;
+    if (!A || !A.suggestEvent) return;
+    if (A.prepareFirestore) A.prepareFirestore();
+    // Escape + Fokusfessel aus auth.js, erst beim ersten Öffnen: auth.js
+    // trägt `defer` und existiert beim Inline-Skript noch nicht.
+    if (!suggestFesselGesetzt && A.dialogTasten) {
+      A.dialogTasten(suggestOverlay, closeSuggestModal);
+      suggestFesselGesetzt = true;
+    }
+    suggestFokusVorher = document.activeElement;
+    suggestBodyEl.innerHTML = `
+      <h2 id="suggest-heading">${esc(t('fehlt_titel'))}</h2>
+      <p class="report-intro">${esc(t('fehlt_intro'))}</p>
+      <div id="suggest-msg"></div>
+      <form id="suggest-form" novalidate>
+        <div class="ee-field">
+          <label for="suggest-url">${esc(t('fehlt_url_label'))}</label>
+          <input type="url" id="suggest-url" inputmode="url" autocomplete="off"
+                 maxlength="${SUGGEST_URL_MAX}" placeholder="${esc(t('fehlt_url_placeholder'))}">
+        </div>
+        <div class="ee-field">
+          <label for="suggest-name">${esc(t('fehlt_name_label'))}</label>
+          <input type="text" id="suggest-name" autocomplete="off"
+                 maxlength="${SUGGEST_NAME_MAX}" placeholder="${esc(t('fehlt_name_placeholder'))}">
+        </div>
+        <div class="ee-field">
+          <label for="suggest-stadt">${esc(t('fehlt_stadt_label'))}</label>
+          <input type="text" id="suggest-stadt" autocomplete="address-level2"
+                 maxlength="${SUGGEST_STADT_MAX}" placeholder="${esc(t('fehlt_stadt_placeholder'))}">
+        </div>
+        <div class="ee-field">
+          <label for="suggest-hinweis">${esc(t('fehlt_hinweis_label'))}</label>
+          <textarea id="suggest-hinweis" maxlength="${SUGGEST_HINWEIS_MAX}"
+                    placeholder="${esc(t('fehlt_hinweis_placeholder'))}"></textarea>
+          <div class="report-counter" id="suggest-counter">0 / ${SUGGEST_HINWEIS_MAX}</div>
+        </div>
+        <button type="submit" class="ee-submit-btn" id="suggest-submit">${esc(t('fehlt_send'))}</button>
+      </form>
+    `;
+    suggestOverlay.hidden = false;
+    const q = (s) => suggestBodyEl.querySelector(s);
+    const form = q('#suggest-form'), urlEl = q('#suggest-url'), nameEl = q('#suggest-name');
+    const stadtEl = q('#suggest-stadt'), hinweisEl = q('#suggest-hinweis');
+    const counterEl = q('#suggest-counter'), msgEl = q('#suggest-msg'), submitEl = q('#suggest-submit');
+    hinweisEl.addEventListener('input', () => {
+      counterEl.textContent = `${hinweisEl.value.length} / ${SUGGEST_HINWEIS_MAX}`;
+    });
+    urlEl.focus({ preventScroll: true });
+    const setMsg = (text, kind) => {
+      msgEl.innerHTML = text ? `<div class="ee-form-msg ${kind}">${esc(text)}</div>` : '';
+    };
+    form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      const url = normalisiereUrl(urlEl.value);
+      const name = nameEl.value.trim();
+      const stadt = stadtEl.value.trim();
+      const hinweis = hinweisEl.value.trim();
+      if (!url) { setMsg(t('fehlt_err_url'), 'error'); urlEl.focus(); return; }
+      if (name.length < 2) { setMsg(t('fehlt_err_name'), 'error'); nameEl.focus(); return; }
+      if (stadt.length < 2) { setMsg(t('fehlt_err_stadt'), 'error'); stadtEl.focus(); return; }
+      setMsg(null);
+      submitEl.disabled = true;
+      submitEl.textContent = t('fehlt_sending');
+      window.EndauranceAuth.suggestEvent({
+        url,
+        name: 'Club: ' + name,
+        hinweis: 'Stadt: ' + stadt + (hinweis ? '\n' + hinweis : '')
+      }).then(() => {
+        if (window.EnduranceStats) window.EnduranceStats.event('fehlt');
+        setMsg(t('fehlt_thanks'), 'success');
+        form.querySelectorAll('.ee-field').forEach((x) => x.remove());
+        submitEl.remove();
+        // Mit den Feldern geht der Fokus verloren – zurück in den Dialog,
+        // sonst erreicht Escape die Fokusfessel nicht mehr.
+        suggestOverlay.querySelector('.ee-modal').focus({ preventScroll: true });
+        window.setTimeout(() => { if (!suggestOverlay.hidden) closeSuggestModal(); }, 2500);
+      }).catch((err) => {
+        submitEl.disabled = false;
+        submitEl.textContent = t('fehlt_send');
+        setMsg(fehlerText(err), 'error');
+      });
+    });
+  }
+
   document.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Escape' && gewaehlt && handy()) { gewaehlt = null; render(true); }
+    if (ev.key === 'Escape' && gewaehlt && handy() && suggestOverlay.hidden) { gewaehlt = null; render(true); }
   });
   // Ein Tippen auf den Schleier (body::after) schließt das Blatt.
   document.addEventListener('click', (ev) => {
@@ -397,7 +634,12 @@
     el('karte-btn-text').textContent = t('karte');
     el('reset-btn').textContent = t('reset');
     el('club-hinweis').textContent = t('hinweis');
-    el('club-vorschlag').innerHTML = `${esc(t('vorschlag'))} <a href="mailto:info@endurance-events.de?subject=Club">info@endurance-events.de</a>`;
+    document.querySelectorAll('[data-club-fehlt]').forEach((b) => {
+      b.querySelector('[data-fehlt-titel]').textContent = t('fehlt_box_titel');
+      b.querySelector('[data-fehlt-text]').textContent = t('fehlt_box_text');
+      b.querySelector('[data-fehlt-btn]').textContent = t('fehlt_open');
+    });
+    el('suggest-close').setAttribute('aria-label', t('schliessen'));
     el('footer-impressum').textContent = t('footer_imprint');
     el('footer-datenschutz').textContent = t('footer_privacy');
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));

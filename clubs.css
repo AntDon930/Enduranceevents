@@ -178,10 +178,20 @@
   color: var(--text-muted);
   text-align: center;
 }
-.club-seite-box { position: sticky; top: 16px; }
-.club-seite-box .detail-panel { max-height: calc(100vh - 32px); overflow-y: auto; }
-.club-vorschlag { margin-top: 22px; font-size: 0.88rem; color: var(--text-muted); }
-.club-vorschlag a { color: var(--link); }
+/* Rechte Spalte: oben die Club-Box, darunter „Dein Club fehlt?“ (wie
+   die Melde-Box der Liste, 16.11.2026). Die Spalte ist fensterhoch; wird
+   die Box lang, scrollt nur sie, der Kasten darunter bleibt im Bild. */
+.club-seite-box {
+  position: sticky; top: 16px;
+  display: flex; flex-direction: column; gap: 10px;
+  max-height: calc(100vh - 32px);
+}
+.club-box-panel { display: contents; }
+.club-seite-box .detail-panel { flex: 0 1 auto; min-height: 0; overflow-y: auto; }
+.club-seite-box .fehlt-box { flex: none; flex-wrap: wrap; }
+.club-seite-box .fehlt-box-btn { margin-left: 42px; }
+/* Auf dem Handy steht der Kasten unter der Liste (dort ist die Box ein Blatt). */
+.club-fehlt-unten { display: none; }
 
 @media (max-width: 1100px) {
   .club-main { grid-template-columns: minmax(0, 1fr) 340px; }
@@ -210,6 +220,8 @@
     box-shadow: var(--shadow);
   }
   body.club-offen .club-seite-box { display: block; }
+  .club-seite-box .fehlt-box { display: none; }
+  .club-fehlt-unten { display: flex; margin-top: 22px; }
   body.club-offen { overflow: hidden; }
   body.club-offen::after { content: ""; position: fixed; inset: 0; z-index: 1400; background: rgba(11, 27, 51, 0.55); }
   .club-seite-box .detail-panel {

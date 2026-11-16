@@ -285,9 +285,9 @@ def plan(heute: dt.date, tage_anzahl: int = 60) -> dict:
             termine.append({
                 "datum": iso, "zeit": "", "art": "du", "wer": "du",
                 "titel": zweisprachig("Firebase-Konsole: Meldungen ansehen", "Firebase console: check reports"),
-                "text": zweisprachig("Neue Fehlermeldungen (errorReports) und Event-Vorschläge (eventSuggestions) – "
+                "text": zweisprachig("Neue Fehlermeldungen (errorReports) und Event- und Club-Vorschläge (eventSuggestions, Clubs mit „Club: “ vorn) – "
                                      "was neu ist, im Chat melden.",
-                                     "New error reports (errorReports) and event suggestions (eventSuggestions) – "
+                                     "New error reports (errorReports) and event and club suggestions (eventSuggestions, clubs start with “Club: ”) – "
                                      "report anything new in the chat."),
             })
         # Monatsanfang
