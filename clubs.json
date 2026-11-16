@@ -16972,12 +16972,15 @@
   "beschreibung_en": "Free Wednesday-evening community run from the running store in pace groups of 30 or 60 minutes (meet from 18:30), drinks afterwards.",
   "quelle": [
    "https://www.absolute-run-duesseldorf.de/absolute-run-store/community-run/",
-   "https://socialrunclubs.de/duesseldorf/absolute-run/"
+   "https://socialrunclubs.de/duesseldorf/absolute-run/",
+   "https://www.strava.com/clubs/1323342",
+   "Strava-Club-Termine, abgerufen am 16.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-11-16",
   "sprachen": [
    "de"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-16"
  },
  {
   "id": "duesseldorf-absolute-run-sonntag",
@@ -30495,47 +30498,6 @@
   "pruefung_grund": "Anmeldung über die RCC-App für Mitglieder; Gäste laut Strava nur bei offenen Plätzen über events.rapha.cc – Gästeregel und Kosten bestätigen.",
   "geprueft": "2026-11-10",
   "zuletzt_aktiv": "2026-11-10"
- },
- {
-  "id": "duesseldorf-absolute-run-crew",
-  "name": "Absolute RUN Crew Düsseldorf",
-  "art": "Laufen",
-  "stadt": "Düsseldorf",
-  "land": "Deutschland",
-  "treffpunkt": "Roßstraße 69 (Derendorf)",
-  "lat": 51.24615,
-  "lon": 6.77919,
-  "termine": [
-   {
-    "rhythmus": "woechentlich",
-    "wochentag": 3,
-    "uhrzeit": "19:00",
-    "bezeichnung": "Community Run, 60 min in Pace-Gruppen von 5:30 bis 7:00 min/km, ohne Anmeldung"
-   }
-  ],
-  "dauer_min": 60,
-  "pace": {
-   "von": "5:30",
-   "bis": "7:00"
-  },
-  "merkmale": [
-   "mehrere_gruppen"
-  ],
-  "anmeldung": "nein",
-  "kosten": {
-   "gratis": true,
-   "betrag_eur": null,
-   "text": null
-  },
-  "strava": "https://www.strava.com/clubs/1323342",
-  "beschreibung_de": "Kostenloser, offener Community Run jeden Mittwoch: 60 Minuten in Pace-Gruppen von 5:30 bis 7:00 min/km, Taschenablage und Getränke danach. Dazu ab und zu ein Sunday Community Run an der Jugendherberge.",
-  "beschreibung_en": "Free, open community run every Wednesday: 60 minutes in pace groups from 5:30 to 7:00 min/km, with bag drop and drinks afterwards. Plus an occasional Sunday community run at the youth hostel.",
-  "quelle": [
-   "https://www.strava.com/clubs/1323342",
-   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
-  ],
-  "geprueft": "2026-11-12",
-  "zuletzt_aktiv": "2026-11-12"
  },
  {
   "id": "duesseldorf-then-and-there-running-club",
