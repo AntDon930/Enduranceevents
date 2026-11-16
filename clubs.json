@@ -320,12 +320,6 @@
     "rhythmus": "woechentlich",
     "wochentag": 3,
     "uhrzeit": "19:30"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-11",
-    "uhrzeit": "18:00",
-    "bezeichnung": "After Hours Ride: ca. 45 km um den Deich, um 28 km/h, ab Sperrwerk Billwerder (Kaltehofe-Hauptdeich)"
    }
   ],
   "dauer_min": 120,
@@ -6786,12 +6780,6 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-12",
-    "uhrzeit": "18:00",
-    "bezeichnung": "Community Run – Sportzentrum Nord"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-11-18",
     "uhrzeit": "18:00",
     "bezeichnung": "Community Run – Park Hellbrunn, Haupteingang Fürstenweg 33"
@@ -9696,12 +9684,6 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-14",
-    "uhrzeit": "10:00",
-    "bezeichnung": "Gravel-Ausfahrt, Abfahrt 10:15"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-11-28",
     "uhrzeit": "10:00",
     "bezeichnung": "Gravel-Ausfahrt, Abfahrt 10:15"
@@ -11779,12 +11761,6 @@
     "wochentag": 4,
     "uhrzeit": "18:15",
     "bezeichnung": "Winter Community Run, 7 km (5:30–6:00 min/km), mit Abkürzung 5 km"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-15",
-    "uhrzeit": "10:00",
-    "bezeichnung": "RUN AND RAVE mit der CMD Society: Spendenlauf, 4 km ohne Pace-Vorgabe mit DJ-Set"
    }
   ],
   "distanz_km": [
@@ -19188,12 +19164,6 @@
     "bezeichnung": "Sunday Social Run, Brienner Straße 50a"
    },
    {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-14",
-    "uhrzeit": "09:02",
-    "bezeichnung": "Saturday Trail in Lenggries: 22 km, 1.210 Hm; Zug 9:02 ab München Hbf Gleis 33 oder 10:11 am Bahnhof Lenggries"
-   },
-   {
     "rhythmus": "woechentlich",
     "wochentag": 4,
     "uhrzeit": "18:30",
@@ -19981,12 +19951,6 @@
      "von": "6:30",
      "bis": "7:00"
     }
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-14",
-    "uhrzeit": "10:15",
-    "bezeichnung": "Community Run BSAG Special: 24 km entlang der Straßenbahnlinie 1 (6:30 min/km), Treffen 10:05 Bahnhof Mahndorf"
    }
   ],
   "distanz_km": [
@@ -29058,12 +29022,6 @@
    },
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-09",
-    "uhrzeit": "17:30",
-    "bezeichnung": "Tornesch: Gravel-Abendrunde im Dunkeln ab Hamburger Straße 8, Tornesch (Licht Pflicht, Gruppe wartet bei Pannen)"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-11-16",
     "uhrzeit": "17:30",
     "bezeichnung": "Tornesch: Gravel-Abendrunde im Dunkeln ab Hamburger Straße 8, Tornesch (Licht Pflicht, Gruppe wartet bei Pannen)"
@@ -29636,55 +29594,6 @@
   "pruefung_grund": "Im Herbst heißt der Termin 'Windkanten-Mittwoch ab 17:00' – prüfen, ob die 18:30-Ausfahrt im Winter läuft; Webseite nur http."
  },
  {
-  "id": "zollikofen-road-bike-bern-social-ride",
-  "name": "Road Bike Bern – Social Ride",
-  "art": "Fahrrad",
-  "rad_typ": "Rennrad",
-  "stadt": "Zollikofen",
-  "land": "Schweiz",
-  "treffpunkt": "Bantigerstrasse 45, Zollikofen",
-  "lat": 46.98683,
-  "lon": 7.45814,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-15",
-    "uhrzeit": "10:00",
-    "bezeichnung": "Warm-Up"
-   }
-  ],
-  "pace": {
-   "von": 19,
-   "bis": 21
-  },
-  "kosten": {
-   "gratis": true,
-   "betrag_eur": null,
-   "text": null
-  },
-  "anmeldung": "pflicht",
-  "anmeldung_ueber": "Meetup",
-  "webseite": "https://www.meetup.com/road-bike-bern-social-ride/",
-  "merkmale": [
-   "no_drop",
-   "kaffee",
-   "anfaengerfreundlich"
-  ],
-  "sprachen": [
-   "de",
-   "en"
-  ],
-  "beschreibung_de": "Kleine Meetup-Gruppe für gemütliche No-Drop-Rennradrunden rund um Bern, Start in Zollikofen.",
-  "beschreibung_en": "Small Meetup group for relaxed no-drop road rides around Bern, starting in Zollikofen.",
-  "quelle": [
-   "https://www.meetup.com/road-bike-bern-social-ride/"
-  ],
-  "geprueft": "2026-10-26",
-  "zuletzt_aktiv": "2026-10-25",
-  "pruefung_offen": true,
-  "pruefung_grund": "Sehr kleine Gruppe (7 Mitglieder, 1–2 Teilnehmende), unregelmäßige Termine; Treffpunkt ist womöglich eine Privatadresse."
- },
- {
   "id": "duesseldorf-running-duesseldorf-zoopark",
   "name": "Running Düsseldorf – Weekly Afterwork Run",
   "art": "Laufen",
@@ -30188,12 +30097,6 @@
     "wochentag": 6,
     "uhrzeit": "10:00",
     "bezeichnung": "Weekly Social Run: drei Gruppen 4 km (~7:00), 6 km (~6:00), 8 km (~5:30), danach Kaffee"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-14",
-    "uhrzeit": "10:00",
-    "bezeichnung": "Long Run ab the vibe gym., Röhrer Weg 2 (statt des Weekly Social Runs), Gruppen vor Ort"
    }
   ],
   "distanz_km": [
@@ -30294,12 +30197,6 @@
     "wochentag": 4,
     "uhrzeit": "18:00",
     "bezeichnung": "Social Run, 6 km (6:30–7:00 min/km), Stirnlampe mitbringen"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-11",
-    "uhrzeit": "17:30",
-    "bezeichnung": "After Work Social Run, ca. 5,5 km (6:30–7:00 min/km), Treffpunkt Professor-Huber-Platz am Englischen Garten"
    }
   ],
   "distanz_km": [
@@ -30325,74 +30222,6 @@
   "zuletzt_aktiv": "2026-11-10"
  },
  {
-  "id": "bielefeld-cycling-bats",
-  "name": "Cycling Bats",
-  "art": "Fahrrad",
-  "rad_typ": "Gravel",
-  "stadt": "Bielefeld",
-  "land": "Deutschland",
-  "treffpunkt": "Siegfriedplatz („Siggi“), 33615 Bielefeld",
-  "lat": 52.02813,
-  "lon": 8.5225,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-09",
-    "uhrzeit": "18:45",
-    "bezeichnung": "CB x active: gemeinsamer Lauf in mehreren Pacegruppen (5:30–7:00 min/km) ab Niederwall 6, Licht mitbringen"
-   }
-  ],
-  "distanz_km": [
-   44.6,
-   44.6
-  ],
-  "merkmale": [
-   "no_drop"
-  ],
-  "instagram": "https://www.instagram.com/cycling_bats/",
-  "strava": "https://www.strava.com/clubs/1098712",
-  "beschreibung_de": "Radgruppe aus Bielefeld mit angekündigten Ausfahrten, als Nächstes ein Gravel Ride über 44,6 km ab dem Siegfriedplatz, gemeinsam und ohne Zurücklassen.",
-  "beschreibung_en": "Cycling group from Bielefeld with announced rides; next up a 44.6 km no-drop gravel ride from Siegfriedplatz.",
-  "quelle": [
-   "https://www.strava.com/clubs/1098712",
-   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers"
-  ],
-  "geprueft": "2026-11-09",
-  "zuletzt_aktiv": "2026-11-09",
-  "pruefung_offen": true,
-  "pruefung_grund": "Bisher nur Einzeltermine auf Strava; prüfen, ob es einen festen Rhythmus gibt (Instagram)."
- },
- {
-  "id": "braunschweig-gravel-braunschweig",
-  "name": "Gravel Braunschweig",
-  "art": "Fahrrad",
-  "rad_typ": "Gravel",
-  "stadt": "Braunschweig",
-  "land": "Deutschland",
-  "treffpunkt": "Marienstraße 34",
-  "lat": 52.26478,
-  "lon": 10.5495,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-11",
-    "uhrzeit": "18:00",
-    "bezeichnung": "Petit Gravier: Feierabendrunde Richtung Nordost, No Drop, Helm und Licht Pflicht"
-   }
-  ],
-  "strava": "https://www.strava.com/clubs/gravel-braunschweig",
-  "beschreibung_de": "Gravel-Gemeinschaft aus Braunschweig mit angekündigten Ausfahrten, etwa der Feierabendrunde „Graviér Petit“ ab der Marienstraße.",
-  "beschreibung_en": "Gravel community from Braunschweig with announced rides, such as the after-work loop “Graviér Petit” from Marienstraße.",
-  "quelle": [
-   "https://www.strava.com/clubs/1049586",
-   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers"
-  ],
-  "geprueft": "2026-11-09",
-  "zuletzt_aktiv": "2026-11-09",
-  "pruefung_offen": true,
-  "pruefung_grund": "Bisher nur Einzeltermine auf Strava (28.10., 02.11., 11.11.); prüfen, ob „Petit Gravier“ einen festen Rhythmus hat."
- },
- {
   "id": "berlin-trek-gravel-einsteigerrunde",
   "name": "Trek Bicycle Berlin",
   "art": "Fahrrad",
@@ -30405,9 +30234,9 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-14",
+    "datum": "2026-11-21",
     "uhrzeit": "11:00",
-    "bezeichnung": "Gravel Grind & Mind ab Trek Store Charlottenburg, Heerstraße 37a: 50 km durch den Grunewald (83 % Schotter), 20–24 km/h, Treffen 10:45"
+    "bezeichnung": "Gravel Grind & Mind #3, Start Heerstraße 37A (Westend)"
    }
   ],
   "distanz_km": [
@@ -30431,10 +30260,11 @@
   "beschreibung_en": "Trek Store Adlershof hosts gravel rides; next up a beginner-friendly no-drop loop of about 40 km at a moderate pace, with coffee at the store afterwards.",
   "quelle": [
    "https://www.strava.com/clubs/1030482",
-   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers",
+   "Strava-Club-Termine, abgerufen am 16.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-11-09",
-  "zuletzt_aktiv": "2026-11-09",
+  "geprueft": "2026-11-16",
+  "zuletzt_aktiv": "2026-11-16",
   "pruefung_offen": true,
   "pruefung_grund": "Bisher nur Einzeltermine auf Strava (07.11. Adlershof, 14.11. Charlottenburg); prüfen, ob es regelmäßige Ausfahrten gibt."
  },
@@ -30598,9 +30428,9 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-14",
-    "uhrzeit": "10:30",
-    "bezeichnung": "Social Gravel Ride, Abfahrt 11:00, 21–22 km/h"
+    "datum": "2026-11-20",
+    "uhrzeit": "06:25",
+    "bezeichnung": "sweet EARLY BIRD ride vor der Arbeit"
    }
   ],
   "pace": {
@@ -30615,10 +30445,11 @@
   "beschreibung_en": "Gravel ride by sweet spot studio through the woods and fields around Braunschweig at conversational pace; nobody gets dropped. Helmet required.",
   "quelle": [
    "https://www.strava.com/clubs/1319911",
-   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers",
+   "Strava-Club-Termine, abgerufen am 16.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-11-10",
-  "zuletzt_aktiv": "2026-11-10"
+  "geprueft": "2026-11-16",
+  "zuletzt_aktiv": "2026-11-16"
  },
  {
   "id": "berlin-rapha-clubhouse-rides",
@@ -30680,12 +30511,6 @@
     "wochentag": 3,
     "uhrzeit": "19:00",
     "bezeichnung": "Community Run, 60 min in Pace-Gruppen von 5:30 bis 7:00 min/km, ohne Anmeldung"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-15",
-    "uhrzeit": "09:30",
-    "bezeichnung": "Sunday Community Run an der Jugendherberge (Oberkassel)"
    }
   ],
   "dauer_min": 60,

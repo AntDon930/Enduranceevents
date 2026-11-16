@@ -1654,6 +1654,18 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
+  "schluessel": "club:bielefeld-cycling-bats",
+  "name": "Cycling Bats",
+  "stadt": "Bielefeld",
+  "art": "Fahrrad",
+  "letzter_beleg": "2026-11-09",
+  "geprueft": "2026-11-16",
+  "grund": "War Club mit Einzelterminen; am 16.11.2026 auf Strava kein weiterer offener Treff (höchstens Rennen oder Reisen). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 16.11.2026",
+  "strava": "https://www.strava.com/clubs/1098712",
+  "instagram": "https://www.instagram.com/cycling_bats/"
+ },
+ {
   "schluessel": "ig:europeancyclingindustries",
   "name": "europeancyclingindustries · Brussels · Instagram photos and videos",
   "stadt": "Bocholt",
@@ -2013,6 +2025,17 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:braunschweig-gravel-braunschweig",
+  "name": "Gravel Braunschweig",
+  "stadt": "Braunschweig",
+  "art": "Fahrrad",
+  "letzter_beleg": "2026-11-11",
+  "geprueft": "2026-11-16",
+  "grund": "War Club mit Einzelterminen; am 16.11.2026 auf Strava kein weiterer offener Treff (höchstens Rennen oder Reisen). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 16.11.2026",
+  "strava": "https://www.strava.com/clubs/gravel-braunschweig"
  },
  {
   "schluessel": "ig:ballernballern",
@@ -5075,6 +5098,17 @@
   "grund": "War Club mit Einzelterminen; alle sind vorbei, ein neuer Termin war am 09.11.2026 nicht nachprüfbar (Strava-Zugang nicht autorisiert, Instagram-Daten noch nicht da). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
   "hinweis": "aus clubs.json übernommen am 09.11.2026",
   "webseite": "https://www.grouprides.cc/rides/casual-miles-by-casual-cadence-2026-10-24-fycp1lrtbh"
+ },
+ {
+  "schluessel": "club:zollikofen-road-bike-bern-social-ride",
+  "name": "Road Bike Bern – Social Ride",
+  "stadt": "Zollikofen",
+  "art": "Fahrrad",
+  "letzter_beleg": "2026-11-15",
+  "geprueft": "2026-11-16",
+  "grund": "War Club mit Einzelterminen; am 16.11.2026 auf Strava kein weiterer offener Treff (höchstens Rennen oder Reisen). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 16.11.2026",
+  "webseite": "https://www.meetup.com/road-bike-bern-social-ride/"
  },
  {
   "schluessel": "ig:runclubzug",
