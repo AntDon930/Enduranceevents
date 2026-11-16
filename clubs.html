@@ -61,7 +61,7 @@
 <link rel="stylesheet" href="site.css?v=2e857586">
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=acdd5b94">
-<link rel="stylesheet" href="clubs.css?v=c2ab524f">
+<link rel="stylesheet" href="clubs.css?v=2f3757b0">
 </head>
 <body>
 
@@ -424,8 +424,8 @@
     if (!gewaehlt) {
       document.body.classList.remove('club-offen');
       boxEl.innerHTML = handy() ? '' : `<div class="detail-panel club-box-leer"><div class="detail-empty">${esc(t('box_leer'))}</div></div>`;
-      passeSpalte();
       richteAus();
+      passeSpalte(true);
       return;
     }
     const panel = document.createElement('div');
@@ -437,25 +437,39 @@
     boxEl.innerHTML = '';
     boxEl.appendChild(panel);
     document.body.classList.toggle('club-offen', handy());
-    passeSpalte();
     richteAus();
+    passeSpalte(true);
   }
 
-  // Die rechte Spalte klebt (sticky), beginnt ganz oben auf der Seite aber
-  // erst unter Kopf und Filtern. Damit „Dein Club fehlt?“ unter einer
-  // langen Club-Box trotzdem im Bild bleibt, reicht ihre Höhe vom eigenen
-  // oberen Rand bis 16 px vor den Fensterrand; die Box scrollt in sich.
+  // Die rechte Spalte klebt (sticky) und zeigt die Club-Box immer ganz,
+  // ohne eigenen Scrollbalken (vom Nutzer am 16.11.2026: „Die sollte immer
+  // voll gezeigt werden“ – vorher war die Spalte fensterhoch, oben auf der
+  // Seite blieb der Box nur der Rest unter Kopf und Filtern, und Datum und
+  // Name lagen weggescrollt im Kasten). Passt die Spalte ins Fenster, klebt
+  // sie 16 px unter dem oberen Rand. Ist sie höher, wandert sie mit der
+  // Seite: beim Herunterscrollen, bis ihre Unterkante („Dein Club fehlt?“)
+  // im Bild ist, beim Hochscrollen, bis ihre Oberkante wieder da ist –
+  // `top` liegt dafür zwischen Fensterhöhe − Spaltenhöhe − 16 und 16 px.
+  // Ein neu gezeichneter Club beginnt oben (passeSpalte(true)).
   const spalteEl = el('club-box');
-  let spalteFrame = 0;
-  function passeSpalte() {
+  let spalteTop = 16, letztesY = window.scrollY, spalteFrame = 0;
+  function passeSpalte(vonOben) {
     spalteFrame = 0;
-    if (handy()) { spalteEl.style.maxHeight = ''; return; }
-    const oben = Math.max(16, spalteEl.getBoundingClientRect().top);
-    spalteEl.style.maxHeight = Math.max(240, window.innerHeight - oben - 16) + 'px';
+    const y = window.scrollY;
+    const delta = y - letztesY;
+    letztesY = y;
+    if (handy()) { spalteEl.style.top = ''; return; }
+    const unten = Math.min(16, window.innerHeight - spalteEl.offsetHeight - 16);
+    spalteTop = vonOben === true ? 16 : spalteTop - delta;
+    spalteTop = Math.max(unten, Math.min(16, spalteTop));
+    spalteEl.style.top = spalteTop + 'px';
   }
   const spalteSpaeter = () => { if (!spalteFrame) spalteFrame = requestAnimationFrame(passeSpalte); };
   window.addEventListener('scroll', spalteSpaeter, { passive: true });
   window.addEventListener('resize', spalteSpaeter);
+  // Die Box wird nach dem Laden der Schrift oder beim Umordnen der Fakten
+  // höher oder niedriger – dann die Grenzen neu rechnen.
+  if (window.ResizeObserver) new ResizeObserver(spalteSpaeter).observe(spalteEl);
 
   // Die rechte Spalte folgt den Reihen der Kartenliste (vom Nutzer am
   // 16.11.2026: „Die Box ‚Wähle einen Club…‘ muss mit der Box der Clubs
@@ -466,8 +480,8 @@
   // derselbe wie zwischen den Reihen (14 px, clubs.css). Eine gewählte
   // Club-Box behält ihre Höhe: Bis zur nächsten Reihenkante gestreckt,
   // hätte sie unten eine leere Fläche, und der Kasten rutschte aus dem
-  // Bild. Nur am Rechner und nur, wenn beides in die klebende Spalte
-  // passt (Fensterhöhe − 32 px, passeSpalte).
+  // Bild. Nur am Rechner und nur, wenn beides ins Fenster passt
+  // (Fensterhöhe − 32 px, dann klebt die Spalte ganz, passeSpalte).
   const fehltSeiteEl = spalteEl.querySelector('.club-fehlt-seite');
   let ausrichtFrame = 0;
   function richteAus() {
@@ -507,7 +521,7 @@
   // Handy ohne Auswahl keine. Ein gewählter Club öffnet beim Drehen aufs
   // Handy aber kein Blatt – das tut nur ein Tippen.
   const handyMq = window.matchMedia('(max-width: 900px)');
-  const breiteGewechselt = () => { if (!handy() || !gewaehlt) zeichneBox(); };
+  const breiteGewechselt = () => { if (!handy() || !gewaehlt) zeichneBox(); else passeSpalte(); };
   if (handyMq.addEventListener) handyMq.addEventListener('change', breiteGewechselt);
   else if (handyMq.addListener) handyMq.addListener(breiteGewechselt);
   // Die Höhen der Karten stehen erst fest, wenn Barlow geladen ist – und

@@ -3551,6 +3551,9 @@ kein Deploy, und `review_reports.py suggestions` zeigt Events und Clubs
 zusammen. Am Rechner steht der Kasten genau neben der zweiten Kartenreihe
 und ist so hoch wie sie, die leere Club-Box darüber neben der ersten
 (`richteAus()` in `clubs.html`; eine gewählte Club-Box behält ihre Höhe).
+Die Club-Box hat keinen eigenen Scrollbalken: Ist die Spalte höher als
+das Fenster, wandert sie mit der Seite, bis ihre Unterkante bzw. beim
+Hochscrollen ihre Oberkante im Bild ist (`passeSpalte()`).
 
 **Übernommen wird nichts automatisch.** Ein Hinweis von außen ist eine
 Adresse, kein Datensatz: erst robots.txt und Nutzungsbedingungen der

@@ -1703,22 +1703,40 @@ def pruefe_club_fehlt(ctx, basis):
     seite.wait_for_timeout(200)
     pruefe(seite.evaluate("() => document.getElementById('suggest-overlay').hidden"), "Escape schließt den Dialog")
 
-    # Rechner: rechts unter der Club-Box, auch bei gewähltem Club im Bild.
+    # Rechner: rechts unter der Club-Box. Die Box steht dabei immer GANZ da,
+    # ohne eigenen Scrollbalken (vom Nutzer am 16.11.2026: „Die sollte immer
+    # voll gezeigt werden“); ist die Spalte höher als das Fenster, wandert
+    # sie mit der Seite – herunter bis der Kasten im Bild ist, hinauf bis
+    # Datum und Name wieder da sind (passeSpalte in clubs.html).
     seite.set_viewport_size({"width": 1280, "height": 760})
     seite.wait_for_timeout(200)
     seite.locator(".club-karte").first.click()
     seite.wait_for_selector(".club-seite-box .detail-panel h2", timeout=5000)
     seite.wait_for_timeout(200)
-    breit = seite.evaluate("""() => {
+    messen = """() => {
         const sicht = (el) => !!el && el.getBoundingClientRect().height > 0;
         const box = document.querySelector('.club-fehlt-seite'), panel = document.querySelector('.club-seite-box .detail-panel');
-        const r = box.getBoundingClientRect();
+        const r = box.getBoundingClientRect(), p = panel.getBoundingClientRect();
         return { seite: sicht(box), unten: sicht(document.querySelector('.club-fehlt-unten')),
-                 unterDerBox: r.top >= panel.getBoundingClientRect().bottom,
-                 imBild: r.bottom <= innerHeight + 1 };
-    }""")
-    pruefe(breit["seite"] and not breit["unten"] and breit["unterDerBox"] and breit["imBild"],
-           "Rechner: der Kasten steht rechts unter der Club-Box und im Bild (%s)" % breit)
+                 unterDerBox: r.top >= p.bottom, abgeschnitten: panel.scrollHeight - panel.clientHeight,
+                 panelOben: Math.round(p.top), kastenUnten: Math.round(r.bottom), hoehe: innerHeight };
+    }"""
+    breit = seite.evaluate(messen)
+    pruefe(breit["seite"] and not breit["unten"] and breit["unterDerBox"],
+           "Rechner: der Kasten steht rechts unter der Club-Box (%s)" % breit)
+    pruefe(breit["abgeschnitten"] <= 1, "Rechner: die Club-Box steht ganz da, ohne eigenen Scrollbalken (%s)" % breit)
+    seite.evaluate("() => window.scrollTo(0, 5000)")
+    seite.wait_for_timeout(250)
+    runter = seite.evaluate(messen)
+    pruefe(runter["kastenUnten"] <= runter["hoehe"] + 1,
+           "Rechner: heruntergescrollt ist der Kasten unter der Box im Bild (%s)" % runter)
+    seite.evaluate("() => window.scrollBy(0, -2000)")
+    seite.wait_for_timeout(250)
+    hoch = seite.evaluate(messen)
+    pruefe(0 <= hoch["panelOben"] <= 20,
+           "Rechner: hochgescrollt steht die Club-Box wieder ab ihrer Oberkante da (%s)" % hoch)
+    seite.evaluate("() => window.scrollTo(0, 0)")
+    seite.wait_for_timeout(200)
     seite.locator(".club-fehlt-seite [data-fehlt-btn]").click()
     seite.wait_for_timeout(300)
     pruefe(not seite.evaluate("() => document.getElementById('suggest-overlay').hidden"),

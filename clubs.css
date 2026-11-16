@@ -184,18 +184,19 @@
   text-align: center;
 }
 /* Rechte Spalte: oben die Club-Box, darunter „Dein Club fehlt?“ (wie
-   die Melde-Box der Liste, 16.11.2026). Die Spalte ist fensterhoch; wird
-   die Box lang, scrollt nur sie, der Kasten darunter bleibt im Bild. */
+   die Melde-Box der Liste, 16.11.2026). Die Club-Box steht immer GANZ da,
+   ohne eigenen Scrollbalken (vom Nutzer: „Die sollte immer voll gezeigt
+   werden“); ist die Spalte höher als das Fenster, wandert sie mit der
+   Seite – passeSpalte() in clubs.html setzt dafür `top`. */
 /* Die Abstände und Rundungen wie bei den Karten (14 px), damit die
    beiden Kästen neben den Kartenreihen stehen (richteAus() in
    clubs.html setzt die Höhen). */
 .club-seite-box {
   position: sticky; top: 16px;
   display: flex; flex-direction: column; gap: 14px;
-  max-height: calc(100vh - 32px);
 }
 .club-box-panel { display: contents; }
-.club-seite-box .detail-panel { flex: 0 1 auto; min-height: 0; overflow-y: auto; border-radius: 14px; }
+.club-seite-box .detail-panel { flex: none; border-radius: 14px; }
 .club-seite-box .club-box-leer { display: flex; align-items: center; justify-content: center; }
 /* Rechts steht der Kasten untereinander und mittig – er ist so hoch wie
    eine Kartenreihe, nebeneinander blieb für den Text nur ein schmaler
