@@ -2864,6 +2864,15 @@ bleibt (Bericht: „… doppelt im Gedächtnis“); am Bestand tragen 75 Einträ
 eine Länge doppelt. `test_gedaechtnis` hält es fest. **Lehre**: Eine
 Regel gegen Doppelte muss alle drei Fälle sehen – gegen die Datei, gegen
 andere Einträge derselben Übernahme und innerhalb des Eintrags.
+**Eine Walking- oder Kinderstrecke im Gedächtnis (16.11.2026)**: Der
+Montagslauf blieb zum dritten Mal hinter dem Gate – „Herbstwaldlauf Dresdner
+Heide“ 2027 kam mit „8,7 km Nordic Walking“ aus der Ausgabe 2026 (gelernt
+vor Datenregel 23). `add_manual_events()` legt sie nie an, also fehlte eine
+Zeile im Test. `uebernehmen()` wendet seitdem dieselben Ausschlüsse an
+(`ist_walking`, `ist_kinder`; Bericht „… nicht übernommen (Datenregeln
+23/24)“), die Zeile ist aus der Datei entfernt, `test_gedaechtnis` hält es
+fest. **Allgemein**: Was `add_manual_events()` überspringt, darf
+`uebernehmen()` gar nicht erst schreiben.
 
 **Einträge von Hand – die PDF-Liste des Nutzers (13.10.2026, „Ja, bitte
 die 45 ins Gedächtnis aufnehmen")**: Von den 72 „existiert, Termin

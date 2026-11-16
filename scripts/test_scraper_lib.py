@@ -4767,6 +4767,22 @@ def test_gedaechtnis() -> None:
         neu4 = [(e["laenge_km"], e.get("wettbewerb")) for e in roh["events"] if e["name"] == "Schönbuchlauf"]
         check("uebernehmen: doppelte Strecke im Gedächtnis nur einmal, mit Label",
               (neu4, "doppelt im Gedächtnis" in " ".join(b4)), ([(5.0, "5 km"), (25.0, "25 km Schönbuchlauf")], True))
+        # Walking-Strecke der Vorjahresausgabe (16.11.2026, Herbstwaldlauf
+        # Dresdner Heide „8,7 km Nordic Walking“): add_manual_events() legt sie
+        # nie an, also auch nicht übernehmen – sonst wird test_manuelle_events rot.
+        walk = dict(eintrag, name="Herbstwaldlauf", art1="Laufen", strecken=[
+            {"laenge_km": 8.7, "dauer_h": None, "wettbewerb": "8,7 km Nordic Walking", "art2": "Trail"},
+            {"laenge_km": 9.0, "dauer_h": None, "wettbewerb": "9,0 km Altersklassen", "art2": "Trail"}])
+        b5 = vs.uebernehmen([("k4", walk, "2027-11-07", "2027-11-07")], "2026-10-05", pfad)
+        roh = _json.loads(pfad.read_text(encoding="utf-8"))
+        neu5 = [e["laenge_km"] for e in roh["events"] if e["name"] == "Herbstwaldlauf"]
+        check("uebernehmen: Walking-Strecke aus dem Gedächtnis nicht übernommen",
+              (neu5, "Walking" in " ".join(b5)), ([9.0], True))
+        nur_walk = dict(walk, name="Heidewaldlauf", strecken=walk["strecken"][:1])
+        b6 = vs.uebernehmen([("k5", nur_walk, "2027-11-14", "2027-11-14")], "2026-10-05", pfad)
+        roh = _json.loads(pfad.read_text(encoding="utf-8"))
+        check("uebernehmen: nur Walking im Eintrag – keine Zeile",
+              ([e for e in roh["events"] if e["name"] == "Heidewaldlauf"], "Walking" in " ".join(b6)), ([], True))
         g = Path(tmp) / "ged.json"
         ged2.speichern(g)
         check("speichern/laden: gültiges JSON, Eintrag unverändert", vs.Gedaechtnis.laden(g).finde(alt[0]), eintrag)

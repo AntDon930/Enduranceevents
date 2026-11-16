@@ -148,7 +148,7 @@ REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "scripts"))
 from scraper_lib import (  # noqa: E402
     _haversine_km, _kern_tokens, find_override, is_portal_link, is_same_event,
-    load_manual_overrides, normalize_event_name,
+    ist_kinder, ist_walking, load_manual_overrides, normalize_event_name,
 )
 from veranstalter_links import ALLGEMEIN, host_von, kein_veranstalter  # noqa: E402
 
@@ -1163,6 +1163,21 @@ def uebernehmen(eintraege: list[tuple], heute: str, pfad: Path = MANUAL_EVENTS) 
         zeilen = manual_events_aus(eintrag, start, ende, heute, seiten_km)
         if (normalize_event_name(zeilen[0]["name"]), start) in vorhanden:
             continue
+        # Walking- und Kinderstrecken der Vorjahresausgabe (16.11.2026,
+        # Herbstwaldlauf Dresdner Heide: „8,7 km Nordic Walking“ aus der Zeit
+        # vor Datenregel 23 im Gedächtnis): add_manual_events() legt sie nie
+        # an – in der Datei stünde eine Zeile, die test_manuelle_events nicht
+        # wiederfindet, und der Datenlauf bliebe hinter dem Deploy-Gate.
+        # Dieselben Ausschlüsse wie dort, also gar nicht erst übernehmen.
+        ohne = [z for z in zeilen
+                if not (ist_walking(z.get("art1"), z.get("wettbewerb"), z.get("name"))
+                        or ist_kinder(z.get("name"), z.get("wettbewerb")))]
+        if len(ohne) < len(zeilen):
+            bericht.append(f"{eintrag.get('name')} ({eintrag.get('standort')}): {len(zeilen) - len(ohne)} "
+                           f"Walking- bzw. Kinderstrecke(n) nicht übernommen (Datenregeln 23/24)")
+            zeilen = ohne
+            if not zeilen:
+                continue
         # Dieselbe Strecke zweimal im Gedächtnis-Eintrag (26.10.2026,
         # „Naturpark Schönbuchlauf“: 25 km einmal mit, einmal ohne Label -
         # zwei Quellen derselben Ausgabe, beim Lernen vereinigt; am Bestand
