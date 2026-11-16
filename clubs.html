@@ -61,7 +61,7 @@
 <link rel="stylesheet" href="site.css?v=2e857586">
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=acdd5b94">
-<link rel="stylesheet" href="clubs.css?v=13dbb3d7">
+<link rel="stylesheet" href="clubs.css?v=c2ab524f">
 </head>
 <body>
 
@@ -118,19 +118,23 @@
 </div>
 
 <main class="club-main">
+  <!-- Die Kopfzeile geht über beide Spalten, damit Liste und rechte
+       Spalte auf derselben Höhe beginnen (vom Nutzer am 16.11.2026:
+       Club-Box neben der ersten Kartenreihe, „Dein Club fehlt?“ neben
+       der zweiten – richteAus() unten). -->
+  <div class="club-kopf">
+    <div class="result-count" id="result-count"></div>
+    <!-- Zwei Zeilen neben der Zahl: dass die Liste noch wächst (vom
+         Nutzer am 11.11.2026 – wieder herausnehmen, sobald sie das nicht
+         mehr tut) und dass sich Termine kurzfristig ändern können (vom
+         Nutzer am 16.11.2026 – bleibt). -->
+    <span class="club-hinweis" id="club-hinweis">
+      <span id="club-hinweis-neu"></span>
+      <span id="club-hinweis-aenderung"></span>
+    </span>
+    <button type="button" class="reset-btn" id="reset-btn" hidden></button>
+  </div>
   <section>
-    <div class="club-kopf">
-      <div class="result-count" id="result-count"></div>
-      <!-- Zwei Zeilen neben der Zahl: dass die Liste noch wächst (vom
-           Nutzer am 11.11.2026 – wieder herausnehmen, sobald sie das nicht
-           mehr tut) und dass sich Termine kurzfristig ändern können (vom
-           Nutzer am 16.11.2026 – bleibt). -->
-      <span class="club-hinweis" id="club-hinweis">
-        <span id="club-hinweis-neu"></span>
-        <span id="club-hinweis-aenderung"></span>
-      </span>
-      <button type="button" class="reset-btn" id="reset-btn" hidden></button>
-    </div>
     <ul class="club-liste" id="club-liste" aria-live="polite"></ul>
     <!-- „Dein Club fehlt?“ (vom Nutzer am 16.11.2026: derselbe Kasten wie
          „Dein Event fehlt?“ in der Liste). Zweimal, ein Dialog: auf dem
@@ -419,8 +423,9 @@
   function zeichneBox() {
     if (!gewaehlt) {
       document.body.classList.remove('club-offen');
-      boxEl.innerHTML = handy() ? '' : `<div class="detail-panel"><div class="detail-empty">${esc(t('box_leer'))}</div></div>`;
+      boxEl.innerHTML = handy() ? '' : `<div class="detail-panel club-box-leer"><div class="detail-empty">${esc(t('box_leer'))}</div></div>`;
       passeSpalte();
+      richteAus();
       return;
     }
     const panel = document.createElement('div');
@@ -433,6 +438,7 @@
     boxEl.appendChild(panel);
     document.body.classList.toggle('club-offen', handy());
     passeSpalte();
+    richteAus();
   }
 
   // Die rechte Spalte klebt (sticky), beginnt ganz oben auf der Seite aber
@@ -450,6 +456,66 @@
   const spalteSpaeter = () => { if (!spalteFrame) spalteFrame = requestAnimationFrame(passeSpalte); };
   window.addEventListener('scroll', spalteSpaeter, { passive: true });
   window.addEventListener('resize', spalteSpaeter);
+
+  // Die rechte Spalte folgt den Reihen der Kartenliste (vom Nutzer am
+  // 16.11.2026: „Die Box ‚Wähle einen Club…‘ muss mit der Box der Clubs
+  // übereinstimmen und die orange Box mit der zweiten Reihe“): Oben
+  // beginnen Liste und Spalte auf derselben Höhe (clubs.css), und solange
+  // kein Club gewählt ist, ist die leere Box so hoch wie die erste Reihe,
+  // „Dein Club fehlt?“ so hoch wie die zweite – der Abstand dazwischen ist
+  // derselbe wie zwischen den Reihen (14 px, clubs.css). Eine gewählte
+  // Club-Box behält ihre Höhe: Bis zur nächsten Reihenkante gestreckt,
+  // hätte sie unten eine leere Fläche, und der Kasten rutschte aus dem
+  // Bild. Nur am Rechner und nur, wenn beides in die klebende Spalte
+  // passt (Fensterhöhe − 32 px, passeSpalte).
+  const fehltSeiteEl = spalteEl.querySelector('.club-fehlt-seite');
+  let ausrichtFrame = 0;
+  function richteAus() {
+    ausrichtFrame = 0;
+    const panel = boxEl.querySelector('.detail-panel');
+    if (panel) panel.style.minHeight = '';
+    fehltSeiteEl.style.minHeight = '';
+    if (handy() || !panel || !panel.classList.contains('club-box-leer')) return;
+    const karten = listeEl.children;
+    if (karten.length < 2) return;
+    const platz = window.innerHeight - 32;
+    // Die ersten beiden Reihen (alle Karten einer Reihe sind gleich hoch).
+    const reihen = [];
+    for (const li of karten) {
+      const r = li.getBoundingClientRect();
+      const letzte = reihen[reihen.length - 1];
+      if (letzte && Math.abs(r.top - letzte.oben) < 2) continue;
+      if (reihen.length === 2) break;
+      reihen.push({ oben: r.top, hoehe: r.height });
+    }
+    if (reihen.length < 2) return;
+    const [erste, zweite] = reihen;
+    const natuerlich = panel.offsetHeight;
+    const fehltHoehe = fehltSeiteEl.offsetHeight;
+    if (erste.hoehe < natuerlich - 1) return;
+    if (zweite.oben + zweite.hoehe - erste.oben <= platz && zweite.hoehe >= fehltHoehe) {
+      panel.style.minHeight = erste.hoehe + 'px';
+      fehltSeiteEl.style.minHeight = zweite.hoehe + 'px';
+    } else if (erste.hoehe + 14 + fehltHoehe <= platz) {
+      panel.style.minHeight = erste.hoehe + 'px';
+    }
+  }
+  const ausrichtenSpaeter = () => { if (!ausrichtFrame) ausrichtFrame = requestAnimationFrame(richteAus); };
+  window.addEventListener('resize', ausrichtenSpaeter);
+  // Über die 900-px-Grenze (iPad drehen) die Box neu zeichnen: Am Rechner
+  // steht immer eine (die leere oder die des gewählten Clubs), auf dem
+  // Handy ohne Auswahl keine. Ein gewählter Club öffnet beim Drehen aufs
+  // Handy aber kein Blatt – das tut nur ein Tippen.
+  const handyMq = window.matchMedia('(max-width: 900px)');
+  const breiteGewechselt = () => { if (!handy() || !gewaehlt) zeichneBox(); };
+  if (handyMq.addEventListener) handyMq.addEventListener('change', breiteGewechselt);
+  else if (handyMq.addListener) handyMq.addListener(breiteGewechselt);
+  // Die Höhen der Karten stehen erst fest, wenn Barlow geladen ist – und
+  // die Schrift kommt oft erst nach dem ersten Zeichnen. Ändert sich die
+  // Liste in der Höhe, wird neu ausgerichtet (das Strecken der Spalte
+  // ändert die Liste nicht, also keine Schleife).
+  if (window.ResizeObserver) new ResizeObserver(ausrichtenSpaeter).observe(listeEl);
+  else if (document.fonts && document.fonts.ready) document.fonts.ready.then(ausrichtenSpaeter);
 
   function render(nurListe) {
     const jetzt = new Date();

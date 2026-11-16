@@ -119,14 +119,19 @@
 .club-main {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 400px;
-  gap: 24px;
+  column-gap: 24px;
   align-items: start;
+  /* Die Reihen nicht strecken: Bei wenigen Treffern rutschte sonst die
+     Liste unter der Kopfzeile nach unten (min-height unten). */
+  align-content: start;
   padding: 18px var(--seite-rand) 32px;
   /* Die Fußzeile bleibt unten, auch wenn nur wenige Clubs passen. */
   min-height: calc(100vh - 230px);
 }
-.club-kopf { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
-.club-kopf .result-count { margin: 0; }
+/* Die Kopfzeile über beiden Spalten; die Zahl steht mittig neben den
+   zwei Hinweiszeilen (vom Nutzer am 16.11.2026). */
+.club-kopf { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+.club-kopf .result-count { margin: 0; line-height: 1.1; }
 .club-hinweis { color: var(--text-muted); font-size: 0.86rem; display: flex; flex-direction: column; gap: 2px; }
 .club-liste { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
 .club-karte {
@@ -181,15 +186,41 @@
 /* Rechte Spalte: oben die Club-Box, darunter „Dein Club fehlt?“ (wie
    die Melde-Box der Liste, 16.11.2026). Die Spalte ist fensterhoch; wird
    die Box lang, scrollt nur sie, der Kasten darunter bleibt im Bild. */
+/* Die Abstände und Rundungen wie bei den Karten (14 px), damit die
+   beiden Kästen neben den Kartenreihen stehen (richteAus() in
+   clubs.html setzt die Höhen). */
 .club-seite-box {
   position: sticky; top: 16px;
-  display: flex; flex-direction: column; gap: 10px;
+  display: flex; flex-direction: column; gap: 14px;
   max-height: calc(100vh - 32px);
 }
 .club-box-panel { display: contents; }
-.club-seite-box .detail-panel { flex: 0 1 auto; min-height: 0; overflow-y: auto; }
-.club-seite-box .fehlt-box { flex: none; flex-wrap: wrap; }
-.club-seite-box .fehlt-box-btn { margin-left: 42px; }
+.club-seite-box .detail-panel { flex: 0 1 auto; min-height: 0; overflow-y: auto; border-radius: 14px; }
+.club-seite-box .club-box-leer { display: flex; align-items: center; justify-content: center; }
+/* Rechts steht der Kasten untereinander und mittig – er ist so hoch wie
+   eine Kartenreihe, nebeneinander blieb für den Text nur ein schmaler
+   Streifen. */
+.club-seite-box .fehlt-box {
+  flex: none;
+  flex-direction: column; justify-content: center;
+  gap: 10px;
+  padding: 18px;
+  text-align: center;
+  border-radius: 14px;
+}
+.club-seite-box .fehlt-box-text { flex: none; align-items: center; }
+/* Eine kaum sichtbare Linie zwischen Liste und rechter Spalte, mitten in
+   der Lücke (vom Nutzer am 16.11.2026). */
+@media (min-width: 901px) {
+  .club-main > section { align-self: stretch; position: relative; }
+  .club-main > section::after {
+    content: "";
+    position: absolute; top: 0; bottom: 0; right: -12.5px;
+    width: 1px;
+    background: var(--border);
+    pointer-events: none;
+  }
+}
 /* Auf dem Handy steht der Kasten unter der Liste (dort ist die Box ein Blatt). */
 .club-fehlt-unten { display: none; }
 

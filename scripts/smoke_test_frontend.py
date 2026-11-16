@@ -1797,6 +1797,53 @@ def pruefe_rechtsseiten(ctx, basis):
 
 
 
+def pruefe_club_ausrichtung(ctx, basis):
+    """Die Clubs-Seite am Rechner (vom Nutzer am 16.11.2026 auf dem iPad:
+    „Hier ist nichts zentriert"): Die Zahl steht mittig neben den zwei
+    Hinweiszeilen, ohne gewählten Club ist die leere Box so hoch wie die
+    erste Kartenreihe und „Dein Club fehlt?" steht genau neben der zweiten,
+    dazwischen eine feine Linie. Eine gewählte Club-Box behält ihre Höhe."""
+    print("\nClubs am Rechner: Ausrichtung (clubs.html)")
+    seite, probleme = seite_oeffnen(ctx, basis + "/clubs.html", warten=".club-karte")
+    pruefe(not probleme, "lädt ohne Fehler (%s)" % ("; ".join(probleme[:3]) or "keine"))
+    for breite, hoehe in ((1366, 1024), (1024, 768), (1920, 1080)):
+        seite.set_viewport_size({"width": breite, "height": hoehe})
+        seite.wait_for_timeout(300)
+        m = seite.evaluate("""() => {
+            const r = (e) => e.getBoundingClientRect();
+            const zahl = r(document.getElementById('result-count'));
+            const hinweis = r(document.getElementById('club-hinweis'));
+            const reihen = [];
+            for (const li of document.getElementById('club-liste').children) {
+              const b = r(li);
+              if (reihen.length && Math.abs(b.top - reihen[reihen.length - 1].oben) < 2) continue;
+              reihen.push({ oben: b.top, hoehe: b.height });
+              if (reihen.length === 2) break;
+            }
+            const panel = r(document.querySelector('#club-box .detail-panel.club-box-leer'));
+            const fehlt = r(document.querySelector('.club-fehlt-seite'));
+            const linie = getComputedStyle(document.querySelector('.club-main > section'), '::after');
+            return { zahl: (zahl.top + zahl.bottom) / 2, hinweis: (hinweis.top + hinweis.bottom) / 2,
+                     reihen, panel: [panel.top, panel.height], fehlt: [fehlt.top, fehlt.height],
+                     linie: linie.content !== 'none' && linie.width === '1px' };
+        }""")
+        eins, zwei = m["reihen"]
+        pruefe(abs(m["zahl"] - m["hinweis"]) <= 2,
+               "%d px: die Zahl steht mittig neben den Hinweiszeilen (%.0f / %.0f)" % (breite, m["zahl"], m["hinweis"]))
+        pruefe(abs(m["panel"][0] - eins["oben"]) <= 1 and abs(m["panel"][1] - eins["hoehe"]) <= 1,
+               "%d px: die leere Box steht genau neben der ersten Kartenreihe (%s / %s)" % (breite, m["panel"], eins))
+        pruefe(abs(m["fehlt"][0] - zwei["oben"]) <= 1 and abs(m["fehlt"][1] - zwei["hoehe"]) <= 1,
+               "%d px: „Dein Club fehlt?“ steht genau neben der zweiten Reihe (%s / %s)" % (breite, m["fehlt"], zwei))
+        pruefe(m["linie"], "%d px: feine Linie zwischen Liste und rechter Spalte" % breite)
+    seite.locator(".club-karte").first.click()
+    seite.wait_for_selector(".club-seite-box .detail-panel h2", timeout=5000)
+    seite.wait_for_timeout(200)
+    frei = seite.evaluate("() => document.querySelector('.club-seite-box .detail-panel').style.minHeight === ''"
+                          " && document.querySelector('.club-fehlt-seite').style.minHeight === ''")
+    pruefe(frei, "eine gewählte Club-Box behält ihre eigene Höhe")
+    seite.close()
+
+
 def pruefe_clubs_neu(ctx, basis):
     """Launch der Clubs (04.11.2026): Menüpunkt „Clubs“ mit Schildchen
     „new“ auf jeder Seite mit Menü, hinter Events; das Schildchen bleibt
@@ -3663,6 +3710,7 @@ def main() -> int:
                 pruefe_clubs(ctx, basis)
                 pruefe_clubs_neu(ctx, basis)
                 pruefe_club_fehlt(ctx, basis)
+                pruefe_club_ausrichtung(ctx, basis)
                 pruefe_blog(ctx, basis)
                 pruefe_datenrueckfall(ctx, basis, web_daten)
             finally:

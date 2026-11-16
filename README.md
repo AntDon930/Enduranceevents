@@ -3548,7 +3548,9 @@ Events – die **Stadt**, weil ein Instagram-Konto sie selten nennt.
 Gespeichert wird in dieselbe Collection `eventSuggestions`, mit „Club: “
 vor dem Namen und „Stadt: …“ vorn im Hinweis: keine neue Firestore-Regel,
 kein Deploy, und `review_reports.py suggestions` zeigt Events und Clubs
-zusammen.
+zusammen. Am Rechner steht der Kasten genau neben der zweiten Kartenreihe
+und ist so hoch wie sie, die leere Club-Box darüber neben der ersten
+(`richteAus()` in `clubs.html`; eine gewählte Club-Box behält ihre Höhe).
 
 **Übernommen wird nichts automatisch.** Ein Hinweis von außen ist eine
 Adresse, kein Datensatz: erst robots.txt und Nutzungsbedingungen der
