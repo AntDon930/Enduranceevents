@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-26-lussy-run-x-lussy-sur-morges@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:Lussy Run
+LOCATION:Lussy-sur-Morges\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sportchrono.ch/ev
+ ents.php?id=1277
+TRANSP:TRANSPARENT
+URL:https://sportchrono.ch/events.php?id=1277
+END:VEVENT
+END:VCALENDAR

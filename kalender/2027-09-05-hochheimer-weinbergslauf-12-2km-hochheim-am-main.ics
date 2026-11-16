@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-hochheimer-weinbergslauf-12-2km-hochheim-am-main@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Hochheimer Weinbergslauf
+LOCATION:Hochheim am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.2 km\nhttps://weinbergsla
+ uf-hochheim.de/
+TRANSP:TRANSPARENT
+URL:https://weinbergslauf-hochheim.de/
+END:VEVENT
+END:VCALENDAR

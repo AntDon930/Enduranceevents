@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-swim-run-wurzburg-x-wurzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Swim & Run Würzburg
+LOCATION:Würzburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: -\nhttps://www.triathlon
+ -wuerzburg.de/swimrun/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-wuerzburg.de/swimrun/
+END:VEVENT
+END:VCALENDAR

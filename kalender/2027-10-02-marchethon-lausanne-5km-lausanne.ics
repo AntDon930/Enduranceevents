@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-02-marchethon-lausanne-5km-lausanne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271002
+DTEND;VALUE=DATE:20271003
+SUMMARY:Marchethon Lausanne
+LOCATION:Lausanne\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.marchethon
+ .ch/lausanne/
+TRANSP:TRANSPARENT
+URL:https://www.marchethon.ch/lausanne/
+END:VEVENT
+END:VCALENDAR

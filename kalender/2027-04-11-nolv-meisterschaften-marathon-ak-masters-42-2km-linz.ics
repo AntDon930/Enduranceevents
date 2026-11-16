@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-nolv-meisterschaften-marathon-ak-masters-42-2km-linz@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:NÖLV-Meisterschaften Marathon AK + Masters
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://oelv.athmin
+ .at/event-details.aspx?event=38030&int=&returnTo=L2V2ZW50cy5hc3B4
+TRANSP:TRANSPARENT
+URL:https://oelv.athmin.at/event-details.aspx?event=38030&int=&returnTo=L2
+ V2ZW50cy5hc3B4
+END:VEVENT
+END:VCALENDAR

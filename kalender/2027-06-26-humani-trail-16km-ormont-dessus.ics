@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-humani-trail-16km-ormont-dessus@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Humani'Trail
+LOCATION:Ormont-Dessus\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 16 km\nhttps://www.humanitrai
+ l.com
+TRANSP:TRANSPARENT
+URL:https://www.humanitrail.com
+END:VEVENT
+END:VCALENDAR

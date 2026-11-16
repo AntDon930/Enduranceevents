@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-jedermannslaufserie-der-lg-donau-ries-x-wemding@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Jedermannslaufserie der LG Donau-Ries
+LOCATION:Wemding\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://lg-donau-ries.de/
+ index.php/anmeldung-jedermannserie
+TRANSP:TRANSPARENT
+URL:https://lg-donau-ries.de/index.php/anmeldung-jedermannserie
+END:VEVENT
+END:VCALENDAR

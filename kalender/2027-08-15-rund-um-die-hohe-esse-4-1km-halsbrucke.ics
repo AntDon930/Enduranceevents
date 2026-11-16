@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-rund-um-die-hohe-esse-4-1km-halsbrucke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:Rund um die Hohe Esse – Jedermannrennen 4.1 km
+LOCATION:Halsbrücke\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 4.1 km\nhttps://www.radrenn
+ en-halsbruecke.de/
+TRANSP:TRANSPARENT
+URL:https://www.radrennen-halsbruecke.de/
+END:VEVENT
+END:VCALENDAR

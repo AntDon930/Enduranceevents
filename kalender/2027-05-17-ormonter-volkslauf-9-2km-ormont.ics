@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-17-ormonter-volkslauf-9-2km-ormont@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+SUMMARY:Ormonter Volkslauf – 9200 m Hauptlauf
+LOCATION:Ormont\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.2 km\nhttps://my.raceresul
+ t.com/435039/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/435039/
+END:VEVENT
+END:VCALENDAR

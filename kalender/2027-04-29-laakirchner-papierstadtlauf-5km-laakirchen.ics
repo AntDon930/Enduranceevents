@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270429
 DTEND;VALUE=DATE:20270430
 SUMMARY:Laakirchner Papierstadtlauf
 LOCATION:Laakirchen\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://time2win.at/ev
- ent/1170
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://papierstadtlau
+ f.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1170
+URL:https://papierstadtlauf.at
 END:VEVENT
 END:VCALENDAR

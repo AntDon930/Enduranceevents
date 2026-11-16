@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-14-nolv-meisterschaften-crosslauf-x-hirtenberg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271114
+DTEND;VALUE=DATE:20271115
+SUMMARY:NÖLV-Meisterschaften Crosslauf
+LOCATION:Hirtenberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://oelv.athmin.at/eve
+ nt-details.aspx?event=38047&int=&returnTo=L2V2ZW50cy5hc3B4
+TRANSP:TRANSPARENT
+URL:https://oelv.athmin.at/event-details.aspx?event=38047&int=&returnTo=L2
+ V2ZW50cy5hc3B4
+END:VEVENT
+END:VCALENDAR

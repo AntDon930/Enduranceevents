@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-eifellauf-nimshuscheid-20km-nimshuscheid@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:Eifellauf Nimshuscheid
+LOCATION:Nimshuscheid\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://eifellauf-de.
+ jimdoweb.com/eifell%C3%A4ufe/die-einzelne-l%C3%A4ufe/nimshuscheid/
+TRANSP:TRANSPARENT
+URL:https://eifellauf-de.jimdoweb.com/eifell%C3%A4ufe/die-einzelne-l%C3%A4
+ ufe/nimshuscheid/
+END:VEVENT
+END:VCALENDAR

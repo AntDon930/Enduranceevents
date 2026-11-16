@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-dreikonigslauf-des-tus-grossweier-10km-achern@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Dreikönigslauf des TuS Großweier
+LOCATION:Achern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tus-gross
+ weier.de/dreikoenigslauf/informationen.html
+TRANSP:TRANSPARENT
+URL:https://www.tus-grossweier.de/dreikoenigslauf/informationen.html
+END:VEVENT
+END:VCALENDAR

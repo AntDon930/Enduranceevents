@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-freystadter-volksfestlauf-5km-freystadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Freystädter Volksfestlauf – 5 km Jugend U18/U20\, Frauen und Alter
+ sklassen\, Hobby Männer
+LOCATION:Freystadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://leichtathletik
+ -freystadt.de/2026/03/20/volksfestlauf/
+TRANSP:TRANSPARENT
+URL:https://leichtathletik-freystadt.de/2026/03/20/volksfestlauf/
+END:VEVENT
+END:VCALENDAR

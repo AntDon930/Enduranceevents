@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-26-vorpum-59-5km-wallenhorst@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:VorPUM – 59\,5 km \, ca. 2100 Höhenmeter\, 6 Runden
+LOCATION:Wallenhorst\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 59.5 km\nhttps://racetimer-ap
+ p.de/event_details.php?id=41
+TRANSP:TRANSPARENT
+URL:https://racetimer-app.de/event_details.php?id=41
+END:VEVENT
+END:VCALENDAR

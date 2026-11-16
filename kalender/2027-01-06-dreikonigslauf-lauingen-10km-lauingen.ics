@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270106
 DTEND;VALUE=DATE:20270107
 SUMMARY:Dreikönigslauf Lauingen
 LOCATION:Lauingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.zeitgemae
- ss.info/event.php?ACCESSCODE=202701061
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://triathlon.tvl
+ .de/dreikoenigslauf/ausschreibung-dkl/
 TRANSP:TRANSPARENT
-URL:https://www.zeitgemaess.info/event.php?ACCESSCODE=202701061
+URL:https://triathlon.tvl.de/dreikoenigslauf/ausschreibung-dkl/
 END:VEVENT
 END:VCALENDAR

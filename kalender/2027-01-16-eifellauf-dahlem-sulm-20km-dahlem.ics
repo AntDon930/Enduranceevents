@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-eifellauf-dahlem-sulm-20km-dahlem@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Eifellauf Dahlem/Sülm – Laufstrecke ca. 20 km
+LOCATION:Dahlem\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://eifellauf-de.
+ jimdoweb.com/eifell%C3%A4ufe/die-einzelne-l%C3%A4ufe/dahlem/
+TRANSP:TRANSPARENT
+URL:https://eifellauf-de.jimdoweb.com/eifell%C3%A4ufe/die-einzelne-l%C3%A4
+ ufe/dahlem/
+END:VEVENT
+END:VCALENDAR

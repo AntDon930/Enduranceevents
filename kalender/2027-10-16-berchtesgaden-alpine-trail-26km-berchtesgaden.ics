@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-16-berchtesgaden-alpine-trail-26km-berchtesgaden@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271017
+SUMMARY:Berchtesgaden Alpine Trail
+LOCATION:Berchtesgaden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 26 km\nhttps://www.runthrough
+ trails.com/berchtesgaden
+TRANSP:TRANSPARENT
+URL:https://www.runthroughtrails.com/berchtesgaden
+END:VEVENT
+END:VCALENDAR

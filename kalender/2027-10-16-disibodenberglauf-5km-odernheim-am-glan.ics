@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-16-disibodenberglauf-5km-odernheim-am-glan@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271017
+SUMMARY:Disibodenberglauf – 5 km offene Klassen
+LOCATION:Odernheim am Glan\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://my.raceresult.c
+ om/433197/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/433197/
+END:VEVENT
+END:VCALENDAR

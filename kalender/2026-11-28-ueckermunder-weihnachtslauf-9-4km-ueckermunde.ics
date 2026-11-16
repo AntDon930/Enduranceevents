@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-ueckermunder-weihnachtslauf-9-4km-ueckermunde@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Ueckermünder Weihnachtslauf
+LOCATION:Ueckermünde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.4 km\nhttp://uer-laufcup.d
+ e/wp-content/uploads/2026/11/Ausschreibungen-Ueckermuender-Weihnachtslauf
+ -2024.pdf
+TRANSP:TRANSPARENT
+URL:http://uer-laufcup.de/wp-content/uploads/2026/11/Ausschreibungen-Uecke
+ rmuender-Weihnachtslauf-2024.pdf
+END:VEVENT
+END:VCALENDAR

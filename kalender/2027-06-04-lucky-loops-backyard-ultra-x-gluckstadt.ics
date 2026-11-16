@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-lucky-loops-backyard-ultra-x-gluckstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270608
+SUMMARY:Lucky Loops Backyard Ultra
+LOCATION:Glückstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: Open End\nhttps://my
+ .raceresult.com/435098/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/435098/
+END:VEVENT
+END:VCALENDAR

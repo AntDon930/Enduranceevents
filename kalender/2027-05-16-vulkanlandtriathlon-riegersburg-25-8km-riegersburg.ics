@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-vulkanlandtriathlon-riegersburg-25-8km-riegersburg@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Vulkanlandtriathlon Riegersburg
+LOCATION:Riegersburg\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.8 km\nhttps://www.vulk
+ anlandtriathlon.at
+TRANSP:TRANSPARENT
+URL:https://www.vulkanlandtriathlon.at
+END:VEVENT
+END:VCALENDAR

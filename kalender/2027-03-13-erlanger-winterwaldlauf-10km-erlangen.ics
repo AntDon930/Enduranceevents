@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-erlanger-winterwaldlauf-10km-erlangen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Erlanger Winterwaldlauf – Sparkassenlauf - 10 km
+LOCATION:Erlangen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufportal.sp
+ ortprogramme.org/event/d36738e9-ba2e-4e1a-b214-d5ee9f3abb79
+TRANSP:TRANSPARENT
+URL:https://laufportal.sportprogramme.org/event/d36738e9-ba2e-4e1a-b214-d5
+ ee9f3abb79
+END:VEVENT
+END:VCALENDAR

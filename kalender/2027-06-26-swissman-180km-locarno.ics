@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-swissman-180km-locarno@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Swissman – 180 km Radfahren
+LOCATION:Locarno\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 180 km\nhttps://suixtri.c
+ om/
+TRANSP:TRANSPARENT
+URL:https://suixtri.com/
+END:VEVENT
+END:VCALENDAR

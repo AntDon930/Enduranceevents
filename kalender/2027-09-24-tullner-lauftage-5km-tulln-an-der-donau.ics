@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270924
 DTEND;VALUE=DATE:20270927
 SUMMARY:Tullner Lauftage
 LOCATION:Tulln an der Donau\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/429918/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.ult-tulln.a
+ t
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/429918/
+URL:http://www.ult-tulln.at
 END:VEVENT
 END:VCALENDAR

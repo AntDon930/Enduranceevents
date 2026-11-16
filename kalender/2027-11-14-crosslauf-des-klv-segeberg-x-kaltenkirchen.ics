@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-14-crosslauf-des-klv-segeberg-x-kaltenkirchen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271114
+DTEND;VALUE=DATE:20271115
+SUMMARY:Crosslauf des KLV Segeberg
+LOCATION:Kaltenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.klv-se.de/vera
+ nstaltungen
+TRANSP:TRANSPARENT
+URL:https://www.klv-se.de/veranstaltungen
+END:VEVENT
+END:VCALENDAR

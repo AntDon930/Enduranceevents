@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-bodensee-marathon-42-2km-kressbronn-am-bodensee@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Bodensee Marathon – Marathon
+LOCATION:Kressbronn am Bodensee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.bodense
+ e-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.bodensee-marathon.de/
+END:VEVENT
+END:VCALENDAR

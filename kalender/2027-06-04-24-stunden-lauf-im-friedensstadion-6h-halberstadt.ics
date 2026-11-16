@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-24-stunden-lauf-im-friedensstadion-6h-halberstadt@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270605
+SUMMARY:24-Stunden-Lauf im Friedensstadion – 6 h Lauf
+LOCATION:Halberstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://www.vfbgermania
+ halberstadt.de/2026/05/03/24-stunden-lauf-im-friedensstadion/
+TRANSP:TRANSPARENT
+URL:https://www.vfbgermaniahalberstadt.de/2026/05/03/24-stunden-lauf-im-fr
+ iedensstadion/
+END:VEVENT
+END:VCALENDAR

@@ -10,9 +10,11 @@ DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:Bönener Lauf – 10 km Lauf\, ab U16\, Alters- und Gesamtwertung
 LOCATION:Bönen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/432095/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lauffreundebo
+ enen.de/unsere-laeufe/lauf-am-foerderturm/lauf-am-foerderturm-ausschreibu
+ ng/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/432095/
+URL:https://lauffreundeboenen.de/unsere-laeufe/lauf-am-foerderturm/lauf-am
+ -foerderturm-ausschreibung/
 END:VEVENT
 END:VCALENDAR

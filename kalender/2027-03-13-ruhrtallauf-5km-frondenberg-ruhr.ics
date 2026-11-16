@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-ruhrtallauf-5km-frondenberg-ruhr@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Ruhrtallauf – 5 km Straßenlauf (Termin vorläufig)
+LOCATION:Fröndenberg/Ruhr\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Laufen / Str
+ aße\nLänge: 5 km\nhttps://vfl-froendenberg.de/ausschreibung-48-ruhrtallau
+ f/
+TRANSP:TRANSPARENT
+URL:https://vfl-froendenberg.de/ausschreibung-48-ruhrtallauf/
+END:VEVENT
+END:VCALENDAR

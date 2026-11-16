@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270214
 DTEND;VALUE=DATE:20270215
 SUMMARY:Kristallmarathon – Halbmarathon
 LOCATION:Krayenberggemeinde\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 23.1 km\nhttps://baer-servic
- e.de/veranstaltung/KMA/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 23.1 km\nhttps://www.triathl
+ onverein-werratal.de/kristallmarathon/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/KMA/
+URL:https://www.triathlonverein-werratal.de/kristallmarathon/
 END:VEVENT
 END:VCALENDAR

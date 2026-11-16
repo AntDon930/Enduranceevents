@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-10-darmstadter-firmenlauf-x-grosser-woog@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270610
+DTEND;VALUE=DATE:20270611
+SUMMARY:Darmstädter Firmenlauf
+LOCATION:Großer Woog\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://firmenlauf-darmst
+ adt.de/
+TRANSP:TRANSPARENT
+URL:https://firmenlauf-darmstadt.de/
+END:VEVENT
+END:VCALENDAR

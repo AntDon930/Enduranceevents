@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-deichlauf-10k-dusseldorf-10km-dusseldorf@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Deichlauf 10K - Düsseldorf
+LOCATION:Düsseldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://deichlauf.com
+ /
+TRANSP:TRANSPARENT
+URL:https://deichlauf.com/
+END:VEVENT
+END:VCALENDAR

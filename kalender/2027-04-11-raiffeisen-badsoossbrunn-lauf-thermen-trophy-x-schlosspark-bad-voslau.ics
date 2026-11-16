@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-raiffeisen-badsoossbrunn-lauf-thermen-trophy-x-schlosspark-
+ bad-voslau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Raiffeisen badsooßbrunn lauf (Thermen Trophy)
+LOCATION:Schlosspark Bad Vöslau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://badsoossbrunn-lau
+ f.at/
+TRANSP:TRANSPARENT
+URL:https://badsoossbrunn-lauf.at/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-lauf-durch-die-roderaue-in-zabeltitz-6km-grossenhain@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Lauf durch die Röderaue in Zabeltitz
+LOCATION:Großenhain\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.laufen-im-
+ kreis-meissen.de/wettkaempfe-2027.html
+TRANSP:TRANSPARENT
+URL:https://www.laufen-im-kreis-meissen.de/wettkaempfe-2027.html
+END:VEVENT
+END:VCALENDAR

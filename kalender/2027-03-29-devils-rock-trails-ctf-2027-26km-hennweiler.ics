@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-29-devils-rock-trails-ctf-2027-26km-hennweiler@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+SUMMARY:Devils Rock Trails CTF 2027 – CTF 26 km
+LOCATION:Hennweiler\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 26 km\nhttps://www.de
+ vilsrock.de/ctf2027
+TRANSP:TRANSPARENT
+URL:https://www.devilsrock.de/ctf2027
+END:VEVENT
+END:VCALENDAR

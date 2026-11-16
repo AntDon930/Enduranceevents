@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:Raiffeisen Altstadt Adventlauf Mödling
 LOCATION:Mödling\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.time-now-
- sports.at/altstadt-adventlauf-moedling-2026/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.altstadta
+ dventlauf.at/
 TRANSP:TRANSPARENT
-URL:https://www.time-now-sports.at/altstadt-adventlauf-moedling-2026/
+URL:https://www.altstadtadventlauf.at/
 END:VEVENT
 END:VCALENDAR

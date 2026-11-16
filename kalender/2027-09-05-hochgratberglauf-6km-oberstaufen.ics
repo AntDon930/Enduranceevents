@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-hochgratberglauf-6km-oberstaufen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Hochgratberglauf
+LOCATION:Oberstaufen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://www.tsv-obersta
+ ufen.de/hochgratlauf
+TRANSP:TRANSPARENT
+URL:https://www.tsv-oberstaufen.de/hochgratlauf
+END:VEVENT
+END:VCALENDAR

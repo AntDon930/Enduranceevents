@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-pohlheimer-limes-winterlaufserie-5km-pohlheim@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Pohlheimer Limes-Winterlaufserie – 5 km Lauf
+LOCATION:Pohlheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/434771/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/434771/
+END:VEVENT
+END:VCALENDAR

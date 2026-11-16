@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270821
 DTEND;VALUE=DATE:20270822
 SUMMARY:Erlinsbacher Fun Run
 LOCATION:Erlinsbach\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://my.raceresult.
- com/419244/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://erlinsbacherfu
+ nrun.ch
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419244/
+URL:https://erlinsbacherfunrun.ch
 END:VEVENT
 END:VCALENDAR

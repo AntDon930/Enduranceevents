@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-sterzinger-stadtlauf-5-2km-sterzing@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270605
+SUMMARY:Sterzinger Stadtlauf
+LOCATION:Sterzing\, Italien (Südtirol)
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.2 km\nhttp://www.asvsterzi
+ ng.com/
+TRANSP:TRANSPARENT
+URL:http://www.asvsterzing.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-ohmrathon-43-3km-leinefelde-worbis@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Ohmrathon – Ohmrathon
+LOCATION:Leinefelde-Worbis\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43.3 km\nhttps://www.ltv-obe
+ reichsfeld.de/ohmrathon/
+TRANSP:TRANSPARENT
+URL:https://www.ltv-obereichsfeld.de/ohmrathon/
+END:VEVENT
+END:VCALENDAR

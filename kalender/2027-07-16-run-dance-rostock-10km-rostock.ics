@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270716
 DTEND;VALUE=DATE:20270717
 SUMMARY:Run & Dance Rostock
 LOCATION:Rostock\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/430271/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runanddance.d
+ e
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/430271/
+URL:https://runanddance.de
 END:VEVENT
 END:VCALENDAR

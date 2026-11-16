@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-los-ultra-berlin-blankenfelde-x-blankenfelde-mahlow@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:LOS Ultra Berlin-Blankenfelde
+LOCATION:Blankenfelde-Mahlow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://losultra.run/page
+ s/berlin
+TRANSP:TRANSPARENT
+URL:https://losultra.run/pages/berlin
+END:VEVENT
+END:VCALENDAR

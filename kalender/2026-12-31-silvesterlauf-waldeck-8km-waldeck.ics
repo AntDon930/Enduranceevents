@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-waldeck-8km-waldeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf - Waldeck
+LOCATION:Waldeck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://ladv.de/aussch
+ reibung/detail/49785/21.-Silvesterlauf-Waldeck-%28Th%C3%BCringen%29.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49785/21.-Silvesterlauf-Waldeck-%
+ 28Th%C3%BCringen%29.htm
+END:VEVENT
+END:VCALENDAR

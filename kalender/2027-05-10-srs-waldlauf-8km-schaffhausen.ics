@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-10-srs-waldlauf-8km-schaffhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270511
+SUMMARY:SRS Waldlauf
+LOCATION:Schaffhausen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.srs-lauftr
+ eff-sh.ch/waldlauf
+TRANSP:TRANSPARENT
+URL:https://www.srs-lauftreff-sh.ch/waldlauf
+END:VEVENT
+END:VCALENDAR

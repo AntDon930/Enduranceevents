@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-grafelder-volkslauf-11-8km-berge@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Grafelder Volkslauf – 11\,8 km – Sparkassen Cup
+LOCATION:Berge\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.8 km\nhttps://www.laufen-
+ os.de/wettkaempfe/grafelder-volkslauf-2027
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/grafelder-volkslauf-2027
+END:VEVENT
+END:VCALENDAR

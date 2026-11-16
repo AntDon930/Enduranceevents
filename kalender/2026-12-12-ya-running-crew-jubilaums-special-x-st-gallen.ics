@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-ya-running-crew-jubilaums-special-x-st-gallen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:ØYA Running Crew Jubiläums-Special
+LOCATION:St. Gallen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://eventfrog.ch/de/p/
+ sport-fitness/freizeitsport/oeya-running-crew-jubilaeums-special-st-galle
+ n-7525926808664934399.html
+TRANSP:TRANSPARENT
+URL:https://eventfrog.ch/de/p/sport-fitness/freizeitsport/oeya-running-cre
+ w-jubilaeums-special-st-gallen-7525926808664934399.html
+END:VEVENT
+END:VCALENDAR

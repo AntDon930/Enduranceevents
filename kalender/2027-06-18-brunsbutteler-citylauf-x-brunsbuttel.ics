@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-brunsbutteler-citylauf-x-brunsbuttel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:Brunsbütteler Citylauf
+LOCATION:Brunsbüttel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://vfb-brunsbuettel.d
+ e/index.php/citylauf
+TRANSP:TRANSPARENT
+URL:http://vfb-brunsbuettel.de/index.php/citylauf
+END:VEVENT
+END:VCALENDAR

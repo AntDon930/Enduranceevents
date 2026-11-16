@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-ostholstein-extrem-130km-bad-schwartau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Ostholstein-Extrem – Radmarathon 130 km (Termin vorläufig)
+LOCATION:Bad Schwartau\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / St
+ raße\nLänge: 130 km\nhttp://www.rst-luebeck.de/
+TRANSP:TRANSPARENT
+URL:http://www.rst-luebeck.de/
+END:VEVENT
+END:VCALENDAR

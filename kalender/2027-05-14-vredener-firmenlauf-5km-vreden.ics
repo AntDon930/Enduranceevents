@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270514
 DTEND;VALUE=DATE:20270515
 SUMMARY:Vredener Firmenlauf
 LOCATION:Vreden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/432569/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.firmenlauf
+ vreden.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/432569/
+URL:https://www.firmenlaufvreden.de/
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-mohnesee-100-100km-brilon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:Möhnesee 100
+LOCATION:Brilon\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 100 km\nhttps://natureholix
+ .de/moehnesee-runde
+TRANSP:TRANSPARENT
+URL:https://natureholix.de/moehnesee-runde
+END:VEVENT
+END:VCALENDAR

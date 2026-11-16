@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270919
 DTEND;VALUE=DATE:20270920
 SUMMARY:Der LAC bewegt Wolfsberg – 21\,1 km Halbmarathon
 LOCATION:Wolfsberg\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
- lt.com/433441/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.lac-wolf
+ sberg.at
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/433441/
+URL:http://www.lac-wolfsberg.at
 END:VEVENT
 END:VCALENDAR

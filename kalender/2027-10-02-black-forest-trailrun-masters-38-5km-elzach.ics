@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-02-black-forest-trailrun-masters-38-5km-elzach@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271002
+DTEND;VALUE=DATE:20271004
+SUMMARY:Black Forest Trailrun Masters – Biereck Gehrenberg Trail – 38\,5 k
+ m \, 860 hm
+LOCATION:Elzach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 38.5 km\nhttps://trailrun-mas
+ ters.de/
+TRANSP:TRANSPARENT
+URL:https://trailrun-masters.de/
+END:VEVENT
+END:VCALENDAR

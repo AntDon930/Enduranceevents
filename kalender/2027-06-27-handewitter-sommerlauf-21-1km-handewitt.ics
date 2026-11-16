@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270627
 DTEND;VALUE=DATE:20270628
 SUMMARY:Handewitter Sommerlauf – Halbmarathon
 LOCATION:Handewitt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
- lt.com/428922/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://handewitter
+ sommerlauf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/428922/
+URL:https://handewittersommerlauf.de/
 END:VEVENT
 END:VCALENDAR

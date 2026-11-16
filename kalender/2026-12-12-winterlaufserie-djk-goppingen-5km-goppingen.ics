@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-winterlaufserie-djk-goppingen-5km-goppingen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:Winterlaufserie DJK Göppingen – 5 km Hinterschweiger Jugend- und J
+ edermannlauf
+LOCATION:Göppingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.djk-winterl
+ aufserie.de/
+TRANSP:TRANSPARENT
+URL:http://www.djk-winterlaufserie.de/
+END:VEVENT
+END:VCALENDAR

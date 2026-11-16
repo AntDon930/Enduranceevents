@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-wein-berg-lauf-neckenmarkt-10km-neckenmarkt@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Wein-Berg-Lauf - Neckenmarkt – 10 km Hauptlauf / Berglauf
+LOCATION:Neckenmarkt\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://l-mb.at/6-wein
+ -berg-lauf-neckenmarkt-save-the-date/
+TRANSP:TRANSPARENT
+URL:https://l-mb.at/6-wein-berg-lauf-neckenmarkt-save-the-date/
+END:VEVENT
+END:VCALENDAR

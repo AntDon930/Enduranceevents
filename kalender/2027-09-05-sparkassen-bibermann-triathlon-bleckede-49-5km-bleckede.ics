@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-sparkassen-bibermann-triathlon-bleckede-49-5km-bleckede@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Sparkassen Bibermann Triathlon Bleckede
+LOCATION:Bleckede\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 49.5 km\nhttp://www.biber
+ mann-triathlon.de/
+TRANSP:TRANSPARENT
+URL:http://www.bibermann-triathlon.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-27-rund-um-den-sachsenring-43km-hohenstein-ernstthal@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:Rund um den Sachsenring – Jedermannrennen *Stand 2026 43 km
+LOCATION:Hohenstein-Ernstthal\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 43 km\nhttp://www.internati
+ onales-sachsenringradrennen.de/
+TRANSP:TRANSPARENT
+URL:http://www.internationales-sachsenringradrennen.de/
+END:VEVENT
+END:VCALENDAR

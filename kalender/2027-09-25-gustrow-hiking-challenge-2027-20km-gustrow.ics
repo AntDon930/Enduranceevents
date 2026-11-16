@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-gustrow-hiking-challenge-2027-20km-gustrow@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Güstrow Hiking Challenge 2027 – Wanderung 20 km
+LOCATION:Güstrow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 20 km\nhttps://guestrow-hiki
+ ng.de
+TRANSP:TRANSPARENT
+URL:https://guestrow-hiking.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-benkhauser-schlosslauf-6-5km-espelkamp@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Benkhauser Schlosslauf – 6\,5 km GuS Family Lauf
+LOCATION:Espelkamp\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://www.benkhaus
+ er-schlosslauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.benkhauser-schlosslauf.de/
+END:VEVENT
+END:VCALENDAR

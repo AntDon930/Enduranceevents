@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-notsch-villach-land-9-5km-notsch-im-gailtal@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life - Nötsch Villach Land
+LOCATION:Nötsch im Gailtal\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.5 km\nhttps://www.wingsfor
+ lifeworldrun.com/en/locations/notsch-im-gailtal
+TRANSP:TRANSPARENT
+URL:https://www.wingsforlifeworldrun.com/en/locations/notsch-im-gailtal
+END:VEVENT
+END:VCALENDAR

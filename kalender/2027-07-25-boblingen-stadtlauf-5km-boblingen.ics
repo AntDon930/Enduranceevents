@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-boblingen-stadtlauf-5km-boblingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Böblingen Stadtlauf
+LOCATION:Böblingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.eventservi
+ ce-stahl.de/veranstaltungen/mercaden-b%C3%B6blingen-stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://www.eventservice-stahl.de/veranstaltungen/mercaden-b%C3%B6blin
+ gen-stadtlauf/
+END:VEVENT
+END:VCALENDAR

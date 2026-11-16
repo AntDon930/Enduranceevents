@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-27-osterlauf-union-schlatt-7-2km-schlatt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:Osterlauf - Union Schlatt – 7\,2 km (ca. 90 hm)
+LOCATION:Schlatt\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.2 km\nhttps://time2win.at/
+ event/1171
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1171
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-27-schafberglauf-mensch-gegen-dampflok-ioblc-x-st-wolfgang@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:27. Schafberglauf "Mensch gegen Dampflok" (IÖBLC)
+LOCATION:St. Wolfgang\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.schafberglauf.a
+ t
+TRANSP:TRANSPARENT
+URL:http://www.schafberglauf.at
+END:VEVENT
+END:VCALENDAR

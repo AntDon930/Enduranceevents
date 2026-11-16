@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-bike-challenge-mittelholstein-110km-nortorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Bike Challenge Mittelholstein – Radmarathon 110 km (Termin vorläuf
+ ig)
+LOCATION:Nortorf\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / St
+ raße\nLänge: 110 km\nhttps://www.nortorf.bike/veranstaltungen/bike-challe
+ nge/
+TRANSP:TRANSPARENT
+URL:https://www.nortorf.bike/veranstaltungen/bike-challenge/
+END:VEVENT
+END:VCALENDAR

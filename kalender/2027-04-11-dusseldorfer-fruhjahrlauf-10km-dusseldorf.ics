@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-dusseldorfer-fruhjahrlauf-10km-dusseldorf@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Düsseldorfer Frühjahrlauf – 10 km Volkslauf\, Startgeld 15\,00 €
+LOCATION:Düsseldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tg1881.de
+ /lauf-im-fruehjahr-in-duesseldorf/
+TRANSP:TRANSPARENT
+URL:https://www.tg1881.de/lauf-im-fruehjahr-in-duesseldorf/
+END:VEVENT
+END:VCALENDAR

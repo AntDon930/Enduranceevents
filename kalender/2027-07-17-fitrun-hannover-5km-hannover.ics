@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270717
 DTEND;VALUE=DATE:20270718
 SUMMARY:FitRun Hannover
 LOCATION:Hannover\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/417411/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.eilenriede
+ rennen.de/fitrun
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/417411/
+URL:https://www.eilenriederennen.de/fitrun
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-swissman-42km-locarno@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Swissman – 42 km Laufen
+LOCATION:Locarno\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 42 km\nhttps://suixtri.co
+ m/
+TRANSP:TRANSPARENT
+URL:https://suixtri.com/
+END:VEVENT
+END:VCALENDAR

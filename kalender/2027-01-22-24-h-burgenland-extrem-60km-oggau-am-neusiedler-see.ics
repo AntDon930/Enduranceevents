@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-22-24-h-burgenland-extrem-60km-oggau-am-neusiedler-see@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270122
+DTEND;VALUE=DATE:20270123
+SUMMARY:24 H Burgenland Extrem – 60 km Final‑Trail: Apetlon nach Oggau
+LOCATION:Oggau am Neusiedler See\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 60 km\nhttps://24stundenburge
+ nland.com/tour-2027/
+TRANSP:TRANSPARENT
+URL:https://24stundenburgenland.com/tour-2027/
+END:VEVENT
+END:VCALENDAR

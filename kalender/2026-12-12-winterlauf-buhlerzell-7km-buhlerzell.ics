@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
 SUMMARY:Winterlauf Bühlerzell
 LOCATION:Bühlerzell\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://my.raceresult.
- com/376000/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://sportfreunde-b
+ uehlerzell.de/buehlerzeller-winterlauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/376000/
+URL:https://sportfreunde-buehlerzell.de/buehlerzeller-winterlauf/
 END:VEVENT
 END:VCALENDAR

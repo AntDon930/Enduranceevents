@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-volkslauf-um-den-altwarmbuchener-see-11km-isernhagen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Volkslauf um den Altwarmbüchener See
+LOCATION:Isernhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://sc-altwarmbue
+ chen.de/volkslauf/
+TRANSP:TRANSPARENT
+URL:https://sc-altwarmbuechen.de/volkslauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-26-seestadt-triathlon-vienna-2-2km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270526
+DTEND;VALUE=DATE:20270528
+SUMMARY:Seestadt Triathlon Vienna – Landesschulaquathlon
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Triathlon / Aquathlon\nLänge: 2.2 km\nhttps://seesta
+ dt-triathlon.at/
+TRANSP:TRANSPARENT
+URL:https://seestadt-triathlon.at/
+END:VEVENT
+END:VCALENDAR

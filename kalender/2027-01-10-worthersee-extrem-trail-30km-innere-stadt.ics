@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-worthersee-extrem-trail-30km-innere-stadt@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Wörthersee Extrem Trail
+LOCATION:Innere Stadt\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 30 km\nhttps://my.raceresult.
+ com/433364/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/433364/
+END:VEVENT
+END:VCALENDAR

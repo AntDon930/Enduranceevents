@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:AÜW Georg Hieble Silvesterlauf Kempten
 LOCATION:Kempten (Allgäu)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.datasport.
- de/anmeldeservice/silvesterlaufkempten2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.808project
+ .de/silvesterlauf
 TRANSP:TRANSPARENT
-URL:https://www.datasport.de/anmeldeservice/silvesterlaufkempten2026
+URL:https://www.808project.de/silvesterlauf
 END:VEVENT
 END:VCALENDAR

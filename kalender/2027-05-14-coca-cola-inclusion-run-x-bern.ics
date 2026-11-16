@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-14-coca-cola-inclusion-run-x-bern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270514
+DTEND;VALUE=DATE:20270515
+SUMMARY:Coca-Cola Inclusion Run
+LOCATION:Bern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://gpbern.ch/coca-co
+ la-inclusion-run/
+TRANSP:TRANSPARENT
+URL:https://gpbern.ch/coca-cola-inclusion-run/
+END:VEVENT
+END:VCALENDAR

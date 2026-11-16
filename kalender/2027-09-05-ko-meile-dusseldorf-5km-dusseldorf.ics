@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-ko-meile-dusseldorf-5km-dusseldorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Kö Meile Düsseldorf
+LOCATION:Düsseldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.diekoemeil
+ e.de/
+TRANSP:TRANSPARENT
+URL:https://www.diekoemeile.de/
+END:VEVENT
+END:VCALENDAR

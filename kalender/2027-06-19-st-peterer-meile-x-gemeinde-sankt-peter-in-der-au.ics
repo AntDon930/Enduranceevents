@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-st-peterer-meile-x-gemeinde-sankt-peter-in-der-au@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:St. Peterer Meile
+LOCATION:Gemeinde Sankt Peter in der Au\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /433805/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/433805/
+END:VEVENT
+END:VCALENDAR

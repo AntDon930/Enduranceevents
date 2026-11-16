@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-michelfelder-volkslauf-10km-michelfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Michelfelder Volkslauf
+LOCATION:Michelfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://stadtwerke-ha
+ ll.de/ueber-uns/wir-fuer-die-region/laufevents/michelfeld
+TRANSP:TRANSPARENT
+URL:https://stadtwerke-hall.de/ueber-uns/wir-fuer-die-region/laufevents/mi
+ chelfeld
+END:VEVENT
+END:VCALENDAR

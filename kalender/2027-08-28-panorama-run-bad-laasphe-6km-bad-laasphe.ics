@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-panorama-run-bad-laasphe-6km-bad-laasphe@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Panorama-Run Bad Laasphe – 6.000 m Jugend/Jedermannlauf
+LOCATION:Bad Laasphe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.rothaar-la
+ ufserie.de/veranstaltungen/
+TRANSP:TRANSPARENT
+URL:https://www.rothaar-laufserie.de/veranstaltungen/
+END:VEVENT
+END:VCALENDAR
