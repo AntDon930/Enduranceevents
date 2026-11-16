@@ -61,7 +61,7 @@
 <link rel="stylesheet" href="site.css?v=2e857586">
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=acdd5b94">
-<link rel="stylesheet" href="clubs.css?v=6fdfa1e9">
+<link rel="stylesheet" href="clubs.css?v=13dbb3d7">
 </head>
 <body>
 
@@ -121,7 +121,14 @@
   <section>
     <div class="club-kopf">
       <div class="result-count" id="result-count"></div>
-      <span class="club-hinweis" id="club-hinweis"></span>
+      <!-- Zwei Zeilen neben der Zahl: dass die Liste noch wächst (vom
+           Nutzer am 11.11.2026 – wieder herausnehmen, sobald sie das nicht
+           mehr tut) und dass sich Termine kurzfristig ändern können (vom
+           Nutzer am 16.11.2026 – bleibt). -->
+      <span class="club-hinweis" id="club-hinweis">
+        <span id="club-hinweis-neu"></span>
+        <span id="club-hinweis-aenderung"></span>
+      </span>
       <button type="button" class="reset-btn" id="reset-btn" hidden></button>
     </div>
     <ul class="club-liste" id="club-liste" aria-live="polite"></ul>
@@ -237,6 +244,8 @@
       schliessen: 'Schließen',
       // Vom Nutzer am 11.11.2026: Die Liste wächst noch jede Woche.
       hinweis: 'Wir ergänzen zurzeit jede Woche neue Clubs.',
+      // Vom Nutzer am 16.11.2026: die verlinkte Seite des Clubs ist maßgeblich.
+      hinweis_aenderung: 'Termine und Treffpunkte können sich kurzfristig ändern – schau vorher kurz ins verlinkte Strava- oder Instagram-Konto des Clubs.',
       kein_termin: 'Saisonpause',
       footer_imprint: 'Impressum', footer_privacy: 'Datenschutz'
     },
@@ -280,6 +289,7 @@
       fehlt_err_config: 'Reporting is not set up yet (Firebase configuration missing).',
       schliessen: 'Close',
       hinweis: 'We’re adding new clubs every week.',
+      hinweis_aenderung: 'Times and meeting points can change at short notice – check the club’s linked Strava or Instagram account before you go.',
       kein_termin: 'Off-season',
       footer_imprint: 'Legal notice', footer_privacy: 'Privacy'
     }
@@ -633,7 +643,8 @@
     el('chk-gratis-text').textContent = t('gratis');
     el('karte-btn-text').textContent = t('karte');
     el('reset-btn').textContent = t('reset');
-    el('club-hinweis').textContent = t('hinweis');
+    el('club-hinweis-neu').textContent = t('hinweis');
+    el('club-hinweis-aenderung').textContent = t('hinweis_aenderung');
     document.querySelectorAll('[data-club-fehlt]').forEach((b) => {
       b.querySelector('[data-fehlt-titel]').textContent = t('fehlt_box_titel');
       b.querySelector('[data-fehlt-text]').textContent = t('fehlt_box_text');

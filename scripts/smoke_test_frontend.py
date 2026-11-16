@@ -3496,6 +3496,12 @@ def pruefe_clubs(ctx, basis):
                              " return h ? { text: h.textContent.trim(), sichtbar: h.getBoundingClientRect().height > 0 } : null; }")
     pruefe(bool(hinweis) and hinweis["sichtbar"] and "jede Woche neue Clubs" in hinweis["text"],
            "clubs.html: Hinweis „jede Woche neue Clubs“ neben der Zahl (%s)" % hinweis)
+    zeilen = seite.evaluate("""() => ['club-hinweis-neu', 'club-hinweis-aenderung'].map(id => {
+        const e = document.getElementById(id), r = e.getBoundingClientRect();
+        return { text: e.textContent.trim(), oben: r.top, unten: r.bottom }; })""")
+    pruefe(len(zeilen) == 2 and "kurzfristig ändern" in zeilen[1]["text"] and "Strava" in zeilen[1]["text"]
+           and zeilen[1]["oben"] >= zeilen[0]["unten"] - 1,
+           "clubs.html: darunter der Hinweis auf kurzfristige Änderungen (%s)" % [z["text"][:40] for z in zeilen])
     erster = seite.locator(".club-karte").first
     name = erster.locator(".ck-name").inner_text().strip()
     erster.click()
