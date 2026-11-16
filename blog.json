@@ -1,5 +1,21 @@
 [
  {
+  "slug": "winterkleidung",
+  "titel": "Winterkleidung für Läufer und Radfahrer: So bleibst du warm, trocken und sichtbar",
+  "titel_en": "Dressed for the cold: winter kit for running and riding",
+  "teaser": "Zwiebelprinzip, Mütze, Handschuhe und Licht: Was du im Winter beim Laufen und auf dem Rad anziehst, damit dir warm bleibt, du trocken bleibst und gut zu sehen bist.",
+  "teaser_en": "Layering, hats, gloves and lights: what to wear for winter runs and rides so you stay warm, dry and visible.",
+  "datum": "2026-11-16",
+  "kategorie": "Training",
+  "lesezeit_min": 5,
+  "bild": "bilder/blog/winterkleidung.webp",
+  "bild_klein": "bilder/blog/winterkleidung-480.webp",
+  "bild_alt": "Verschneiter Park mit kahlen Bäumen im Nebel, in der Ferne zwei Läufer auf dem Weg",
+  "bild_alt_en": "Snowy park with bare trees in the mist, two runners in the distance on the path",
+  "bild_nachweis": "Schnee im Prospect Park, Brooklyn, Januar 2026. Foto: Wil540 art, <a href=\"https://commons.wikimedia.org/wiki/File:Snow_runner_Prospect_Park_Brooklyn_2026.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by/4.0/\" rel=\"noopener\">CC BY 4.0</a>",
+  "bild_nachweis_en": "Snow in Prospect Park, Brooklyn, January 2026. Photo: Wil540 art, <a href=\"https://commons.wikimedia.org/wiki/File:Snow_runner_Prospect_Park_Brooklyn_2026.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by/4.0/\" rel=\"noopener\">CC BY 4.0</a>"
+ },
+ {
   "slug": "wintertraining-triathlon",
   "titel": "Wintertraining im Triathlon: Schwimmen, Rolle und Laufband sinnvoll kombinieren",
   "titel_en": "Swim, spin, run: your triathlon winter plan",
