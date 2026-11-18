@@ -2953,11 +2953,31 @@
     "rhythmus": "woechentlich",
     "wochentag": 2,
     "uhrzeit": "17:45",
-    "bezeichnung": "10 km Community Run",
-    "distanz_km": [
-     10,
-     10
-    ]
+    "bezeichnung": "Community Run, 10 km ab rennwerk Karlsruhe"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "17:45",
+    "bezeichnung": "Afterwork Run, 5 km (ca. 6:30 min/km) ab Café Bertis, Ludwig-Wilhelm-Straße 14"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "17:30",
+    "bezeichnung": "Track Thursday im Carl-Kaufmann-Stadion: Einlaufen, Mobility, Intervalle im eigenen Tempo"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-21",
+    "uhrzeit": "09:00",
+    "bezeichnung": "Long Run 22 km (5:45–6:00 min/km) ab der Europahalle"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-29",
+    "uhrzeit": "09:00",
+    "bezeichnung": "Long Run 15 km (5:45–6:00 min/km) ab der Europahalle"
    }
   ],
   "instagram": "https://www.instagram.com/stark_running/",
@@ -2965,11 +2985,12 @@
   "beschreibung_de": "Community Run über 10 km am Dienstag ab dem rennwerk Karlsruhe; mittwochs gibt es laut Sammelseite zusätzlich einen 5-km-Afterwork-Run ab Café Bertis.",
   "beschreibung_en": "10 km community run on Tuesdays from rennwerk Karlsruhe; according to a directory there is also a 5 km after-work run on Wednesdays from Café Bertis.",
   "quelle": [
-   "https://socialrunclubs.de/karlsruhe/stark-running/"
+   "https://socialrunclubs.de/karlsruhe/stark-running/",
+   "https://www.strava.com/clubs/1112119",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
-  "pruefung_offen": true,
-  "pruefung_grund": "Di 17:45 ab rennwerk Karlsruhe nur von socialrunclubs.de; die Seite von rennwerk nennt nur den eigenen Do-Lauftreff, Linktree ohne Termin; Websuche und eigene Kanäle am 19.10.2026 ohne Bestätigung (Instagram 429, Strava-Club 403)."
+  "geprueft": "2026-11-18",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "karlsruhe-slow-running-club",
@@ -2977,14 +2998,27 @@
   "art": "Laufen",
   "stadt": "Karlsruhe",
   "land": "Deutschland",
-  "treffpunkt": "Günther-Klotz-Anlage",
-  "lat": 49.00071,
-  "lon": 8.37192,
+  "treffpunkt": "Montag Haltestelle Europahalle/Europabad; Samstag Café Nello, Marie-Alexandra-Straße 11",
+  "lat": 48.99879,
+  "lon": 8.37635,
   "termine": [
    {
     "rhythmus": "woechentlich",
-    "wochentag": 4,
-    "uhrzeit": "17:00"
+    "wochentag": 1,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Slow Monday Run, Easy Pace: 3–4 km (9:00–9:30 min/km), Haltestelle Europahalle/Europabad"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "18:45",
+    "bezeichnung": "Slow Monday Run, Steady Pace: 3–4 km (8:00–8:30 min/km), Haltestelle Europahalle/Europabad"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "10:00",
+    "bezeichnung": "Slow Long Run, ca. 8 km (8:30–9:30 min/km), Start und Ziel Café Nello, Marie-Alexandra-Straße 11"
    }
   ],
   "distanz_km": [
@@ -3007,11 +3041,11 @@
   "beschreibung_en": "Deliberately slow running group for beginners and returners over 3–5 km.",
   "quelle": [
    "https://socialrunclubs.de/karlsruhe/slow-running-club-karlsruhe/",
-   "https://www.strava.com/clubs/1966633"
+   "https://www.strava.com/clubs/1966633",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Strava-Club bestätigt 3–5 km bei 8:00–9:30 min/km als „Feierabendrunde“, nennt aber weder Tag noch Uhrzeit noch Treffpunkt – Do 17:00 Günther-Klotz-Anlage nur von socialrunclubs.de"
+  "geprueft": "2026-11-18",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "karlsruhe-no-matter-pace",
@@ -6169,12 +6203,8 @@
    {
     "rhythmus": "woechentlich",
     "wochentag": 7,
-    "uhrzeit": "08:00",
-    "bezeichnung": "Long Sunday",
-    "distanz_km": [
-     16,
-     30
-    ]
+    "uhrzeit": "08:30",
+    "bezeichnung": "Long Sunday, Treffen 8:00, meist 20 km und mehr"
    }
   ],
   "distanz_km": [
@@ -6206,21 +6236,22 @@
   "quelle": [
    "https://viennarunningco.com/social-run",
    "https://www.run-clubs.eu/clubs/vienna-running-collective",
-   "https://www.viennarunningco.com/joinus"
+   "https://www.viennarunningco.com/joinus",
+   "https://www.strava.com/clubs/1025419",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "pruefung_offen": true,
-  "pruefung_grund": "Eigene Seite viennarunningco.com/joinus bestätigt Long Sunday ab Superfood Deli, Maria-Theresien-Straße 5, meist ab 20 km, Pace-Gruppen 4:30–5:30 min/km, ohne Anmeldung – aber KEINE Uhrzeit (Sammelseiten: 8:00 bzw. 7:30)",
   "land": "Österreich",
-  "geprueft": "2026-10-20"
+  "geprueft": "2026-11-18",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "wien-vrc-tempo-tuesday",
   "name": "Vienna Running Collective – Tempo Tuesday",
   "art": "Laufen",
   "stadt": "Wien",
-  "treffpunkt": "WLV-Bahn, Meiereistraße 18, oder Prater Hauptallee bei KM 2, 1020 Wien",
-  "lat": 48.20719,
-  "lon": 16.42092,
+  "treffpunkt": "Prater Hauptallee 127",
+  "lat": 48.20428,
+  "lon": 16.41687,
   "termine": [
    {
     "rhythmus": "woechentlich",
@@ -6248,12 +6279,13 @@
   "beschreibung_en": "Tuesday evening tempo and interval session on the Prater Hauptallee or the WLV track.",
   "quelle": [
    "https://www.run-clubs.eu/clubs/vienna-running-collective",
-   "https://www.viennarunningco.com/joinus"
+   "https://www.viennarunningco.com/joinus",
+   "https://www.strava.com/clubs/1025419",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "pruefung_offen": true,
-  "pruefung_grund": "Eigene Seite viennarunningco.com/joinus (ohne Datum, Club 2026 aktiv): Di 19:00, Drills ab 18:45, auf der WLV-Bahn Meiereistraße 18 ODER an der Prater Hauptallee bei KM 2 – welcher Ort, wird wöchentlich auf Strava/Instagram angesagt",
   "land": "Österreich",
-  "geprueft": "2026-10-20"
+  "geprueft": "2026-11-18",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "wien-kraft-runners",
@@ -6547,6 +6579,12 @@
     "wochentag": 2,
     "uhrzeit": "18:00",
     "bezeichnung": "Schneller Dauerlauf an der Mur"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Kleine Zeitung Lauftreff: ca. 1 h (8–12 km) in drei Tempogruppen (5:00, 5:30, 6:00 min/km)"
    }
   ],
   "kosten": {
@@ -6564,11 +6602,14 @@
   "beschreibung_en": "Steady tempo run along the Mur river by the Graz running club runninGraz; free and open to everyone.",
   "quelle": [
    "https://www.runningraz.at/",
-   "https://www.sportaktiv.com/runningraz-die-laufcommunity-der-zweitgroessten-stadt-oesterreichs"
+   "https://www.sportaktiv.com/runningraz-die-laufcommunity-der-zweitgroessten-stadt-oesterreichs",
+   "https://www.strava.com/clubs/76311",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Österreich",
-  "geprueft": "2026-10-19",
-  "strava": "https://www.strava.com/clubs/runninGraz"
+  "geprueft": "2026-11-18",
+  "strava": "https://www.strava.com/clubs/runninGraz",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "graz-socialrunclub",
@@ -6584,6 +6625,12 @@
     "ab": "2026-06-18",
     "wochentag": 4,
     "uhrzeit": "18:30"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-19",
+    "uhrzeit": "18:00",
+    "bezeichnung": "42. SocialRun: 4–5 km an der Mur ab dem Kunsthaus"
    }
   ],
   "distanz_km": [
@@ -6607,13 +6654,16 @@
   "beschreibung_en": "Social 4–5 km run along the Mur, everyone at their own pace, every other Thursday.",
   "quelle": [
    "https://www.run-clubs.eu/clubs/socialrunclub-graz",
-   "https://www.1000thingsmagazine.com/de/a/2188663/run-clubs-oesterreich/"
+   "https://www.1000thingsmagazine.com/de/a/2188663/run-clubs-oesterreich/",
+   "https://www.strava.com/clubs/1248494",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
   "pruefung_offen": true,
   "pruefung_grund": "Nur run-clubs.eu (Do 18:30, Südtiroler Platz; Instagram-Bio „jeden 2. Donnerstag“, nächster Run 18.06., Instagram laut run-clubs.eu zuletzt vor ~4 Monaten aktiv); 1000things (03/2026): zwei Läufe im Monat; Strava-Club (verlinkt) nicht lesbar – Uhrzeit, Treffpunkt und Takt auf eigener Quelle unbestätigt",
   "land": "Österreich",
-  "geprueft": "2026-10-19",
-  "strava": "https://www.strava.com/clubs/socialrunclub-graz"
+  "geprueft": "2026-11-18",
+  "strava": "https://www.strava.com/clubs/socialrunclub-graz",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "graz-running-buddys",
@@ -8330,6 +8380,12 @@
     "rhythmus": "woechentlich",
     "wochentag": 2,
     "uhrzeit": "06:15"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-19",
+    "uhrzeit": "06:15",
+    "bezeichnung": "6:ZH goes Trail: 7,5 km, 400 Hm, Treffpunkt Tramhaltestelle Triemli"
    }
   ],
   "distanz_km": [
@@ -8361,10 +8417,13 @@
   "quelle": [
    "https://the6zhclub.com/",
    "https://img1.wsimg.com/blobby/go/5844c0cf-a8c6-41e2-8150-db0c2c524167/WHAT%20WHERE%20%26%20WHEN.pdf",
-   "Instagram-Profil @the6zhclub (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026"
+   "Instagram-Profil @the6zhclub (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026",
+   "https://www.strava.com/clubs/1153380",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Schweiz",
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-18",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "zuerich-district-runners",
@@ -18762,11 +18821,12 @@
   "beschreibung_de": "Feierabendlauf über Promenade und Aasee in zwei Gruppen (ca. 5:30 und 6:30 min/km) über 6 bis 7 km.",
   "beschreibung_en": "After-work run along the Promenade and Aasee in two groups (about 5:30 and 6:30/km) over 6–7 km.",
   "quelle": [
-   "https://socialrunclubs.de/muenster/active-laufshop-club/"
+   "https://socialrunclubs.de/muenster/active-laufshop-club/",
+   "https://www.strava.com/clubs/1809325",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Termin nur auf der Sammelseite socialrunclubs.de, eigene Kanäle (Instagram/Strava) nicht lesbar; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "geprueft": "2026-11-18",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "muenster-oace",
@@ -18830,12 +18890,13 @@
   "beschreibung_en": "Community run on Friday afternoons from Fyal Coffeeshop.",
   "quelle": [
    "https://socialrunclubs.de/muenster/running-crew-munster/",
-   "https://www.strava.com/clubs/runningcrewms"
+   "https://www.strava.com/clubs/runningcrewms",
+   "https://www.strava.com/clubs/479075",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Freitag 17:30 Fyal Coffeeshop (Community Run) nur auf socialrunclubs.de; der Strava-Club der Crew nennt nur „Training: 19 Uhr Donnerstags, Sentruper Höhe“ – ob der Freitagslauf noch stattfindet und ob das Donnerstagstraining offen ist, auf Instagram klären; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt",
-  "strava": "https://www.strava.com/clubs/runningcrewms"
+  "geprueft": "2026-11-18",
+  "strava": "https://www.strava.com/clubs/runningcrewms",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "paderborn-lauftreff-lieth",
@@ -20419,12 +20480,13 @@
   "beschreibung_de": "Früher Fahrtspiel-Lauf des Vienna Running Collective am Freitagmorgen ab dem Praterstern.",
   "beschreibung_en": "Early Friday morning fartlek run by the Vienna Running Collective from Praterstern.",
   "quelle": [
-   "https://www.viennarunningco.com/joinus"
+   "https://www.viennarunningco.com/joinus",
+   "https://www.strava.com/clubs/1025419",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-18",
   "anmeldung": "nein",
-  "pruefung_offen": true,
-  "pruefung_grund": "Beleg stammt von runningcrews.com (robots.txt sperrt unseren Abruf) – bitte an eigener Quelle bestätigen"
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "st-gallen-track-club",
@@ -20477,6 +20539,12 @@
      5,
      5
     ]
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-29",
+    "uhrzeit": "10:00",
+    "bezeichnung": "5K Social Run, Treffpunkt Landesmuseum"
    }
   ],
   "distanz_km": [
@@ -20500,11 +20568,14 @@
   "beschreibung_en": "Women-only run club with a relaxed 5 km social run and coffee on Sunday mornings.",
   "quelle": [
    "https://swissrunclubhub.ch/",
-   "https://www.strava.com/clubs/sherunszurich"
+   "https://www.strava.com/clubs/sherunszurich",
+   "https://www.strava.com/clubs/1221625",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-18",
   "pruefung_offen": true,
-  "pruefung_grund": "Sonntag 10:00 in zwei Sammelseiten (Swiss Run Club Hub, runningcrews.com vor ~4 Monaten, nicht vom Club bestätigt); Treffpunkt je Lauf auf Strava – Ort und Regelmäßigkeit prüfen; Koordinaten = Paradeplatz"
+  "pruefung_grund": "Sonntag 10:00 in zwei Sammelseiten (Swiss Run Club Hub, runningcrews.com vor ~4 Monaten, nicht vom Club bestätigt); Treffpunkt je Lauf auf Strava – Ort und Regelmäßigkeit prüfen; Koordinaten = Paradeplatz",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "zuerich-lake-zurich-run-club",
@@ -20555,16 +20626,17 @@
   "lon": 8.52039,
   "termine": [
    {
-    "rhythmus": "monatlich",
-    "wochentag": 7,
-    "uhrzeit": "15:00",
-    "nter": 1
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Wednesday Run, 4–7 km, alle Paces willkommen, danach ein alkoholfreies Bier"
    },
    {
     "rhythmus": "monatlich",
-    "wochentag": 3,
-    "uhrzeit": "18:30",
-    "nter": 3
+    "nter": 1,
+    "wochentag": 7,
+    "uhrzeit": "15:00",
+    "bezeichnung": "MRC Sunday Run"
    }
   ],
   "kosten": {
@@ -20579,11 +20651,12 @@
   "beschreibung_en": "Social run from the Mikkeller bar on the first Sunday and third Wednesday of each month, open to everyone.",
   "quelle": [
    "https://swissrunclubhub.ch/",
-   "https://www.strava.com/clubs/mrc-zurich"
+   "https://www.strava.com/clubs/mrc-zurich",
+   "https://www.strava.com/clubs/1831872",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Swiss Run Club Hub: 1. Sonntag 15:00 und 3. Mittwoch 18:30; runningcrews.com (Netzwerk-Verzeichnis, vor ~4 Monaten): Sonntag 14:00 – Uhrzeit widersprüchlich; Bar Mikkeller Zürich, Zweierstrasse 124 (öffnet sonntags 15:00)"
+  "geprueft": "2026-11-18",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "zuerich-runners-collective",
@@ -20591,27 +20664,27 @@
   "art": "Laufen",
   "stadt": "Zürich",
   "land": "Schweiz",
-  "treffpunkt": "Zürich (Treffpunkte werden auf Strava angekündigt)",
-  "lat": 47.36966,
-  "lon": 8.53883,
+  "treffpunkt": "Mo Kleine Freiheit (Weinbergstrasse 30), Do Gotthardstrasse 66, Sa Amboss Rampe (Zollstrasse 80)",
+  "lat": 47.37917,
+  "lon": 8.54443,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 1,
-    "uhrzeit": "07:00",
-    "bezeichnung": "Morning Run"
+    "uhrzeit": "19:00",
+    "bezeichnung": "Community Run, 6–7 km im Plaudertempo, ab Kleine Freiheit (Weinbergstrasse 30)"
    },
    {
     "rhythmus": "woechentlich",
     "wochentag": 4,
     "uhrzeit": "19:00",
-    "bezeichnung": "Intervalle"
+    "bezeichnung": "Intervalle, Gotthardstrasse 66"
    },
    {
     "rhythmus": "woechentlich",
     "wochentag": 6,
     "uhrzeit": "10:00",
-    "bezeichnung": "Long Run"
+    "bezeichnung": "Long Run ab der Amboss Rampe (Zollstrasse 80)"
    }
   ],
   "kosten": {
@@ -20631,11 +20704,11 @@
   "quelle": [
    "https://swissrunclubhub.ch/",
    "https://www.strava.com/clubs/1434209",
-   "https://www.x-bionic.com/en-hu/pages/events/x-bionic-community-trail-run-with-runners-collective-zurich"
+   "https://www.x-bionic.com/en-hu/pages/events/x-bionic-community-trail-run-with-runners-collective-zurich",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Swiss Run Club Hub: Mo 07:00, Do 19:00, Sa 10:00; X-Bionic-Eventseite (06/2026): Montag Morgenlauf, Donnerstag Intervalle, Samstag Long Run, im Sommer dienstags Trail – Treffpunkte nirgends genannt; Koordinaten = Paradeplatz"
+  "geprueft": "2026-11-18",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "basel-running-club-brc",
@@ -21691,6 +21764,20 @@
     "wochentag": 2,
     "uhrzeit": "17:45",
     "bezeichnung": "Tuesday Socialrun"
+   },
+   {
+    "rhythmus": "monatlich",
+    "nter": 3,
+    "wochentag": 4,
+    "uhrzeit": "17:45",
+    "bezeichnung": "CRC @ GRANO Pasta, Karl-Liebknecht-Straße 17, danach Pasta-Angebot"
+   },
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 7,
+    "ab": "2026-11-22",
+    "uhrzeit": "10:30",
+    "bezeichnung": "Sunday Social Run ab 7shotscoffee, 6 km (6:00–6:30 min/km)"
    }
   ],
   "distanz_km": [
@@ -21723,9 +21810,12 @@
   "quelle": [
    "https://www.strava.com/clubs/cozyrunclub",
    "https://rausgegangen.de/en/events/cozyrunclub-socialrun-soulmate-cafe-3/",
-   "https://www.instagram.com/cozy.runclub/"
+   "https://www.instagram.com/cozy.runclub/",
+   "https://www.strava.com/clubs/1423896",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20"
+  "geprueft": "2026-11-18",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "regensburg-runningclub-easy5",
@@ -22817,11 +22907,12 @@
   "beschreibung_en": "Early Friday run of about 6 km at a social pace through the old town, followed by coffee.",
   "quelle": [
    "https://socialrunclubs.de/nuernberg/be-right-back-run-club/",
-   "https://socialrunclubs.de/nuernberg/bb-running-club/"
+   "https://socialrunclubs.de/nuernberg/bb-running-club/",
+   "https://www.strava.com/clubs/1237143",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Termin und Treffpunkt nur über socialrunclubs.de (Eintrag vom 2026-06-22) belegt; Instagram/Strava des Clubs nicht lesbar – Aktualität prüfen; am selben Ort/zur selben Zeit steht auch „BB Running Club“ (@bergbrand.runningclub) – vermutlich dieselbe Gruppe; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "geprueft": "2026-11-18",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "nuernberg-caya-run-club",
@@ -22867,6 +22958,12 @@
     "rhythmus": "woechentlich",
     "wochentag": 7,
     "uhrzeit": "10:00"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:38",
+    "bezeichnung": "Wednesday Social am Hauptmarkt, Social Pace, danach jede Woche ein anderes Lokal"
    }
   ],
   "instagram": "https://www.instagram.com/cru.runningclub/",
@@ -22876,9 +22973,12 @@
   "beschreibung_en": "Sunday social run starting at the Hauptmarkt.",
   "quelle": [
    "https://socialrunclubs.de/nuernberg/cru-running-club/",
-   "https://linktr.ee/cru.runningclub"
+   "https://linktr.ee/cru.runningclub",
+   "https://www.strava.com/clubs/1308530",
+   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20"
+  "geprueft": "2026-11-18",
+  "zuletzt_aktiv": "2026-11-18"
  },
  {
   "id": "nuernberg-faem-run-club",
