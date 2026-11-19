@@ -777,10 +777,10 @@
   "stadt": "Berlin",
   "art": "Fahrrad",
   "strava": "https://www.strava.com/clubs/bike-pivo",
-  "letzter_beleg": "2026-11-09",
-  "grund": "Strava: nur Einzelevents an wechselnden Orten (Eberswalde 14.11., Himmelpfort ab Oranienburg 28.11., WinterGravelGlühen 05.12.), kein fester Treff.",
+  "letzter_beleg": "2026-11-19",
+  "grund": "Strava: nur Einzelevents an wechselnden Orten (Bad Belzig 22.11., Himmelpfort ab Oranienburg 28.11., WinterGravelGlühen 05.12.), kein fester Treff.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-11-09"
+  "geprueft": "2026-11-19"
  },
  {
   "schluessel": "ig:blackwomenrunberlin",
@@ -1654,18 +1654,6 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
-  "schluessel": "club:bielefeld-cycling-bats",
-  "name": "Cycling Bats",
-  "stadt": "Bielefeld",
-  "art": "Fahrrad",
-  "letzter_beleg": "2026-11-09",
-  "geprueft": "2026-11-16",
-  "grund": "War Club mit Einzelterminen; am 16.11.2026 auf Strava kein weiterer offener Treff (höchstens Rennen oder Reisen). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
-  "hinweis": "aus clubs.json übernommen am 16.11.2026",
-  "strava": "https://www.strava.com/clubs/1098712",
-  "instagram": "https://www.instagram.com/cycling_bats/"
- },
- {
   "schluessel": "ig:europeancyclingindustries",
   "name": "europeancyclingindustries · Brussels · Instagram photos and videos",
   "stadt": "Bocholt",
@@ -2189,7 +2177,7 @@
   "letzter_beleg": null,
   "grund": "Strava beigetreten 27.10.2026: Serien seit 2014 (So 11:00 Hobby-Ausfahrt ab Rest. Kreuz, Di Indoor) – ob sie 2026 noch stattfinden, ist nicht belegt.",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
-  "geprueft": "2026-11-09"
+  "geprueft": "2026-11-19"
  },
  {
   "schluessel": "ig:dortmundrunclub",
@@ -5087,6 +5075,18 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:wien-social-run-club",
+  "name": "Social Run Club Vienna",
+  "stadt": "Wien",
+  "art": "Laufen",
+  "letzter_beleg": null,
+  "geprueft": "2026-11-19",
+  "grund": "War Club mit Einzelterminen; nach dem letzten Termin (16.11.2026) kein neuer Treff angekündigt. Wieder anlegen, sobald ein neuer Termin steht.",
+  "hinweis": "aus clubs.json übernommen am 19.11.2026",
+  "instagram": "https://www.instagram.com/socialrunclub.vienna/",
+  "webseite": "https://socialrunclub.at"
  },
  {
   "schluessel": "club:wuerzburg-casual-miles",

@@ -793,6 +793,12 @@
     "wochentag": 3,
     "uhrzeit": "18:30",
     "bezeichnung": "Bergfest Gravel Ride in zwei Gruppen: Fast Pace und Social Pace (21–23 km/h)"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-12-12",
+    "uhrzeit": "10:00",
+    "bezeichnung": "GRX-mas: Weihnachtsausfahrt, ca. 50 km Gravel zu einem geheimen Ziel"
    }
   ],
   "dauer_min": 120,
@@ -807,11 +813,11 @@
    "https://www.strava.com/clubs/1014321/group_events/3395325614216680584",
    "https://rundedrehen.de/grouprides/berlin",
    "https://www.strava.com/clubs/1014321",
-   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 19.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-11-10",
-  "zuletzt_aktiv": "2026-11-10"
+  "geprueft": "2026-11-19",
+  "zuletzt_aktiv": "2026-11-19"
  },
  {
   "id": "leipzig-parkrun-kuechenholz",
@@ -2970,7 +2976,7 @@
    {
     "rhythmus": "einmalig",
     "datum": "2026-11-21",
-    "uhrzeit": "09:00",
+    "uhrzeit": "09:30",
     "bezeichnung": "Long Run 22 km (5:45–6:00 min/km) ab der Europahalle"
    },
    {
@@ -2987,10 +2993,10 @@
   "quelle": [
    "https://socialrunclubs.de/karlsruhe/stark-running/",
    "https://www.strava.com/clubs/1112119",
-   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 19.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-11-18",
-  "zuletzt_aktiv": "2026-11-18"
+  "geprueft": "2026-11-19",
+  "zuletzt_aktiv": "2026-11-19"
  },
  {
   "id": "karlsruhe-slow-running-club",
@@ -3546,14 +3552,20 @@
   "art": "Laufen",
   "stadt": "Heidelberg",
   "land": "Deutschland",
-  "treffpunkt": "Penta-Park, Bergheim",
-  "lat": 49.40924,
-  "lon": 8.67136,
+  "treffpunkt": "Vor dem Nachbarschaftsraum, Bergheimer Straße 144",
+  "lat": 49.40819,
+  "lon": 8.67194,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 4,
     "uhrzeit": "17:30"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-19",
+    "uhrzeit": "17:45",
+    "bezeichnung": "Glühlauf, danach Glühwein und Apfelsaft im Nachbarschaftsraum"
    }
   ],
   "instagram": "https://www.instagram.com/hdbergheim/",
@@ -3562,11 +3574,12 @@
   "beschreibung_en": "Neighbourhood Thursday run in Penta-Park.",
   "quelle": [
    "https://socialrunclubs.de/heidelberg/bergheimer-social-run/",
-   "https://www.strava.com/clubs/bergheimer-social-run"
+   "https://www.strava.com/clubs/bergheimer-social-run",
+   "https://www.strava.com/clubs/1940627",
+   "Strava-Club-Termine, abgerufen am 19.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Strava-Club bestätigt nur „immer donnerstags“, ohne Uhrzeit und Treffpunkt (verlinkt Quartiersseite hd-bergheim.de, dort kein Lauftermin); 17:30 und Penta-Park nur von socialrunclubs.de"
+  "geprueft": "2026-11-19",
+  "zuletzt_aktiv": "2026-11-19"
  },
  {
   "id": "freiburg-ryzon-running-unit",
@@ -6149,49 +6162,6 @@
   "geprueft": "2026-10-19"
  },
  {
-  "id": "wien-social-run-club",
-  "name": "Social Run Club Vienna",
-  "art": "Laufen",
-  "stadt": "Wien",
-  "treffpunkt": "Lobby des 25hours Hotel Wien, Lerchenfelder Straße 1–3, 1070 Wien",
-  "lat": 48.20648,
-  "lon": 16.35462,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-16",
-    "uhrzeit": "18:30",
-    "bezeichnung": "Check-in ab 18:00 in der Lobby"
-   }
-  ],
-  "distanz_km": [
-   5,
-   5
-  ],
-  "kosten": {
-   "gratis": true,
-   "betrag_eur": null,
-   "text": null
-  },
-  "anmeldung": "nein",
-  "webseite": "https://socialrunclub.at",
-  "instagram": "https://www.instagram.com/socialrunclub.vienna/",
-  "sprachen": [
-   "de"
-  ],
-  "merkmale": [
-   "anfaengerfreundlich"
-  ],
-  "beschreibung_de": "Lockere 5-km-Ringrunde zum Laufen oder Gehen, einmal im Monat an einem Montag, danach geselliges Beisammensein im 25hours Hotel.",
-  "beschreibung_en": "Relaxed 5 km loop around the Ring, run or walk, on one Monday a month, followed by drinks at the 25hours Hotel.",
-  "quelle": [
-   "https://socialrunclub.at",
-   "https://www.1000thingsmagazine.com/de/a/2188617/run-clubs-wien/"
-  ],
-  "land": "Österreich",
-  "geprueft": "2026-10-19"
- },
- {
   "id": "wien-vrc-long-sunday",
   "name": "Vienna Running Collective – Long Sunday",
   "art": "Laufen",
@@ -6828,12 +6798,6 @@
   "lat": 47.78605,
   "lon": 13.08815,
   "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-18",
-    "uhrzeit": "18:00",
-    "bezeichnung": "Community Run – Park Hellbrunn, Haupteingang Fürstenweg 33"
-   },
    {
     "rhythmus": "einmalig",
     "datum": "2026-11-26",
@@ -9764,6 +9728,13 @@
     "datum": "2026-12-19",
     "uhrzeit": "10:00",
     "bezeichnung": "SamstagMorgenAusfahrt (Strasse), Abfahrt 10:15"
+   },
+   {
+    "rhythmus": "zweiwoechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00",
+    "ab": "2027-04-08",
+    "bezeichnung": "DonnerstagAbendAusfahrt (Strasse), Abfahrt 18:15 – ab 8. April 2027"
    }
   ],
   "strava": "https://www.strava.com/clubs/chezvelo",
@@ -9775,16 +9746,16 @@
    "https://rundedrehen.de/grouprides/basel",
    "https://www.strava.com/clubs/8341",
    "https://www.strava.com/clubs/chezvelo",
-   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 19.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Schweiz",
-  "geprueft": "2026-11-10",
+  "geprueft": "2026-11-19",
   "pace": {
    "von": 25,
    "bis": 28
   },
   "rad_typ": "gemischt",
-  "zuletzt_aktiv": "2026-11-10"
+  "zuletzt_aktiv": "2026-11-19"
  },
  {
   "id": "basel-obst-gemuese-firestarter",
@@ -17420,12 +17391,6 @@
    },
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-16",
-    "uhrzeit": "19:00",
-    "bezeichnung": "Light up the night"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-12-21",
     "uhrzeit": "18:30",
     "bezeichnung": "Pre Christmas Run"
@@ -19956,7 +19921,7 @@
   "art": "Laufen",
   "stadt": "Bremen",
   "land": "Deutschland",
-  "treffpunkt": "gegenüber PAPP Café, Friedrich-Ebert-Straße 1 (sonntags); donnerstags Bürgerpark, Eingang Am Stern",
+  "treffpunkt": "gegenüber PAPP Café, Friedrich-Ebert-Straße 1 (sonntags); donnerstags Bürgerpark, Eingang Am Stern; freitags Franz-Böhmert-Straße 8 (Peterswerder)",
   "lat": 53.07185,
   "lon": 8.80157,
   "termine": [
@@ -20015,6 +19980,12 @@
      "von": "6:30",
      "bis": "7:00"
     }
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "17:30",
+    "bezeichnung": "Fast Friday: Intervalle (kein Muss), ab Franz-Böhmert-Straße 8"
    }
   ],
   "distanz_km": [
@@ -20042,10 +20013,10 @@
   "quelle": [
    "https://run-believable-bremen.finels.chatgpt.site/",
    "https://www.strava.com/clubs/1254712",
-   "Strava-Club-Termine, abgerufen am 12.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 19.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-11-12",
-  "zuletzt_aktiv": "2026-11-12"
+  "geprueft": "2026-11-19",
+  "zuletzt_aktiv": "2026-11-19"
  },
  {
   "id": "heidelberg-velociraptors-feierabendrunde",
@@ -24041,11 +24012,12 @@
   "beschreibung_en": "Sunday long run from Haus am See in the south of Cologne.",
   "quelle": [
    "https://socialrunclubs.de/koeln/src-social-run-cologne/",
-   "https://luma.com/jpokn9r9"
+   "https://luma.com/jpokn9r9",
+   "https://www.strava.com/clubs/1271726",
+   "Strava-Club-Termine, abgerufen am 19.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Sonntag ab Haus am See nur von socialrunclubs.de (08/2025) als wöchentlich belegt; der Luma-Kalender des Clubs zeigt 2026 dort nur Sonder-Events (z. B. So 09.08.2026, 10:00, SRC x NIKE) – ob der Long Run jeden Sonntag stattfindet, klären"
+  "geprueft": "2026-11-19",
+  "zuletzt_aktiv": "2026-11-19"
  },
  {
   "id": "koeln-unity-run-cologne",
@@ -29122,12 +29094,6 @@
     "datum": "2026-12-12",
     "uhrzeit": "08:30",
     "bezeichnung": "GravelGranFondo Dezember, 100 km+"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-16",
-    "uhrzeit": "17:30",
-    "bezeichnung": "Tornesch: Gravel-Abendrunde im Dunkeln ab Hamburger Straße 8, Tornesch (Licht Pflicht, Gruppe wartet bei Pannen)"
    }
   ],
   "distanz_km": [
@@ -30721,5 +30687,76 @@
   ],
   "geprueft": "2026-11-15",
   "zuletzt_aktiv": "2026-11-15"
+ },
+ {
+  "id": "koeln-social-run-cologne-underdogs",
+  "name": "Social Run Cologne – SRC Underdogs",
+  "art": "Laufen",
+  "stadt": "Köln",
+  "land": "Deutschland",
+  "treffpunkt": "Underdog Espresso, Lothringer Straße 2A (Südstadt)",
+  "lat": 50.92185,
+  "lon": 6.95475,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "17:30",
+    "bezeichnung": "Treffen 17:30, Warm-up 17:45, ca. 4 km"
+   }
+  ],
+  "distanz_km": [
+   4,
+   4
+  ],
+  "pace": {
+   "von": "7:00",
+   "bis": "7:00"
+  },
+  "instagram": "https://www.instagram.com/socialruncgn/",
+  "strava": "https://www.strava.com/clubs/socialruncgn",
+  "merkmale": [
+   "anfaengerfreundlich"
+  ],
+  "beschreibung_de": "Wöchentlicher Einsteigerlauf von Social Run Cologne am Donnerstag: rund 4 km im Gruppentempo ab dem Underdog Espresso, mit Bag-Drop.",
+  "beschreibung_en": "Weekly beginner run by Social Run Cologne on Thursdays: about 4 km at group pace from Underdog Espresso, with bag drop.",
+  "quelle": [
+   "https://www.strava.com/clubs/1271726",
+   "Strava-Club-Termine, abgerufen am 19.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-19",
+  "zuletzt_aktiv": "2026-11-19"
+ },
+ {
+  "id": "bielefeld-cycling-bats",
+  "name": "Cycling Bats x Active – Lauf",
+  "art": "Laufen",
+  "stadt": "Bielefeld",
+  "land": "Deutschland",
+  "treffpunkt": "Niederwall 6 (Active)",
+  "lat": 52.02193,
+  "lon": 8.5336,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-23",
+    "uhrzeit": "18:45",
+    "bezeichnung": "Lauf mit Active, drei Tempogruppen (5:30–7:00 min/km), Licht mitbringen"
+   }
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "7:00"
+  },
+  "instagram": "https://www.instagram.com/cycling_bats/",
+  "strava": "https://www.strava.com/clubs/1098712",
+  "beschreibung_de": "Die Cycling Bats laufen ab und zu gemeinsam mit dem Laufgeschäft Active – in drei Tempogruppen durch Bielefeld.",
+  "beschreibung_en": "The Cycling Bats occasionally run together with the Active running shop – in three pace groups through Bielefeld.",
+  "quelle": [
+   "https://www.strava.com/clubs/1098712",
+   "Strava-Club-Termine, abgerufen am 19.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-19",
+  "zuletzt_aktiv": "2026-11-19"
  }
 ]
