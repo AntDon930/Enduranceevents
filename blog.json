@@ -1,5 +1,22 @@
 [
  {
+  "slug": "rollentraining-winter",
+  "titel": "Rollentraining im Winter: So bleibst du auf dem Rad fit, bis die Saison startet",
+  "titel_en": "Turbo season: how to stay bike-fit until spring",
+  "teaser": "Welche Rolle zu dir passt, warum ein Ventilator Pflicht ist und wie eine Trainingswoche aussehen kann: So kommst du auf dem Rad fit durch den Winter.",
+  "teaser_en": "Which trainer suits you, why a fan is a must and what a training week can look like: how to stay fit on the bike all winter.",
+  "datum": "2026-11-19",
+  "sportart": "Fahrrad",
+  "kategorie": "Training",
+  "lesezeit_min": 5,
+  "bild": "bilder/blog/rollentraining-winter.webp",
+  "bild_klein": "bilder/blog/rollentraining-winter-480.webp",
+  "bild_alt": "Radfahrerfeld von oben auf einer breiten Straße im Frühling, am Rand Zuschauer",
+  "bild_alt_en": "Bunch of cyclists seen from above on a wide road in spring, spectators along the side",
+  "bild_nachweis": "Giro d’Italia 2016, 2. Etappe bei Arnhem. Foto: Michielverbeek, <a href=\"https://commons.wikimedia.org/wiki/File:Arnhem_Gelredome-traverse,_peloton_Giro_d%27Italia_2e_etappe_IMG_0147_2016-05-07_12.31.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>",
+  "bild_nachweis_en": "Giro d’Italia 2016, stage 2 near Arnhem. Photo: Michielverbeek, <a href=\"https://commons.wikimedia.org/wiki/File:Arnhem_Gelredome-traverse,_peloton_Giro_d%27Italia_2e_etappe_IMG_0147_2016-05-07_12.31.jpg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" rel=\"noopener\">CC BY-SA 4.0</a>"
+ },
+ {
   "slug": "winterkleidung",
   "titel": "Winterkleidung für Läufer und Radfahrer: So bleibst du warm, trocken und sichtbar",
   "titel_en": "Dressed for the cold: winter kit for running and riding",
