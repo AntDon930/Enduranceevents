@@ -6156,8 +6156,51 @@ def test_instagram() -> None:
           [12, 5, 300, 4, True])
     aw = P.auswertung(z, "NEU-SCHLUESSEL", session=StorySitzung(mit_insights=False))
     check("Auswertung ohne Insights-Berechtigung: Likes ja, Hinweis auf die Berechtigung",
-          [aw["beitraege"][0]["likes"], aw["insights"], "instagram_business_manage_insights" in (aw["hinweis"] or "")],
+          [aw["beitraege"][0]["likes"], aw["insights"], "instagram_manage_insights" in (aw["hinweis"] or "")],
           [5, False, True])
+
+    # Unified login (seit 20.11.2026): JSON im Tresor, graph.facebook.com,
+    # keine Erneuerung, Konto-Id aus dem Tresor statt /me.
+    check("Tresor: reiner Text = Instagram-Login", P.lies_tresor_wert(" abc ")["art"], "instagram")
+    check("Tresor: JSON = Unified login mit Konto-Id",
+          P.lies_tresor_wert('{"art": "unified", "token": "T", "ig_id": "178"}'),
+          {"art": "unified", "token": "T", "ig_id": "178"})
+    try:
+        P.lies_tresor_wert('{"art": "unified"}')
+        check("unvollständiges JSON meldet sich", "kein Fehler", "Fehler")
+    except P.PostenFehler as e:
+        check("unvollständiges JSON nennt --anmelden", "--anmelden" in str(e), True)
+
+    class UnifiedSitzung:
+        def __init__(self):
+            self.aufrufe = []
+
+        def get(self, url, headers=None, params=None, **kw):
+            self.aufrufe.append(url)
+            if url.endswith("/versions/latest"):
+                return Antwort({"name": V + "7", "createTime": "2026-01-01T00:00:00Z", "state": "ENABLED"})
+            if url.endswith(":access"):
+                return Antwort({"payload": {"data": _b64.b64encode(
+                    b'{"art": "unified", "token": "SUAT", "ig_id": "17899"}').decode()}})
+            if url == "https://graph.facebook.com/v25.0/17899":
+                check("Unified: Konto über die Id, Bearer-SUAT", headers["Authorization"], "Bearer SUAT")
+                return Antwort({"id": "17899", "username": "ausdauermaschine"})
+            return Antwort({"error": {"message": "unerwartet " + url}}, 400)
+
+    zu = {"gcp_token": "g", "projekt": "endurance-5177a", "bucket": "endurance-5177a-instagram",
+          "version": "v25.0", "uid": None}
+    us = UnifiedSitzung()
+    pf = P.pflege_schluessel(zu, us, _dt.datetime(2026, 11, 20, tzinfo=_dt.timezone.utc))
+    check("Unified: 323 Tage alt, trotzdem nicht erneuert; Host und Konto-Id gesetzt",
+          [pf["token"], pf["erneuert"], pf["art"], zu["host"], zu["uid"], any("refresh" in a for a in us.aufrufe)],
+          ["SUAT", False, "unified", "graph.facebook.com", "17899", False])
+    check("Unified: konto() fragt das Konto, nicht /me",
+          P.konto(zu, "SUAT", us)["username"], "ausdauermaschine")
+    skript = (Path(__file__).resolve().parent.parent / "scripts" / "instagram_google_einrichten.sh").read_text(encoding="utf-8")
+    check("Einrichtung: Unified login mit eigener Konfiguration, Tausch bei graph.facebook.com",
+          ["config_id" in skript, "1612032490129415" in skript, "1629221798979418" in skript,
+           "graph.facebook.com/${IG_VERSION}/oauth/access_token" in skript, '"art": "unified"' in skript],
+          [True, True, True, True, True])
     import insta_lauf as L
     text = L.auswertung_text(P.auswertung(z, "NEU-SCHLUESSEL", session=StorySitzung()))
     check("Auswertung als Tabelle mit Format aus dem Wochenplan (16.10.2026 = Fr = wochenende)",

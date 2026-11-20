@@ -75,6 +75,13 @@ from urllib.parse import quote
 import requests
 
 IG_HOST = "graph.instagram.com"
+# Seit dem 20.11.2026 (die alte Meta-App ist mit dem gelöschten
+# Facebook-Profil weg, neue Apps kennen nur noch „Unified login“): Der
+# Schlüssel ist ein System-User-Schlüssel einer Business-Integration, er
+# läuft NIE ab und gilt auf graph.facebook.com. Im Tresor liegt er als JSON
+# {"art": "unified", "token": …, "ig_id": …} – ein reiner Text ist weiter
+# ein Instagram-Login-Schlüssel (alter Weg, alle 7 Tage erneuert).
+FB_HOST = "graph.facebook.com"
 VORGABE_VERSION = "v25.0"
 VORGABE_PROJEKT = "endurance-5177a"
 VORGABE_BUCKET = "endurance-5177a-instagram"
@@ -205,7 +212,24 @@ class Google:
 
 
 def _ig(z: dict) -> str:
-    return f"https://{IG_HOST}/{z['version']}"
+    return f"https://{z.get('host') or IG_HOST}/{z['version']}"
+
+
+def lies_tresor_wert(wert: str) -> dict:
+    """Inhalt des Tresors → {"art", "token", "ig_id"}.
+    JSON mit art „unified“ = Unified login (graph.facebook.com, läuft nie
+    ab), sonst ein Instagram-Login-Schlüssel als reiner Text."""
+    wert = wert.strip()
+    if wert.startswith("{"):
+        try:
+            d = json.loads(wert)
+        except ValueError:
+            raise PostenFehler("Tresor: Inhalt ist kein lesbares JSON – "
+                               f"`bash {EINRICHTEN} --anmelden` erneut ausführen.") from None
+        if d.get("art") == "unified" and d.get("token") and d.get("ig_id"):
+            return {"art": "unified", "token": str(d["token"]).strip(), "ig_id": str(d["ig_id"]).strip()}
+        raise PostenFehler(f"Tresor: unbekannter Inhalt – `bash {EINRICHTEN} --anmelden` erneut ausführen.")
+    return {"art": "instagram", "token": wert, "ig_id": None}
 
 
 def erneuere(token: str, session=None) -> tuple[str, int]:
@@ -227,10 +251,17 @@ def pflege_schluessel(z: dict, session=None, jetzt: dt.datetime | None = None) -
     Rückgabe: {"token", "alter_tage", "erneuert", "gueltig_tage"}."""
     s = session or requests.Session()
     g = Google(z, s)
-    token, erstellt, name = g.schluessel_lesen()
+    roh, erstellt, name = g.schluessel_lesen()
+    wert = lies_tresor_wert(roh)
+    token = wert["token"]
+    maskiere(token)
     jetzt = jetzt or dt.datetime.now(dt.timezone.utc)
     alter = (jetzt - erstellt).days
-    info = {"token": token, "alter_tage": alter, "erneuert": False, "gueltig_tage": None}
+    info = {"token": token, "alter_tage": alter, "erneuert": False, "gueltig_tage": None, "art": wert["art"]}
+    if wert["art"] == "unified":
+        # Unified login: System-User-Schlüssel ohne Ablauf, nichts zu erneuern.
+        z["host"], z["uid"] = FB_HOST, z.get("uid") or wert["ig_id"]
+        return info
     if alter < ERNEUERN_NACH_TAGEN:
         return info
     try:
@@ -248,6 +279,13 @@ def pflege_schluessel(z: dict, session=None, jetzt: dt.datetime | None = None) -
 
 def konto(z: dict, ig_token: str, session=None) -> dict:
     s = session or requests.Session()
+    if z.get("host") == FB_HOST:
+        # Auf graph.facebook.com ist /me der System-User, nicht das Konto.
+        if not z.get("uid"):
+            raise PostenFehler(f"Konto: keine Instagram-Konto-Id im Tresor – `bash {EINRICHTEN} --anmelden`.")
+        d = _antwort(_anfrage(s, "get", f"{_ig(z)}/{z['uid']}", "Konto", params={"fields": "id,username"},
+                              headers={"Authorization": f"Bearer {ig_token}"}, timeout=30), "Konto")
+        return {"user_id": d.get("id") or z["uid"], "username": d.get("username")}
     return _antwort(_anfrage(s, "get", f"{_ig(z)}/me", "Konto", params={"fields": "user_id,username"},
                              headers={"Authorization": f"Bearer {ig_token}"}, timeout=30), "Konto")
 
@@ -384,9 +422,15 @@ def auswertung(z: dict, ig_token: str, session=None, anzahl: int = 30) -> dict:
     s = session or requests.Session()
     basis = _ig(z)
     auth = {"Authorization": f"Bearer {ig_token}"}
-    ich = _antwort(_anfrage(s, "get", f"{basis}/me", "Auswertung", headers=auth,
-                            params={"fields": "user_id,username,followers_count,media_count"}, timeout=30),
-                   "Auswertung")
+    if z.get("host") == FB_HOST:
+        ich = _antwort(_anfrage(s, "get", f"{basis}/{z['uid']}", "Auswertung", headers=auth,
+                                params={"fields": "id,username,followers_count,media_count"}, timeout=30),
+                       "Auswertung")
+        ich["user_id"] = ich.get("id")
+    else:
+        ich = _antwort(_anfrage(s, "get", f"{basis}/me", "Auswertung", headers=auth,
+                                params={"fields": "user_id,username,followers_count,media_count"}, timeout=30),
+                       "Auswertung")
     uid = str(ich.get("user_id") or z.get("uid"))
     liste = _antwort(_anfrage(s, "get", f"{basis}/{uid}/media", "Auswertung", headers=auth,
                               params={"fields": "id,timestamp,media_product_type,permalink,like_count,comments_count",
@@ -410,8 +454,8 @@ def auswertung(z: dict, ig_token: str, session=None, anzahl: int = 30) -> dict:
                 metriken = INSIGHTS_KNAPP           # ältere Fassung kennt nicht alle Metriken
                 continue
             insights = False
-            hinweis = ("Reichweite, Gespeichert und Geteilt fehlen – in der Meta-App unter "
-                       "„Berechtigungen und Features“ instagram_business_manage_insights hinzufügen und "
+            hinweis = ("Reichweite, Gespeichert und Geteilt fehlen – in der Meta-App die Berechtigung "
+                       "instagram_manage_insights (Unified login: in der Konfiguration) hinzufügen und "
                        f"`bash {EINRICHTEN} --anmelden` erneut ausführen. (Instagram: {meldung})")
         beitraege.append(eintrag)
     return {"follower": ich.get("followers_count"), "beitraege_gesamt": ich.get("media_count"),

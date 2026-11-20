@@ -7077,15 +7077,27 @@ Verweise auf alte Nummern stehen in Klammern.
     angelegt und aus der Kandidatenliste genommen.
 13. **Meta-App neu aufsetzen** (20.11.2026: der Nutzer hat das
     Facebook-Profil gelöscht, an dem Entwicklerkonto und App „AusdauerMaschine
-    Content“ hingen – wohl auch der Grund für „API access blocked“). Vom
-    Nutzer entschieden: **Weg A – sein privates Facebook-Profil nur als
-    Login fürs Entwicklerkonto** (kein zweites Profil mehr, nichts nach außen
-    verknüpft, Posten weiter über die Anmeldung mit Instagram ohne Seite).
-    Neue App → Instagram-App-ID → `IG_APP_ID=<ID> bash
-    scripts/instagram_google_einrichten.sh --anmelden`, danach die ID im
-    Skript fest eintragen. Danach: Karussell posten (`CAROUSEL`) und
-    Telegram-Bot (Vorschau, Freigeben/Sperren, Kommentare; Ablauf nach der
-    „Clipping Engine“ des Nutzers – Bildschirmfotos angefragt).
+    Content“ hingen – wohl auch der Grund für „API access blocked“). **Stand
+    20.11.2026, mittags**: Neue Apps kennen den Instagram-Login nicht mehr
+    („API setup with Instagram login is not available for newer apps“), eine
+    zweite App ließ sich nicht anlegen. Deshalb **Unified login in der
+    bestehenden App „Clip Engine“** (App-ID 1135841785970940, gehört zur
+    Clipping Engine des Nutzers) mit einer EIGENEN Konfiguration für
+    Endurance (1612032490129415; die der Clip Engine, 1629221798979418, nie
+    ändern). Weiterleitung `https://endurance-events.de/` ist dort
+    registriert. Der Schlüssel ist ein System-User-Schlüssel, **läuft nie
+    ab**, gilt auf **graph.facebook.com**; im Tresor `instagram-token` liegt
+    er als JSON `{"art": "unified", "token", "ig_id"}` (`insta_posten.
+    lies_tresor_wert`; reiner Text = alter Instagram-Login, weiter erneuert).
+    Das Einrichtungsskript `--anmelden` baut den Link
+    (facebook.com/dialog/oauth mit config_id), tauscht den Code bei
+    graph.facebook.com und sucht die Konto-Id über
+    `me/assigned_instagram_accounts`, sonst `debug_token` (granular_scopes).
+    **Offen**: die Konfiguration hat noch kein `instagram_manage_insights`
+    und kein `business_management` (der Editor bot es nicht an) – fehlt das
+    Konto beim Anmelden, ist das der erste Verdacht. Danach: Karussell posten
+    (`CAROUSEL`) und Telegram-Bot (Vorschau, Freigeben/Sperren, Kommentare;
+    Ablauf nach der „Clipping Engine“ des Nutzers).
     Vorgeschichte: **Meta blockiert den Instagram-Schlüssel – seit dem 23.10.2026**
     (gefunden am 04.11.2026; nur der Nutzer): Jeder Lauf von
     `instagram.yml`, der den Schlüssel pflegt, endet rot mit „Schlüssel

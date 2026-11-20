@@ -26,17 +26,16 @@
 #
 #     bash scripts/instagram_google_einrichten.sh --schluessel
 #
-# Den Schlüssel OHNE den Knopf „Token generieren“ holen (der verlangt jedes
-# Mal eine frische Anmeldung bei Instagram; scheitert sie, kommt man nie zu
-# „Zulassen“). Das Skript gibt einen Link aus, den man in einem Browser
-# öffnet, in dem man bei Instagram schon angemeldet ist:
+# Der Weg seit dem 20.11.2026 – Unified login (App „Clip Engine“, eigene
+# Konfiguration für Endurance): Das Skript gibt einen Anmeldelink aus, man
+# meldet sich als ausdauermaschine an, kopiert die Adresse mit „?code=“
+# zurück, und der Schlüssel (System-User, läuft nie ab) landet samt
+# Instagram-Konto-Id im Tresor:
 #
 #     bash scripts/instagram_google_einrichten.sh --anmelden
 #
-# Dafür muss in der Meta-App unter „Business-Login-Einstellungen“ die
-# OAuth-Weiterleitungs-URI https://endurance-events.de/ eingetragen sein,
-# und das Skript fragt einmal nach dem Instagram-App-Geheimcode (wird nicht
-# gespeichert).
+# Dafür muss https://endurance-events.de/ als Redirect URL registriert sein,
+# und das Skript fragt einmal nach dem App-Geheimcode (wird nicht gespeichert).
 #
 # Die Namen hier stehen genauso in .github/workflows/instagram.yml und
 # scripts/insta_posten.py; test_instagram vergleicht sie.
@@ -56,20 +55,17 @@ SECRET="instagram-token"
 POOL="github"
 ANBIETER="enduranceevents"
 IG_VERSION="v25.0"
-# Die Instagram-App-ID der Meta-App – keine Geheimzahl, sie steht in jedem
-# Anmeldelink. Die erste App („AusdauerMaschine Content“, 2082109586511982)
-# ist mit dem gelöschten Facebook-Profil weg (20.11.2026); bis die ID der
-# neuen App hier steht: IG_APP_ID=<neue ID> bash … --anmelden
-IG_APP_ID="${IG_APP_ID:-2082109586511982}"
-# Muss GENAU so (mit Schrägstrich) in der Meta-App unter
-# „Business-Login-Einstellungen“ → OAuth-Weiterleitungs-URIs stehen.
+# Seit dem 20.11.2026: Unified login in der App „Clip Engine“ (die alte App
+# „AusdauerMaschine Content“ ist mit dem gelöschten Facebook-Profil weg;
+# „API setup with Instagram login is not available for newer apps“).
+# App-ID und die eigene Konfiguration für Endurance – beides keine
+# Geheimzahlen, sie stehen in jedem Anmeldelink. Die Konfiguration der
+# Clip Engine (1629221798979418) NICHT ändern.
+META_APP_ID="${META_APP_ID:-1135841785970940}"
+META_CONFIG_ID="${META_CONFIG_ID:-1612032490129415}"
+# Muss GENAU so (mit Schrägstrich) in der App unter „API setup with Unified
+# login“ → Redirect URL registriert sein.
 WEITERLEITUNG="https://endurance-events.de/"
-# Die Berechtigungen des Schlüssels. manage_insights liefert der täglichen
-# Auswertung Reichweite, Gespeichert und Geteilt (insta_posten.auswertung);
-# sie muss in der Meta-App unter „Berechtigungen und Features“ hinzugefügt
-# sein, sonst zeigt Instagram „Invalid Scopes“. Ohne sie:
-#   IG_SCOPE=instagram_business_basic,instagram_business_content_publish bash … --anmelden
-IG_SCOPE="${IG_SCOPE:-instagram_business_basic,instagram_business_content_publish,instagram_business_manage_insights}"
 
 modus="alles"
 [ "${1:-}" = "--schluessel" ] && modus="schluessel"
@@ -90,33 +86,28 @@ schluessel_hinterlegen() {
   ablegen "$schluessel"
 }
 
-# Holt den Schlüssel über einen eigenen Anmeldelink statt über „Token
-# generieren“: Code aus der Weiterleitung → kurzer Schlüssel → 60 Tage.
+# Unified login: Anmeldelink (facebook.com/dialog/oauth mit config_id) →
+# Code aus der Weiterleitung → System-User-Schlüssel (läuft nie ab) bei
+# graph.facebook.com → Instagram-Konto-Id → beides als JSON in den Tresor.
 anmelden() {
-  local link adresse code geheim antwort kurz lang
-  link="$(IG_APP_ID="$IG_APP_ID" WEITERLEITUNG="$WEITERLEITUNG" IG_SCOPE="$IG_SCOPE" python3 -c 'import os, urllib.parse
-print("https://www.instagram.com/oauth/authorize?" + urllib.parse.urlencode({
-    "enable_fb_login": "0", "force_reauth": "false",
-    "client_id": os.environ["IG_APP_ID"], "redirect_uri": os.environ["WEITERLEITUNG"],
-    "response_type": "code",
-    "scope": os.environ["IG_SCOPE"]}))')"
+  local link adresse code geheim antwort token
+  link="$(META_APP_ID="$META_APP_ID" META_CONFIG_ID="$META_CONFIG_ID" WEITERLEITUNG="$WEITERLEITUNG" python3 -c 'import os, secrets, urllib.parse
+print("https://www.facebook.com/dialog/oauth?" + urllib.parse.urlencode({
+    "client_id": os.environ["META_APP_ID"], "config_id": os.environ["META_CONFIG_ID"],
+    "redirect_uri": os.environ["WEITERLEITUNG"], "response_type": "code",
+    "override_default_response_type": "true", "state": secrets.token_hex(8)}))')"
   echo
-  echo "Anmeldung über einen eigenen Link"
+  echo "Anmeldung über Unified login (App ${META_APP_ID}, Konfiguration ${META_CONFIG_ID})"
   echo
-  # Erst der Geheimcode, dann der Link: Der Code aus dem Link gilt nur kurz
-  # und nur einmal – so ist er beim Tausch so frisch wie möglich.
-  echo "  1. Den Instagram-App-Geheimcode holen: developers.facebook.com → deine App →"
-  echo "     API-Einrichtung mit Instagram-Business-Login → oben „Instagram-App-Geheimcode“"
-  echo "     → Anzeigen → kopieren. Er hat 32 Zeichen (Zahlen und a–f), wird nur für"
-  echo "     den Tausch gebraucht und nicht gespeichert."
+  echo "  1. Den App-Geheimcode holen: developers.facebook.com → App „Clip Engine“ →"
+  echo "     App settings → Basic → „App secret“ → Show → kopieren. 32 Zeichen (Zahlen"
+  echo "     und a–f), nur für den Tausch gebraucht, wird nicht gespeichert."
   local versuch=0 roh
   geheim=""
   while [ -z "$geheim" ] && [ "$versuch" -lt 3 ]; do
     versuch=$((versuch + 1))
     read -r -s -p "     Geheimcode einfügen und Enter drücken (die Eingabe bleibt unsichtbar): " roh
     echo
-    # Aus dem Eingefügten die 32-stellige Folge nehmen – beim Kopieren auf
-    # dem iPad kommt gern Text daneben mit (Beschriftung, Knopf, doppelt).
     geheim="$(ROH="$roh" python3 -c 'import os, re
 laeufe = re.findall(r"[0-9a-fA-F]{32,}", os.environ["ROH"])
 treffer = set()
@@ -127,13 +118,7 @@ for l in laeufe:
         treffer.add(l[:32].lower())
 print(treffer.pop() if len(treffer) == 1 else "")')"
     if [ -z "$geheim" ]; then
-      roh="$(printf '%s' "$roh" | tr -d '[:space:]')"
-      if [ -z "$roh" ]; then
-        echo "     Es ist nichts angekommen – mit ⌘V einfügen (oder lange tippen → „Einsetzen“)." >&2
-      else
-        echo "     Angekommen sind ${#roh} Zeichen, darin steckt kein eindeutiger Geheimcode" >&2
-        echo "     (32 Zeichen, nur Zahlen und a–f). Im Meta-Feld nur den Code markieren." >&2
-      fi
+      echo "     Kein eindeutiger Geheimcode erkannt (32 Zeichen, nur Zahlen und a–f)." >&2
     fi
   done
   roh=""
@@ -141,14 +126,11 @@ print(treffer.pop() if len(treffer) == 1 else "")')"
     echo "  Nichts geändert." >&2
     return 1
   fi
-  echo "     Geheimcode erhalten (${geheim:0:4}…${geheim: -2}, 32 Zeichen)."
+  echo "     Geheimcode erhalten (${geheim:0:4}…${geheim: -2})."
   echo
-  # Auf dem iPad öffnet ein ANGETIPPTER Instagram-Link die Instagram-App
-  # (und die kennt die Anmeldeseite nicht), und kopieren lässt sich der
-  # lange Link schlecht. Deshalb eine kurze Seite im Video-Speicher, die man
-  # eintippt und die selbst weiterleitet – eine Weiterleitung ohne Antippen
-  # gibt das iPad nicht an die App. Die Seite enthält nur den öffentlichen
-  # Link und wird am Ende gelöscht (sonst nach einem Tag von der Regel).
+  # Wie beim alten Weg: eine kurze Seite im Video-Speicher, die man
+  # EINTIPPT und die selbst weiterleitet (ein angetippter Meta-Link öffnet
+  # auf dem iPad gern eine App statt der Anmeldeseite).
   local seite kurzlink=""
   seite="$(mktemp)"
   LINK="$link" python3 - > "$seite" <<'PY'
@@ -158,8 +140,8 @@ print("<!doctype html><html lang=de><meta charset=utf-8>"
       "<meta name=viewport content='width=device-width,initial-scale=1'>"
       "<meta name=robots content=noindex>"
       f"<meta http-equiv=refresh content='0;url={html.escape(l, quote=True)}'>"
-      "<title>Weiter zu Instagram</title>"
-      "<body style='font:18px sans-serif;padding:24px'>Weiter zu Instagram …"
+      "<title>Weiter zur Anmeldung</title>"
+      "<body style='font:18px sans-serif;padding:24px'>Weiter zur Anmeldung …"
       f"<script>location.replace({json.dumps(l)})</script>")
 PY
   if gcloud storage cp "$seite" "gs://${BUCKET}/ig.html" --content-type=text/html \
@@ -167,87 +149,116 @@ PY
     kurzlink="storage.googleapis.com/${BUCKET}/ig.html"
   fi
   rm -f "$seite"
-  echo "     (Berechtigungen: ${IG_SCOPE//,/, } – zeigt Instagram „Invalid Scopes“, fehlt eine davon"
-  echo "      in der Meta-App unter „Berechtigungen und Features“.)"
-  echo "  2. Im Browser, in dem du bei Instagram als ausdauermaschine angemeldet bist,"
-  if [ -n "$kurzlink" ]; then
-    echo "     einen neuen Tab öffnen und diese Adresse oben EINTIPPEN (nicht antippen):"
-    echo
-    echo "        $kurzlink"
-    echo
-    echo "     Sie leitet zu Instagram weiter → „Zulassen“ antippen."
-    echo "     (Der lange Link dahinter, falls du ihn doch kopieren kannst:"
-    echo "     $link )"
-  else
-    echo "     diesen Link in die Adresszeile EINFÜGEN (nicht antippen) → „Zulassen“:"
-    echo
-    echo "     $link"
-  fi
+  echo "  2. In Safari einen neuen Tab öffnen und diese Adresse oben EINTIPPEN:"
+  echo
+  echo "        ${kurzlink:-$link}"
+  echo
+  echo "     → „Mit Instagram fortfahren“ (bzw. Instagram wählen), als ausdauermaschine"
+  echo "     anmelden, das Konto ausdauermaschine auswählen, alles erlauben."
+  [ -n "$kurzlink" ] && echo "     (Langer Link, falls nötig: $link )"
   echo
   echo "  3. Danach öffnet sich endurance-events.de. Die GANZE Adresse aus der"
   echo "     Adresszeile kopieren (sie enthält „?code=…“) und hierher zurück."
-  echo "     Jeder Code gilt nur EINMAL – für einen neuen Versuch den Link neu öffnen."
   echo
-  # Sichtbar: Der Code gilt nur kurz, nur einmal und nur zusammen mit dem
-  # Geheimcode – und so sieht man, ob das Einfügen geklappt hat.
   read -r -p "     Adresse einfügen und Enter drücken: " adresse
   code="$(ADRESSE="$adresse" python3 -c 'import os, urllib.parse
 a = os.environ["ADRESSE"].strip()
 q = urllib.parse.parse_qs(urllib.parse.urlparse(a).query) if "code=" in a else {"code": [a]}
 print(q.get("code", [""])[0].split("#")[0].strip())')"
   if [ -z "$code" ]; then
-    if [ -z "$adresse" ]; then
-      echo "  Es ist nichts angekommen – das Einfügen hat nicht geklappt." >&2
-      echo "  In der Cloud Shell mit ⌘V einfügen (oder lange tippen → „Einsetzen“)." >&2
-    else
-      echo "  In der Adresse steht kein „code=“. Kopiert werden muss die Adresse, auf der" >&2
-      echo "  Instagram nach „Zulassen“ landet (endurance-events.de/?code=…)." >&2
-    fi
-    echo "  Nichts geändert. Noch einmal: bash $0 --anmelden" >&2
+    echo "  In der Adresse steht kein „code=“ – nichts geändert. Noch einmal: bash $0 --anmelden" >&2
     return 1
   fi
   echo "     Code erhalten (${#code} Zeichen), tausche …"
-  antwort="$(curl -sS -X POST "https://api.instagram.com/oauth/access_token" \
-    --form-string "client_id=${IG_APP_ID}" --form-string "client_secret=${geheim}" \
-    --form-string "grant_type=authorization_code" --form-string "redirect_uri=${WEITERLEITUNG}" \
-    --form-string "code=${code}" || true)"
-  kurz="$(printf '%s' "$antwort" | python3 -c 'import json, sys
-try:
-    d = json.load(sys.stdin)
-except Exception:
-    d = {}
-if isinstance(d.get("data"), list) and d["data"]:
-    d = d["data"][0]
-print(d.get("access_token", ""))')"
-  if [ -z "$kurz" ]; then
-    echo "  Instagram hat den Code nicht getauscht:" >&2
-    printf '%s' "$antwort" | python3 -c 'import json, sys
-try:
-    d = json.load(sys.stdin)
-    print("  ", d.get("error_message") or (d.get("error") or {}).get("message") or d)
-except Exception:
-    print("   keine lesbare Antwort")' >&2
-    echo "  Häufigste Gründe: Code schon einmal benutzt oder zu alt (Link neu öffnen, neue" >&2
-    echo "  Adresse nehmen), Geheimcode einer anderen App, Weiterleitungs-URI in der App" >&2
-    echo "  nicht genau ${WEITERLEITUNG}. Noch einmal: bash $0 --anmelden" >&2
-    return 1
-  fi
-  antwort="$(curl -sS -G "https://graph.instagram.com/access_token" \
-    --data-urlencode "grant_type=ig_exchange_token" --data-urlencode "client_secret=${geheim}" \
-    --data-urlencode "access_token=${kurz}" || true)"
-  lang="$(printf '%s' "$antwort" | python3 -c 'import json, sys
+  antwort="$(curl -sS -G "https://graph.facebook.com/${IG_VERSION}/oauth/access_token" \
+    --data-urlencode "client_id=${META_APP_ID}" --data-urlencode "client_secret=${geheim}" \
+    --data-urlencode "redirect_uri=${WEITERLEITUNG}" --data-urlencode "code=${code}" || true)"
+  token="$(printf '%s' "$antwort" | python3 -c 'import json, sys
 try:
     print(json.load(sys.stdin).get("access_token", ""))
 except Exception:
     print("")')"
-  geheim=""
-  if [ -z "$lang" ]; then
-    echo "  Der kurze Schlüssel ließ sich nicht in einen 60-Tage-Schlüssel tauschen." >&2
+  if [ -z "$token" ]; then
+    echo "  Meta hat den Code nicht getauscht:" >&2
+    printf '%s' "$antwort" | python3 -c 'import json, sys
+try:
+    d = json.load(sys.stdin); print("  ", (d.get("error") or {}).get("message") or d)
+except Exception:
+    print("   keine lesbare Antwort")' >&2
+    echo "  Häufigste Gründe: Code schon benutzt oder zu alt, Geheimcode einer anderen App," >&2
+    echo "  Weiterleitung nicht genau ${WEITERLEITUNG}. Noch einmal: bash $0 --anmelden" >&2
+    geheim=""
     return 1
   fi
-  echo "  Schlüssel für 60 Tage erhalten."
+  echo "  Schlüssel erhalten. Suche das Instagram-Konto …"
+  # Zwei Wege zur Konto-Id: die zugewiesenen Instagram-Konten des
+  # System-Users, sonst die Ziel-Ids der Berechtigung instagram_basic aus
+  # debug_token (braucht den App-Zugang app_id|geheim).
+  local konten
+  konten="$( { curl -sS -G "https://graph.facebook.com/${IG_VERSION}/me/assigned_instagram_accounts" \
+      --data-urlencode "fields=id,username" --data-urlencode "access_token=${token}" || true; echo; \
+    curl -sS -G "https://graph.facebook.com/${IG_VERSION}/debug_token" \
+      --data-urlencode "input_token=${token}" --data-urlencode "access_token=${META_APP_ID}|${geheim}" || true; } \
+    | python3 -c 'import json, sys
+ids = []
+for zeile in sys.stdin.read().splitlines():
+    try:
+        d = json.loads(zeile)
+    except Exception:
+        continue
+    for k in d.get("data", []) if isinstance(d.get("data"), list) else []:
+        if k.get("id"): ids.append(str(k["id"]))
+    daten = d.get("data") if isinstance(d.get("data"), dict) else {}
+    for g in daten.get("granular_scopes", []):
+        if g.get("scope") in ("instagram_basic", "instagram_content_publish"):
+            ids += [str(i) for i in g.get("target_ids", [])]
+print(" ".join(dict.fromkeys(ids)))')"
+  geheim=""
+  local ig_id="" kandidat name
+  for kandidat in $konten; do
+    name="$(curl -sS -G "https://graph.facebook.com/${IG_VERSION}/${kandidat}" \
+      --data-urlencode "fields=username" --data-urlencode "access_token=${token}" \
+      | python3 -c 'import json,sys
+try: print(json.load(sys.stdin).get("username",""))
+except Exception: print("")')"
+    if [ -n "$name" ]; then
+      echo "     Konto ${kandidat}: @${name}"
+      if [ "$name" = "ausdauermaschine" ] || [ -z "$ig_id" ]; then ig_id="$kandidat"; fi
+    fi
+  done
+  if [ -z "$ig_id" ]; then
+    echo "  Kein Instagram-Konto gefunden, auf das der Schlüssel zugreifen darf." >&2
+    echo "  Vermutlich fehlt in der Konfiguration business_management oder das Konto wurde" >&2
+    echo "  bei der Anmeldung nicht ausgewählt. Nichts geändert." >&2
+    return 1
+  fi
   gcloud storage rm "gs://${BUCKET}/ig.html" >/dev/null 2>&1 || true
-  ablegen "$lang"
+  ablegen_unified "$token" "$ig_id"
+}
+
+# Prüft einen Unified-login-Schlüssel und legt ihn als JSON in den Tresor.
+ablegen_unified() {
+  local token="$1" ig_id="$2" limit wert
+  limit="$(curl -sS -G "https://graph.facebook.com/${IG_VERSION}/${ig_id}/content_publishing_limit" \
+    --data-urlencode "fields=quota_usage" --data-urlencode "access_token=${token}" || true)"
+  if printf '%s' "$limit" | python3 -c 'import json,sys; d=json.load(sys.stdin); sys.exit(0 if "data" in d else 1)' 2>/dev/null; then
+    echo "  Der Schlüssel darf Beiträge veröffentlichen."
+  else
+    echo "  ACHTUNG: Das Veröffentlichungslimit ließ sich nicht lesen – vielleicht fehlt" >&2
+    echo "  instagram_content_publish. Antwort: $(printf '%s' "$limit" | head -c 300)" >&2
+  fi
+  wert="$(TOKEN="$token" IG_ID="$ig_id" python3 -c 'import json, os
+print(json.dumps({"art": "unified", "token": os.environ["TOKEN"], "ig_id": os.environ["IG_ID"]}))')"
+  printf '%s' "$wert" | gcloud secrets versions add "$SECRET" --data-file=- >/dev/null
+  local neueste
+  neueste="$(gcloud secrets versions list "$SECRET" --filter='state:enabled' --sort-by='~createTime' --format='value(name.basename())' | head -1)"
+  for v in $(gcloud secrets versions list "$SECRET" --filter='state:enabled' --format='value(name.basename())'); do
+    if [ "$v" != "$neueste" ]; then
+      gcloud secrets versions destroy "$v" --secret="$SECRET" --quiet >/dev/null
+    fi
+  done
+  echo "  Im Tresor abgelegt (Fassung ${neueste##*/}, Konto-Id ${ig_id}); ältere Fassungen vernichtet."
+  echo "  Der Schlüssel läuft nicht ab – nichts weiter zu tun."
 }
 
 # Prüft einen Schlüssel bei Instagram und legt ihn in den Tresor.
