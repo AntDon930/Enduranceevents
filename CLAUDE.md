@@ -4966,6 +4966,17 @@ Sortierung mit. `panelParent` (wohin das Panel gehängt wird) und
 `alleWerte` (auch Werte ohne heutige Events anbieten) braucht nur der
 Abo-Dialog; Begründung bei den Abos weiter oben.
 
+- **Was nur die Bedienung braucht, lebt in `filter-ui.js`, nicht im
+  Filterzustand einer Seite.** Der Aufklapp-Zustand des Datums-Baums stand
+  bis zum 20.11.2026 als `state.treeExpanded` nur in `events.html` – auf
+  der Karte brach das Datums-Panel nach den Zeitraum-Knöpfen ab (kein
+  Baum, „Alle/Keine“ ohne Wirkung, Panel oben links; vom Nutzer auf dem
+  iPad gemeldet: „Ich kann bei der Datumsangabe … kein Datum
+  auswählen“). Jetzt `baumOffen` in `EFU.create()`. Wer in
+  `filter-ui.js` auf `state.<feld>` zugreift, prüft, dass
+  `EF.createState()` das Feld anlegt – sonst fehlt es auf der Karte und im
+  Abo-Dialog. Rauchtest `pruefe_karten_filterpanels` (jedes Panel der
+  Karte ohne Skriptfehler, ein Tag im Baum filtert, 1024 und 390 px).
 - Die Knöpfe „Karte" und „Liste" hängen den Filterzustand an die
   Adresse (`updateMapLink()` bzw. `linkTo()`), die andere Seite liest
   ihn mit `readParams()`. Nur so gilt ein Filter über den Seitenwechsel.

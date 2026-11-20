@@ -1138,7 +1138,7 @@
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
 <script src="filters.js?v=52e85793"></script>
-<script src="filter-ui.js?v=7a80838a"></script>
+<script src="filter-ui.js?v=c2e03f22"></script>
 <script src="event-detail.js?v=1b8f61ef"></script>
 
 <script>
@@ -1611,7 +1611,6 @@
   // (createState), damit die Karte denselben Zustand lesen kann. Dazu
   // kommen hier die Dinge, die nur die Liste hat.
   const state = Object.assign(EF.createState(), {
-    treeExpanded: new Set(),      // aufgeklappte Knoten im Datum-Baum (UI-Zustand)
     sortKey: 'datum',             // Spalte, nach der sortiert wird (siehe SORT_KEYS)
     sortDir: 'asc',               // 'asc' | 'desc'
     // Zusammenfassen ist reine ANZEIGE: die Daten bleiben eine Zeile pro

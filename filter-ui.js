@@ -237,6 +237,14 @@
     // Auch Werte anbieten, zu denen es noch kein Event gibt (siehe
     // BEKANNTE_WERTE). Der Abo-Dialog setzt das, die Liste nicht.
     const alleWerte = !!opts.alleWerte;
+    // Aufgeklappte Knoten im Datums-Baum (Jahr, Monat). Reiner Zustand der
+    // Bedienung, deshalb HIER und nicht im Filterzustand: Bis zum
+    // 20.11.2026 stand er als `state.treeExpanded` nur in events.html –
+    // auf der Karte brach das Datums-Panel nach den Zeitraum-Knöpfen mit
+    // „Cannot read properties of undefined (reading 'has')“ ab, ohne Baum
+    // und ohne „Alle/Keine“ (vom Nutzer auf dem iPad gemeldet: „Ich kann
+    // bei der Datumsangabe … kein Datum auswählen“).
+    const baumOffen = new Set();
 
     // Ein einziges, an <body> gehängtes Panel (fixed positioniert), damit
     // es nie vom scrollenden Tabellen-Container abgeschnitten wird.
@@ -974,7 +982,7 @@
         const toggleBtn = document.createElement('button');
         toggleBtn.type = 'button';
         toggleBtn.className = 'tree-toggle';
-        const expanded = state.treeExpanded.has(node.key);
+        const expanded = baumOffen.has(node.key);
         toggleBtn.textContent = expanded ? '▾' : '▸';
         row.appendChild(toggleBtn);
         row.appendChild(buildTreeCheckboxLabel(node));
@@ -987,9 +995,9 @@
         wrap.appendChild(childrenWrap);
 
         toggleBtn.addEventListener('click', () => {
-          if (state.treeExpanded.has(node.key)) state.treeExpanded.delete(node.key);
-          else state.treeExpanded.add(node.key);
-          const nowExpanded = state.treeExpanded.has(node.key);
+          if (baumOffen.has(node.key)) baumOffen.delete(node.key);
+          else baumOffen.add(node.key);
+          const nowExpanded = baumOffen.has(node.key);
           childrenWrap.hidden = !nowExpanded;
           toggleBtn.textContent = nowExpanded ? '▾' : '▸';
           if (openTriggerEl) positionFloatingPanel(openTriggerEl);

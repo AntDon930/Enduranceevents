@@ -3314,6 +3314,51 @@ def pruefe_karten_details(ctx, basis):
     seite.close()
 
 
+def pruefe_karten_filterpanels(ctx, basis):
+    """Jedes Filter-Panel der Karte öffnet sich ohne Skriptfehler, und im
+    Datums-Panel lässt sich ein Tag wählen (20.11.2026, vom Nutzer auf dem
+    iPad gemeldet: „Ich kann bei der Datumsangabe … kein Datum auswählen“).
+    Der Aufklapp-Zustand des Baums stand nur im Filterzustand der Liste;
+    auf der Karte brach das Panel nach den Zeitraum-Knöpfen ab. Geprüft in
+    Tablet-Breite (Pillen in der Leiste) und auf dem Handy (im Blatt)."""
+    zahl = lambda txt: int(re.search(r"\d[\d.]*", txt).group(0).replace(".", "")) if re.search(r"\d", txt) else -1
+    for breite, hoehe in ((TABLET_BREITE, 768), (390, 844)):
+        seite, probleme = seite_oeffnen(ctx, basis + "/karte.html", ".filter-bar")
+        seite.set_viewport_size({"width": breite, "height": hoehe})
+        seite.wait_for_timeout(2500)
+        knoepfe = seite.locator("#filter-buttons .col-filter-btn")
+        anzahl = knoepfe.count()
+        for i in range(anzahl):
+            oeffne_filterblatt(seite)
+            knoepfe.nth(i).click()
+            seite.wait_for_timeout(200)
+            seite.keyboard.press("Escape")
+            seite.wait_for_timeout(150)
+        fehler = [p for p in probleme if p.startswith("Skriptfehler")]
+        pruefe(not fehler, "Karte %d px: alle %d Filter-Panels öffnen ohne Skriptfehler (%s)"
+               % (breite, anzahl, fehler[0] if fehler else "keine"))
+        vorher = seite.evaluate("() => document.getElementById('map-hint').textContent")
+        oeffne_filterblatt(seite)
+        knoepfe.first.click()
+        seite.wait_for_timeout(300)
+        panel = ".filter-panel:not([hidden])"
+        jahre = seite.locator(panel + " .date-tree > .tree-node").count()
+        if not pruefe(jahre > 0, "Karte %d px: das Datums-Panel zeigt den Baum (%d Jahre)" % (breite, jahre)):
+            seite.close()
+            continue
+        seite.locator(panel + " .date-tree > .tree-node > .tree-row .tree-toggle").first.click()
+        seite.locator(panel + " .date-tree .tree-children:not([hidden]) .tree-toggle").first.click()
+        seite.wait_for_timeout(200)
+        seite.locator(panel + " .tree-children:not([hidden]) .tree-children:not([hidden]) input[type=checkbox]").first.check()
+        seite.wait_for_timeout(700)
+        nachher = seite.evaluate("""() => ({ hinweis: document.getElementById('map-hint').textContent,
+            chip: document.getElementById('active-chips').textContent })""")
+        pruefe(0 <= zahl(nachher["hinweis"]) < zahl(vorher) and "Datum" in nachher["chip"],
+               "Karte %d px: ein Tag im Baum filtert die Marker (%s → %s, Chip „Datum“)"
+               % (breite, vorher, nachher["hinweis"]))
+        seite.close()
+
+
 def pruefe_karte_und_rundweg(ctx, basis):
     print("\nKarte und Seitenwechsel")
     seite, probleme = seite_oeffnen(ctx, basis + "/karte.html", ".filter-bar")
@@ -3337,6 +3382,7 @@ def pruefe_karte_und_rundweg(ctx, basis):
     if marker:
         pruefe_ausgangspunkt(ctx, basis)
         pruefe_karten_suche(ctx, basis)
+        pruefe_karten_filterpanels(ctx, basis)
         pruefe_karten_details(ctx, basis)
 
         # Der Link im Popup: ohne "↗" (der Pfeil sah aus wie ein
