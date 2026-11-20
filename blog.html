@@ -59,7 +59,7 @@
 <link rel="preload" href="blog.json" as="fetch" type="application/json" crossorigin="anonymous">
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
 <link rel="stylesheet" href="site.css?v=2e857586">
-<link rel="stylesheet" href="blog.css?v=13e54636">
+<link rel="stylesheet" href="blog.css?v=c3c088a6">
 </head>
 <body>
 
@@ -100,7 +100,7 @@
     <p id="blog-intro"></p>
     <p class="blog-hinweis-sprache" id="blog-sprache" hidden></p>
   </div>
-  <div class="blog-filter" id="blog-filter" role="group" aria-label="Sportart" hidden></div>
+  <div class="blog-filter" id="blog-filter" role="group" aria-label="Beiträge filtern" hidden></div>
   <ul class="blog-liste blog-liste--start" id="blog-liste" aria-live="polite"></ul>
   <section class="blog-abo" aria-labelledby="abo-titel">
     <div>
@@ -145,12 +145,13 @@
       weiter: 'Weiterlesen →',
       leer: 'Noch keine Beiträge.',
       fehler: 'Die Beiträge konnten nicht geladen werden.',
-      eyebrow: 'Magazin', alle: 'Alle', filter: 'Sportart',
+      eyebrow: 'Magazin', alle: 'Alle', filter: 'Beiträge filtern',
       abo_titel: 'Kein Rennen mehr verpassen',
       abo_text: 'Wähle Sportart und Umkreis – wir schicken dir neue Events per E-Mail, sobald sie in der Liste stehen.',
       abo_knopf: 'E-Mail-Abo einrichten', abo_events: 'Events entdecken',
       footer_imprint: 'Impressum', footer_privacy: 'Datenschutz',
-      sport: { Laufen: 'Laufen', Fahrrad: 'Rad', Schwimmen: 'Schwimmen', Triathlon: 'Triathlon' }
+      sport: { Laufen: 'Laufen', Fahrrad: 'Rad', Schwimmen: 'Schwimmen', Triathlon: 'Triathlon' },
+      serie: { wissenschaft: 'Wissenschaft' }
     },
     en: {
       title: 'Blog',
@@ -161,12 +162,13 @@
       weiter: 'Read more →',
       leer: 'No articles yet.',
       fehler: 'The articles could not be loaded.',
-      eyebrow: 'Magazine', alle: 'All', filter: 'Sport',
+      eyebrow: 'Magazine', alle: 'All', filter: 'Filter articles',
       abo_titel: 'Never miss a race',
       abo_text: 'Pick your sport and radius – we email you new events as soon as they are listed.',
       abo_knopf: 'Set up email alerts', abo_events: 'Explore events',
       footer_imprint: 'Legal notice', footer_privacy: 'Privacy',
-      sport: { Laufen: 'Running', Fahrrad: 'Cycling', Schwimmen: 'Swimming', Triathlon: 'Triathlon' }
+      sport: { Laufen: 'Running', Fahrrad: 'Cycling', Schwimmen: 'Swimming', Triathlon: 'Triathlon' },
+      serie: { wissenschaft: 'Science' }
     }
   };
   let lang = 'de';
@@ -183,8 +185,18 @@
   }
 
   const SPORT_REIHE = ['Laufen', 'Fahrrad', 'Schwimmen', 'Triathlon'];
+  // Serien (seit 20.11.2026): "serie" in blog.json, dieselben Namen wie
+  // SERIEN in scripts/build_blog.py. Ein Filter wählt eine Sportart ODER
+  // eine Serie; in der Adresse ?sportart=… bzw. ?serie=….
+  const SERIEN = ['wissenschaft'];
   let filter = '';
-  try { const f = new URLSearchParams(location.search).get('sportart'); if (SPORT_REIHE.includes(f)) filter = f; } catch (e) { /* ignorieren */ }
+  try {
+    const q = new URLSearchParams(location.search);
+    const f = q.get('sportart'), s = q.get('serie');
+    if (SPORT_REIHE.includes(f)) filter = f;
+    else if (SERIEN.includes(s)) filter = 'serie:' + s;
+  } catch (e) { /* ignorieren */ }
+  const passt = (b) => !filter || (filter.startsWith('serie:') ? b.serie === filter.slice(6) : b.sportart === filter);
 
   // Englische Fassung da? test_blog hält fest, dass zu titel_en auch der
   // Text und damit die Seite blog/en/<slug>.html gehört.
@@ -192,26 +204,34 @@
   const inSprache = (b, f) => (lang === 'en' && hatEn(b) && b[f + '_en']) || b[f];
   const linkVon = (b) => `blog/${lang === 'en' && hatEn(b) ? 'en/' : ''}${encodeURIComponent(b.slug)}.html`;
 
-  const tagHtml = (b) => b.sportart
-    ? `<span class="blog-tag ${SPORT_KLASSE[b.sportart] || ''}">${esc(t('sport')[b.sportart] || b.sportart)}</span>` : '';
+  const tagHtml = (b) => '<span class="blog-tags">'
+    + (b.sportart ? `<span class="blog-tag ${SPORT_KLASSE[b.sportart] || ''}">${esc(t('sport')[b.sportart] || b.sportart)}</span>` : '')
+    + (SERIEN.includes(b.serie) ? `<span class="blog-tag serie-${esc(b.serie)}">${esc(t('serie')[b.serie])}</span>` : '')
+    + '</span>';
 
   // Sportart-Filter nur mit den Sportarten, zu denen es Beiträge gibt –
-  // bei einer einzigen Sportart gibt es nichts zu wählen.
+  // bei einer einzigen Sportart gibt es nichts zu wählen. Dahinter je Serie
+  // ein Chip, sobald es einen Beitrag der Serie gibt.
   function zeichneFilter() {
     const box = el('blog-filter');
     const da = SPORT_REIHE.filter(s => beitraege.some(b => b.sportart === s));
-    box.hidden = da.length < 2;
+    const serien = SERIEN.filter(s => beitraege.some(b => b.serie === s));
+    box.hidden = da.length < 2 && !serien.length;
     box.setAttribute('aria-label', t('filter'));
     if (box.hidden) { filter = ''; return; }
-    box.innerHTML = ['', ...da].map(s =>
-      `<button type="button" class="blog-chip${s ? ' ' + SPORT_KLASSE[s] : ''}" data-sport="${esc(s)}" aria-pressed="${s === filter}">${esc(s ? (t('sport')[s] || s) : t('alle'))}</button>`).join('');
+    if (filter && !beitraege.some(passt)) filter = '';
+    const chips = ['', ...da].map(s =>
+      `<button type="button" class="blog-chip${s ? ' ' + SPORT_KLASSE[s] : ''}" data-sport="${esc(s)}" aria-pressed="${s === filter}">${esc(s ? (t('sport')[s] || s) : t('alle'))}</button>`);
+    serien.forEach(s => chips.push(
+      `<button type="button" class="blog-chip serie-${esc(s)}" data-sport="serie:${esc(s)}" aria-pressed="${'serie:' + s === filter}">${esc(t('serie')[s])}</button>`));
+    box.innerHTML = chips.join('');
   }
 
   function zeichne() {
     const liste = el('blog-liste');
     if (beitraege === null) return;
     zeichneFilter();
-    const sicht = beitraege.filter(b => !filter || b.sportart === filter);
+    const sicht = beitraege.filter(passt);
     if (!sicht.length) { liste.innerHTML = `<li class="blog-leer">${esc(t('leer'))}</li>`; return; }
     // Der neueste Beitrag steht groß oben (Aufmacher), die anderen als Kacheln.
     liste.innerHTML = sicht.map((b, i) => `
@@ -236,7 +256,10 @@
     filter = k.dataset.sport;
     try {
       const u = new URL(location.href);
-      if (filter) u.searchParams.set('sportart', filter); else u.searchParams.delete('sportart');
+      u.searchParams.delete('sportart');
+      u.searchParams.delete('serie');
+      if (filter.startsWith('serie:')) u.searchParams.set('serie', filter.slice(6));
+      else if (filter) u.searchParams.set('sportart', filter);
       history.replaceState(null, '', u);
     } catch (e) { /* ignorieren */ }
     zeichne();

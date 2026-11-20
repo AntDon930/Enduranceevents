@@ -54,8 +54,10 @@ GEPLANTE_AUFGABEN = {
 
 TYP_TEXT = {
     "Q": ("Schlüsselthema mit Quellen und Fußnoten", "key topic with sources and footnotes"),
-    "L": ("lockeres Thema, Erfahrungswissen", "light topic, practical tips"),
+    "L": ("Praxis-Thema mit Quellen an den Zahlen", "practical topic, sourced figures"),
     "E": ("Event-Thema mit Links in unsere Liste", "event topic with links into our list"),
+    "W": ("Serie Wissenschaft: Biologie hinter dem Training, ausführlich belegt",
+          "Science series: the biology behind training, fully referenced"),
 }
 
 

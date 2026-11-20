@@ -12,6 +12,7 @@ Seite, die Suchmaschinen finden.
 
     python3 scripts/build_blog.py            # alle Beiträge schreiben
     python3 scripts/build_blog.py --check    # nur prüfen (Rückgabe 1, wenn veraltet)
+    python3 scripts/build_blog.py --qualitaet  # Länge, Quellen, Lesezeit je Beitrag
 
 stamp_assets.py ruft es nach dem Stempeln auf; test_blog prüft, dass die
 Seiten zum Stand von blog.json, Text und Stempeln passen.
@@ -48,6 +49,22 @@ MONATE = ("Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
 MONTHS = ("January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December")
 SPORT_EN = {"Laufen": "Running", "Fahrrad": "Cycling", "Schwimmen": "Swimming", "Triathlon": "Triathlon"}
+# Serien (seit 20.11.2026, vom Nutzer: „einen Wissenschaftlichen Blog …
+# Aber das ist dann eine andere Serie“): `"serie": "wissenschaft"` in
+# blog.json gibt dem Beitrag ein eigenes Etikett, einen Hinweis unter dem
+# Titel und in der Übersicht einen Filter. Dieselben Namen stehen in
+# blog.html (SERIEN) – test_blog vergleicht beide.
+SERIEN = {
+    "wissenschaft": {
+        "de": "Wissenschaft", "en": "Science",
+        "hinweis_de": "Aus der Serie <a href=\"{oben}blog.html?serie=wissenschaft\">Wissenschaft</a>: "
+                      "Hier geht es genauer in die Biologie hinter dem Ausdauertraining – "
+                      "mit Fachbegriffen, aber für alle verständlich erklärt.",
+        "hinweis_en": "Part of our <a href=\"{oben}blog.html?serie=wissenschaft\">Science</a> series: "
+                      "a closer look at the biology behind endurance training – "
+                      "technical terms included, explained for everyone.",
+    },
+}
 # Die festen Texte einer Beitragsseite je Sprache (dieselben Wörter wie
 # blog.html; die Bedienung im Skript unten trägt sie noch einmal).
 UI = {
@@ -167,7 +184,7 @@ def _weitere(b: dict, alle: list[dict], sprache: str = "de") -> str:
     karten = "".join(
         f'''
     <li class="blog-karte"><a href="{e(link(x))}">
-      <div class="blog-karte-bild"><img src="{oben}{e(x.get('bild_klein') or x['bild'])}" alt="{e(feld(x, 'bild_alt', sprache))}" loading="lazy" width="480" height="320">{_tag(x, sprache)}</div>
+      <div class="blog-karte-bild"><img src="{oben}{e(x.get('bild_klein') or x['bild'])}" alt="{e(feld(x, 'bild_alt', sprache))}" loading="lazy" width="480" height="320"><span class="blog-tags">{_tag(x, sprache)}</span></div>
       <div class="blog-karte-text"><h3>{kurz(x)}</h3><div class="blog-meta"><span>{e(datum_text(x['datum'], sprache))}</span><span aria-hidden="true">·</span><span>{ui['min'].format(n=int(x.get('lesezeit_min') or 1))}</span></div></div>
     </a></li>''' for x in andere[:3])
     return f'''
@@ -179,11 +196,16 @@ def _weitere(b: dict, alle: list[dict], sprache: str = "de") -> str:
 
 
 def _tag(b: dict, sprache: str = "de") -> str:
-    if not b.get("sportart"):
-        return ""
-    name = SPORT_EN.get(b["sportart"], b["sportart"]) if sprache == "en" else ANZEIGE.get(b["sportart"], b["sportart"])
-    return (f'<span class="blog-tag {SPORT_KLASSE.get(b["sportart"], "")}">'
-            f'{html.escape(name)}</span>')
+    """Die Etiketten eines Beitrags: Sportart, dahinter die Serie."""
+    teile = []
+    if b.get("sportart"):
+        name = SPORT_EN.get(b["sportart"], b["sportart"]) if sprache == "en" else ANZEIGE.get(b["sportart"], b["sportart"])
+        teile.append(f'<span class="blog-tag {SPORT_KLASSE.get(b["sportart"], "")}">'
+                     f'{html.escape(name)}</span>')
+    if b.get("serie") in SERIEN:
+        teile.append(f'<span class="blog-tag serie-{b["serie"]}">'
+                     f'{html.escape(SERIEN[b["serie"]][sprache])}</span>')
+    return "".join(teile)
 
 
 def url_von(b: dict, sprache: str) -> str:
@@ -222,6 +244,8 @@ def seite(b: dict, sprache: str = "de") -> str:
         "inLanguage": sprache, "image": bild_url, "mainEntityOfPage": url,
         "publisher": {"@type": "Organization", "name": "Endurance Events", "url": SEITE_URL},
     }
+    if b.get("serie") in SERIEN:
+        ld["articleSection"] = SERIEN[b["serie"]][sprache]
     tag = _tag(b, sprache)
     bild = b.get("bild")
     srcset = (f' srcset="{oben}{e(b["bild_klein"])} 480w, {oben}{e(bild)} 960w" sizes="(max-width: 1120px) 100vw, 1120px"'
@@ -230,6 +254,9 @@ def seite(b: dict, sprache: str = "de") -> str:
                  if bild else "")
     nachweis_text = feld(b, "bild_nachweis", sprache)
     nachweis = f'\n  <p class="beitrag-nachweis">{nachweis_text}</p>' if nachweis_text else ""
+    serie_html = ""
+    if b.get("serie") in SERIEN:
+        serie_html = f'\n  <p class="beitrag-serie">{SERIEN[b["serie"]]["hinweis_" + sprache].format(oben=oben)}</p>'
     inhalt_html = ""
     if len(inhalt) >= 3:
         punkte = "".join(f'<li><a href="#{a}">{e(t)}</a></li>' for a, t in inhalt)
@@ -300,7 +327,7 @@ def seite(b: dict, sprache: str = "de") -> str:
       <h1>{e(titel)}</h1>
     </div>
   </header>{nachweis}
-  <div class="beitrag-spalte">{inhalt_html}
+  <div class="beitrag-spalte">{serie_html}{inhalt_html}
 {text}
   <div class="beitrag-teilen">
     <span id="teilen-text">{ui['teilen_text']}</span>
@@ -391,6 +418,69 @@ def seite(b: dict, sprache: str = "de") -> str:
 """
 
 
+# Qualitätsanspruch (seit 20.11.2026, vom Nutzer: „viel Aufwand/Arbeit
+# reinstecken … Das soll schon alles fundiert sein. Aber nicht zu
+# wissenschaftlich.“). Die Regeln stehen in scripts/blog_themen.md und im
+# README („Blog“); hier stehen die Untergrenzen, die sich zählen lassen –
+# test_blog prüft sie für jeden Beitrag ab QUALITAET_AB, die älteren bleiben
+# unangetastet. Länge zählt den Text bis zum Abschlusskasten (ohne Quellen).
+QUALITAET_AB = "2026-11-21"
+MINDESTENS = {  # (Wörter im deutschen Text, Quellen)
+    "wissenschaft": (1800, 8),   # Serie Wissenschaft
+    "Events": (900, 0),          # Event-Beiträge: Quellen, sobald sie etwas behaupten
+    "ratgeber": (1200, 3),       # alle anderen (Q und L)
+}
+WOERTER_JE_MINUTE = 200
+VERBOTEN = ("Alle Tipps in diesem Beitrag sind Erfahrungswerte", "All tips in this article are based on experience")
+
+
+def zaehle(text: str) -> tuple[int, int]:
+    """(Wörter bis zum Abschlusskasten, Einträge in der Quellenliste)."""
+    schnitt = text.find('<section class="beitrag-cta"')
+    vorn = text if schnitt < 0 else text[:schnitt]
+    woerter = len(re.findall(r"\w[\w'’-]*", html.unescape(re.sub(r"<[^>]+>", " ", vorn))))
+    m = re.search(r'<section class="beitrag-quellen".*?</section>', text, re.S)
+    return woerter, (len(re.findall(r"<li\b", m.group(0))) if m else 0)
+
+
+def mindestens(b: dict) -> tuple[int, int]:
+    if b.get("serie") == "wissenschaft":
+        return MINDESTENS["wissenschaft"]
+    return MINDESTENS.get(b.get("kategorie"), MINDESTENS["ratgeber"])
+
+
+def qualitaet(b: dict) -> list[str]:
+    """Was an einem Beitrag ab QUALITAET_AB nicht reicht (leer = in Ordnung)."""
+    if b.get("datum", "") < QUALITAET_AB:
+        return []
+    fehler = []
+    text = (TEXTE / f"{b['slug']}.html").read_text(encoding="utf-8")
+    woerter, quellen = zaehle(text)
+    min_w, min_q = mindestens(b)
+    if woerter < min_w:
+        fehler.append(f"nur {woerter} Wörter, mindestens {min_w}")
+    if quellen < min_q:
+        fehler.append(f"nur {quellen} Quellen, mindestens {min_q}")
+    soll = -(-woerter // WOERTER_JE_MINUTE)
+    if abs(int(b.get("lesezeit_min") or 0) - soll) > 1:
+        fehler.append(f"lesezeit_min {b.get('lesezeit_min')}, bei {woerter} Wörtern {soll}")
+    texte = {"de": text}
+    if hat_en(b):
+        texte["en"] = (TEXTE_EN / f"{b['slug']}.html").read_text(encoding="utf-8")
+        woerter_en = zaehle(texte["en"])[0]
+        if woerter_en < 0.85 * woerter:
+            fehler.append(f"englische Fassung nur {woerter_en} Wörter (deutsch {woerter}) – gekürzt?")
+    for sp, t in texte.items():
+        verweise = set(re.findall(r'href="#(q\d+)"', t))
+        ziele = set(re.findall(r'<li id="(q\d+)"', t))
+        if verweise - ziele:
+            fehler.append(f"{sp}: Fußnote ohne Quelle: {', '.join(sorted(verweise - ziele))}")
+        if ziele - verweise:
+            fehler.append(f"{sp}: Quelle nie zitiert: {', '.join(sorted(ziele - verweise))}")
+        fehler += [f"{sp}: „{v}“ – Erfahrungswissen im Satz benennen" for v in VERBOTEN if v in t]
+    return fehler
+
+
 def ziel(b: dict, sprache: str = "de") -> Path:
     return WURZEL / "blog" / ("en" if sprache == "en" else "") / f"{b['slug']}.html"
 
@@ -467,6 +557,18 @@ def schreibe() -> int:
 
 
 def main(argv: list[str]) -> int:
+    if "--qualitaet" in argv:
+        # Länge, Quellen und Lesezeit je Beitrag – die Blog-Aufgabe sieht
+        # hier vor dem Test, ob ihr Beitrag reicht.
+        schlecht = 0
+        for b in beitraege():
+            w, q = zaehle((TEXTE / f"{b['slug']}.html").read_text(encoding="utf-8"))
+            f = qualitaet(b)
+            schlecht += bool(f)
+            marke = "✗" if f else ("✓" if b["datum"] >= QUALITAET_AB else " ")
+            print(f"{marke} {b['datum']} {b['slug']:34} {w:5} Wörter {q:3} Quellen {b.get('lesezeit_min')} Min."
+                  + (f"  – {'; '.join(f)}" if f else ""))
+        return 1 if schlecht else 0
     if "--check" in argv:
         alt = veraltet()
         if alt:

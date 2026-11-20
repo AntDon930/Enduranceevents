@@ -68,7 +68,9 @@
   transition: transform 0.4s ease;
 }
 .blog-karte a:hover .blog-karte-bild img { transform: scale(1.04); }
-.blog-karte-bild .blog-tag { position: absolute; left: 12px; top: 12px; box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18); }
+/* Etiketten auf dem Bild: Sportart, dahinter die Serie (z. B. Wissenschaft). */
+.blog-karte-bild .blog-tags { position: absolute; left: 12px; top: 12px; right: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.blog-karte-bild .blog-tag { box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18); }
 .blog-karte-text { padding: 14px 2px 0; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .blog-karte h3 {
   font-family: var(--font-display); font-size: 1.55rem; font-weight: 700; line-height: 1.1; margin: 0;
@@ -113,6 +115,8 @@
 .blog-tag.sport-laufen { background: var(--sport-laufen-bg); color: var(--sport-laufen-fg); }
 .blog-tag.sport-fahrrad { background: var(--sport-fahrrad-bg); color: var(--sport-fahrrad-fg); }
 .blog-tag.sport-schwimmen { background: var(--sport-schwimmen-bg); color: var(--sport-schwimmen-fg); }
+/* Serie Wissenschaft: in der Akzentfarbe, damit sie sich von den Sportfarben abhebt (beide Schemata). */
+.blog-tag.serie-wissenschaft { background: var(--accent); color: var(--on-accent); }
 .blog-leer { color: var(--text-muted); }
 
 /* Abo-Band unter den Beiträgen: Navy in beiden Schemata (wie die Fußzeile). */
@@ -170,6 +174,11 @@
 .beitrag-nachweis a { color: inherit; }
 
 .beitrag-spalte { max-width: 740px; margin: 34px auto 0; }
+.beitrag-serie {
+  margin: 0 0 22px; padding: 10px 14px; border-radius: var(--radius-ctl);
+  background: var(--accent-bg); color: var(--text); font-size: 0.92rem; line-height: 1.5;
+}
+.beitrag-serie a { color: inherit; font-weight: 700; }
 .beitrag-lead {
   font-size: 1.3rem; line-height: 1.55; color: var(--text); margin: 0 0 26px;
   padding-left: 18px; border-left: 4px solid var(--brand);

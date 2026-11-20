@@ -2143,6 +2143,37 @@ def test_blog() -> None:
         check(f"blog/en/{b['slug']}.html: kein deutsches Wort der Seite stehen geblieben",
               [w for w in ("Alle Beiträge", "Weitere Beiträge", "Quellen</h2>", "Min. Lesezeit", "Beitrag teilen", ">Karte<")
                if w in html_en.split("<script>\n(function () {\n  // Diese Seite")[0]], [])
+    # Qualitätsanspruch (20.11.2026, vom Nutzer: „viel Aufwand/Arbeit
+    # reinstecken … fundiert … aber nicht zu wissenschaftlich“): Jeder
+    # Beitrag ab build_blog.QUALITAET_AB erfüllt Mindestlänge, Quellenzahl
+    # und Lesezeit, die englische Fassung ist nicht gekürzt, jede Fußnote hat
+    # ihre Quelle. Die Blog-Aufgabe läuft diesen Test vor dem Push.
+    check(f"Beiträge ab {build_blog.QUALITAET_AB}: Länge, Quellen, Lesezeit, Fußnoten "
+          "(README „Blog“, Qualitätsanspruch; python3 scripts/build_blog.py --qualitaet)",
+          [f"{b['slug']}: {'; '.join(f)}" for b in beitraege for f in [build_blog.qualitaet(b)] if f], [])
+    probe = dict(beitraege[-1], datum="2099-01-01")
+    check("Qualitätsprüfung greift (ein alter, kurzer Beitrag mit neuem Datum fällt durch)",
+          any("Wörter" in f for f in build_blog.qualitaet(probe)), True)
+    # Serien (20.11.2026, vom Nutzer: „einen Wissenschaftlichen Blog … das
+    # ist dann eine andere Serie“): erlaubte Werte, dieselben Namen in
+    # build_blog.py und blog.html, Etikett und Hinweis auf der Seite.
+    check("blog.json: Serie nur aus build_blog.SERIEN",
+          [f"{b['slug']}: {b['serie']}" for b in beitraege if b.get("serie") and b["serie"] not in build_blog.SERIEN], [])
+    blog_html = (wurzel / "blog.html").read_text(encoding="utf-8")
+    m = _re.search(r"const SERIEN = \[([^\]]*)\]", blog_html)
+    check("blog.html kennt dieselben Serien wie build_blog.py",
+          sorted(_re.findall(r"'([a-z]+)'", m.group(1))) if m else None, sorted(build_blog.SERIEN))
+    check("blog.html: Serienname DE/EN wie in build_blog.py",
+          _re.findall(r"serie: \{ wissenschaft: '([^']+)' \}", blog_html),
+          [build_blog.SERIEN["wissenschaft"]["de"], build_blog.SERIEN["wissenschaft"]["en"]])
+    probe = dict(next(b for b in beitraege if build_blog.hat_en(b)), serie="wissenschaft")
+    for sp, oben in (("de", "../"), ("en", "../../")):
+        h = build_blog.seite(probe, sp)
+        check(f"Serie Wissenschaft ({sp}): Etikett, Hinweis mit Link, articleSection",
+              (f'class="blog-tag serie-wissenschaft">{build_blog.SERIEN["wissenschaft"][sp]}</span>' in h,
+               f'class="beitrag-serie">' in h and f'href="{oben}blog.html?serie=wissenschaft"' in h,
+               f'"articleSection": "{build_blog.SERIEN["wissenschaft"][sp]}"' in h),
+              (True, True, True))
     nav = {}
     for name in ("index.html", "events.html", "karte.html", "clubs.html", "admin.html", "blog.html"):
         html = (wurzel / name).read_text(encoding="utf-8")
