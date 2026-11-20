@@ -7075,7 +7075,18 @@ Verweise auf alte Nummern stehen in Klammern.
     `strava_kandidaten.xlsx` (neu erzeugen aus `scripts/clubs_kandidaten.json`,
     alle Einträge mit `strava`); ein Kandidat mit Treff wird als Club
     angelegt und aus der Kandidatenliste genommen.
-13. **Meta blockiert den Instagram-Schlüssel – seit dem 23.10.2026**
+13. **Meta-App neu aufsetzen** (20.11.2026: der Nutzer hat das
+    Facebook-Profil gelöscht, an dem Entwicklerkonto und App „AusdauerMaschine
+    Content“ hingen – wohl auch der Grund für „API access blocked“). Vom
+    Nutzer entschieden: **Weg A – sein privates Facebook-Profil nur als
+    Login fürs Entwicklerkonto** (kein zweites Profil mehr, nichts nach außen
+    verknüpft, Posten weiter über die Anmeldung mit Instagram ohne Seite).
+    Neue App → Instagram-App-ID → `IG_APP_ID=<ID> bash
+    scripts/instagram_google_einrichten.sh --anmelden`, danach die ID im
+    Skript fest eintragen. Danach: Karussell posten (`CAROUSEL`) und
+    Telegram-Bot (Vorschau, Freigeben/Sperren, Kommentare; Ablauf nach der
+    „Clipping Engine“ des Nutzers – Bildschirmfotos angefragt).
+    Vorgeschichte: **Meta blockiert den Instagram-Schlüssel – seit dem 23.10.2026**
     (gefunden am 04.11.2026; nur der Nutzer): Jeder Lauf von
     `instagram.yml`, der den Schlüssel pflegt, endet rot mit „Schlüssel
     erneuern: HTTP 400 – API access blocked (OAuthException, code 200)".
