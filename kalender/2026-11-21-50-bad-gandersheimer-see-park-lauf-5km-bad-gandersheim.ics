@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-50-bad-gandersheimer-see-park-lauf-5km-bad-gandersheim@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:50. Bad Gandersheimer See-Park-Lauf
+LOCATION:Bad Gandersheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.gw-gan.de/
+ news
+TRANSP:TRANSPARENT
+URL:https://www.gw-gan.de/news
+END:VEVENT
+END:VCALENDAR

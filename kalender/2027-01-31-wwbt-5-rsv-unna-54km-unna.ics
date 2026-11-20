@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-wwbt-5-rsv-unna-54km-unna@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:WWBT #5- RSV Unna – CTF 54 km
+LOCATION:Unna\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 54 km\nhttps://westfa
+ len-winter-bike-trophy.org/westfalen-winterbike-trophy-des-rsv-unna/
+TRANSP:TRANSPARENT
+URL:https://westfalen-winter-bike-trophy.org/westfalen-winterbike-trophy-d
+ es-rsv-unna/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-zooparklauf-erfurt-10km-erfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Zooparklauf Erfurt – Hauptlauf 10 km
+LOCATION:Erfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.zooparkla
+ uf.de/
+TRANSP:TRANSPARENT
+URL:https://www.zooparklauf.de/
+END:VEVENT
+END:VCALENDAR

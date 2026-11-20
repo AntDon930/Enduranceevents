@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-lexware-freiburg-triathlon-51-5km-seepark-freiburg-im-breis
+ gau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:LEXWARE Freiburg-Triathlon
+LOCATION:Seepark Freiburg im Breisgau\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://www.trit
+ eamfreiburg.de/
+TRANSP:TRANSPARENT
+URL:https://www.triteamfreiburg.de/
+END:VEVENT
+END:VCALENDAR

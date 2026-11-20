@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2028-08-19-germany-on-trails-1201km-monkeberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20280819
+DTEND;VALUE=DATE:20280908
+SUMMARY:Germany on Trails
+LOCATION:Mönkeberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 1201 km\nhttps://germanyontra
+ ils.run
+TRANSP:TRANSPARENT
+URL:https://germanyontrails.run
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-oettinger-triathlon-x-oettingen-i-bayern@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Oettinger Triathlon
+LOCATION:Oettingen i. Bayern\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://triathlon-oett
+ ingen.de/
+TRANSP:TRANSPARENT
+URL:https://triathlon-oettingen.de/
+END:VEVENT
+END:VCALENDAR

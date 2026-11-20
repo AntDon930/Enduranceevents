@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-panorama-lauf-rothenberg-5km-oberzent@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Panorama Lauf Rothenberg – 5 km (Lauf und Walking)
+LOCATION:Oberzent\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.panoramala
+ uf-rothenberg.de/
+TRANSP:TRANSPARENT
+URL:https://www.panoramalauf-rothenberg.de/
+END:VEVENT
+END:VCALENDAR

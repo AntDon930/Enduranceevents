@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-slowup-la-broye-28km-estavayer@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:slowUp la Broye – Volksradfahren 28 km
+LOCATION:Estavayer\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 28 km\nhttps://www.sl
+ owup.ch/broye/fr
+TRANSP:TRANSPARENT
+URL:https://www.slowup.ch/broye/fr
+END:VEVENT
+END:VCALENDAR

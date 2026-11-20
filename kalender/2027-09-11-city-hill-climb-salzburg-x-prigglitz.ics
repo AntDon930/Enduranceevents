@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-city-hill-climb-salzburg-x-prigglitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:City Hill Climb Salzburg – Bergrennen
+LOCATION:Prigglitz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.cityhillclim
+ b.com
+TRANSP:TRANSPARENT
+URL:https://www.cityhillclimb.com
+END:VEVENT
+END:VCALENDAR

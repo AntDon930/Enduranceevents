@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-bodensee-radmarathon-150km-meersburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Bodensee-Radmarathon – Radmarathon 150 km
+LOCATION:Meersburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 150 km\nhttps://www.bodense
+ e-radmarathon.ch/
+TRANSP:TRANSPARENT
+URL:https://www.bodensee-radmarathon.ch/
+END:VEVENT
+END:VCALENDAR

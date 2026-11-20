@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-frankenhainer-cyclo-cross-x-geratal-frankenhain@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Frankenhainer Cyclo-Cross – Cyclocross
+LOCATION:Geratal-Frankenhain\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.biathlon
+ -frankenhain.de/2-frankenhainer-cyclocross/
+TRANSP:TRANSPARENT
+URL:https://www.biathlon-frankenhain.de/2-frankenhainer-cyclocross/
+END:VEVENT
+END:VCALENDAR

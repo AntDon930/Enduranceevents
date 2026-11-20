@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-27-altacher-silvesterlauf-12-4km-altach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:Altacher Silvesterlauf – Langer Lauf
+LOCATION:Altach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.4 km\nhttps://altacher-si
+ lvesterlauf.com/
+TRANSP:TRANSPARENT
+URL:https://altacher-silvesterlauf.com/
+END:VEVENT
+END:VCALENDAR

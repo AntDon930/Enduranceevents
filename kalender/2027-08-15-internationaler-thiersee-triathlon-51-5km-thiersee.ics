@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-internationaler-thiersee-triathlon-51-5km-thiersee@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:Internationaler Thiersee Triathlon
+LOCATION:Thiersee\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://www.thie
+ rsee-triathlon.at
+TRANSP:TRANSPARENT
+URL:https://www.thiersee-triathlon.at
+END:VEVENT
+END:VCALENDAR

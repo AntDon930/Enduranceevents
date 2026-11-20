@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-braunauer-sprinttriathlon-23km-braunau-am-inn@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Braunauer Sprinttriathlon – 23 km Radfahren
+LOCATION:Braunau am Inn\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 23 km\nhttps://time2win.a
+ t/event/1147
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1147
+END:VEVENT
+END:VCALENDAR

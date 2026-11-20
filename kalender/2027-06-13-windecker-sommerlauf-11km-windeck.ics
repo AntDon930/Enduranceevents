@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-windecker-sommerlauf-11km-windeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Windecker-Sommerlauf – 11 Kilometer
+LOCATION:Windeck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.windecker
+ -sommerlauf.de/ausschreibung.html
+TRANSP:TRANSPARENT
+URL:https://www.windecker-sommerlauf.de/ausschreibung.html
+END:VEVENT
+END:VCALENDAR

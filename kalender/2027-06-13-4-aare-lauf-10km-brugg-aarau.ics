@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-4-aare-lauf-10km-brugg-aarau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:4. Aare Lauf – Lauf / (Nordic) Walking 10 km
+LOCATION:Brugg-Aarau\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://aare-halbmara
+ thon.ch/
+TRANSP:TRANSPARENT
+URL:https://aare-halbmarathon.ch/
+END:VEVENT
+END:VCALENDAR

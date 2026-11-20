@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-sparda-munster-city-triathlon-51km-munster@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Sparda Münster City Triathlon
+LOCATION:Münster\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51 km\nhttps://muenster-t
+ riathlon.de
+TRANSP:TRANSPARENT
+URL:https://muenster-triathlon.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-achenseelauf-tirol-23-2km-tirol@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Achenseelauf (Tirol)
+LOCATION:Tirol\, Italien (Südtirol)
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 23.2 km\nhttps://www.achense
+ elauf.at/
+TRANSP:TRANSPARENT
+URL:https://www.achenseelauf.at/
+END:VEVENT
+END:VCALENDAR

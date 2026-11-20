@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-mitternachtslauf-glan-munchweiler-9km-glan-munchweiler@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:Mitternachtslauf Glan-Münchweiler
+LOCATION:Glan-Münchweiler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://www.tusglanmue
+ nchweiler.de/lauftreff-mitternachtslauf/
+TRANSP:TRANSPARENT
+URL:https://www.tusglanmuenchweiler.de/lauftreff-mitternachtslauf/
+END:VEVENT
+END:VCALENDAR

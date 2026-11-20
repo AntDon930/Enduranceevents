@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-salzkammergut-trophy-210km-bad-goisern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Salzkammergut Trophy – MTB-Marathon 210 km
+LOCATION:Bad Goisern\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 210 km\nhttps://www.s
+ alzkammergut-trophy.at
+TRANSP:TRANSPARENT
+URL:https://www.salzkammergut-trophy.at
+END:VEVENT
+END:VCALENDAR

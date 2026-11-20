@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-uster-triathlon-24-5km-uster@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270830
+SUMMARY:Uster Triathlon – Short Distance Triathlon
+LOCATION:Uster\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 24.5 km\nhttps://www.uste
+ rtriathlon.ch/
+TRANSP:TRANSPARENT
+URL:https://www.ustertriathlon.ch/
+END:VEVENT
+END:VCALENDAR

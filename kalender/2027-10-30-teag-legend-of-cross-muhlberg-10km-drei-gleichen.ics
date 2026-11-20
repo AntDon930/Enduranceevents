@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-30-teag-legend-of-cross-muhlberg-10km-drei-gleichen@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271030
+DTEND;VALUE=DATE:20271101
+SUMMARY:TEAG - Legend of Cross - Mühlberg – 10 km SPRINT (ab 14 Jahre\, Jg
+ . 2013 und älter)
+LOCATION:Drei Gleichen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://my.raceresult.
+ com/420020/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/420020/
+END:VEVENT
+END:VCALENDAR

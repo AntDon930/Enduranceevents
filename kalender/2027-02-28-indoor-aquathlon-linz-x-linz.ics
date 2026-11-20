@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-indoor-aquathlon-linz-x-linz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:Indoor Aquathlon Linz
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Triathlon / Aquathlon\nLänge: -\nhttps://indoor.stee
+ ltownman.com/bewerb/infos
+TRANSP:TRANSPARENT
+URL:https://indoor.steeltownman.com/bewerb/infos
+END:VEVENT
+END:VCALENDAR

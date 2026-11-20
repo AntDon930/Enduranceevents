@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-02-e2h10k-ultrarace-100km-calw-altburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271002
+DTEND;VALUE=DATE:20271003
+SUMMARY:e2h10k Ultrarace
+LOCATION:Calw-Altburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://e2h10k.simdi
+ f.com/e2h10k-_ultrarace_100.html
+TRANSP:TRANSPARENT
+URL:https://e2h10k.simdif.com/e2h10k-_ultrarace_100.html
+END:VEVENT
+END:VCALENDAR

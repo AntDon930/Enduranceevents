@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-07-b2run-st-gallen-6km-st-gallen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270607
+DTEND;VALUE=DATE:20270608
+SUMMARY:B2Run St.Gallen
+LOCATION:St. Gallen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.b2run.ch/r
+ un/ch/de/st-gallen/index.html
+TRANSP:TRANSPARENT
+URL:https://www.b2run.ch/run/ch/de/st-gallen/index.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-world-run-irschenberg-x-irschenberg@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life World Run Irschenberg
+LOCATION:Irschenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.wingsforlifew
+ orldrun.com/en/locations/irschenberg-lk-miesbach
+TRANSP:TRANSPARENT
+URL:https://www.wingsforlifeworldrun.com/en/locations/irschenberg-lk-miesb
+ ach
+END:VEVENT
+END:VCALENDAR

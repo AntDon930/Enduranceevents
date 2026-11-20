@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-34-gegendtaler-mountainbike-rennen-x-afritz-am-see@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:34. Gegendtaler Mountainbike Rennen – Cross-Country
+LOCATION:Afritz am See\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.facebo
+ ok.com/mirnock
+TRANSP:TRANSPARENT
+URL:https://www.facebook.com/mirnock
+END:VEVENT
+END:VCALENDAR

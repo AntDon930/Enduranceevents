@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-diablerets-trail-blanc-10km-ormont-dessus@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:Diablerets Trail Blanc
+LOCATION:Ormont-Dessus\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.diablerets
+ 3d.ch/diablerets-trail-blanc/news
+TRANSP:TRANSPARENT
+URL:https://www.diablerets3d.ch/diablerets-trail-blanc/news
+END:VEVENT
+END:VCALENDAR

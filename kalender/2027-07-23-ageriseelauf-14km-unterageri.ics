@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-ageriseelauf-14km-unterageri@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270724
+SUMMARY:Ägeriseelauf
+LOCATION:Unterägeri\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://www.aegerisee
+ lauf.com/
+TRANSP:TRANSPARENT
+URL:https://www.aegeriseelauf.com/
+END:VEVENT
+END:VCALENDAR

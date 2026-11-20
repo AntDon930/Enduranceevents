@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-spenden-lauf-rund-um-die-kodel-21-1km-nordhalben@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Spenden-Lauf „Rund um die Ködel“ – Halbmarathon
+LOCATION:Nordhalben\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 21.1 km\nhttps://w
+ ww.crazyrunners-teamfrankenwald.de/spendenlauf_rundumdiekoedel/
+TRANSP:TRANSPARENT
+URL:https://www.crazyrunners-teamfrankenwald.de/spendenlauf_rundumdiekoede
+ l/
+END:VEVENT
+END:VCALENDAR

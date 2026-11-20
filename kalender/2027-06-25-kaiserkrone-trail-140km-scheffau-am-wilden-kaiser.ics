@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-kaiserkrone-trail-140km-scheffau-am-wilden-kaiser@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270627
+SUMMARY:Kaiserkrone Trail
+LOCATION:Scheffau am Wilden Kaiser\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 140 km\nhttps://www.wilderkai
+ ser.info/de/kaiserkrone-trail.html
+TRANSP:TRANSPARENT
+URL:https://www.wilderkaiser.info/de/kaiserkrone-trail.html
+END:VEVENT
+END:VCALENDAR

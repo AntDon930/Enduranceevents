@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-tqs-traiskirchen-run-10km-traiskirchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:TQS Traiskirchen Run – 10 km Strecke durch die Schwechat-Au.
+LOCATION:Traiskirchen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.traiskirc
+ hen-run.at/
+TRANSP:TRANSPARENT
+URL:https://www.traiskirchen-run.at/
+END:VEVENT
+END:VCALENDAR

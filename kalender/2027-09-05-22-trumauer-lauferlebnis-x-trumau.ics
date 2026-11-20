@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-22-trumauer-lauferlebnis-x-trumau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:22. Trumauer Lauferlebnis
+LOCATION:Trumau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://oelv.athmin.at/ev
+ ent-details.aspx?event=37301&int=&returnTo=L2V2ZW50cy5hc3B4
+TRANSP:TRANSPARENT
+URL:https://oelv.athmin.at/event-details.aspx?event=37301&int=&returnTo=L2
+ V2ZW50cy5hc3B4
+END:VEVENT
+END:VCALENDAR

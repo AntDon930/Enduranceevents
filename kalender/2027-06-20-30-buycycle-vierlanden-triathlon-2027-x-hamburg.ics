@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-30-buycycle-vierlanden-triathlon-2027-x-hamburg@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:30. buycycle Vierlanden-Triathlon 2027 – Sprint
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://vierlanden-tri
+ athlon.de/
+TRANSP:TRANSPARENT
+URL:https://vierlanden-triathlon.de/
+END:VEVENT
+END:VCALENDAR

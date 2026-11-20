@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-bike-challenge-mittelholstein-47km-nortorf@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Bike Challenge Mittelholstein – Radmarathon 47 km (Termin vorläufi
+ g)
+LOCATION:Nortorf\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / St
+ raße\nLänge: 47 km\nhttps://www.nortorf.bike/veranstaltungen/bike-challen
+ ge/
+TRANSP:TRANSPARENT
+URL:https://www.nortorf.bike/veranstaltungen/bike-challenge/
+END:VEVENT
+END:VCALENDAR

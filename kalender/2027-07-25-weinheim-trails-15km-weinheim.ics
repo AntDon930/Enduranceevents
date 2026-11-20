@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-weinheim-trails-15km-weinheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Weinheim Trails
+LOCATION:Weinheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 15 km\nhttps://www.weinheimtr
+ ails.de/
+TRANSP:TRANSPARENT
+URL:https://www.weinheimtrails.de/
+END:VEVENT
+END:VCALENDAR

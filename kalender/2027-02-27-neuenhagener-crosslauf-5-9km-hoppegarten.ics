@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-neuenhagener-crosslauf-5-9km-hoppegarten@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:Neuenhagener Crosslauf – 5\,9 km als Kombination mittlere Runde pl
+ us zwei große Runden
+LOCATION:Hoppegarten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.9 km\nhttps://anmeldung.lau
+ fauswertung.com/Anmeldung/index.php?VID=94102B5B10
+TRANSP:TRANSPARENT
+URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=94102B5B1
+ 0
+END:VEVENT
+END:VCALENDAR

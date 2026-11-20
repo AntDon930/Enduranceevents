@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-bibertallauf-ruthen-bergstadtmarathon-42-2km-ruthen@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Bibertallauf Rüthen & Bergstadtmarathon – Marathon
+LOCATION:Rüthen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://bibertal-la
+ uf.de/
+TRANSP:TRANSPARENT
+URL:https://bibertal-lauf.de/
+END:VEVENT
+END:VCALENDAR

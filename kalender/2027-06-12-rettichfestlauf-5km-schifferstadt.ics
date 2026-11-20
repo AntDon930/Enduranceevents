@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-rettichfestlauf-5km-schifferstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Rettichfestlauf – 5 Kilometer Lauf
+LOCATION:Schifferstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://runtix.com/sts
+ /10021/3236
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3236
+END:VEVENT
+END:VCALENDAR

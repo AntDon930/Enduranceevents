@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-rainforest-run-freiburg-7-8km-freiburg-im-breisgau@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Rainforest Run Freiburg – 7\,8 km Langstrecke (Jahrgang 2012 und ä
+ lter)
+LOCATION:Freiburg im Breisgau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.8 km\nhttps://rainforestru
+ n-freiburg.de/
+TRANSP:TRANSPARENT
+URL:https://rainforestrun-freiburg.de/
+END:VEVENT
+END:VCALENDAR

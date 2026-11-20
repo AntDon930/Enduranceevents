@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-18-zehnmeilenlauf-grossenkneten-16-1km-grossenkneten@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:18. ZehnMeilenLauf Großenkneten
+LOCATION:Großenkneten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16.1 km\nhttp://www.zehnmeil
+ enlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.zehnmeilenlauf.de
+END:VEVENT
+END:VCALENDAR

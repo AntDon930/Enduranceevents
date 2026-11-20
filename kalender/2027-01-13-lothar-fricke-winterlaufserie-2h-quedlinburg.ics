@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-13-lothar-fricke-winterlaufserie-2h-quedlinburg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:Lothar Fricke-Winterlaufserie – 1/2Stdlauf
+LOCATION:Quedlinburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 2 h\nhttps://www.leichtathle
+ tik-quedlinburg.de/
+TRANSP:TRANSPARENT
+URL:https://www.leichtathletik-quedlinburg.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-integrationslauf-des-vfb-reichenbach-5-9km-reichenbach-stee
+ gen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Integrationslauf des VfB Reichenbach – Spaziergänger und Wanderer 
+ - 5\,90 Kilometer
+LOCATION:Reichenbach-Steegen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.9 km\nhttps://my.raceresul
+ t.com/429047/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/429047/
+END:VEVENT
+END:VCALENDAR

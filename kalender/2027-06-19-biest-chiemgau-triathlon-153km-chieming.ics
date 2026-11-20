@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-biest-chiemgau-triathlon-153km-chieming@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Biest - Chiemgau Triathlon – Biest Einzel 153 km (3 km Schwimmen /
+  120 km Rad / 30 km Laufen)
+LOCATION:Chieming\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 153 km\nhttps://biest-tri
+ athlon.de/
+TRANSP:TRANSPARENT
+URL:https://biest-triathlon.de/
+END:VEVENT
+END:VCALENDAR

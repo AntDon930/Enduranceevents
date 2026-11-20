@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-07-fruhlingslauf-schwerin-7km-schwerin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270407
+DTEND;VALUE=DATE:20270408
+SUMMARY:Frühlingslauf Schwerin
+LOCATION:Schwerin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.fuenf-seen
+ -lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&tx
+ _news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=1&cHash=da16ec58acce
+ f2c8fd08c8ae6cadf6d6
+TRANSP:TRANSPARENT
+URL:https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_
+ pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnew
+ s%5D=1&cHash=da16ec58accef2c8fd08c8ae6cadf6d6
+END:VEVENT
+END:VCALENDAR

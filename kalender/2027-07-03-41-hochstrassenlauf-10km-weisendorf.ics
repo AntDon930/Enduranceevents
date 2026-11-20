@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-41-hochstrassenlauf-10km-weisendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:41. Hochstraßenlauf
+LOCATION:Weisendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.hochstrass
+ enlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.hochstrassenlauf.de
+END:VEVENT
+END:VCALENDAR

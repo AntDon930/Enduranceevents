@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-01-hamburg-airport-abendlauf-x-norderstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270901
+DTEND;VALUE=DATE:20270902
+SUMMARY:Hamburg Airport Abendlauf
+LOCATION:Norderstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://norderstedt-abend
+ lauf.de
+TRANSP:TRANSPARENT
+URL:https://norderstedt-abendlauf.de
+END:VEVENT
+END:VCALENDAR

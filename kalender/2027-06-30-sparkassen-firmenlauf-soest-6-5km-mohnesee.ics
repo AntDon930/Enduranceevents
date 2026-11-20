@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-30-sparkassen-firmenlauf-soest-6-5km-mohnesee@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270630
+DTEND;VALUE=DATE:20270701
+SUMMARY:Sparkassen Firmenlauf Soest – 6\,5 km um den Möhnesee
+LOCATION:Möhnesee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://www.firmenla
+ uf-soest.de/
+TRANSP:TRANSPARENT
+URL:https://www.firmenlauf-soest.de/
+END:VEVENT
+END:VCALENDAR

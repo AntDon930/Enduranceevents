@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-sankt-ulrich-bei-steyr-8km-sankt-ulrich-bei-
+ steyr@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life - Sankt Ulrich bei Steyr
+LOCATION:Sankt Ulrich bei Steyr\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.wingsforli
+ feworldrun.com/en/locations/sankt-ulrich-bei-steyr
+TRANSP:TRANSPARENT
+URL:https://www.wingsforlifeworldrun.com/en/locations/sankt-ulrich-bei-ste
+ yr
+END:VEVENT
+END:VCALENDAR

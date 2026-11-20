@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-schwarzeseelauf-8-8km-barnim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Schwärzeseelauf – 8\,8 km Lauf
+LOCATION:Barnim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.8 km\nhttp://www.barnimer-
+ sparkassen-lauf-cup.de/laeufe.php
+TRANSP:TRANSPARENT
+URL:http://www.barnimer-sparkassen-lauf-cup.de/laeufe.php
+END:VEVENT
+END:VCALENDAR

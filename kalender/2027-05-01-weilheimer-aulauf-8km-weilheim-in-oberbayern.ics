@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-weilheimer-aulauf-8km-weilheim-in-oberbayern@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Weilheimer Aulauf
+LOCATION:Weilheim in Oberbayern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.tsv-weilhe
+ im.com/leichtathletik/aulauf/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-weilheim.com/leichtathletik/aulauf/
+END:VEVENT
+END:VCALENDAR

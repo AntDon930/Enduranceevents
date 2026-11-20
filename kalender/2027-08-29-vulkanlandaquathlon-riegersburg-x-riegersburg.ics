@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-vulkanlandaquathlon-riegersburg-x-riegersburg@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Vulkanlandaquathlon Riegersburg
+LOCATION:Riegersburg\, Österreich
+DESCRIPTION:Sportart: Triathlon / Aquathlon\nLänge: -\nhttp://www.vulkanla
+ ndtriathlon.at/
+TRANSP:TRANSPARENT
+URL:http://www.vulkanlandtriathlon.at/
+END:VEVENT
+END:VCALENDAR

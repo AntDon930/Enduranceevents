@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-inferno-halbmarathon-21-1km-murren@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Inferno Halbmarathon – Inferno Halbmarathon 21.1 km
+LOCATION:Mürren\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttps://www.inferno.
+ ch/
+TRANSP:TRANSPARENT
+URL:https://www.inferno.ch/
+END:VEVENT
+END:VCALENDAR

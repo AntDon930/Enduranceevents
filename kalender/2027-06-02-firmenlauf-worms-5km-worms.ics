@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-02-firmenlauf-worms-5km-worms@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270602
+DTEND;VALUE=DATE:20270603
+SUMMARY:Firmenlauf Worms
+LOCATION:Worms\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://firmenlauf-wor
+ ms.de/anmeldung
+TRANSP:TRANSPARENT
+URL:https://firmenlauf-worms.de/anmeldung
+END:VEVENT
+END:VCALENDAR

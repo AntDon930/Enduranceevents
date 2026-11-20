@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-hohe-winde-trail-23-1km-busserach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Hohe Winde Trail – Männer und Frauen 23\,1 km
+LOCATION:Büsserach\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 23.1 km\nhttp://www.hohe-wind
+ e.run/
+TRANSP:TRANSPARENT
+URL:http://www.hohe-winde.run/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-bike-marathon-willingen-x-willingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Bike Marathon Willingen – MTB-Marathon
+LOCATION:Willingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://bikefestiv
+ al-willingen.com/
+TRANSP:TRANSPARENT
+URL:https://bikefestival-willingen.com/
+END:VEVENT
+END:VCALENDAR

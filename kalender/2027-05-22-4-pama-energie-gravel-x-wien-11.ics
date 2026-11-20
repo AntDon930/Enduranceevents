@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-4-pama-energie-gravel-x-wien-11@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:4 PAMA Energie Gravel – Cycling 4 All\, Gravel
+LOCATION:Wien 11.\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: -\nhttps://www.rc-awr.at
+TRANSP:TRANSPARENT
+URL:https://www.rc-awr.at
+END:VEVENT
+END:VCALENDAR

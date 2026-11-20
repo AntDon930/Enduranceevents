@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-24-bocksbeutel-lauf-thungersheim-10km-thungersheim@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271024
+DTEND;VALUE=DATE:20271025
+SUMMARY:Bocksbeutel-Lauf Thüngersheim – Hauptläufe
+LOCATION:Thüngersheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsv-thuen
+ gersheim.de/aktionen-events/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-thuengersheim.de/aktionen-events/
+END:VEVENT
+END:VCALENDAR

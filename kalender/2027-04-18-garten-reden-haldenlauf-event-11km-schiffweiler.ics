@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-garten-reden-haldenlauf-event-11km-schiffweiler@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Garten-Reden-Haldenlauf Event
+LOCATION:Schiffweiler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.garten-re
+ den-haldenlauf-event.net/
+TRANSP:TRANSPARENT
+URL:https://www.garten-reden-haldenlauf-event.net/
+END:VEVENT
+END:VCALENDAR

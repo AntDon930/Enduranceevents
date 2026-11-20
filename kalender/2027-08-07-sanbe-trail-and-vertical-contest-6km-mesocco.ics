@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-sanbe-trail-and-vertical-contest-6km-mesocco@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:Sanbe Trail and Vertical Contest
+LOCATION:Mesocco\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://www.verticalsan
+ be.ch/
+TRANSP:TRANSPARENT
+URL:https://www.verticalsanbe.ch/
+END:VEVENT
+END:VCALENDAR

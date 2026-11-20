@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-11-citylauf-grevenbroich-10km-grevenbroich@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270612
+SUMMARY:11. Citylauf Grevenbroich
+LOCATION:Grevenbroich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.citylauf-g
+ revenbroich.de
+TRANSP:TRANSPARENT
+URL:http://www.citylauf-grevenbroich.de
+END:VEVENT
+END:VCALENDAR

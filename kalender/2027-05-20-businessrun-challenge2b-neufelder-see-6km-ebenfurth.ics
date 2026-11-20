@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-20-businessrun-challenge2b-neufelder-see-6km-ebenfurth@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270520
+DTEND;VALUE=DATE:20270521
+SUMMARY:Businessrun Challenge2B Neufelder See
+LOCATION:Ebenfurth\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.sportliche
+ r.at/veranstaltungen/businessrun-challenge2b-2027-am-neufelder-see
+TRANSP:TRANSPARENT
+URL:https://www.sportlicher.at/veranstaltungen/businessrun-challenge2b-202
+ 7-am-neufelder-see
+END:VEVENT
+END:VCALENDAR

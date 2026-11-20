@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-la-course-des-anes-15km-servion@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:La Course des Ânes – 15 km Trail\, 320 m Anstieg
+LOCATION:Servion\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 15 km\nhttps://www.course-des
+ -anes.ch/
+TRANSP:TRANSPARENT
+URL:https://www.course-des-anes.ch/
+END:VEVENT
+END:VCALENDAR

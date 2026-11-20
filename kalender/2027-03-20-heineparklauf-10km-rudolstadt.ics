@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-heineparklauf-10km-rudolstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Heineparklauf
+LOCATION:Rudolstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.laufclub-
+ rudolstadt.de/heineparklauf/
+TRANSP:TRANSPARENT
+URL:https://www.laufclub-rudolstadt.de/heineparklauf/
+END:VEVENT
+END:VCALENDAR

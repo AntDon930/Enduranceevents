@@ -1,0 +1,82 @@
+{
+  "_note": "Karussell zum Blogbeitrag „Carboloading“ (scripts/blog_texte/carboloading.html). Jede Zahl steht dort mit Quelle; hier nichts ergänzen, was der Beitrag nicht sagt.",
+  "blog": "carboloading",
+  "titel": "Carboloading",
+  "untertitel": "Dos & Don'ts",
+  "einleitung": "Volle Speicher für dein nächstes langes Rennen – so geht's richtig.",
+  "figur": "nudeln",
+  "seiten": [
+    {
+      "art": "info",
+      "titel": "Wann lohnt es sich?",
+      "figur": "denken",
+      "punkte": [
+        {"zeichen": "ja", "fett": "Über 90 Minuten:", "text": "Marathon, lange Trails, Radmarathon, Mittel- und Langdistanz."},
+        {"zeichen": "nein", "fett": "10 km oder Halbmarathon unter 90 Min.:", "text": "kein spezielles Carboloading nötig."},
+        {"zeichen": "info", "fett": "Dann reicht:", "text": "am Tag vorher normal und kohlenhydratreich essen."}
+      ]
+    },
+    {
+      "art": "info",
+      "titel": "Wie viel ist genug?",
+      "figur": "kalender",
+      "punkte": [
+        {"zeichen": "info", "fett": "10–12 g pro Kilo:", "text": "Kohlenhydrate pro Tag, 36 bis 48 Stunden lang."},
+        {"zeichen": "info", "fett": "Rechenbeispiel:", "text": "70 kg Körpergewicht = rund 700 g am Tag."},
+        {"zeichen": "ja", "fett": "Zwei Tage reichen –", "text": "eine ganze Woche Umstellung brauchst du nicht."}
+      ]
+    },
+    {
+      "art": "do",
+      "titel": "Do's",
+      "figur": "banane",
+      "punkte": [
+        {"zeichen": "ja", "fett": "Kohlenhydrate in jede Mahlzeit:", "text": "Nudeln, Reis, Kartoffeln, Brot, Haferflocken."},
+        {"zeichen": "ja", "fett": "Zwischendurch snacken:", "text": "Brezel, Banane, Reiswaffeln, Saft."},
+        {"zeichen": "ja", "fett": "Weniger Fett und Ballaststoffe:", "text": "Weißbrot statt Vollkorn ist okay."}
+      ]
+    },
+    {
+      "art": "dont",
+      "titel": "Don'ts",
+      "figur": "stopp",
+      "punkte": [
+        {"zeichen": "nein", "fett": "Eine Woche „leertrainieren“:", "text": "unnötig, die Speicher füllen sich auch so."},
+        {"zeichen": "nein", "fett": "Vollstopfen:", "text": "nicht mehr essen, sondern anders verteilen."},
+        {"zeichen": "nein", "fett": "Neues ausprobieren:", "text": "nur Essen, das du kennst und gut verträgst."}
+      ]
+    },
+    {
+      "art": "info",
+      "titel": "Keine Panik vor der Waage",
+      "figur": "waage",
+      "punkte": [
+        {"zeichen": "info", "fett": "1–2 kg mehr", "text": "am Renntag sind normal."},
+        {"zeichen": "info", "fett": "1 g Glykogen", "text": "speichert der Muskel mit rund 3 g Wasser."},
+        {"zeichen": "ja", "fett": "Heißt:", "text": "Deine Speicher sind voll – genau das wolltest du."}
+      ]
+    },
+    {
+      "art": "info",
+      "titel": "Am Renntag",
+      "figur": "daumen",
+      "punkte": [
+        {"zeichen": "ja", "fett": "Vertrautes Frühstück", "text": "2–3 Stunden vor dem Start."},
+        {"zeichen": "ja", "fett": "Zum Beispiel:", "text": "Weißbrot mit Honig, Banane, Haferflocken."},
+        {"zeichen": "ja", "fett": "Unterwegs:", "text": "Gel oder Sportgetränk an den Verpflegungsstellen."}
+      ]
+    }
+  ],
+  "schluss": {
+    "titel": "Speichern für dein nächstes Rennen!",
+    "text": "Den ganzen Artikel mit allen Quellen findest du auf endurance-events.de – Link in der Bio.",
+    "figur": "winken"
+  },
+  "caption": [
+    "🍝 Carboloading – Dos & Don'ts",
+    "Volle Speicher für dein nächstes langes Rennen: Ab etwa 90 Minuten Renndauer lohnt es sich, zwei Tage lang 10–12 g Kohlenhydrate pro Kilo Körpergewicht zu essen. Eine Woche „leertrainieren“ brauchst du nicht – und ein, zwei Kilo mehr auf der Waage heißen: die Speicher sind voll.",
+    "Alle Details, Rechenbeispiel und Quellen im Blog auf endurance-events.de 👉 Link in der Bio",
+    "Speichern 📌 und mit deiner Laufgruppe teilen! Was isst du am Abend vor dem Rennen? 👇",
+    "#carboloading #marathon #laufen #ernährung #sporternährung #marathontraining #runnersofinstagram #ausdauersport #laufenmachtglücklich #triathlon"
+  ]
+}

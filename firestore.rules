@@ -1,0 +1,203 @@
+rules_version = '2';
+
+// Firestore Security Rules für die "Benachrichtige mich"-Filterabos
+// (siehe auth.js: EndauranceAuth.saveFilterSubscription). In der Firebase-
+// Konsole einfügen unter: Datenbanken und Speicher -> Firestore Database
+// -> Reiter "Regeln" (ältere Anleitungen sagen noch "Build -> Firestore
+// Database", die Konsole hat die linke Spalte umgestellt).
+//
+// WICHTIG: Die Datenbank muss die STANDARD-Datenbank sein (Datenbank-ID
+// "(default)"). Firestore unterstützt inzwischen mehrere Datenbanken pro
+// Projekt, aber auth.js nutzt firebase.firestore() ohne Namen und
+// spricht damit immer "(default)" an.
+//
+// Zweite Collection: "errorReports" - die Fehlermeldungen von Nutzer/innen
+// aus events.html ("Fehler zu diesem Event melden", siehe auth.js:
+// EndauranceAuth.reportEventError). Melden ist ohne Login möglich, dafür
+// meldet auth.js bei Bedarf ANONYM an (Firebase-Konsole -> Authentication
+// -> Sign-in method -> Anbieter "Anonym" aktivieren). Damit bleibt
+// request.auth != null erzwingbar - ein offener, unauthentifizierter
+// Schreib-Endpunkt wäre eine Einladung zum Zuspammen.
+//
+// Dritte Collection: "eventSuggestions" - Hinweise auf Veranstaltungen,
+// die in der Liste FEHLEN ("Wir haben dein Event nicht?"). Derselbe Weg
+// wie bei den Fehlermeldungen: anonyme Anmeldung, geschlossene Feldliste,
+// niemand darf lesen.
+//
+// Prinzip: Jede/r Nutzer/in darf NUR eigene Abos anlegen/lesen/löschen
+// (erkannt an request.auth.uid). Die Cloud Function, die neue Events
+// gegen alle Abos prüft (siehe functions/index.js), läuft mit dem
+// Admin-SDK und ist von diesen Regeln ohnehin nicht betroffen.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /filterSubscriptions/{subscriptionId} {
+      // `email is string` ist wichtiger, als es aussieht: Eine ANONYME
+      // Kennung (die reportEventError im Hintergrund anlegt) hat kein
+      // email-Token. Ohne diese Zeile verglich die Regel null == null,
+      // ließ das Abo durch - und in der Collection stand ein Abo ohne
+      // Empfänger, an das nie eine E-Mail gehen kann. auth.js verhindert
+      // das inzwischen schon vorher (isRealUser), hier steht die zweite
+      // Sicherung.
+      //
+      // Die Feldliste ist geschlossen, damit niemand beliebig große
+      // Dokumente in die Collection schiebt. `rhythmus` muss einer der
+      // drei erlaubten Werte sein (dieselbe Liste in auth.js
+      // ABO_RHYTHMEN und functions/index.js - test_scraper_lib.py
+      // vergleicht alle drei gegeneinander), `token` ist der Schlüssel
+      // für den Abmelde-Link und darf nicht fehlen: eine E-Mail ohne
+      // funktionierenden Abmelde-Link darf nicht entstehen.
+      allow create: if request.auth != null
+                    && request.auth.uid == request.resource.data.uid
+                    && request.resource.data.email is string
+                    && request.resource.data.email == request.auth.token.email
+                    && request.resource.data.keys().hasOnly(
+                         ['uid', 'email', 'filters', 'rhythmus', 'name',
+                          'aktiv', 'token', 'createdAt'])
+                    && request.resource.data.rhythmus in
+                         ['sofort', 'woechentlich', 'monatlich']
+                    && request.resource.data.aktiv == true
+                    && request.resource.data.token is string
+                    && request.resource.data.token.size() >= 16
+                    && request.resource.data.token.size() <= 64
+                    && request.resource.data.name is string
+                    && request.resource.data.name.size() <= 120
+                    && request.resource.data.createdAt == request.time;
+      allow read, delete: if request.auth != null && request.auth.uid == resource.data.uid;
+      // Kein Update durch Nutzer/innen: Wer etwas anderes abonnieren will,
+      // legt ein neues Abo an und löscht das alte. `aktiv`,
+      // `zuletztGesendet` und `wartend` setzt ausschließlich die Cloud
+      // Function (Admin-SDK, umgeht diese Regeln) - sonst könnte man
+      // fremde Abos umbiegen, und der Abmelde-Link wäre wertlos.
+      allow update: if false;
+    }
+
+    match /errorReports/{reportId} {
+      // Anlegen: angemeldet (auch anonym), eigene uid, Kategorie aus der
+      // festen Liste (identisch mit REPORT_CATEGORIES in events.html),
+      // Beschreibung 10-600 Zeichen, Status immer "neu" und ein
+      // Server-Zeitstempel. Die Feldliste ist geschlossen, damit niemand
+      // beliebig große Dokumente in die Collection schiebt.
+      allow create: if request.auth != null
+                    && request.auth.uid == request.resource.data.uid
+                    && request.resource.data.keys().hasOnly(
+                         ['uid', 'email', 'anonym', 'kategorie', 'beschreibung',
+                          'event', 'status', 'createdAt'])
+                    && request.resource.data.kategorie in
+                         ['laenge', 'datum', 'ort', 'url', 'sportart', 'name',
+                          'doppelt', 'abgesagt', 'sonstiges']
+                    && request.resource.data.beschreibung is string
+                    && request.resource.data.beschreibung.size() >= 10
+                    && request.resource.data.beschreibung.size() <= 600
+                    && request.resource.data.event is map
+                    && request.resource.data.status == 'neu'
+                    && request.resource.data.createdAt == request.time;
+      // Meldungen sind eine Einbahnstraße: gelesen und abgearbeitet werden
+      // sie ausschließlich über das Admin-SDK bzw. die Konsole
+      // (scripts/review_reports.py). Nutzer/innen bekommen die Meldungen
+      // anderer nie zu sehen und können ihre eigene auch nicht mehr
+      // ändern oder löschen.
+      allow read, update, delete: if false;
+    }
+
+    match /eventSuggestions/{suggestionId} {
+      // "Wir haben dein Event nicht?" (events.html, siehe auth.js:
+      // EndauranceAuth.suggestEvent). Gespeichert wird nur die Adresse
+      // der offiziellen Seite, der Name und ein optionaler Hinweis -
+      // alles Weitere holen wir uns von dieser Seite.
+      //
+      // `url` ist Pflicht und muss mit http:// oder https:// beginnen:
+      // Ohne Adresse ist ein Vorschlag nicht nachprüfbar, und genau die
+      // Nachprüfbarkeit ist der Grund, warum nichts automatisch
+      // übernommen wird. Die Feldliste ist geschlossen, damit niemand
+      // beliebig große Dokumente in die Collection schiebt.
+      allow create: if request.auth != null
+                    && request.auth.uid == request.resource.data.uid
+                    && request.resource.data.keys().hasOnly(
+                         ['uid', 'email', 'anonym', 'url', 'name',
+                          'hinweis', 'status', 'createdAt'])
+                    && request.resource.data.url is string
+                    && request.resource.data.url.size() >= 8
+                    && request.resource.data.url.size() <= 500
+                    && request.resource.data.url.matches('^https?://.+')
+                    && request.resource.data.name is string
+                    && request.resource.data.name.size() >= 2
+                    && request.resource.data.name.size() <= 200
+                    && request.resource.data.hinweis is string
+                    && request.resource.data.hinweis.size() <= 600
+                    && request.resource.data.status == 'neu'
+                    && request.resource.data.createdAt == request.time;
+      // Wie bei den Fehlermeldungen eine Einbahnstraße: gelesen und
+      // abgearbeitet wird ausschließlich über das Admin-SDK bzw. die
+      // Konsole (scripts/review_reports.py).
+      allow read, update, delete: if false;
+    }
+
+    // ---------- Besucherstatistik (seit 13.10.2026) ----------
+    // `hits` (Rohtreffer) schreibt NUR die Cloud Function `collect` mit dem
+    // Admin-SDK, `stats_daily` (Tageswerte) nur `aggregateStats`. Kein
+    // Client darf dort schreiben; lesen darf die Tageswerte nur, wer als
+    // Betreiber in `admins/<uid>` steht - das Dokument legt man einmal von
+    // Hand in der Konsole an (statistik.html zeigt die eigene uid, wenn
+    // der Eintrag fehlt). Keine E-Mail-Adresse in den Regeln: Das Repo ist
+    // öffentlich.
+    function istAdmin() {
+      return request.auth != null
+             && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+    match /admins/{uid} {
+      // Jede/r darf nur das eigene Dokument abfragen (gibt es mich?), nie
+      // die Liste; anlegen geht nur über die Konsole.
+      allow get: if request.auth != null && request.auth.uid == uid;
+      allow list, write: if false;
+    }
+    // Wartungsmodus (14.10.2026): EIN öffentlich lesbares Dokument. Die
+    // Seiten fragen es beim Laden über die REST-Schnittstelle ohne
+    // Anmeldung ab (siehe den Kopf-Schnipsel in index/events/karte.html)
+    // und leiten bei aktiv == true nach wartung.html um; umgelegt wird
+    // der Schalter im Dashboard (admin.html), also nur von Admins.
+    // Geschlossene Feldliste, Texte begrenzt, Zeitstempel vom Server.
+    match /config/wartung {
+      allow read: if true;
+      allow write: if istAdmin()
+                   && request.resource.data.keys().hasOnly(
+                        ['aktiv', 'text_de', 'text_en', 'geaendert', 'von'])
+                   && request.resource.data.aktiv is bool
+                   && request.resource.data.text_de is string
+                   && request.resource.data.text_de.size() <= 300
+                   && request.resource.data.text_en is string
+                   && request.resource.data.text_en.size() <= 300
+                   && request.resource.data.von == request.auth.uid
+                   && request.resource.data.geaendert == request.time;
+    }
+
+    // Instagram-Freigabe (14.10.2026): ein Dokument je Tag, gesetzt mit
+    // einem Klick im Dashboard (admin.html, Karte „Instagram-Freigabe");
+    // der Abendlauf des Instagram-Workflows liest es per REST ohne
+    // Anmeldung (scripts/insta_freigabe.py). Inhalt: nur Status, die
+    // Kennung des freigegebenen Inhalts und das Format - nichts
+    // Persönliches, deshalb lesen alle. Schreiben und löschen nur Admins.
+    match /insta_freigaben/{datum} {
+      allow read: if true;
+      allow create, update: if istAdmin()
+                   && datum.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+                   && request.resource.data.keys().hasOnly(['status', 'hash', 'format', 'geaendert'])
+                   && request.resource.data.status in ['freigegeben', 'gesperrt']
+                   && request.resource.data.hash is string
+                   && request.resource.data.hash.size() <= 64
+                   && request.resource.data.format is string
+                   && request.resource.data.format.size() <= 40
+                   && request.resource.data.geaendert == request.time;
+      allow delete: if istAdmin();
+    }
+    match /stats_daily/{tag} {
+      allow read: if istAdmin();
+      allow write: if false;
+    }
+    match /hits/{id} {
+      allow read, write: if false;
+    }
+    match /stats_meta/{id} {
+      allow read, write: if false;
+    }
+  }
+}

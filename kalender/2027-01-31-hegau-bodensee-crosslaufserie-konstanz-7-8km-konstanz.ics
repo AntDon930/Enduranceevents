@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-hegau-bodensee-crosslaufserie-konstanz-7-8km-konstanz@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Hegau-Bodensee Crosslaufserie - Konstanz – Hauptlauf (ca. 7.800 m)
+LOCATION:Konstanz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.8 km\nhttps://hegau-bodense
+ e-cross.de/serie/konstanz/
+TRANSP:TRANSPARENT
+URL:https://hegau-bodensee-cross.de/serie/konstanz/
+END:VEVENT
+END:VCALENDAR

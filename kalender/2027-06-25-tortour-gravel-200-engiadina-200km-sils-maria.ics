@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-tortour-gravel-200-engiadina-200km-sils-maria@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270627
+SUMMARY:TORTOUR Gravel 200 Engiadina – Gravel Tour 200 km
+LOCATION:Sils-Maria\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 200 km\nhttps://tortour.com
+ /stage/gravel-200-engadina
+TRANSP:TRANSPARENT
+URL:https://tortour.com/stage/gravel-200-engadina
+END:VEVENT
+END:VCALENDAR

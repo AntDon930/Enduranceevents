@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-ahmadiyya-charity-walk-lemwerder-x-lemwerder@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Ahmadiyya Charity Walk Lemwerder
+LOCATION:Lemwerder\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch · Charity\nLänge: -\nhttps://charity
+ walk.de/events/3-ahmadiyya-charity-walk-lemwerder
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/3-ahmadiyya-charity-walk-lemwerder
+END:VEVENT
+END:VCALENDAR

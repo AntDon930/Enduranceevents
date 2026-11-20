@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-02-firmenlauf-hamm-x-hamm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270902
+DTEND;VALUE=DATE:20270903
+SUMMARY:Firmenlauf Hamm
+LOCATION:Hamm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /433865/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/433865/
+END:VEVENT
+END:VCALENDAR

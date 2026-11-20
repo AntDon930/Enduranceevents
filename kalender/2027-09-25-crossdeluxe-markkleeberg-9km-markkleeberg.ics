@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-crossdeluxe-markkleeberg-9km-markkleeberg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270927
+SUMMARY:Crossdeluxe Markkleeberg
+LOCATION:Markkleeberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 9 km\nhttps://crossdeluxe
+ .de/leipzig/original/
+TRANSP:TRANSPARENT
+URL:https://crossdeluxe.de/leipzig/original/
+END:VEVENT
+END:VCALENDAR

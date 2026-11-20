@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-rheinzaberner-gravelrennen-x-rheinzabern@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Rheinzaberner Gravelrennen – Gravel Race
+LOCATION:Rheinzabern\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: -\nhttp://www.rsv-rheinzabe
+ rn.de
+TRANSP:TRANSPARENT
+URL:http://www.rsv-rheinzabern.de
+END:VEVENT
+END:VCALENDAR

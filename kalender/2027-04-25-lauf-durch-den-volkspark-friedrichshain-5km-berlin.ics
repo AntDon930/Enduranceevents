@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-lauf-durch-den-volkspark-friedrichshain-5km-berlin@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Lauf durch den Volkspark Friedrichshain
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.lc-ron-hil
+ l.de/friedrichshain_uebersicht/
+TRANSP:TRANSPARENT
+URL:https://www.lc-ron-hill.de/friedrichshain_uebersicht/
+END:VEVENT
+END:VCALENDAR

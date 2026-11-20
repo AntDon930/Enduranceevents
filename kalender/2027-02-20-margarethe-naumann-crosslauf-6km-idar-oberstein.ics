@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-margarethe-naumann-crosslauf-6km-idar-oberstein@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:Margarethe Naumann Crosslauf
+LOCATION:Idar-Oberstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttp://302510.webhostin
+ g47.1blu.de/nahecross2/ausschreibung.html
+TRANSP:TRANSPARENT
+URL:http://302510.webhosting47.1blu.de/nahecross2/ausschreibung.html
+END:VEVENT
+END:VCALENDAR

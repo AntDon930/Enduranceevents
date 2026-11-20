@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-mountainman-grossarltal-x-grossarl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:MOUNTAINMAN Großarltal
+LOCATION:Grossarl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://mountainman.de/tr
+ ailrunning-events/alps/grossarltal
+TRANSP:TRANSPARENT
+URL:https://mountainman.de/trailrunning-events/alps/grossarltal
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-9-bad-ischler-re-max-voigas17-x-pernecker-kellerfestgelande
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:9. Bad Ischler RE/MAX VOIGAS17
+LOCATION:Pernecker Kellerfestgelände\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.badischllaeuft
+ .at
+TRANSP:TRANSPARENT
+URL:http://www.badischllaeuft.at
+END:VEVENT
+END:VCALENDAR

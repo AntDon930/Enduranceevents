@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-passwang-berglauf-10-4km-mumliswil-ramiswil@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Passwang-Berglauf – 10\,4 km Passwang-Berglauf\, Walking+
+LOCATION:Mümliswil-Ramiswil\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.4 km\nhttps://www.juratopt
+ our.ch/de/wertungslaeufe/passwang-berglauf
+TRANSP:TRANSPARENT
+URL:https://www.juratoptour.ch/de/wertungslaeufe/passwang-berglauf
+END:VEVENT
+END:VCALENDAR

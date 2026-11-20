@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-schwelmer-citylauf-10km-schwelm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Schwelmer Citylauf – AVU Lauf fürs Klima 10 km
+LOCATION:Schwelm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://citylauf.rote
+ erde.de
+TRANSP:TRANSPARENT
+URL:https://citylauf.roteerde.de
+END:VEVENT
+END:VCALENDAR

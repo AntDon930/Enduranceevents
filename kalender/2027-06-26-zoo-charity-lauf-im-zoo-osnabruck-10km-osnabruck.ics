@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-zoo-charity-lauf-im-zoo-osnabruck-10km-osnabruck@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Zoo-Charity-Lauf im Zoo Osnabrück – 10 km Hauptlauf um und durch d
+ en Zoo\, mit Zeitnahme
+LOCATION:Osnabrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 10 km\nhttps://www
+ .laufen-os.de/wettkaempfe/13-zoo-charity-lauf-im-zoo-osnabrueck-2027
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/13-zoo-charity-lauf-im-zoo-osnabr
+ ueck-2027
+END:VEVENT
+END:VCALENDAR

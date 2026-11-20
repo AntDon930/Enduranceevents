@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-alb-traum-100-115km-geislingen-an-der-steige@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Alb-Traum 100
+LOCATION:Geislingen an der Steige\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 115 km\nhttps://www.alb-trau
+ m-100.de/
+TRANSP:TRANSPARENT
+URL:https://www.alb-traum-100.de/
+END:VEVENT
+END:VCALENDAR

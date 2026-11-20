@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-auf-eine-pommes-nach-belgien-200km-bonn-venusberg@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Auf eine Pommes nach Belgien – Brevet 200 km
+LOCATION:Bonn-Venusberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 200 km\nhttps://www.radtref
+ fcampus.de/brevet-rheinland/
+TRANSP:TRANSPARENT
+URL:https://www.radtreffcampus.de/brevet-rheinland/
+END:VEVENT
+END:VCALENDAR

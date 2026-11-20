@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2028-01-09-48-ratinger-neujahrslauf-10km-ratingen-innenstadt@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20280109
+DTEND;VALUE=DATE:20280110
+SUMMARY:48. Ratinger Neujahrslauf
+LOCATION:Ratingen Innenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.asc-rating
+ en.de
+TRANSP:TRANSPARENT
+URL:http://www.asc-ratingen.de
+END:VEVENT
+END:VCALENDAR

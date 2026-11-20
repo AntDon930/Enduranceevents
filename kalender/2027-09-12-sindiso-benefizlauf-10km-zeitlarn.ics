@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-sindiso-benefizlauf-10km-zeitlarn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Sindiso Benefizlauf – 10 km Lauf\, entspricht 2 x 5 km
+LOCATION:Zeitlarn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 10 km\nhttps://www
+ .sindiso-benefizlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.sindiso-benefizlauf.de/
+END:VEVENT
+END:VCALENDAR

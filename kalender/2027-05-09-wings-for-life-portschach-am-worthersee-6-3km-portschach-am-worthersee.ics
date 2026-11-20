@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-portschach-am-worthersee-6-3km-portschach-am
+ -worthersee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life - Pörtschach am Wörthersee
+LOCATION:Pörtschach am Wörthersee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.3 km\nhttps://www.wingsfor
+ lifeworldrun.com/en/locations/portschach-am-worthersee
+TRANSP:TRANSPARENT
+URL:https://www.wingsforlifeworldrun.com/en/locations/portschach-am-worthe
+ rsee
+END:VEVENT
+END:VCALENDAR

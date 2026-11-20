@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-gss-cross-challenge-rainbach-8km-rainbach-im-innkreis@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:GSS Cross Challenge Rainbach
+LOCATION:Rainbach im Innkreis\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://time2win.at/eve
+ nt/1140
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1140
+END:VEVENT
+END:VCALENDAR

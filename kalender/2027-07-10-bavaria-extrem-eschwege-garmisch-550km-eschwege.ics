@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-bavaria-extrem-eschwege-garmisch-550km-eschwege@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270712
+SUMMARY:Bavaria Extrem Eschwege – Garmisch – Ultracycling 550 km
+LOCATION:Eschwege\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 550 km\nhttp://www.raceacro
+ ssgermany.de/
+TRANSP:TRANSPARENT
+URL:http://www.raceacrossgermany.de/
+END:VEVENT
+END:VCALENDAR

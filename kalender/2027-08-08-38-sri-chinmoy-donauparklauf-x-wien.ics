@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-38-sri-chinmoy-donauparklauf-x-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:38. Sri Chinmoy Donauparklauf
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://at.srichinmoyraces
+ .org/donauparklauf
+TRANSP:TRANSPARENT
+URL:http://at.srichinmoyraces.org/donauparklauf
+END:VEVENT
+END:VCALENDAR

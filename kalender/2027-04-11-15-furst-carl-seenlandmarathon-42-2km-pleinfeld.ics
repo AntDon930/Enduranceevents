@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-15-furst-carl-seenlandmarathon-42-2km-pleinfeld@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:15. Fürst Carl Seenlandmarathon
+LOCATION:Pleinfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.seenland
+ marathon.org
+TRANSP:TRANSPARENT
+URL:http://www.seenlandmarathon.org
+END:VEVENT
+END:VCALENDAR

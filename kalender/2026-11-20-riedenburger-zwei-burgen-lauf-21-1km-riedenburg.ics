@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-20-riedenburger-zwei-burgen-lauf-21-1km-riedenburg@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:Riedenburger Zwei-Burgen-Lauf – Halbmarathon
+LOCATION:Riedenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://zwei-burgen
+ -lauf.de/
+TRANSP:TRANSPARENT
+URL:https://zwei-burgen-lauf.de/
+END:VEVENT
+END:VCALENDAR

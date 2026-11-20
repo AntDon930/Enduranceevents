@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-19-hafentriathlon-havelberg-2027-x-havelberg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:19. Hafentriathlon Havelberg 2027 – Sprint
+LOCATION:Havelberg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.havelbergt
+ riathlon.de/Hafentriathlon/Ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://www.havelbergtriathlon.de/Hafentriathlon/Ausschreibung/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-regionsmeisterschaften-im-waldlauf-5-3km-eschweiler@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Regionsmeisterschaften im Waldlauf
+LOCATION:Eschweiler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttp://www.lsg-eschw
+ eiler.de
+TRANSP:TRANSPARENT
+URL:http://www.lsg-eschweiler.de
+END:VEVENT
+END:VCALENDAR

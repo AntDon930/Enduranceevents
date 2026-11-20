@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-19-st-ruprechter-marktlauf-x-st-ruprecht-an-der-raab@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:19. St. Ruprechter Marktlauf
+LOCATION:St.Ruprecht an der Raab\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.fc-donald.at/
+ de/lauf-und-tri-team/marktlauf
+TRANSP:TRANSPARENT
+URL:https://www.fc-donald.at/de/lauf-und-tri-team/marktlauf
+END:VEVENT
+END:VCALENDAR

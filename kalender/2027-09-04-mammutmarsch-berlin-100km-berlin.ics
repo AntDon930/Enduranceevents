@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-mammutmarsch-berlin-100km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Mammutmarsch Berlin
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 100 km\nhttps://mammutmarsch
+ .de/events/mammutmarsch-berlin
+TRANSP:TRANSPARENT
+URL:https://mammutmarsch.de/events/mammutmarsch-berlin
+END:VEVENT
+END:VCALENDAR

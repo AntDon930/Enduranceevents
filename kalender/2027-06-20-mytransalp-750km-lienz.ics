@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-mytransalp-750km-lienz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270627
+SUMMARY:MYTRANSALP – Etappenrennen 750 km
+LOCATION:Lienz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 750 km\nhttps://mytransalp.
+ com/
+TRANSP:TRANSPARENT
+URL:https://mytransalp.com/
+END:VEVENT
+END:VCALENDAR

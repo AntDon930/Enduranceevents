@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-the-radcore-233km-neuhaus-am-rennweg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:THE RADCORE – Radmarathon 233 km
+LOCATION:Neuhaus am Rennweg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 233 km\nhttps://rdcr.eu/the
+ -radcore/
+TRANSP:TRANSPARENT
+URL:https://rdcr.eu/the-radcore/
+END:VEVENT
+END:VCALENDAR

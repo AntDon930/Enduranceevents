@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-sri-chinmoy-12-24-stunden-lauf-basel-24h-basel@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270510
+SUMMARY:Sri Chinmoy 12+24 Stunden Lauf Basel
+LOCATION:Basel\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://de.srichinmoyr
+ aces.org/self-transcendence-1224-stunden-lauf-basel
+TRANSP:TRANSPARENT
+URL:https://de.srichinmoyraces.org/self-transcendence-1224-stunden-lauf-ba
+ sel
+END:VEVENT
+END:VCALENDAR

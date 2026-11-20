@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-06-18-meerhardt-extreme-5km-gummersbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:18. Meerhardt Extreme
+LOCATION:Gummersbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.meerhardtex
+ treme.de
+TRANSP:TRANSPARENT
+URL:https://www.meerhardtextreme.de
+END:VEVENT
+END:VCALENDAR

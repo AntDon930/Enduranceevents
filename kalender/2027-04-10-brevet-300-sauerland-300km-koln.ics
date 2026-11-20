@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-brevet-300-sauerland-300km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Brevet 300 - Sauerland – Brevet 300 km
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 300 km\nhttps://www.radtref
+ fcampus.de/brevet-rheinland/
+TRANSP:TRANSPARENT
+URL:https://www.radtreffcampus.de/brevet-rheinland/
+END:VEVENT
+END:VCALENDAR

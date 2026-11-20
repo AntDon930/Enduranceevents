@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-24h-spendenlauf-backyard-for-charity-24h-seekirch@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270621
+SUMMARY:24h Spendenlauf - Backyard for Charity
+LOCATION:Seekirch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra · Charity\nLänge: 24 h\nhttp
+ s://www.eintracht-seekirch.com/backyard-for-charity-2027
+TRANSP:TRANSPARENT
+URL:https://www.eintracht-seekirch.com/backyard-for-charity-2027
+END:VEVENT
+END:VCALENDAR

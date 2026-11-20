@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-30-mittelfrankische-crossmeisterschaft-5km-furth@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:Mittelfränkische Crossmeisterschaft
+LOCATION:Fürth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
+ reibung/detail/49741/Mittelfr%C3%A4nkische-Crosslaufmeisterschaften-2027-
+ F%C3%BCrth.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49741/Mittelfr%C3%A4nkische-Cross
+ laufmeisterschaften-2027-F%C3%BCrth.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-hennesee-panoramalauf-18km-meschede@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Hennesee Panoramalauf
+LOCATION:Meschede\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://www.trifunhen
+ nesee.de/hennesee-panoramalauf/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://www.trifunhennesee.de/hennesee-panoramalauf/ausschreibung/
+END:VEVENT
+END:VCALENDAR

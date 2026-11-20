@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-triathlon-langau-51-5km-bergwerksee-langau@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Triathlon Langau
+LOCATION:Bergwerksee Langau\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://www.tria
+ thlon-langau.at/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-langau.at/
+END:VEVENT
+END:VCALENDAR

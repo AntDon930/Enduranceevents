@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-trail-des-blisiers-25km-val-de-bagnes@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Trail des Blisiers – 25 km als Kombination der 16 km und 9 km Schl
+ eifen.
+LOCATION:Val de Bagnes\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 25 km\nhttps://tropheedesblis
+ iers.ch/traildesblisiers/
+TRANSP:TRANSPARENT
+URL:https://tropheedesblisiers.ch/traildesblisiers/
+END:VEVENT
+END:VCALENDAR

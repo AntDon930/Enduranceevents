@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-geneva-urban-trail-6km-genf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Geneva Urban Trail
+LOCATION:Genf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://geneva-urban-tr
+ ail.ch/
+TRANSP:TRANSPARENT
+URL:https://geneva-urban-trail.ch/
+END:VEVENT
+END:VCALENDAR

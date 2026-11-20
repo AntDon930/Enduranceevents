@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-55-weihnachtslauf-lipperreihe-5-5km-oerlinghausen@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:55. Weihnachtslauf Lipperreihe – 5\,5 km Lauf als neues Angebot 20
+ 26
+LOCATION:Oerlinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://www.lg-oerli
+ nghausen.de/lg-veranstaltungen/weihnachtslauf-lipperreihe/
+TRANSP:TRANSPARENT
+URL:https://www.lg-oerlinghausen.de/lg-veranstaltungen/weihnachtslauf-lipp
+ erreihe/
+END:VEVENT
+END:VCALENDAR

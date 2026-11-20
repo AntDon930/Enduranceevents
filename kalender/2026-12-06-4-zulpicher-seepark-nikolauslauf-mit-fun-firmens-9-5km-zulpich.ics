@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-4-zulpicher-seepark-nikolauslauf-mit-fun-firmens-9-5km-zulp
+ ich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:4. Zülpicher Seepark Nikolauslauf mit Fun/Firmenstaffel
+LOCATION:Zülpich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.5 km\nhttps://www.tuszuelp
+ ich-leichtathletik.de/
+TRANSP:TRANSPARENT
+URL:https://www.tuszuelpich-leichtathletik.de/
+END:VEVENT
+END:VCALENDAR

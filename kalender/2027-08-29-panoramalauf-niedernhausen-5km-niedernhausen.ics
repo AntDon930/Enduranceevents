@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-panoramalauf-niedernhausen-5km-niedernhausen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Panoramalauf Niedernhausen – 5 km Walking sowie 5 km Lauf
+LOCATION:Niedernhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tus-koenig
+ shofen.de/panoramalauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.tus-koenigshofen.de/panoramalauf-2026
+END:VEVENT
+END:VCALENDAR

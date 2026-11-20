@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-01-into-the-wold-x-mellau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270701
+DTEND;VALUE=DATE:20270705
+SUMMARY:into the wold
+LOCATION:Mellau\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: -\nhttps://www.intothewold.
+ at/
+TRANSP:TRANSPARENT
+URL:https://www.intothewold.at/
+END:VEVENT
+END:VCALENDAR

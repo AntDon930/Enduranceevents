@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-41-mrrc-silvesterlauf-munchen-2026-10km-olympiapark@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:41. MRRC Silvesterlauf München 2026
+LOCATION:Olympiapark\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.silvester
+ lauf-muenchen.de
+TRANSP:TRANSPARENT
+URL:https://www.silvesterlauf-muenchen.de
+END:VEVENT
+END:VCALENDAR

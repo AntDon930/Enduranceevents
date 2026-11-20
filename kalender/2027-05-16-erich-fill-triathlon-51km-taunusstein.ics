@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-erich-fill-triathlon-51km-taunusstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Erich-Fill-Triathlon
+LOCATION:Taunusstein\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51 km\nhttps://erich-fill
+ -triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://erich-fill-triathlon.de/
+END:VEVENT
+END:VCALENDAR

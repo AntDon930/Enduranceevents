@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-holle-von-q-triathlon-21-1km-ditfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Hölle von Q Triathlon – 21\,1 km Laufen (ca. 200 Höhenmeter)
+LOCATION:Ditfurt\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 21.1 km\nhttps://www.hoel
+ le-von-q.de/
+TRANSP:TRANSPARENT
+URL:https://www.hoelle-von-q.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-gigante-de-palatinado-130km-bockenheim-weinstrasse@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:Gigante de Palatinado – Gravel Ride 130 km
+LOCATION:Bockenheim / Weinstrasse\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 130 km\nhttps://nibelungen-
+ gravel.de
+TRANSP:TRANSPARENT
+URL:https://nibelungen-gravel.de
+END:VEVENT
+END:VCALENDAR

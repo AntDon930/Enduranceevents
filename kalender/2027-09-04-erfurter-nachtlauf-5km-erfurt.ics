@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-erfurter-nachtlauf-5km-erfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Erfurter Nachtlauf – 5 km (Mindestalter 12 Jahre)
+LOCATION:Erfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://erfurter-laufn
+ acht.de/
+TRANSP:TRANSPARENT
+URL:https://erfurter-laufnacht.de/
+END:VEVENT
+END:VCALENDAR

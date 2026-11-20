@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-internationaler-erndtebrucker-volkslauf-10km-erndtebruck@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Internationaler Erndtebrücker Volkslauf – 10 km Hauptlauf
+LOCATION:Erndtebrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.rothaar-l
+ aufserie.de/veranstaltungen/
+TRANSP:TRANSPARENT
+URL:https://www.rothaar-laufserie.de/veranstaltungen/
+END:VEVENT
+END:VCALENDAR

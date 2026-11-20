@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-berggrenzlauf-13km-hettstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Berggrenzlauf – Volksbank Halle (Saale) e.G. Lauf 13 km
+LOCATION:Hettstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://www.hafenbar-
+ hettstedt.de/berggrenzlauf/
+TRANSP:TRANSPARENT
+URL:https://www.hafenbar-hettstedt.de/berggrenzlauf/
+END:VEVENT
+END:VCALENDAR

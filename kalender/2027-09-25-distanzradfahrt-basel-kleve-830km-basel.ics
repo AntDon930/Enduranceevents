@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-distanzradfahrt-basel-kleve-830km-basel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Distanzradfahrt Basel - Kleve – Bikepacking 830 km
+LOCATION:Basel\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 830 km\nhttps://supergrevet
+ .grevet.de/infos-distanzradfahrt-basel-kleve/
+TRANSP:TRANSPARENT
+URL:https://supergrevet.grevet.de/infos-distanzradfahrt-basel-kleve/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-kerwelauf-huttenfeld-10km-lampertheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:Kerwelauf Hüttenfeld
+LOCATION:Lampertheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sg-huette
+ nfeld.de/kerwelauf/
+TRANSP:TRANSPARENT
+URL:https://www.sg-huettenfeld.de/kerwelauf/
+END:VEVENT
+END:VCALENDAR

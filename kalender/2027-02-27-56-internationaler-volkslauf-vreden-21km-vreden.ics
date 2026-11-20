@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-56-internationaler-volkslauf-vreden-21km-vreden@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:56. Internationaler Volkslauf Vreden
+LOCATION:Vreden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://tvvreden-leic
+ htathletik.de/volkslauf
+TRANSP:TRANSPARENT
+URL:https://tvvreden-leichtathletik.de/volkslauf
+END:VEVENT
+END:VCALENDAR

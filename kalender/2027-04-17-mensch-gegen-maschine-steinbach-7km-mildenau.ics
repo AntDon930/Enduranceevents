@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-mensch-gegen-maschine-steinbach-7km-mildenau@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Mensch gegen Maschine - Steinbach
+LOCATION:Mildenau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://my.raceresult.
+ com/413939/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/413939/
+END:VEVENT
+END:VCALENDAR

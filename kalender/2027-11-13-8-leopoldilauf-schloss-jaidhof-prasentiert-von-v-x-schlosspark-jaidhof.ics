@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-13-8-leopoldilauf-schloss-jaidhof-prasentiert-von-v-x-schlossp
+ ark-jaidhof@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271113
+DTEND;VALUE=DATE:20271114
+SUMMARY:8. Leopoldilauf Schloss Jaidhof präsentiert von Volksbank NÖ
+LOCATION:Schlosspark Jaidhof\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.leopoldilauf.a
+ t
+TRANSP:TRANSPARENT
+URL:http://www.leopoldilauf.at
+END:VEVENT
+END:VCALENDAR

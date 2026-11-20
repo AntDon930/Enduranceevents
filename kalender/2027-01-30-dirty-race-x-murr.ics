@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-30-dirty-race-x-murr@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:Dirty Race – Cross-Duathlon
+LOCATION:Murr\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttp://www.dirtyrace
+ .de/
+TRANSP:TRANSPARENT
+URL:http://www.dirtyrace.de/
+END:VEVENT
+END:VCALENDAR

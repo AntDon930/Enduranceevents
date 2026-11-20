@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-otztaler-radmarathon-227km-solden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Ötztaler Radmarathon – Radmarathon 227 km
+LOCATION:Sölden\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 227 km\nhttps://www.oetztal
+ er-radmarathon.com
+TRANSP:TRANSPARENT
+URL:https://www.oetztaler-radmarathon.com
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-27-mittelland-marathon-7km-wangen-an-der-aare@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:Mittelland Marathon
+LOCATION:Wangen an der Aare\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://my.raceresult.
+ com/416482/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/416482/
+END:VEVENT
+END:VCALENDAR

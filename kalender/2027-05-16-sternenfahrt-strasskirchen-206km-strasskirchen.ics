@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-sternenfahrt-strasskirchen-206km-strasskirchen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Sternenfahrt Straßkirchen – Radmarathon Straßkirchen – Altötting –
+  zurück 206 km
+LOCATION:Straßkirchen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 206 km\nhttp://www.sternenf
+ ahrt-strasskirchen.de
+TRANSP:TRANSPARENT
+URL:http://www.sternenfahrt-strasskirchen.de
+END:VEVENT
+END:VCALENDAR

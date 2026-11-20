@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-16-x-terra-o-see-ultratrail-2027-x-oybin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271017
+SUMMARY:X-Terra O-See Ultratrail 2027
+LOCATION:Oybin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.o-see-sports.d
+ e/
+TRANSP:TRANSPARENT
+URL:https://www.o-see-sports.de/
+END:VEVENT
+END:VCALENDAR

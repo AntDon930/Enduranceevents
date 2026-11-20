@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-15-pro-kids-lauf-mit-5km-jedermannlauf-5km-emmerich-am-rhei
+ n@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:15. pro kids Lauf mit 5km Jedermannlauf
+LOCATION:Emmerich am Rhein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.pro-kids-la
+ uf.de
+TRANSP:TRANSPARENT
+URL:http://www.pro-kids-lauf.de
+END:VEVENT
+END:VCALENDAR

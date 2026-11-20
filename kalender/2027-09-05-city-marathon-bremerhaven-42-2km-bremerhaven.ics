@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-city-marathon-bremerhaven-42-2km-bremerhaven@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:City Marathon Bremerhaven – Marathon
+LOCATION:Bremerhaven\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.bremerh
+ aven-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.bremerhaven-marathon.de/
+END:VEVENT
+END:VCALENDAR

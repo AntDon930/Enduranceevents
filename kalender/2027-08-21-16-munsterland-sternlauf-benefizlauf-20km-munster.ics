@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-16-munsterland-sternlauf-benefizlauf-20km-munster@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:16. Münsterland-Sternlauf - Benefizlauf
+LOCATION:Münster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 20 km\nhttp://www.
+ muensterland-sternlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.muensterland-sternlauf.de
+END:VEVENT
+END:VCALENDAR

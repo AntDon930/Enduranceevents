@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-sonnwend-crosslauf-5km-mauthen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Sonnwend-Crosslauf
+LOCATION:Mauthen\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.oeav-oberga
+ iltal.at/2024/02/06/crosslauf-im-gelaende-des-oeav-freizeitparks-zur-sonn
+ enwende/
+TRANSP:TRANSPARENT
+URL:https://www.oeav-obergailtal.at/2024/02/06/crosslauf-im-gelaende-des-o
+ eav-freizeitparks-zur-sonnenwende/
+END:VEVENT
+END:VCALENDAR

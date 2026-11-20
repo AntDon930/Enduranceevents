@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-37-gvg-volkslauf-hurth-10km-hurth@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:37. GVG Volkslauf Hürth
+LOCATION:Hürth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.volkslauf
+ -huerth.de
+TRANSP:TRANSPARENT
+URL:https://www.volkslauf-huerth.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-eisenerzer-schichtturmlauf-stlv-und-klv-crosscup-x-zur-blau
+ en-kugel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Eisenerzer Schichtturmlauf (STLV- und KLV-CrossCup 2026/27 - 3.Lau
+ f)
+LOCATION:Zur blauen Kugel\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://crosslaufcup.gkne
+ t.at
+TRANSP:TRANSPARENT
+URL:https://crosslaufcup.gknet.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-holsteiner-pfeil-xxl-62km-malente@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Holsteiner Pfeil XXL – Radmarathon 62 km (Termin vorläufig)
+LOCATION:Malente\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / St
+ raße\nLänge: 62 km\nhttps://www.radsport-team-malente.de/rtf-holsteiner-p
+ feil/
+TRANSP:TRANSPARENT
+URL:https://www.radsport-team-malente.de/rtf-holsteiner-pfeil/
+END:VEVENT
+END:VCALENDAR

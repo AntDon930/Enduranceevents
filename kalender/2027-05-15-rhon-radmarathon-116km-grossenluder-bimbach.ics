@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-rhon-radmarathon-116km-grossenluder-bimbach@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270517
+SUMMARY:Rhön Radmarathon – Radmarathon Strecke 2026 116 km
+LOCATION:Großenlüder-Bimbach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 116 km\nhttp://www.rhoen-ra
+ dmarathon.de/
+TRANSP:TRANSPARENT
+URL:http://www.rhoen-radmarathon.de/
+END:VEVENT
+END:VCALENDAR

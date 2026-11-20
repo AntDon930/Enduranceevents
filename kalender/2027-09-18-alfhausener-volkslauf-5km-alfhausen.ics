@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-alfhausener-volkslauf-5km-alfhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Alfhausener Volkslauf – 5 km Jedermannlauf
+LOCATION:Alfhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.laufen-os.
+ de/wettkaempfe/14-alfhausener-volkslauf-2027
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/14-alfhausener-volkslauf-2027
+END:VEVENT
+END:VCALENDAR

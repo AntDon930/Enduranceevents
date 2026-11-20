@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-41-gmunder-stadtlauf-5km-schwabisch-gmund@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:41. Gmünder Stadtlauf – 5 km voestalpine Fitness Run
+LOCATION:Schwäbisch Gmünd\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://gmuender-stadtl
+ auf.de/
+TRANSP:TRANSPARENT
+URL:https://gmuender-stadtlauf.de/
+END:VEVENT
+END:VCALENDAR

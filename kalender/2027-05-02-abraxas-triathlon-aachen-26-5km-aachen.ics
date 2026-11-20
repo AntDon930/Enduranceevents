@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-abraxas-triathlon-aachen-26-5km-aachen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:ABRAXAS-Triathlon Aachen – Sprintdistanz 26.5 km
+LOCATION:Aachen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 26.5 km\nhttps://brander-
+ sv.de/triathlon/abraxas-triathlon/
+TRANSP:TRANSPARENT
+URL:https://brander-sv.de/triathlon/abraxas-triathlon/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-corrida-bellinzonese-6km-bellinzona@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270507
+SUMMARY:Corrida Bellinzonese
+LOCATION:Bellinzona\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://fitformevent.c
+ h/it/corrida-bellinzonese
+TRANSP:TRANSPARENT
+URL:https://fitformevent.ch/it/corrida-bellinzonese
+END:VEVENT
+END:VCALENDAR

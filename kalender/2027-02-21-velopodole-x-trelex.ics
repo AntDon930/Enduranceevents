@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-velopodole-x-trelex@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:Vélôpôdôle
+LOCATION:Trélex\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.mso.swiss/
+ events/2602-velopodole
+TRANSP:TRANSPARENT
+URL:https://www.mso.swiss/events/2602-velopodole
+END:VEVENT
+END:VCALENDAR

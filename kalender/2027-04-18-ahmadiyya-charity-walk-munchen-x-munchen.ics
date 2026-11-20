@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-ahmadiyya-charity-walk-munchen-x-munchen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Ahmadiyya Charity Walk München
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch · Charity\nLänge: -\nhttps://charity
+ walk.de/events/1-ahmadiyya-charity-walk-mnchen
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/1-ahmadiyya-charity-walk-mnchen
+END:VEVENT
+END:VCALENDAR

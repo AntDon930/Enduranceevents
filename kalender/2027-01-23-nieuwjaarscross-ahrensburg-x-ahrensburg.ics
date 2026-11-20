@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-nieuwjaarscross-ahrensburg-x-ahrensburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:Nieuwjaarscross - Ahrensburg
+LOCATION:Ahrensburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.wearecyclocros
+ s.com/hela-cross-lauf-serie-26-27/nieuwjaarscross-23.01.27/
+TRANSP:TRANSPARENT
+URL:https://www.wearecyclocross.com/hela-cross-lauf-serie-26-27/nieuwjaars
+ cross-23.01.27/
+END:VEVENT
+END:VCALENDAR

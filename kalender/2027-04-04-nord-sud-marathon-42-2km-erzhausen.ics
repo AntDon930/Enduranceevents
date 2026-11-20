@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-nord-sud-marathon-42-2km-erzhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Nord-Süd-Marathon – Marathon
+LOCATION:Erzhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.stefan-
+ seibold.de/nord-sued
+TRANSP:TRANSPARENT
+URL:https://www.stefan-seibold.de/nord-sued
+END:VEVENT
+END:VCALENDAR

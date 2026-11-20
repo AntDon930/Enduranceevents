@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-o3-weihnachtswunder-spendenlauf-x-sankt-polten@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Ö3-Weihnachtswunder Spendenlauf
+LOCATION:Sankt Pölten\, Österreich
+DESCRIPTION:Sportart: Laufen / Bahn · Charity\nLänge: -\nhttps://lckapelln
+ .at/oe3-weihnachtswunder-charity
+TRANSP:TRANSPARENT
+URL:https://lckapelln.at/oe3-weihnachtswunder-charity
+END:VEVENT
+END:VCALENDAR

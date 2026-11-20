@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-23-int-st-pauler-rabenstein-berglauf-karntner-be-x-st-paul-
+ im-lavanttal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:23. Int. St. Pauler Rabenstein Berglauf (Kärntner Berglauf - Cup)
+LOCATION:St. Paul im Lavanttal\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.lg-stpaul.at
+TRANSP:TRANSPARENT
+URL:http://www.lg-stpaul.at
+END:VEVENT
+END:VCALENDAR

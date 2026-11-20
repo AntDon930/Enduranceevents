@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-powertriathlon-gera-25-7km-gera@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270531
+SUMMARY:Powertriathlon Gera – Sprint 25\,7 km (700 m Schwimmen / 20 km Rad
+  / 5 km Laufen)
+LOCATION:Gera\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.7 km\nhttps://powertri
+ athlon.de/home
+TRANSP:TRANSPARENT
+URL:https://powertriathlon.de/home
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-sachsenlauf-coswig-11km-coswig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Sachsenlauf Coswig
+LOCATION:Coswig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.sachsenla
+ uf.de
+TRANSP:TRANSPARENT
+URL:https://www.sachsenlauf.de
+END:VEVENT
+END:VCALENDAR

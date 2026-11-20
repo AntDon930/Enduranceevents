@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-24-seelaufserie-davos-x-davos@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270824
+DTEND;VALUE=DATE:20270825
+SUMMARY:Seelaufserie Davos
+LOCATION:Davos\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.trackclub.ch/
+ seelauf
+TRANSP:TRANSPARENT
+URL:https://www.trackclub.ch/seelauf
+END:VEVENT
+END:VCALENDAR

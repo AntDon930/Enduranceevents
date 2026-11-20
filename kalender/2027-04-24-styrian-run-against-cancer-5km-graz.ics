@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-styrian-run-against-cancer-5km-graz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Styrian Run Against Cancer
+LOCATION:Graz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://run-against-ca
+ ncer.at/
+TRANSP:TRANSPARENT
+URL:https://run-against-cancer.at/
+END:VEVENT
+END:VCALENDAR

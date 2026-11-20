@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-24-zillertaler-bergmeisterschaft-x-gerlosberg@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:24. Zillertaler Bergmeisterschaft – Bergrennen
+LOCATION:Gerlosberg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.rt-zillertal
+ .com
+TRANSP:TRANSPARENT
+URL:https://www.rt-zillertal.com
+END:VEVENT
+END:VCALENDAR

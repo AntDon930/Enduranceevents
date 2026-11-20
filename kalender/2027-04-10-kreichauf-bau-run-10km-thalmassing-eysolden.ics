@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-kreichauf-bau-run-10km-thalmassing-eysolden@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Kreichauf-Bau-Run
+LOCATION:Thalmässing-Eysölden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tv06-thal
+ maessing.de/index.php?view=article&id=45&catid=11
+TRANSP:TRANSPARENT
+URL:https://www.tv06-thalmaessing.de/index.php?view=article&id=45&catid=11
+END:VEVENT
+END:VCALENDAR

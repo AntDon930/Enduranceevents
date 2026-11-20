@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-filsum-loppt-10-3km-filsum@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:Filsum Löppt – 10\,3 km Lauf
+LOCATION:Filsum\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.3 km\nhttps://filsumloepp
+ t.de/
+TRANSP:TRANSPARENT
+URL:https://filsumloeppt.de/
+END:VEVENT
+END:VCALENDAR

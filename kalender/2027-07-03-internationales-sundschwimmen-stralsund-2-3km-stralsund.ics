@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-internationales-sundschwimmen-stralsund-2-3km-stralsund@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Internationales Sundschwimmen Stralsund – Sundschwimmen Altefähr -
+  Stralsund ca. 2.300 m
+LOCATION:Stralsund\, Deutschland
+DESCRIPTION:Sportart: Schwimmen\nLänge: 2.3 km\nhttp://sundschwimmen.de/
+TRANSP:TRANSPARENT
+URL:http://sundschwimmen.de/
+END:VEVENT
+END:VCALENDAR

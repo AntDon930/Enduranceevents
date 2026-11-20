@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-crazy-runners-frankenwald-trail-15km-geroldsgrun@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270725
+SUMMARY:Crazy Runners Frankenwald Trail – Short Trail
+LOCATION:Geroldsgrün\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 15 km\nhttps://www.crazyrunne
+ rs-frankenwaldtrail.de/
+TRANSP:TRANSPARENT
+URL:https://www.crazyrunners-frankenwaldtrail.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-kordigast-berglauf-x-weismain@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Kordigast-Berglauf
+LOCATION:Weismain\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://tv-weismain.de/spo
+ rtangebot/lauf-und-radsport/kordigast-berglauf/
+TRANSP:TRANSPARENT
+URL:https://tv-weismain.de/sportangebot/lauf-und-radsport/kordigast-bergla
+ uf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-klagenfurt-st-ruprecht-5km-klagenfurt-am-wor
+ thersee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life - Klagenfurt St. Ruprecht
+LOCATION:Klagenfurt am Wörthersee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.wingsforli
+ feworldrun.com/en/locations/klagenfurt-struprecht
+TRANSP:TRANSPARENT
+URL:https://www.wingsforlifeworldrun.com/en/locations/klagenfurt-struprech
+ t
+END:VEVENT
+END:VCALENDAR

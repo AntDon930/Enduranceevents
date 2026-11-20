@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-14-konigsteiner-benefizlauf-10km-konigstein-im-taunus@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:14. Königsteiner Benefizlauf
+LOCATION:Königstein im Taunus\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 10 km\nhttp://www.
+ benefizlauf-kÃ¶nigstein.de
+TRANSP:TRANSPARENT
+URL:http://www.benefizlauf-kÃ¶nigstein.de
+END:VEVENT
+END:VCALENDAR

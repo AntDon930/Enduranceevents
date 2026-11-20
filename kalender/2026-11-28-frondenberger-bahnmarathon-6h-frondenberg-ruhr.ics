@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-frondenberger-bahnmarathon-6h-frondenberg-ruhr@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Fröndenberger Bahnmarathon
+LOCATION:Fröndenberg/Ruhr\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 6 h\nhttps://vfl-froendenberg.
+ de/ausschreibung-bahnmarathon-2/
+TRANSP:TRANSPARENT
+URL:https://vfl-froendenberg.de/ausschreibung-bahnmarathon-2/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-crosslauf-schwarzenau-5-8km-schwarzenau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:Crosslauf Schwarzenau – Erwachsene 5\,75 km\, zwei große Runden du
+ rch die Brühl
+LOCATION:Schwarzenau\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.8 km\nhttps://mpfeif14.lima
+ -city.de/LTU_Waidhofen/Crosslaufswu.html
+TRANSP:TRANSPARENT
+URL:https://mpfeif14.lima-city.de/LTU_Waidhofen/Crosslaufswu.html
+END:VEVENT
+END:VCALENDAR

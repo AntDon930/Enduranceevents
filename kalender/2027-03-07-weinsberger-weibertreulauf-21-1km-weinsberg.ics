@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-weinsberger-weibertreulauf-21-1km-weinsberg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Weinsberger Weibertreulauf – Halbmarathon
+LOCATION:Weinsberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://weibertreul
+ auf.de
+TRANSP:TRANSPARENT
+URL:https://weibertreulauf.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-herrieder-stadtlauf-10km-herrieden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Herrieder Stadtlauf
+LOCATION:Herrieden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
+ .com/429051/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/429051/
+END:VEVENT
+END:VCALENDAR

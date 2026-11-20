@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-33-waltriathlon-brunsbuttel-25km-brunsbuttel@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:33. Waltriathlon Brunsbüttel – Sprintdistanz 25 km
+LOCATION:Brunsbüttel\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25 km\nhttps://www.waltri
+ athlon.de
+TRANSP:TRANSPARENT
+URL:https://www.waltriathlon.de
+END:VEVENT
+END:VCALENDAR

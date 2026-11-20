@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-sauerland-hohenflug-trailrun-21-1km-sundern-hagen@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Sauerland-Höhenflug-Trailrun
+LOCATION:Sundern-Hagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttp://www.hoehenflu
+ g-trailrun.de/Trailrun/
+TRANSP:TRANSPARENT
+URL:http://www.hoehenflug-trailrun.de/Trailrun/
+END:VEVENT
+END:VCALENDAR

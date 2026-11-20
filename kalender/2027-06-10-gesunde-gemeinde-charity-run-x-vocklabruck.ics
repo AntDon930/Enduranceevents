@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-10-gesunde-gemeinde-charity-run-x-vocklabruck@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270610
+DTEND;VALUE=DATE:20270611
+SUMMARY:Gesunde Gemeinde Charity Run
+LOCATION:Vöcklabruck\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: -\nhttps://time2wi
+ n.at/event/1166
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1166
+END:VEVENT
+END:VCALENDAR

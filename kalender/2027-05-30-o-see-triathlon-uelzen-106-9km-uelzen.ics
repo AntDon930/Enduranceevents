@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-o-see-triathlon-uelzen-106-9km-uelzen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:O-See-Triathlon Uelzen – Half 106\,9 km (1\,9 km Schwimmen / 85 km
+  Rad / 20 km Laufen)
+LOCATION:Uelzen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 106.9 km\nhttps://post-sv
+ -uelzen.de/oseetriathlon
+TRANSP:TRANSPARENT
+URL:https://post-sv-uelzen.de/oseetriathlon
+END:VEVENT
+END:VCALENDAR

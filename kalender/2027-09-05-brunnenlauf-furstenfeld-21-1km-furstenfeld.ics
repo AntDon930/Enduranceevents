@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-brunnenlauf-furstenfeld-21-1km-furstenfeld@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Brunnenlauf Fürstenfeld – 21\,1 km Halbmarathon
+LOCATION:Fürstenfeld\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
+ lt.com/434939/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/434939/
+END:VEVENT
+END:VCALENDAR

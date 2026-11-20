@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-36-wehratallauf-10-2km-wehr-baden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:36. Wehratallauf – Hauptlauf 10\,2 km
+LOCATION:Wehr/Baden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.2 km\nhttp://www.wehratal
+ lauf.de/
+TRANSP:TRANSPARENT
+URL:http://www.wehratallauf.de/
+END:VEVENT
+END:VCALENDAR

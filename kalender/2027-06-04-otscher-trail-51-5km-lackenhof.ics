@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-otscher-trail-51-5km-lackenhof@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270607
+SUMMARY:Ötscher Trail – Marathon Trail
+LOCATION:Lackenhof\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 51.5 km\nhttps://www.oetscher
+ trail.run
+TRANSP:TRANSPARENT
+URL:https://www.oetschertrail.run
+END:VEVENT
+END:VCALENDAR

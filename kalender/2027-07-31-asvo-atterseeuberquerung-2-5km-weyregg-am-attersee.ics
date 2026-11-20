@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-asvo-atterseeuberquerung-2-5km-weyregg-am-attersee@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:ASVÖ Atterseeüberquerung – Seeüberquerung 2.520 m Weyregg – Atters
+ ee
+LOCATION:Weyregg am Attersee\, Österreich
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 2.5 km\nhttps://www.a
+ tterseeueberquerung.com/
+TRANSP:TRANSPARENT
+URL:https://www.atterseeueberquerung.com/
+END:VEVENT
+END:VCALENDAR

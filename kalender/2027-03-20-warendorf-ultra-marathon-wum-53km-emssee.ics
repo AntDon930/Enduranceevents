@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-warendorf-ultra-marathon-wum-53km-emssee@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Warendorf Ultra Marathon (WUM)
+LOCATION:Emssee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 53 km\nhttps://racetimer-app
+ .de/event_details.php?id=53
+TRANSP:TRANSPARENT
+URL:https://racetimer-app.de/event_details.php?id=53
+END:VEVENT
+END:VCALENDAR

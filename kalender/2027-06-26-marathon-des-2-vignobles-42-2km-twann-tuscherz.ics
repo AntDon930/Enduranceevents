@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-marathon-des-2-vignobles-42-2km-twann-tuscherz@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Marathon des 2 Vignobles – Marathon
+LOCATION:Twann-Tüscherz\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://marathondes
+ 2vignobles.ch/
+TRANSP:TRANSPARENT
+URL:https://marathondes2vignobles.ch/
+END:VEVENT
+END:VCALENDAR

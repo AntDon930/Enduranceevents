@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-17-pfandler-dammlauf-14km-bad-ischl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+SUMMARY:Pfandler Dammlauf
+LOCATION:Bad Ischl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://www.dsg-pfand
+ l.at/DAMMLAUF/
+TRANSP:TRANSPARENT
+URL:https://www.dsg-pfandl.at/DAMMLAUF/
+END:VEVENT
+END:VCALENDAR

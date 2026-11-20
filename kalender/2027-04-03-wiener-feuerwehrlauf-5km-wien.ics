@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-wiener-feuerwehrlauf-5km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:Wiener Feuerwehrlauf
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.feuerwehrla
+ uf.at
+TRANSP:TRANSPARENT
+URL:http://www.feuerwehrlauf.at
+END:VEVENT
+END:VCALENDAR

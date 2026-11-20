@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-44-pokalcrosslaufmeisterschaft-und-owl-crossmeis-7-9km-luch
+ tringen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:44. Pokalcrosslaufmeisterschaft und OWL-Crossmeisterschaften
+LOCATION:Lüchtringen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.9 km\nhttp://lf-luechtringe
+ n.de/
+TRANSP:TRANSPARENT
+URL:http://lf-luechtringen.de/
+END:VEVENT
+END:VCALENDAR

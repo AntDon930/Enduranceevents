@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-wiesenlauf-5km-klein-meckelsen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Wiesenlauf
+LOCATION:Klein Meckelsen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.tus-klein-m
+ eckelsen.de/seite/505164/wiesenlauf.html
+TRANSP:TRANSPARENT
+URL:http://www.tus-klein-meckelsen.de/seite/505164/wiesenlauf.html
+END:VEVENT
+END:VCALENDAR

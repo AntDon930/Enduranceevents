@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-5-ulli-langbehn-radcross-der-rg-wedel-x-wedel@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:5. Ulli Langbehn Radcross der RG Wedel – Cyclocross\, Stevens Cycl
+ o-Cross Cup #14
+LOCATION:Wedel\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttp://www.radgemein
+ schaft-wedel.de/
+TRANSP:TRANSPARENT
+URL:http://www.radgemeinschaft-wedel.de/
+END:VEVENT
+END:VCALENDAR

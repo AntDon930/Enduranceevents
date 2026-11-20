@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-rosalia-trail-challenge-53km-katzelsdorf@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Rosalia Trail Challenge
+LOCATION:Katzelsdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 53 km\nhttps://www.rosaliatra
+ ilchallenge.at/
+TRANSP:TRANSPARENT
+URL:https://www.rosaliatrailchallenge.at/
+END:VEVENT
+END:VCALENDAR

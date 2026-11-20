@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-27-mittelland-marathon-21-1km-wangen-an-der-aare@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:Mittelland Marathon – Halbmarathon
+LOCATION:Wangen an der Aare\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
+ lt.com/416482/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/416482/
+END:VEVENT
+END:VCALENDAR

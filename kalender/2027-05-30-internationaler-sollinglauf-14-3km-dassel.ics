@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-internationaler-sollinglauf-14-3km-dassel@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Internationaler Sollinglauf – 14\,3 km Hahnemühle-FineArt-Lauf
+LOCATION:Dassel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14.3 km\nhttps://sollinglauf
+ .de/
+TRANSP:TRANSPARENT
+URL:https://sollinglauf.de/
+END:VEVENT
+END:VCALENDAR

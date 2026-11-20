@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-marathon-bonn-42-2km-bonn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Marathon Bonn – Marathon
+LOCATION:Bonn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.deutsche
+ postmarathonbonn.de
+TRANSP:TRANSPARENT
+URL:http://www.deutschepostmarathonbonn.de
+END:VEVENT
+END:VCALENDAR

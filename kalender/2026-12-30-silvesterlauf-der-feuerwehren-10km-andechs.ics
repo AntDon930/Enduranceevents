@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-30-silvesterlauf-der-feuerwehren-10km-andechs@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+SUMMARY:Silvesterlauf der Feuerwehren
+LOCATION:Andechs\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sas-onlin
+ e.net/eventportal_bs/852/
+TRANSP:TRANSPARENT
+URL:https://www.sas-online.net/eventportal_bs/852/
+END:VEVENT
+END:VCALENDAR

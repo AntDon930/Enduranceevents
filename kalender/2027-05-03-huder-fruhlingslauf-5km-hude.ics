@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-03-huder-fruhlingslauf-5km-hude@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270504
+SUMMARY:Huder Frühlingslauf – 5 km labom-Lauf
+LOCATION:Hude\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://portal.run-tim
+ ing.de/1048/registration
+TRANSP:TRANSPARENT
+URL:https://portal.run-timing.de/1048/registration
+END:VEVENT
+END:VCALENDAR

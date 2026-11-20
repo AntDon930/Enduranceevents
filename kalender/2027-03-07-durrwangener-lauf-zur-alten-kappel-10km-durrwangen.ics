@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-durrwangener-lauf-zur-alten-kappel-10km-durrwangen@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Dürrwangener Lauf "Zur Alten Kappel" – 10 km Lauf mit Steigungen
+LOCATION:Dürrwangen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
+ .com/430471/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/430471/
+END:VEVENT
+END:VCALENDAR

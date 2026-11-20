@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-xtrem-marsch-der-feldbergwalk-30km-oberursel-taunus@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Xtrem Marsch - Der Feldbergwalk
+LOCATION:Oberursel (Taunus)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 30 km\nhttps://wuwhochtaunus
+ .de/Xtrem-Marsch/Xtrem-Marsch-Der-Feldbergwalk-2027/
+TRANSP:TRANSPARENT
+URL:https://wuwhochtaunus.de/Xtrem-Marsch/Xtrem-Marsch-Der-Feldbergwalk-20
+ 27/
+END:VEVENT
+END:VCALENDAR

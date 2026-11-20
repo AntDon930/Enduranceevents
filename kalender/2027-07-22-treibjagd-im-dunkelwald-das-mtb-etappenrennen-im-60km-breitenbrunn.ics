@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-22-treibjagd-im-dunkelwald-das-mtb-etappenrennen-im-60km-breit
+ enbrunn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270722
+DTEND;VALUE=DATE:20270726
+SUMMARY:Treibjagd im Dunkelwald - Das MTB-Etappenrennen im Erzgebirge – Et
+ appenrennen 60 km
+LOCATION:Breitenbrunn\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 60 km\nhttps://www.mt
+ b-dunkelwald.de/
+TRANSP:TRANSPARENT
+URL:https://www.mtb-dunkelwald.de/
+END:VEVENT
+END:VCALENDAR

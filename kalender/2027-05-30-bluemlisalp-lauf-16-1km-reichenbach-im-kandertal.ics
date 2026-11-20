@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-bluemlisalp-lauf-16-1km-reichenbach-im-kandertal@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Blüemlisalp-Lauf – Hauptstrecke
+LOCATION:Reichenbach im Kandertal\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 16.1 km\nhttps://www.bluemlis
+ alp-lauf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.bluemlisalp-lauf.ch/
+END:VEVENT
+END:VCALENDAR

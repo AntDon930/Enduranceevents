@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-rheinzaberner-gravelrennen-58km-rheinzabern@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Rheinzaberner Gravelrennen – 58 km (10 × 5\,8 km)
+LOCATION:Rheinzabern\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 58 km\nhttps://www.rsv-rhei
+ nzabern.de/
+TRANSP:TRANSPARENT
+URL:https://www.rsv-rheinzabern.de/
+END:VEVENT
+END:VCALENDAR

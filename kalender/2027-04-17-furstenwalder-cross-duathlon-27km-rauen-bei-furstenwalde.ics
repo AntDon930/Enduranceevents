@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-furstenwalder-cross-duathlon-27km-rauen-bei-furstenwalde@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Fürstenwalder Cross-Duathlon
+LOCATION:Rauen bei Fürstenwalde\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 27 km\nhttps://tv-fuers
+ tenwalde.org/ausschreibung-cross-duathlon/
+TRANSP:TRANSPARENT
+URL:https://tv-fuerstenwalde.org/ausschreibung-cross-duathlon/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-runday4life-5km-etagnieres@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:RunDay4Life
+LOCATION:Etagnières\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://sportchrono.ch
+ /events.php?id=1278
+TRANSP:TRANSPARENT
+URL:https://sportchrono.ch/events.php?id=1278
+END:VEVENT
+END:VCALENDAR

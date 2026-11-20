@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-17-24-stunden-lauf-24h-attersee-am-attersee@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270917
+DTEND;VALUE=DATE:20270919
+SUMMARY:24-Stunden-Lauf
+LOCATION:Attersee am Attersee\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 24 h\nhttps://www.rubenshofbe
+ wegt.at/
+TRANSP:TRANSPARENT
+URL:https://www.rubenshofbewegt.at/
+END:VEVENT
+END:VCALENDAR

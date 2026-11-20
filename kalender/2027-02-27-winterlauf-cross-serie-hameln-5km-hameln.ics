@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-winterlauf-cross-serie-hameln-5km-hameln@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:Winterlauf-Cross-Serie Hameln – Jugendliche und Erwachsene
+LOCATION:Hameln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.esv-eintrac
+ ht-hameln.de/termine/136-20261121wls20262027.htm
+TRANSP:TRANSPARENT
+URL:https://www.esv-eintracht-hameln.de/termine/136-20261121wls20262027.ht
+ m
+END:VEVENT
+END:VCALENDAR

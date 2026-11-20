@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-altstadtlauf-salzwedel-10km-salzwedel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Altstadtlauf Salzwedel – 10 km Großer Altstadtlauf
+LOCATION:Salzwedel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.altstadtl
+ auf-salzwedel.de/
+TRANSP:TRANSPARENT
+URL:https://www.altstadtlauf-salzwedel.de/
+END:VEVENT
+END:VCALENDAR

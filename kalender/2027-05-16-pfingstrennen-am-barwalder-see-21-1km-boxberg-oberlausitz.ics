@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-pfingstrennen-am-barwalder-see-21-1km-boxberg-oberlausitz@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Pfingstrennen am Bärwalder See – 21\,1 km \, Altersklassen M20-M65
+ \, W20-W60
+LOCATION:Boxberg/Oberlausitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://baer-servic
+ e.de/veranstaltung/PBS/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/PBS/
+END:VEVENT
+END:VCALENDAR

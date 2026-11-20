@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-darmstadt-cross-challenge-6km-darmstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Darmstadt Cross Challenge
+LOCATION:Darmstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://www.troialaufev
+ ents.de/
+TRANSP:TRANSPARENT
+URL:https://www.troialaufevents.de/
+END:VEVENT
+END:VCALENDAR

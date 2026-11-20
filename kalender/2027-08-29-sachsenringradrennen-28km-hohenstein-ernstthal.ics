@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-sachsenringradrennen-28km-hohenstein-ernstthal@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Sachsenringradrennen – Jedermannrennen *Stand 2026 28 km
+LOCATION:Hohenstein-Ernstthal\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 28 km\nhttp://www.internati
+ onales-sachsenringradrennen.de
+TRANSP:TRANSPARENT
+URL:http://www.internationales-sachsenringradrennen.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-leipzig-marathon-42-2km-leipzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Leipzig Marathon – Marathon über 42\,195 Kilometer
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.leipzigm
+ arathon.de
+TRANSP:TRANSPARENT
+URL:http://www.leipzigmarathon.de
+END:VEVENT
+END:VCALENDAR

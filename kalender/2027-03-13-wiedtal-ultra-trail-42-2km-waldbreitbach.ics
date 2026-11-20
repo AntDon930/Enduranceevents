@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-wiedtal-ultra-trail-42-2km-waldbreitbach@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Wiedtal Ultra Trail – Marathon
+LOCATION:Waldbreitbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttps://mut-zum-wut.
+ de/
+TRANSP:TRANSPARENT
+URL:https://mut-zum-wut.de/
+END:VEVENT
+END:VCALENDAR

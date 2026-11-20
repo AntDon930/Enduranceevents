@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-10-great-10k-berlin-10km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
+SUMMARY:Great 10k Berlin – 10 km - Jahrgang 2014 und älter\, ab €32
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://berlin-laeuft
+ .de/great10k/
+TRANSP:TRANSPARENT
+URL:https://berlin-laeuft.de/great10k/
+END:VEVENT
+END:VCALENDAR

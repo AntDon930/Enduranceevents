@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-zoo-run-hannover-8km-hannover@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:Zoo-Run Hannover – Zoo-RUN (ab 12 Jahre)
+LOCATION:Hannover\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.zoo-hannov
+ er.de/eventkalender/zoo-run
+TRANSP:TRANSPARENT
+URL:https://www.zoo-hannover.de/eventkalender/zoo-run
+END:VEVENT
+END:VCALENDAR

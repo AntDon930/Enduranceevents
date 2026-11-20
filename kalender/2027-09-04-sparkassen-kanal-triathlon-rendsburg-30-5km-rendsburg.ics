@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-sparkassen-kanal-triathlon-rendsburg-30-5km-rendsburg@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Sparkassen Kanal Triathlon Rendsburg – Sprintdistanz 30.5 km
+LOCATION:Rendsburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 30.5 km\nhttps://kanal-tr
+ iathlon.de/
+TRANSP:TRANSPARENT
+URL:https://kanal-triathlon.de/
+END:VEVENT
+END:VCALENDAR

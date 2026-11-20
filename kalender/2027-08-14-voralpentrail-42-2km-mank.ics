@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-voralpentrail-42-2km-mank@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:Voralpentrail – Marathon
+LOCATION:Mank\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttps://lcmank.at/in
+ fos-anmeldung-voralpentrail/
+TRANSP:TRANSPARENT
+URL:https://lcmank.at/infos-anmeldung-voralpentrail/
+END:VEVENT
+END:VCALENDAR

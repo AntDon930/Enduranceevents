@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-ovronnalpski-x-leytron@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Ovronnalpski
+LOCATION:Leytron\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ovronnalpski.ch/
+TRANSP:TRANSPARENT
+URL:https://ovronnalpski.ch/
+END:VEVENT
+END:VCALENDAR

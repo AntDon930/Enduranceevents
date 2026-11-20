@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-nikolauslauf-der-tsg-schnaitheim-10km-schnaitheim@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Nikolauslauf der TSG Schnaitheim – 10 km Hauptlauf
+LOCATION:Schnaitheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsg-schna
+ itheim.de/
+TRANSP:TRANSPARENT
+URL:https://www.tsg-schnaitheim.de/
+END:VEVENT
+END:VCALENDAR

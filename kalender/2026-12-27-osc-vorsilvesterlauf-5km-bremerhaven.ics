@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-27-osc-vorsilvesterlauf-5km-bremerhaven@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:OSC Vorsilvesterlauf
+LOCATION:Bremerhaven\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://osc-bremerhave
+ n.de/
+TRANSP:TRANSPARENT
+URL:https://osc-bremerhaven.de/
+END:VEVENT
+END:VCALENDAR

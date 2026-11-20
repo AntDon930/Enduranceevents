@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-20-neustadtler-nightrun-x-neustadtl-an-der-donau@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270820
+DTEND;VALUE=DATE:20270821
+SUMMARY:Neustadtler Nightrun
+LOCATION:Neustadtl an der Donau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /433810/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/433810/
+END:VEVENT
+END:VCALENDAR

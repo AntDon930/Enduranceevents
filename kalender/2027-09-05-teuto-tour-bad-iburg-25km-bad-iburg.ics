@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-teuto-tour-bad-iburg-25km-bad-iburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Teuto Tour Bad Iburg – CTF 25 km
+LOCATION:Bad Iburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 25 km\nhttps://teutot
+ our.de/
+TRANSP:TRANSPARENT
+URL:https://teutotour.de/
+END:VEVENT
+END:VCALENDAR

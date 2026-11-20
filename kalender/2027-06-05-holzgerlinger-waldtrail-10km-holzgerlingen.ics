@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-holzgerlinger-waldtrail-10km-holzgerlingen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Holzgerlinger Waldtrail
+LOCATION:Holzgerlingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://spvgg-holzgerl
+ ingen-lauftreff.de/waldtrail
+TRANSP:TRANSPARENT
+URL:https://spvgg-holzgerlingen-lauftreff.de/waldtrail
+END:VEVENT
+END:VCALENDAR

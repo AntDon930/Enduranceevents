@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-28-weesensteiner-berglauf-x-muglitztal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270428
+DTEND;VALUE=DATE:20270429
+SUMMARY:Weesensteiner Berglauf
+LOCATION:Müglitztal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.msv-meusegast.
+ de/veranstaltungen/berglauf/
+TRANSP:TRANSPARENT
+URL:https://www.msv-meusegast.de/veranstaltungen/berglauf/
+END:VEVENT
+END:VCALENDAR

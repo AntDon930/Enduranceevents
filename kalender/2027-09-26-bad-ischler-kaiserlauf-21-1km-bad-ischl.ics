@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-26-bad-ischler-kaiserlauf-21-1km-bad-ischl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:Bad Ischler Kaiserlauf – 21\,09 Km Halbmarathon
+LOCATION:Bad Ischl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.badisch
+ llaeuft.at/laufkaiserpaar
+TRANSP:TRANSPARENT
+URL:https://www.badischllaeuft.at/laufkaiserpaar
+END:VEVENT
+END:VCALENDAR

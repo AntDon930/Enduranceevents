@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-28-w-e-b-waldviertler-crosslaufserie-2026-27-1-l-x-horn@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:28. W.E.B. - Waldviertler Crosslaufserie 2026/27 - 1. Lauf
+LOCATION:Horn\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://lcwaldviertel.com/
+TRANSP:TRANSPARENT
+URL:https://lcwaldviertel.com/
+END:VEVENT
+END:VCALENDAR

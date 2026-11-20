@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-volkslauf-bad-segeberg-9km-bad-segeberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:Volkslauf Bad Segeberg
+LOCATION:Bad Segeberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://volkslauf-bad-
+ segeberg.de/
+TRANSP:TRANSPARENT
+URL:https://volkslauf-bad-segeberg.de/
+END:VEVENT
+END:VCALENDAR

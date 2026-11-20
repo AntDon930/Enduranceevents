@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-eyberglauf-dahn-5km-dahn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Eyberglauf - Dahn
+LOCATION:Dahn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.eyberglauf-
+ dahn.de/
+TRANSP:TRANSPARENT
+URL:https://www.eyberglauf-dahn.de/
+END:VEVENT
+END:VCALENDAR

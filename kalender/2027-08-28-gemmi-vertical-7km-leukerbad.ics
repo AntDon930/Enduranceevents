@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-gemmi-vertical-7km-leukerbad@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Gemmi Vertical
+LOCATION:Leukerbad\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://gemmivertical.
+ ch/
+TRANSP:TRANSPARENT
+URL:https://gemmivertical.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-02-stubai-ultratrail-14km-neustift-im-stubaital@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270702
+DTEND;VALUE=DATE:20270704
+SUMMARY:Stubai Ultratrail – 14 km - 700 m+ Höhenmeter
+LOCATION:Neustift im Stubaital\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 14 km\nhttps://www.stubai.at/
+ ultratrail/
+TRANSP:TRANSPARENT
+URL:https://www.stubai.at/ultratrail/
+END:VEVENT
+END:VCALENDAR

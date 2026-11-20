@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-12-teams-in-bewegung-firmenlauf-6km-bayrischzell@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270512
+DTEND;VALUE=DATE:20270513
+SUMMARY:Teams in Bewegung Firmenlauf
+LOCATION:Bayrischzell\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.hasenoehrl
+ .de/aktiv/firmenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.hasenoehrl.de/aktiv/firmenlauf/
+END:VEVENT
+END:VCALENDAR

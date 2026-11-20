@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-28-bonnigheimer-stromberglauf-5km-bonnigheim@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:28. Bönnigheimer Stromberglauf – 5 km Straßenlauf (offiziell verme
+ ssen)
+LOCATION:Bönnigheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.lgne-runnin
+ g.de/stromberglauf
+TRANSP:TRANSPARENT
+URL:https://www.lgne-running.de/stromberglauf
+END:VEVENT
+END:VCALENDAR

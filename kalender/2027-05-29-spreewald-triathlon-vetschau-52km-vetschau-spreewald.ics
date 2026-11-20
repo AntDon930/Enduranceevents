@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-spreewald-triathlon-vetschau-52km-vetschau-spreewald@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Spreewald Triathlon Vetschau
+LOCATION:Vetschau/Spreewald\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 52 km\nhttps://spreewald-
+ triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://spreewald-triathlon.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-vorpommern-duathlon-80km-lubmin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Vorpommern Duathlon
+LOCATION:Lubmin\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 80 km\nhttps://www.tri-
+ hgwaii.de/01_news/wordpress/events/18-vorpommern-duathlon/
+TRANSP:TRANSPARENT
+URL:https://www.tri-hgwaii.de/01_news/wordpress/events/18-vorpommern-duath
+ lon/
+END:VEVENT
+END:VCALENDAR

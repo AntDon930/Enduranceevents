@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-lauf-aktiv-gegen-brustkrebs-bochum-lauft-5km-bochum@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Lauf "Aktiv gegen Brustkrebs - Bochum läuft" – 5 km Laufen\, Start
+ geld 15\,00 €
+LOCATION:Bochum\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/430031/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/430031/
+END:VEVENT
+END:VCALENDAR

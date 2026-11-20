@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-20-burener-volkslauf-10-3km-buren@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270820
+DTEND;VALUE=DATE:20270821
+SUMMARY:Bürener Volkslauf – 10\,3 km PPK-Volkslauf\, ab 14 Jahre\, Gebühr 
+ 6\,00 €
+LOCATION:Büren\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.3 km\nhttps://bueren-laeu
+ ft.de/index.php/buerener-volkslauf/
+TRANSP:TRANSPARENT
+URL:https://bueren-laeuft.de/index.php/buerener-volkslauf/
+END:VEVENT
+END:VCALENDAR

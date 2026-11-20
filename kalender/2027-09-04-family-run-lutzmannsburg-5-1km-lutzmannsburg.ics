@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-family-run-lutzmannsburg-5-1km-lutzmannsburg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Family Run Lutzmannsburg – Genusslauf
+LOCATION:Lutzmannsburg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.1 km\nhttps://www.sonnenth
+ erme.at/familyrun
+TRANSP:TRANSPARENT
+URL:https://www.sonnentherme.at/familyrun
+END:VEVENT
+END:VCALENDAR

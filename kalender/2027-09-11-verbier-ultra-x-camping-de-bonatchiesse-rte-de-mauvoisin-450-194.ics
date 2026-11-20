@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-verbier-ultra-x-camping-de-bonatchiesse-rte-de-mauvoisin-45
+ 0-194@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Verbier Ultra – VU100 DAY 2
+LOCATION:Camping de Bonatchiesse\,  Rte de Mauvoisin 450\, 1948 Fionnay\, 
+ Switzerland.\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.verbierultra.c
+ om/
+TRANSP:TRANSPARENT
+URL:https://www.verbierultra.com/
+END:VEVENT
+END:VCALENDAR

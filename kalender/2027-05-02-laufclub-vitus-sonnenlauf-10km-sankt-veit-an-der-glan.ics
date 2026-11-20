@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-laufclub-vitus-sonnenlauf-10km-sankt-veit-an-der-glan@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Laufclub Vitus - Sonnenlauf
+LOCATION:Sankt Veit an der Glan\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
+ .com/433445/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/433445/
+END:VEVENT
+END:VCALENDAR

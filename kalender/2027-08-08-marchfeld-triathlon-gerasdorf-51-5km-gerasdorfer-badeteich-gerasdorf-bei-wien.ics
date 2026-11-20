@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-marchfeld-triathlon-gerasdorf-51-5km-gerasdorfer-badeteich-
+ gerasdorf-bei-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:Marchfeld Triathlon Gerasdorf
+LOCATION:Gerasdorfer Badeteich\, Gerasdorf bei Wien\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://www.gera
+ sdorf-triathlon.at
+TRANSP:TRANSPARENT
+URL:https://www.gerasdorf-triathlon.at
+END:VEVENT
+END:VCALENDAR

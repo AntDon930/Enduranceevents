@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-39-alfred-vogel-gedenklauf-x-pottenbrunn@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:39. Alfred Vogel Gedenklauf
+LOCATION:Pottenbrunn\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://oelv.athmin.at/ev
+ ent-details.aspx?event=37853&int=&returnTo=L2V2ZW50cy5hc3B4
+TRANSP:TRANSPARENT
+URL:https://oelv.athmin.at/event-details.aspx?event=37853&int=&returnTo=L2
+ V2ZW50cy5hc3B4
+END:VEVENT
+END:VCALENDAR

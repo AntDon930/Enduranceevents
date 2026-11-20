@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-18-nussdorflauf-10km-nussdorf-eberdingen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:18. Nussdorflauf – 10\,0 km Panoramalauf
+LOCATION:Nussdorf (Eberdingen)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://nussdorf-lauf
+ .de/
+TRANSP:TRANSPARENT
+URL:https://nussdorf-lauf.de/
+END:VEVENT
+END:VCALENDAR

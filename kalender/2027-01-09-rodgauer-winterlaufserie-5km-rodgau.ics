@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-rodgauer-winterlaufserie-5km-rodgau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Rodgauer Winterlaufserie
+LOCATION:Rodgau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://api.maxx-timing
+ .de/showevents/45
+TRANSP:TRANSPARENT
+URL:http://api.maxx-timing.de/showevents/45
+END:VEVENT
+END:VCALENDAR

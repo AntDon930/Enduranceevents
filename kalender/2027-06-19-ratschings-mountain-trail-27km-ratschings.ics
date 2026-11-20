@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-ratschings-mountain-trail-27km-ratschings@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Ratschings Mountain Trail
+LOCATION:Ratschings\, Italien (Südtirol)
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 27 km\nhttps://www.ratschings
+ -mountaintrail.it/
+TRANSP:TRANSPARENT
+URL:https://www.ratschings-mountaintrail.it/
+END:VEVENT
+END:VCALENDAR

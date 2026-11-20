@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-10-10-marathon-in-10-days-42-2km-bad-blumau@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:10. 10 Marathon in 10 days
+LOCATION:Bad Blumau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://my.raceresu
+ lt.com/434136/home
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/434136/home
+END:VEVENT
+END:VCALENDAR

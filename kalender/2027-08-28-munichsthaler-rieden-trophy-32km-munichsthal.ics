@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-munichsthaler-rieden-trophy-32km-munichsthal@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Münichsthaler Rieden Trophy – MTB-Marathon 32 km
+LOCATION:Münichsthal\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 32 km\nhttps://www.ri
+ eden-trophy.at/
+TRANSP:TRANSPARENT
+URL:https://www.rieden-trophy.at/
+END:VEVENT
+END:VCALENDAR

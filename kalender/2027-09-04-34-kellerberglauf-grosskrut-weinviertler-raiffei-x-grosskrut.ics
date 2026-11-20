@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-34-kellerberglauf-grosskrut-weinviertler-raiffei-x-grosskru
+ t@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:34. Kellerberglauf Großkrut (Weinviertler Raiffeisen Laufcup)
+LOCATION:Großkrut\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://laufverein.grosskru
+ t.at/
+TRANSP:TRANSPARENT
+URL:http://laufverein.grosskrut.at/
+END:VEVENT
+END:VCALENDAR

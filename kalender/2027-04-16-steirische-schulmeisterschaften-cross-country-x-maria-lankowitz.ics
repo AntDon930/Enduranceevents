@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-16-steirische-schulmeisterschaften-cross-country-x-maria-lanko
+ witz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270416
+DTEND;VALUE=DATE:20270417
+SUMMARY:Steirische Schulmeisterschaften Cross Country – Cross-Country
+LOCATION:Maria Lankowitz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.crazy-
+ cross-biker.at
+TRANSP:TRANSPARENT
+URL:https://www.crazy-cross-biker.at
+END:VEVENT
+END:VCALENDAR

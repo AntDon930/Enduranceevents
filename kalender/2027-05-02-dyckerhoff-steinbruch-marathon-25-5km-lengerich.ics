@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-dyckerhoff-steinbruch-marathon-25-5km-lengerich@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Dyckerhoff Steinbruch Marathon – 25\,5 km Alternative\, 3 Runden
+LOCATION:Lengerich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25.5 km\nhttps://ultra-uwe-u
+ nterwegs.de/veranstaltungen/uwes-laufangebote/
+TRANSP:TRANSPARENT
+URL:https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-bonn-luttich-bastogne-bonn-600km-bonn-venusberg@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Bonn - Lüttich - Bastogne - Bonn – Brevet 600 km
+LOCATION:Bonn-Venusberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 600 km\nhttps://www.radtref
+ fcampus.de/brevet-rheinland/
+TRANSP:TRANSPARENT
+URL:https://www.radtreffcampus.de/brevet-rheinland/
+END:VEVENT
+END:VCALENDAR

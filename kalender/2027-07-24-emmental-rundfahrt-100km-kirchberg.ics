@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-emmental-rundfahrt-100km-kirchberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270726
+SUMMARY:Emmental Rundfahrt – RTF 100 km
+LOCATION:Kirchberg\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 100 km\nhttps://rversigen.c
+ h/emmental-rundfahrt/
+TRANSP:TRANSPARENT
+URL:https://rversigen.ch/emmental-rundfahrt/
+END:VEVENT
+END:VCALENDAR

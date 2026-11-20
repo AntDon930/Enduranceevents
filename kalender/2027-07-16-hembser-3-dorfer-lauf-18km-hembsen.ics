@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-16-hembser-3-dorfer-lauf-18km-hembsen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270716
+DTEND;VALUE=DATE:20270717
+SUMMARY:Hembser 3-Dörfer Lauf
+LOCATION:Hembsen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttp://www.tus13hembs
+ en.de
+TRANSP:TRANSPARENT
+URL:http://www.tus13hembsen.de
+END:VEVENT
+END:VCALENDAR

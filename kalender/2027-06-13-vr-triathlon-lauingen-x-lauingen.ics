@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-vr-triathlon-lauingen-x-lauingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:VR-Triathlon Lauingen
+LOCATION:Lauingen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://triathlon.tvl.
+ de/
+TRANSP:TRANSPARENT
+URL:https://triathlon.tvl.de/
+END:VEVENT
+END:VCALENDAR

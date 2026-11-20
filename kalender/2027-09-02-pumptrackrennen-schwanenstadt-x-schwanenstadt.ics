@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-02-pumptrackrennen-schwanenstadt-x-schwanenstadt@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270902
+DTEND;VALUE=DATE:20270903
+SUMMARY:Pumptrackrennen Schwanenstadt – Pumptrack
+LOCATION:Schwanenstadt\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.cyclin
+ gaustria.at/index.php?option=com_events&view=event&id=69C9CA673F284EE08A1
+ F56CA2CFC0C52&filter=page=5
+TRANSP:TRANSPARENT
+URL:https://www.cyclingaustria.at/index.php?option=com_events&view=event&i
+ d=69C9CA673F284EE08A1F56CA2CFC0C52&filter=page=5
+END:VEVENT
+END:VCALENDAR

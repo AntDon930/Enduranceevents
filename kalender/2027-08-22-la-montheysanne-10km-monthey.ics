@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-la-montheysanne-10km-monthey@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:La Montheysanne
+LOCATION:Monthey\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.mso.swiss
+ /events/2595-la-montheysanne
+TRANSP:TRANSPARENT
+URL:https://www.mso.swiss/events/2595-la-montheysanne
+END:VEVENT
+END:VCALENDAR

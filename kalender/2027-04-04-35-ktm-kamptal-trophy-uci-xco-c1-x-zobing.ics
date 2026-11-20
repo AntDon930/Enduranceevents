@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-35-ktm-kamptal-trophy-uci-xco-c1-x-zobing@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:35. KTM Kamptal Trophy - UCI XCO C1 – Cross-Country\, Cycling 4 Al
+ l
+LOCATION:Zöbing\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.urc-la
+ ngenlois.at
+TRANSP:TRANSPARENT
+URL:https://www.urc-langenlois.at
+END:VEVENT
+END:VCALENDAR

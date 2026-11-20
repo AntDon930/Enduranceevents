@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-advent-lauf-saarbrucken-10km-saarbrucken@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Advent-Lauf Saarbrücken – 10 km Sparkassen-Cup\, Altersklassen U18
+  bis M/W 85
+LOCATION:Saarbrücken\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://saar05-leicht
+ athletik.de/
+TRANSP:TRANSPARENT
+URL:https://saar05-leichtathletik.de/
+END:VEVENT
+END:VCALENDAR

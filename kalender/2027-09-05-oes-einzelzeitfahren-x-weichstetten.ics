@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-oes-einzelzeitfahren-x-weichstetten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:ÖES Einzelzeitfahren – Cycling 4 All
+LOCATION:Weichstetten\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: -\nhttps://www.esv-linz
+ .net
+TRANSP:TRANSPARENT
+URL:https://www.esv-linz.net
+END:VEVENT
+END:VCALENDAR

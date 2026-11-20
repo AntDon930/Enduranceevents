@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-vollmond-community-run-walk-marktheidenfeld-5km-marktheiden
+ feld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Vollmond Community Run & Walk - Marktheidenfeld
+LOCATION:Marktheidenfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://rickyssporttre
+ ff.de/wpa-events/nikolaus-community-run-so-06-12/
+TRANSP:TRANSPARENT
+URL:https://rickyssporttreff.de/wpa-events/nikolaus-community-run-so-06-12
+ /
+END:VEVENT
+END:VCALENDAR

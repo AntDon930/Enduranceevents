@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-welterbelauf-zollverein-10km-essen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Welterbelauf Zollverein – 10 km Zollverein-Lauf
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.welterbel
+ auf-zollverein.de/
+TRANSP:TRANSPARENT
+URL:https://www.welterbelauf-zollverein.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-50-giessener-fruhjahrslauf-21-1km-giessen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:50. Gießener Frühjahrslauf
+LOCATION:Gießen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.lgv-mar
+ athon.de
+TRANSP:TRANSPARENT
+URL:https://www.lgv-marathon.de
+END:VEVENT
+END:VCALENDAR

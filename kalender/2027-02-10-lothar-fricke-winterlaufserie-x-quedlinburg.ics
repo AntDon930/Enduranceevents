@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-10-lothar-fricke-winterlaufserie-x-quedlinburg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
+SUMMARY:Lothar Fricke-Winterlaufserie
+LOCATION:Quedlinburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.leichtathleti
+ k-quedlinburg.de/
+TRANSP:TRANSPARENT
+URL:https://www.leichtathletik-quedlinburg.de/
+END:VEVENT
+END:VCALENDAR

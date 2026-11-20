@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-dohnaer-adventslauf-9-6km-dohna@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Dohnaer Adventslauf – 9\,6 km zwei Runden für Altersklassen ab U20
+ .
+LOCATION:Dohna\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.6 km\nhttps://www.msv-meus
+ egast.de/veranstaltungen/adventslauf/
+TRANSP:TRANSPARENT
+URL:https://www.msv-meusegast.de/veranstaltungen/adventslauf/
+END:VEVENT
+END:VCALENDAR

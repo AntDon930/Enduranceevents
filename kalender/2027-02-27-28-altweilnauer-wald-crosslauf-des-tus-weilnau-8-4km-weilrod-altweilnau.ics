@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-28-altweilnauer-wald-crosslauf-des-tus-weilnau-8-4km-weilro
+ d-altweilnau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:28. Altweilnauer Wald-Crosslauf des TuS Weilnau
+LOCATION:Weilrod-Altweilnau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.4 km\nhttp://www.tusweilnau
+ .de
+TRANSP:TRANSPARENT
+URL:http://www.tusweilnau.de
+END:VEVENT
+END:VCALENDAR

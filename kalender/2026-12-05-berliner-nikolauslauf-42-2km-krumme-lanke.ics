@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-berliner-nikolauslauf-42-2km-krumme-lanke@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Berliner Nikolauslauf – Achtel Marathon Jahrgänge 1924 bis 2014
+LOCATION:Krumme Lanke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://myracepartn
+ er.com/veranstaltung/?event-id=364138
+TRANSP:TRANSPARENT
+URL:https://myracepartner.com/veranstaltung/?event-id=364138
+END:VEVENT
+END:VCALENDAR

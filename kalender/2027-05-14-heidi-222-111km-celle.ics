@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-14-heidi-222-111km-celle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270514
+DTEND;VALUE=DATE:20270518
+SUMMARY:Heidi 222 – 111 km von Soltau nach Hamburg Fischbek
+LOCATION:Celle\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 111 km\nhttps://www.feinerla
+ uf.de/heidi-222/
+TRANSP:TRANSPARENT
+URL:https://www.feinerlauf.de/heidi-222/
+END:VEVENT
+END:VCALENDAR

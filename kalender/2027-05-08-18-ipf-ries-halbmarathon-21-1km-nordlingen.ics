@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-18-ipf-ries-halbmarathon-21-1km-nordlingen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:18. Ipf-Ries Halbmarathon
+LOCATION:Nördlingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.ipf-ries
+ -halbmarathon.de
+TRANSP:TRANSPARENT
+URL:http://www.ipf-ries-halbmarathon.de
+END:VEVENT
+END:VCALENDAR

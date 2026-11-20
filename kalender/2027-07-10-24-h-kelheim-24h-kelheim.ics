@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-24-h-kelheim-24h-kelheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270712
+SUMMARY:24 h Kelheim – 24-Stunden-Rennen 24 h
+LOCATION:Kelheim\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 24 h\nhttps://www.race-24.d
+ e/
+TRANSP:TRANSPARENT
+URL:https://www.race-24.de/
+END:VEVENT
+END:VCALENDAR

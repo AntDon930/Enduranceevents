@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-europamarathon-10km-gorlitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Europamarathon – 10 km Lauf und 10 km Walker (Termin vorläufig)
+LOCATION:Görlitz\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Laufen / Str
+ aße\nLänge: 10 km\nhttps://my.raceresult.com/419509/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/419509/
+END:VEVENT
+END:VCALENDAR

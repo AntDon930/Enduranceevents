@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-ahmadiyya-charity-walk-koblenz-6km-koblenz@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Ahmadiyya Charity Walk Koblenz
+LOCATION:Koblenz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch · Charity\nLänge: 6 km\nhttps://char
+ itywalk.de/events/3-ahmadiyya-charity-walk-koblenz
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/3-ahmadiyya-charity-walk-koblenz
+END:VEVENT
+END:VCALENDAR

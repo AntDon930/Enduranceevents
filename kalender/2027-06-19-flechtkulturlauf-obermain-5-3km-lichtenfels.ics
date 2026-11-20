@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-flechtkulturlauf-obermain-5-3km-lichtenfels@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Flechtkulturlauf-Obermain – 5\,3 Kilometer THERAMED Lauf und Nordi
+ c Walking
+LOCATION:Lichtenfels\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttps://ascburgberg.
+ de/flechtkulturlauf
+TRANSP:TRANSPARENT
+URL:https://ascburgberg.de/flechtkulturlauf
+END:VEVENT
+END:VCALENDAR

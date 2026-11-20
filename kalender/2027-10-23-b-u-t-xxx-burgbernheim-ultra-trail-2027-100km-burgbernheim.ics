@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-23-b-u-t-xxx-burgbernheim-ultra-trail-2027-100km-burgbernheim@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271023
+DTEND;VALUE=DATE:20271024
+SUMMARY:B.U.T. XxX Burgbernheim Ultra Trail 2027 – B.U.T. 10x10 – 100 km
+LOCATION:Burgbernheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 100 km\nhttps://www.tsvburgbe
+ rnheim.de/index.php/b-u-t/start
+TRANSP:TRANSPARENT
+URL:https://www.tsvburgbernheim.de/index.php/b-u-t/start
+END:VEVENT
+END:VCALENDAR

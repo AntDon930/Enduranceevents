@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-26-gluhwurmchen-lauf-5km-dortmund@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270526
+DTEND;VALUE=DATE:20270527
+SUMMARY:Glühwürmchen Lauf – 5 km Run/Walk
+LOCATION:Dortmund\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://gluehwuermchen
+ -lauf.de/
+TRANSP:TRANSPARENT
+URL:https://gluehwuermchen-lauf.de/
+END:VEVENT
+END:VCALENDAR

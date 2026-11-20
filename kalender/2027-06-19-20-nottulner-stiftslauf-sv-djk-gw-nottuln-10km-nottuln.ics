@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-20-nottulner-stiftslauf-sv-djk-gw-nottuln-10km-nottuln@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:20. Nottulner Stiftslauf - SV DJK GW Nottuln
+LOCATION:Nottuln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.gw-nottuln
+ .de/leichtathletik
+TRANSP:TRANSPARENT
+URL:http://www.gw-nottuln.de/leichtathletik
+END:VEVENT
+END:VCALENDAR

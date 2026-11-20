@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-megamarsch-ossiacher-see-50km-annenheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Megamarsch Ossiacher See
+LOCATION:Annenheim\, Österreich
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://www.megamarsc
+ h.de/ossiacher-see
+TRANSP:TRANSPARENT
+URL:https://www.megamarsch.de/ossiacher-see
+END:VEVENT
+END:VCALENDAR

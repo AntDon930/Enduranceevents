@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-19-sparkassen-sonnenwendlauf-winter-edition-11km-markkleeberg@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+SUMMARY:Sparkassen-Sonnenwendlauf Winter-Edition
+LOCATION:Markkleeberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.sparkasse
+ n-sonnenwendlauf.de/winter-edition/
+TRANSP:TRANSPARENT
+URL:https://www.sparkassen-sonnenwendlauf.de/winter-edition/
+END:VEVENT
+END:VCALENDAR

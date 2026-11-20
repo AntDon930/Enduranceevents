@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-09-winzerlauf-poysdorf-x-poysdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271009
+DTEND;VALUE=DATE:20271010
+SUMMARY:Winzerlauf – Poysdorf
+LOCATION:Poysdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.winzerlauf.at
+ /
+TRANSP:TRANSPARENT
+URL:https://www.winzerlauf.at/
+END:VEVENT
+END:VCALENDAR

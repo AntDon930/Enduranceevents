@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-33-zeitzer-stadtlauf-5-4km-zeitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:33. Zeitzer Stadtlauf
+LOCATION:Zeitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttps://laufen.de/la
+ ufkalender/details/33-zeitzer-stadtlauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/33-zeitzer-stadtlauf
+END:VEVENT
+END:VCALENDAR

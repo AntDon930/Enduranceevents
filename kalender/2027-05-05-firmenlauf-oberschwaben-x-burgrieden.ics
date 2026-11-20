@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-firmenlauf-oberschwaben-x-burgrieden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:Firmenlauf Oberschwaben
+LOCATION:Burgrieden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.firmenlauf-ob
+ erschwaben.de/
+TRANSP:TRANSPARENT
+URL:https://www.firmenlauf-oberschwaben.de/
+END:VEVENT
+END:VCALENDAR

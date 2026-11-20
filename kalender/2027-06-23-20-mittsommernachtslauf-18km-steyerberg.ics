@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-23-20-mittsommernachtslauf-18km-steyerberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270623
+DTEND;VALUE=DATE:20270624
+SUMMARY:20. Mittsommernachtslauf
+LOCATION:Steyerberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttp://www.tsv-lemke.
+ de
+TRANSP:TRANSPARENT
+URL:http://www.tsv-lemke.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="tdm-reservation" content="1">
+<!-- Erzeugt von scripts/build_blog.py aus blog.json und scripts/blog_texte/en/rollentraining-winter.html – nicht von Hand ändern. -->
+<title>Turbo season: how to stay bike-fit until spring – Endurance Events</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="canonical" href="https://endurance-events.de/blog/en/rollentraining-winter.html">
+<link rel="alternate" hreflang="de" href="https://endurance-events.de/blog/rollentraining-winter.html">
+<link rel="alternate" hreflang="en" href="https://endurance-events.de/blog/en/rollentraining-winter.html">
+<link rel="alternate" hreflang="x-default" href="https://endurance-events.de/blog/rollentraining-winter.html">
+<meta name="theme-color" content="#0b1220">
+<!-- Gewählte Sprache DE: gleich zur anderen Fassung (build_blog.py). -->
+<script>try { if (localStorage.getItem('endurance-lang') === 'de') { window.EE_UMLEITUNG = true; location.replace('../rollentraining-winter.html' + location.hash); } } catch (e) { /* ignorieren */ }</script>
+<!-- Wartungsmodus: wortgleich wie in Startseite, Liste und Karte (test_wartung). -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('../../wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
+})();
+</script>
+<!-- Farbschema hell/dunkel: wortgleich wie in den anderen Seiten (test_farbschema_skript). -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
+<meta name="description" content="Which trainer suits you, why a fan is a must and what a training week can look like: how to stay fit on the bike all winter.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Turbo season: how to stay bike-fit until spring">
+<meta property="og:description" content="Which trainer suits you, why a fan is a must and what a training week can look like: how to stay fit on the bike all winter.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:url" content="https://endurance-events.de/blog/en/rollentraining-winter.html">
+<meta property="og:image" content="https://endurance-events.de/bilder/blog/rollentraining-winter.webp">
+<meta property="article:published_time" content="2026-11-19">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Turbo season: how to stay bike-fit until spring", "description": "Which trainer suits you, why a fan is a must and what a training week can look like: how to stay fit on the bike all winter.", "datePublished": "2026-11-19", "inLanguage": "en", "image": "https://endurance-events.de/bilder/blog/rollentraining-winter.webp", "mainEntityOfPage": "https://endurance-events.de/blog/en/rollentraining-winter.html", "publisher": {"@type": "Organization", "name": "Endurance Events", "url": "https://endurance-events.de"}}</script>
+<link rel="stylesheet" href="../../vendor/fonts/barlow.css">
+<link rel="stylesheet" href="../../site.css?v=49a6f457">
+<link rel="stylesheet" href="../../blog.css?v=e51de366">
+</head>
+<body>
+
+<!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). -->
+<header class="site-header top-bar">
+  <a class="brand" href="../../index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Pages">
+    <a class="nav-link" href="../../events.html" id="nav-events">Events</a>
+    <a class="nav-link nav-neu" href="../../clubs.html" id="nav-clubs">Clubs<span class="nav-neu-text">new</span></a>
+    <a class="nav-link" href="../../karte.html" id="nav-map">Map</a>
+    <a class="nav-link active" href="../../blog.html" id="nav-blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
+  </div>
+</header>
+
+
+<div class="lese-fortschritt" aria-hidden="true"><span id="lese-balken"></span></div>
+<main class="blog-main">
+<article class="beitrag">
+  <a class="beitrag-zurueck" href="../../blog.html" id="blog-zurueck">← All articles</a>
+  <header class="beitrag-hero">
+    <img class="beitrag-hero-bild" src="../../bilder/blog/rollentraining-winter.webp" srcset="../../bilder/blog/rollentraining-winter-480.webp 480w, ../../bilder/blog/rollentraining-winter.webp 960w" sizes="(max-width: 1120px) 100vw, 1120px" alt="Bunch of cyclists seen from above on a wide road in spring, spectators along the side" width="960" height="640" fetchpriority="high">
+    <div class="beitrag-hero-text">
+      <div class="blog-meta">
+        <span class="blog-tag sport-fahrrad">Cycling</span><span>19 November 2026</span><span aria-hidden="true">·</span><span>5 min read</span>
+      </div>
+      <h1>Turbo season: how to stay bike-fit until spring</h1>
+    </div>
+  </header>
+  <p class="beitrag-nachweis">Giro d’Italia 2016, stage 2 near Arnhem. Photo: Michielverbeek, <a href="https://commons.wikimedia.org/wiki/File:Arnhem_Gelredome-traverse,_peloton_Giro_d%27Italia_2e_etappe_IMG_0147_2016-05-07_12.31.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a></p>
+  <div class="beitrag-spalte">
+  <nav class="beitrag-inhalt" aria-labelledby="inhalt-titel">
+    <h2 id="inhalt-titel">Contents</h2>
+    <ol><li><a href="#why-the-turbo-is-worth-it">Why the turbo is worth it</a></li><li><a href="#which-trainer-is-right-for-you">Which trainer is right for you?</a></li><li><a href="#your-winter-corner">Your winter corner</a></li><li><a href="#shorter-but-often">Shorter, but often</a></li><li><a href="#what-a-week-can-look-like">What a week can look like</a></li><li><a href="#keeping-it-fun">Keeping it fun</a></li><li><a href="#get-outside-whenever-you-can">Get outside whenever you can</a></li><li><a href="#a-goal-for-spring">A goal for spring</a></li><li><a href="#the-bottom-line">The bottom line</a></li></ol>
+  </nav>
+<p class="beitrag-lead">It's wet, it's cold and it's dark by five – but your bike doesn't have to go into hibernation. A turbo trainer in the living room keeps you fit all winter, so you roll into your first spring rides and events with legs that are ready. Here's which trainer suits you, how to set up your corner and what a week of training can look like.</p>
+
+<div class="beitrag-text">
+
+<h2 id="why-the-turbo-is-worth-it">Why the turbo is worth it</h2>
+<p>Every minute counts indoors. No traffic lights, no freewheeling downhill, no waiting at junctions – you pedal the whole time. That's why an hour inside often feels like an hour and a half outside. On top of that, the weather doesn't matter, you don't need lights, and the shower is a few steps away.</p>
+<p>The turbo won't fully replace riding outdoors. But it means you won't be starting from scratch when the days get longer again.</p>
+
+<h2 id="which-trainer-is-right-for-you">Which trainer is right for you?</h2>
+<div class="beitrag-tabelle-huelle">
+<table class="zweispaltig">
+  <thead><tr><th>Type</th><th>What to know</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Rollers</strong></td><td>Three drums with the bike standing free on top. You have to keep your balance – great for technique, but it takes some practice.</td></tr>
+    <tr><td><strong>Wheel-on trainer</strong></td><td>The rear wheel is clamped in and presses on a roller. Cheap and simple, but louder, and it wears your tyre.</td></tr>
+    <tr><td><strong>Direct drive (smart trainer)</strong></td><td>The rear wheel comes off and the chain runs on a cassette on the unit. Quiet and smooth, it sets the resistance itself and connects to training apps.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>A simple wheel-on trainer is plenty to get started. If you plan to spend lots of hours indoors or like training with apps, a direct-drive unit is more fun. Second-hand trainers are often cheap – plenty of people sell theirs in spring.</p>
+
+<h2 id="your-winter-corner">Your winter corner</h2>
+<p>A few small things make the difference between "this is torture" and "I actually like getting on":</p>
+<ul>
+  <li><strong>A fan.</strong> The single most important tip. Without a breeze you overheat quickly and sweat twice as much. A standing fan in front of the bike makes every session nicer.</li>
+  <li><strong>A towel</strong> over the bars and a mat under the bike – sweat isn't good for your frame, headset or floor in the long run.</li>
+  <li><strong>Two full bottles.</strong> You drink more indoors than out.</li>
+  <li><strong>A mat</strong> also cuts the noise if neighbours or family are listening.</li>
+  <li><strong>Entertainment:</strong> a series, music, a podcast or a training app. On easy days it's fine for your mind to wander.</li>
+</ul>
+
+<h2 id="shorter-but-often">Shorter, but often</h2>
+<p>You don't need to recreate four-hour rides on the turbo. 45 to 60 minutes is enough for most sessions, with something longer at the weekend. Consistency matters more than length: two or three sessions a week all winter beat one week of enthusiasm followed by four weeks off.</p>
+<p>Most of your riding should be easy – a pace where you could still chat. Once a week, you can push a little harder.</p>
+
+<h2 id="what-a-week-can-look-like">What a week can look like</h2>
+<div class="beitrag-tabelle-huelle">
+<table class="zweispaltig">
+  <thead><tr><th>Day</th><th>Session</th></tr></thead>
+  <tbody>
+    <tr><td>Tuesday</td><td>Turbo, 45 minutes easy – steady pedalling, keep an eye on your cadence</td></tr>
+    <tr><td>Thursday</td><td>Turbo, one hour with short efforts, e.g. 5 × 4 minutes brisk with 3 minutes easy in between</td></tr>
+    <tr><td>Saturday or Sunday</td><td>Ride outside if the weather's good, otherwise 75 to 90 minutes easy on the turbo</td></tr>
+  </tbody>
+</table>
+</div>
+<p>A run or some strength work on another day fits in nicely. If you do triathlon, you'll find a plan for all three sports in <a href="wintertraining-triathlon.html">“Swim, spin, run: your triathlon winter plan”</a>.</p>
+
+<h2 id="keeping-it-fun">Keeping it fun</h2>
+<ul>
+  <li><strong>Play with cadence:</strong> spin faster for a few minutes, then settle back down. It smooths out your pedal stroke.</li>
+  <li><strong>Single-leg drills:</strong> short spells pedalling with one leg (rest the other on a stool) – good for an even stroke.</li>
+  <li><strong>Virtual rides:</strong> training apps let you ride through landscapes or with other people. A great distraction and a real motivator.</li>
+  <li><strong>Ride together:</strong> lots of cycling groups keep going through winter or meet for weekend rides.</li>
+</ul>
+
+<h2 id="get-outside-whenever-you-can">Get outside whenever you can</h2>
+<p>A dry, sunny winter day is a gift. That's the time for a ride outdoors – with the right clothes, lights and a little patience on wet roads. What to wear on the bike in winter is in <a href="winterkleidung.html">“Dressed for the cold”</a>. And if you prefer the woods: on a gravel or mountain bike, forest tracks are often nicer than the road in winter.</p>
+
+<h2 id="a-goal-for-spring">A goal for spring</h2>
+<p>With a date in the calendar, getting on the turbo is much easier. Pick a sportive, a long-distance ride or an amateur race for spring now. Which format suits you is explained in <a href="rtf-radmarathon-gran-fondo.html">“Ride or race?”</a>.</p>
+
+<h2 id="the-bottom-line">The bottom line</h2>
+<p>A fan, two bottles and two or three short sessions a week – that's all it takes to get through winter on the turbo. Keep most of it easy, ride outside on nice days and set yourself a goal for spring. Then your first long ride in March will feel great.</p>
+
+<section class="beitrag-cta">
+  <h2>Your cycling event for 2027</h2>
+  <p>Sportives, long-distance rides and races for your spring goal – plus cycling groups that keep riding together through winter.</p>
+  <div class="cta-knoepfe">
+    <a class="cta-knopf" href="../../events.html?sportart=Fahrrad">Browse cycling events</a>
+    <a class="cta-knopf leise" href="../../clubs.html?art=Fahrrad">Find a cycling group</a>
+  </div>
+</section>
+
+<p class="beitrag-stand">All tips in this article are based on experience.</p>
+
+</div>
+  <div class="beitrag-teilen">
+    <span id="teilen-text">Found this helpful? Share it with your training partners.</span>
+    <button type="button" class="cta-knopf leise" id="teilen-knopf">Share article</button>
+  </div>
+  </div>
+  <section class="beitrag-weitere" aria-labelledby="weitere-titel">
+    <h2 id="weitere-titel">More articles</h2>
+    <ul class="blog-liste">
+    <li class="blog-karte"><a href="rtf-radmarathon-gran-fondo.html">
+      <div class="blog-karte-bild"><img src="../../bilder/blog/radevents-480.webp" alt="Peloton on a country road in the Rhône valley in front of mountains" loading="lazy" width="480" height="320"><span class="blog-tags"><span class="blog-tag sport-fahrrad">Cycling</span></span></div>
+      <div class="blog-karte-text"><h3>Ride or race? Find the cycling event that&#x27;s right for you</h3><div class="blog-meta"><span>4 November 2026</span><span aria-hidden="true">·</span><span>8 min</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="winterkleidung.html">
+      <div class="blog-karte-bild"><img src="../../bilder/blog/winterkleidung-480.webp" alt="Snowy park with bare trees in the mist, two runners in the distance on the path" loading="lazy" width="480" height="320"><span class="blog-tags"></span></div>
+      <div class="blog-karte-text"><h3>Dressed for the cold: winter kit for running and riding</h3><div class="blog-meta"><span>16 November 2026</span><span aria-hidden="true">·</span><span>5 min</span></div></div>
+    </a></li>
+    <li class="blog-karte"><a href="wintertraining-triathlon.html">
+      <div class="blog-karte-bild"><img src="../../bilder/blog/wintertraining-triathlon-480.webp" alt="Triathlon swim start on a lake in the morning mist, hundreds of athletes in the water, spectators on the shore seen from behind" loading="lazy" width="480" height="320"><span class="blog-tags"><span class="blog-tag sport-triathlon">Triathlon</span></span></div>
+      <div class="blog-karte-text"><h3>Swim, spin, run: your triathlon winter plan</h3><div class="blog-meta"><span>12 November 2026</span><span aria-hidden="true">·</span><span>5 min</span></div></div>
+    </a></li>
+    </ul>
+  </section>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="../../impressum.html">Legal notice</a>
+    <a id="footer-datenschutz" href="../../datenschutz.html">Privacy</a>
+  </div>
+</footer>
+
+<script defer src="../../vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="../../vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="../../firebase-config.js"></script>
+<script defer src="../../auth.js"></script>
+<script defer src="../../stats.js?v=21731166"></script>
+<script>
+(function () {
+  // Diese Seite ist englisch. Gibt es die andere Fassung, wechselt DE/EN
+  // dorthin; sonst schaltet DE/EN nur die Bedienung um.
+  if (window.EE_UMLEITUNG) return;
+  var SEITE = 'en', ANDERE = '../rollentraining-winter.html';
+  var T = {
+    de: { events: 'Events', clubs: 'Clubs', map: 'Karte', blog: 'Blog', back: '← Alle Beiträge', share: 'Beitrag teilen', share_text: 'Hat dir der Beitrag geholfen? Teil ihn mit deinen Trainingspartnern.', copied: 'Link kopiert', imprint: 'Impressum', privacy: 'Datenschutz' },
+    en: { events: 'Events', clubs: 'Clubs', map: 'Map', blog: 'Blog', back: '← All articles', share: 'Share article', share_text: 'Found this helpful? Share it with your training partners.', copied: 'Link copied', imprint: 'Legal notice', privacy: 'Privacy' }
+  };
+  function setze(lang) {
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    var t = T[lang];
+    document.getElementById('nav-events').textContent = t.events;
+    // Nur den Text setzen – das Schildchen „new“ bleibt stehen.
+    document.getElementById('nav-clubs').firstChild.nodeValue = t.clubs;
+    document.getElementById('nav-map').textContent = t.map;
+    document.getElementById('nav-blog').textContent = t.blog;
+    document.getElementById('blog-zurueck').textContent = t.back;
+    document.getElementById('teilen-knopf').textContent = t.share;
+    document.getElementById('teilen-text').textContent = t.share_text;
+    document.getElementById('footer-impressum').textContent = t.imprint;
+    document.getElementById('footer-datenschutz').textContent = t.privacy;
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+  }
+  var lang = SEITE;
+  if (!ANDERE) {
+    try { var s = localStorage.getItem('endurance-lang'); if (s === 'de' || s === 'en') lang = s; } catch (e) { /* ignorieren */ }
+  }
+  document.querySelectorAll('.lang-btn').forEach(function (b) { b.addEventListener('click', function () {
+    lang = b.dataset.lang;
+    if (ANDERE && lang !== SEITE) {
+      try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+      location.href = ANDERE;
+      return;
+    }
+    setze(lang);
+  }); });
+  setze(lang);
+  // Teilen: Teilen-Dialog des Geräts, sonst den Link kopieren.
+  var knopf = document.getElementById('teilen-knopf');
+  knopf.addEventListener('click', function () {
+    var daten = { title: document.title, url: location.href.split('#')[0] };
+    if (navigator.share) { navigator.share(daten).catch(function () {}); return; }
+    if (navigator.clipboard) navigator.clipboard.writeText(daten.url).then(function () {
+      knopf.textContent = T[lang].copied;
+      setTimeout(function () { knopf.textContent = T[lang].share; }, 2000);
+    }).catch(function () {});
+  });
+  // Lesefortschritt oben am Rand – nur Anzeige, nichts wird gespeichert.
+  var balken = document.getElementById('lese-balken');
+  var artikel = document.querySelector('.beitrag-spalte');
+  var geplant = false;
+  function fortschritt() {
+    geplant = false;
+    var r = artikel.getBoundingClientRect();
+    var weg = Math.min(Math.max(-r.top / Math.max(r.height - innerHeight, 1), 0), 1);
+    balken.style.transform = 'scaleX(' + weg.toFixed(3) + ')';
+  }
+  addEventListener('scroll', function () { if (!geplant) { geplant = true; requestAnimationFrame(fortschritt); } }, { passive: true });
+  fortschritt();
+})();
+</script>
+
+</body>
+</html>

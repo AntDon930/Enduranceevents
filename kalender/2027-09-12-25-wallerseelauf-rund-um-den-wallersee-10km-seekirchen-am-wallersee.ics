@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-25-wallerseelauf-rund-um-den-wallersee-10km-seekirchen-am-w
+ allersee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:25. Wallerseelauf "Rund um den Wallersee"
+LOCATION:Seekirchen am Wallersee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.skiclub-se
+ ekirchen.at/wallerseelauf
+TRANSP:TRANSPARENT
+URL:http://www.skiclub-seekirchen.at/wallerseelauf
+END:VEVENT
+END:VCALENDAR

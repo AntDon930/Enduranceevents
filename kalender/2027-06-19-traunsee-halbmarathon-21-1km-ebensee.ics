@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-traunsee-halbmarathon-21-1km-ebensee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Traunsee Halbmarathon – 21\,097 km Generali Halbmarathon
+LOCATION:Ebensee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.traunse
+ e-halbmarathon.at/
+TRANSP:TRANSPARENT
+URL:https://www.traunsee-halbmarathon.at/
+END:VEVENT
+END:VCALENDAR

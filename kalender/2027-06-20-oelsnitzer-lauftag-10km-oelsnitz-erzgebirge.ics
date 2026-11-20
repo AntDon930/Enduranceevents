@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-oelsnitzer-lauftag-10km-oelsnitz-erzgebirge@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Oelsnitzer Lauftag
+LOCATION:Oelsnitz/Erzgebirge\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lausitzer-spo
+ rtevents.de/anmeldung/anm.php?N=2027062
+TRANSP:TRANSPARENT
+URL:https://lausitzer-sportevents.de/anmeldung/anm.php?N=2027062
+END:VEVENT
+END:VCALENDAR

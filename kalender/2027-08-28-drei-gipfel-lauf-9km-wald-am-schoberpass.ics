@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-drei-gipfel-lauf-9km-wald-am-schoberpass@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Drei-Gipfel-Lauf – Schobersprint
+LOCATION:Wald am Schoberpaß\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://ergebnisliste.a
+ t/Event/1263
+TRANSP:TRANSPARENT
+URL:https://ergebnisliste.at/Event/1263
+END:VEVENT
+END:VCALENDAR

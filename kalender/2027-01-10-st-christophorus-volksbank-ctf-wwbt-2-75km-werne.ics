@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-st-christophorus-volksbank-ctf-wwbt-2-75km-werne@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:St. Christophorus Volksbank CTF - WWBT#2 – CTF 75 km
+LOCATION:Werne\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 75 km\nhttps://westfa
+ len-winter-bike-trophy.org/westfalen-winterbike-trophy-des-rsc-79-werne/
+TRANSP:TRANSPARENT
+URL:https://westfalen-winter-bike-trophy.org/westfalen-winterbike-trophy-d
+ es-rsc-79-werne/
+END:VEVENT
+END:VCALENDAR

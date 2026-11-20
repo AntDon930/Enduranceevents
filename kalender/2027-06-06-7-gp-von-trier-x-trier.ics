@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-7-gp-von-trier-x-trier@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:7. GP von Trier
+LOCATION:Trier\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.radsport-tri
+ er.de/
+TRANSP:TRANSPARENT
+URL:https://www.radsport-trier.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-14-cycling-cup-thaur-x-natters@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270614
+DTEND;VALUE=DATE:20270615
+SUMMARY:Cycling Cup Thaur – Cycling 4 All\, Straßenrennen
+LOCATION:Natters\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.innsbrucker-
+ schwalben.at
+TRANSP:TRANSPARENT
+URL:https://www.innsbrucker-schwalben.at
+END:VEVENT
+END:VCALENDAR

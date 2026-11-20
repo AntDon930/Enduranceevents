@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-morning-run-wien-7-7km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Morning Run Wien – 7\,7 km (Laufen)
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://www.morningr
+ un.at/
+TRANSP:TRANSPARENT
+URL:https://www.morningrun.at/
+END:VEVENT
+END:VCALENDAR

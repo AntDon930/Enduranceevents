@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-motzener-fruhlingslauf-5-5km-mittenwalde@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Motzener Frühlingslauf – Mittelstrecke - 5\,5 km
+LOCATION:Mittenwalde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://lausitzer-sp
+ ortevents.de/anmeldung/anm.php?N=2027033
+TRANSP:TRANSPARENT
+URL:https://lausitzer-sportevents.de/anmeldung/anm.php?N=2027033
+END:VEVENT
+END:VCALENDAR

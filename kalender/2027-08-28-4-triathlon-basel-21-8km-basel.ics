@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-4-triathlon-basel-21-8km-basel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:4. Triathlon Basel – Sprint 21.8 km (0.8 km Schwimmen / 16 km Rad 
+ / 5 km Laufen)
+LOCATION:Basel\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 21.8 km\nhttps://triathlo
+ nbasel.ch/
+TRANSP:TRANSPARENT
+URL:https://triathlonbasel.ch/
+END:VEVENT
+END:VCALENDAR

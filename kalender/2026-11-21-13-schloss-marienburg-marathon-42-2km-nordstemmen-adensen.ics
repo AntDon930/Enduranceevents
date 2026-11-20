@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-13-schloss-marienburg-marathon-42-2km-nordstemmen-adensen@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:13. Schloss Marienburg Marathon – Marathon
+LOCATION:Nordstemmen-Adensen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.schloss-
+ marienburg-marathon.de
+TRANSP:TRANSPARENT
+URL:http://www.schloss-marienburg-marathon.de
+END:VEVENT
+END:VCALENDAR

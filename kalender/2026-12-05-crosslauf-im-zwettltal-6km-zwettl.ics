@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-crosslauf-im-zwettltal-6km-zwettl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Crosslauf im Zwettltal
+LOCATION:Zwettl\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://sc-zwickl.zwett
+ l.at/2026/09/15-crosslauf-im-zwettltal-am-05-12-2026/
+TRANSP:TRANSPARENT
+URL:https://sc-zwickl.zwettl.at/2026/09/15-crosslauf-im-zwettltal-am-05-12
+ -2026/
+END:VEVENT
+END:VCALENDAR

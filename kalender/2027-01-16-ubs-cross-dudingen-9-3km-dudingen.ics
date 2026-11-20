@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-ubs-cross-dudingen-9-3km-dudingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:UBS Cross Düdingen
+LOCATION:Düdingen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9.3 km\nhttps://www.tsvd.ch/L
+ eichtathletik/Wettk%C3%A4mpfe/UBS-Cross
+TRANSP:TRANSPARENT
+URL:https://www.tsvd.ch/Leichtathletik/Wettk%C3%A4mpfe/UBS-Cross
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-37-kaltenkirchener-stadtlauf-10km-kaltenkirchen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:37. Kaltenkirchener Stadtlauf
+LOCATION:Kaltenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.kaltenkirc
+ hener-turnerschaft.de
+TRANSP:TRANSPARENT
+URL:http://www.kaltenkirchener-turnerschaft.de
+END:VEVENT
+END:VCALENDAR

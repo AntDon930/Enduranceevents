@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-beuchaer-triathlon-day-x-brandis@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Beuchaer Triathlon Day
+LOCATION:Brandis\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.beuchaer-t
+ riathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.beuchaer-triathlon.de/
+END:VEVENT
+END:VCALENDAR

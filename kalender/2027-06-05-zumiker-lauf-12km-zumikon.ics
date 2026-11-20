@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-zumiker-lauf-12km-zumikon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Zumiker Lauf
+LOCATION:Zumikon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.tghuetten
+ .ch/zumiker-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.tghuetten.ch/zumiker-lauf/
+END:VEVENT
+END:VCALENDAR

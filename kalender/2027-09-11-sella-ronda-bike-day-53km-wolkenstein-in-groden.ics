@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-sella-ronda-bike-day-53km-wolkenstein-in-groden@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Sella Ronda Bike Day – Volksradfahren 53 km
+LOCATION:Wolkenstein in Gröden\, Italien (Südtirol)
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 53 km\nhttps://www.sellaron
+ dabikeday.com/
+TRANSP:TRANSPARENT
+URL:https://www.sellarondabikeday.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-allgau-spatzle-437km-bad-waldsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270621
+SUMMARY:Allgäu & Spätzle – Bikepacking Spätzle Gravel Legend 437 km
+LOCATION:Bad Waldsee\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 437 km\nhttps://www.allgaeu
+ -spaetzle.de
+TRANSP:TRANSPARENT
+URL:https://www.allgaeu-spaetzle.de
+END:VEVENT
+END:VCALENDAR

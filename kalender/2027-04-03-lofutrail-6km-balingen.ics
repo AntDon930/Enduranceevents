@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-lofutrail-6km-balingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:LOFUtrail – K6 – 6 km / 270 Hm
+LOCATION:Balingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://lofutrail.de/
+TRANSP:TRANSPARENT
+URL:https://lofutrail.de/
+END:VEVENT
+END:VCALENDAR

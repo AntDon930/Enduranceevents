@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-02-ultramarsch-heidelberg-x-trem-100km-heidelberg@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271002
+DTEND;VALUE=DATE:20271004
+SUMMARY:Ultramarsch Heidelberg X-Trem
+LOCATION:Heidelberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 100 km\nhttps://www.ultramar
+ sch.de/p/2027-ticket-ultramarsch-heidelberg-x-trem
+TRANSP:TRANSPARENT
+URL:https://www.ultramarsch.de/p/2027-ticket-ultramarsch-heidelberg-x-trem
+END:VEVENT
+END:VCALENDAR

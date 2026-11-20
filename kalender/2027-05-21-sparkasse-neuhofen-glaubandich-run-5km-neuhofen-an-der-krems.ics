@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-21-sparkasse-neuhofen-glaubandich-run-5km-neuhofen-an-der-krem
+ s@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270522
+SUMMARY:Sparkasse Neuhofen #glaubandich Run
+LOCATION:Neuhofen an der Krems\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://time2win.at/ev
+ ent/1055
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1055
+END:VEVENT
+END:VCALENDAR

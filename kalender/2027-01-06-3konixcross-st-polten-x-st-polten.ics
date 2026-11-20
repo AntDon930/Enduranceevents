@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-3konixcross-st-polten-x-st-polten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:3KöniXcrosS St.Pölten – Cyclocross
+LOCATION:St. Pölten\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.radsport
+ union.at
+TRANSP:TRANSPARENT
+URL:https://www.radsportunion.at
+END:VEVENT
+END:VCALENDAR

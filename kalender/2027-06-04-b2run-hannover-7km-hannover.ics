@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-b2run-hannover-7km-hannover@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270605
+SUMMARY:B2Run Hannover
+LOCATION:Hannover\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.b2run.de/s
+ hop/modules/shop/2027/b2run-hannover-2027
+TRANSP:TRANSPARENT
+URL:https://www.b2run.de/shop/modules/shop/2027/b2run-hannover-2027
+END:VEVENT
+END:VCALENDAR

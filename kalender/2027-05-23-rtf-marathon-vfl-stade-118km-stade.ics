@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-rtf-marathon-vfl-stade-118km-stade@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:RTF & Marathon VfL-Stade – Radmarathon 118 km (Termin vorläufig)
+LOCATION:Stade\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / St
+ raße\nLänge: 118 km\nhttps://www.vfl-stade.de/abteilungen/radsport/
+TRANSP:TRANSPARENT
+URL:https://www.vfl-stade.de/abteilungen/radsport/
+END:VEVENT
+END:VCALENDAR

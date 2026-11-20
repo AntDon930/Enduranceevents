@@ -1,0 +1,46 @@
+Copyright (c) 2026 Anton Donauer, endurance-events.de
+Alle Rechte vorbehalten. / All rights reserved.
+
+Dieses Repository ist öffentlich einsehbar, aber NICHT frei verwendbar.
+Ohne schriftliche Zustimmung des Rechteinhabers ist es nicht gestattet,
+den Inhalt ganz oder in Teilen zu vervielfältigen, zu verbreiten,
+öffentlich zugänglich zu machen oder zu bearbeiten. Das gilt
+insbesondere für
+
+  - die Event-Datenbank (events.json, events.web.json, kalender/,
+    scripts/manual_overrides.json, scripts/manual_events.json,
+    scripts/veranstalter_seiten.json und die Prüfprotokolle in
+    scripts/) – geschützt als Datenbank nach §§ 87a ff. UrhG; ihre
+    Beschaffung, Überprüfung und laufende Pflege sind eine wesentliche
+    Investition,
+  - den Programmcode, die Gestaltung und die Texte der Seiten.
+
+Die Nutzung von Text und Data Mining ist nach § 44b Abs. 3 UrhG
+ausdrücklich vorbehalten (maschinenlesbar in robots.txt und
+.well-known/tdmrep.json). Verlinken auf https://endurance-events.de ist
+ausdrücklich erwünscht. Nutzungsbedingungen:
+https://endurance-events.de/impressum.html#nutzung
+
+Ausgenommen sind Bestandteile Dritter, für die deren eigene Lizenz gilt:
+
+  - vendor/ – Leaflet (BSD-2-Clause), Leaflet.markercluster (MIT),
+    Firebase JS SDK (Apache-2.0); Schriften Barlow / Barlow Condensed
+    (SIL Open Font License 1.1, Lizenztexte in vendor/fonts/ und
+    marketing/instagram/fonts/)
+  - bilder/ – Fotos von Wikimedia Commons (CC0, CC BY, CC BY-SA),
+    Quellen in bilder/QUELLEN.md
+  - places.json – aus GeoNames, Creative Commons BY 4.0
+  - laender.json – aus Natural Earth, gemeinfrei
+
+Anfragen: impressum@endurance-events.de
+
+---
+
+This repository is publicly visible but NOT free to use. Copying,
+distributing, publishing or adapting its content, in whole or in part,
+requires the prior written consent of the rights holder. This applies
+in particular to the event database (protected as a database under
+§§ 87a ff. of the German Copyright Act) and to the source code, design
+and texts. Text and data mining rights are reserved (§ 44b (3) UrhG).
+Linking to https://endurance-events.de is welcome. Third-party
+components listed above remain under their own licences.

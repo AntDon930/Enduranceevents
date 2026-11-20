@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-trailrun-brenken-10km-buren@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Trailrun Brenken
+LOCATION:Büren\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://my.raceresult.
+ com/433042/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/433042/
+END:VEVENT
+END:VCALENDAR

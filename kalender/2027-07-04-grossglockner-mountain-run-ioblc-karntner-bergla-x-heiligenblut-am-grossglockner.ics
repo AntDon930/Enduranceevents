@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-grossglockner-mountain-run-ioblc-karntner-bergla-x-heiligen
+ blut-am-grossglockner@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Großglockner Mountain Run (IÖBLC\, Kärntner Berglaufcup)
+LOCATION:Heiligenblut am Großglockner\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.grossglockner-m
+ ountainrun.at
+TRANSP:TRANSPARENT
+URL:http://www.grossglockner-mountainrun.at
+END:VEVENT
+END:VCALENDAR

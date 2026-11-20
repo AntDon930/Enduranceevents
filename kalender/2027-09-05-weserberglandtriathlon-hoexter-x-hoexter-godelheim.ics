@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-weserberglandtriathlon-hoexter-x-hoexter-godelheim@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Weserberglandtriathlon Hoexter
+LOCATION:Hoexter-Godelheim\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://weserberglandt
+ riathlon.de/
+TRANSP:TRANSPARENT
+URL:https://weserberglandtriathlon.de/
+END:VEVENT
+END:VCALENDAR

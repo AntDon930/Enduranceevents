@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-19-llg-city-lauf-illingen-2027-x-illingen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:19. LLG City-Lauf Illingen 2027
+LOCATION:Illingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.llgwustweiler
+ .de/veranstaltungen/illinger-city-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.llgwustweiler.de/veranstaltungen/illinger-city-lauf/
+END:VEVENT
+END:VCALENDAR

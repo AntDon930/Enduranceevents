@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-15-leihgesterner-volkslauf-10km-linden-leihgestern@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:15. Leihgesterner Volkslauf
+LOCATION:Linden-Leihgestern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsg-leihg
+ estern.de/sportangebot/laufen-walken
+TRANSP:TRANSPARENT
+URL:https://www.tsg-leihgestern.de/sportangebot/laufen-walken
+END:VEVENT
+END:VCALENDAR

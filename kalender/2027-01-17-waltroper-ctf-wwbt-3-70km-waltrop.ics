@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-17-waltroper-ctf-wwbt-3-70km-waltrop@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270117
+DTEND;VALUE=DATE:20270118
+SUMMARY:Waltroper CTF - WWBT #3 – CTF 70 km
+LOCATION:Waltrop\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 70 km\nhttps://westfa
+ len-winter-bike-trophy.org/westfalen-winterbike-trophy-des-rc-sprinter-wa
+ ltrop/
+TRANSP:TRANSPARENT
+URL:https://westfalen-winter-bike-trophy.org/westfalen-winterbike-trophy-d
+ es-rc-sprinter-waltrop/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-charity-night-run-grosspetersdorf-x-grosspetersdorf@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Charity Night Run Großpetersdorf
+LOCATION:Großpetersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: -\nhttp://www.lauf
+ en-grosspetersdorf.at
+TRANSP:TRANSPARENT
+URL:http://www.laufen-grosspetersdorf.at
+END:VEVENT
+END:VCALENDAR

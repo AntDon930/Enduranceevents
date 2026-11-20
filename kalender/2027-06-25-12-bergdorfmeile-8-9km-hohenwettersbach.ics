@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-12-bergdorfmeile-8-9km-hohenwettersbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:12. Bergdorfmeile
+LOCATION:Hohenwettersbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.9 km\nhttp://www.bergdorfm
+ eile.de
+TRANSP:TRANSPARENT
+URL:http://www.bergdorfmeile.de
+END:VEVENT
+END:VCALENDAR

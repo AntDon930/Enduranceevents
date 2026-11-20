@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-wiener-neustadter-winterlaufserie-und-canicross-5km-wiener-
+ neustadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20270308
+SUMMARY:Wiener Neustädter Winterlaufserie und Canicross-Cup – 5 km Funrun
+LOCATION:Wiener Neustadt\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.laufkraft-
+ events.at/events/2.-winterlaufserie-und-canicross--cup/
+TRANSP:TRANSPARENT
+URL:https://www.laufkraft-events.at/events/2.-winterlaufserie-und-canicros
+ s--cup/
+END:VEVENT
+END:VCALENDAR

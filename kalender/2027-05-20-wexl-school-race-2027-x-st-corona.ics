@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-20-wexl-school-race-2027-x-st-corona@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270520
+DTEND;VALUE=DATE:20270521
+SUMMARY:Wexl School Race 2027 – Cycling 4 All
+LOCATION:St Corona\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.hinter
+ bruehl.sportunion.at
+TRANSP:TRANSPARENT
+URL:https://www.hinterbruehl.sportunion.at
+END:VEVENT
+END:VCALENDAR

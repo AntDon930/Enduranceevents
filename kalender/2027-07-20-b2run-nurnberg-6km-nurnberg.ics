@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-20-b2run-nurnberg-6km-nurnberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270721
+SUMMARY:B2Run Nürnberg
+LOCATION:Nürnberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.b2run.de/r
+ un/de/de/nuernberg/index.html
+TRANSP:TRANSPARENT
+URL:https://www.b2run.de/run/de/de/nuernberg/index.html
+END:VEVENT
+END:VCALENDAR

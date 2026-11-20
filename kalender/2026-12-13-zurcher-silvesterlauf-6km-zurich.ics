@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-zurcher-silvesterlauf-6km-zurich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Zürcher Silvesterlauf
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.silvesterl
+ auf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.silvesterlauf.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-internationale-grawe-oichtentallauf-10km-nussdorf-am-haunsb
+ erg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Internationale Grawe Oichtentallauf – 10 km Magera GmbH Straßenlau
+ f\, Jahrgang 2011 und älter
+LOCATION:Nußdorf am Haunsberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
+ .com/430395/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/430395/
+END:VEVENT
+END:VCALENDAR

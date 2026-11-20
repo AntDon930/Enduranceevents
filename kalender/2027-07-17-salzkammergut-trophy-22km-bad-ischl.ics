@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-salzkammergut-trophy-22km-bad-ischl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Salzkammergut Trophy – Gravel Race 22 km
+LOCATION:Bad Ischl\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 22 km\nhttps://www.salzkamm
+ ergut-trophy.at/gravel-marathon-pid2133
+TRANSP:TRANSPARENT
+URL:https://www.salzkammergut-trophy.at/gravel-marathon-pid2133
+END:VEVENT
+END:VCALENDAR

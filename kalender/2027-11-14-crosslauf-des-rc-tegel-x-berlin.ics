@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-14-crosslauf-des-rc-tegel-x-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271114
+DTEND;VALUE=DATE:20271115
+SUMMARY:Crosslauf des RC Tegel
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.rctegel.de/cro
+ sslauf/
+TRANSP:TRANSPARENT
+URL:https://www.rctegel.de/crosslauf/
+END:VEVENT
+END:VCALENDAR

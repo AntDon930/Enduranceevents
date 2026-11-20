@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-10-sparkasse-mittelholstein-ag-o-ctf-in-westensee-x-westensee@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
+SUMMARY:Sparkasse Mittelholstein AG O-CTF in Westensee – O-CTF
+LOCATION:Westensee\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.rbc-18
+ 94.de
+TRANSP:TRANSPARENT
+URL:https://www.rbc-1894.de
+END:VEVENT
+END:VCALENDAR

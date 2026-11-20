@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-24-altstadtlauf-auf-der-goldspur-7-2km-korbach@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:24. Altstadtlauf „AUF DER GOLDSPUR“
+LOCATION:Korbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.2 km\nhttps://www.tsv-korb
+ ach.de/abteilungen/leichtathletik/ausschreibung-zum-21-altstadtlauf-auf-d
+ er-goldspur/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-korbach.de/abteilungen/leichtathletik/ausschreibung-zu
+ m-21-altstadtlauf-auf-der-goldspur/
+END:VEVENT
+END:VCALENDAR

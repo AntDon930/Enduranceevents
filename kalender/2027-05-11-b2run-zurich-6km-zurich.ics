@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-11-b2run-zurich-6km-zurich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270511
+DTEND;VALUE=DATE:20270512
+SUMMARY:B2Run Zürich
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.b2run.ch/r
+ un/ch/de/zuerich/index.html
+TRANSP:TRANSPARENT
+URL:https://www.b2run.ch/run/ch/de/zuerich/index.html
+END:VEVENT
+END:VCALENDAR

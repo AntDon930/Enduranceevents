@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-09-sparkassen-uni-triathlon-25-5km-magdeburg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270609
+DTEND;VALUE=DATE:20270610
+SUMMARY:Sparkassen Uni-Triathlon – Sprintdistanz
+LOCATION:Magdeburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.5 km\nhttps://usc-tria
+ thlon.de/wp2/der-uni-triathlon/
+TRANSP:TRANSPARENT
+URL:https://usc-triathlon.de/wp2/der-uni-triathlon/
+END:VEVENT
+END:VCALENDAR

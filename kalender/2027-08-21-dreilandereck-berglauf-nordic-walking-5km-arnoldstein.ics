@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-dreilandereck-berglauf-nordic-walking-5km-arnoldstein@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Dreiländereck - Berglauf & Nordic Walking
+LOCATION:Arnoldstein\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.laufsport-h
+ ermagor.at/dreil%C3%A4ndereck-berglauf/
+TRANSP:TRANSPARENT
+URL:https://www.laufsport-hermagor.at/dreil%C3%A4ndereck-berglauf/
+END:VEVENT
+END:VCALENDAR

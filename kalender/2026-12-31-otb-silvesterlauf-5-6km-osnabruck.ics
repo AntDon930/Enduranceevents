@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-otb-silvesterlauf-5-6km-osnabruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:OTB - Silvesterlauf
+LOCATION:Osnabrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://www.laufen-o
+ s.de/wettkaempfe/45-otb-silvesterlauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/45-otb-silvesterlauf-2026
+END:VEVENT
+END:VCALENDAR

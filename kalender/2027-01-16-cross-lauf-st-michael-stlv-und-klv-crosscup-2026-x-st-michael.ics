@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-cross-lauf-st-michael-stlv-und-klv-crosscup-2026-x-st-micha
+ el@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Cross-Lauf St. Michael (STLV- und KLV-CrossCup 2026/27 - 6. Lauf)
+LOCATION:St. Michael\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://crosslaufcup.gknet
+ .at
+TRANSP:TRANSPARENT
+URL:https://crosslaufcup.gknet.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-06-sparkassen-halbmarathon-mannschaftszeitlauf-beck-7km-beckum
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+SUMMARY:Sparkassen Halbmarathon-Mannschaftszeitlauf Beckum
+LOCATION:Beckum\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://sgre.de/mannsc
+ haftslauf/
+TRANSP:TRANSPARENT
+URL:https://sgre.de/mannschaftslauf/
+END:VEVENT
+END:VCALENDAR

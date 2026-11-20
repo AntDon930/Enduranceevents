@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-munich-triathlon-51-5km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Munich Triathlon – Kurzdistanz 51\,5 km (1\,5 km Schwimmen / 40 km
+  Rad / 10 km Laufen)
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://www.muni
+ ch-triathlon.com/
+TRANSP:TRANSPARENT
+URL:https://www.munich-triathlon.com/
+END:VEVENT
+END:VCALENDAR

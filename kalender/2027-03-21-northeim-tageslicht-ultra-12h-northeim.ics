@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-northeim-tageslicht-ultra-12h-northeim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Northeim Tageslicht Ultra
+LOCATION:Northeim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 h\nhttps://my.raceresult.
+ com/426776/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/426776/
+END:VEVENT
+END:VCALENDAR

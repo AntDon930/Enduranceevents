@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-kufsteinerland-radmarathon-120km-kufstein@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:Kufsteinerland Radmarathon – Radmarathon 120 km
+LOCATION:Kufstein\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 120 km\nhttps://www.kufstei
+ nerland-radmarathon.at/
+TRANSP:TRANSPARENT
+URL:https://www.kufsteinerland-radmarathon.at/
+END:VEVENT
+END:VCALENDAR

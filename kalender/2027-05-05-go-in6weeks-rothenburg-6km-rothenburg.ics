@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-go-in6weeks-rothenburg-6km-rothenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:GO-IN6weeks - Rothenburg – 4–6 km Run4Fun
+LOCATION:Rothenburg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.6weeks.ch/
+ fuer-teilnehmende/alle-etappen/
+TRANSP:TRANSPARENT
+URL:https://www.6weeks.ch/fuer-teilnehmende/alle-etappen/
+END:VEVENT
+END:VCALENDAR

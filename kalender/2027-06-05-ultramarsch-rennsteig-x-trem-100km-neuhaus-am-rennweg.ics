@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-ultramarsch-rennsteig-x-trem-100km-neuhaus-am-rennweg@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:Ultramarsch Rennsteig X-Trem – 100 km mit über 3.000 Höhenmetern (
+ aktuelle Planung)
+LOCATION:Neuhaus am Rennweg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 100 km\nhttps://www.ultramar
+ sch.de/p/2027-ticket-ultramarsch-rennsteig-x-trem
+TRANSP:TRANSPARENT
+URL:https://www.ultramarsch.de/p/2027-ticket-ultramarsch-rennsteig-x-trem
+END:VEVENT
+END:VCALENDAR

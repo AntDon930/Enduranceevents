@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-grundlseer-panoramalauf-14km-gossl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Grundlseer Panoramalauf
+LOCATION:Gößl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://www.asvoe-gru
+ ndlsee.at/panoramalauf/
+TRANSP:TRANSPARENT
+URL:https://www.asvoe-grundlsee.at/panoramalauf/
+END:VEVENT
+END:VCALENDAR

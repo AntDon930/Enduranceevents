@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-06-megamarsch-nurnberg-50km-nurnberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271106
+DTEND;VALUE=DATE:20271107
+SUMMARY:Megamarsch Nürnberg
+LOCATION:Nürnberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://www.megamarsc
+ h.de/n%C3%BCrnberg
+TRANSP:TRANSPARENT
+URL:https://www.megamarsch.de/n%C3%BCrnberg
+END:VEVENT
+END:VCALENDAR

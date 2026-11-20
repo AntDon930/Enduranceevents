@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-27-fernsehturm-steinegge-ultra-46km-dissen-am-teutoburger-wald
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:Fernsehturm Steinegge Ultra
+LOCATION:Dissen am Teutoburger Wald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://my.raceresult
+ .com/434626/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/434626/
+END:VEVENT
+END:VCALENDAR

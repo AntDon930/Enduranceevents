@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-13-bleienbacher-augustlauf-10km-bleienbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270813
+DTEND;VALUE=DATE:20270814
+SUMMARY:Bleienbacher Augustlauf
+LOCATION:Bleienbach\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://tvbleienbach.
+ ch/augustlauf/
+TRANSP:TRANSPARENT
+URL:https://tvbleienbach.ch/augustlauf/
+END:VEVENT
+END:VCALENDAR

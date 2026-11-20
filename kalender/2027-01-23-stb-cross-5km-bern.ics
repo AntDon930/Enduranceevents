@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-stb-cross-5km-bern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:STB Cross
+LOCATION:Bern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.stb-la.ch/s
+ tb-cross
+TRANSP:TRANSPARENT
+URL:https://www.stb-la.ch/stb-cross
+END:VEVENT
+END:VCALENDAR

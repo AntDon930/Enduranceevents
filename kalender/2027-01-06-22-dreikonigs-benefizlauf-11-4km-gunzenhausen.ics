@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-22-dreikonigs-benefizlauf-11-4km-gunzenhausen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:22. Dreikönigs-Benefizlauf
+LOCATION:Gunzenhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 11.4 km\nhttps://w
+ ww.altmuehlseelauf.de/dreikoenigslauf
+TRANSP:TRANSPARENT
+URL:https://www.altmuehlseelauf.de/dreikoenigslauf
+END:VEVENT
+END:VCALENDAR

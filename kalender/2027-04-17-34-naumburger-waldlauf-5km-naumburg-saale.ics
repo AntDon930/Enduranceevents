@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-34-naumburger-waldlauf-5km-naumburg-saale@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:34. Naumburger Waldlauf
+LOCATION:Naumburg (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
+ reibung/detail/49075/34.-Naumburger-Waldlauf-Bezirksmeisterschaften-im-Cr
+ osslauf-Naumburg.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49075/34.-Naumburger-Waldlauf-Bez
+ irksmeisterschaften-im-Crosslauf-Naumburg.htm
+END:VEVENT
+END:VCALENDAR

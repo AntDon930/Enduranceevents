@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-dresdner-nikolauslauf-x-dresden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Dresdner Nikolauslauf
+LOCATION:Dresden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ladv.de/ausschrei
+ bung/detail/49619/33.-Dresdner-Nikolauslauf-Dresden.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49619/33.-Dresdner-Nikolauslauf-D
+ resden.htm
+END:VEVENT
+END:VCALENDAR

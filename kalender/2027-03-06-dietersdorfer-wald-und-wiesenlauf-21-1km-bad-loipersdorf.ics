@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-dietersdorfer-wald-und-wiesenlauf-21-1km-bad-loipersdorf@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:Dietersdorfer Wald- und Wiesenlauf – Halbmarathon
+LOCATION:Bad Loipersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
+ lt.com/434132/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/434132/
+END:VEVENT
+END:VCALENDAR

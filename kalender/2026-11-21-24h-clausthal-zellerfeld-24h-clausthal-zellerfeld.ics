@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-24h-clausthal-zellerfeld-24h-clausthal-zellerfeld@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261123
+SUMMARY:24h Clausthal-Zellerfeld
+LOCATION:Clausthal-Zellerfeld\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 24 h\nhttps://clausthal-z
+ ellerfeld.dlrg.de/mitmachen/24h-schwimmen/
+TRANSP:TRANSPARENT
+URL:https://clausthal-zellerfeld.dlrg.de/mitmachen/24h-schwimmen/
+END:VEVENT
+END:VCALENDAR

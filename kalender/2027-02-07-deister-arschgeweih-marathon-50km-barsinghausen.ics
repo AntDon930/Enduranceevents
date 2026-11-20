@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-07-deister-arschgeweih-marathon-50km-barsinghausen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:Deister Arschgeweih Marathon – Ultra
+LOCATION:Barsinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 50 km\nhttps://my.raceresult.
+ com/427867/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/427867/
+END:VEVENT
+END:VCALENDAR

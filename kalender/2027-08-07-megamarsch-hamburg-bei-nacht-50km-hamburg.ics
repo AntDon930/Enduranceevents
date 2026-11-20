@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-megamarsch-hamburg-bei-nacht-50km-hamburg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:Megamarsch Hamburg bei Nacht
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://www.megamarsc
+ h.de/hamburg-bei-nacht
+TRANSP:TRANSPARENT
+URL:https://www.megamarsch.de/hamburg-bei-nacht
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-lauffestival-bad-blumau-8km-bad-blumau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Lauffestival Bad Blumau
+LOCATION:Bad Blumau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://my.raceresult.
+ com/433564/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/433564/
+END:VEVENT
+END:VCALENDAR

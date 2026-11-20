@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-20-dunsberglauf-10km-biebertal-fellingshausen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:20. Dünsberglauf
+LOCATION:Biebertal-Fellingshausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttp://www.lauftreff-b
+ iebertal.de
+TRANSP:TRANSPARENT
+URL:http://www.lauftreff-biebertal.de
+END:VEVENT
+END:VCALENDAR

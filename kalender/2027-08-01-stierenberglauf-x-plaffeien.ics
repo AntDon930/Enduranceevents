@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-stierenberglauf-x-plaffeien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Stierenberglauf
+LOCATION:Plaffeien\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.stierenberglau
+ f.ch/
+TRANSP:TRANSPARENT
+URL:https://www.stierenberglauf.ch/
+END:VEVENT
+END:VCALENDAR

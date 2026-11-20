@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-bergkaiser-radmarathon-kematen-25km-kematen-in-tirol@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:Bergkaiser Radmarathon Kematen – Berg 25 km
+LOCATION:Kematen in Tirol\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 25 km\nhttps://www.radsport
+ events.com/bergkaiser-radrennen
+TRANSP:TRANSPARENT
+URL:https://www.radsportevents.com/bergkaiser-radrennen
+END:VEVENT
+END:VCALENDAR

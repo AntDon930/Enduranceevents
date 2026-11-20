@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-18-berliner-villen-marathon-42-2km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Berliner Villen Marathon – Marathon
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://my.raceresu
+ lt.com/434826/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/434826/
+END:VEVENT
+END:VCALENDAR

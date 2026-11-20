@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-12-kolner-leselauf-12km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270512
+DTEND;VALUE=DATE:20270513
+SUMMARY:Kölner Leselauf
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://leselauf.de/
+TRANSP:TRANSPARENT
+URL:https://leselauf.de/
+END:VEVENT
+END:VCALENDAR

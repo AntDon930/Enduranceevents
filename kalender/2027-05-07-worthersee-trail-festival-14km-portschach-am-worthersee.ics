@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-worthersee-trail-festival-14km-portschach-am-worthersee@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270509
+SUMMARY:Wörthersee Trail Festival
+LOCATION:Pörtschach am Wörthersee\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 14 km\nhttps://www.woertherse
+ e-trail.at/
+TRANSP:TRANSPARENT
+URL:https://www.woerthersee-trail.at/
+END:VEVENT
+END:VCALENDAR

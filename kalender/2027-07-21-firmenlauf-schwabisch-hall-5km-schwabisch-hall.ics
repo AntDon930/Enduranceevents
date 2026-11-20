@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-21-firmenlauf-schwabisch-hall-5km-schwabisch-hall@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270721
+DTEND;VALUE=DATE:20270722
+SUMMARY:Firmenlauf Schwäbisch Hall
+LOCATION:Schwäbisch Hall\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://schwaebisch-ha
+ ll.bw-running.de/home
+TRANSP:TRANSPARENT
+URL:https://schwaebisch-hall.bw-running.de/home
+END:VEVENT
+END:VCALENDAR

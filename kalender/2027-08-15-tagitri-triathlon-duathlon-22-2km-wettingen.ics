@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-tagitri-triathlon-duathlon-22-2km-wettingen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:TägiTri Triathlon & Duathlon – Duathlon
+LOCATION:Wettingen\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 22.2 km\nhttps://datasp
+ ort.com/de/events/taegitri-2027
+TRANSP:TRANSPARENT
+URL:https://datasport.com/de/events/taegitri-2027
+END:VEVENT
+END:VCALENDAR

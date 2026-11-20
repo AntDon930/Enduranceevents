@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-giro-bavarese-65km-gmund-am-tegernsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270705
+SUMMARY:Giro Bavarese – Vintage-Tour 65 km
+LOCATION:Gmund am Tegernsee\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 65 km\nhttps://girobavarese
+ .de
+TRANSP:TRANSPARENT
+URL:https://girobavarese.de
+END:VEVENT
+END:VCALENDAR

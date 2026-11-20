@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-dreikonigslauf-schwabisch-hall-10km-schwabisch-hall@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Dreikönigslauf Schwäbisch Hall – 10 km VR Bank Hauptlauf
+LOCATION:Schwäbisch Hall\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://3koenigslauf.
+ de/
+TRANSP:TRANSPARENT
+URL:https://3koenigslauf.de/
+END:VEVENT
+END:VCALENDAR

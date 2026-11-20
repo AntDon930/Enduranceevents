@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-24-stunden-burginsellauf-delmenhorst-24h-delmenhorst@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270628
+SUMMARY:24-Stunden Burginsellauf Delmenhorst
+LOCATION:Delmenhorst\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://www.24-lauf.de
+ /
+TRANSP:TRANSPARENT
+URL:https://www.24-lauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-lupus-loop-48-48km-zernien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Lupus Loop 48 – Gravel Race 48 km (Termin vorläufig)
+LOCATION:Zernien\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / Gr
+ avel\nLänge: 48 km\nhttps://www.igaswendland.de/
+TRANSP:TRANSPARENT
+URL:https://www.igaswendland.de/
+END:VEVENT
+END:VCALENDAR

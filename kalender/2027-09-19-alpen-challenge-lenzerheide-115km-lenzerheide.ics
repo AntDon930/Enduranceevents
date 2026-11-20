@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-alpen-challenge-lenzerheide-115km-lenzerheide@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Alpen Challenge\, Lenzerheide – Alpen Challenge
+LOCATION:Lenzerheide\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 115 km\nhttps://www.alpench
+ allengelenzerheide.ch/
+TRANSP:TRANSPARENT
+URL:https://www.alpenchallengelenzerheide.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-badener-sparkassen-lauf-presented-by-tui-thermen-x-baden@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Badener Sparkassen Lauf "presented by TUI“ (Thermentrophy)
+LOCATION:Baden\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.badenerstadtla
+ uf.at
+TRANSP:TRANSPARENT
+URL:http://www.badenerstadtlauf.at
+END:VEVENT
+END:VCALENDAR

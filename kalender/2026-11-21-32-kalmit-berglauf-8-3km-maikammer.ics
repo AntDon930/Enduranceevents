@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-32-kalmit-berglauf-8-3km-maikammer@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:32. Kalmit-Berglauf
+LOCATION:Maikammer\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.3 km\nhttps://pfaelzer-berg
+ laufpokal.de
+TRANSP:TRANSPARENT
+URL:https://pfaelzer-berglaufpokal.de
+END:VEVENT
+END:VCALENDAR

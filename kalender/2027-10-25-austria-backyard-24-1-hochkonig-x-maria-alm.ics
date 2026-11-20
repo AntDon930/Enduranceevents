@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-25-austria-backyard-24-1-hochkonig-x-maria-alm@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271025
+DTEND;VALUE=DATE:20271027
+SUMMARY:Austria Backyard 24+1 - Hochkönig
+LOCATION:Maria Alm\, Österreich
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: Open End\nhttps://ww
+ w.austriabackyardultra.com/hochkoenig
+TRANSP:TRANSPARENT
+URL:https://www.austriabackyardultra.com/hochkoenig
+END:VEVENT
+END:VCALENDAR

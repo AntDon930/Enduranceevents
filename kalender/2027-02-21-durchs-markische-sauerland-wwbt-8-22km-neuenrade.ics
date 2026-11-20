@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-durchs-markische-sauerland-wwbt-8-22km-neuenrade@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:Durchs Märkische Sauerland - WWBT #8 – CTF 22 km
+LOCATION:Neuenrade\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 22 km\nhttps://westfa
+ len-winter-bike-trophy.org/westfalen-winterbike-trophy-des-tus-neuenrade-
+ radsport/
+TRANSP:TRANSPARENT
+URL:https://westfalen-winter-bike-trophy.org/westfalen-winterbike-trophy-d
+ es-tus-neuenrade-radsport/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-belalp-hexe-x-belalp@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Belalp Hexe – Vertical Belalp Hexe
+LOCATION:Belalp\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.belalp.ch/bel
+ alp-hexe/hexenabfahrt
+TRANSP:TRANSPARENT
+URL:https://www.belalp.ch/belalp-hexe/hexenabfahrt
+END:VEVENT
+END:VCALENDAR

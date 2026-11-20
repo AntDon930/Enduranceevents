@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-landesoffene-crosslauf-kreismeisterschaft-6km-molln@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Landesoffene Crosslauf-Kreismeisterschaft
+LOCATION:Mölln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://ladv.de/ausschr
+ eibung/detail/49607/Landesoffene-Crosslauf-Kreismeisterschaft-2026-M%C3%B
+ 6lln.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49607/Landesoffene-Crosslauf-Krei
+ smeisterschaft-2026-M%C3%B6lln.htm
+END:VEVENT
+END:VCALENDAR

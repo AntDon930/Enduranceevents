@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-neufeld-triathlon-40km-neufeld-an-der-leitha@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270621
+SUMMARY:Neufeld Triathlon – Olympische Distanz Triathlon
+LOCATION:Neufeld an der Leitha\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 40 km\nhttps://www.neufel
+ d-triathlon.at/
+TRANSP:TRANSPARENT
+URL:https://www.neufeld-triathlon.at/
+END:VEVENT
+END:VCALENDAR

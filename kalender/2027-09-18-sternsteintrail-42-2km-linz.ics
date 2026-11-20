@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-sternsteintrail-42-2km-linz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Sternsteintrail – 42\,2 km 1 650 HM
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttps://sternsteintr
+ ail.at/
+TRANSP:TRANSPARENT
+URL:https://sternsteintrail.at/
+END:VEVENT
+END:VCALENDAR

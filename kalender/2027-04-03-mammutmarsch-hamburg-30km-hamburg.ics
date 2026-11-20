@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-mammutmarsch-hamburg-30km-hamburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:Mammutmarsch Hamburg
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 30 km\nhttps://mammutmarsch.
+ de/events/mammutmarsch-hamburg
+TRANSP:TRANSPARENT
+URL:https://mammutmarsch.de/events/mammutmarsch-hamburg
+END:VEVENT
+END:VCALENDAR

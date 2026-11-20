@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-marktlauf-ybbsitz-x-ybbsitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Marktlauf Ybbsitz
+LOCATION:Ybbsitz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /433812/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/433812/
+END:VEVENT
+END:VCALENDAR

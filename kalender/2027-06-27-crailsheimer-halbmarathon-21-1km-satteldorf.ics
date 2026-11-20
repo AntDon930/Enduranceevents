@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-crailsheimer-halbmarathon-21-1km-satteldorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Crailsheimer Halbmarathon – 21\,1 km Halbmarathon
+LOCATION:Satteldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://syntegon-bu
+ rgberglauf.de
+TRANSP:TRANSPARENT
+URL:https://syntegon-burgberglauf.de
+END:VEVENT
+END:VCALENDAR

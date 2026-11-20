@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-25-wir-wollen-doch-nur-laufen-marathon-serie-44km-berlin@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Wir wollen doch nur laufen (Marathon-Serie)
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 44 km\nhttps://my.raceresult
+ .com/410855/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/410855/
+END:VEVENT
+END:VCALENDAR

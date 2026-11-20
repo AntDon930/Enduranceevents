@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-hochstrass-trail-run-x-oberreute@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Hochsträß Trail Run
+LOCATION:Oberreute\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.sportverein-ob
+ erreute.de/hochstraess-trail-run
+TRANSP:TRANSPARENT
+URL:https://www.sportverein-oberreute.de/hochstraess-trail-run
+END:VEVENT
+END:VCALENDAR

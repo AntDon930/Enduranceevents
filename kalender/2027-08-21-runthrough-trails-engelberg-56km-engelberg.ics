@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-runthrough-trails-engelberg-56km-engelberg@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Runthrough Trails Engelberg
+LOCATION:Engelberg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 56 km\nhttps://www.runthrough
+ trails.com/engelberg
+TRANSP:TRANSPARENT
+URL:https://www.runthroughtrails.com/engelberg
+END:VEVENT
+END:VCALENDAR

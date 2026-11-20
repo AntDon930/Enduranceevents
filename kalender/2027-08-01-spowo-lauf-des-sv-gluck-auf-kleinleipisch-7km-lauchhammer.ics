@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-spowo-lauf-des-sv-gluck-auf-kleinleipisch-7km-lauchhammer@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:SpoWo-Lauf des SV Glück Auf Kleinleipisch – 7 km Lauf\, Teilnahmeg
+ ebühr 10 Euro bis 30.07.
+LOCATION:Lauchhammer\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://lausitzer-spor
+ tevents.de/anmeldung/anm.php?N=2027083
+TRANSP:TRANSPARENT
+URL:https://lausitzer-sportevents.de/anmeldung/anm.php?N=2027083
+END:VEVENT
+END:VCALENDAR

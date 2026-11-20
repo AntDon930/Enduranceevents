@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-18-kratschmayer-triathlon-waldenburg-25-5km-waldenburg@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:Kratschmayer Triathlon Waldenburg – Sprintdistanz 25.5 km
+LOCATION:Waldenburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.5 km\nhttps://www.tsg-
+ waldenburg.de/
+TRANSP:TRANSPARENT
+URL:https://www.tsg-waldenburg.de/
+END:VEVENT
+END:VCALENDAR

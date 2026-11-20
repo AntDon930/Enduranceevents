@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-10-14-int-parndorfer-speedworld-supersprint-duathlo-14-5km-spe
+ edworld-pachfurth@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270511
+SUMMARY:14. Int. Parndorfer Speedworld Supersprint Duathlon
+LOCATION:Speedworld\, Pachfurth\, Österreich
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 14.5 km\nhttps://www.lc
+ -parndorf.com/
+TRANSP:TRANSPARENT
+URL:https://www.lc-parndorf.com/
+END:VEVENT
+END:VCALENDAR
