@@ -56,9 +56,11 @@ SECRET="instagram-token"
 POOL="github"
 ANBIETER="enduranceevents"
 IG_VERSION="v25.0"
-# Die Instagram-App-ID der Meta-App „AusdauerMaschine Content“ – keine
-# Geheimzahl, sie steht in jedem Anmeldelink.
-IG_APP_ID="2082109586511982"
+# Die Instagram-App-ID der Meta-App – keine Geheimzahl, sie steht in jedem
+# Anmeldelink. Die erste App („AusdauerMaschine Content“, 2082109586511982)
+# ist mit dem gelöschten Facebook-Profil weg (20.11.2026); bis die ID der
+# neuen App hier steht: IG_APP_ID=<neue ID> bash … --anmelden
+IG_APP_ID="${IG_APP_ID:-2082109586511982}"
 # Muss GENAU so (mit Schrägstrich) in der Meta-App unter
 # „Business-Login-Einstellungen“ → OAuth-Weiterleitungs-URIs stehen.
 WEITERLEITUNG="https://endurance-events.de/"
