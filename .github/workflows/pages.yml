@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment2.outputs.page_url }}
     steps:
       # fetch-depth 0: build_web_data.py liest den Tag des letzten
       # Datencommits aus `git log -- events.json` (die Werkzeugleiste zeigt
@@ -144,8 +144,31 @@ jobs:
         with:
           path: .
 
+      # GitHub kennt das eben hochgeladene Paket manchmal noch nicht
+      # („Fetching artifact metadata failed … No artifacts named
+      # "github-pages" were found“ – am 10.11.2026 einmal, am 20.11.2026
+      # dreimal hintereinander, jedes Mal eine Sekunde nach dem Upload; die
+      # Liste kannte nur das ältere Paket abo-meldung). Ein NEUER Lauf hilft
+      # nicht zuverlässig, ein Neustart DIESES Laufs lädt ein zweites Paket
+      # hoch und scheitert an „Multiple artifacts“. Deshalb: kurz warten,
+      # und schlägt der Deploy trotzdem fehl, mit demselben Paket noch
+      # einmal. Bei diesem Fehler legt der erste Versuch noch keine
+      # Bereitstellung an. Scheitert auch der zweite, ist der Job rot.
+      - name: Kurz warten, bis GitHub das Paket kennt
+        run: sleep 15
+
       - name: Deploy to GitHub Pages
         id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Noch einmal warten
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy to GitHub Pages (zweiter Versuch)
+        id: deployment2
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
 
   # Erst wenn die Seite live ist, bekommen die Abos ihre Mail (vorher kam

@@ -6201,7 +6201,14 @@ Lauf 476), **nicht im selben Lauf neu starten**: Der Neustart lädt ein
 zweites Paket „github-pages“ hoch, und `deploy-pages` bricht dann mit
 „Multiple artifacts named github-pages … Artifact count is 2“ ab – so
 geschehen. Stattdessen einen neuen Lauf anstoßen (nächster Push oder
-`workflow_dispatch` auf `pages.yml`).
+`workflow_dispatch` auf `pages.yml`). **Am 20.11.2026 dreimal hintereinander**
+(Läufe 539–541, auch die zwei neuen Läufe, githubstatus „operational“):
+Die Liste kannte eine Sekunde nach dem Upload nur das ältere Paket
+`abo-meldung` („Found 1 artifact(s)“). Seitdem wartet der Deploy-Job
+15 s vor `deploy-pages` und versucht es bei einem Fehlschlag nach 60 s
+EINMAL mit demselben Paket (`continue-on-error` am ersten Versuch, zweiter
+Schritt `deployment2` nur bei `outcome == 'failure'`; Test in
+`test_wartung`). Kommt der Fehler trotzdem, erst dann einen neuen Lauf.
 **Workflow-Läufe zu einem Commit immer mit dem VOLLEN SHA abfragen**
 (`actions/runs?head_sha=<40 Zeichen>`): Mit sieben Zeichen liefert die
 API still null Treffer – so entstand am 13.10. erst eine falsche

@@ -1760,6 +1760,15 @@ def test_wartung() -> None:
     ci = (wurzel / ".github/workflows/ci.yml").read_text(encoding="utf-8")
     check("pages.yml: Deploy braucht die Prüfung (Gate)",
           "uses: ./.github/workflows/ci.yml" in pages and "needs: pruefung" in pages, True)
+    # GitHub fand das eben hochgeladene Paket am 20.11.2026 dreimal in Folge
+    # nicht: warten, dann EIN zweiter Versuch im selben Lauf (kein zweites
+    # Paket), nur wenn der erste scheitert.
+    nach_upload = pages[pages.index("upload-pages-artifact"):pages.index("\n  abo:")]
+    check("pages.yml: vor dem Deploy wird kurz gewartet, der Deploy darf einmal scheitern",
+          "sleep 15" in nach_upload and nach_upload.count("uses: actions/deploy-pages@v4") == 2
+          and "continue-on-error: true" in nach_upload.split("id: deployment2")[0]
+          and "if: steps.deployment.outcome == 'failure'" in nach_upload
+          and nach_upload.count("upload-pages-artifact") == 1, True)
     check("ci.yml ist aufrufbar (workflow_call)", "workflow_call:" in ci, True)
     # Ohne YAML-Bibliothek (PyYAML steht nicht in requirements.txt, und in
     # der CI fehlt sie - genau daran ist der erste Lauf des Gates
