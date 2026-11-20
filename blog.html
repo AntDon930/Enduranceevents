@@ -59,7 +59,7 @@
 <link rel="preload" href="blog.json" as="fetch" type="application/json" crossorigin="anonymous">
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
 <link rel="stylesheet" href="site.css?v=2e857586">
-<link rel="stylesheet" href="blog.css?v=c3c088a6">
+<link rel="stylesheet" href="blog.css?v=e51de366">
 </head>
 <body>
 
@@ -100,7 +100,14 @@
     <p id="blog-intro"></p>
     <p class="blog-hinweis-sprache" id="blog-sprache" hidden></p>
   </div>
+  <div class="blog-suche" role="search">
+    <svg class="blog-suche-symbol" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input type="search" id="blog-suche" autocomplete="off" enterkeyhint="search" maxlength="80"
+           aria-label="Beiträge durchsuchen" placeholder="Beiträge durchsuchen – z. B. Kälte, Tapering, Neopren">
+    <button type="button" class="blog-suche-leeren" id="blog-suche-leeren" aria-label="Suche löschen" hidden>✕</button>
+  </div>
   <div class="blog-filter" id="blog-filter" role="group" aria-label="Beiträge filtern" hidden></div>
+  <p class="blog-treffer" id="blog-treffer" aria-live="polite" hidden></p>
   <ul class="blog-liste blog-liste--start" id="blog-liste" aria-live="polite"></ul>
   <section class="blog-abo" aria-labelledby="abo-titel">
     <div>
@@ -151,7 +158,11 @@
       abo_knopf: 'E-Mail-Abo einrichten', abo_events: 'Events entdecken',
       footer_imprint: 'Impressum', footer_privacy: 'Datenschutz',
       sport: { Laufen: 'Laufen', Fahrrad: 'Rad', Schwimmen: 'Schwimmen', Triathlon: 'Triathlon' },
-      serie: { wissenschaft: 'Wissenschaft' }
+      serie: { wissenschaft: 'Wissenschaft' },
+      suche: 'Beiträge durchsuchen', suche_platzhalter: 'Beiträge durchsuchen – z. B. Kälte, Tapering, Neopren',
+      suche_leeren: 'Suche löschen',
+      treffer: (n, q) => `${n === 1 ? '1 Beitrag' : n + ' Beiträge'} zu „${q}“`,
+      kein_treffer: (q) => `Kein Beitrag zu „${q}“ – versuch ein anderes Stichwort.`
     },
     en: {
       title: 'Blog',
@@ -168,7 +179,11 @@
       abo_knopf: 'Set up email alerts', abo_events: 'Explore events',
       footer_imprint: 'Legal notice', footer_privacy: 'Privacy',
       sport: { Laufen: 'Running', Fahrrad: 'Cycling', Schwimmen: 'Swimming', Triathlon: 'Triathlon' },
-      serie: { wissenschaft: 'Science' }
+      serie: { wissenschaft: 'Science' },
+      suche: 'Search articles', suche_platzhalter: 'Search articles – e.g. cold, tapering, wetsuit',
+      suche_leeren: 'Clear search',
+      treffer: (n, q) => `${n === 1 ? '1 article' : n + ' articles'} for “${q}”`,
+      kein_treffer: (q) => `No articles for “${q}” – try another keyword.`
     }
   };
   let lang = 'de';
@@ -197,6 +212,62 @@
     else if (SERIEN.includes(s)) filter = 'serie:' + s;
   } catch (e) { /* ignorieren */ }
   const passt = (b) => !filter || (filter.startsWith('serie:') ? b.serie === filter.slice(6) : b.sportart === filter);
+
+  // Suche (seit 20.11.2026, vom Nutzer: „ein Suchfeld …, wo man nach Blogs
+  // (also Stichwörtern) suchen kann“): Titel und Teaser aus blog.json, dazu
+  // der ganze Text aus blog-suche.json (build_blog.py, DE und EN) – die Datei
+  // lädt erst, wenn jemand ins Feld tippt. Jedes Wort muss vorkommen; Treffer
+  // im Titel zählen mehr als im Teaser, die mehr als im Text. Umlaute gelten
+  // in beiden Schreibweisen („Kälte“ = „Kaelte“). In der Adresse ?q=….
+  let suche = '';
+  try { suche = (new URLSearchParams(location.search).get('q') || '').slice(0, 80); } catch (e) { /* ignorieren */ }
+  let index = null, indexLaedt = null;
+  const normCache = new Map();
+  const norm = (s) => String(s || '').toLowerCase()
+    .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  function ladeIndex() {
+    if (!indexLaedt) {
+      indexLaedt = fetch('blog-suche.json', { cache: 'no-cache' })
+        .then(r => r.ok ? r.json() : {}).catch(() => ({}))
+        .then(d => { index = d; if (suche) zeichne(); });
+    }
+    return indexLaedt;
+  }
+  const suchWoerter = () => norm(suche).split(/[^a-z0-9]+/).filter(w => w.length >= 2);
+  function textNorm(b) {
+    if (!index || !index[b.slug]) return '';
+    if (!normCache.has(b.slug)) normCache.set(b.slug, norm((index[b.slug].de || '') + ' ' + (index[b.slug].en || '')));
+    return normCache.get(b.slug);
+  }
+  function punkte(b, ws) {
+    const titel = norm(b.titel + ' ' + (b.titel_en || '')), teaser = norm(b.teaser + ' ' + (b.teaser_en || ''));
+    const text = textNorm(b);
+    let summe = 0;
+    for (const w of ws) {
+      const p = (titel.includes(w) ? 6 : 0) + (teaser.includes(w) ? 3 : 0) + (text.includes(w) ? 1 : 0);
+      if (!p) return 0;
+      summe += p;
+    }
+    return summe;
+  }
+  // Ein Satzausschnitt um das erste Suchwort im Text der Seitensprache, das
+  // Wort hervorgehoben – damit man sieht, warum der Beitrag passt.
+  function ausschnitt(b, ws) {
+    const roh = index && index[b.slug] && (index[b.slug][lang] || index[b.slug].de);
+    if (!roh || !ws.length) return '';
+    const muster = ws.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      .replace(/ae/g, '(?:ae|ä)').replace(/oe/g, '(?:oe|ö)').replace(/ue/g, '(?:ue|ü)').replace(/ss/g, '(?:ss|ß)'));
+    const re = new RegExp(muster.join('|'), 'gi');
+    const m = re.exec(roh);
+    if (!m) return '';
+    let von = Math.max(0, m.index - 70), bis = Math.min(roh.length, m.index + 110);
+    if (von > 0) { const l = roh.indexOf(' ', von); if (l > 0 && l < m.index) von = l + 1; }
+    if (bis < roh.length) { const r = roh.lastIndexOf(' ', bis); if (r > m.index) bis = r; }
+    const stueck = roh.slice(von, bis);
+    const markiert = esc(stueck).replace(new RegExp(muster.map(x => x.replace(/&/g, '&amp;')).join('|'), 'gi'), t => `<mark>${t}</mark>`);
+    return (von > 0 ? '… ' : '') + markiert + (bis < roh.length ? ' …' : '');
+  }
 
   // Englische Fassung da? test_blog hält fest, dass zu titel_en auch der
   // Text und damit die Seite blog/en/<slug>.html gehört.
@@ -231,11 +302,25 @@
     const liste = el('blog-liste');
     if (beitraege === null) return;
     zeichneFilter();
-    const sicht = beitraege.filter(passt);
-    if (!sicht.length) { liste.innerHTML = `<li class="blog-leer">${esc(t('leer'))}</li>`; return; }
-    // Der neueste Beitrag steht groß oben (Aufmacher), die anderen als Kacheln.
+    let sicht = beitraege.filter(passt);
+    const ws = suchWoerter();
+    const sucht = ws.length > 0;
+    if (sucht) {
+      const bewertet = sicht.map(b => [b, punkte(b, ws)]).filter(x => x[1] > 0);
+      bewertet.sort((a, b) => b[1] - a[1] || b[0].datum.localeCompare(a[0].datum));
+      sicht = bewertet.map(x => x[0]);
+    }
+    const treffer = el('blog-treffer');
+    treffer.hidden = !sucht || !sicht.length;
+    if (sucht) treffer.textContent = t('treffer', sicht.length, suche.trim());
+    if (!sicht.length) {
+      liste.innerHTML = `<li class="blog-leer">${esc(sucht ? t('kein_treffer', suche.trim()) : t('leer'))}</li>`;
+      return;
+    }
+    // Der neueste Beitrag steht groß oben (Aufmacher), die anderen als
+    // Kacheln; beim Suchen sind alle Treffer gleich groß, mit Textausschnitt.
     liste.innerHTML = sicht.map((b, i) => `
-      <li class="blog-karte${i === 0 ? ' ist-aufmacher' : ''}">
+      <li class="blog-karte${i === 0 && !sucht ? ' ist-aufmacher' : ''}">
         <a href="${linkVon(b)}"${lang === 'en' && !hatEn(b) ? ' hreflang="de" lang="de"' : ''}>
           <div class="blog-karte-bild">
             <img src="${esc(i === 0 ? b.bild : (b.bild_klein || b.bild))}"${i === 0 && b.bild_klein ? ` srcset="${esc(b.bild_klein)} 480w, ${esc(b.bild)} 960w" sizes="(max-width: 900px) 100vw, 640px"` : ''} alt="${esc(inSprache(b, 'bild_alt') || '')}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} width="960" height="640">
@@ -245,6 +330,7 @@
             <div class="blog-meta"><span>${esc(datum(b.datum))}</span><span aria-hidden="true">·</span><span>${esc(t('lesezeit', b.lesezeit_min))}</span></div>
             <h3>${esc(inSprache(b, 'titel'))}</h3>
             <p>${esc(inSprache(b, 'teaser'))}</p>
+            ${sucht && ausschnitt(b, ws) ? `<p class="blog-ausschnitt">${ausschnitt(b, ws)}</p>` : ''}
             <span class="blog-weiter">${esc(t('weiter'))}</span>
           </div>
         </a>
@@ -265,6 +351,37 @@
     zeichne();
   });
 
+  const feld = el('blog-suche'), leeren = el('blog-suche-leeren');
+  let sucheTimer = 0;
+  function schreibeSuche() {
+    try {
+      const u = new URL(location.href);
+      if (suche.trim()) u.searchParams.set('q', suche.trim()); else u.searchParams.delete('q');
+      history.replaceState(null, '', u);
+    } catch (e) { /* ignorieren */ }
+  }
+  function sucheGeaendert(sofort) {
+    suche = feld.value.slice(0, 80);
+    leeren.hidden = !suche;
+    // Die Adresse sofort, nur das Zeichnen nach der Tipp-Pause: Kommt der
+    // Index in der Pause an, zeichnet ladeIndex() schon – und dann muss ?q=
+    // bereits zum angezeigten Stand passen.
+    schreibeSuche();
+    if (suche) ladeIndex();
+    clearTimeout(sucheTimer);
+    sucheTimer = setTimeout(zeichne, sofort ? 0 : 150);
+  }
+  feld.value = suche;
+  leeren.hidden = !suche;
+  if (suche) ladeIndex();
+  feld.addEventListener('focus', ladeIndex, { once: true });
+  feld.addEventListener('input', () => sucheGeaendert(false));
+  feld.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Enter') { ev.preventDefault(); sucheGeaendert(true); feld.blur(); }
+    if (ev.key === 'Escape' && feld.value) { ev.preventDefault(); feld.value = ''; sucheGeaendert(true); }
+  });
+  leeren.addEventListener('click', () => { feld.value = ''; sucheGeaendert(true); feld.focus(); });
+
   // „Nur auf Deutsch“ nur, wenn es wirklich einen Beitrag ohne englische Fassung gibt.
   function zeigeSprachhinweis() {
     const fehlt = beitraege !== null && beitraege.some(b => !hatEn(b));
@@ -284,6 +401,9 @@
     el('nav-blog').textContent = t('nav_blog');
     el('blog-eyebrow').textContent = t('eyebrow');
     el('blog-intro').textContent = t('intro');
+    feld.placeholder = t('suche_platzhalter');
+    feld.setAttribute('aria-label', t('suche'));
+    leeren.setAttribute('aria-label', t('suche_leeren'));
     el('abo-titel').textContent = t('abo_titel');
     el('abo-text').textContent = t('abo_text');
     el('abo-knopf').textContent = t('abo_knopf');

@@ -46,7 +46,7 @@ ACTIONS = "https://github.com/AntDon930/Enduranceevents/actions/workflows/"
 # Die geplanten Aufgaben auf claude.ai (nicht im Repo). Wochentage wie bei
 # datetime: Montag = 0. Wer eine Aufgabe ändert, zieht sie hier nach.
 GEPLANTE_AUFGABEN = {
-    "blog": {"id": "trig_015LFqPsP972Ny6SzfzezXw2", "wochentage": (0, 3), "zeit": "06:37"},
+    "blog": {"id": "trig_015LFqPsP972Ny6SzfzezXw2", "wochentage": (0, 3), "zeit": "01:23"},
     "clubs": {"id": "trig_01MvVHbqKGeJjdmGLQ7mBqd3", "wochentage": (0, 3), "zeit": "08:56"},
     "monatssuche": {"id": "trig_01NhaaENGay2NUU5tZLraZiP", "monatstag": 1, "zeit": "10:41"},
     "firebase": {"id": "trig_013AV7Nn2GVq1m3LgxL3ukcq", "datum": "2027-01-11", "zeit": "09:00"},

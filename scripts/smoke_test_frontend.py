@@ -3433,6 +3433,50 @@ def pruefe_datenrueckfall(ctx, basis, web_daten):
         os.rename(web_daten + ".weg", web_daten)
 
 
+def pruefe_blog_suche(seite, basis, beitraege):
+    """Suchfeld der Blog-Übersicht (20.11.2026, vom Nutzer: „ein Suchfeld …,
+    wo man nach Blogs (also Stichwörtern) suchen kann“): ein Wort, das nur im
+    TEXT genau eines Beitrags steht, findet genau diesen – mit Ausschnitt und
+    Markierung –, ein Unsinnswort zeigt den Hinweis, das ✕ bringt alles
+    zurück, und ?q= in der Adresse sucht gleich beim Laden. Das Wort wird aus
+    blog-suche.json gesucht, nicht fest eingetragen."""
+    import re as _re
+    with open(os.path.join(WURZEL, "blog-suche.json"), encoding="utf-8") as f:
+        index = json.load(f)
+    def heu(b):
+        t = index.get(b["slug"], {})
+        return " ".join([b["titel"], b.get("titel_en", ""), b["teaser"], b.get("teaser_en", ""),
+                         t.get("de", ""), t.get("en", "")]).lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
+    heuhaufen = {b["slug"]: heu(b) for b in beitraege}
+    wort, ziel = None, None
+    for w in sorted(set(_re.findall(r"\b[a-z]{9,}\b", " ".join(t.get("de", "") for t in index.values()).lower()))):
+        treffer = [s for s, h in heuhaufen.items() if w in h]
+        if len(treffer) == 1 and w not in (next(b for b in beitraege if b["slug"] == treffer[0])["titel"]).lower():
+            wort, ziel = w, treffer[0]
+            break
+    if not wort:
+        ueberspringe("Blog-Suche: kein Wort, das nur in einem Beitrag steht")
+        return
+    seite.fill("#blog-suche", wort)
+    seite.wait_for_function("() => !document.getElementById('blog-treffer').hidden", timeout=8000)
+    stand = seite.evaluate("""() => ({ karten: [...document.querySelectorAll('.blog-karte a')].map(a => a.getAttribute('href')),
+        mark: !!document.querySelector('.blog-ausschnitt mark'), auf: document.querySelectorAll('.ist-aufmacher').length,
+        q: new URLSearchParams(location.search).get('q') })""")
+    pruefe(stand["karten"] == ["blog/%s.html" % ziel] and stand["mark"] and stand["auf"] == 0 and stand["q"] == wort,
+           "Blog-Suche: „%s“ (nur im Text) findet genau %s, mit markiertem Ausschnitt, ?q= in der Adresse (%s)" % (wort, ziel, stand))
+    seite.fill("#blog-suche", "xqzvwk")
+    seite.wait_for_selector(".blog-leer", timeout=5000)
+    pruefe("xqzvwk" in seite.locator(".blog-leer").inner_text(), "Blog-Suche: Unsinnswort zeigt „Kein Beitrag zu …“")
+    seite.click("#blog-suche-leeren")
+    seite.wait_for_function("(n) => document.querySelectorAll('.blog-karte').length === n", arg=len(beitraege), timeout=5000)
+    pruefe(seite.evaluate("() => [document.querySelectorAll('.ist-aufmacher').length, location.search, document.getElementById('blog-treffer').hidden]") == [1, "", True],
+           "Blog-Suche: ✕ zeigt wieder alle Beiträge mit Aufmacher, ?q= weg")
+    seite.goto(basis + "/blog.html?q=" + wort, wait_until="domcontentloaded")
+    seite.wait_for_function("() => !document.getElementById('blog-treffer').hidden", timeout=8000)
+    pruefe(seite.locator(".blog-karte").count() == 1 and seite.input_value("#blog-suche") == wort,
+           "Blog-Suche: ?q=%s sucht gleich beim Laden" % wort)
+
+
 def pruefe_blog(ctx, basis):
     """Blog (04.11.2026): blog.html zeigt jeden Beitrag aus blog.json als
     Kachel, ein Klick öffnet die Beitragsseite unter blog/, die ohne
@@ -3460,6 +3504,7 @@ def pruefe_blog(ctx, basis):
     pruefe(nav == ["Events", "Clubs", "Karte", "Blog"], "blog.html: Navigation Events – Clubs – Karte – Blog (%s)" % " – ".join(nav))
     reihen = seite.evaluate("() => Math.round(document.querySelector('.site-nav').getBoundingClientRect().top - document.querySelector('.brand').getBoundingClientRect().top)")
     pruefe(abs(reihen) <= 8, "blog.html: Menü steht neben der Marke, keine eigene Zeile (%+d px)" % reihen)
+    pruefe_blog_suche(seite, basis, beitraege)
     seite.close()
     erster = sorted(beitraege, key=lambda b: b["datum"], reverse=True)[0]
     seite, probleme = seite_oeffnen(ctx, basis + "/blog/%s.html" % erster["slug"], warten=".beitrag h1")

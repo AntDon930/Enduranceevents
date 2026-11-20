@@ -3,7 +3,12 @@
 Vom Nutzer am 04.11.2026 gewünscht: „Ja mach eine Liste mit Themen und dann
 veröffentlichen wir immer montags einen Blog Artikel!“, kurz darauf: „lass mal
 2x in der Woche einen Blog posten. Donnerstag und Montag“. Jeden Montag und
-Donnerstag (06:37 Berlin) schreibt die geplante Aufgabe „Blog-Artikel am
+Donnerstag – **seit dem 20.11.2026 nachts um 01:23 Berlin** (vom Nutzer: „Wir
+haben am Ende der Woche immer noch sehr viele Token offen. Da kannst du nachts
+einmal eine aktuelle Sitzung für den Blog Eintrag aufbrauchen.“; **die Nacht
+gehört dem Beitrag: gründlich recherchieren, schreiben, gegenlesen,
+verbessern – Aufwand ist ausdrücklich erwünscht**, morgens ist er live) –
+schreibt die geplante Aufgabe „Blog-Artikel am
 Montag und Donnerstag“ (`trig_015LFqPsP972Ny6SzfzezXw2`) das nächste offene Thema
 (oberste Zeile mit `[ ]`), hakt es ab (`[x]` + Slug) und veröffentlicht es
 auf der Live-Seite (Entwicklungs-Branch, beide Live-Namen). Seit dem 04.11.2026 ist der Blog live (vom Nutzer: „Ja, bitte veröffentliche den Blog … und schreib noch ein paar weitere Artikel dazu“) – die ersten drei Themen sind am selben Tag erschienen.
@@ -30,12 +35,16 @@ wollen – kein Schulaufsatz, keine Vorlesung.
    Trainingssituationen, Unterschiede zwischen Einsteigern und
    Fortgeschrittenen, typische Fehler und woran man sie merkt. Wo die
    Fachwelt uneins ist, sagt der Text das.
-3. **Länge aus Inhalt, nicht aus Füllstoff**: Ratgeber (Q, L) 1.200–1.800
-   Wörter, Event-Beiträge (E) 900–1.400 (mit Einordnung, nicht nur
-   Aufzählung), Wissenschaft (W) 1.800–2.800. Gezählt wird der deutsche Text
-   bis zum Abschlusskasten; die Lesezeit in `blog.json` ist Wörter ÷ 200,
-   aufgerundet. Das Fazit wiederholt nicht den Text, es gibt die zwei, drei
-   Entscheidungen mit, auf die es ankommt.
+3. **5 bis 8 Minuten Lesezeit, Länge aus Inhalt statt Füllstoff** (vom
+   Nutzer am 20.11.2026: „Die Länge soll jetzt aber auch nicht länger als
+   5-8min Lesezeit sein.“): Ratgeber (Q, L) 1.000–1.600 Wörter,
+   Event-Beiträge (E) 900–1.600 (mit Einordnung, nicht nur Aufzählung),
+   Wissenschaft (W) 1.300–1.600. **Nie über 1.600 Wörter** – lieber ein
+   Unterthema weglassen (und für einen eigenen Beitrag vormerken) als alles
+   anzureißen. Gezählt wird der deutsche Text bis zum Abschlusskasten; die
+   Lesezeit in `blog.json` ist Wörter ÷ 200, aufgerundet. Das Fazit
+   wiederholt nicht den Text, es gibt die zwei, drei Entscheidungen mit, auf
+   die es ankommt.
 4. **Sprache eines erfahrenen Trainers**, der einem interessierten
    Erwachsenen etwas erklärt. Du-Form und Motivation bleiben (keine
    Angstthemen), aber: wechselnde Satzlängen, Fließtext mit Argument (Listen
@@ -61,8 +70,8 @@ wollen – kein Schulaufsatz, keine Vorlesung.
    Sätze kann man streichen, ohne dass etwas fehlt – streichen und durch
    Substanz ersetzen. Die englische Fassung hält denselben Anspruch.
 
-`test_blog` prüft für jeden Beitrag ab dem 21.11.2026 Mindestlänge,
-Quellenzahl, Lesezeit und die Länge der englischen Fassung – erfüllt ein
+`test_blog` prüft für jeden Beitrag ab dem 21.11.2026 Mindest- und
+Höchstlänge, Quellenzahl, Lesezeit und die Länge der englischen Fassung – erfüllt ein
 Beitrag das nicht, ist der Test rot und der Beitrag geht nicht live.
 
 **Typen:**
@@ -87,8 +96,9 @@ Beitrag das nicht, ist der Test rot und der Beitrag geht nicht live.
   mit Einheit; wichtige Studien beim Namen (wer, wann, was gemessen wurde);
   was gesichert ist und was diskutiert wird. Geschrieben für interessierte
   Laien, nicht für Fachkollegen – am Ende ein Abschnitt „Was das für dein
-  Training heißt“ (EN „What it means for your training“). Mindestens 1.800
-  Wörter und acht Quellen, vorrangig Übersichtsarbeiten und
+  Training heißt“ (EN „What it means for your training“). 1.300–1.600
+  Wörter (7–8 Minuten – ein Mechanismus gründlich statt fünf oberflächlich)
+  und mindestens acht Quellen, vorrangig Übersichtsarbeiten und
   Grundlagenstudien, jede über Europe PMC geprüft; Fußnoten an jeder
   Aussage. Verweist auf passende Ratgeber und umgekehrt (Zone 2 ↔
   Mitochondrien, Carboloading ↔ Energie). Eine Tabelle oder eine schlichte

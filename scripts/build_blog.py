@@ -426,11 +426,14 @@ def seite(b: dict, sprache: str = "de") -> str:
 # unangetastet. Länge zählt den Text bis zum Abschlusskasten (ohne Quellen).
 QUALITAET_AB = "2026-11-21"
 MINDESTENS = {  # (Wörter im deutschen Text, Quellen)
-    "wissenschaft": (1800, 8),   # Serie Wissenschaft
+    "wissenschaft": (1300, 8),   # Serie Wissenschaft
     "Events": (900, 0),          # Event-Beiträge: Quellen, sobald sie etwas behaupten
-    "ratgeber": (1200, 3),       # alle anderen (Q und L)
+    "ratgeber": (1000, 3),       # alle anderen (Q und L)
 }
 WOERTER_JE_MINUTE = 200
+# Höchstens 8 Minuten Lesezeit (vom Nutzer am 20.11.2026: „Die Länge soll
+# jetzt aber auch nicht länger als 5-8min Lesezeit sein.“) – für jede Art.
+HOECHSTENS_WOERTER = 8 * WOERTER_JE_MINUTE
 VERBOTEN = ("Alle Tipps in diesem Beitrag sind Erfahrungswerte", "All tips in this article are based on experience")
 
 
@@ -459,6 +462,8 @@ def qualitaet(b: dict) -> list[str]:
     min_w, min_q = mindestens(b)
     if woerter < min_w:
         fehler.append(f"nur {woerter} Wörter, mindestens {min_w}")
+    if woerter > HOECHSTENS_WOERTER:
+        fehler.append(f"{woerter} Wörter, höchstens {HOECHSTENS_WOERTER} (8 Min. Lesezeit) – kürzen, nicht verdichten auf Kosten der Erklärung")
     if quellen < min_q:
         fehler.append(f"nur {quellen} Quellen, mindestens {min_q}")
     soll = -(-woerter // WOERTER_JE_MINUTE)
@@ -498,6 +503,31 @@ def seiten() -> list[tuple[dict, str]]:
 # Ohne lastmod bei den festen Seiten – sonst änderte sich die Datei mit
 # jedem Datenlauf ohne Inhalt; bei Beiträgen ist es ihr Datum.
 SITEMAP = WURZEL / "sitemap.xml"
+
+# Suchindex für das Suchfeld in blog.html (seit 20.11.2026, vom Nutzer: „ein
+# Suchfeld …, wo man nach Blogs (also Stichwörtern) suchen kann“): je Beitrag
+# der reine Text bis zum Abschlusskasten, deutsch und englisch – ohne
+# Quellenliste (Autorennamen wären Treffer, die niemand sucht). Die Übersicht
+# lädt die Datei erst beim ersten Tippen; Titel und Teaser kommen weiter aus
+# blog.json.
+SUCHE = WURZEL / "blog-suche.json"
+
+
+def reiner_text(text: str) -> str:
+    schnitt = text.find('<section class="beitrag-cta"')
+    vorn = text if schnitt < 0 else text[:schnitt]
+    vorn = re.sub(r'<sup class="q">.*?</sup>', "", vorn, flags=re.S)
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", vorn))).strip()
+
+
+def suchindex() -> str:
+    eintraege = {}
+    for b in sorted(beitraege(), key=lambda x: x["datum"], reverse=True):
+        eintrag = {"de": reiner_text((TEXTE / f"{b['slug']}.html").read_text(encoding="utf-8"))}
+        if hat_en(b):
+            eintrag["en"] = reiner_text((TEXTE_EN / f"{b['slug']}.html").read_text(encoding="utf-8"))
+        eintraege[b["slug"]] = eintrag
+    return json.dumps(eintraege, ensure_ascii=False, separators=(",", ":")) + "\n"
 SITEMAP_SEITEN = ("", "events.html", "karte.html", "clubs.html", "blog.html", "impressum.html", "datenschutz.html")
 
 
@@ -531,6 +561,8 @@ def veraltet() -> list[str]:
     alt += [f"en/{p.stem} (verwaist)" for p in verwaist()]
     if not SITEMAP.exists() or SITEMAP.read_text(encoding="utf-8") != sitemap():
         alt.append("sitemap.xml")
+    if not SUCHE.exists() or SUCHE.read_text(encoding="utf-8") != suchindex():
+        alt.append("blog-suche.json")
     return alt
 
 
@@ -553,6 +585,11 @@ def schreibe() -> int:
         SITEMAP.write_text(neu, encoding="utf-8")
         n += 1
         print("  sitemap.xml geschrieben")
+    neu = suchindex()
+    if not SUCHE.exists() or SUCHE.read_text(encoding="utf-8") != neu:
+        SUCHE.write_text(neu, encoding="utf-8")
+        n += 1
+        print("  blog-suche.json geschrieben")
     return n
 
 
