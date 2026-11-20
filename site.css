@@ -621,6 +621,18 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
    sortieren die Spaltenköpfe der Tabelle. */
 .filter-sheet { display: contents; }
 .sort-sheet, .filter-sheet-btn, .filter-sheet-kopf, .filter-sheet-fertig, .filter-sheet-scrim { display: none; }
+/* Der Abo-Knopf heißt seit dem 20.11.2026 „Updates abonnieren“ (vom
+   Nutzer: „Nenn es nicht Email Abo … sondern ‚Updates abonnieren‘“). So
+   lang passt er am Rechner erst ab 1366 px in die Filterzeile (bei 1280 px
+   rutschte er in eine zweite Zeile), auf dem Handy nicht in das Drittel
+   neben „Filter“ und „Sortieren“/„Standort“ - darunter steht deshalb die
+   kurze Fassung „Abonnieren“ mit der Glocke davor. Der Titel des Knopfs
+   sagt, dass die Updates per E-Mail kommen. */
+.abo-lang { display: none; }
+@media (min-width: 1366px) {
+  .abo-lang { display: inline; }
+  .abo-kurz { display: none; }
+}
 
 /* ---------- Laptop (bis 1366 px) ----------
    20 statt 28 px Seitenrand. 1366 x 768 ist die häufigste Windows-Auflösung

@@ -4228,7 +4228,15 @@ sagt es).
   wohnen ebenfalls im Modul; `events.html` behält nur Wrapper mit
   `currentLang` für die Tabelle.
 
-- **Abos sind Filter + Rhythmus** („Neue Events per E-Mail"). Der Knopf
+- **Abos sind Filter + Rhythmus** („Neue Events per E-Mail"). **Der Knopf heißt
+  seit dem 20.11.2026 „Updates abonnieren“** (EN „Get updates“; vom Nutzer: „Nenn es
+  nicht Email Abo … sondern ‚Updates abonnieren‘“) – so lang passt er erst ab 1366 px
+  in die Filterzeile, darunter und auf dem Handy steht „Abonnieren“ mit der Glocke
+  (`.abo-lang`/`.abo-kurz` in `site.css`, beide Spans in Liste und Karte; der Titel
+  sagt „per E-Mail“). Begrüßung (`auth.js`) und Blog sagen dasselbe; der Rauchtest
+  prüft beide Fassungen und die eine Filterzeile bei 1366/1280 px
+  (`pruefe_plattformen`). Dialog und Datenschutzerklärung sprechen weiter vom
+  E-Mail-Abo. Der Knopf
   steht in der Werkzeugleiste und ist **immer** erreichbar – die alte
   Box erschien nur bei null Treffern, wer „alle neuen Schwimm-Events in
   Thüringen" wollte, kam nie an sie heran. Die Box bei null Treffern

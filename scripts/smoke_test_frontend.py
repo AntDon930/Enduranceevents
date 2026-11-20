@@ -336,20 +336,23 @@ def pruefe_kacheln(ctx, basis):
             knapp: el.scrollWidth > el.clientWidth + 1 }));
         return { knopf: sichtbar(document.getElementById('filter-sheet-btn')),
                  abo: sichtbar(abo) && !document.getElementById('filter-sheet').contains(abo),
+                 aboText: abo.innerText.trim(),
                  pillenWeg: !sichtbar(document.querySelector('#filter-buttons .col-filter-btn')),
                  ersteTop: erste ? Math.round(erste.getBoundingClientRect().top) : null,
                  theadWeg: getComputedStyle(document.querySelector('thead')).display === 'none',
                  knoepfe, vw: document.documentElement.clientWidth }; }""")
     pruefe(blatt["knopf"] and blatt["pillenWeg"],
            "die Filterpillen liegen im Blatt, in der Leiste steht der Knopf „Filter“")
-    pruefe(blatt["abo"], "… und „E-Mail-Abo“ steht sichtbar in der Leiste, nicht im Blatt")
+    pruefe(blatt["abo"], "… und „Abonnieren“ (der Abo-Knopf) steht sichtbar in der Leiste, nicht im Blatt")
+    pruefe(blatt["aboText"] == "Abonnieren",
+           "auf dem Handy trägt der Abo-Knopf die kurze Fassung „Abonnieren“ (%s)" % blatt["aboText"])
     pruefe(blatt["ersteTop"] is not None and blatt["ersteTop"] < 420,
            "die erste Veranstaltung beginnt im Bild (bei %s px)" % blatt["ersteTop"])
     k = blatt["knoepfe"]
     pruefe(all(x["da"] for x in k) and len({x["top"] for x in k}) == 1
            and k[0]["left"] < k[1]["left"] < k[2]["left"] and k[2]["right"] <= blatt["vw"] + 1
            and not any(x["knapp"] for x in k),
-           "Filter – Sortieren – E-Mail-Abo stehen in dieser Reihenfolge in EINER Zeile, nichts abgeschnitten")
+           "Filter – Sortieren – Abonnieren stehen in dieser Reihenfolge in EINER Zeile, nichts abgeschnitten")
     pruefe(blatt["theadWeg"], "die Spaltenköpfe (Sortierpillen) sind weg – sortiert wird über den Knopf")
     seite.locator("#filter-sheet-btn").click()
     seite.wait_for_timeout(450)
@@ -690,6 +693,17 @@ def pruefe_plattformen(ctx, basis):
         tw = seite.evaluate("() => { const t = document.querySelector('.table-wrap'); return { w: t.clientWidth, s: t.scrollWidth, seite: document.documentElement.scrollHeight - innerHeight }; }")
         pruefe(tw["s"] <= tw["w"] + 1, "%d x %d: die Tabelle hat keinen waagerechten Scrollbalken (%d von %d px)" % (breite, hoehe, tw["s"], tw["w"]))
         pruefe(tw["seite"] <= 0, "%d x %d: die Seite selbst scrollt nicht (%d px Überhang)" % (breite, hoehe, tw["seite"]))
+        # Der Abo-Knopf (20.11.2026): „Updates abonnieren“ erst ab 1366 px,
+        # darunter „Abonnieren“ - beide Male bleibt die Filterzeile EINE Zeile.
+        abo = seite.evaluate("""() => {
+            const bar = document.getElementById('filter-bar');
+            const kids = [...bar.children].filter(k => k.getBoundingClientRect().height > 0);
+            return { text: document.getElementById('abo-open-btn').innerText.trim(),
+                     zeilen: new Set(kids.map(k => Math.round(k.getBoundingClientRect().top))).size }; }""")
+        soll = "Updates abonnieren" if breite >= 1366 else "Abonnieren"
+        pruefe(abo["text"] == soll and abo["zeilen"] == 1,
+               "%d px: der Abo-Knopf heißt „%s“, die Filterzeile bleibt eine Zeile (%s, %d)"
+               % (breite, soll, abo["text"], abo["zeilen"]))
     seite.close()
     start = ctx.new_page()
     for breite, hoehe in ((1366, 641), (1280, 577)):
@@ -1427,7 +1441,8 @@ def pruefe_willkommen(ctx, basis):
     })""")
     pruefe(stand["titel"] == "Willkommen!" and stand["punkte"] == 3,
            "die Begrüßung nennt den Nutzen in drei Punkten (%s, %d)" % (stand["titel"], stand["punkte"]))
-    pruefe("Abo" in stand["abo"] and stand["spaeter"], "Knöpfe „E-Mail-Abo einrichten“ und „Später“")
+    pruefe(stand["abo"] == "Updates abonnieren" and stand["spaeter"],
+           "Knöpfe „Updates abonnieren“ und „Später“ (%s)" % stand["abo"])
     seite.click("#ee-willkommen-abo")
     seite.wait_for_timeout(600)
     offen = seite.evaluate("""() => ({
@@ -2755,7 +2770,7 @@ def pruefe_karten_aufbau(seite):
         reihe = all(hl[k] and hl[k]["sichtbar"] for k in ("f", "st", "abo"))
         pruefe(reihe and abs(hl["f"]["t"] - hl["st"]["t"]) < 2 and abs(hl["st"]["t"] - hl["abo"]["t"]) < 2
                and hl["f"]["r"] <= hl["st"]["l"] and hl["st"]["r"] <= hl["abo"]["l"],
-               "Handy: „Filter – Standort – E-Mail-Abo“ in einer Zeile")
+               "Handy: „Filter – Standort – Abonnieren“ in einer Zeile")
         pruefe(bool(hl["lz"]) and hl["lz"]["sichtbar"] and reihe and hl["lz"]["t"] >= hl["f"]["b"]
                and hl["lz"]["h"] <= 24 and hl["ueberKarte"],
                "Handy: die Legende ist EINE Zeile unter den Knöpfen, über der Karte (%s px)"
@@ -2772,7 +2787,7 @@ def pruefe_karten_aufbau(seite):
            "in der Übersicht ist die Karte flach (Kacheln ausgeblendet)")
     pruefe(stand["beschriftet"] > 0, "Bündel tragen Ortsnamen (%d)" % stand["beschriftet"])
     pruefe(stand["referenz"] > 0, "Orientierungsorte sind zu sehen (%d)" % stand["referenz"])
-    pruefe("abos=1" in stand["abo"], "„E-Mail-Abo“ führt in die Liste und öffnet dort den Abo-Dialog")
+    pruefe("abos=1" in stand["abo"], "der Abo-Knopf führt in die Liste und öffnet dort den Abo-Dialog")
     # "Mein Standort" öffnet das Ort-Panel und drückt dort den
     # Standort-Knopf (ohne Erlaubnis bleibt es beim Status-Text).
     seite.locator("#standort-bar-btn" if stand["handy"] else ".standort-btn").click()

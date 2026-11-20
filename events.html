@@ -91,7 +91,7 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=2e857586">
+<link rel="stylesheet" href="site.css?v=49a6f457">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=acdd5b94">
@@ -980,7 +980,7 @@
   <button type="button" class="filter-sheet-fertig" id="filter-sheet-fertig"></button>
   </div>
   <!-- Sortieren (Handy und Tablet hochkant, bis 900 px): ein Knopf
-       zwischen „Filter" und „E-Mail-Abo" (vom Nutzer am 14.10.2026
+       zwischen „Filter" und „Abonnieren" (vom Nutzer am 14.10.2026
        gewünscht: „Filter – Sortieren – Abo") statt der Pillenreihe über
        den Kacheln. Er öffnet ein Blatt von unten mit den sortierbaren
        Spalten; buildHeader() füllt es, ein Tippen ruft denselben
@@ -1013,7 +1013,7 @@
       <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
       <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
     </svg>
-    <span id="abo-open-label"></span>
+    <span id="abo-open-label"><span class="abo-lang"></span><span class="abo-kurz"></span></span>
   </button>
 </div>
 <div class="filter-sheet-scrim" id="filter-sheet-scrim" hidden></div>
@@ -1192,7 +1192,8 @@
       // Der Knopf unter der letzten gezeichneten Zeile. Gefiltert und
       // sortiert wird über alle Events, gezeichnet nur ein Teil.
       mehr_btn: (schritt, rest) => `Weitere ${schritt} von ${rest} anzeigen`,
-      abo_open: 'E-Mail-Abo',
+      abo_open: 'Updates abonnieren',
+      abo_open_kurz: 'Abonnieren',
       abo_titel: 'Neue Events per E-Mail',
       abo_intro: 'Du bekommst eine E-Mail, sobald neue Events dazukommen, die zu dieser Suche passen.',
       abo_welche: 'Welche Events?',
@@ -1305,7 +1306,8 @@
       map: 'Map',
       result_count: (n) => `${n} events`,
       mehr_btn: (schritt, rest) => `Show ${schritt} more of ${rest}`,
-      abo_open: 'E-mail alerts',
+      abo_open: 'Get updates',
+      abo_open_kurz: 'Get updates',
       abo_titel: 'New events by e-mail',
       abo_intro: 'You will get an e-mail as soon as new events matching this search are added.',
       abo_welche: 'Which events?',
@@ -2014,7 +2016,11 @@
     // suche.sync() im render().
     groupToggleLabelEl.textContent = t('group_toggle');
     shareBtnLabelEl.textContent = t('share_search');
-    document.getElementById('abo-open-label').textContent = t('abo_open');
+    // Zwei Fassungen (20.11.2026, vom Nutzer: „Updates abonnieren“ statt
+    // „E-Mail-Abo“): Die lange passt am Rechner erst ab 1366 px in die
+    // Filterzeile, darunter und auf dem Handy steht die kurze (site.css).
+    document.querySelector('#abo-open-label .abo-lang').textContent = t('abo_open');
+    document.querySelector('#abo-open-label .abo-kurz').textContent = t('abo_open_kurz');
     document.getElementById('abo-open-btn').title = t('abo_titel');
     document.getElementById('fehlt-bar-text').textContent = t('fehlt_bar_text');
     const fehltKnopf = document.getElementById('fehlt-open-btn');

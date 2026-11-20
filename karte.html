@@ -113,7 +113,7 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Liste und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=2e857586">
+<link rel="stylesheet" href="site.css?v=49a6f457">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=acdd5b94">
@@ -529,7 +529,7 @@
          stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/>
     </svg>
-    <span id="abo-btn-text">E-Mail-Abo</span>
+    <span id="abo-btn-text"><span class="abo-lang">Updates abonnieren</span><span class="abo-kurz">Abonnieren</span></span>
   </a>
   <!-- Die Legende auf dem Handy: die vier Sportfarben in einer Zeile unter
        den Knöpfen (setLanguage); bei null Treffern der Hinweis. -->
@@ -626,7 +626,9 @@
       title: 'Karte',
       subtitle: 'Klicke auf einen Marker, um die Events an diesem Ort in der Liste zu sehen.',
       list: 'Liste',
-      abo: 'E-Mail-Abo',
+      abo: 'Updates abonnieren',
+      abo_kurz: 'Abonnieren',
+      abo_titel: 'Neue Events per E-Mail',
       standort_btn: 'Mein Standort',
       standort_kurz: 'Standort',
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende',
@@ -661,7 +663,9 @@
       title: 'Map',
       subtitle: 'Click a marker to see the events at that location in the list.',
       list: 'List',
-      abo: 'E-mail alerts',
+      abo: 'Get updates',
+      abo_kurz: 'Get updates',
+      abo_titel: 'New events by e-mail',
       standort_btn: 'My location',
       standort_kurz: 'Location',
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -1336,7 +1340,10 @@
     // Die Marke im Kopf heißt in beiden Sprachen gleich; der Untertitel
     // ist weg (die Zeile bleibt der Notbremse).
     listTextEl.textContent = t('list');
-    document.getElementById('abo-btn-text').textContent = t('abo');
+    // Zwei Fassungen wie in der Liste (site.css .abo-lang/.abo-kurz).
+    document.querySelector('#abo-btn-text .abo-lang').textContent = t('abo');
+    document.querySelector('#abo-btn-text .abo-kurz').textContent = t('abo_kurz');
+    document.getElementById('abo-btn').title = t('abo_titel');
     if (standortBtnText) standortBtnText.textContent = t('standort_btn');
     document.getElementById('standort-bar-text').textContent = t('standort_kurz');
     standortBarBtn.setAttribute('aria-label', t('standort_btn'));
