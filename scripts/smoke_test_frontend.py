@@ -804,7 +804,9 @@ def pruefe_startseite(ctx, basis):
             for (let pos = Math.max(0, max - 1500); pos <= max; pos += 50) {
                 scrollTo(0, pos); await warte();
                 const y = +halo.getAttribute('cy');
-                if (y < vorher - .01) zurueck = true;
+                // Erst hinter der Bahn: Auf der Runde im Clubs-Abschnitt (bis
+                // Welt-y 3390) läuft der Punkt absichtlich auch nach oben.
+                if (y < vorher - .01 && vorher > 3400) zurueck = true;
                 vorher = y;
             }
             scrollTo(0, max); await warte();
@@ -856,6 +858,40 @@ def pruefe_startseite(ctx, basis):
     seite.wait_for_timeout(500)
     aktiv = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link.aktiv')).map(a => a.dataset.station)")
     pruefe(aktiv == ["clubs"], "beim Sportplatz ist „Clubs“ orange (%s)" % aktiv)
+
+    # Die Runde auf der Bahn (20.11.2026, vom Nutzer: „die Laufgruppe soll
+    # bitte einmal rumlaufen und danach auf die Karte“): Im Clubs-Abschnitt
+    # läuft der Punkt einmal gegen den Uhrzeigersinn um die Bahn (unten nach
+    # rechts, rechts hinauf), bleibt dabei im Bild, und die gelaufene Runde
+    # steht danach ganz in Orange; vorher ist sie unsichtbar.
+    runde = seite.evaluate("""async () => {
+        const warte = () => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+        const halo = document.querySelector('#streifen svg.oben circle[r="44"]');
+        const linie = document.querySelector('#streifen svg.oben path.runde');
+        if (!halo || !linie) return null;
+        const max = document.documentElement.scrollHeight - innerHeight;
+        let vorher = null, nachher = null, unten = null, rechts = false, rechtsHoch = false, imBild = true, letztes = null;
+        for (let pos = 0; pos <= max; pos += 10) {
+            scrollTo(0, pos); await warte();
+            const x = +halo.getAttribute('cx'), y = +halo.getAttribute('cy');
+            if (y > 2860 && y < 2900 && vorher === null) vorher = linie.getAttribute('opacity');
+            if (y > 3420 && nachher === null) nachher = +linie.getAttribute('stroke-dashoffset');
+            if (+linie.getAttribute('opacity') > 0 && nachher === null) {
+                if (y > 3250 && unten === null) unten = x;
+                if (x > 640) { rechts = true; if (letztes && y < letztes[1] - 1) rechtsHoch = true; }
+                const b = halo.getBoundingClientRect();
+                if (b.top + b.height / 2 < 0 || b.top + b.height / 2 > innerHeight) imBild = false;
+            }
+            letztes = [x, y];
+            if (y > 3500) break;
+        }
+        return { vorher, nachher, unten: unten === null ? null : Math.round(unten), rechts, rechtsHoch, imBild };
+    }""")
+    pruefe(bool(runde) and runde["vorher"] == "0" and runde["rechts"] and runde["rechtsHoch"]
+           and runde["unten"] is not None and runde["unten"] < 640 and runde["imBild"]
+           and runde["nachher"] is not None and runde["nachher"] < 5,
+           "Clubs: der Punkt läuft einmal gegen den Uhrzeigersinn um die Bahn, bleibt im Bild, "
+           "die Runde steht danach in Orange (%s)" % runde)
 
     # Klick auf eine Info: Zoom, dann die Seite im selben Fenster
     with seite.expect_navigation(timeout=10000):

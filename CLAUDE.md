@@ -3431,6 +3431,20 @@ sagt es).
     vor jedem Wischen auf das Skript warten). Den Schwung eines schnellen
     Wischens kann er nicht abfangen – Safari tut das über
     `overscroll-behavior`. Rauchtest prüft Ebene und Sperre.
+  - **Eine Runde auf der Bahn** (20.11.2026, vom Nutzer: „bei dem Track Feld …
+    soll die Laufgruppe bitte einmal rumlaufen und danach auf die Karte“): Die
+    Strecke bleibt y-monoton (`probeBeiY`, `weltY`, `scrollFuer` hängen daran) und
+    führt nur an der linken Geraden vorbei. Punkt und Gruppe laufen über `WEG` =
+    die Proben der Strecke mit eingefügter Runde (an 350 | 2960 einmal gegen den
+    Uhrzeigersinn, Bahnmitte r 150); `wegIndex()` rechnet die Bildmitte zwischen
+    `RUNDE_VON` 2720 und `RUNDE_BIS` 3390 darauf um – am Rand im Tempo der
+    Strecke, dazwischen gleichmäßig schneller (`rampe()`, weiche Übergänge),
+    denn die Runde (~1.300 Einheiten) muss in 670 passen: am Rechner rund 190 px
+    Scrollen. Die gelaufene Runde bleibt als `path.runde` in `svg.oben` orange
+    stehen, die Hauptlinie wartet so lange an der Einfahrt (`streckenIndex`).
+    Wer die Bahn oder die Strecke dort verschiebt, zieht `rundeD` und die zwei
+    Grenzen nach. Rauchtest: Runde gegen den Uhrzeigersinn, im Bild, danach
+    orange; die Prüfung „läuft am Ende nie zurück“ zählt erst ab Welt-y 3400.
   - Die Vorschau liegt weiter als privates Artifact (Reise-Startseite);
     sie ist NICHT die Quelle – geändert wird `index.html`.
 - **„Mehr erfahren" auf der Startseite ist ein Link** (bis 11.11.2026, mit der Reise entfallen) (`<a
@@ -7199,6 +7213,21 @@ Verweise auf alte Nummern stehen in Klammern.
     als Material. Offen: ob die Figur von Szene zu Szene gleich bleibt,
     und die Lizenz der erzeugten Clips (für Instagram und die Seite) vor
     der Veröffentlichung prüfen.
+16. **Wings for Life „App Runs“ ansehen** (eingetragen am 20.11.2026, vom
+    Nutzer: „Nimm als to-do die App runs von wings for life auf. Die müssen
+    wir uns mal anschauen“). Stand: 194 Zeilen „Wings for Life - <Ort>“ am
+    09.05.2027 (161 Veranstaltungen, AT 128 / DE 60 / CH 6), fast alle mit
+    Link auf die Standortseite von wingsforlifeworldrun.com; 112 ausgeblendet
+    (`pruefung_offen`, meist ohne Distanz), 49 Veranstaltungen sichtbar,
+    einige mit `charity` per Override (Datenregel 17, Archiv Punkt 22). Zu
+    klären, bevor sich etwas ändert: Was ist ein „Organized App Run“ (ein
+    Treffpunkt mit Startzeit, gelaufen wird mit dem virtuellen Catcher Car in
+    der App) – fällt das unter „virtuelle Läufe“ (Datenregel 14, raus) oder
+    ist es ein Lauf an einem Ort und Termin (rein)? Was zeigen wir als Länge
+    (es gibt keine feste Strecke, die Strecken „5/10/15/20/40 km“ beim
+    Bsuch Bham Bsuch sind Ziele)? Bleiben die gut 100 kleinen Standorte
+    sichtbar, oder nur die großen? Erst die Klasse zählen und dem Nutzer die
+    Entscheidung vorlegen; keine `NICHT_AUSDAUER`-Zeile ohne sein Ja.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`

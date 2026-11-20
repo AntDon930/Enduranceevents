@@ -835,6 +835,52 @@
   el('path', { d, fill: 'none', stroke: '#edf1f7', 'stroke-opacity': '.28', 'stroke-width': 2.5, 'stroke-dasharray': '10 12' });
   const stadtG = el('g', {});
   const linie = el('path', { d, fill: 'none', stroke: '#e8590c', 'stroke-width': 9, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-dasharray': `${LAENGE} ${LAENGE}`, 'stroke-dashoffset': LAENGE }, oben);
+  // Clubs: eine Runde auf der Bahn (20.11.2026, vom Nutzer: „bei dem Track
+  // Feld auf der welcome Seite soll die Laufgruppe bitte einmal rumlaufen und
+  // danach auf die Karte“). Die Strecke selbst bleibt y-monoton (die ganze
+  // Scroll-Rechnung hängt daran) und führt nur an der linken Geraden der Bahn
+  // entlang (Bahnmitte x 350). Punkt und Gruppe laufen aber über einen
+  // gedachten Umweg WEG: oben an der linken Geraden (350 | 2960) einmal gegen
+  // den Uhrzeigersinn um die Bahn – Innenkante links, wie im Stadion – und
+  // dann auf der Strecke weiter zur Karte. wegIndex() rechnet die Bildmitte im
+  // Clubs-Abschnitt (RUNDE_VON bis RUNDE_BIS) auf diesen Weg um: an den Rändern
+  // so schnell wie die Strecke, in der Mitte schneller, damit die Runde in den
+  // Abschnitt passt. Die gelaufene Runde bleibt orange auf der Bahn stehen.
+  const RUNDE_VON = 2720, RUNDE_BIS = 3390;
+  const rundeD = 'M 350 2960 L 350 3140 A 150 150 0 0 0 650 3140 L 650 2960 A 150 150 0 0 0 350 2960';
+  const RUNDE = [];
+  let RUNDE_L;
+  {
+    const pfad = el('path', { d: rundeD, fill: 'none' });
+    RUNDE_L = pfad.getTotalLength();
+    for (let l = 3; l <= RUNDE_L; l += 3) { const q = pfad.getPointAtLength(l); RUNDE.push([q.x, q.y]); }
+    pfad.remove();
+  }
+  const erstesAb = (y) => PROBEN.findIndex((q) => q[2] >= y);
+  const RUNDE_EIN = erstesAb(2960), I_VON = erstesAb(RUNDE_VON), I_BIS = erstesAb(RUNDE_BIS);
+  const WEG = PROBEN.slice(0, RUNDE_EIN + 1).map((q) => [q[1], q[2]])
+    .concat(RUNDE, PROBEN.slice(RUNDE_EIN + 1).map((q) => [q[1], q[2]]));
+  function wegIndex(i, zielY) {
+    const n = RUNDE.length;
+    if (zielY <= RUNDE_VON) return Math.min(i, RUNDE_EIN);
+    if (zielY >= RUNDE_BIS) return Math.min(WEG.length - 1, Math.max(i, RUNDE_EIN + 1) + n);
+    // Tempo: am Rand das der Strecke, dazwischen gleichmäßig schneller (weiche
+    // Übergänge über je RAMPE des Abschnitts) - die Runde hat rund 1.300
+    // Einheiten, der Abschnitt nur 670.
+    const u = (zielY - RUNDE_VON) / (RUNDE_BIS - RUNDE_VON), r = I_BIS - I_VON;
+    return clamp(Math.round(I_VON + r * u + n / (1 - RAMPE) * rampe(u)), 0, WEG.length - 1);
+  }
+  const RAMPE = .2;
+  // Das Integral eines Tempos, das von 0 weich auf 1 steigt, oben bleibt und weich auf 0 fällt
+  function rampe(u) {
+    const auf = (w) => w / 2 - RAMPE / (2 * Math.PI) * Math.sin(Math.PI * w / RAMPE);
+    if (u < RAMPE) return auf(u);
+    if (u <= 1 - RAMPE) return RAMPE / 2 + (u - RAMPE);
+    return (1 - RAMPE) - auf(1 - u);
+  }
+  // Die Stelle auf der Strecke (für die orange Linie): während der Runde steht sie an der Einfahrt
+  const streckenIndex = (v) => v <= RUNDE_EIN ? v : v <= RUNDE_EIN + RUNDE.length ? RUNDE_EIN : v - RUNDE.length;
+  const rundeLinie = el('path', { class: 'runde', d: rundeD, fill: 'none', stroke: '#e8590c', 'stroke-width': 9, 'stroke-linecap': 'round', 'stroke-dasharray': `${RUNDE_L} ${RUNDE_L}`, 'stroke-dashoffset': RUNDE_L, opacity: 0 }, oben);
   const gruppe = [];
   for (let k = 1; k <= 7; k++) gruppe.push(el('circle', { r: (8 - k * .55).toFixed(2), fill: '#f97316', opacity: 0 }, oben));
   const halo = el('circle', { r: 44, fill: '#e8590c', opacity: '.25' }, oben);
@@ -984,8 +1030,12 @@
     const zielY = weltY(scrollY, max);
     sperreUnten(scrollY > max - vh);
     const i = probeBeiY(zielY);
-    const [len, x, y] = PROBEN[i];
-    linie.setAttribute('stroke-dashoffset', (LAENGE - len).toFixed(1));
+    const v = wegIndex(i, zielY);
+    const [x, y] = WEG[v];
+    linie.setAttribute('stroke-dashoffset', (LAENGE - PROBEN[streckenIndex(v)][0]).toFixed(1));
+    const gelaufen = Math.min(RUNDE_L, clamp(v - RUNDE_EIN, 0, RUNDE.length) * 3);
+    rundeLinie.setAttribute('stroke-dashoffset', (RUNDE_L - gelaufen).toFixed(1));
+    rundeLinie.setAttribute('opacity', gelaufen > 0 ? 1 : 0);
     punktX = x; punktY = y;
     const sym = symbolBei(y);
     if (sym !== aktivSymbol) {
@@ -1003,12 +1053,12 @@
       navLinks.forEach((b) => { const an = b.dataset.station === bereich; b.classList.toggle('aktiv', an); if (an) b.setAttribute('aria-current', 'location'); else b.removeAttribute('aria-current'); });
     }
     gruppe.forEach((c, k) => {
-      const j = i - (k + 1) * 11;
+      const j = v - (k + 1) * 11;
       if (j < 0) { c.setAttribute('opacity', 0); return; }
-      const q = PROBEN[j], q2 = PROBEN[Math.min(PROBEN.length - 1, j + 1)];
-      const dx = q2[1] - q[1], dy = q2[2] - q[2], n = Math.hypot(dx, dy) || 1;
-      const wackeln = ruhig ? 0 : Math.sin(q[0] / 20 + k * 1.7) * 8;
-      c.setAttribute('cx', (q[1] - dy / n * wackeln).toFixed(1)); c.setAttribute('cy', (q[2] + dx / n * wackeln).toFixed(1));
+      const q = WEG[j], q2 = WEG[Math.min(WEG.length - 1, j + 1)];
+      const dx = q2[0] - q[0], dy = q2[1] - q[1], n = Math.hypot(dx, dy) || 1;
+      const wackeln = ruhig ? 0 : Math.sin(j * 3 / 20 + k * 1.7) * 8;
+      c.setAttribute('cx', (q[0] - dy / n * wackeln).toFixed(1)); c.setAttribute('cy', (q[1] + dx / n * wackeln).toFixed(1));
       c.setAttribute('fill', farbe);
       c.setAttribute('opacity', (.85 - k * .09).toFixed(2));
     });
