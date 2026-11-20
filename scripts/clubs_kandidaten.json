@@ -2493,17 +2493,6 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
-  "schluessel": "strava:rightnow",
-  "name": "RightNOW Run Club",
-  "stadt": "Frankfurt am Main",
-  "art": "Laufen",
-  "instagram": "https://www.instagram.com/rightnow.runclub/",
-  "strava": "https://www.strava.com/clubs/rightnow",
-  "letzter_beleg": "2026-04-07",
-  "grund": "Nur in Journal Frankfurt (07.04.2026) namentlich genannt; kein Termin, Treffpunkt oder Beleg ab 07/2026",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
   "schluessel": "strava:scuderia-rosetti-social-cycling-club-511566",
   "name": "Scuderia Rosetti – Social Cycling Club",
   "stadt": "Frankfurt am Main",
@@ -2673,7 +2662,8 @@
   "strava": "https://www.strava.com/clubs/trail-running-club-315770",
   "letzter_beleg": null,
   "grund": "Nur Strava/Facebook, Bezug zu Graz und Treff unklar",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-20"
  },
  {
   "schluessel": "ig:windedrunclub",
@@ -3325,7 +3315,8 @@
   "strava": "https://www.strava.com/clubs/ndoclub",
   "letzter_beleg": null,
   "grund": "Strava nennt Community Runs Di/Mi/Do (Köln, Düsseldorf, Berlin), aber ohne Uhrzeit/Treffpunkt; Webseite passwortgeschützt",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-20"
  },
  {
   "schluessel": "ig:olivers.running.club",
@@ -3899,26 +3890,6 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
-  "schluessel": "strava:212228",
-  "name": "adidas Runners Munich",
-  "stadt": "München",
-  "art": "Laufen",
-  "strava": "https://www.strava.com/clubs/212228",
-  "letzter_beleg": null,
-  "grund": "Strava-Beschreibung nennt Mo Social Run 19 Uhr Türkenstraße 11, Mi Track 18:30 Himmelreichstraße 5, Do Girls Run; Strava 403, keine eigene datierte Quelle gefunden (Websuche)",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "ig:runnersmunich",
-  "name": "adidas Runners Munich",
-  "stadt": "München",
-  "art": "Laufen",
-  "instagram": "https://www.instagram.com/runnersmunich/",
-  "letzter_beleg": null,
-  "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
   "schluessel": "ig:bamboobicycleclub_munich",
   "name": "Bamboo Bicycle Club München",
   "stadt": "München",
@@ -4138,7 +4109,8 @@
   "webseite": "https://www.lauf-bar.de/",
   "letzter_beleg": null,
   "grund": "lauf-bar.de 403; Runner's World (Stand 16.05.2025, verweist auf Blog 2020) nennt Mittwoch 19:30 am Münchner Tor; Urban Sports Club ohne Kurse – kein Beleg 2026",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-20"
  },
  {
   "schluessel": "ig:laufen.liebe.crew_muc",
@@ -4355,17 +4327,6 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
-  "schluessel": "ig:the.pink.girls.club",
-  "name": "The Pink Girls Club",
-  "stadt": "München",
-  "art": "Laufen",
-  "instagram": "https://www.instagram.com/the.pink.girls.club/",
-  "strava": "https://www.strava.com/clubs/1531019",
-  "letzter_beleg": null,
-  "grund": "Frauen-Community Innsbruck & München laut Instagram; Strava 403, Instagram gesperrt, Websuche ohne Treffer – Termine und Städte offen",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
   "schluessel": "ig:tumcycling",
   "name": "TUM cycling club",
   "stadt": "München",
@@ -4434,7 +4395,8 @@
   "strava": "https://www.strava.com/clubs/1794460",
   "letzter_beleg": null,
   "grund": "Laut Strava-Beschreibung wöchentliche Läufe mit Kaffee; Strava aus der Sandbox gesperrt (403), kein Termin/Treffpunkt/Datum",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-20"
  },
  {
   "schluessel": "ig:gbm_cyclingclub",
@@ -4516,16 +4478,6 @@
   "instagram": "https://www.instagram.com/runlikeagirl.official/",
   "letzter_beleg": null,
   "grund": "Profiltext nennt Training dienstags 18 Uhr in Nürnberg; kein Treffpunkt, kein datierter Beleg (Websuche ohne Treffer)",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "strava:1564940",
-  "name": "Südstadt Runners",
-  "stadt": "Nürnberg",
-  "art": "Laufen",
-  "strava": "https://www.strava.com/clubs/1564940",
-  "letzter_beleg": null,
-  "grund": "Laut Strava-Beschreibung offener Lauf für jedes Tempo; Strava 403, Websuche ohne Treffer",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
@@ -5014,16 +4966,6 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
-  "schluessel": "strava:316723",
-  "name": "Trailrunning Vienna",
-  "stadt": "Wien",
-  "art": "Laufen",
-  "letzter_beleg": "2025-05-10",
-  "grund": "nur gelegentliche Gratis-Trailläufe laut Facebook; letzter gefundener Beleg Community-Event 10.05.2025; kein fester Treff",
-  "strava": "https://www.strava.com/clubs/316723",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
   "schluessel": "strava:vicc",
   "name": "VICC – Vienna International Cycle Club",
   "stadt": "Wien",
@@ -5212,17 +5154,6 @@
   "grund": "Strava lädt zu Ausfahrten ein, aber kein Wochentag/Treffpunkt und kein datierter Beleg gefunden",
   "strava": "https://www.strava.com/clubs/klabhaus",
   "instagram": "https://www.instagram.com/klabhaus/",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "strava:1595470",
-  "name": "Run Club Zurich",
-  "stadt": "Zürich",
-  "art": "Laufen",
-  "letzter_beleg": null,
-  "grund": "Webseite „under construction“, Strava ohne Termine; kein Plan, kein Beleg",
-  "strava": "https://www.strava.com/clubs/1595470",
-  "webseite": "https://www.runclubzurich.com",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {

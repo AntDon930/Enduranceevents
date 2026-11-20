@@ -3560,12 +3560,6 @@
     "rhythmus": "woechentlich",
     "wochentag": 4,
     "uhrzeit": "17:30"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-19",
-    "uhrzeit": "17:45",
-    "bezeichnung": "Glühlauf, danach Glühwein und Apfelsaft im Nachbarschaftsraum"
    }
   ],
   "instagram": "https://www.instagram.com/hdbergheim/",
@@ -6595,12 +6589,6 @@
     "ab": "2026-06-18",
     "wochentag": 4,
     "uhrzeit": "18:30"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-19",
-    "uhrzeit": "18:00",
-    "bezeichnung": "42. SocialRun: 4–5 km an der Mur ab dem Kunsthaus"
    }
   ],
   "distanz_km": [
@@ -8344,12 +8332,6 @@
     "rhythmus": "woechentlich",
     "wochentag": 2,
     "uhrzeit": "06:15"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-19",
-    "uhrzeit": "06:15",
-    "bezeichnung": "6:ZH goes Trail: 7,5 km, 400 Hm, Treffpunkt Tramhaltestelle Triemli"
    }
   ],
   "distanz_km": [
@@ -16038,9 +16020,11 @@
   "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, two laps in Wienburgpark; walkers, joggers and runners welcome.",
   "quelle": [
    "https://images.parkrun.com/events.json",
-   "https://parkruns.de/wienburgpark"
+   "https://parkruns.de/wienburgpark",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20"
  },
  {
   "id": "bochum-kemnadersee-parkrun",
@@ -19041,9 +19025,10 @@
   "beschreibung_en": "Monday evening run from Varresbeck station in two groups: First Miles (about 6 km, 7:00–8:30 min/km) and Second Miles (about 8 km, about 6:00 min/km).",
   "quelle": [
    "https://socialrunclubs.de/wuppertal/first-miles-running-club/",
-   "https://www.strava.com/clubs/1582958"
+   "https://www.strava.com/clubs/1582958",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-20",
   "distanz_km": [
    6,
    8
@@ -19055,7 +19040,8 @@
   "merkmale": [
    "mehrere_gruppen",
    "anfaengerfreundlich"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-20"
  },
  {
   "id": "wuppertal-runclub42",
@@ -19107,9 +19093,11 @@
   "beschreibung_en": "Community run for all paces on Thursday evenings from the Utopiastadt car park, no pressure.",
   "quelle": [
    "https://socialrunclubs.de/wuppertal/swarm-running-people/",
-   "https://www.strava.com/clubs/1705543"
+   "https://www.strava.com/clubs/1705543",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20"
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20"
  },
  {
   "id": "wuppertal-tal-tiger",
@@ -19117,9 +19105,9 @@
   "art": "Laufen",
   "stadt": "Wuppertal",
   "land": "Deutschland",
-  "treffpunkt": "Nordbahntrasse (laut socialrunclubs.de am Mirker Bahnhof)",
-  "lat": 51.26617,
-  "lon": 7.14346,
+  "treffpunkt": "Mirker Bahnhof, Mirker Straße 48 (Utopiastadt)",
+  "lat": 51.26671,
+  "lon": 7.14491,
   "termine": [
    {
     "rhythmus": "woechentlich",
@@ -19133,14 +19121,14 @@
   "beschreibung_en": "Sunday run from Mirker Bahnhof.",
   "quelle": [
    "https://socialrunclubs.de/wuppertal/tal-tiger-runclub/",
-   "https://www.strava.com/clubs/1609827"
+   "https://www.strava.com/clubs/1609827",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Eigener Strava-Club bestätigt „Sonntag • 11:00 Uhr • Nordbahntrasse, afterwards Isas Plätzchen“ – genauer Startpunkt an der Nordbahntrasse fehlt (socialrunclubs.de: Mirker Bahnhof); keine Club-Beiträge 2026",
+  "geprueft": "2026-11-20",
   "merkmale": [
    "kaffee"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-20"
  },
  {
   "id": "wuppertal-running-club",
@@ -19148,9 +19136,9 @@
   "art": "Laufen",
   "stadt": "Wuppertal",
   "land": "Deutschland",
-  "treffpunkt": "Mirker Bahnhof",
-  "lat": 51.26617,
-  "lon": 7.14346,
+  "treffpunkt": "Mirker Bahnhof, Mirker Straße 48 (Utopiastadt)",
+  "lat": 51.26671,
+  "lon": 7.14491,
   "termine": [
    {
     "rhythmus": "woechentlich",
@@ -19164,11 +19152,11 @@
   "beschreibung_en": "Wednesday run from Mirker Bahnhof (meet 18:30, start 19:00).",
   "quelle": [
    "https://socialrunclubs.de/wuppertal/wuppertal-running-club/",
-   "https://www.strava.com/clubs/wtalrunning"
+   "https://www.strava.com/clubs/wtalrunning",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Strava-Club: wöchentlicher „Wtal Weekly Run“, letzter Club-Beitrag 21.01.2026 (ein Mittwoch), 2025 auch donnerstags, Treff in Beiträgen an der Utopiastadt/Café Hutmacher; Uhrzeit (Mi 19:00) und fester Wochentag nur auf socialrunclubs.de"
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20"
  },
  {
   "id": "muenchen-run-and-chill",
@@ -19307,12 +19295,6 @@
     "wochentag": 6,
     "uhrzeit": "10:00",
     "bezeichnung": "Social Road Ride"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-19",
-    "uhrzeit": "19:00",
-    "bezeichnung": "Night Ride, ca. 58 km Straße, Schnitt über 31 km/h, nur für Erfahrene (Licht, Klickpedale, Helm Pflicht)"
    },
    {
     "rhythmus": "einmalig",
@@ -23852,9 +23834,11 @@
   "beschreibung_en": "Sunday run of 5 or 10 km at a very easy pace through the English Garden, followed by brunch at Lost Weekend café.",
   "quelle": [
    "https://www.meetup.com/social-run-brunch-englischer-garten/",
-   "https://socialrunclubs.de/muenchen/sundayrunday/"
+   "https://socialrunclubs.de/muenchen/sundayrunday/",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20"
  },
  {
   "id": "muenchen-sunrise-striders",
@@ -30758,5 +30742,321 @@
   ],
   "geprueft": "2026-11-19",
   "zuletzt_aktiv": "2026-11-19"
+ },
+ {
+  "id": "nuernberg-suedstadt-runners",
+  "name": "Südstadt Runners",
+  "art": "Laufen",
+  "stadt": "Nürnberg",
+  "treffpunkt": "Casablanca Filmkunsttheater, Brosamerstraße 12 (Südstadt)",
+  "lat": 49.43811,
+  "lon": 11.08127,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 5,
+    "uhrzeit": "17:00"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/1564940",
+  "merkmale": [
+   "anfaengerfreundlich",
+   "no_drop"
+  ],
+  "beschreibung_de": "Freitagslauf ab dem Casablanca in der Nürnberger Südstadt: Alle starten und kommen gemeinsam an, jedes Tempo ist willkommen.",
+  "beschreibung_en": "Friday run from the Casablanca cinema in Nuremberg's Südstadt: everyone starts and finishes together, every pace is welcome.",
+  "land": "Deutschland",
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20",
+  "quelle": [
+   "https://www.strava.com/clubs/1564940",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "id": "muenchen-pink-girls-club",
+  "name": "The Pink Girls Club – Girls Run MUC",
+  "art": "Laufen",
+  "stadt": "München",
+  "treffpunkt": "Eduard-Schmid-Straße 12 (an der Reichenbachbrücke)",
+  "lat": 48.12776,
+  "lon": 11.58082,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 2,
+    "uhrzeit": "07:30",
+    "bezeichnung": "5 km, ca. 7:00 min/km, danach Kaffee im Plex"
+   }
+  ],
+  "distanz_km": [
+   5,
+   5
+  ],
+  "pace": {
+   "von": "7:00",
+   "bis": "7:00"
+  },
+  "strava": "https://www.strava.com/clubs/1531019",
+  "instagram": "https://www.instagram.com/the.pink.girls.club/",
+  "merkmale": [
+   "frauen",
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Lockerer Frauenlauf am Dienstagmorgen an der Isar: 5 km im Plaudertempo, danach gemeinsamer Kaffee.",
+  "beschreibung_en": "Easy women's run on Tuesday mornings by the Isar: 5 km at chatty pace, coffee together afterwards.",
+  "land": "Deutschland",
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20",
+  "quelle": [
+   "https://www.strava.com/clubs/1531019",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "id": "innsbruck-pink-girls-club",
+  "name": "The Pink Girls Club – Girls Run IBK",
+  "art": "Laufen",
+  "stadt": "Innsbruck",
+  "land": "Österreich",
+  "treffpunkt": "Marktplatz",
+  "lat": 47.26788,
+  "lon": 11.39057,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "07:30",
+    "bezeichnung": "ca. 7:00 min/km, danach Kaffee im LaPausa"
+   }
+  ],
+  "pace": {
+   "von": "7:00",
+   "bis": "7:00"
+  },
+  "strava": "https://www.strava.com/clubs/1531019",
+  "instagram": "https://www.instagram.com/the.pink.girls.club/",
+  "merkmale": [
+   "frauen",
+   "anfaengerfreundlich",
+   "kaffee"
+  ],
+  "beschreibung_de": "Lockerer Frauenlauf am Mittwochmorgen ab dem Innsbrucker Marktplatz, im Plaudertempo, danach gemeinsamer Kaffee.",
+  "beschreibung_en": "Easy women's run on Wednesday mornings from Innsbruck's Marktplatz at chatty pace, coffee together afterwards.",
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20",
+  "quelle": [
+   "https://www.strava.com/clubs/1531019",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "id": "frankfurt-rightnow-run-club",
+  "name": "RightNOW Club – Snoozers Stay Home",
+  "art": "Laufen",
+  "stadt": "Frankfurt am Main",
+  "treffpunkt": "Café Zweigleb, Neue Mainzer Straße 66–68",
+  "lat": 50.11316,
+  "lon": 8.67188,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "07:00",
+    "bezeichnung": "7 km, ca. 6:00 min/km, danach Kaffee"
+   }
+  ],
+  "distanz_km": [
+   7,
+   7
+  ],
+  "pace": {
+   "von": "6:00",
+   "bis": "6:00"
+  },
+  "strava": "https://www.strava.com/clubs/rightnow",
+  "instagram": "https://www.instagram.com/rightnow.runclub/",
+  "merkmale": [
+   "kaffee"
+  ],
+  "beschreibung_de": "Montagmorgenlauf vor der Arbeit: 7 km mit gemeinsamem Aufwärmen ab dem Café Zweigleb in der Innenstadt, danach Kaffee.",
+  "beschreibung_en": "Monday morning run before work: 7 km with a group warm-up from Café Zweigleb in the city centre, coffee afterwards.",
+  "land": "Deutschland",
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20",
+  "quelle": [
+   "https://www.strava.com/clubs/rightnow",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "id": "zuerich-run-club-zurich",
+  "name": "Run Club Zurich – Run Store Social Run",
+  "art": "Laufen",
+  "stadt": "Zürich",
+  "land": "Schweiz",
+  "treffpunkt": "Run Store Zurich, Niederdorfstrasse 18",
+  "lat": 47.37358,
+  "lon": 8.54387,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-21",
+    "uhrzeit": "10:00",
+    "bezeichnung": "Social Run 10 km, flach, 5:30–6:00 min/km"
+   }
+  ],
+  "distanz_km": [
+   10,
+   10
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:00"
+  },
+  "strava": "https://www.strava.com/clubs/1595470",
+  "webseite": "https://www.runclubzurich.com",
+  "beschreibung_de": "Lockerer 10-km-Social-Run der Community des Run Store Zurich ab der Niederdorfstrasse.",
+  "beschreibung_en": "Easy 10 km social run of the Run Store Zurich community from Niederdorfstrasse.",
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20",
+  "quelle": [
+   "https://www.strava.com/clubs/1595470",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "id": "wien-trailrunning-vienna",
+  "name": "Trailrunning Vienna – Neujahrslauf U4-U4",
+  "art": "Laufen",
+  "stadt": "Wien",
+  "land": "Österreich",
+  "treffpunkt": "Bahnhof Heiligenstadt, große Halle (neben den ÖBB-Schaltern)",
+  "lat": 48.24898,
+  "lon": 16.36555,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2027-01-01",
+    "uhrzeit": "10:30",
+    "bezeichnung": "Neujahrs-Traillauf über die Wiener Hausberge von Heiligenstadt nach Hütteldorf"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/316723",
+  "beschreibung_de": "Traditioneller Neujahrs-Traillauf der Community: von Heiligenstadt über die Wiener Hausberge nach Hütteldorf.",
+  "beschreibung_en": "The community's traditional New Year's Day trail run: from Heiligenstadt across Vienna's local hills to Hütteldorf.",
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20",
+  "quelle": [
+   "https://www.strava.com/clubs/316723",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "strava": "https://www.strava.com/clubs/212228",
+  "instagram": "https://www.instagram.com/runnersmunich/",
+  "art": "Laufen",
+  "stadt": "München",
+  "id": "muenchen-adidas-runners-social-run",
+  "name": "adidas Runners Munich – Social Run",
+  "treffpunkt": "sweetspot, Hohenzollernstraße 146 (im Hof)",
+  "lat": 48.16101,
+  "lon": 11.56433,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "19:00",
+    "bezeichnung": "Treffen 18:45, 45–60 min in Tempogruppen von 4:30 bis 6:30 min/km"
+   }
+  ],
+  "pace": {
+   "von": "4:30",
+   "bis": "6:30"
+  },
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Kostenloser Social Run am Montagabend in mehreren Tempogruppen; Check-in über die adidas-Running-App.",
+  "beschreibung_en": "Free social run on Monday evenings in several pace groups; check in via the adidas Running app.",
+  "land": "Deutschland",
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20",
+  "quelle": [
+   "https://www.strava.com/clubs/212228",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "strava": "https://www.strava.com/clubs/212228",
+  "instagram": "https://www.instagram.com/runnersmunich/",
+  "art": "Laufen",
+  "stadt": "München",
+  "id": "muenchen-adidas-runners-intervals",
+  "name": "adidas Runners Munich – Intervals",
+  "treffpunkt": "Top4Running, Oberanger 16",
+  "lat": 48.13532,
+  "lon": 11.5718,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:30",
+    "bezeichnung": "Treffen 18:20, gemeinsamer Lauf zur Theresienwiese oder Isar, Intervalle im eigenen Tempo"
+   }
+  ],
+  "merkmale": [
+   "gepaeck"
+  ],
+  "beschreibung_de": "Intervalltraining am Mittwochabend: Einlaufen ab dem Top4Running-Store, Intervalle im eigenen Tempo, Bag-Drop vorhanden.",
+  "beschreibung_en": "Interval session on Wednesday evenings: warm-up run from the Top4Running store, intervals at your own pace, bag drop available.",
+  "land": "Deutschland",
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20",
+  "quelle": [
+   "https://www.strava.com/clubs/212228",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "strava": "https://www.strava.com/clubs/212228",
+  "instagram": "https://www.instagram.com/runnersmunich/",
+  "art": "Laufen",
+  "stadt": "München",
+  "id": "muenchen-adidas-runners-girls-run",
+  "name": "adidas Runners Munich – Girls Run",
+  "treffpunkt": "Zeit für Brot, Amalienstraße 59",
+  "lat": 48.14992,
+  "lon": 11.57804,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "07:00",
+    "bezeichnung": "Treffen 6:50, 6–7 km in zwei Tempogruppen"
+   }
+  ],
+  "distanz_km": [
+   6,
+   7
+  ],
+  "pace": {
+   "von": "5:00",
+   "bis": "6:30"
+  },
+  "merkmale": [
+   "frauen",
+   "kaffee"
+  ],
+  "beschreibung_de": "Kostenloser Frauenlauf am Donnerstagmorgen: 6–7 km in zwei Tempogruppen, danach Kaffee bei Zeit für Brot.",
+  "beschreibung_en": "Free women's run on Thursday mornings: 6–7 km in two pace groups, coffee at Zeit für Brot afterwards.",
+  "land": "Deutschland",
+  "geprueft": "2026-11-20",
+  "zuletzt_aktiv": "2026-11-20",
+  "quelle": [
+   "https://www.strava.com/clubs/212228",
+   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
+  ]
  }
 ]
