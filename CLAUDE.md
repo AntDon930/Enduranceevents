@@ -5737,6 +5737,26 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Umfeld unscharf; Profil-Gesichter kommen trotz „no face“ – „filmed from
   behind, only legs and hands“; gleiche Kulisse über ein Standbild der
   vorigen Szene als `referenceImages`.
+- **Erklär-Reel „Zahl als Bild“ (seit 22.11.2026) – ERSTE PRIORITÄT beim
+  Instagram-Content** (vom Nutzer am 22.11.2026 nach einem Vorbild-Reel:
+  „dann machen wir ein paar Animationsvideos und erklären ein paar Themen.
+  Das wäre die erste Priorität. Als zweite können wir auch Slides machen bei
+  nicht so interessanten Themen, wie bereits bei dem Carbloading“):
+  `scripts/insta_erklaer.py <vorlage> --aus reel.mp4 [--stimme x.mp3]
+  [--bogen b.png]`, Vorlage `marketing/instagram/erklaer/<thema>.json`
+  (`szenen[]` mit `bild` = Zeichenroutine aus `SZENEN` und `text` =
+  Sprecher und Untertitel). Muster: Frage als Hook → raten lassen (Figur
+  fliegt vom Laufband) → Entwarnung → die Zahl als Bild → etwas zum
+  Mitnehmen → Schluss mit Kommentar-Frage; Untertitel Wort für Wort, das
+  gesprochene Wort Coral hinterlegt. **Bilder selbst gezeichnet (Pillow →
+  ffmpeg), NICHT aus Runway** – Zahlen/Schrift müssen exakt sein, die Figur
+  in jeder Szene dieselbe (Maskottchen frontal aus `insta_maskottchen`,
+  Seitenansicht `laeufer()` im Modul); von Runway nur die Stimme (Dennis,
+  mit Ja des Nutzers). Inhalt endet bei y ≈ 1500 (Instagram-Leiste), Barlow
+  Condensed hat kein „≈“/„Ø“. Das Vorbild nie kopieren (eigene Themen,
+  Szenen, Farben). Jede Aussage vor der Veröffentlichung belegen, am besten
+  mit Blogbeitrag. Erster Entwurf: `schwelle` (ohne Sprecher, Belege offen,
+  noch kein Test). Zweite Priorität: Karussells (Slides) für ruhigere Themen.
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für
