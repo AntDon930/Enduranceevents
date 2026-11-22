@@ -2164,21 +2164,30 @@ def pruefe_statistik_dashboard(ctx, basis):
         pruefe("liste-oben" in stand["werbung"] and "%" in stand["werbung"],
                "Werbeplätze: Einblendungen, Klicks und Klickrate")
         pruefe(stand["ueberlauf"] <= 0, "kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
-        # Was ansteht (12.11.2026): sieben Tage ab heute aus wochenplan.json,
-        # ein Montag (Datenlauf) und ein Blog-Termin (Mo/Do) liegen immer
-        # darin; Antippen zeigt die Einzelheiten unter dem Tag.
+        # Was ansteht (12.11.2026, seit dem 22.11.2026 nur heute und morgen –
+        # vom Nutzer: „Der ist am Anfang so groß und unübersichtlich“): zwei
+        # Tage aus wochenplan.json, genau deren Termine, darunter „Danach“
+        # mit dem nächsten Blog; Antippen zeigt die Einzelheiten unter dem Tag.
         seite.wait_for_selector("#plan-card .plan-tag", state="attached", timeout=10000)
-        plan = seite.evaluate("""() => {
+        plan = seite.evaluate("""async () => {
+            const d = new Date();
+            const iso = (x) => `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, '0')}-${String(x.getDate()).padStart(2, '0')}`;
+            const heute = iso(d), morgen = iso(new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1));
+            const wp = await (await fetch('wochenplan.json', { cache: 'no-store' })).json();
             const tage = Array.from(document.querySelectorAll('#plan-card .plan-tag'));
-            const texte = tage.map(t => t.textContent);
-            return { tage: tage.length, heute: tage[0] && tage[0].classList.contains('heute'),
-                     datenlauf: texte.some(x => x.includes('Datenlauf')),
-                     blog: Array.from(document.querySelectorAll('#plan-card .plan-titel')).some(x => x.textContent.startsWith('Blog')),
-                     monatssuche: document.querySelector('#plan-card').textContent.includes('Monatssuche'),
+            const card = document.querySelector('#plan-card');
+            return { tage: tage.map(t => t.dataset.tag), heute, morgen,
+                     erstesHeute: tage[0] && tage[0].classList.contains('heute'),
+                     termine: card.querySelectorAll('.plan-termin').length,
+                     erwartet: wp.termine.filter(x => x.datum === heute || x.datum === morgen).length,
+                     danachBlog: Array.from(card.querySelectorAll('.plan-unten li')).some(x => x.textContent.includes('Blog')),
+                     legende: card.querySelectorAll('.plan-legende span').length,
                      ueberlauf: document.documentElement.scrollWidth - innerWidth }; }""")
-        pruefe(plan["tage"] == 7 and plan["heute"] and plan["datenlauf"] and plan["blog"],
-               "Was ansteht: sieben Tage ab heute, Datenlauf und Blog darin (%s)" % plan)
-        pruefe(plan["monatssuche"], "Was ansteht: die Monatssuche steht im Kalender oder unter „Danach“")
+        pruefe(plan["tage"] == [plan["heute"], plan["morgen"]] and plan["erstesHeute"]
+               and plan["termine"] == plan["erwartet"] and plan["termine"] > 0,
+               "Was ansteht: heute und morgen, genau deren Termine aus wochenplan.json (%s)" % plan)
+        pruefe(plan["danachBlog"], "Was ansteht: der nächste Blog steht unter „Danach“")
+        pruefe(0 < plan["legende"] <= 7, "Was ansteht: die Legende nennt nur vorkommende Arten (%s)" % plan["legende"])
         seite.click("#plan-card .plan-termin")
         seite.wait_for_selector("#plan-detail:not([hidden])", timeout=5000)
         detail = seite.evaluate("""() => { const d = document.getElementById('plan-detail');
@@ -2186,7 +2195,7 @@ def pruefe_statistik_dashboard(ctx, basis):
                      ueberlauf: document.documentElement.scrollWidth - innerWidth }; }""")
         pruefe(detail["text"] > 20 and detail["unterTag"] and detail["ueberlauf"] <= 0 and plan["ueberlauf"] <= 0,
                "Was ansteht: Antippen öffnet die Einzelheiten direkt unter dem Tag, kein Überlauf auf 390 px (%s)" % detail)
-        # Am Rechner/iPad quer: sieben Spalten nebeneinander, die Einzelheiten
+        # Am Rechner/iPad quer: die zwei Tage nebeneinander, die Einzelheiten
         # unter dem ganzen Kalender.
         seite.set_viewport_size({"width": 1180, "height": 820})
         seite.click("#plan-card .plan-termin")   # schließt
@@ -2194,10 +2203,11 @@ def pruefe_statistik_dashboard(ctx, basis):
         breit = seite.evaluate("""() => { const t = Array.from(document.querySelectorAll('#plan-card .plan-tag'));
             const d = document.getElementById('plan-detail');
             return { reihe: new Set(t.map(x => Math.round(x.getBoundingClientRect().top))).size,
+                     hoehe: Math.round(document.querySelector('#plan-card').getBoundingClientRect().height),
                      unterWoche: !d.hidden && d.previousElementSibling.classList.contains('plan-woche'),
                      ueberlauf: document.documentElement.scrollWidth - innerWidth }; }""")
         pruefe(breit["reihe"] == 1 and breit["unterWoche"] and breit["ueberlauf"] <= 0,
-               "Was ansteht auf 1180 px: sieben Tage in einer Reihe, Einzelheiten darunter (%s)" % breit)
+               "Was ansteht auf 1180 px: beide Tage in einer Reihe, Einzelheiten darunter (%s)" % breit)
         seite.set_viewport_size({"width": 390, "height": 844})
 
         # Die Tagestabelle aufgeklappt (10.11.2026, vom Nutzer auf dem iPhone
@@ -2730,7 +2740,18 @@ def pruefe_cluster(seite):
         .map(el => el.textContent).sort().join(',')"""
     vorher_bild = seite.evaluate(bild)
     vorher = zahlen["buendel"] + zahlen["orte"]
-    seite.locator(".cluster-badge").first.click()
+    # Angeklickt wird das erste Bündel, das an seiner Mitte FREI liegt:
+    # Am 22.11.2026 lag das erste im DOM unter einem Nachbarbündel bzw. unter
+    # dem Schalter Events/Clubs, Playwright wartete 30 s auf einen Klick, und
+    # vier Deploys hintereinander blieben hinter dem Gate (sechste Begegnung
+    # mit „kein fester Index in den Prüfungen“, siehe CLAUDE.md).
+    frei = seite.evaluate("""() => Array.from(document.querySelectorAll('.cluster-badge')).findIndex(el => {
+        const r = el.getBoundingClientRect();
+        const treffer = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+        const marker = el.closest('.leaflet-marker-icon');
+        return !!(treffer && marker && marker.contains(treffer)); })""")
+    pruefe(frei >= 0, "ein Bündel liegt frei und lässt sich anklicken (Index %d)" % frei)
+    seite.locator(".cluster-badge").nth(max(frei, 0)).click()
     seite.wait_for_timeout(1500)
     nachher = (seite.locator(".cluster-badge").count()
                + seite.locator(".marker-badge").count())

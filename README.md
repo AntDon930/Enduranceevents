@@ -2480,13 +2480,16 @@ in Kalenderformat und dann was alles ansteht. Wann suchst du nach welchen
 Daten, wann wird ein Blog veröffentlicht, welcher Blog wird veröffentlicht,
 Wann suchst du nach weiteren Events,…“
 
-Ganz oben in `admin.html` steht der Bereich **„Was ansteht“**: sieben
-Spalten ab heute (auf dem Handy ein Tag je Zeile), je Termin Uhrzeit, Titel
+Ganz oben in `admin.html` steht der Bereich **„Was ansteht“**: zwei
+Spalten, heute und morgen (auf dem Handy ein Tag je Zeile; bis zum
+22.11.2026 waren es sieben Tage, vom Nutzer: „Der ist am Anfang so groß und
+unübersichtlich“, Konstante `PLAN_TAGE`), je Termin Uhrzeit, Titel
 und wer ihn erledigt (automatisch, geplante Aufgabe, mit Claude in deiner
 Sitzung, du); Antippen zeigt die Einzelheiten. Darunter „Laufend“
 (Instagram-Vorschau jeden Morgen, Statistik stündlich, Deploy bei jedem
-Push, Korrekturseite) und „Danach“ (die nächste Monatssuche, Quartals-Check,
-Erinnerungen).
+Push, Korrekturseite) und „Danach“ (der nächste Blog mit Thema, die nächste Monatssuche,
+Quartals-Check, Erinnerungen; höchstens fünf). Die Legende nennt nur die
+Arten, die auf der Karte vorkommen.
 
 Die Daten kommen aus `wochenplan.json`, gebaut von `scripts/wochenplan.py`
 im Pages-Workflow (nach dem Instagram-Plan, nie committet, 60 Tage weit):

@@ -118,7 +118,7 @@
   .plan-legende { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0 0 12px; font-size: 0.8rem; color: var(--text-muted); }
   .plan-legende span { display: inline-flex; align-items: center; gap: 6px; }
   .plan-legende i { width: 10px; height: 10px; border-radius: 3px; background: var(--pa); }
-  .plan-woche { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+  .plan-woche { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .plan-tag { border: 1px solid var(--border); border-radius: var(--radius-ctl); background: var(--bg); padding: 8px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
   .plan-liste { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
   .plan-tag.heute { border-color: var(--brand); box-shadow: inset 0 0 0 1px var(--brand); }
@@ -571,7 +571,7 @@
       s_instagram: 'Instagram im Detail',
       b_plan: 'Was ansteht',
       b_dashboard: 'Dashboard', b_graphen: 'Graphen', b_auswertungen: 'Auswertungen', b_instagram: 'Instagram', b_wartung: 'Wartung',
-      plan_titel: 'Die nächsten 7 Tage', plan_stand: (z) => `Plan vom ${z}`, plan_heute: 'Heute', plan_frei: 'nichts geplant',
+      plan_titel: 'Heute und morgen', plan_stand: (z) => `Plan vom ${z}`, plan_heute: 'Heute', plan_frei: 'nichts geplant',
       plan_laufend: 'Laufend', plan_danach: 'Danach', plan_link: 'Öffnen',
       plan_fehlt: 'Der Wochenplan fehlt (wochenplan.json). Er entsteht beim Deploy der Seite – nach dem nächsten Push ist er da.',
       plan_hinweis: 'Antippen zeigt die Einzelheiten. Zeiten in deutscher Zeit; GitHub startet geplante Läufe oft einige Stunden später.',
@@ -725,7 +725,7 @@
       s_instagram: 'Instagram in detail',
       b_plan: 'Coming up',
       b_dashboard: 'Dashboard', b_graphen: 'Charts', b_auswertungen: 'Analyses', b_instagram: 'Instagram', b_wartung: 'Maintenance',
-      plan_titel: 'The next 7 days', plan_stand: (z) => `Plan from ${z}`, plan_heute: 'Today', plan_frei: 'nothing planned',
+      plan_titel: 'Today and tomorrow', plan_stand: (z) => `Plan from ${z}`, plan_heute: 'Today', plan_frei: 'nothing planned',
       plan_laufend: 'Ongoing', plan_danach: 'Later', plan_link: 'Open',
       plan_fehlt: 'The weekly plan is missing (wochenplan.json). It is built when the site is deployed – after the next push it will be there.',
       plan_hinweis: 'Tap for details. Times are German time; GitHub often starts scheduled runs a few hours late.',
@@ -879,9 +879,13 @@
   // wochenplan.json (scripts/wochenplan.py, Pages-Workflow) trägt je Termin
   // datum, zeit (deutsche Zeit, leer = ohne feste Uhrzeit), art, wer, titel
   // und text (je de/en), punkte (Liste je Sprache), link; dazu „laufend“.
-  // Gezeigt werden die sieben Tage ab HEUTE im Browser - der Plan reicht
-  // 60 Tage weit, ein paar Tage alter Plan passt also noch.
+  // Gezeigt werden HEUTE und MORGEN im Browser (PLAN_TAGE; bis zum
+  // 22.11.2026 sieben Tage – vom Nutzer: „Der ist am Anfang so groß und
+  // unübersichtlich“). Was danach kommt, steht kurz unter „Danach“: der
+  // nächste Blog und die seltenen Termine. Der Plan reicht 60 Tage weit,
+  // ein paar Tage alter Plan passt also noch.
   const PLAN_URL = 'wochenplan.json';
+  const PLAN_TAGE = 2;
   const PLAN_ARTEN = ['daten', 'blog', 'instagram', 'clubs', 'suche', 'routine', 'du'];
   let wochenplan = null;
   let wochenplanFehlt = false;
@@ -917,12 +921,24 @@
       return;
     }
     const heute = isoHeute();
-    const tage = Array.from({ length: 7 }, (_, i) => isoPlus(heute, i));
+    const tage = Array.from({ length: PLAN_TAGE }, (_, i) => isoPlus(heute, i));
     const termine = (wochenplan.termine || []).map((x, i) => Object.assign({ _k: planSchluessel(x, i) }, x));
     const erzeugt = String(wochenplan.erzeugt || '').slice(0, 10);
     let html = `<h3><span>${escapeHtml(t('plan_titel'))}</span>`
       + (erzeugt ? `<small>${escapeHtml(t('plan_stand', fmtTag(erzeugt, true)))}</small>` : '') + '</h3>';
-    html += '<div class="plan-legende">' + PLAN_ARTEN.map(a =>
+    const bis = tage[tage.length - 1];
+    const imBild = termine.filter(x => x.datum >= heute && x.datum <= bis);
+    const laufend = wochenplan.laufend || [];
+    // Danach: der nächste Blog (welches Thema kommt) und die seltenen
+    // Termine (Monatssuche, Quartal, Erinnerungen), höchstens fünf.
+    const gesehen = new Set();
+    const naechsterBlog = termine.find(x => x.art === 'blog' && x.datum > bis);
+    const danach = termine.filter(x => x.datum > bis && (x.selten || x === naechsterBlog)).filter(x => {
+      const k = sprachText(x.titel); if (gesehen.has(k)) return false; gesehen.add(k); return true;
+    }).slice(0, 5);
+    // Die Legende nennt nur die Arten, die auf der Karte auch vorkommen.
+    const arten = new Set([...imBild, ...laufend, ...danach].map(x => x.art));
+    html += '<div class="plan-legende">' + PLAN_ARTEN.filter(a => arten.has(a)).map(a =>
       `<span style="--pa: var(--pa-${a})"><i></i>${escapeHtml(t('pa_' + a))}</span>`).join('') + '</div>';
     html += '<div class="plan-woche">';
     tage.forEach(tag => {
@@ -945,12 +961,6 @@
       html += '</div></div>';
     });
     html += '</div><div class="plan-detail" id="plan-detail" hidden></div>';
-    const laufend = wochenplan.laufend || [];
-    const bis = tage[tage.length - 1];
-    const gesehen = new Set();
-    const danach = termine.filter(x => x.selten && x.datum > bis).filter(x => {
-      const k = sprachText(x.titel); if (gesehen.has(k)) return false; gesehen.add(k); return true;
-    }).slice(0, 5);
     html += '<div class="plan-unten">';
     if (laufend.length) {
       html += `<div><h4>${escapeHtml(t('plan_laufend'))}</h4><ul>` + laufend.map(x =>

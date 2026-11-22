@@ -9,8 +9,8 @@ veröffentlicht, Wann suchst du nach weiteren Events,…“
 
 Das Skript sammelt die Termine aus den Stellen, an denen sie wirklich
 festgelegt sind, und schreibt sie als JSON (Pages-Workflow, nie committet,
-wie marketing/instagram/plan.json); admin.html zeigt daraus die sieben Tage
-ab heute als Kalender, dazu „laufend“ und „danach“:
+wie marketing/instagram/plan.json); admin.html zeigt daraus heute und morgen
+als Kalender (bis 22.11.2026 sieben Tage), dazu „laufend“ und „danach“:
 
 - Datenlauf und Instagram-Läufe: die Zeitpläne in .github/workflows/*.yml
   (UTC, hier in Berliner Zeit umgerechnet). GitHub startet geplante Läufe

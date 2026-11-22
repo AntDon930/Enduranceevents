@@ -69,7 +69,7 @@ den Entwicklungs-Branch (auf `main` seit dem 04.11.2026, Commit
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
 | `stats.js` | **Besucherstatistik im Browser** (seit 13.10.2026): ein Seitenaufruf je Seite plus Aktionen (Event geöffnet, Veranstalter-Klick, Kalender, Teilen, Abo, Meldung, Suche, Filter) an die Cloud Function `collect`; schweigt auf localhost, bei `webdriver`, DNT/GPC und nach dem Abschalten in der Datenschutzerklärung; alle sechs Seiten laden es mit `?v=`-Stempel |
-| `admin.html` | **das Dashboard** – nur für den Betreiber (Anmeldung + Dokument `admins/<uid>` in Firestore), liest `stats_daily`; nicht in der Navigation verlinkt. Seit dem 14.10.2026 mit den Kennzahlen für Werbekunden (Monat, Abos, Wochentag, Zielgruppe, Bericht je Veranstaltung, Werbeplätze). **Seit dem 16.10.2026 in fünf Bereichen, je Linie + Überschrift (`hr.stat-trenner` + `h2.stat-bereich`, Reihenfolge vom Nutzer): Dashboard (Zeitraum, Kennzahlen) – Graphen – Auswertungen (`#stat-listen`, `ABSCHNITTE`) – Instagram (`#ig-card`, `#stat-listen-ig` mit `ABSCHNITTE_IG`, Freigabe) – Wartung**; seit dem 12.11.2026 davor **„Was ansteht“** (`#plan-card`: die nächsten 7 Tage als Kalender aus `wochenplan.json`, darunter „Laufend“ und „Danach“); der Rauchtest prüft die Reihenfolge |
+| `admin.html` | **das Dashboard** – nur für den Betreiber (Anmeldung + Dokument `admins/<uid>` in Firestore), liest `stats_daily`; nicht in der Navigation verlinkt. Seit dem 14.10.2026 mit den Kennzahlen für Werbekunden (Monat, Abos, Wochentag, Zielgruppe, Bericht je Veranstaltung, Werbeplätze). **Seit dem 16.10.2026 in fünf Bereichen, je Linie + Überschrift (`hr.stat-trenner` + `h2.stat-bereich`, Reihenfolge vom Nutzer): Dashboard (Zeitraum, Kennzahlen) – Graphen – Auswertungen (`#stat-listen`, `ABSCHNITTE`) – Instagram (`#ig-card`, `#stat-listen-ig` mit `ABSCHNITTE_IG`, Freigabe) – Wartung**; seit dem 12.11.2026 davor **„Was ansteht“** (`#plan-card`: heute und morgen als Kalender aus `wochenplan.json` – bis zum 22.11.2026 sieben Tage, vom Nutzer: „Der ist am Anfang so groß und unübersichtlich“ –, darunter „Laufend“ und „Danach“ mit dem nächsten Blog und den seltenen Terminen; die Legende nennt nur vorkommende Arten); der Rauchtest prüft die Reihenfolge |
 | `scripts/wochenplan.py` | baut **`wochenplan.json`** für „Was ansteht“ im Dashboard (Pages-Workflow, nie committet): Datenlauf und Instagram aus den Workflow-Zeitplänen, Blog (nächste offene Themen aus `blog_themen.md`, erschienene aus `blog.json`), Clubs-Abgleich, Monatssuche, Quartal, Erinnerungen, die Aufgaben des Nutzers – `GEPLANTE_AUFGABEN` nachziehen, wenn sich eine geplante Aufgabe ändert; `test_wochenplan` |
 | `functions/stats_aggregate.js` | die Rechenregeln der Statistik (Besuche, Absprung, Dauer, Listen) ohne Firestore – `aggregateStats` ruft sie, `test_statistik` rechnet sie mit node nach |
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
@@ -4729,6 +4729,10 @@ sagt es).
   `scroll_into_view_if_needed()` ins Bild geholt. Beim Beheben einer
   solchen Stelle **alle Klicks aller Prüfungen** durchsehen
   (`grep 'tbody tr[^"]*")\.\(first\|nth\)'` findet sie).
+  Die sechste (22.11.2026): `pruefe_cluster()` klickte das erste Bündel
+  der Karte – es lag unter einem Nachbarbündel bzw. dem Schalter
+  Events/Clubs, vier Deploys blieben hinter dem Gate. Jetzt das erste
+  Bündel, das an seiner Mitte frei liegt (`elementFromPoint`).
 
 - **Fehlerscan vom 19.10.2026 (neun Befunde, vom Nutzer: „Bitte alle 9
   Fehler korrigieren")** – was daran nicht zurückgedreht werden soll:
@@ -6596,7 +6600,11 @@ Generator aus den Dateien; **die geplanten Aufgaben stehen nicht im Repo –
 wer eine ändert oder neu anlegt, zieht `GEPLANTE_AUFGABEN` in
 `wochenplan.py` nach** (und hier die Rhythmen). Welcher Blog kommt: die
 offenen Zeilen in `blog_themen.md` der Reihe nach auf die nächsten Mo/Do
-(die Spalte „Termin“ dort ist nur der ursprüngliche Plan). `test_wochenplan`
+(die Spalte „Termin“ dort ist nur der ursprüngliche Plan). **Seit dem
+22.11.2026 zeigt der Kalender nur heute und morgen** (`PLAN_TAGE` in
+`admin.html`; vom Nutzer: „Der ist am Anfang so groß und unübersichtlich“),
+„Danach“ nennt den nächsten Blog und die seltenen Termine; `wochenplan.json`
+reicht weiter 60 Tage. `test_wochenplan`
 und der Rauchtest (`pruefe_statistik_dashboard`) halten es fest.
 
 **Stand beim Livegang**: 1.256 von 6.940 Zeilen ausgeblendet (sichtbar
