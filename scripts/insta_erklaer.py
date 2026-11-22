@@ -369,7 +369,7 @@ def sz_test(t: float, dauer: float, p: dict | None = None) -> Image.Image:
         s = federn(tt / 0.3)
         d.ellipse([x0 + 60, yy - 62 * s, x0 + 60 + 124 * s, yy + 62 * s], fill=MIDNIGHT)
         d.text((x0 + 60 + 62 * s, yy), z, font=schrift(76 * s), fill=CREME, anchor="mm")
-        d.text((x0 + 220, yy), wort, font=schrift(76), fill=MIDNIGHT, anchor="lm")
+        d.text((x0 + 220, yy), wort, font=schrift(min(76, 1250 / max(1, len(wort)))), fill=MIDNIGHT, anchor="lm")
     tt = t - dauer * 0.66
     if tt > 0:
         s = federn(tt / 0.35)
