@@ -50,6 +50,7 @@ GEPLANTE_AUFGABEN = {
     "clubs": {"id": "trig_01MvVHbqKGeJjdmGLQ7mBqd3", "wochentage": (0, 3), "zeit": "08:56"},
     "monatssuche": {"id": "trig_01NhaaENGay2NUU5tZLraZiP", "monatstag": 1, "zeit": "10:41"},
     "firebase": {"id": "trig_013AV7Nn2GVq1m3LgxL3ukcq", "datum": "2027-01-11", "zeit": "09:00"},
+    "insta_woche": {"id": "trig_01MMtRgfNxMfeZjZTrPbKMs8", "wochentage": (6,), "zeit": "08:37"},
 }
 
 TYP_TEXT = {
@@ -272,6 +273,18 @@ def plan(heute: dt.date, tage_anzahl: int = 60) -> dict:
                 "text": zweisprachig(
                     "Neue Treffs und Einzeltermine der nächsten Tage in clubs.json, vergangene raus, Push → Deploy.",
                     "New meet-ups and one-off dates for the coming days into clubs.json, past ones out, push → deploy."),
+            })
+        # Instagram-Content der nächsten Woche (sonntags, geplante Aufgabe)
+        w = GEPLANTE_AUFGABEN["insta_woche"]
+        if tag.weekday() in w["wochentage"]:
+            termine.append({
+                "datum": iso, "zeit": w["zeit"], "art": "routine", "wer": "claude",
+                "titel": zweisprachig("Instagram: Content der nächsten Woche", "Instagram: next week's content"),
+                "text": zweisprachig(
+                    "Mindestens fünf Beiträge (Erklär-Reels, ein bis zwei Slides) in die Warteschlange – "
+                    "abends im Dashboard ansehen und freigeben.",
+                    "At least five posts (explainer reels, one or two slide shows) into the queue – "
+                    "review and approve in the dashboard in the evening."),
             })
         # Wochen-Check (montags, mit Claude in einer Sitzung)
         if tag.weekday() == 0:

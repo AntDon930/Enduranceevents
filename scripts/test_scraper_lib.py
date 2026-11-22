@@ -23,6 +23,8 @@ lässt sich also direkt in CI einhängen.
 from __future__ import annotations
 
 import sys
+import os as _os_offline
+_os_offline.environ["INSTA_OFFLINE"] = "1"   # Warteschlange: kein Abruf des Speichers in den Tests
 
 import requests
 from pathlib import Path
@@ -5627,6 +5629,7 @@ def test_insta_freigabe() -> None:
     print("\nInstagram-Freigabe (insta_freigabe, plan.json, Dashboard):")
     import insta_inhalte as I
     I.SONDERPLAN_DATEI = Path("/gibt-es-nicht/sonderplan.json")   # Plan-Tests ohne die feste Startwoche
+    I.WARTESCHLANGE_DATEI = Path("/gibt-es-nicht/warteschlange.json")
     _postet_echt, I.postet_am = I.postet_am, (lambda *a, **k: True)   # Plan-Tests: jeder Tag ein Post-Tag
     import insta_freigabe as F
     wurzel = Path(__file__).resolve().parent.parent
@@ -5729,6 +5732,7 @@ def test_instagram() -> None:
     print("\nInstagram (insta_inhalte, insta_video, insta_posten):")
     import insta_inhalte as I
     I.SONDERPLAN_DATEI = Path("/gibt-es-nicht/sonderplan.json")   # Plan-Tests ohne die feste Startwoche
+    I.WARTESCHLANGE_DATEI = Path("/gibt-es-nicht/warteschlange.json")
     wurzel = Path(__file__).resolve().parent.parent
     heute = _dt.date(2026, 10, 19)            # ein Montag
     ev = _insta_testevents(heute)
@@ -7021,6 +7025,7 @@ def test_insta_logos() -> None:
     print("\nInstagram-Logo-Reels (insta_inhalte monat/anmeldung, insta_logos):")
     import insta_inhalte as I
     I.SONDERPLAN_DATEI = Path("/gibt-es-nicht/sonderplan.json")   # Plan-Tests ohne die feste Startwoche
+    I.WARTESCHLANGE_DATEI = Path("/gibt-es-nicht/warteschlange.json")
     import insta_logos as L
     import insta_video as V
     from PIL import Image as _Image
@@ -7475,6 +7480,35 @@ def test_insta_logos() -> None:
           ("rendere_beitrag(beitrag, ziel, datum.toordinal())" in lauf_, "rendere_beitrag(b, ordner, tag.toordinal())" in lauf_,
            "insta_erklaer.rendere_beitrag(" in lauf_, "insta_karussell.rendere_beitrag(" in lauf_),
           (True, True, True, True))
+    # Warteschlange (22.11.2026): fertige Beiträge rücken auf den nächsten freien Post-Tag, nichts geht verloren
+    ws = [{"id": "a", "format": "erklaer", "thema": "schwelle"},
+          {"id": "b", "format": "karussell", "slug": "winterkleidung"},
+          {"id": "c", "format": "erklaer", "thema": "gibt-es-nicht"}]
+    mo, mi, fr = _dt.date(2026, 11, 23), _dt.date(2026, 11, 25), _dt.date(2026, 11, 27)
+    wp = lambda heute, erl=frozenset(), sp_=None: {k: v["id"] for k, v in I.warteschlange_plan(  # noqa: E731
+        heute, heute + _dt.timedelta(days=13), ws, set(erl), sp_ or {}).items()}
+    check("Warteschlange: der Reihe nach auf die Post-Tage (Di/Do Pause), Eintrag ohne Vorlage zählt nicht",
+          wp(mo), {"2026-11-23": "a", "2026-11-25": "b"})
+    check("Warteschlange: Montag nicht gepostet → am Mittwoch steht derselbe Beitrag wieder vorn",
+          wp(mi), {"2026-11-25": "a", "2026-11-27": "b"})
+    check("Warteschlange: Montag gepostet → am Mittwoch der nächste", wp(mi, {"a"}), {"2026-11-25": "b"})
+    check("Warteschlange: ein Sonderplan-Tag (Pause oder fest) ist kein freier Tag",
+          wp(mo, sp_={"2026-11-23": {"pause": True}}), {"2026-11-25": "a", "2026-11-27": "b"})
+    check("Warteschlange: `ab` hält einen Beitrag zurück, `gepostet` nimmt ihn heraus",
+          {k: v["id"] for k, v in I.warteschlange_plan(mo, fr, [dict(ws[0], gepostet="2026-11-22"), dict(ws[1], ab="2026-11-27")],
+                                                       set(), {}).items()}, {"2026-11-27": "b"})
+    bq = I.plane(mi, ev_echt, momente=I.lade_momente(), clips=[], grosse=ganz, sonderplan={}, heute=mo, schlange=ws, erledigt=set())
+    bq2 = I.plane(mi, ev_echt, momente=I.lade_momente(), clips=[], grosse=ganz, sonderplan={}, schlange=ws, erledigt=set())
+    check("plane(): Warteschlange geht dem Wochenplan vor; `heute` bestimmt die Verteilung",
+          (bq["format"], bq.get("schlange"), bq2["format"], bq2.get("schlange")), ("karussell", "b", "erklaer", "a"))
+    check("Warteschlange: gepostet erkennt der Lauf am Anfang der Caption (auch von Hand gepostet)",
+          I.erledigt_aus_captions(["Was ist wirklich deine Schwelle? 🤔\n\nNicht Vollgas. Nicht dein 5-km-Tempo. Sondern das Tempo", "Etwas anderes"], ws), {"a"})
+    echt = I.lade_warteschlange(wurzel / "marketing" / "instagram" / "warteschlange.json")
+    check("warteschlange.json: eindeutige Ids, jede Vorlage da (mit Caption)",
+          (len({e["id"] for e in echt}) == len(echt) > 0, all(I.schlange_beitrag(e, mo) for e in echt)), (True, True))
+    lauf_q = (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8")
+    check("insta_lauf.py: fragt Instagram vor dem Planen, Vorschau verteilt ab heute",
+          ("    erledigte_aktualisieren()\n" in lauf_q, "inhalte.plane(tag, heute=datum)" in lauf_q), (True, True))
     woche = [_dt.date(2026, 11, 4) + _dt.timedelta(days=k) for k in range(7)]
     check("Startwoche: 4-5 Videos (vom Nutzer), erstes am 04.11., nichts davor",
           (4 <= sum(I.postet_am(t, start) for t in woche) <= 5, I.postet_am(_dt.date(2026, 11, 4), start),

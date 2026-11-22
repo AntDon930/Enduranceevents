@@ -414,6 +414,32 @@ INSIGHTS_VOLL = "reach,saved,shares,views,total_interactions"
 INSIGHTS_KNAPP = "reach,saved,shares"
 
 
+def letzte_captions(z: dict, ig_token: str, session=None, anzahl: int = 30) -> list[str]:
+    """Die Captions der letzten Beiträge des Kontos – daran erkennt die
+    Warteschlange (insta_inhalte.erledigt_aus_captions), was schon gepostet
+    ist, auch von Hand."""
+    s = session or requests.Session()
+    auth = {"Authorization": f"Bearer {ig_token}"}
+    uid = z.get("uid") or konto(z, ig_token, s)["user_id"]
+    liste = _antwort(_anfrage(s, "get", f"{_ig(z)}/{uid}/media", "Beiträge lesen", headers=auth,
+                              params={"fields": "caption,timestamp", "limit": anzahl}, timeout=30),
+                     "Beiträge lesen").get("data", [])
+    return [m.get("caption") or "" for m in liste]
+
+
+def merke_erledigt(ids: set[str], z: dict, session=None) -> str:
+    """Die erledigten Ids der Warteschlange in den Speicher legen
+    (vorschau/gepostet.json, öffentlich lesbar) – die Planung im
+    Pages-Workflow hat keinen Instagram-Schlüssel und liest sie dort. Die
+    Lebenszyklus-Regel löscht nach einem Tag, jeder Lauf schreibt neu."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        pfad = Path(tmp) / "gepostet.json"
+        pfad.write_text(json.dumps({"ids": sorted(ids), "stand": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}),
+                        encoding="utf-8")
+        return Google(z, session).video_hochladen(pfad, f"{VORSCHAU_ORDNER}/gepostet.json", "application/json")
+
+
 def auswertung(z: dict, ig_token: str, session=None, anzahl: int = 30) -> dict:
     """Kennzahlen der letzten `anzahl` Beiträge: Likes und Kommentare
     (instagram_business_basic), dazu Reichweite, Gespeichert, Geteilt und

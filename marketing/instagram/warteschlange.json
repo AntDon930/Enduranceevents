@@ -1,0 +1,17 @@
+{
+ "hinweis": "Fertige Beiträge der Reihe nach (insta_inhalte.warteschlange_plan): der vorderste offene bekommt den nächsten freien Post-Tag (Mo, Mi, Fr, Sa, So). `ab` = frühester Tag, `gepostet` = von Hand eingetragenes Datum, wenn der Beitrag draußen ist (sonst erkennt es der Lauf an der Caption). Sonntags kommt der Content der nächsten Woche dazu.",
+ "beitraege": [
+  {
+   "id": "schwelle",
+   "format": "erklaer",
+   "thema": "schwelle",
+   "gepostet": "2026-11-22"
+  },
+  {
+   "id": "winterkleidung",
+   "format": "karussell",
+   "slug": "winterkleidung",
+   "ab": "2026-11-25"
+  }
+ ]
+}

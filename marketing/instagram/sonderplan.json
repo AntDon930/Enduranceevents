@@ -1,5 +1,5 @@
 {
- "hinweis": "Feste Formate für einzelne Tage (insta_inhalte.lade_sonderplan) – gehen dem Wochenplan und den Anlässen vor. Startwoche ab Mittwoch 04.11.2026: ursprünglich ab Montag 02.11. geplant (vom Nutzer: „wir fangen ab dem 2. November an … die ersten 7 Videos“); am 04.11.2026 um zwei Tage nach hinten geschoben, weil Montag und Dienstag nicht gepostet wurden (vom Nutzer: „Bitte noch einmal alles nach hinten schreiben. ich poste das jetzt alles Manuell erst einmal“). Fünf Videos in der Startwoche (vom Nutzer: „4-5 Videos in der Woche“): Samstag und Montag Pause. Am 08.11. die Top 5 der Marathons als EINE Infografik (vom Nutzer am 04.11.2026: „die 5 in eine Grafik packen und die dann ranken nach den jeweiligen Teilnehmerzahlen“). Seit dem 22.11.2026 kommen auch Erklär-Reels ({\"format\": \"erklaer\", \"thema\": …}) und Slides ({\"format\": \"karussell\", \"slug\": …}) über diesen Plan auf ihren Tag (vom Nutzer: mindestens 5 Uploads je Woche, davon 1–2 Slides).",
+ "hinweis": "Feste Formate für einzelne Tage (insta_inhalte.lade_sonderplan) – gehen dem Wochenplan und den Anlässen vor. Startwoche ab Mittwoch 04.11.2026: ursprünglich ab Montag 02.11. geplant (vom Nutzer: „wir fangen ab dem 2. November an … die ersten 7 Videos“); am 04.11.2026 um zwei Tage nach hinten geschoben, weil Montag und Dienstag nicht gepostet wurden (vom Nutzer: „Bitte noch einmal alles nach hinten schreiben. ich poste das jetzt alles Manuell erst einmal“). Fünf Videos in der Startwoche (vom Nutzer: „4-5 Videos in der Woche“): Samstag und Montag Pause. Am 08.11. die Top 5 der Marathons als EINE Infografik (vom Nutzer am 04.11.2026: „die 5 in eine Grafik packen und die dann ranken nach den jeweiligen Teilnehmerzahlen“). Seit dem 22.11.2026 stehen fertige Erklär-Reels und Slides NICHT hier, sondern in warteschlange.json (rücken von selbst auf den nächsten freien Tag); ein Eintrag hier ({\"format\": \"erklaer\", \"thema\": …} / {\"format\": \"karussell\", \"slug\": …} / {\"pause\": true}) legt einen Tag fest und nimmt ihn aus der Warteschlange.",
  "tage": {
   "2026-11-04": {
    "format": "jahr"
@@ -28,10 +28,6 @@
     "Berlin-Marathon",
     "Vienna City Marathon"
    ]
-  },
-  "2026-11-25": {
-   "format": "karussell",
-   "slug": "winterkleidung"
   }
  }
 }

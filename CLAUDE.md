@@ -5776,8 +5776,38 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Szene als `teile` ([von, bis, Wörter] aus `silencedetect`). Slides zeigt
   „View" als Video (die Reel-Fassung), die Seiten liegen als `01.jpg …` im
   Ausgabeordner. **Offen**: Slides als echtes Karussell posten (`CAROUSEL`) –
-  bis dahin ginge bei einer Freigabe die Reel-Fassung raus. Ein neues Reel
-  kommt erst in den Sonderplan, wenn Vorlage, Caption und Stimme stehen.
+  bis dahin ginge bei einer Freigabe die Reel-Fassung raus.
+  **Warteschlange statt fester Tage** (22.11.2026, vom Nutzer: „am Sonntag bitte
+  immer den ganzen Content für die nächste Woche erstellen! Dann kann ich den
+  immer Sonntag Abend freigeben. Falls ich es mal Montags freigebe oder nicht
+  schaffe, dann dürfen die Videos aber nicht verloren gehen. Dann muss man sie
+  einfach wieder vorne anstellen.“): Fertige Beiträge stehen der Reihe nach in
+  `marketing/instagram/warteschlange.json` (`id`, `format`, `thema`/`slug`,
+  `ab` = frühester Tag, `gepostet` = Datum von Hand). `insta_inhalte.
+  warteschlange_plan(heute, bis)` gibt dem vordersten offenen den nächsten
+  freien Post-Tag ab HEUTE (Mo, Mi, Fr, Sa, So; ein Sonderplan-Tag ist nicht
+  frei), dem zweiten den übernächsten …; `plane()` nimmt sie vor Wochenplan
+  und Anlässen (`heute=` in `plan_liste` und in der Vorschau). Was nicht
+  gepostet wurde, steht am nächsten Tag wieder vorn. **„Gepostet“ ist, was
+  auf Instagram steht**: `insta_lauf.erledigte_aktualisieren()` vergleicht vor
+  dem Planen die Captions der letzten 30 Beiträge (`insta_posten.
+  letzte_captions`, `erledigt_aus_captions`: die ersten 40 Buchstaben/Ziffern
+  der Caption – auch von Hand Gepostetes zählt, wenn die Caption so beginnt)
+  und legt die Ids als `vorschau/gepostet.json` in den Speicher; die Planung
+  im Pages-Workflow (ohne Schlüssel) liest sie von dort (`lade_erledigt`,
+  in Tests `INSTA_OFFLINE`). Ohne funktionierenden Schlüssel rückt die
+  Schlange nur über `gepostet` in der Datei weiter. Rückt ein Beitrag auf einen
+  anderen Tag, passt die Kennung einer schon gesetzten Freigabe dort nicht
+  mehr – die Karte bittet um einen neuen Klick (gewollt: nichts geht ungesehen
+  raus). Ein Sonderplan-Eintrag legt weiter einen Tag fest.
+  **Sonntags-Aufgabe**: „Instagram: Content der nächsten Woche (Sonntag)“,
+  `trig_01MMtRgfNxMfeZjZTrPbKMs8`, sonntags 08:37 Berlin, feuert in DIESE
+  Unterhaltung (`session_01JofZZmjpYwMr9zcwtcL21M` – nur sie hat Runway für
+  die Stimme; eine frische Sitzung bekäme keine Konnektoren): mindestens fünf
+  offene Beiträge für Mo–So bauen (Belege, Szenen, Dennis-Stimme – dafür hat
+  der Nutzer die Credits freigegeben, sonst bei Runway nichts –, Caption),
+  hinten anstellen, pushen, Bericht mit Captions. Steht in
+  `wochenplan.GEPLANTE_AUFGABEN` (`insta_woche`).
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für

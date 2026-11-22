@@ -79,6 +79,29 @@ def lauf_datum(jetzt: dt.datetime, posten: bool, ereignis: str) -> dt.date:
     return tag
 
 
+def erledigte_aktualisieren() -> set[str] | None:
+    """Fragt Instagram, welche Beiträge der Warteschlange schon gepostet
+    sind (an der Caption, auch von Hand Gepostetes), merkt es für die
+    Planung dieses Laufs und legt es für das Dashboard in den Speicher. Ohne
+    Zugang oder bei einem Fehler: None – dann gilt der Stand im Speicher."""
+    if not inhalte.lade_warteschlange():
+        return None
+    import insta_posten as posten
+    z = posten.zugang()
+    if not z:
+        return None
+    try:
+        pflege = posten.pflege_schluessel(z)
+        ids = inhalte.erledigt_aus_captions(posten.letzte_captions(z, pflege["token"]))
+        inhalte.ERLEDIGT = ids
+        posten.merke_erledigt(ids, z)
+        print(f"  Warteschlange: {len(ids)} schon gepostet" + (f" ({', '.join(sorted(ids))})" if ids else ""))
+        return ids
+    except Exception as e:                                   # noqa: BLE001 - dann gilt der gemerkte Stand
+        print(f"  Warteschlange: Stand von Instagram nicht lesbar ({type(e).__name__}) – es gilt der gemerkte")
+        return None
+
+
 def rendere_beitrag(beitrag: dict, ziel: Path, seed: int) -> dict:
     """reel.mp4 + cover.jpg nach `ziel`. Erklär-Reels und Karussells
     (Sonderplan, seit 22.11.2026) haben ihre eigenen Renderer; alles andere
@@ -112,6 +135,7 @@ def main() -> int:
     datum = dt.date.fromisoformat(a.datum) if a.datum else lauf_datum(
         dt.datetime.now(ZoneInfo("Europe/Berlin")), a.posten, os.environ.get("GITHUB_EVENT_NAME", ""))
     ziel = a.ausgabe or AUSGABE / datum.isoformat()
+    erledigte_aktualisieren()
     if not a.format and not inhalte.postet_am(datum):
         # Pausentag oder vor dem Start: kein Beitrag - aber die Vorschauen
         # der nächsten Post-Tage legt der Morgenlauf trotzdem ab.
@@ -280,7 +304,7 @@ def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str | None,
             if i == 0 and kennung_heute:
                 ordner, kennung = ziel, kennung_heute
             else:
-                b = inhalte.plane(tag)
+                b = inhalte.plane(tag, heute=datum)
                 kennung = inhalte.beitrag_hash(b)
                 logos_holen(b)
                 ordner = Path(tempfile.mkdtemp(prefix=f"vorschau-{tag.isoformat()}-"))

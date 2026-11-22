@@ -1727,6 +1727,109 @@ def format_karussell(datum: dt.date, slug: str | None) -> dict | None:
     return _beitrag("karussell", datum, folien, _caption_text(daten["caption"]), "Laufen", karussell=slug)
 
 
+# ----------------------------------------------------------- Warteschlange
+#
+# Vom Nutzer am 22.11.2026: „am Sonntag bitte immer den ganzen Content für
+# die nächste Woche erstellen! Dann kann ich den immer Sonntag Abend
+# freigeben. Falls ich es mal Montags freigebe oder nicht schaffe, dann
+# dürfen die Videos aber nicht verloren gehen. Dann muss man sie einfach
+# wieder vorne anstellen."
+#
+# Fertige Erklär-Reels und Slides stehen deshalb NICHT an einem festen Tag,
+# sondern der Reihe nach in marketing/instagram/warteschlange.json:
+#   {"beitraege": [{"id": "schwelle", "format": "erklaer", "thema": "schwelle",
+#                   "ab": "2026-11-23", "gepostet": "2026-11-22"}, …]}
+# Der vorderste offene Beitrag (kein `gepostet`, nicht in `erledigt`, `ab`
+# erreicht) bekommt den nächsten freien Post-Tag ab HEUTE, der zweite den
+# übernächsten usw. Was nicht gepostet wurde, steht am nächsten Tag wieder
+# vorn - nichts geht verloren. „Erledigt" ist, was wirklich auf Instagram
+# steht: Der Lauf vergleicht die Captions der letzten Beiträge
+# (insta_lauf.erledigte_aktualisieren, auch von Hand Gepostetes zählt) und
+# legt die Liste für die Planung im Pages-Workflow in den Speicher.
+
+WARTESCHLANGE_DATEI = MARKETING / "warteschlange.json"
+GEPOSTET_URL = "https://storage.googleapis.com/endurance-5177a-instagram/vorschau/gepostet.json"
+ERLEDIGT: set[str] | None = None      # setzt der Lauf (frisch von Instagram); None = aus dem Speicher lesen
+_ERLEDIGT_NETZ: set[str] | None = None
+
+
+def lade_warteschlange(pfad: Path | None = None) -> list[dict]:
+    try:
+        return json.loads((pfad or WARTESCHLANGE_DATEI).read_text(encoding="utf-8")).get("beitraege", [])
+    except (OSError, ValueError):
+        return []
+
+
+def lade_erledigt() -> set[str]:
+    """Ids der Warteschlange, die schon auf Instagram stehen. Ohne Netz
+    (oder mit INSTA_OFFLINE, so laufen die Tests) leer - dann zählen nur die
+    `gepostet`-Marken in der Datei."""
+    global _ERLEDIGT_NETZ
+    if ERLEDIGT is not None:
+        return ERLEDIGT
+    if _ERLEDIGT_NETZ is None:
+        _ERLEDIGT_NETZ = set()
+        import os
+        if not os.environ.get("INSTA_OFFLINE"):
+            try:
+                import urllib.request
+                with urllib.request.urlopen(GEPOSTET_URL, timeout=6) as r:
+                    _ERLEDIGT_NETZ = set(json.loads(r.read().decode("utf-8")).get("ids", []))
+            except Exception:                                # noqa: BLE001 - Datei fehlt, kein Netz
+                pass
+    return _ERLEDIGT_NETZ
+
+
+def schlange_beitrag(eintrag: dict, datum: dt.date) -> dict | None:
+    if eintrag.get("format") == "erklaer":
+        b = format_erklaer(datum, eintrag.get("thema"))
+    elif eintrag.get("format") == "karussell":
+        b = format_karussell(datum, eintrag.get("slug"))
+    else:
+        b = None
+    if b:
+        b["schlange"] = eintrag.get("id")
+    return b
+
+
+def _caption_kern(text: str) -> str:
+    return re.sub(r"[^a-zäöüß0-9]+", "", (text or "").lower())[:40]
+
+
+def erledigt_aus_captions(captions: list[str], schlange: list[dict] | None = None) -> set[str]:
+    """Welche Beiträge der Warteschlange schon gepostet sind: der Anfang
+    ihrer Caption steht am Anfang einer Instagram-Caption."""
+    gepostet = [_caption_kern(c) for c in captions if c]
+    aus = set()
+    for e in (schlange if schlange is not None else lade_warteschlange()):
+        b = schlange_beitrag(e, POST_START)
+        kern = _caption_kern(b["caption"]) if b else ""
+        if len(kern) >= 15 and any(g.startswith(kern) for g in gepostet):
+            aus.add(e["id"])
+    return aus
+
+
+def warteschlange_plan(heute: dt.date, bis: dt.date, schlange: list[dict] | None = None,
+                       erledigt: set[str] | None = None, sonderplan: dict[str, dict] | None = None) -> dict[str, dict]:
+    """Datum → Eintrag der Warteschlange, von `heute` bis `bis`. Frei ist ein
+    Tag ohne Eintrag im Sonderplan, der kein Pausen-Wochentag ist."""
+    schlange = schlange if schlange is not None else lade_warteschlange()
+    offen = [e for e in schlange if not e.get("gepostet")]
+    if not offen:
+        return {}
+    erledigt = erledigt if erledigt is not None else lade_erledigt()
+    offen = [e for e in offen if e.get("id") not in erledigt and schlange_beitrag(e, heute)]
+    sp = sonderplan if sonderplan is not None else lade_sonderplan()
+    aus, tag = {}, max(heute, POST_START)
+    while offen and tag <= bis:
+        if not sp.get(tag.isoformat()) and tag.weekday() not in PAUSE_WOCHENTAGE:
+            i = next((k for k, e in enumerate(offen) if e.get("ab", "") <= tag.isoformat()), None)
+            if i is not None:
+                aus[tag.isoformat()] = offen.pop(i)
+        tag += dt.timedelta(days=1)
+    return aus
+
+
 def lade_sonderplan(pfad: Path | None = None) -> dict[str, dict]:
     """Feste Formate für einzelne Tage (marketing/instagram/sonderplan.json),
     z. B. die Startwoche ab 04.11.2026: {"tage": {"2026-11-04": {"format":
@@ -1869,8 +1972,11 @@ def format_clip(datum: dt.date, events: list[dict], rng: random.Random,
 def plane(datum: dt.date, events: list[dict] | None = None, format_: str | None = None,
           momente: list[dict] | None = None, clips: list[dict] | None = None,
           witze: list[dict] | None = None, grosse: list[dict] | None = None,
-          anlaesse: list[dict] | None = None, sonderplan: dict[str, dict] | None = None) -> dict:
-    """Der Beitrag für `datum` samt Stories. `format_` erzwingt ein Format
+          anlaesse: list[dict] | None = None, sonderplan: dict[str, dict] | None = None,
+          heute: dt.date | None = None, schlange: list[dict] | None = None,
+          erledigt: set[str] | None = None) -> dict:
+    """Der Beitrag für `datum` samt Stories. `heute` (Vorgabe: `datum`) ist
+    der Tag, ab dem die Warteschlange verteilt wird. `format_` erzwingt ein Format
     (Test, Handlauf); fehlen dafür die Daten (zu wenige Events, keine
     Clips), fällt der Plan auf einen Moment zurück - es gibt immer einen
     Beitrag."""
@@ -1881,6 +1987,12 @@ def plane(datum: dt.date, events: list[dict] | None = None, format_: str | None 
     beitrag = None
     sonder = (sonderplan if sonderplan is not None else lade_sonderplan()).get(datum.isoformat()) \
         if format_ is None else None
+    if format_ is None and not sonder:
+        # Fertige Erklär-Reels und Slides aus der Warteschlange gehen dem
+        # Wochenplan und den Anlässen vor; nur ein fester Sonderplan-Tag schlägt sie.
+        e = warteschlange_plan(heute or datum, datum, schlange, erledigt, sonderplan).get(datum.isoformat())
+        if e:
+            beitrag = schlange_beitrag(e, datum)
     if sonder:
         # ein fester Tag (Startwoche) geht allem vor; fehlen die Daten, gilt der Plan
         wahl_ = sonder.get("format")
@@ -2028,7 +2140,7 @@ def plan_liste(start: dt.date, tage: int, events: list[dict] | None = None,
         tag = start + dt.timedelta(days=i)
         if not postet_am(tag):                 # Pausentage und vor dem Start: nichts zur Freigabe
             continue
-        b = plane(tag, events, momente=momente, clips=clips, grosse=grosse)
+        b = plane(tag, events, momente=momente, clips=clips, grosse=grosse, heute=start)
         eintrag = {"datum": b["datum"], "wochentag": WOCHENTAGE[tag.weekday()],
                    "format": b["format"], "hash": beitrag_hash(b),
                    "folien": b["folien"], "caption": b["caption"]}
