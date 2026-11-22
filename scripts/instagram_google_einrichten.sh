@@ -160,7 +160,18 @@ PY
   echo "  3. Danach öffnet sich endurance-events.de. Die GANZE Adresse aus der"
   echo "     Adresszeile kopieren (sie enthält „?code=…“) und hierher zurück."
   echo
-  read -r -p "     Adresse einfügen und Enter drücken: " adresse
+  # Fragt, bis die Adresse wirklich von endurance-events.de kommt – wer hier
+  # versehentlich den Anmeldelink einfügt, soll nicht von vorn anfangen müssen.
+  while :; do
+    read -r -p "     Adresse einfügen und Enter drücken: " adresse
+    case "$adresse" in
+      *code=*) break ;;
+      "") echo "  Abgebrochen – nichts geändert." >&2; return 1 ;;
+      *) echo "     Das ist nicht die Adresse nach der Anmeldung. Die Adresse aus Schritt 2 gehört in"
+         echo "     einen NEUEN BROWSER-TAB; hierher kommt erst die Adresse von endurance-events.de"
+         echo "     mit „?code=…“. (Leere Eingabe bricht ab.)" ;;
+    esac
+  done
   code="$(ADRESSE="$adresse" python3 -c 'import os, urllib.parse
 a = os.environ["ADRESSE"].strip()
 q = urllib.parse.parse_qs(urllib.parse.urlparse(a).query) if "code=" in a else {"code": [a]}
