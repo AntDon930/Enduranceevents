@@ -4,18 +4,18 @@
  "szenen": [
   {
    "bild": "frage",
-   "text": "Krafttraining für Läufer? Macht dich das nicht schwer und langsam?",
+   "text": "Krafttraining für Ausdauersportler? Macht dich das nicht schwer und langsam?",
    "zeile": "MACHT KRAFT DICH SCHWER?",
    "g": 100,
    "teile": [
     [
      0.0,
-     1.45,
+     1.95,
      3
     ],
     [
-     1.85,
-     3.73,
+     2.41,
+     4.33,
      7
     ]
    ],
@@ -31,18 +31,18 @@
    ],
    "teile": [
     [
-     4.85,
-     5.6,
+     5.62,
+     6.37,
      2
     ],
     [
-     6.29,
-     7.09,
+     6.71,
+     7.46,
      2
     ],
     [
-     7.64,
-     8.76,
+     7.8,
+     8.89,
      3
     ]
    ]
@@ -54,14 +54,19 @@
    "zeile": "SORGE UNBEGRÜNDET",
    "teile": [
     [
-     9.37,
-     9.79,
+     9.86,
+     10.24,
      1
     ],
     [
-     10.37,
-     13.46,
-     9
+     10.8,
+     12.29,
+     5
+    ],
+    [
+     12.61,
+     13.94,
+     4
     ]
    ]
   },
@@ -78,13 +83,13 @@
    "zeile": "KEIN GRAMM MEHR",
    "teile": [
     [
-     14.11,
-     17.5,
+     14.72,
+     18.06,
      10
     ],
     [
-     17.87,
-     19.11,
+     18.52,
+     19.82,
      4
     ]
    ]
@@ -101,14 +106,19 @@
    "klein": "Støren et al., 2008",
    "teile": [
     [
-     19.63,
-     22.19,
+     20.6,
+     22.94,
      6
     ],
     [
-     22.66,
-     24.68,
-     4
+     23.37,
+     24.19,
+     2
+    ],
+    [
+     24.51,
+     25.33,
+     2
     ]
    ]
   },
@@ -133,18 +143,18 @@
    "fazit": "STÄRKER, NICHT SCHWERER",
    "teile": [
     [
-     25.15,
-     25.88,
+     26.24,
+     26.96,
      2
     ],
     [
-     26.27,
-     29.02,
+     27.35,
+     30.1,
      7
     ],
     [
-     29.32,
-     30.93,
+     30.42,
+     32.08,
      5
     ]
    ]
@@ -157,13 +167,13 @@
    "blase": "Ja – 2x pro Woche!",
    "teile": [
     [
-     31.4,
-     32.44,
+     32.88,
+     33.96,
      3
     ],
     [
-     32.77,
-     35.24,
+     34.36,
+     36.75,
      8
     ]
    ]
@@ -175,41 +185,41 @@
   "https://endurance-events.de/blog/krafttraining-fuer-laeufer.html"
  ],
  "caption": [
-  "Macht Krafttraining Läufer schwer? 🏋️",
-  "Nein. In einer Studie machten gut trainierte Läufer acht Wochen lang zusätzlich schwere Kniebeugen: Das Körpergewicht blieb gleich – aber sie liefen 5 % ökonomischer. Gleiches Tempo, weniger Energie.",
+  "Macht Krafttraining Ausdauersportler schwer? 🏋️",
+  "Die Sorge hören wir von Läufern, Radfahrern und Schwimmern. Was die Forschung bei Läufern zeigt: Gut trainierte Läufer machten acht Wochen lang zusätzlich schwere Kniebeugen – das Körpergewicht blieb gleich, aber sie liefen 5 % ökonomischer. Gleiches Tempo, weniger Energie.",
   "Dein Einstieg: zweimal pro Woche 20 bis 30 Minuten, Kniebeugen, Ausfallschritte, Wadenheben – ganz ohne Geräte.",
   "Machst du Krafttraining? Ja oder nein – schreib es in die Kommentare 👇",
   "Die sieben besten Übungen stehen im Blog – Link in der Bio.",
-  "#laufen #lauftraining #ausdauersport #marathontraining #halbmarathon #laufenmachtglücklich #krafttraining #läufer #triathlon #ausdauermaschine"
+  "#laufen #lauftraining #ausdauersport #marathontraining #radsport #laufenmachtglücklich #krafttraining #läufer #triathlon #ausdauermaschine"
  ],
  "zeiten": [
   [
    0.0,
-   4.29
+   4.97
   ],
   [
-   4.29,
-   9.06
+   4.97,
+   9.38
   ],
   [
-   9.06,
-   13.79
+   9.38,
+   14.33
   ],
   [
-   13.79,
-   19.37
+   14.33,
+   20.21
   ],
   [
-   19.37,
-   24.91
+   20.21,
+   25.78
   ],
   [
-   24.91,
-   31.16
+   25.78,
+   32.48
   ],
   [
-   31.16,
-   35.39
+   32.48,
+   36.9
   ]
  ],
  "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – kraft.mp3 neben dieser Datei"
