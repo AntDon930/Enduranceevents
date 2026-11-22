@@ -10,12 +10,12 @@
    "teile": [
     [
      0.0,
-     1.81,
+     1.83,
      5
     ],
     [
-     2.37,
-     4.69,
+     2.35,
+     4.59,
      6
     ]
    ]
@@ -35,18 +35,18 @@
    ],
    "teile": [
     [
-     5.72,
-     7.08,
+     5.64,
+     6.91,
      2
     ],
     [
-     7.69,
-     8.93,
+     7.54,
+     8.78,
      4
     ],
     [
-     9.51,
-     10.57,
+     9.35,
+     10.41,
      3
     ]
    ]
@@ -59,13 +59,13 @@
    "zeile": "VIEL LANGSAMER",
    "teile": [
     [
-     11.22,
-     11.68,
+     11.07,
+     11.49,
      1
     ],
     [
-     12.12,
-     14.74,
+     11.95,
+     14.73,
      8
     ]
    ]
@@ -83,18 +83,18 @@
    "zeile": "GANZE SÄTZE = LOCKER",
    "teile": [
     [
-     15.52,
-     16.06,
+     15.44,
+     15.98,
      2
     ],
     [
-     16.57,
-     18.81,
+     16.47,
+     18.73,
      8
     ],
     [
-     19.15,
-     20.13,
+     19.07,
+     20.05,
      4
     ]
    ]
@@ -108,26 +108,26 @@
    "zeile": "RUND 80 / 20",
    "teile": [
     [
-     20.79,
-     23.23,
+     20.77,
+     23.3,
      6
     ],
     [
-     23.69,
-     25.85,
+     23.79,
+     25.97,
      6
     ],
     [
-     26.18,
-     27.75,
+     26.3,
+     27.93,
      5
     ]
    ]
   },
   {
    "bild": "test",
-   "text": "Für deine Woche heißt das: zwei lockere Läufe, ein zügiger, und am Wochenende der lange Lauf, auch der ganz locker.",
-   "titel": "DEINE WOCHE",
+   "text": "So sieht eine typische Trainingswoche vor einem Event aus: zwei lockere Läufe, ein zügiger, und am Wochenende der lange Lauf, auch der ganz locker.",
+   "titel": "TRAININGSWOCHE",
    "zeilen": [
     [
      "2",
@@ -145,19 +145,14 @@
    "fazit": "LANGSAM MACHT SCHNELL",
    "teile": [
     [
-     28.37,
-     32.19,
-     10
+     28.58,
+     31.61,
+     9
     ],
     [
-     32.59,
-     34.19,
-     6
-    ],
-    [
-     34.53,
-     35.57,
-     4
+     32.01,
+     37.67,
+     15
     ]
    ]
   },
@@ -168,13 +163,13 @@
    "blase": "Ehrlich? Oft zu schnell …",
    "teile": [
     [
-     36.23,
-     38.6,
+     38.37,
+     40.68,
      7
     ],
     [
-     39.02,
-     40.44,
+     41.08,
+     42.45,
      5
     ]
    ]
@@ -188,7 +183,7 @@
  "caption": [
   "Wie langsam ist „locker“ wirklich? 🐢",
   "Langsamer, als die meisten laufen. Der einfachste Test: Kannst du in ganzen Sätzen reden, passt das Tempo.",
-  "Selbst Profis im Ausdauersport absolvieren rund 80 % ihrer Einheiten locker und nur etwa 20 % hart. Für deine Woche: zwei lockere Läufe, ein zügiger – und der lange Lauf am Wochenende, auch der ganz locker.",
+  "Selbst Profis im Ausdauersport absolvieren rund 80 % ihrer Einheiten locker und nur etwa 20 % hart. So sieht eine typische Trainingswoche vor einem Event aus: zwei lockere Läufe, ein zügiger – und der lange Lauf am Wochenende, auch der ganz locker.",
   "Hand aufs Herz: Läufst du deine lockeren Läufe wirklich locker? Schreib es in die Kommentare 👇",
   "Mehr zum Training für deinen ersten Halbmarathon im Blog – Link in der Bio.",
   "#laufen #lauftraining #ausdauersport #marathontraining #halbmarathon #laufenmachtglücklich #lauftipps #läufer #triathlon #ausdauermaschine"
@@ -196,31 +191,31 @@
  "zeiten": [
   [
    0.0,
-   5.21
+   5.12
   ],
   [
-   5.21,
-   10.89
+   5.12,
+   10.74
   ],
   [
-   10.89,
-   15.13
+   10.74,
+   15.09
   ],
   [
-   15.13,
-   20.46
+   15.09,
+   20.41
   ],
   [
-   20.46,
-   28.06
+   20.41,
+   28.25
   ],
   [
-   28.06,
-   35.9
+   28.25,
+   38.02
   ],
   [
-   35.9,
-   40.59
+   38.02,
+   42.6
   ]
  ],
  "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – locker.mp3 neben dieser Datei"

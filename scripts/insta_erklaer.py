@@ -115,15 +115,21 @@ def _glied(d, pts, w, fill, k, kontur=True):
 
 
 @lru_cache(maxsize=None)
-def laeufer(phase_i: int, hoehe: int = 560, mund: str = "ernst") -> Image.Image:
-    """Unser Maskottchen im Laufschritt, Blick nach rechts (RGBA)."""
+def laeufer(phase_i: int, hoehe: int = 560, mund: str = "laecheln") -> Image.Image:
+    """Unser Maskottchen im Laufschritt, Blick nach rechts (RGBA).
+
+    `mund`: "laecheln" (lockerer Lauf), "angestrengt" (schnell – Brauen
+    gerade, Mund leicht offen, kein böser Blick) oder "o" (fliegt vom Band).
+    Kurze Haare nur oben am Kopf (bis zum Ohr, nicht in den Nacken – sonst
+    liest man einen Bob), Oberkörper schlank und leicht nach vorn geneigt.
+    """
     ss = 3
     k = hoehe / 300 * ss
     img = Image.new("RGBA", (int(300 * k), int(300 * k)), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     p = 2 * math.pi * phase_i / PHASEN
     bob = 5 * math.cos(2 * p)
-    hufte, schulter, kopf = (140, 170 + bob), (156, 98 + bob), (168, 58 + bob)
+    hufte, schulter, kopf = (140, 170 + bob), (158, 100 + bob), (170, 60 + bob)
 
     def bein(q, hinten):
         a = 0.85 * math.sin(q)
@@ -131,42 +137,67 @@ def laeufer(phase_i: int, hoehe: int = 560, mund: str = "ernst") -> Image.Image:
         knie = (hufte[0] + 55 * math.sin(a), hufte[1] + 55 * math.cos(a))
         fuss = (knie[0] + 58 * math.sin(b), knie[1] + 58 * math.cos(b))
         haut = M.HAUT_SCHATTEN if hinten else M.HAUT
-        _glied(d, [hufte, knie, fuss], 20, haut, k)
+        _glied(d, [hufte, knie, fuss], 19, haut, k)
         spitze = (fuss[0] + 20 * math.cos(b), fuss[1] - 20 * math.sin(b))
         _glied(d, [fuss, spitze], 17, WEISS, k)
         _glied(d, [fuss, spitze], 4, CORAL, k, kontur=False)
-        _glied(d, [hufte, (hufte[0] + 22 * math.sin(a), hufte[1] + 22 * math.cos(a))], 27, M.HOSE, k)
+        _glied(d, [hufte, (hufte[0] + 20 * math.sin(a), hufte[1] + 20 * math.cos(a))], 22, M.HOSE, k)
 
     def arm(q, hinten):
         ua = -0.9 * math.sin(q)
         fa = ua + 1.5
         e = (schulter[0] + 34 * math.sin(ua), schulter[1] + 34 * math.cos(ua))
         h = (e[0] + 30 * math.sin(fa), e[1] + 30 * math.cos(fa))
-        _glied(d, [schulter, e, h], 17, M.HAUT_SCHATTEN if hinten else M.HAUT, k)
-        _glied(d, [schulter, (schulter[0] + 14 * math.sin(ua), schulter[1] + 14 * math.cos(ua))], 25,
+        _glied(d, [schulter, e, h], 16, M.HAUT_SCHATTEN if hinten else M.HAUT, k)
+        _glied(d, [schulter, (schulter[0] + 12 * math.sin(ua), schulter[1] + 12 * math.cos(ua))], 21,
                M.SHIRT, k)
 
     arm(p, True)
     bein(p + math.pi, True)
-    _glied(d, [schulter, (hufte[0] + 4, hufte[1] - 14)], 46, M.SHIRT, k)
-    _glied(d, [(schulter[0] - 15, schulter[1] + 6), (hufte[0] - 12, hufte[1] - 22)], 6, SOFT_BLUE, k, kontur=False)
-    _glied(d, [(hufte[0] + 3, hufte[1] - 8), (hufte[0], hufte[1] + 8)], 46, M.HOSE, k)
+    rumpf_unten = (hufte[0] + 2, hufte[1] - 12)
+    _glied(d, [schulter, rumpf_unten], 40, M.SHIRT, k)
+    # Seitenstreifen vorn an der Flanke (nicht am Rücken)
+    _glied(d, [(schulter[0] + 7, schulter[1] + 12), (rumpf_unten[0] + 9, rumpf_unten[1] - 6)], 5, SOFT_BLUE, k,
+           kontur=False)
+    _glied(d, [(hufte[0] + 4, hufte[1] - 4), (hufte[0] + 3, hufte[1] + 5)], 34, M.HOSE, k)
     bein(p, False)
-    kx, ky, r, o = kopf[0] * k, kopf[1] * k, 31 * k, 5 * k
+    kx, ky, r, o = kopf[0] * k, kopf[1] * k, 30 * k, 5 * k
     d.ellipse([kx - r - o, ky - r - o, kx + r + o, ky + r + o], fill=MIDNIGHT)
     d.ellipse([kx - r, ky - r, kx + r, ky + r], fill=M.HAUT)
-    d.pieslice([kx - r, ky - r, kx + r, ky + r], 150, 318, fill=M.HAAR)
-    d.ellipse([kx + 11 * k, ky - 5 * k, kx + 18 * k, ky + 4 * k], fill=MIDNIGHT)
-    if mund == "ernst":
-        d.line([(kx + 12 * k, ky + 16 * k), (kx + 24 * k, ky + 14 * k)], fill=MIDNIGHT, width=int(4 * k))
-        d.line([(kx + 6 * k, ky - 13 * k), (kx + 21 * k, ky - 9 * k)], fill=MIDNIGHT, width=int(4 * k))
+    # kurze Haare: auf den Kopf beschnitten, runder Ansatz über der Stirn,
+    # hinten nur bis Ohrhöhe – kein Dutt, kein Bob
+    maske = Image.new("L", img.size, 0)
+    ImageDraw.Draw(maske).ellipse([kx - r, ky - r, kx + r, ky + r], fill=255)
+    haar = Image.new("L", img.size, 0)
+    hd = ImageDraw.Draw(haar)
+    hd.ellipse([kx - r * 1.25, ky - r * 1.35, kx + r * 0.95, ky - r * 0.05], fill=255)
+    hd.ellipse([kx - r * 1.15, ky - r * 0.6, kx - r * 0.25, ky + r * 0.25], fill=255)
+    from PIL import ImageChops
+    img.paste(Image.new("RGBA", img.size, M.HAAR + (255,)), (0, 0), ImageChops.multiply(maske, haar))
+    # Ohr
+    d.ellipse([kx - 8 * k, ky - 3 * k, kx + 2 * k, ky + 9 * k], fill=M.HAUT_SCHATTEN)
+    d.ellipse([kx + 11 * k, ky - 4 * k, kx + 18 * k, ky + 5 * k], fill=MIDNIGHT)
+    w = int(3.5 * k)
+    if mund == "laecheln":
+        d.line([(kx + 7 * k, ky - 12 * k), (kx + 20 * k, ky - 13 * k)], fill=MIDNIGHT, width=w)
+        d.arc([kx + 9 * k, ky + 4 * k, kx + 27 * k, ky + 20 * k], 10, 120, fill=MIDNIGHT, width=w)
+    elif mund == "angestrengt":
+        d.line([(kx + 7 * k, ky - 11 * k), (kx + 21 * k, ky - 13 * k)], fill=MIDNIGHT, width=w)
+        d.ellipse([kx + 15 * k, ky + 10 * k, kx + 24 * k, ky + 18 * k], fill=MIDNIGHT)
+        # ein Schweißtropfen hinten an der Stirn
+        tx, ty = kx + 38 * k, ky - 18 * k
+        d.polygon([(tx, ty - 10 * k), (tx - 5 * k, ty), (tx + 5 * k, ty)], fill=SOFT_BLUE)
+        d.ellipse([tx - 5 * k, ty - 4 * k, tx + 5 * k, ty + 6 * k], fill=SOFT_BLUE)
     else:
-        d.ellipse([kx + 12 * k, ky + 9 * k, kx + 24 * k, ky + 22 * k], fill=MIDNIGHT)
+        d.line([(kx + 7 * k, ky - 14 * k), (kx + 20 * k, ky - 16 * k)], fill=MIDNIGHT, width=w)
+        d.ellipse([kx + 12 * k, ky + 8 * k, kx + 24 * k, ky + 21 * k], fill=MIDNIGHT)
     arm(p + math.pi, False)
     return img.resize((img.width // ss, img.height // ss), Image.LANCZOS)
 
 
 def lauf(t: float, tempo: float = 1.6, **kw) -> Image.Image:
+    """Laufschritt im Takt; locker (tempo <= 1.6) mit Lächeln, schneller angestrengt."""
+    kw.setdefault("mund", "laecheln" if tempo <= 1.6 else "angestrengt")
     return laeufer(int(t * tempo * PHASEN) % PHASEN, **kw)
 
 
@@ -357,7 +388,8 @@ def sz_test(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     for i in range(6):
         cx = x0 + 90 + i * 128
         d.rounded_rectangle([cx - 11, y0 - 44, cx + 11, y0 + 36], radius=11, fill=CREME, outline=MIDNIGHT, width=6)
-    d.text(((x0 + x1) / 2, y0 + 96), p.get("titel", "DEIN TEST"), font=schrift(120), fill=WEISS, anchor="mm")
+    titel = p.get("titel", "DEIN TEST")
+    d.text(((x0 + x1) / 2, y0 + 96), titel, font=schrift(min(120, 1450 / len(titel))), fill=WEISS, anchor="mm")
     zeilen = p.get("zeilen", (("30", "MINUTEN"), ("1", "ALLEIN LAUFEN"), ("=", "GLEICHMÄSSIG")))
     for i, (z, wort) in enumerate(zeilen):
         tt = t - dauer * (0.12 + 0.17 * i)
@@ -510,7 +542,8 @@ def sz_kacheln(t: float, dauer: float, p: dict | None = None) -> Image.Image:
         h = kb / 2 * k
         d.rounded_rectangle([cx - h - 8, cy - h - 8, cx + h + 8, cy + h + 8], radius=36, fill=(0, 22, 36))
         d.rounded_rectangle([cx - h, cy - h, cx + h, cy + h], radius=30, fill=farbe)
-        f = laeufer((i * 3 + int(t * (30 if ist_hart else 14))) % PHASEN, hoehe=150)
+        f = laeufer((i * 3 + int(t * (30 if ist_hart else 14))) % PHASEN, hoehe=150,
+                    mund="angestrengt" if ist_hart else "laecheln")
         f = f.resize((int(f.width * k) or 1, int(f.height * k) or 1))
         img.alpha_composite(f, (int(cx - f.width / 2), int(cy - f.height / 2)))
     tt = t - dauer * 0.55

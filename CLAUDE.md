@@ -5831,6 +5831,17 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Zahl der Sprechstücke je Szene vorgeben und die Ausgabe ansehen. Fakten aus den
   eigenen Blogbeiträgen sind schon belegt (Quellen dort) – zuerst dort suchen.
   Reels vom 22.11.2026: `locker`, `tapering`, `kraft`, `renntagswaage`.
+  **Die laufende Figur (`laeufer()`, Seitenansicht)** (22.11.2026, vom Nutzer:
+  „Der Rücken von der Frau sieht irgendwie ganz komisch aus. Und die müssen auch
+  nicht so extrem sauer aussehen beim laufen. Können schon bisschen angestrengt
+  aussehen oder bei einem entspannten Lauf auch mal bisschen lächeln“): Es ist
+  ER (das Maskottchen) – die Haare reichten bis in den Nacken und lasen sich als
+  Bob, die Hose bildete hinten eine Beule, die schräge Braue wirkte böse. Jetzt
+  kurze Haare mit rundem Ansatz (auf den Kopf beschnitten, nur bis Ohrhöhe, KEIN
+  Dutt-Knubbel), schlanke Hüfte, Gesicht `mund=` „laecheln“ (locker),
+  „angestrengt“ (gerade Braue, Mund offen, Schweißtropfen – nie böse) oder „o“;
+  `lauf()` wählt nach dem Tempo (≤ 1,6 lächelt), die Kacheln „hart“ sind
+  angestrengt. Nicht wieder eine schräge Braue einbauen.
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für
