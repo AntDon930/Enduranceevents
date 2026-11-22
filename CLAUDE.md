@@ -5757,6 +5757,16 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Szenen, Farben). Jede Aussage vor der Veröffentlichung belegen, am besten
   mit Blogbeitrag. Erster Entwurf: `schwelle` (ohne Sprecher, Belege offen,
   noch kein Test). Zweite Priorität: Karussells (Slides) für ruhigere Themen.
+  **Takt seit dem 22.11.2026** (vom Nutzer, nach dem ersten Reel „Schwelle“ –
+  „Video find ich sehr gut“, von Hand gepostet): „am Anfang … mindestens 5
+  Uploads in der Woche“, davon die meisten Erklär-Reels, „1-2x die Woche“ eine
+  Slide Show (Karussell). **Kein Telegram-Bot** („Ich will das doch nicht mehr
+  mit Telegram machen“) – Vorschau und Freigabe bleiben im Dashboard
+  (`admin.html`, Karte „Instagram-Freigabe“); das Posten soll wieder automatisch
+  laufen, sobald der Schlüssel steht (To-do 13). Offen: Erklär-Reels und
+  Karussells in Plan/Freigabe einhängen (`insta_inhalte`, plan.json, Vorschau
+  im Speicher; die Sprecheraufnahme liegt bisher nicht im Repo) und Karussell
+  über die API posten (`CAROUSEL`).
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für
@@ -7156,8 +7166,8 @@ Verweise auf alte Nummern stehen in Klammern.
     **Offen**: die Konfiguration hat noch kein `instagram_manage_insights`
     und kein `business_management` (der Editor bot es nicht an) – fehlt das
     Konto beim Anmelden, ist das der erste Verdacht. Danach: Karussell posten
-    (`CAROUSEL`) und Telegram-Bot (Vorschau, Freigeben/Sperren, Kommentare;
-    Ablauf nach der „Clipping Engine“ des Nutzers).
+    (`CAROUSEL`); Vorschau und Freigabe bleiben in `admin.html` – der
+    Telegram-Bot ist seit dem 22.11.2026 gestrichen (Wunsch des Nutzers).
     Vorgeschichte: **Meta blockiert den Instagram-Schlüssel – seit dem 23.10.2026**
     (gefunden am 04.11.2026; nur der Nutzer): Jeder Lauf von
     `instagram.yml`, der den Schlüssel pflegt, endet rot mit „Schlüssel
