@@ -1,0 +1,531 @@
+#!/usr/bin/env python3
+"""Erklär-Reel „Zahl als Bild“ (seit 22.11.2026, vom Nutzer gewünscht).
+
+Eine Frage als Hook, raten lassen, die Entwarnung, die echte Antwort als
+Bild, etwas zum Mitnehmen, Schluss mit Frage – gezeichnet in flachen
+Flächen mit unserem Maskottchen, Untertitel Wort für Wort. Die Bilder
+entstehen hier (Pillow → ffmpeg), nichts davon kommt aus einem KI-Video:
+Zahlen und Schrift müssen exakt sein, und die Figur soll in jeder Szene
+dieselbe bleiben. Nur die Sprecherstimme kommt von Runway (`--stimme`).
+
+Die Vorlage ist `marketing/instagram/erklaer/<thema>.json`:
+
+    {"seed": 5, "szenen": [{"bild": "hook", "text": "…"}, …]}
+
+`bild` wählt die Zeichenroutine (`SZENEN`), `text` ist der Sprechertext
+und zugleich der Untertitel. Ohne Stimme wird die Dauer je Szene aus der
+Textlänge geschätzt; mit `--stimme` und `"zeiten": [[von, bis], …]` in der
+Vorlage (Sprechpausen aus `ffmpeg … silencedetect`) liegt sie genau.
+
+    python3 scripts/insta_erklaer.py marketing/instagram/erklaer/schwelle.json --aus reel.mp4
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import random
+import subprocess
+import sys
+import tempfile
+from functools import lru_cache
+from pathlib import Path
+
+from PIL import Image, ImageDraw
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import insta_maskottchen as M  # noqa: E402
+import insta_musik  # noqa: E402
+from insta_video import kondensiert, text_schrift  # noqa: E402
+
+B, H, FPS = 1080, 1920, 30
+MIDNIGHT, SOFT_BLUE, CORAL, WEISS = M.MIDNIGHT, M.SOFT_BLUE, M.CORAL, M.WEISS
+CREME = (255, 249, 238)
+NACHT_HELL = (0, 58, 88)
+HIMMEL = (196, 230, 242)
+HUEGEL_1, HUEGEL_2 = (132, 190, 208), (88, 156, 180)
+STRASSE = (20, 58, 82)
+GRUEN = (70, 170, 130)
+GELB = (250, 196, 84)
+ZEICHEN_JE_S = 16.5     # geschätztes Sprechtempo ohne Stimme
+PAUSE_S = 0.35
+
+
+# --- Helfer ---------------------------------------------------------------
+
+def weich(t: float) -> float:
+    t = max(0.0, min(1.0, t))
+    return t * t * (3 - 2 * t)
+
+
+def federn(t: float) -> float:
+    """0 → 1 mit kleinem Überschwinger (für alles, was „aufpoppt“)."""
+    t = max(0.0, min(1.0, t))
+    return 1 - math.cos(t * math.pi * 1.5) * (1 - t) ** 2 if t < 1 else 1.0
+
+
+def schrift(g: float, fett: bool = True):
+    return kondensiert(max(8, int(round(g / 4) * 4)), fett)
+
+
+def text(d: ImageDraw.ImageDraw, x: float, y: float, s: str, g: float, fill=WEISS, kontur=MIDNIGHT,
+         rand: int = 8) -> None:
+    d.text((x, y), s, font=schrift(g), fill=fill, anchor="mm",
+           stroke_width=rand if kontur else 0, stroke_fill=kontur)
+
+
+def pop(d, x, y, s, g, t, **kw) -> None:
+    """Text, der ab t = 0 aufpoppt (t in Sekunden seit seinem Einsatz)."""
+    if t > 0:
+        text(d, x, y, s, g * federn(t / 0.35), **kw)
+
+
+def aufkleben(bild: Image.Image, teil: Image.Image, mx: float, unten: float) -> None:
+    bild.alpha_composite(teil, (int(mx - teil.width / 2), int(unten - teil.height)))
+
+
+def blase(d, x, y, s, g, t, spitze_x: float | None = None) -> None:
+    """Sprechblase (Creme, Midnight-Kontur), poppt ab t = 0 auf."""
+    if t <= 0:
+        return
+    k = federn(t / 0.3)
+    f = schrift(g * k)
+    w, h = f.getlength(s) / 2 + 46 * k, (g * 0.62 + 30) * k
+    d.rounded_rectangle([x - w - 7, y - h - 7, x + w + 7, y + h + 7], radius=h + 7, fill=MIDNIGHT)
+    if spitze_x is not None:
+        d.polygon([(x - 30 * k, y + h - 4), (x + 22 * k, y + h - 4), (spitze_x, y + h + 62 * k)], fill=MIDNIGHT)
+        d.polygon([(x - 18 * k, y + h - 8), (x + 12 * k, y + h - 8), (spitze_x, y + h + 44 * k)], fill=CREME)
+    d.rounded_rectangle([x - w, y - h, x + w, y + h], radius=h, fill=CREME)
+    d.text((x, y), s, font=f, fill=MIDNIGHT, anchor="mm")
+
+
+# --- Die Figur von der Seite (läuft) -----------------------------------------
+
+PHASEN = 20
+
+
+def _glied(d, pts, w, fill, k, kontur=True):
+    pts = [(x * k, y * k) for x, y in pts]
+    for farbe, extra in (((MIDNIGHT, 5 * k),) if kontur else ()) + ((fill, 0),):
+        b = w * k + 2 * extra
+        if len(pts) > 1:
+            d.line(pts, fill=farbe, width=int(round(b)), joint="curve")
+        for x, y in pts:
+            d.ellipse([x - b / 2, y - b / 2, x + b / 2, y + b / 2], fill=farbe)
+
+
+@lru_cache(maxsize=None)
+def laeufer(phase_i: int, hoehe: int = 560, mund: str = "ernst") -> Image.Image:
+    """Unser Maskottchen im Laufschritt, Blick nach rechts (RGBA)."""
+    ss = 3
+    k = hoehe / 300 * ss
+    img = Image.new("RGBA", (int(300 * k), int(300 * k)), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    p = 2 * math.pi * phase_i / PHASEN
+    bob = 5 * math.cos(2 * p)
+    hufte, schulter, kopf = (140, 170 + bob), (156, 98 + bob), (168, 58 + bob)
+
+    def bein(q, hinten):
+        a = 0.85 * math.sin(q)
+        b = a - (0.2 + 1.2 * max(0.0, math.cos(q)))
+        knie = (hufte[0] + 55 * math.sin(a), hufte[1] + 55 * math.cos(a))
+        fuss = (knie[0] + 58 * math.sin(b), knie[1] + 58 * math.cos(b))
+        haut = M.HAUT_SCHATTEN if hinten else M.HAUT
+        _glied(d, [hufte, knie, fuss], 20, haut, k)
+        spitze = (fuss[0] + 20 * math.cos(b), fuss[1] - 20 * math.sin(b))
+        _glied(d, [fuss, spitze], 17, WEISS, k)
+        _glied(d, [fuss, spitze], 4, CORAL, k, kontur=False)
+        _glied(d, [hufte, (hufte[0] + 22 * math.sin(a), hufte[1] + 22 * math.cos(a))], 27, M.HOSE, k)
+
+    def arm(q, hinten):
+        ua = -0.9 * math.sin(q)
+        fa = ua + 1.5
+        e = (schulter[0] + 34 * math.sin(ua), schulter[1] + 34 * math.cos(ua))
+        h = (e[0] + 30 * math.sin(fa), e[1] + 30 * math.cos(fa))
+        _glied(d, [schulter, e, h], 17, M.HAUT_SCHATTEN if hinten else M.HAUT, k)
+        _glied(d, [schulter, (schulter[0] + 14 * math.sin(ua), schulter[1] + 14 * math.cos(ua))], 25,
+               M.SHIRT, k)
+
+    arm(p, True)
+    bein(p + math.pi, True)
+    _glied(d, [schulter, (hufte[0] + 4, hufte[1] - 14)], 46, M.SHIRT, k)
+    _glied(d, [(schulter[0] - 15, schulter[1] + 6), (hufte[0] - 12, hufte[1] - 22)], 6, SOFT_BLUE, k, kontur=False)
+    _glied(d, [(hufte[0] + 3, hufte[1] - 8), (hufte[0], hufte[1] + 8)], 46, M.HOSE, k)
+    bein(p, False)
+    kx, ky, r, o = kopf[0] * k, kopf[1] * k, 31 * k, 5 * k
+    d.ellipse([kx - r - o, ky - r - o, kx + r + o, ky + r + o], fill=MIDNIGHT)
+    d.ellipse([kx - r, ky - r, kx + r, ky + r], fill=M.HAUT)
+    d.pieslice([kx - r, ky - r, kx + r, ky + r], 150, 318, fill=M.HAAR)
+    d.ellipse([kx + 11 * k, ky - 5 * k, kx + 18 * k, ky + 4 * k], fill=MIDNIGHT)
+    if mund == "ernst":
+        d.line([(kx + 12 * k, ky + 16 * k), (kx + 24 * k, ky + 14 * k)], fill=MIDNIGHT, width=int(4 * k))
+        d.line([(kx + 6 * k, ky - 13 * k), (kx + 21 * k, ky - 9 * k)], fill=MIDNIGHT, width=int(4 * k))
+    else:
+        d.ellipse([kx + 12 * k, ky + 9 * k, kx + 24 * k, ky + 22 * k], fill=MIDNIGHT)
+    arm(p + math.pi, False)
+    return img.resize((img.width // ss, img.height // ss), Image.LANCZOS)
+
+
+def lauf(t: float, tempo: float = 1.6, **kw) -> Image.Image:
+    return laeufer(int(t * tempo * PHASEN) % PHASEN, **kw)
+
+
+# --- Hintergründe -----------------------------------------------------------
+
+@lru_cache(maxsize=None)
+def nacht() -> Image.Image:
+    img = Image.new("RGBA", (B, H), MIDNIGHT + (255,))
+    ImageDraw.Draw(img).ellipse([B / 2 - 520, 980 - 520, B / 2 + 520, 980 + 520], fill=NACHT_HELL)
+    return img
+
+
+def tag(t: float, tempo: float = 1.0) -> Image.Image:
+    img = Image.new("RGBA", (B, H), HIMMEL + (255,))
+    d = ImageDraw.Draw(img)
+    for i, (x0, y0, r) in enumerate(((180, 300, 150), (760, 190, 190), (1300, 380, 130))):
+        x = (x0 - t * 22 * tempo) % 1500 - 200
+        for dx, dr in ((0, 0), (r * 0.7, -30), (-r * 0.7, -40)):
+            d.ellipse([x + dx - r - dr, y0 - (r + dr) * 0.55, x + dx + r + dr, y0 + (r + dr) * 0.55], fill=CREME)
+    for farbe, basis, hoehe_, breite, speed in ((HUEGEL_1, 1250, 420, 900, 40), (HUEGEL_2, 1330, 300, 640, 90)):
+        for i in range(-1, 4):
+            x = i * breite * 0.8 - (t * speed * tempo) % (breite * 0.8)
+            d.polygon([(x, basis), (x + breite / 2, basis - hoehe_), (x + breite, basis)], fill=farbe)
+        d.rectangle([0, basis, B, H], fill=farbe)
+    d.rectangle([0, 1380, B, H], fill=STRASSE)
+    d.rectangle([0, 1380, B, 1394], fill=MIDNIGHT)
+    for i in range(-1, 6):
+        x = i * 300 - (t * 620 * tempo) % 300
+        d.rounded_rectangle([x, 1590, x + 150, 1606], radius=8, fill=CREME)
+    return img
+
+
+# --- Szenen: f(bild, t, dauer) ----------------------------------------------
+
+def sz_hook(t: float, dauer: float) -> Image.Image:
+    img = tag(t)
+    d = ImageDraw.Draw(img)
+    aufkleben(img, lauf(t, hoehe=640), B / 2 - 40, 1404)
+    # Tacho mit Fragezeichen
+    mx, my, r = B / 2, 720, 240
+    d.pieslice([mx - r - 12, my - r - 12, mx + r + 12, my + r + 12], 180, 360, fill=MIDNIGHT)
+    d.pieslice([mx - r, my - r, mx + r, my + r], 180, 360, fill=CREME)
+    d.pieslice([mx - r, my - r, mx + r, my + r], 300, 360, fill=CORAL)
+    d.pieslice([mx - r + 70, my - r + 70, mx + r - 70, my + r - 70], 180, 360, fill=MIDNIGHT)
+    w = math.radians(200 + 140 * (0.5 + 0.5 * math.sin(t * 2.3)) * weich(t / 0.8))
+    d.line([(mx, my), (mx + (r - 30) * math.cos(w), my + (r - 30) * math.sin(w))], fill=CORAL, width=18)
+    d.ellipse([mx - 30, my - 30, mx + 30, my + 30], fill=CREME, outline=MIDNIGHT, width=8)
+    pop(d, mx, my - 95, "?", 150, t - dauer * 0.5, fill=CREME, kontur=None)
+    pop(d, B / 2, 1490, "DEINE SCHWELLE?", 120, t - dauer * 0.55, fill=CORAL)
+    return img
+
+
+def laufband(d: ImageDraw.ImageDraw, t: float, tempo: float, anzeige: str) -> None:
+    d.rounded_rectangle([150, 1396, 860, 1476], radius=40, fill=(10, 30, 46))
+    d.rounded_rectangle([170, 1404, 840, 1452], radius=24, fill=(48, 74, 96))
+    for i in range(10):
+        x = 190 + (i * 66 - t * 420 * tempo) % 640
+        d.rectangle([x, 1404, x + 16, 1418], fill=(10, 30, 46))
+    d.rounded_rectangle([812, 1010, 838, 1410], radius=10, fill=(48, 74, 96))
+    d.rounded_rectangle([730, 960, 930, 1024], radius=14, fill=(48, 74, 96))
+    d.rounded_rectangle([760, 870, 930, 980], radius=18, fill=(10, 30, 46), outline=(48, 74, 96), width=10)
+    d.text((845, 925), anzeige, font=schrift(64), fill=GRUEN, anchor="mm")
+    for i in range(7):
+        d.rectangle([i * 170, 1476, i * 170 + 85, H], fill=(0, 50, 76))
+
+
+def sz_raten(t: float, dauer: float) -> Image.Image:
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    stufe = min(2, int(t / (dauer / 3)))
+    lt = t - stufe * dauer / 3
+    tempo = (1.4, 2.0, 3.0)[stufe]
+    abflug = t - dauer * 0.86
+    laufband(d, t, tempo, ("12", "16", "25")[stufe] if abflug < 0 else "25")
+    wort, farbe, g = (("VOLLGAS?", CREME, 170), ("5-KM-TEMPO?", CREME, 150), ("PULS 180?!", CORAL, 190))[stufe]
+    pop(d, B / 2, 620, wort, g, lt, fill=farbe, kontur=None)
+    if abflug < 0:
+        aufkleben(img, lauf(t, tempo), 470 - 90 * stufe, 1420)
+    else:
+        f = lauf(t, 3.0, mund="o").rotate(60 + abflug * 520, resample=Image.BICUBIC, expand=True)
+        x, y = 290 - abflug * 1500, 1280 - abflug * 700 + abflug * abflug * 2600
+        img.alpha_composite(f, (int(x - f.width / 2), int(y - f.height / 2)))
+        for i in range(5):
+            w = i * 1.3 + abflug * 4
+            rr = 44 + 30 * abflug + 8 * math.sin(i)
+            cx, cy = 200 + 52 * math.cos(w), 1400 + 34 * math.sin(w)
+            d.ellipse([cx - rr, cy - rr, cx + rr, cy + rr], fill=CREME)
+    return img
+
+
+def sz_entwarnung(t: float, dauer: float) -> Image.Image:
+    img = tag(t * 0.25)
+    d = ImageDraw.Draw(img)
+    atem = 1 + 0.015 * math.sin(t * 3.2)
+    f = M.figur("daumen", int(840 * atem))
+    aufkleben(img, f, B / 2 - 60, 1410)
+    blase(d, 770, 560, "PUH!", 130, t - 0.25, spitze_x=650)
+    pop(d, B / 2, 1490, "VIEL ENTSPANNTER", 118, t - dauer * 0.45, fill=CREME)
+    return img
+
+
+def sz_stunde(t: float, dauer: float) -> Image.Image:
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    mx, my, r = B / 2, 880, 320
+    k = federn(t / 0.4)
+    r = max(130.0, r * k)
+    d.rounded_rectangle([mx - 44, my - r - 92, mx + 44, my - r + 10], radius=16, fill=CORAL, outline=MIDNIGHT, width=10)
+    d.ellipse([mx - r - 26, my - r - 26, mx + r + 26, my + r + 26], fill=MIDNIGHT)
+    d.ellipse([mx - r - 12, my - r - 12, mx + r + 12, my + r + 12], fill=CORAL)
+    d.ellipse([mx - r + 22, my - r + 22, mx + r - 22, my + r - 22], fill=CREME)
+    for i in range(12):
+        w = math.radians(i * 30)
+        d.line([(mx + (r - 50) * math.sin(w), my - (r - 50) * math.cos(w)),
+                (mx + (r - 82) * math.sin(w), my - (r - 82) * math.cos(w))], fill=MIDNIGHT, width=10)
+    anteil = weich((t - 0.4) / (dauer * 0.6))
+    d.pieslice([mx - r + 90, my - r + 90, mx + r - 90, my + r - 90], -90, -90 + 360 * anteil, fill=SOFT_BLUE)
+    w = math.radians(360 * anteil)
+    d.line([(mx, my), (mx + (r - 110) * math.sin(w), my - (r - 110) * math.cos(w))], fill=CORAL, width=16)
+    minuten = int(round(60 * anteil))
+    d.rounded_rectangle([mx - 190, my - 70, mx + 190, my + 70], radius=24, fill=MIDNIGHT)
+    d.text((mx, my), f"{minuten:02d}:00", font=schrift(124), fill=GRUEN, anchor="mm")
+    pop(d, B / 2, 1350, "CA. 60 MINUTEN", 150, t - dauer * 0.5, fill=CORAL)
+    pop(d, B / 2, 1470, "SO LANGE HÄLTST DU ES DURCH", 62, t - dauer * 0.6, fill=CREME, kontur=None)
+    return img
+
+
+def sz_fass(t: float, dauer: float) -> Image.Image:
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    ueber = weich((t - dauer * 0.58) / 0.6)                 # 0 = an der Schwelle, 1 = darüber
+    x0, x1, oben, unten = 320, 760, 620, 1280
+    stand = 0.48 + 0.02 * math.sin(t * 3) + 0.52 * weich((t - dauer * 0.58) / (dauer * 0.22))
+    y = unten - (unten - oben) * min(1.0, stand)
+    zu = 26 + 46 * ueber
+    # Zulauf
+    d.rounded_rectangle([120, 420, 470, 500], radius=24, fill=(48, 74, 96), outline=MIDNIGHT, width=8)
+    d.rectangle([430 - zu / 2, 500, 430 + zu / 2, max(500, y)], fill=CORAL)
+    # Fass
+    d.rounded_rectangle([x0 - 14, oben - 14, x1 + 14, unten + 14], radius=44, fill=MIDNIGHT)
+    d.rounded_rectangle([x0, oben, x1, unten], radius=32, fill=CREME)
+    pts = [(x0 + 6, unten - 6), (x0 + 6, y)]
+    for i in range(0, 21):
+        px = x0 + 6 + (x1 - x0 - 12) * i / 20
+        pts.append((px, y + 9 * math.sin(i * 0.9 + t * 5)))
+    pts += [(x1 - 6, unten - 6)]
+    d.polygon(pts, fill=CORAL)
+    for yy in (oben + 150, unten - 150):
+        d.rectangle([x0 - 14, yy - 9, x1 + 14, yy + 9], fill=MIDNIGHT)
+    d.text(((x0 + x1) / 2, unten - 250), "LAKTAT", font=schrift(96), fill=CREME, anchor="mm",
+           stroke_width=6, stroke_fill=MIDNIGHT)
+    # Abfluss
+    d.rounded_rectangle([x1 - 4, unten - 110, x1 + 150, unten - 50], radius=18, fill=(48, 74, 96),
+                        outline=MIDNIGHT, width=8)
+    d.rectangle([x1 + 104, unten - 50, x1 + 130, 1420], fill=CORAL)
+    if stand >= 0.97:
+        s = weich((t - dauer * 0.8) / 0.4)
+        for xx in (x0 - 40, x1 + 14):
+            d.rounded_rectangle([xx, oben - 10, xx + 26, oben - 10 + 700 * s], radius=13, fill=CORAL)
+        d.rounded_rectangle([x0 - 40, oben - 34, x1 + 40, oben + 4], radius=19, fill=CORAL)
+    d.ellipse([x1 + 20, 1400, x1 + 220, 1450], fill=CORAL)
+    if ueber < 0.5:
+        pop(d, B / 2, 1500, "ZULAUF = ABFLUSS", 104, t - 0.5, fill=GRUEN)
+    else:
+        pop(d, B / 2, 1500, "ZU SCHNELL: ES LÄUFT ÜBER", 88, t - dauer * 0.62, fill=CORAL)
+    return img
+
+
+def sz_test(t: float, dauer: float) -> Image.Image:
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    k = federn(t / 0.4)
+    x0, x1, y0, y1 = 130, 950, 520, 1500
+    y1 = y0 + (y1 - y0) * k
+    d.rounded_rectangle([x0 + 22, y0 + 26, x1 + 22, y1 + 26], radius=40, fill=(0, 22, 36))
+    d.rounded_rectangle([x0, y0, x1, y1], radius=40, fill=CREME)
+    d.rounded_rectangle([x0, y0, x1, y0 + 170], radius=40, fill=CORAL)
+    d.rectangle([x0, y0 + 120, x1, y0 + 170], fill=CORAL)
+    for i in range(6):
+        cx = x0 + 90 + i * 128
+        d.rounded_rectangle([cx - 11, y0 - 44, cx + 11, y0 + 36], radius=11, fill=CREME, outline=MIDNIGHT, width=6)
+    d.text(((x0 + x1) / 2, y0 + 96), "DEIN TEST", font=schrift(120), fill=WEISS, anchor="mm")
+    zeilen = (("30", "MINUTEN"), ("1", "ALLEIN LAUFEN"), ("=", "GLEICHMÄSSIG"))
+    for i, (z, wort) in enumerate(zeilen):
+        tt = t - dauer * (0.12 + 0.17 * i)
+        if tt <= 0 or k < 1:
+            continue
+        yy = y0 + 280 + i * 180
+        if i % 2:
+            d.rectangle([x0 + 16, yy - 86, x1 - 16, yy + 86], fill=(244, 234, 216))
+        s = federn(tt / 0.3)
+        d.ellipse([x0 + 60, yy - 62 * s, x0 + 60 + 124 * s, yy + 62 * s], fill=MIDNIGHT)
+        d.text((x0 + 60 + 62 * s, yy), z, font=schrift(76 * s), fill=CREME, anchor="mm")
+        d.text((x0 + 220, yy), wort, font=schrift(76), fill=MIDNIGHT, anchor="lm")
+    tt = t - dauer * 0.66
+    if tt > 0:
+        s = federn(tt / 0.35)
+        d.rounded_rectangle([B / 2 - 400 * s, 1385 - 74 * s, B / 2 + 400 * s, 1385 + 74 * s], radius=74, fill=GRUEN,
+                            outline=MIDNIGHT, width=8)
+        d.text((B / 2, 1385), "DEIN SCHNITT = SCHWELLE", font=schrift(76 * s), fill=WEISS, anchor="mm")
+    return img
+
+
+def sz_gefuehl(t: float, dauer: float) -> Image.Image:
+    img = tag(t * 0.25)
+    d = ImageDraw.Draw(img)
+    aufkleben(img, M.figur("winken", 800), B / 2 - 170, 1410)
+    pop(d, B / 2, 520, "ANGENEHM HART", 150, t - dauer * 0.12, fill=CORAL)
+    a = dauer * 0.42
+    for i, (wort, x, y) in enumerate((("Ein", 700, 700), ("paar", 850, 840), ("Worte", 790, 990))):
+        blase(d, x, y, wort, 84, t - a - i * 0.3, spitze_x=600 if i == 0 else None)
+    tt = t - dauer * 0.74
+    if tt > 0:
+        blase(d, 880, 1150, "…", 84, tt)
+        s = federn(tt / 0.3 - 0.6)
+        if s > 0:
+            d.line([(810, 1090), (810 + 140 * s, 1090 + 120 * s)], fill=CORAL, width=16)
+            d.line([(950, 1090), (950 - 140 * s, 1090 + 120 * s)], fill=CORAL, width=16)
+    return img
+
+
+def sz_schluss(t: float, dauer: float) -> Image.Image:
+    img = tag(t * 0.4)
+    d = ImageDraw.Draw(img)
+    sprung = abs(math.sin(t * 5.2)) * 46
+    aufkleben(img, M.figur("jubeln", 820), B / 2, 1410 - sprung)
+    rng = random.Random(7)
+    for i in range(46):
+        x = rng.uniform(40, B - 40)
+        y = (rng.uniform(-400, 900) + t * rng.uniform(260, 520)) % 1500
+        w = rng.uniform(0, 3.1) + t * 4
+        farbe = (CORAL, CREME, GELB, GRUEN, MIDNIGHT)[i % 5]
+        d.line([(x - 15 * math.cos(w), y - 15 * math.sin(w)), (x + 15 * math.cos(w), y + 15 * math.sin(w))],
+               fill=farbe, width=11)
+    pop(d, B / 2, 500, "KENNST DU DEINE?", 132, t - 0.2, fill=CORAL)
+    blase(d, B / 2, 1490, "4:45 /km – und du?", 88, t - dauer * 0.45)
+    return img
+
+
+SZENEN = {"hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
+          "fass": sz_fass, "test": sz_test, "gefuehl": sz_gefuehl, "schluss": sz_schluss}
+
+
+# --- Untertitel: Wort für Wort ----------------------------------------------
+
+def wortzeiten(szenen: list[dict]) -> list[tuple[str, float, float, int]]:
+    """(Wort, von, bis, Gruppe) – die Zeit je Wort nach seiner Länge verteilt."""
+    aus, gruppe = [], 0
+    for s in szenen:
+        woerter = s["text"].split()
+        gesamt = sum(len(w) + 1 for w in woerter)
+        t, zeile = s["von"], 0
+        for w in woerter:
+            dt = (s["bis"] - PAUSE_S * 0.6 - s["von"]) * (len(w) + 1) / gesamt
+            if zeile + len(w) > 17 and zeile:
+                gruppe, zeile = gruppe + 1, 0
+            aus.append((w, t, t + dt, gruppe))
+            zeile += len(w) + 1
+            t += dt
+            if w[-1] in ".?!:":
+                gruppe, zeile = gruppe + 1, 0
+        gruppe += 1
+    return aus
+
+
+def untertitel(img: Image.Image, woerter, t: float) -> None:
+    aktiv = [w for w in woerter if w[1] <= t < w[2]] or [w for w in woerter if w[1] <= t][-1:]
+    if not aktiv:
+        return
+    zeile = [w for w in woerter if w[3] == aktiv[0][3]]
+    f = text_schrift(64, True)
+    breiten = [f.getlength(w[0]) for w in zeile]
+    luecke = 22
+    gesamt = sum(breiten) + luecke * (len(zeile) - 1)
+    x, y = (B - gesamt) / 2, 300
+    ebene = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(ebene)
+    d.rounded_rectangle([x - 34, y - 56, x + gesamt + 34, y + 56], radius=30, fill=MIDNIGHT + (200,))
+    for w, b in zip(zeile, breiten):
+        if w is aktiv[0]:
+            d.rounded_rectangle([x - 12, y - 42, x + b + 12, y + 42], radius=20, fill=CORAL + (255,))
+        farbe = WEISS if w[1] <= t else (150, 176, 190)
+        d.text((x, y), w[0], font=f, fill=farbe, anchor="lm")
+        x += b + luecke
+    img.alpha_composite(ebene)
+
+
+# --- Rendern ----------------------------------------------------------------
+
+def plane(spec: dict) -> list[dict]:
+    szenen, t = [], 0.0
+    zeiten = spec.get("zeiten")
+    for i, s in enumerate(spec["szenen"]):
+        if zeiten:
+            von, bis = zeiten[i]
+        else:
+            von, bis = t, t + len(s["text"]) / ZEICHEN_JE_S + PAUSE_S
+        szenen.append({**s, "von": von, "bis": bis})
+        t = bis
+    return szenen
+
+
+def bild_bei(szenen: list[dict], woerter, t: float) -> Image.Image:
+    s = next((x for x in szenen if x["von"] <= t < x["bis"]), szenen[-1])
+    img = SZENEN[s["bild"]](t - s["von"], s["bis"] - s["von"])
+    untertitel(img, woerter, t)
+    return img
+
+
+def rendere(vorlage: Path, ziel: Path, stimme: Path | None = None) -> float:
+    spec = json.loads(vorlage.read_text(encoding="utf-8"))
+    szenen = plane(spec)
+    woerter = wortzeiten(szenen)
+    gesamt = szenen[-1]["bis"] + 0.6
+    with tempfile.TemporaryDirectory() as tmp:
+        beat = Path(tmp) / "beat.wav"
+        insta_musik.schreibe_wav(beat, gesamt + 0.2, int(spec.get("seed", 5)),
+                                 schnitte=[s["von"] for s in szenen[1:]])
+        cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{B}x{H}",
+               "-r", str(FPS), "-i", "-", "-i", str(beat)]
+        if stimme:
+            cmd += ["-i", str(stimme), "-filter_complex",
+                    "[1:a]volume=0.16[b];[2:a]volume=1.0[s];[s][b]amix=inputs=2:duration=longest:normalize=0[a]",
+                    "-map", "0:v", "-map", "[a]"]
+        else:
+            cmd += ["-filter_complex", "[1:a]volume=0.5[a]", "-map", "0:v", "-map", "[a]"]
+        cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p", "-c:a", "aac",
+                "-b:a", "192k", "-t", f"{gesamt:.2f}", "-movflags", "+faststart", str(ziel)]
+        p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+        for i in range(int(gesamt * FPS)):
+            p.stdin.write(bild_bei(szenen, woerter, i / FPS).convert("RGB").tobytes())
+        p.stdin.close()
+        if p.wait():
+            raise RuntimeError("ffmpeg ist gescheitert")
+    return gesamt
+
+
+def main(argv=None) -> int:
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("vorlage", type=Path)
+    ap.add_argument("--aus", type=Path, required=True)
+    ap.add_argument("--stimme", type=Path, help="Sprachaufnahme (mp3/wav)")
+    ap.add_argument("--bogen", type=Path, help="statt des Videos: ein Bild je Szene als Übersicht")
+    a = ap.parse_args(argv)
+    if a.bogen:
+        spec = json.loads(a.vorlage.read_text(encoding="utf-8"))
+        szenen = plane(spec)
+        woerter = wortzeiten(szenen)
+        zeiten = [s["von"] + (s["bis"] - s["von"]) * f for s in szenen for f in (0.35, 0.9)]
+        bogen = Image.new("RGB", (270 * 8, 480 * math.ceil(len(zeiten) / 8)), MIDNIGHT)
+        for i, t in enumerate(zeiten):
+            bogen.paste(bild_bei(szenen, woerter, t).convert("RGB").resize((270, 480)), (i % 8 * 270, i // 8 * 480))
+        bogen.save(a.bogen)
+        print(a.bogen)
+        return 0
+    t = rendere(a.vorlage, a.aus, a.stimme)
+    print(f"{a.aus} ({t:.1f} s)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,14 @@
+{
+  "thema": "Was ist wirklich deine Schwelle?",
+  "seed": 5,
+  "szenen": [
+    {"bild": "hook", "text": "Alle reden vom Schwellentempo. Aber was ist wirklich deine Schwelle?"},
+    {"bild": "raten", "text": "Vollgas? Dein 5-Kilometer-Tempo? Puls 180?"},
+    {"bild": "entwarnung", "text": "Nein. Die Schwelle ist viel entspannter, als du denkst."},
+    {"bild": "stunde", "text": "Es ist das Tempo, das du etwa eine Stunde lang durchhalten könntest."},
+    {"bild": "fass", "text": "Darunter baut dein Körper Laktat so schnell ab, wie es entsteht. Darüber läuft das Fass über."},
+    {"bild": "test", "text": "Der Test: 30 Minuten allein, so schnell du gleichmäßig kannst. Dein Durchschnittstempo ist deine Schwelle."},
+    {"bild": "gefuehl", "text": "Fühlt sich an wie: angenehm hart. Ein paar Worte gehen noch, ein Gespräch nicht mehr."},
+    {"bild": "schluss", "text": "Kennst du deine Schwelle? Schreib dein Tempo in die Kommentare."}
+  ]
+}
