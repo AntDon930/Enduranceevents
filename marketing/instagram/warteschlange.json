@@ -8,10 +8,34 @@
    "gepostet": "2026-11-22"
   },
   {
+   "id": "locker",
+   "format": "erklaer",
+   "thema": "locker",
+   "ab": "2026-11-23"
+  },
+  {
    "id": "winterkleidung",
    "format": "karussell",
    "slug": "winterkleidung",
    "ab": "2026-11-25"
+  },
+  {
+   "id": "tapering",
+   "format": "erklaer",
+   "thema": "tapering",
+   "ab": "2026-11-23"
+  },
+  {
+   "id": "kraft",
+   "format": "erklaer",
+   "thema": "kraft",
+   "ab": "2026-11-23"
+  },
+  {
+   "id": "renntagswaage",
+   "format": "erklaer",
+   "thema": "renntagswaage",
+   "ab": "2026-11-23"
   }
  ]
 }

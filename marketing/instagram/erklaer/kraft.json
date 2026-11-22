@@ -1,0 +1,215 @@
+{
+ "thema": "Macht Krafttraining Läufer schwer?",
+ "seed": 13,
+ "szenen": [
+  {
+   "bild": "frage",
+   "text": "Krafttraining für Läufer? Macht dich das nicht schwer und langsam?",
+   "zeile": "MACHT KRAFT DICH SCHWER?",
+   "g": 100,
+   "teile": [
+    [
+     0.0,
+     1.45,
+     3
+    ],
+    [
+     1.85,
+     3.73,
+     7
+    ]
+   ]
+  },
+  {
+   "bild": "denken",
+   "text": "Dicke Beine? Mehr Gewicht? Langsamer am Berg?",
+   "worte": [
+    "DICKE BEINE?",
+    "MEHR GEWICHT?",
+    "LANGSAMER?"
+   ],
+   "teile": [
+    [
+     4.85,
+     5.6,
+     2
+    ],
+    [
+     6.29,
+     7.09,
+     2
+    ],
+    [
+     7.64,
+     8.76,
+     3
+    ]
+   ]
+  },
+  {
+   "bild": "entwarnung",
+   "text": "Nein. Das ist die häufigste Sorge, und sie ist unbegründet.",
+   "blase": "NEIN!",
+   "zeile": "SORGE UNBEGRÜNDET",
+   "teile": [
+    [
+     9.37,
+     9.79,
+     1
+    ],
+    [
+     10.37,
+     13.46,
+     9
+    ]
+   ]
+  },
+  {
+   "bild": "figur",
+   "text": "In einer Studie machten Läufer acht Wochen lang schwere Kniebeugen. Ihr Gewicht blieb gleich.",
+   "pose": "waage",
+   "titel": "8 WOCHEN KNIEBEUGEN",
+   "titel_g": 112,
+   "blasen": [
+    "Gewicht:",
+    "unverändert!"
+   ],
+   "zeile": "KEIN GRAMM MEHR",
+   "teile": [
+    [
+     14.11,
+     17.5,
+     10
+    ],
+    [
+     17.87,
+     19.11,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Aber sie liefen fünf Prozent ökonomischer: gleiches Tempo, weniger Energie.",
+   "zahl": 5,
+   "nach": " %",
+   "oben": "LAUFÖKONOMIE",
+   "einheit": "SPARSAMER",
+   "zeile": "GLEICHES TEMPO, WENIGER ENERGIE",
+   "g": 72,
+   "klein": "Støren et al., 2008",
+   "teile": [
+    [
+     19.63,
+     22.19,
+     6
+    ],
+    [
+     22.66,
+     24.68,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "test",
+   "text": "Dein Einstieg: zweimal pro Woche, 20 bis 30 Minuten, nur mit dem eigenen Körpergewicht.",
+   "titel": "DEIN EINSTIEG",
+   "zeilen": [
+    [
+     "2",
+     "MAL PRO WOCHE"
+    ],
+    [
+     "25",
+     "MINUTEN"
+    ],
+    [
+     "0",
+     "GERÄTE NÖTIG"
+    ]
+   ],
+   "fazit": "STÄRKER, NICHT SCHWERER",
+   "teile": [
+    [
+     25.15,
+     25.88,
+     2
+    ],
+    [
+     26.27,
+     29.02,
+     7
+    ],
+    [
+     29.32,
+     30.93,
+     5
+    ]
+   ]
+  },
+  {
+   "bild": "schluss",
+   "text": "Machst du Krafttraining? Ja oder nein, schreib es in die Kommentare.",
+   "frage": "KRAFT: JA ODER NEIN?",
+   "g": 116,
+   "blase": "Ja – 2x pro Woche!",
+   "teile": [
+    [
+     31.4,
+     32.44,
+     3
+    ],
+    [
+     32.77,
+     35.24,
+     8
+    ]
+   ]
+  }
+ ],
+ "quellen": [
+  "https://pubmed.ncbi.nlm.nih.gov/18460997/",
+  "https://pmc.ncbi.nlm.nih.gov/articles/PMC5889786/",
+  "https://endurance-events.de/blog/krafttraining-fuer-laeufer.html"
+ ],
+ "caption": [
+  "Macht Krafttraining Läufer schwer? 🏋️",
+  "Nein. In einer Studie machten gut trainierte Läufer acht Wochen lang zusätzlich schwere Kniebeugen: Das Körpergewicht blieb gleich – aber sie liefen 5 % ökonomischer. Gleiches Tempo, weniger Energie.",
+  "Dein Einstieg: zweimal pro Woche 20 bis 30 Minuten, Kniebeugen, Ausfallschritte, Wadenheben – ganz ohne Geräte.",
+  "Machst du Krafttraining? Ja oder nein – schreib es in die Kommentare 👇",
+  "Die sieben besten Übungen stehen im Blog – Link in der Bio.",
+  "#laufen #lauftraining #ausdauersport #marathontraining #halbmarathon #laufenmachtglücklich #krafttraining #läufer #triathlon #ausdauermaschine"
+ ],
+ "zeiten": [
+  [
+   0.0,
+   4.29
+  ],
+  [
+   4.29,
+   9.06
+  ],
+  [
+   9.06,
+   13.79
+  ],
+  [
+   13.79,
+   19.37
+  ],
+  [
+   19.37,
+   24.91
+  ],
+  [
+   24.91,
+   31.16
+  ],
+  [
+   31.16,
+   35.39
+  ]
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – kraft.mp3 neben dieser Datei"
+}

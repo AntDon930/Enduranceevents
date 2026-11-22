@@ -7475,6 +7475,12 @@ def test_insta_logos() -> None:
         check(f"Erklär-Vorlage {name}: Szenen, Caption, Quellen, Satzstücke passen zum Text",
               (bool(spec_.get("szenen")), bool(spec_.get("caption")), all(q.startswith("https://") for q in spec_.get("quellen") or ["x"]) and bool(spec_.get("quellen")),
                teile_ok, not spec_.get("zeiten") or len(spec_["zeiten"]) == len(spec_["szenen"])), (True, True, True, True, True))
+    erkl_ = (wurzel / "scripts" / "insta_erklaer.py").read_text(encoding="utf-8")
+    szenen_ = set(__import__("re").findall(r'"(\w+)": sz_', erkl_[erkl_.index("\nSZENEN = {"):]))
+    for p in sorted((wurzel / "marketing" / "instagram" / "erklaer").glob("*.json")):
+        bilder_ = {sz["bild"] for sz in __import__("json").loads(p.read_text(encoding="utf-8"))["szenen"]}
+        check(f"Erklär-Vorlage {p.stem}: jede Szene hat eine Zeichenroutine, die Aufnahme liegt daneben",
+              (sorted(bilder_ - szenen_), p.with_suffix(".mp3").exists()), ([], True))
     lauf_ = (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8")
     check("insta_lauf.py: Erklär-Reel und Slides gehen an ihre eigenen Renderer (Lauf und Vorschau)",
           ("rendere_beitrag(beitrag, ziel, datum.toordinal())" in lauf_, "rendere_beitrag(b, ordner, tag.toordinal())" in lauf_,

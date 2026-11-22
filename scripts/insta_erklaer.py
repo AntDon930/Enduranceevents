@@ -201,7 +201,8 @@ def tag(t: float, tempo: float = 1.0) -> Image.Image:
 
 # --- Szenen: f(bild, t, dauer) ----------------------------------------------
 
-def sz_hook(t: float, dauer: float) -> Image.Image:
+def sz_hook(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    p = p or {}
     img = tag(t)
     d = ImageDraw.Draw(img)
     aufkleben(img, lauf(t, hoehe=640), B / 2 - 40, 1404)
@@ -215,7 +216,7 @@ def sz_hook(t: float, dauer: float) -> Image.Image:
     d.line([(mx, my), (mx + (r - 30) * math.cos(w), my + (r - 30) * math.sin(w))], fill=CORAL, width=18)
     d.ellipse([mx - 30, my - 30, mx + 30, my + 30], fill=CREME, outline=MIDNIGHT, width=8)
     pop(d, mx, my - 95, "?", 150, t - dauer * 0.5, fill=CREME, kontur=None)
-    pop(d, B / 2, 1490, "DEINE SCHWELLE?", 120, t - dauer * 0.55, fill=CORAL)
+    pop(d, B / 2, 1490, p.get("zeile", "DEINE SCHWELLE?"), p.get("g", 120), t - dauer * 0.55, fill=CORAL)
     return img
 
 
@@ -233,15 +234,19 @@ def laufband(d: ImageDraw.ImageDraw, t: float, tempo: float, anzeige: str) -> No
         d.rectangle([i * 170, 1476, i * 170 + 85, H], fill=(0, 50, 76))
 
 
-def sz_raten(t: float, dauer: float) -> Image.Image:
+def sz_raten(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    p = p or {}
     img = nacht().copy()
     d = ImageDraw.Draw(img)
     stufe = min(2, int(t / (dauer / 3)))
     lt = t - stufe * dauer / 3
     tempo = (1.4, 2.0, 3.0)[stufe]
     abflug = t - dauer * 0.86
-    laufband(d, t, tempo, ("12", "16", "25")[stufe] if abflug < 0 else "25")
-    wort, farbe, g = (("VOLLGAS?", CREME, 170), ("5-KM-TEMPO?", CREME, 150), ("PULS 180?!", CORAL, 190))[stufe]
+    anz = p.get("anzeigen", ["12", "16", "25"])
+    laufband(d, t, tempo, anz[stufe] if abflug < 0 else anz[2])
+    w3 = p.get("worte", ["VOLLGAS?", "5-KM-TEMPO?", "PULS 180?!"])
+    wort, farbe, g = ((w3[0], CREME, 170), (w3[1], CREME, 150), (w3[2], CORAL, 190))[stufe]
+    g = min(g, 1700 / max(1, len(wort)) + 20)
     pop(d, B / 2, 620, wort, g, lt, fill=farbe, kontur=None)
     if abflug < 0:
         aufkleben(img, lauf(t, tempo), 470 - 90 * stufe, 1420)
@@ -257,18 +262,20 @@ def sz_raten(t: float, dauer: float) -> Image.Image:
     return img
 
 
-def sz_entwarnung(t: float, dauer: float) -> Image.Image:
+def sz_entwarnung(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    p = p or {}
     img = tag(t * 0.25)
     d = ImageDraw.Draw(img)
     atem = 1 + 0.015 * math.sin(t * 3.2)
-    f = M.figur("daumen", int(840 * atem))
+    f = M.figur(p.get("pose", "daumen"), int(840 * atem))
     aufkleben(img, f, B / 2 - 60, 1410)
-    blase(d, 770, 560, "PUH!", 130, t - 0.25, spitze_x=650)
-    pop(d, B / 2, 1490, "VIEL ENTSPANNTER", 118, t - dauer * 0.45, fill=CREME)
+    blase(d, 770, 560, p.get("blase", "PUH!"), p.get("blase_g", 130), t - 0.25, spitze_x=650)
+    pop(d, B / 2, 1490, p.get("zeile", "VIEL ENTSPANNTER"), p.get("g", 118), t - dauer * 0.45, fill=CREME)
     return img
 
 
-def sz_stunde(t: float, dauer: float) -> Image.Image:
+def sz_stunde(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    p = p or {}
     img = nacht().copy()
     d = ImageDraw.Draw(img)
     mx, my, r = B / 2, 880, 320
@@ -294,7 +301,8 @@ def sz_stunde(t: float, dauer: float) -> Image.Image:
     return img
 
 
-def sz_fass(t: float, dauer: float) -> Image.Image:
+def sz_fass(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    p = p or {}
     img = nacht().copy()
     d = ImageDraw.Draw(img)
     ueber = weich((t - dauer * 0.58) / 0.6)                 # 0 = an der Schwelle, 1 = darüber
@@ -335,7 +343,8 @@ def sz_fass(t: float, dauer: float) -> Image.Image:
     return img
 
 
-def sz_test(t: float, dauer: float) -> Image.Image:
+def sz_test(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    p = p or {}
     img = nacht().copy()
     d = ImageDraw.Draw(img)
     k = federn(t / 0.4)
@@ -348,8 +357,8 @@ def sz_test(t: float, dauer: float) -> Image.Image:
     for i in range(6):
         cx = x0 + 90 + i * 128
         d.rounded_rectangle([cx - 11, y0 - 44, cx + 11, y0 + 36], radius=11, fill=CREME, outline=MIDNIGHT, width=6)
-    d.text(((x0 + x1) / 2, y0 + 96), "DEIN TEST", font=schrift(120), fill=WEISS, anchor="mm")
-    zeilen = (("30", "MINUTEN"), ("1", "ALLEIN LAUFEN"), ("=", "GLEICHMÄSSIG"))
+    d.text(((x0 + x1) / 2, y0 + 96), p.get("titel", "DEIN TEST"), font=schrift(120), fill=WEISS, anchor="mm")
+    zeilen = p.get("zeilen", (("30", "MINUTEN"), ("1", "ALLEIN LAUFEN"), ("=", "GLEICHMÄSSIG")))
     for i, (z, wort) in enumerate(zeilen):
         tt = t - dauer * (0.12 + 0.17 * i)
         if tt <= 0 or k < 1:
@@ -366,11 +375,13 @@ def sz_test(t: float, dauer: float) -> Image.Image:
         s = federn(tt / 0.35)
         d.rounded_rectangle([B / 2 - 400 * s, 1385 - 74 * s, B / 2 + 400 * s, 1385 + 74 * s], radius=74, fill=GRUEN,
                             outline=MIDNIGHT, width=8)
-        d.text((B / 2, 1385), "DEIN SCHNITT = SCHWELLE", font=schrift(76 * s), fill=WEISS, anchor="mm")
+        fz = p.get("fazit", "DEIN SCHNITT = SCHWELLE")
+        d.text((B / 2, 1385), fz, font=schrift(min(76, 1800 / len(fz)) * s), fill=WEISS, anchor="mm")
     return img
 
 
-def sz_gefuehl(t: float, dauer: float) -> Image.Image:
+def sz_gefuehl(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    p = p or {}
     img = tag(t * 0.25)
     d = ImageDraw.Draw(img)
     aufkleben(img, M.figur("winken", 800), B / 2 - 170, 1410)
@@ -388,7 +399,8 @@ def sz_gefuehl(t: float, dauer: float) -> Image.Image:
     return img
 
 
-def sz_schluss(t: float, dauer: float) -> Image.Image:
+def sz_schluss(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    p = p or {}
     img = tag(t * 0.4)
     d = ImageDraw.Draw(img)
     sprung = abs(math.sin(t * 5.2)) * 46
@@ -401,12 +413,170 @@ def sz_schluss(t: float, dauer: float) -> Image.Image:
         farbe = (CORAL, CREME, GELB, GRUEN, MIDNIGHT)[i % 5]
         d.line([(x - 15 * math.cos(w), y - 15 * math.sin(w)), (x + 15 * math.cos(w), y + 15 * math.sin(w))],
                fill=farbe, width=11)
-    pop(d, B / 2, 500, "KENNST DU DEINE?", 132, t - 0.2, fill=CORAL)
-    blase(d, B / 2, 1490, "4:45 /km – und du?", 88, t - dauer * 0.45)
+    pop(d, B / 2, 500, p.get("frage", "KENNST DU DEINE?"), p.get("g", 132), t - 0.2, fill=CORAL)
+    blase(d, B / 2, 1490, p.get("blase", "4:45 /km – und du?"), 88, t - dauer * 0.45)
     return img
 
 
-SZENEN = {"hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
+# --- Allgemeine Szenen (Texte und Zahlen kommen aus der Vorlage) -------------
+
+def sz_frage(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Hook: die Figur läuft, darüber ein großes Fragezeichen und die Frage."""
+    p = p or {}
+    img = tag(t)
+    d = ImageDraw.Draw(img)
+    aufkleben(img, lauf(t, hoehe=640), B / 2 - 40, 1404)
+    k = federn(t / 0.4)
+    wackeln = 14 * math.sin(t * 3.4)
+    r = 190 * k
+    r = 170 * k
+    mx, my = B / 2 + 250, 560
+    d.ellipse([mx - r - 12, my - r - 12, mx + r + 12, my + r + 12], fill=MIDNIGHT)
+    d.ellipse([mx - r, my - r, mx + r, my + r], fill=CORAL)
+    d.polygon([(mx - 130 * k, my + 90 * k), (mx - 50 * k, my + 150 * k), (mx - 200 * k, my + 240 * k)], fill=MIDNIGHT)
+    d.text((mx + wackeln * 0.3, my), p.get("symbol", "?"), font=schrift(min(280, 520 / len(p.get("symbol", "?")) + 20) * k), fill=CREME, anchor="mm")
+    pop(d, B / 2, 1490, p.get("zeile", "?"), p.get("g", 110), t - dauer * 0.5, fill=CORAL)
+    return img
+
+
+def sz_denken(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Raten lassen: die Figur überlegt, drei Antworten poppen nacheinander auf."""
+    p = p or {}
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    aufkleben(img, M.figur(p.get("pose", "denken"), 720), 230, 1500)
+    worte = p.get("worte", ["?", "?", "?"])
+    n = len(worte)
+    for i, w in enumerate(worte):
+        tt = t - dauer * (0.06 + 0.9 * i / n)
+        letzte = i == n - 1
+        blase(d, 730 - 40 * (i % 2), 560 + i * 230, w, min(100, 1250 / max(6, len(w))), tt,
+              spitze_x=420 if i == 0 else None)
+        if letzte and tt > 0.5 and p.get("kreuz", True):
+            s = federn((tt - 0.5) / 0.3)
+            for j in range(n):
+                y = 560 + j * 230
+                x = 730 - 40 * (j % 2)
+                d.line([(x - 250 * s, y - 60 * s), (x + 250 * s, y + 60 * s)], fill=CORAL, width=18)
+    return img
+
+
+def sz_zahl(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Die Zahl als Bild: zählt hoch, darunter Einheit und eine Zeile."""
+    p = p or {}
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    ziel = float(p.get("zahl", 0))
+    anteil = weich((t - 0.2) / max(0.6, dauer * 0.45))
+    wert = ziel * anteil
+    fmt = p.get("format", "{:.0f}")
+    if fmt == "min":
+        s = f"{int(wert // 60)}:{int(wert % 60):02d}"
+    elif fmt == "tausend":
+        s = f"{int(round(wert)):,}".replace(",", ".")
+    else:
+        s = fmt.format(wert).replace(".", ",")
+    s = p.get("vor", "") + s + p.get("nach", "")
+    g = min(430, 1750 / max(1, len(s)) * 1.75)
+    pop(d, B / 2, 560, p.get("oben", ""), 84, t - 0.1, fill=CREME, kontur=None)
+    puls = 1 + 0.03 * math.sin(t * 6) * (anteil >= 1)
+    d.text((B / 2, 860), s, font=schrift(g * puls), fill=CORAL, anchor="mm", stroke_width=10, stroke_fill=MIDNIGHT)
+    pop(d, B / 2, 1120, p.get("einheit", ""), min(140, 1750 / max(1, len(p.get("einheit", "")))), t - dauer * 0.3, fill=CREME, kontur=None)
+    pop(d, B / 2, 1330, p.get("zeile", ""), p.get("g", 84), t - dauer * 0.5, fill=GRUEN, kontur=None)
+    pop(d, B / 2, 1450, p.get("klein", ""), 60, t - dauer * 0.6, fill=SOFT_BLUE, kontur=None)
+    return img
+
+
+def sz_kacheln(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Zehn Läufe als Kacheln: die meisten locker (blau), wenige hart (coral)."""
+    p = p or {}
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    n, hart = int(p.get("n", 10)), int(p.get("hart", 2))
+    spalten = 5
+    kb, luecke = 168, 24
+    x0 = (B - spalten * kb - (spalten - 1) * luecke) / 2
+    y0 = 560
+    pop(d, B / 2, 470, p.get("oben", "10 LÄUFE"), 96, t - 0.05, fill=CREME, kontur=None)
+    for i in range(n):
+        tt = t - 0.15 - i * dauer * 0.045
+        if tt <= 0:
+            continue
+        k = federn(tt / 0.3)
+        cx = x0 + (i % spalten) * (kb + luecke) + kb / 2
+        cy = y0 + (i // spalten) * (kb + luecke + 60) + kb / 2
+        ist_hart = i >= n - hart
+        farbe = CORAL if ist_hart else SOFT_BLUE
+        h = kb / 2 * k
+        d.rounded_rectangle([cx - h - 8, cy - h - 8, cx + h + 8, cy + h + 8], radius=36, fill=(0, 22, 36))
+        d.rounded_rectangle([cx - h, cy - h, cx + h, cy + h], radius=30, fill=farbe)
+        f = laeufer((i * 3 + int(t * (30 if ist_hart else 14))) % PHASEN, hoehe=150)
+        f = f.resize((int(f.width * k) or 1, int(f.height * k) or 1))
+        img.alpha_composite(f, (int(cx - f.width / 2), int(cy - f.height / 2)))
+    tt = t - dauer * 0.55
+    if tt > 0:
+        s = federn(tt / 0.35)
+        d.rounded_rectangle([110, 1090 - 0, 110 + 520 * s, 1090 + 150], radius=40, fill=SOFT_BLUE, outline=MIDNIGHT, width=8)
+        if s > 0.9:
+            d.text((370, 1165), p.get("links", "8 LOCKER"), font=schrift(96), fill=MIDNIGHT, anchor="mm")
+    tt = t - dauer * 0.7
+    if tt > 0:
+        s = federn(tt / 0.35)
+        d.rounded_rectangle([970 - 310 * s, 1090, 970, 1090 + 150], radius=40, fill=CORAL, outline=MIDNIGHT, width=8)
+        if s > 0.9:
+            d.text((815, 1165), p.get("rechts", "2 HART"), font=schrift(96), fill=WEISS, anchor="mm")
+    pop(d, B / 2, 1400, p.get("zeile", ""), p.get("g", 88), t - dauer * 0.8, fill=CREME, kontur=None)
+    return img
+
+
+def sz_balken(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Balken nebeneinander: [[Beschriftung, Wert, Text am Balken, Farbe], …]."""
+    p = p or {}
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    balken = p.get("balken", [])
+    n = max(1, len(balken))
+    hoechst = max([b[1] for b in balken] or [1])
+    boden, voll = 1280, 640
+    breite = min(220, (B - 200) / n - 40)
+    pop(d, B / 2, 480, p.get("oben", ""), p.get("oben_g", 96), t - 0.05, fill=CREME, kontur=None)
+    d.rectangle([90, boden, B - 90, boden + 10], fill=CREME)
+    farben = {"coral": CORAL, "blau": SOFT_BLUE, "gruen": GRUEN, "gelb": GELB}
+    for i, b in enumerate(balken):
+        tt = t - 0.3 - i * dauer * 0.16
+        if tt <= 0:
+            continue
+        k = weich(tt / 0.6)
+        cx = B / 2 + (i - (n - 1) / 2) * (breite + 90)
+        h = voll * b[1] / hoechst * k
+        farbe = farben.get(b[3] if len(b) > 3 else "blau", SOFT_BLUE)
+        d.rounded_rectangle([cx - breite / 2 - 8, boden - h - 8, cx + breite / 2 + 8, boden], radius=26, fill=(0, 22, 36))
+        d.rounded_rectangle([cx - breite / 2, boden - h, cx + breite / 2, boden], radius=20, fill=farbe)
+        if k > 0.95:
+            d.text((cx, boden - h - 60), b[2], font=schrift(84), fill=CREME, anchor="mm")
+        d.text((cx, boden + 62), b[0], font=schrift(52), fill=SOFT_BLUE, anchor="mm")
+    pop(d, B / 2, 1450, p.get("zeile", ""), p.get("g", 88), t - dauer * 0.7, fill=GRUEN, kontur=None)
+    return img
+
+
+def sz_figur(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Die Figur in einer Pose, Titel oben, Sprechblasen nacheinander, Zeile unten."""
+    p = p or {}
+    img = tag(t * 0.25) if p.get("grund", "tag") == "tag" else nacht().copy()
+    d = ImageDraw.Draw(img)
+    atem = 1 + 0.012 * math.sin(t * 3.2)
+    aufkleben(img, M.figur(p.get("pose", "zeigen"), int(800 * atem), p.get("person", "er")), B / 2 - 190, 1410)
+    pop(d, B / 2, 500, p.get("titel", ""), p.get("titel_g", 130), t - dauer * 0.08, fill=CORAL)
+    blasen = p.get("blasen", [])
+    for i, w in enumerate(blasen):
+        blase(d, 750 + 20 * (i % 2), 720 + i * 170, w, min(84, 960 / max(6, len(w))),
+              t - dauer * (0.3 + 0.5 * i / max(1, len(blasen))), spitze_x=590 if i == 0 else None)
+    pop(d, B / 2, 1490, p.get("zeile", ""), p.get("g", 96), t - dauer * 0.6, fill=CREME)
+    return img
+
+
+SZENEN = {"frage": sz_frage, "denken": sz_denken, "zahl": sz_zahl, "kacheln": sz_kacheln,
+          "balken": sz_balken, "figur": sz_figur, "hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
           "fass": sz_fass, "test": sz_test, "gefuehl": sz_gefuehl, "schluss": sz_schluss}
 
 
@@ -486,7 +656,7 @@ def plane(spec: dict) -> list[dict]:
 
 def bild_bei(szenen: list[dict], woerter, t: float) -> Image.Image:
     s = next((x for x in szenen if x["von"] <= t < x["bis"]), szenen[-1])
-    img = SZENEN[s["bild"]](t - s["von"], s["bis"] - s["von"])
+    img = SZENEN[s["bild"]](t - s["von"], s["bis"] - s["von"], s)
     untertitel(img, woerter, t)
     return img
 

@@ -1,0 +1,228 @@
+{
+ "thema": "Zwei Kilo mehr am Renntag?",
+ "seed": 17,
+ "szenen": [
+  {
+   "bild": "frage",
+   "text": "Am Morgen vor dem Marathon zeigt die Waage plötzlich ein, zwei Kilo mehr. Alles falsch gemacht?",
+   "zeile": "2 KILO MEHR AM RENNTAG?",
+   "g": 100,
+   "symbol": "+2",
+   "teile": [
+    [
+     0.0,
+     3.89,
+     13
+    ],
+    [
+     4.45,
+     5.35,
+     3
+    ]
+   ]
+  },
+  {
+   "bild": "denken",
+   "text": "Zu viel Pasta? Zu wenig trainiert? Wird das Rennen jetzt schwerer?",
+   "pose": "waage",
+   "worte": [
+    "ZU VIEL PASTA?",
+    "ZU WENIG TRAINIERT?",
+    "JETZT LANGSAMER?"
+   ],
+   "teile": [
+    [
+     6.35,
+     7.15,
+     3
+    ],
+    [
+     7.88,
+     8.9,
+     3
+    ],
+    [
+     9.63,
+     11.16,
+     5
+    ]
+   ]
+  },
+  {
+   "bild": "entwarnung",
+   "text": "Nein. Das ist ein gutes Zeichen: Deine Speicher sind voll.",
+   "blase": "GUTES ZEICHEN!",
+   "blase_g": 88,
+   "zeile": "SPEICHER VOLL",
+   "teile": [
+    [
+     11.79,
+     12.18,
+     1
+    ],
+    [
+     12.66,
+     13.93,
+     5
+    ],
+    [
+     14.36,
+     15.51,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "balken",
+   "text": "Dein Muskel speichert Kohlenhydrate als Glykogen. Und jedes Gramm davon bindet rund drei Gramm Wasser.",
+   "oben": "IM MUSKEL",
+   "balken": [
+    [
+     "GLYKOGEN",
+     1,
+     "1 g",
+     "coral"
+    ],
+    [
+     "WASSER",
+     3,
+     "3 g",
+     "blau"
+    ]
+   ],
+   "zeile": "1 GRAMM BINDET 3 GRAMM WASSER",
+   "g": 76,
+   "teile": [
+    [
+     16.2,
+     18.94,
+     6
+    ],
+    [
+     19.38,
+     22.14,
+     9
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Carboloading heißt bei langen Rennen: zehn bis zwölf Gramm Kohlenhydrate pro Kilo Körpergewicht, am Tag. Bei 70 Kilo sind das rund 700 Gramm.",
+   "zahl": 700,
+   "oben": "BEI 70 KILO, PRO TAG",
+   "einheit": "GRAMM KOHLENHYDRATE",
+   "zeile": "10–12 g PRO KILO KÖRPERGEWICHT",
+   "g": 72,
+   "klein": "für Rennen über 90 Minuten",
+   "teile": [
+    [
+     22.76,
+     28.4,
+     13
+    ],
+    [
+     28.71,
+     29.27,
+     2
+    ],
+    [
+     29.92,
+     32.33,
+     8
+    ]
+   ]
+  },
+  {
+   "bild": "figur",
+   "text": "Zwei Tage reichen. Nudeln, Reis, Kartoffeln, Brot. Und nichts Neues ausprobieren.",
+   "pose": "nudeln",
+   "titel": "2 TAGE REICHEN",
+   "blasen": [
+    "Nudeln, Reis,",
+    "Kartoffeln, Brot"
+   ],
+   "zeile": "NICHTS NEUES TESTEN",
+   "teile": [
+    [
+     32.87,
+     33.91,
+     3
+    ],
+    [
+     34.39,
+     36.76,
+     4
+    ],
+    [
+     37.2,
+     38.69,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "schluss",
+   "text": "Was isst du am Abend vor dem Rennen? Schreib es in die Kommentare.",
+   "frage": "DEIN ESSEN VOR DEM RENNEN?",
+   "g": 92,
+   "blase": "Pasta – was sonst?",
+   "teile": [
+    [
+     39.26,
+     40.94,
+     8
+    ],
+    [
+     41.34,
+     42.76,
+     5
+    ]
+   ]
+  }
+ ],
+ "quellen": [
+  "https://doi.org/10.1080/02640414.2011.585473",
+  "https://doi.org/10.1249/MSS.0000000000000852",
+  "https://doi.org/10.1007/s00421-015-3175-z",
+  "https://endurance-events.de/blog/carboloading.html"
+ ],
+ "caption": [
+  "Zwei Kilo mehr am Renntag – alles falsch gemacht? ⚖️",
+  "Im Gegenteil. Dein Muskel speichert Kohlenhydrate als Glykogen, und jedes Gramm davon bindet rund drei Gramm Wasser. Mehr auf der Waage heißt: Die Speicher sind voll.",
+  "Für Rennen über 90 Minuten gelten 10–12 g Kohlenhydrate pro Kilo Körpergewicht am Tag, 36–48 Stunden lang. Bei 70 Kilo sind das rund 700 g. Zwei Tage reichen – und nichts Neues ausprobieren.",
+  "Was isst du am Abend vor dem Rennen? Schreib es in die Kommentare 👇",
+  "Der ganze Beitrag mit allen Quellen im Blog – Link in der Bio.",
+  "#laufen #lauftraining #ausdauersport #marathontraining #halbmarathon #laufenmachtglücklich #carboloading #läufer #triathlon #ausdauermaschine"
+ ],
+ "zeiten": [
+  [
+   0.0,
+   5.85
+  ],
+  [
+   5.85,
+   11.47
+  ],
+  [
+   11.47,
+   15.86
+  ],
+  [
+   15.86,
+   22.45
+  ],
+  [
+   22.45,
+   32.6
+  ],
+  [
+   32.6,
+   38.97
+  ],
+  [
+   38.97,
+   42.91
+  ]
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – renntagswaage.mp3 neben dieser Datei"
+}

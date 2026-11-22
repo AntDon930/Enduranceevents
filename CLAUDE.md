@@ -5804,14 +5804,33 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   anderen Tag, passt die Kennung einer schon gesetzten Freigabe dort nicht
   mehr – die Karte bittet um einen neuen Klick (gewollt: nichts geht ungesehen
   raus). Ein Sonderplan-Eintrag legt weiter einen Tag fest.
-  **Sonntags-Aufgabe**: „Instagram: Content der nächsten Woche (Sonntag)“,
-  `trig_01MMtRgfNxMfeZjZTrPbKMs8`, sonntags 08:37 Berlin, feuert in DIESE
-  Unterhaltung (`session_01JofZZmjpYwMr9zcwtcL21M` – nur sie hat Runway für
-  die Stimme; eine frische Sitzung bekäme keine Konnektoren): mindestens fünf
-  offene Beiträge für Mo–So bauen (Belege, Szenen, Dennis-Stimme – dafür hat
-  der Nutzer die Credits freigegeben, sonst bei Runway nichts –, Caption),
-  hinten anstellen, pushen, Bericht mit Captions. Steht in
-  `wochenplan.GEPLANTE_AUFGABEN` (`insta_woche`).
+  **Sonntags-Aufgabe**: „Instagram: Content der nächsten Woche (Sonntagabend)“,
+  `trig_01MMtRgfNxMfeZjZTrPbKMs8`, **sonntags 17:43 Berlin** (vom Nutzer am
+  22.11.2026, 20:35: „Der Content muss bitte immer Sonntag Abend neu gemacht werden
+  für die Woche. Dann kann ich ihn gleich Montagfrüh anschauen“ – vorher 08:37),
+  feuert in DIESE Unterhaltung (`session_01JofZZmjpYwMr9zcwtcL21M` – nur sie hat
+  Runway für die Stimme; eine frische Sitzung bekäme keine Konnektoren): mindestens
+  fünf offene Beiträge für Mo–So bauen (Belege, Szenen, Dennis-Stimme – dafür hat
+  der Nutzer die Credits freigegeben, sonst bei Runway nichts –, Caption), hinten
+  anstellen, pushen, **danach `instagram.yml` per workflow_dispatch auf `main` ohne
+  „posten“ anstoßen**, damit die Vorschauen („View“) am Montagmorgen im Dashboard
+  liegen; Bericht mit Captions. Steht in `wochenplan.GEPLANTE_AUFGABEN`
+  (`insta_woche`).
+  **Szenen-Baukasten** (22.11.2026): Jede Zeichenroutine bekommt die Szene der
+  Vorlage als drittes Argument (`sz_x(t, dauer, p)`), Texte und Zahlen stehen in
+  der Vorlage. Allgemein: `frage` (Hook: `zeile`, `symbol`), `raten` (Laufband:
+  `worte`, `anzeigen`), `denken` (`pose`, drei `worte`, durchgestrichen),
+  `entwarnung` (`blase`, `zeile`), `zahl` (`zahl`, `format` min/tausend, `vor`,
+  `nach`, `oben`, `einheit`, `zeile`, `klein`), `kacheln` (10 Einheiten, `hart`),
+  `balken` ([[Name, Wert, Text, Farbe]]), `figur` (`pose`, `titel`, `blasen`,
+  `zeile`), `test` (Abreißkalender: `titel`, `zeilen`, `fazit`), `schluss`
+  (`frage`, `blase`); nur für die Schwelle: `hook`, `stunde`, `fass`, `gefuehl`.
+  Ein neues Reel ist damit meist nur eine Vorlage. `scripts/insta_erklaer_zeiten.py
+  <vorlage> [--stuecke 2,3,1,…]` trägt `zeiten`/`teile` aus der Aufnahme ein – die
+  Automatik irrt, sobald ausgeschriebene Zahlen die Längen verschieben; dann die
+  Zahl der Sprechstücke je Szene vorgeben und die Ausgabe ansehen. Fakten aus den
+  eigenen Blogbeiträgen sind schon belegt (Quellen dort) – zuerst dort suchen.
+  Reels vom 22.11.2026: `locker`, `tapering`, `kraft`, `renntagswaage`.
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für
@@ -7195,7 +7214,7 @@ Verweise auf alte Nummern stehen in Klammern.
     `strava_kandidaten.xlsx` (neu erzeugen aus `scripts/clubs_kandidaten.json`,
     alle Einträge mit `strava`); ein Kandidat mit Treff wird als Club
     angelegt und aus der Kandidatenliste genommen.
-13. **Meta-App neu aufsetzen** (20.11.2026: der Nutzer hat das
+13. **Meta-App neu aufsetzen** – **im Kern erledigt am 22.11.2026**: Der Nutzer hat `--anmelden` in der Cloud Shell durchgeführt (Portfolio „Clipzz Media“, ausdauermaschine dort als Instagram-Profil hinzugefügt, ein leeres Werbekonto ließ sich nicht abwählen), Schlüssel im Tresor als Fassung 2 (Konto-Id 17841433983155724, läuft nicht ab); Probelauf von `instagram.yml` ohne Posten grün (Schlüssel angenommen, Vorschauen abgelegt, Beiträge lesbar). **Noch offen**: das erste echte Posten über den neuen Schlüssel (bei der ersten Freigabe ansehen), `instagram_manage_insights` fehlt in der Konfiguration, Slides als `CAROUSEL`. Die Geschichte: (20.11.2026: der Nutzer hat das
     Facebook-Profil gelöscht, an dem Entwicklerkonto und App „AusdauerMaschine
     Content“ hingen – wohl auch der Grund für „API access blocked“). **Stand
     20.11.2026, mittags**: Neue Apps kennen den Instagram-Login nicht mehr
