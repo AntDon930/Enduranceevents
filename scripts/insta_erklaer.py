@@ -413,21 +413,33 @@ SZENEN = {"hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stun
 # --- Untertitel: Wort für Wort ----------------------------------------------
 
 def wortzeiten(szenen: list[dict]) -> list[tuple[str, float, float, int]]:
-    """(Wort, von, bis, Gruppe) – die Zeit je Wort nach seiner Länge verteilt."""
+    """(Wort, von, bis, Gruppe) – die Zeit je Wort nach seiner Länge verteilt.
+
+    Mit Sprecher nennt die Vorlage je Szene `teile`: [[von, bis, Wörter], …] –
+    die Satzstücke der Aufnahme (aus `ffmpeg … silencedetect`), damit das
+    markierte Wort auch nach einer Sprechpause stimmt.
+    """
     aus, gruppe = [], 0
     for s in szenen:
         woerter = s["text"].split()
-        gesamt = sum(len(w) + 1 for w in woerter)
-        t, zeile = s["von"], 0
-        for w in woerter:
-            dt = (s["bis"] - PAUSE_S * 0.6 - s["von"]) * (len(w) + 1) / gesamt
-            if zeile + len(w) > 17 and zeile:
-                gruppe, zeile = gruppe + 1, 0
-            aus.append((w, t, t + dt, gruppe))
-            zeile += len(w) + 1
-            t += dt
-            if w[-1] in ".?!:":
-                gruppe, zeile = gruppe + 1, 0
+        teile = s.get("teile") or [[s["von"], s["sprech_bis"], len(woerter)]]
+        if sum(t[2] for t in teile) != len(woerter):
+            raise ValueError(f"teile passen nicht zum Text: {s['text']!r}")
+        zeile, i = 0, 0
+        for von, bis, n in teile:
+            stueck = woerter[i:i + n]
+            i += n
+            gesamt = sum(len(w) + 1 for w in stueck)
+            t = von
+            for w in stueck:
+                dt = (bis - von) * (len(w) + 1) / gesamt
+                if zeile + len(w) > 17 and zeile:
+                    gruppe, zeile = gruppe + 1, 0
+                aus.append((w, t, t + dt, gruppe))
+                zeile += len(w) + 1
+                t += dt
+                if w[-1] in ".?!:":
+                    gruppe, zeile = gruppe + 1, 0
         gruppe += 1
     return aus
 
@@ -460,11 +472,14 @@ def plane(spec: dict) -> list[dict]:
     szenen, t = [], 0.0
     zeiten = spec.get("zeiten")
     for i, s in enumerate(spec["szenen"]):
+        ende = None
         if zeiten:
-            von, bis = zeiten[i]
+            # [von, bis] oder [von, bis, Ende des Sprechens] aus der Aufnahme
+            von, bis, *rest = zeiten[i]
+            ende = rest[0] if rest else None
         else:
             von, bis = t, t + len(s["text"]) / ZEICHEN_JE_S + PAUSE_S
-        szenen.append({**s, "von": von, "bis": bis})
+        szenen.append({**s, "von": von, "bis": bis, "sprech_bis": ende or bis - PAUSE_S * 0.6})
         t = bis
     return szenen
 
