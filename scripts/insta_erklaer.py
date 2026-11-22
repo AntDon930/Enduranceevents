@@ -452,17 +452,95 @@ def sz_schluss(t: float, dauer: float, p: dict | None = None) -> Image.Image:
 
 # --- Allgemeine Szenen (Texte und Zahlen kommen aus der Vorlage) -------------
 
-def sz_frage(t: float, dauer: float, p: dict | None = None) -> Image.Image:
-    """Hook: die Figur läuft, darüber ein großes Fragezeichen und die Frage."""
-    p = p or {}
-    img = tag(t)
+METALL_E = (176, 188, 202)
+
+
+@lru_cache(maxsize=None)
+def gym() -> Image.Image:
+    """Kraftraum: Wand mit Streifen, Gummiboden, Hantelständer mit Scheiben."""
+    img = Image.new("RGBA", (B, H), (210, 232, 240, 255))
     d = ImageDraw.Draw(img)
-    aufkleben(img, lauf(t, hoehe=640), B / 2 - 40, 1404)
+    d.rectangle([0, 760, B, 820], fill=SOFT_BLUE)
+    d.rectangle([0, 1380, B, H], fill=(38, 52, 66))
+    d.rectangle([0, 1380, B, 1394], fill=MIDNIGHT)
+    for x in range(0, B, 180):
+        d.line([(x, 1394), (x - 120, H)], fill=(52, 68, 84), width=6)
+    # Kurzhanteln im Regal rechts
+    d.rounded_rectangle([780, 1250, 1060, 1272], radius=8, fill=MIDNIGHT)
+    for x in (800, 1040):
+        d.rounded_rectangle([x - 10, 1262, x + 10, 1390], radius=6, fill=MIDNIGHT)
+    for i, x in enumerate((830, 905, 980)):
+        g = 26 + i * 6
+        d.rounded_rectangle([x - 30, 1222, x + 30, 1234], radius=5, fill=METALL_E, outline=MIDNIGHT, width=4)
+        for dx in (-30, 30):
+            d.rounded_rectangle([x + dx - 11, 1228 - g, x + dx + 11, 1228 + g * 0.4], radius=6,
+                                fill=CORAL if i != 1 else MIDNIGHT, outline=MIDNIGHT, width=4)
+    # Wandscheiben links
+    for i, (x, r) in enumerate(((120, 70), (260, 56))):
+        d.ellipse([x - r, 560 - r, x + r, 560 + r], fill=MIDNIGHT)
+        d.ellipse([x - r + 12, 560 - r + 12, x + r - 12, 560 + r - 12], fill=CORAL if i == 0 else SOFT_BLUE)
+        d.ellipse([x - 12, 548, x + 12, 572], fill=MIDNIGHT)
+    return img
+
+
+@lru_cache(maxsize=None)
+def bad() -> Image.Image:
+    """Badezimmer: Fliesenwand, Boden – für die Waage am Morgen."""
+    img = Image.new("RGBA", (B, H), (232, 242, 246, 255))
+    d = ImageDraw.Draw(img)
+    for y in range(0, 1380, 120):
+        d.line([(0, y), (B, y)], fill=(200, 222, 232), width=5)
+    for x in range(0, B, 120):
+        d.line([(x, 0), (x, 1380)], fill=(200, 222, 232), width=5)
+    d.rectangle([0, 1380, B, H], fill=(120, 160, 180))
+    d.rectangle([0, 1380, B, 1394], fill=MIDNIGHT)
+    for x in range(-60, B, 160):
+        d.line([(x, 1394), (x - 80, H)], fill=(104, 144, 166), width=6)
+    # runder Spiegel mit Glanz, daneben ein Handtuch am Haken
+    d.ellipse([40, 440, 320, 800], fill=(214, 236, 244), outline=MIDNIGHT, width=10)
+    d.line([(110, 540), (170, 480)], fill=CREME, width=14)
+    d.line([(120, 600), (220, 500)], fill=CREME, width=8)
+    d.ellipse([168, 880, 192, 904], fill=MIDNIGHT)
+    d.rounded_rectangle([120, 896, 240, 1140], radius=16, fill=CORAL, outline=MIDNIGHT, width=6)
+    for y in (1080, 1104):
+        d.line([(124, y), (236, y)], fill=CREME, width=6)
+    return img
+
+
+# Die Figur im Hook passt zum Thema: läuft (Standard), hebt die Langhantel,
+# hält den Countdown-Kalender, steht auf der Waage.
+AKTIONEN = ("lauf", "hantel", "kalender", "waage")
+
+
+def sz_frage(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Hook: die Figur tut, worum es geht; darüber ein großes Fragezeichen und die Frage."""
+    p = p or {}
+    aktion = p.get("aktion", "lauf")
+    if aktion == "lauf":
+        img = tag(t)
+        aufkleben(img, lauf(t, hoehe=640), B / 2 - 40, 1404)
+    elif aktion == "hantel":
+        img = gym().copy()
+        # eine Wiederholung je Sekunde, oben kurz halten
+        w = 0.5 - 0.5 * math.cos(t * 2 * math.pi * 0.9)
+        stufe = min(4, int(w * 5))
+        aufkleben(img, M.figur(f"curl{stufe}", 760), B / 2 - 130, 1420)
+    elif aktion == "kalender":
+        img = tag(t * 0.25)
+        von = int(p.get("von", 14))
+        tag_ = max(1, von - int(t / max(0.2, dauer * 0.8) * (von - 1)))
+        aufkleben(img, M.figur("kalender", 760, text=str(tag_)), B / 2 - 130, 1420)
+    elif aktion == "waage":
+        img = bad().copy()
+        wippen = int(6 * abs(math.sin(t * 5))) if t < 1.2 else 0
+        aufkleben(img, M.figur("waage", 760), B / 2 - 40, 1420 + wippen)
+    else:
+        raise KeyError(f"unbekannte Aktion: {aktion} (bekannt: {', '.join(AKTIONEN)})")
+    d = ImageDraw.Draw(img)
     k = federn(t / 0.4)
     wackeln = 14 * math.sin(t * 3.4)
-    r = 190 * k
     r = 170 * k
-    mx, my = B / 2 + 250, 560
+    mx, my = B / 2 + 250, 560 if aktion == "lauf" else 440
     d.ellipse([mx - r - 12, my - r - 12, mx + r + 12, my + r + 12], fill=MIDNIGHT)
     d.ellipse([mx - r, my - r, mx + r, my + r], fill=CORAL)
     d.polygon([(mx - 130 * k, my + 90 * k), (mx - 50 * k, my + 150 * k), (mx - 200 * k, my + 240 * k)], fill=MIDNIGHT)

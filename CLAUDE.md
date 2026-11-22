@@ -5825,7 +5825,7 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   `balken` ([[Name, Wert, Text, Farbe]]), `figur` (`pose`, `titel`, `blasen`,
   `zeile`), `test` (Abreißkalender: `titel`, `zeilen`, `fazit`), `schluss`
   (`frage`, `blase`); nur für die Schwelle: `hook`, `stunde`, `fass`, `gefuehl`.
-  Ein neues Reel ist damit meist nur eine Vorlage. `scripts/insta_erklaer_zeiten.py
+  Ein neues Reel ist damit meist nur eine Vorlage. **Der Einstieg passt zum Thema** (22.11.2026, vom Nutzer: „Das Video muss nicht immer gleich anfangen … Bei dem Krafttraining Video macht es keinen Sinn, dass der Charakter läuft … Das Video soll schon auf das jeweilige Thema zugeschnitten sein“): `frage` nimmt `aktion` – `lauf` (Standard, Straße), `hantel` (Langhanteln-Curl im Kraftraum, Posen `curl0`–`curl4`), `kalender` (Countdown `von` … 1, draußen), `waage` (Badezimmer); `figur(pose, hoehe, person, text)` beschriftet den Kalender. Neue Themen bekommen eine eigene Aktion samt Kulisse, statt den Läufer zu wiederholen; auch die Szenenfolge darf je Thema abweichen. `scripts/insta_erklaer_zeiten.py
   <vorlage> [--stuecke 2,3,1,…]` trägt `zeiten`/`teile` aus der Aufnahme ein – die
   Automatik irrt, sobald ausgeschriebene Zahlen die Längen verschieben; dann die
   Zahl der Sprechstücke je Szene vorgeben und die Ausgabe ansehen. Fakten aus den
