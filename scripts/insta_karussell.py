@@ -448,6 +448,24 @@ def schreibe_reel(daten: dict, ziel: Path, arbeit: Path) -> float:
     return t
 
 
+def rendere_beitrag(slug: str, ordner: Path) -> dict:
+    """Für den täglichen Lauf (insta_lauf.rendere_beitrag): die Seiten als
+    01.jpg … (für das spätere Posten als Karussell), dazu reel.mp4 und
+    cover.jpg – die Vorschau im Dashboard zeigt die Slides als Video."""
+    import tempfile
+    daten = lade(slug)
+    pruefe(daten)
+    ordner.mkdir(parents=True, exist_ok=True)
+    bilder = seiten(daten)
+    for i, bild in enumerate(bilder, 1):
+        bild.convert("RGB").save(ordner / f"{i:02d}.jpg", quality=92)
+    reel_bilder(daten)[0][0].convert("RGB").save(ordner / "cover.jpg", quality=90)
+    with tempfile.TemporaryDirectory() as tmp:
+        dauer = schreibe_reel(daten, ordner / "reel.mp4", Path(tmp))
+    return {"dauer_s": round(dauer, 1), "thumb_offset_ms": 0, "hintergrund": {"art": "slides"}, "nachweis": None,
+            "musik": "Beat", "einstieg": None, "uebergang": None, "seiten": len(bilder)}
+
+
 def caption(daten: dict) -> str:
     return "\n\n".join(daten["caption"])
 

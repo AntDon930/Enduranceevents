@@ -79,6 +79,19 @@ def lauf_datum(jetzt: dt.datetime, posten: bool, ereignis: str) -> dt.date:
     return tag
 
 
+def rendere_beitrag(beitrag: dict, ziel: Path, seed: int) -> dict:
+    """reel.mp4 + cover.jpg nach `ziel`. Erklär-Reels und Karussells
+    (Sonderplan, seit 22.11.2026) haben ihre eigenen Renderer; alles andere
+    baut insta_video aus den Folien."""
+    if beitrag.get("erklaer"):
+        import insta_erklaer
+        return insta_erklaer.rendere_beitrag(beitrag["erklaer"], ziel)
+    if beitrag.get("karussell"):
+        import insta_karussell
+        return insta_karussell.rendere_beitrag(beitrag["karussell"], ziel)
+    return video.rendere(beitrag, ziel, seed=seed)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[1])
     ap.add_argument("--datum", help="YYYY-MM-DD, Vorgabe: heute (Europe/Berlin)")
@@ -121,6 +134,9 @@ def main() -> int:
           + (f", Clip {beitrag['clip']['id']}" if beitrag.get("clip") else ""))
 
     logos_holen(beitrag)
+    if a.vorschau and (beitrag.get("erklaer") or beitrag.get("karussell")):
+        print("  --vorschau: für Erklär-Reel und Karussell gibt es keine Einzelfolien – ohne --vorschau rendern.")
+        return 0
     if a.vorschau:
         for p in video.vorschau(beitrag, ziel):
             print(f"  {p}")
@@ -132,7 +148,7 @@ def main() -> int:
     if not video.ffmpeg_vorhanden():
         print("ffmpeg/ffprobe fehlen – kein Video möglich.", file=sys.stderr)
         return 1
-    meta = video.rendere(beitrag, ziel, seed=datum.toordinal())
+    meta = rendere_beitrag(beitrag, ziel, datum.toordinal())
     beitrag["video"] = meta
     beitrag["caption"] = caption_mit_nachweis(beitrag["caption"], meta.get("nachweis"))
     # Veranstalter erwähnen - NACH der Kennung, wie die Namensnennung.
@@ -268,7 +284,7 @@ def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str | None,
                 kennung = inhalte.beitrag_hash(b)
                 logos_holen(b)
                 ordner = Path(tempfile.mkdtemp(prefix=f"vorschau-{tag.isoformat()}-"))
-                video.rendere(b, ordner, seed=tag.toordinal())
+                rendere_beitrag(b, ordner, tag.toordinal())
             posten.lade_vorschau(ordner, tag.isoformat(), kennung, z)
             ok += 1
         except Exception as e:                               # noqa: BLE001 - Vorschau ist Beiwerk

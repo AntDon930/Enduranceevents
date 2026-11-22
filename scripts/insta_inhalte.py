@@ -107,7 +107,8 @@ WOCHENPLAN = {0: "krass", 1: "naehe", 2: "wuerdest", 3: "humor",
               4: "wochenende", 5: "saison", 6: "moment"}
 JAHRESTAG_ERLAUBT = {1, 2, 3, 6}
 FORMATE = ("krass", "naehe", "wuerdest", "humor", "wochenende", "saison", "moment", "clip",
-           "monat", "anmeldung", "top", "anlass", "laengste", "jahr", "duell", "wochenvorschau", "spotlight", "region")
+           "monat", "anmeldung", "top", "anlass", "laengste", "jahr", "duell", "wochenvorschau", "spotlight", "region",
+           "erklaer", "karussell")
 MONAT_MIN_LOGOS = 6           # darunter gilt der Wochenplan
 MONAT_MAX_LOGOS = 20          # „die 10-20 größten Events im Monat" (Nutzer, 27.10.2026)
 ANMELDUNG_MIN = 3
@@ -1677,6 +1678,55 @@ def _starter_zahl(n: int) -> str:
 SONDERPLAN_DATEI = MARKETING / "sonderplan.json"
 
 
+# ------------------------------------------- Erklär-Reel und Karussell (Slides)
+#
+# Seit dem 22.11.2026 die erste und zweite Priorität des Accounts (vom
+# Nutzer: Animationsvideos zuerst, „1-2x die Woche" eine Slide Show). Beide
+# sind von Hand gebaute Vorlagen (marketing/instagram/erklaer/<thema>.json,
+# marketing/instagram/karussell/<slug>.json) und kommen NUR über den
+# Sonderplan auf einen Tag: {"format": "erklaer", "thema": "schwelle"} bzw.
+# {"format": "karussell", "slug": "winterkleidung"}. Hier wird nur gelesen
+# (kein Pillow – die Planung läuft auch im Pages-Workflow); gerendert wird in
+# insta_lauf.rendere_beitrag.
+
+ERKLAER_ORDNER = MARKETING / "erklaer"
+KARUSSELL_ORDNER = MARKETING / "karussell"
+
+
+def _vorlage(ordner: Path, name: str | None) -> dict | None:
+    if not name or not re.fullmatch(r"[a-z0-9-]+", name):
+        return None
+    try:
+        return json.loads((ordner / f"{name}.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+
+
+def _caption_text(wert) -> str:
+    return "\n\n".join(wert) if isinstance(wert, list) else (wert or "")
+
+
+def format_erklaer(datum: dt.date, thema: str | None) -> dict | None:
+    """Erklär-Reel „Zahl als Bild" (insta_erklaer.py). Ohne Vorlage oder ohne
+    Caption gibt es keinen Beitrag (dann gilt der Wochenplan)."""
+    spec = _vorlage(ERKLAER_ORDNER, thema)
+    if not spec or not spec.get("caption") or not spec.get("szenen"):
+        return None
+    folien = [{"typ": "erklaer", "ueber": "Erklär-Reel", "titel": spec.get("thema") or thema,
+               "zeilen": [sz["text"] for sz in spec["szenen"]]}]
+    return _beitrag("erklaer", datum, folien, _caption_text(spec["caption"]), "Laufen", erklaer=thema)
+
+
+def format_karussell(datum: dt.date, slug: str | None) -> dict | None:
+    """Karussell (Slides) zu einem Blogbeitrag (insta_karussell.py)."""
+    daten = _vorlage(KARUSSELL_ORDNER, slug)
+    if not daten or not daten.get("caption") or not daten.get("seiten"):
+        return None
+    folien = [{"typ": "karussell", "ueber": f"Slides · {len(daten['seiten']) + 2} Seiten", "titel": daten.get("titel") or slug,
+               "zeilen": [se.get("titel", "") for se in daten["seiten"]]}]
+    return _beitrag("karussell", datum, folien, _caption_text(daten["caption"]), "Laufen", karussell=slug)
+
+
 def lade_sonderplan(pfad: Path | None = None) -> dict[str, dict]:
     """Feste Formate für einzelne Tage (marketing/instagram/sonderplan.json),
     z. B. die Startwoche ab 04.11.2026: {"tage": {"2026-11-04": {"format":
@@ -1848,6 +1898,10 @@ def plane(datum: dt.date, events: list[dict] | None = None, format_: str | None 
             beitrag = {"jahr": format_jahr, "monat": format_monat}[wahl_](datum, events, rng, grosse)
         elif wahl_ == "laengste":
             beitrag = format_laengste(datum, events, rng)
+        elif wahl_ == "erklaer":
+            beitrag = format_erklaer(datum, sonder.get("thema"))
+        elif wahl_ == "karussell":
+            beitrag = format_karussell(datum, sonder.get("slug"))
         elif wahl_:
             wunsch = wahl_
     if beitrag is None and format_ is None and not sonder:

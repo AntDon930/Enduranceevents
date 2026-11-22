@@ -7446,8 +7446,35 @@ def test_insta_logos() -> None:
     start = I.lade_sonderplan(wurzel / "marketing" / "instagram" / "sonderplan.json")
     check("sonderplan.json: die Startwoche 04.–10.11.2026 (am 04.11. um zwei Tage verschoben), "
           "nur bekannte Formate oder Pause",
-          (sorted(start), all(t.get("pause") or t.get("format") in I.FORMATE for t in start.values())),
+          (sorted(k for k in start if k <= "2026-11-10"),
+           all(t.get("pause") or t.get("format") in I.FORMATE for t in start.values())),
           ([(_dt.date(2026, 11, 4) + _dt.timedelta(days=k)).isoformat() for k in range(7)], True))
+    # Erklär-Reel und Slides (22.11.2026): nur über den Sonderplan, Vorlage + Caption Pflicht
+    spe = {"2026-11-24": {"format": "erklaer", "thema": "schwelle"},
+           "2026-11-25": {"format": "karussell", "slug": "winterkleidung"},
+           "2026-11-27": {"format": "erklaer", "thema": "gibt-es-nicht"}}
+    be = I.plane(_dt.date(2026, 11, 24), ev_echt, momente=I.lade_momente(), clips=[], grosse=ganz, sonderplan=spe)
+    bk = I.plane(_dt.date(2026, 11, 25), ev_echt, momente=I.lade_momente(), clips=[], grosse=ganz, sonderplan=spe)
+    bx = I.plane(_dt.date(2026, 11, 27), ev_echt, momente=I.lade_momente(), clips=[], grosse=ganz, sonderplan=spe)
+    check("Sonderplan: Erklär-Reel mit Thema, Caption und Szenentexten",
+          (be["format"], be.get("erklaer"), "Schwelle" in be["caption"], len(be["folien"][0]["zeilen"]) >= 6),
+          ("erklaer", "schwelle", True, True))
+    check("Sonderplan: Slides mit Slug und Caption", (bk["format"], bk.get("karussell"), bool(bk["caption"])),
+          ("karussell", "winterkleidung", True))
+    check("Sonderplan: Erklär-Reel ohne Vorlage fällt auf den Wochenplan zurück", bx["format"] != "erklaer", True)
+    check("Erklär-Reel und Slides: Kennung hängt am Inhalt", len({I.beitrag_hash(be), I.beitrag_hash(bk)}), 2)
+    for name, spec_ in sorted(  # noqa: E501
+            (p.stem, __import__("json").loads(p.read_text(encoding="utf-8")))
+                              for p in (wurzel / "marketing" / "instagram" / "erklaer").glob("*.json")):
+        teile_ok = all(sum(t[2] for t in sz["teile"]) == len(sz["text"].split()) for sz in spec_["szenen"] if sz.get("teile"))
+        check(f"Erklär-Vorlage {name}: Szenen, Caption, Quellen, Satzstücke passen zum Text",
+              (bool(spec_.get("szenen")), bool(spec_.get("caption")), all(q.startswith("https://") for q in spec_.get("quellen") or ["x"]) and bool(spec_.get("quellen")),
+               teile_ok, not spec_.get("zeiten") or len(spec_["zeiten"]) == len(spec_["szenen"])), (True, True, True, True, True))
+    lauf_ = (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8")
+    check("insta_lauf.py: Erklär-Reel und Slides gehen an ihre eigenen Renderer (Lauf und Vorschau)",
+          ("rendere_beitrag(beitrag, ziel, datum.toordinal())" in lauf_, "rendere_beitrag(b, ordner, tag.toordinal())" in lauf_,
+           "insta_erklaer.rendere_beitrag(" in lauf_, "insta_karussell.rendere_beitrag(" in lauf_),
+          (True, True, True, True))
     woche = [_dt.date(2026, 11, 4) + _dt.timedelta(days=k) for k in range(7)]
     check("Startwoche: 4-5 Videos (vom Nutzer), erstes am 04.11., nichts davor",
           (4 <= sum(I.postet_am(t, start) for t in woche) <= 5, I.postet_am(_dt.date(2026, 11, 4), start),

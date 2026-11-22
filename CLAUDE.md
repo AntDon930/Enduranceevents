@@ -5763,10 +5763,21 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Slide Show (Karussell). **Kein Telegram-Bot** („Ich will das doch nicht mehr
   mit Telegram machen“) – Vorschau und Freigabe bleiben im Dashboard
   (`admin.html`, Karte „Instagram-Freigabe“); das Posten soll wieder automatisch
-  laufen, sobald der Schlüssel steht (To-do 13). Offen: Erklär-Reels und
-  Karussells in Plan/Freigabe einhängen (`insta_inhalte`, plan.json, Vorschau
-  im Speicher; die Sprecheraufnahme liegt bisher nicht im Repo) und Karussell
-  über die API posten (`CAROUSEL`).
+  laufen, sobald der Schlüssel steht (To-do 13). **Seit dem 22.11.2026 hängen
+  beide in Plan und Freigabe**: Formate `erklaer` und `karussell`, NUR über
+  `sonderplan.json` (`{"format": "erklaer", "thema": "<name>"}` bzw.
+  `{"format": "karussell", "slug": "<name>"}`); `insta_inhalte.format_erklaer`/
+  `format_karussell` lesen nur die Vorlage (kein Pillow), Pflicht ist dort
+  `caption` (Liste von Absätzen) – ohne Vorlage oder Caption gilt der
+  Wochenplan; gerendert wird in `insta_lauf.rendere_beitrag` (Lauf UND
+  Vorschau) über `insta_erklaer.rendere_beitrag` / `insta_karussell.
+  rendere_beitrag`. Die Sprecheraufnahme liegt als `<thema>.mp3` NEBEN der
+  Vorlage im Repo (sonst kann der Workflow nicht rendern), die Satzstücke je
+  Szene als `teile` ([von, bis, Wörter] aus `silencedetect`). Slides zeigt
+  „View" als Video (die Reel-Fassung), die Seiten liegen als `01.jpg …` im
+  Ausgabeordner. **Offen**: Slides als echtes Karussell posten (`CAROUSEL`) –
+  bis dahin ginge bei einer Freigabe die Reel-Fassung raus. Ein neues Reel
+  kommt erst in den Sonderplan, wenn Vorlage, Caption und Stimme stehen.
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für

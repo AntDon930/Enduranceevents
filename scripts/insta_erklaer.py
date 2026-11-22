@@ -519,6 +519,23 @@ def rendere(vorlage: Path, ziel: Path, stimme: Path | None = None) -> float:
     return gesamt
 
 
+def rendere_beitrag(thema: str, ordner: Path) -> dict:
+    """Für den täglichen Lauf (insta_lauf.rendere_beitrag): reel.mp4 und
+    cover.jpg nach `ordner`, Metadaten wie insta_video.rendere. Die
+    Sprecheraufnahme liegt neben der Vorlage (<thema>.mp3); ohne sie läuft
+    nur der Beat."""
+    vorlage = Path(__file__).resolve().parent.parent / "marketing" / "instagram" / "erklaer" / f"{thema}.json"
+    stimme = vorlage.with_suffix(".mp3")
+    ordner.mkdir(parents=True, exist_ok=True)
+    dauer = rendere(vorlage, ordner / "reel.mp4", stimme if stimme.exists() else None)
+    szenen = plane(json.loads(vorlage.read_text(encoding="utf-8")))
+    t = szenen[0]["von"] + (szenen[0]["bis"] - szenen[0]["von"]) * 0.9
+    bild_bei(szenen, wortzeiten(szenen), t).convert("RGB").save(ordner / "cover.jpg", quality=90)
+    return {"dauer_s": round(dauer, 1), "thumb_offset_ms": int(t * 1000), "hintergrund": {"art": "gezeichnet"},
+            "nachweis": None, "musik": "Sprecher + Beat" if stimme.exists() else "Beat",
+            "einstieg": None, "uebergang": None}
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("vorlage", type=Path)
