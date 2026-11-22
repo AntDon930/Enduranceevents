@@ -2485,11 +2485,10 @@ Spalten, heute und morgen (auf dem Handy ein Tag je Zeile; bis zum
 22.11.2026 waren es sieben Tage, vom Nutzer: „Der ist am Anfang so groß und
 unübersichtlich“, Konstante `PLAN_TAGE`), je Termin Uhrzeit, Titel
 und wer ihn erledigt (automatisch, geplante Aufgabe, mit Claude in deiner
-Sitzung, du); Antippen zeigt die Einzelheiten. Darunter „Laufend“
-(Instagram-Vorschau jeden Morgen, Statistik stündlich, Deploy bei jedem
-Push, Korrekturseite) und „Danach“ (der nächste Blog mit Thema, die nächste Monatssuche,
-Quartals-Check, Erinnerungen; höchstens fünf). Die Legende nennt nur die
-Arten, die auf der Karte vorkommen.
+Sitzung, du); Antippen zeigt die Einzelheiten. Die Listen „Laufend“ und
+„Danach“ darunter sind seit dem 22.11.2026 weg (vom Nutzer: „Das laufend
+und danach kann man wegmachen“); die Legende nennt nur die Arten von heute
+und morgen.
 
 Die Daten kommen aus `wochenplan.json`, gebaut von `scripts/wochenplan.py`
 im Pages-Workflow (nach dem Instagram-Plan, nie committet, 60 Tage weit):

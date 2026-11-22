@@ -2165,9 +2165,10 @@ def pruefe_statistik_dashboard(ctx, basis):
                "Werbeplätze: Einblendungen, Klicks und Klickrate")
         pruefe(stand["ueberlauf"] <= 0, "kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
         # Was ansteht (12.11.2026, seit dem 22.11.2026 nur heute und morgen –
-        # vom Nutzer: „Der ist am Anfang so groß und unübersichtlich“): zwei
-        # Tage aus wochenplan.json, genau deren Termine, darunter „Danach“
-        # mit dem nächsten Blog; Antippen zeigt die Einzelheiten unter dem Tag.
+        # vom Nutzer: „Der ist am Anfang so groß und unübersichtlich“, und
+        # „Das laufend und danach kann man wegmachen“): zwei Tage aus
+        # wochenplan.json, genau deren Termine, keine Listen darunter;
+        # Antippen zeigt die Einzelheiten unter dem Tag.
         seite.wait_for_selector("#plan-card .plan-tag", state="attached", timeout=10000)
         plan = seite.evaluate("""async () => {
             const d = new Date();
@@ -2180,14 +2181,16 @@ def pruefe_statistik_dashboard(ctx, basis):
                      erstesHeute: tage[0] && tage[0].classList.contains('heute'),
                      termine: card.querySelectorAll('.plan-termin').length,
                      erwartet: wp.termine.filter(x => x.datum === heute || x.datum === morgen).length,
-                     danachBlog: Array.from(card.querySelectorAll('.plan-unten li')).some(x => x.textContent.includes('Blog')),
+                     unten: card.querySelectorAll('.plan-unten, .plan-unten li').length,
                      legende: card.querySelectorAll('.plan-legende span').length,
+                     artenImBild: new Set(wp.termine.filter(x => x.datum === heute || x.datum === morgen).map(x => x.art)).size,
                      ueberlauf: document.documentElement.scrollWidth - innerWidth }; }""")
         pruefe(plan["tage"] == [plan["heute"], plan["morgen"]] and plan["erstesHeute"]
                and plan["termine"] == plan["erwartet"] and plan["termine"] > 0,
                "Was ansteht: heute und morgen, genau deren Termine aus wochenplan.json (%s)" % plan)
-        pruefe(plan["danachBlog"], "Was ansteht: der nächste Blog steht unter „Danach“")
-        pruefe(0 < plan["legende"] <= 7, "Was ansteht: die Legende nennt nur vorkommende Arten (%s)" % plan["legende"])
+        pruefe(plan["unten"] == 0, "Was ansteht: keine Listen „Laufend“/„Danach“ unter dem Kalender")
+        pruefe(plan["legende"] == plan["artenImBild"],
+               "Was ansteht: die Legende nennt genau die Arten von heute und morgen (%d/%d)" % (plan["legende"], plan["artenImBild"]))
         seite.click("#plan-card .plan-termin")
         seite.wait_for_selector("#plan-detail:not([hidden])", timeout=5000)
         detail = seite.evaluate("""() => { const d = document.getElementById('plan-detail');

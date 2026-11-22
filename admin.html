@@ -141,12 +141,6 @@
   .plan-detail p { margin: 0 0 6px; }
   .plan-detail ul { margin: 4px 0 0; padding-left: 20px; }
   .plan-detail li { margin: 2px 0; overflow-wrap: anywhere; }
-  .plan-unten { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 12px 24px; margin: 14px 0 0; }
-  .plan-unten h4 { margin: 0 0 6px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
-  .plan-unten ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 0.88rem; }
-  .plan-unten li { display: flex; gap: 8px; align-items: baseline; }
-  .plan-unten li i { flex: 0 0 auto; width: 8px; height: 8px; border-radius: 2px; background: var(--pa); transform: translateY(-1px); }
-  .plan-unten li span { color: var(--text-muted); }
   @media (max-width: 900px) {
     .plan-woche { grid-template-columns: minmax(0, 1fr); }
     .plan-tag { flex-direction: row; align-items: flex-start; gap: 10px; }
@@ -572,7 +566,7 @@
       b_plan: 'Was ansteht',
       b_dashboard: 'Dashboard', b_graphen: 'Graphen', b_auswertungen: 'Auswertungen', b_instagram: 'Instagram', b_wartung: 'Wartung',
       plan_titel: 'Heute und morgen', plan_stand: (z) => `Plan vom ${z}`, plan_heute: 'Heute', plan_frei: 'nichts geplant',
-      plan_laufend: 'Laufend', plan_danach: 'Danach', plan_link: 'Öffnen',
+      plan_link: 'Öffnen',
       plan_fehlt: 'Der Wochenplan fehlt (wochenplan.json). Er entsteht beim Deploy der Seite – nach dem nächsten Push ist er da.',
       plan_hinweis: 'Antippen zeigt die Einzelheiten. Zeiten in deutscher Zeit; GitHub startet geplante Läufe oft einige Stunden später.',
       pa_daten: 'Daten', pa_blog: 'Blog', pa_instagram: 'Instagram', pa_clubs: 'Clubs', pa_suche: 'Suche', pa_routine: 'Wartung', pa_du: 'Du',
@@ -726,7 +720,7 @@
       b_plan: 'Coming up',
       b_dashboard: 'Dashboard', b_graphen: 'Charts', b_auswertungen: 'Analyses', b_instagram: 'Instagram', b_wartung: 'Maintenance',
       plan_titel: 'Today and tomorrow', plan_stand: (z) => `Plan from ${z}`, plan_heute: 'Today', plan_frei: 'nothing planned',
-      plan_laufend: 'Ongoing', plan_danach: 'Later', plan_link: 'Open',
+      plan_link: 'Open',
       plan_fehlt: 'The weekly plan is missing (wochenplan.json). It is built when the site is deployed – after the next push it will be there.',
       plan_hinweis: 'Tap for details. Times are German time; GitHub often starts scheduled runs a few hours late.',
       pa_daten: 'Data', pa_blog: 'Blog', pa_instagram: 'Instagram', pa_clubs: 'Clubs', pa_suche: 'Search', pa_routine: 'Upkeep', pa_du: 'You',
@@ -878,12 +872,12 @@
   // ---------- Was ansteht ----------
   // wochenplan.json (scripts/wochenplan.py, Pages-Workflow) trägt je Termin
   // datum, zeit (deutsche Zeit, leer = ohne feste Uhrzeit), art, wer, titel
-  // und text (je de/en), punkte (Liste je Sprache), link; dazu „laufend“.
-  // Gezeigt werden HEUTE und MORGEN im Browser (PLAN_TAGE; bis zum
+  // und text (je de/en), punkte (Liste je Sprache), link.
+  // Gezeigt werden NUR HEUTE und MORGEN im Browser (PLAN_TAGE; bis zum
   // 22.11.2026 sieben Tage – vom Nutzer: „Der ist am Anfang so groß und
-  // unübersichtlich“). Was danach kommt, steht kurz unter „Danach“: der
-  // nächste Blog und die seltenen Termine. Der Plan reicht 60 Tage weit,
-  // ein paar Tage alter Plan passt also noch.
+  // unübersichtlich“), ohne die Listen „Laufend“ und „Danach“ darunter
+  // (am selben Abend: „Das laufend und danach kann man wegmachen“).
+  // Der Plan reicht 60 Tage weit, ein paar Tage alter Plan passt also noch.
   const PLAN_URL = 'wochenplan.json';
   const PLAN_TAGE = 2;
   const PLAN_ARTEN = ['daten', 'blog', 'instagram', 'clubs', 'suche', 'routine', 'du'];
@@ -928,16 +922,8 @@
       + (erzeugt ? `<small>${escapeHtml(t('plan_stand', fmtTag(erzeugt, true)))}</small>` : '') + '</h3>';
     const bis = tage[tage.length - 1];
     const imBild = termine.filter(x => x.datum >= heute && x.datum <= bis);
-    const laufend = wochenplan.laufend || [];
-    // Danach: der nächste Blog (welches Thema kommt) und die seltenen
-    // Termine (Monatssuche, Quartal, Erinnerungen), höchstens fünf.
-    const gesehen = new Set();
-    const naechsterBlog = termine.find(x => x.art === 'blog' && x.datum > bis);
-    const danach = termine.filter(x => x.datum > bis && (x.selten || x === naechsterBlog)).filter(x => {
-      const k = sprachText(x.titel); if (gesehen.has(k)) return false; gesehen.add(k); return true;
-    }).slice(0, 5);
-    // Die Legende nennt nur die Arten, die auf der Karte auch vorkommen.
-    const arten = new Set([...imBild, ...laufend, ...danach].map(x => x.art));
+    // Die Legende nennt nur die Arten, die heute und morgen vorkommen.
+    const arten = new Set(imBild.map(x => x.art));
     html += '<div class="plan-legende">' + PLAN_ARTEN.filter(a => arten.has(a)).map(a =>
       `<span style="--pa: var(--pa-${a})"><i></i>${escapeHtml(t('pa_' + a))}</span>`).join('') + '</div>';
     html += '<div class="plan-woche">';
@@ -961,16 +947,6 @@
       html += '</div></div>';
     });
     html += '</div><div class="plan-detail" id="plan-detail" hidden></div>';
-    html += '<div class="plan-unten">';
-    if (laufend.length) {
-      html += `<div><h4>${escapeHtml(t('plan_laufend'))}</h4><ul>` + laufend.map(x =>
-        `<li style="--pa: var(--pa-${escapeHtml(x.art)})"><i></i><div><b>${escapeHtml(sprachText(x.titel))}</b> <span>${escapeHtml(sprachText(x.text))} · ${escapeHtml(t('pw_' + x.wer))}</span></div></li>`).join('') + '</ul></div>';
-    }
-    if (danach.length) {
-      html += `<div><h4>${escapeHtml(t('plan_danach'))}</h4><ul>` + danach.map(x =>
-        `<li style="--pa: var(--pa-${escapeHtml(x.art)})"><i></i><div><b>${escapeHtml(fmtTagKurz(x.datum))}</b>${x.zeit ? ' ' + escapeHtml(x.zeit) : ''} · ${escapeHtml(planTitel(x))} <span>· ${escapeHtml(t('pw_' + x.wer))}</span></div></li>`).join('') + '</ul></div>';
-    }
-    html += '</div>';
     html += `<p class="ig-hinweis">${escapeHtml(t('plan_hinweis'))}</p>`;
     card.innerHTML = html;
     if (planAuswahl) zeigePlanDetail(planAuswahl, termine);
