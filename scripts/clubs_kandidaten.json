@@ -2015,17 +2015,6 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
-  "schluessel": "club:braunschweig-gravel-braunschweig",
-  "name": "Gravel Braunschweig",
-  "stadt": "Braunschweig",
-  "art": "Fahrrad",
-  "letzter_beleg": "2026-11-11",
-  "geprueft": "2026-11-16",
-  "grund": "War Club mit Einzelterminen; am 16.11.2026 auf Strava kein weiterer offener Treff (höchstens Rennen oder Reisen). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
-  "hinweis": "aus clubs.json übernommen am 16.11.2026",
-  "strava": "https://www.strava.com/clubs/gravel-braunschweig"
- },
- {
   "schluessel": "ig:ballernballern",
   "name": "BALLERN",
   "stadt": "Bregenz",
@@ -2572,16 +2561,6 @@
   "instagram": "https://www.instagram.com/indoorcyclingtv/",
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "strava:1228075",
-  "name": "SALTY Trailrunning",
-  "stadt": "Freiburg im Breisgau",
-  "art": "Laufen",
-  "strava": "https://www.strava.com/clubs/1228075",
-  "letzter_beleg": null,
-  "grund": "Nur Strava-Club (403), kein Treff/Termin bekannt",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
@@ -3740,30 +3719,8 @@
   "strava": "https://www.strava.com/clubs/linz-runners-149469",
   "letzter_beleg": null,
   "grund": "Strava-Club mit „Upcoming Club Event“, Details nur angemeldet; kein Treffpunkt öffentlich",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "strava:runcrewlinz",
-  "name": "Run Crew Linz",
-  "stadt": "Linz",
-  "art": "Laufen",
-  "webseite": "https://runcrewlinz.at",
-  "strava": "https://www.strava.com/clubs/runcrewlinz",
-  "letzter_beleg": null,
-  "grund": "Laufverein; Webseite: feste Trainingstage „in Zukunft“, Termine nur über Instagram/WhatsApp; Terminseite leer",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "web:runningcrews.com",
-  "name": "Run Crew Linz",
-  "stadt": "Linz",
-  "art": "Laufen",
-  "letzter_beleg": null,
-  "grund": "Laut runningcrews.com Mi 18:00 Tempo und So 8:15 Long Run ab Runners Store, Hauptstraße 28, Linz; eigene Seite nennt (noch) keine festen Termine, Terminseite leer",
-  "webseite": "https://runcrewlinz.at",
-  "instagram": "https://www.instagram.com/runcrewlinz/",
-  "strava": "https://www.strava.com/clubs/runcrewlinz",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-23"
  },
  {
   "schluessel": "ig:runners_store_linz",
@@ -3784,7 +3741,8 @@
   "strava": "https://www.strava.com/clubs/trirun-linz-124973",
   "letzter_beleg": null,
   "grund": "Vereinstraining (Lauf Mo/Mi 18:00 LA-Anlage PSV Derfflingerstraße, Schwimmen Gugl) für Mitglieder; Gastregel und Aktualität nicht belegt",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-23"
  },
  {
   "schluessel": "meetup:allenamento-in-compagnia",
@@ -4510,16 +4468,6 @@
   "instagram": "https://www.instagram.com/bloom.running.club/",
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
- },
- {
-  "schluessel": "strava:2115669",
-  "name": "Re:RUN – Dein Laufshop Salzburg",
-  "stadt": "Salzburg",
-  "art": "Laufen",
-  "strava": "https://www.strava.com/clubs/2115669",
-  "letzter_beleg": null,
-  "grund": "Laufshop-Club laut Strava (Aktionen angekündigt); Strava 403, Websuche ohne Lauftreff-Angaben",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
@@ -5269,5 +5217,17 @@
   "letzter_beleg": null,
   "grund": "Ort unbekannt (Suchstadt Bad Pyrmont); nur Strava-Club; Strava antwortet 403, kein datierter Beleg auffindbar",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "strava:1595470",
+  "name": "Run Club Zurich",
+  "stadt": "Zürich",
+  "art": "Laufen",
+  "strava": "https://www.strava.com/clubs/1595470",
+  "webseite": "https://www.runclubzurich.com",
+  "letzter_beleg": "2026-11-21",
+  "geprueft": "2026-11-23",
+  "grund": "Einzelner Social Run des Run Store Zurich am 21.11.2026; danach auf Strava kein neuer Termin. Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 23.11.2026"
  }
 ]
