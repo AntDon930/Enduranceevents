@@ -906,13 +906,30 @@ def titelbild(spec: dict) -> Image.Image:
     # Kreis hinter der Figur (unter ihr gezeichnet: die Figur kommt danach)
     my = unten - fig.height * 0.5
     r = max(200, min(430, my - titel_unten - 50))
-    d.ellipse([B / 2 - r, my - r, B / 2 + r, my + r], fill=kreis)
+    mx0 = B / 2 + c.get("dx", 0) * 0.5
+    d.ellipse([mx0 - r, my - r, mx0 + r, my + r], fill=kreis)
     if c.get("deko") == "schnee":
         rng = random.Random(4)
         for _ in range(40):
             x0, y0, rr = rng.uniform(40, B - 40), rng.uniform(titel_unten, unten), rng.uniform(6, 14)
             d.ellipse([x0 - rr, y0 - rr, x0 + rr, y0 + rr], fill=WEISS)
     aufkleben(img, fig, B / 2 + c.get("dx", 0), unten)
+    d = ImageDraw.Draw(img)
+    oben_fig = unten - fig.height
+    if c.get("deko") == "tacho":                 # Tacho, Nadel genau an der Grenze zum roten Bereich
+        mx, my, r = B / 2 + 250, oben_fig + 230, 165
+        d.pieslice([mx - r - 10, my - r - 10, mx + r + 10, my + r + 10], 180, 360, fill=MIDNIGHT)
+        d.pieslice([mx - r, my - r, mx + r, my + r], 180, 360, fill=CREME)
+        d.pieslice([mx - r, my - r, mx + r, my + r], 300, 360, fill=CORAL if farbe != "coral" else (196, 36, 58))
+        d.pieslice([mx - r + 50, my - r + 50, mx + r - 50, my + r - 50], 180, 360, fill=MIDNIGHT)
+        w = math.radians(298)
+        d.line([(mx, my), (mx + (r - 20) * math.cos(w), my + (r - 20) * math.sin(w))], fill=GELB, width=14)
+        d.ellipse([mx - 22, my - 22, mx + 22, my + 22], fill=CREME, outline=MIDNIGHT, width=6)
+        d.text((mx, my + 60), c.get("tacho_text", "SCHWELLE"), font=schrift(56), fill=schrift_farbe, anchor="mm",
+               stroke_width=6, stroke_fill=grund)
+    for i, txt in enumerate(c.get("blasen", [])):  # Sprechblasen rechts neben der Figur
+        blase(d, B / 2 + 230 + 20 * (i % 2), oben_fig + 110 + i * 150, txt, min(70, 700 / max(6, len(txt))), 1.0,
+              spitze_x=B / 2 + 40 if i == 0 else None)
     return img
 
 

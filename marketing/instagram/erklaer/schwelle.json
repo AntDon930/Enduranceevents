@@ -198,6 +198,7 @@
   "hervor": 1,
   "figur": "laeufer",
   "mund": "angestrengt",
-  "dx": -40
+  "dx": -200,
+  "deko": "tacho"
  }
 }

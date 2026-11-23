@@ -260,6 +260,11 @@
    "IST LOCKER?"
   ],
   "figur": "laeufer",
-  "dx": -40
+  "dx": -200,
+  "blasen": [
+   "Wie war dein",
+   "Wochenende",
+   "eigentlich?"
+  ]
  }
 }
