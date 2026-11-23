@@ -81,19 +81,22 @@
      "1 FUNKTION",
      "leitet den Schweiß nach außen",
      "blau",
-     0.0
+     0.0,
+     "FUNKTIONSFASER / MERINO"
     ],
     [
      "2 WÄRME",
-     "dünnes Fleece oder Merino",
+     "hält die Wärme am Körper",
      "coral",
-     0.46
+     0.46,
+     "FLEECE / MERINO"
     ],
     [
      "3 SCHUTZ",
-     "leichte Jacke gegen Wind",
+     "gegen Wind & Regen, atmungsaktiv",
      "creme",
-     0.75
+     0.75,
+     "WIND- / REGENJACKE"
     ]
    ],
    "zeile": "",

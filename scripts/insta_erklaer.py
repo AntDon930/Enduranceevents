@@ -732,7 +732,8 @@ def sz_schichten(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     d.text((B / 2, unten + 45), p.get("haut", "HAUT"), font=schrift(56), fill=MIDNIGHT, anchor="mm")
     schichten = p.get("schichten", [])
     sichtbar = 0
-    for i, (titel, zeile, farbe, ab) in enumerate(schichten):
+    etiketten = []
+    for i, (titel, zeile, farbe, ab, *mat) in enumerate(schichten):
         tt = t - dauer * ab
         if tt <= 0:
             continue
@@ -746,6 +747,13 @@ def sz_schichten(t: float, dauer: float, p: dict | None = None) -> Image.Image:
             schrift_farbe = MIDNIGHT if farbe in ("blau", "creme", "gelb") else WEISS
             d.text((links + 50, y1 - hoehe + 62), titel, font=schrift(74), fill=schrift_farbe, anchor="lm")
             d.text((links + 50, y1 - hoehe + 142), zeile, font=schrift(50, fett=False), fill=schrift_farbe, anchor="lm")
+            if mat:                              # Material als Etikett rechts oben (vom Nutzer: „welcher Stoff“)
+                f_m = schrift(42)
+                wm = f_m.getlength(mat[0])
+                xr, ym = rechts - 34, y1 - hoehe + 62
+                hint = MIDNIGHT if farbe in ("blau", "creme", "gelb") else CREME
+                etiketten.append(((xr - wm - 28, ym - 32, xr, ym + 32), hint, (xr - 14, ym), mat[0], f_m,
+                                  f if hint == MIDNIGHT else MIDNIGHT))
     oben_rand = unten - 14 - sichtbar * (hoehe + 14) + 14
     # Schweißtropfen wandern von der Haut nach außen (nur durch sichtbare Schichten)
     for j in range(4):
@@ -755,6 +763,9 @@ def sz_schichten(t: float, dauer: float, p: dict | None = None) -> Image.Image:
         r = 16
         d.polygon([(x, y - r * 1.8), (x - r, y), (x + r, y)], fill=CREME)
         d.ellipse([x - r, y - r, x + r, y + r], fill=CREME)
+    for box, hint, xy, txt, f_m, fg in etiketten:   # Etiketten über den Tropfen
+        d.rounded_rectangle(box, radius=32, fill=hint)
+        d.text(xy, txt, font=f_m, fill=fg, anchor="rm")
     pop(d, B / 2, 1490, p.get("zeile", ""), p.get("g", 88), t - dauer * 0.9, fill=GRUEN, kontur=None)
     return img
 
