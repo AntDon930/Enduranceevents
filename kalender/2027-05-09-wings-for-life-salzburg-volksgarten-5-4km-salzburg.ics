@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-salzburg-volksgarten-5-4km-salzburg@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life - Salzburg Volksgarten
+LOCATION:Salzburg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttps://www.wingsfor
+ lifeworldrun.com/en/locations/salzburg-volksgarten
+TRANSP:TRANSPARENT
+URL:https://www.wingsforlifeworldrun.com/en/locations/salzburg-volksgarten
+END:VEVENT
+END:VCALENDAR

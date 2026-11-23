@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270109
 DTEND;VALUE=DATE:20270110
 SUMMARY:Snow Trail Arosa
 LOCATION:Arosa\, Schweiz
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://running.life/de
- /termine/swiss-snow-walk-run
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://snowtrail.ch/
 TRANSP:TRANSPARENT
-URL:https://running.life/de/termine/swiss-snow-walk-run
+URL:https://snowtrail.ch/
 END:VEVENT
 END:VCALENDAR

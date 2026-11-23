@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-ederauenlauf-bergheim-10km-edertal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Ederauenlauf Bergheim
+LOCATION:Edertal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://laufcup-waldec
+ k-frankenberg.de/infos-laufcup/alle-laeufe/ederauen-volkslauf-bergheim/
+TRANSP:TRANSPARENT
+URL:http://laufcup-waldeck-frankenberg.de/infos-laufcup/alle-laeufe/ederau
+ en-volkslauf-bergheim/
+END:VEVENT
+END:VCALENDAR

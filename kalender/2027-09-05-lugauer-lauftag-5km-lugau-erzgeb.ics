@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-lugauer-lauftag-5km-lugau-erzgeb@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Lugauer Lauftag
+LOCATION:Lugau/Erzgeb.\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://service-techni
+ k-folgner.de/Lauftag
+TRANSP:TRANSPARENT
+URL:https://service-technik-folgner.de/Lauftag
+END:VEVENT
+END:VCALENDAR

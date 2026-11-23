@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-hainichlauf-13km-amt-creuzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Hainichlauf
+LOCATION:Amt Creuzburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://sv-mihla.de/h
+ ainichlauf/
+TRANSP:TRANSPARENT
+URL:https://sv-mihla.de/hainichlauf/
+END:VEVENT
+END:VCALENDAR

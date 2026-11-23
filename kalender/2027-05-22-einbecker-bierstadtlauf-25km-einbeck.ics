@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-einbecker-bierstadtlauf-25km-einbeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Einbecker Bierstadtlauf
+LOCATION:Einbeck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25 km\nhttps://www.einbeck.d
+ e/portal/seiten/bierstadtlauf-900000150-30110.html
+TRANSP:TRANSPARENT
+URL:https://www.einbeck.de/portal/seiten/bierstadtlauf-900000150-30110.htm
+ l
+END:VEVENT
+END:VCALENDAR

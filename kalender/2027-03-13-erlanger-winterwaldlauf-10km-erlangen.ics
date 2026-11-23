@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20270313
 DTEND;VALUE=DATE:20270314
 SUMMARY:Erlanger Winterwaldlauf – Sparkassenlauf - 10 km
 LOCATION:Erlangen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufportal.sp
- ortprogramme.org/event/d36738e9-ba2e-4e1a-b214-d5ee9f3abb79
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.winterwal
+ dlauf.de/
 TRANSP:TRANSPARENT
-URL:https://laufportal.sportprogramme.org/event/d36738e9-ba2e-4e1a-b214-d5
- ee9f3abb79
+URL:https://www.winterwaldlauf.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270619
 DTEND;VALUE=DATE:20270621
 SUMMARY:Ultramarsch Leipzig
 LOCATION:Borsdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://running.life/
- de/termine/ultramarsch-leipzig
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://www.ultramars
+ ch.de/p/2027-ticket-ultramarsch-leipzig
 TRANSP:TRANSPARENT
-URL:https://running.life/de/termine/ultramarsch-leipzig
+URL:https://www.ultramarsch.de/p/2027-ticket-ultramarsch-leipzig
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-inklusionslauf-louise-no-limits-5km-bad-sulza@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Inklusionslauf Louise No Limits
+LOCATION:Bad Sulza\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://bad-sulza.info
+ /louisenolimits/
+TRANSP:TRANSPARENT
+URL:https://bad-sulza.info/louisenolimits/
+END:VEVENT
+END:VCALENDAR

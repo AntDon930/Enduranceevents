@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-herzlauf-karnten-5km-baldramsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Herzlauf Kärnten
+LOCATION:Baldramsdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.herzlauf.a
+ t/kaernten
+TRANSP:TRANSPARENT
+URL:https://www.herzlauf.at/kaernten
+END:VEVENT
+END:VCALENDAR

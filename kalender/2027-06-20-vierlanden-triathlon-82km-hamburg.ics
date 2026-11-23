@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-vierlanden-triathlon-82km-hamburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Vierlanden-Triathlon – Aquabike Lang
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 82 km\nhttps://vierlanden
+ -triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://vierlanden-triathlon.de/
+END:VEVENT
+END:VCALENDAR

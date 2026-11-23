@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-02-rundweg-winterthur-ultra-59-8km-seuzach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271002
+DTEND;VALUE=DATE:20271003
+SUMMARY:Rundweg Winterthur Ultra
+LOCATION:Seuzach\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 59.8 km\nhttps://rundweg-win
+ terthur-ultra.ch/
+TRANSP:TRANSPARENT
+URL:https://rundweg-winterthur-ultra.ch/
+END:VEVENT
+END:VCALENDAR

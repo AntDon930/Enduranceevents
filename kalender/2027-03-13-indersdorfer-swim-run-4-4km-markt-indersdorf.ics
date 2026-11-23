@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-indersdorfer-swim-run-4-4km-markt-indersdorf@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Indersdorfer Swim & Run
+LOCATION:Markt Indersdorf\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 4.4 km\nhttps://www.sg-i
+ ndersdorf.de
+TRANSP:TRANSPARENT
+URL:https://www.sg-indersdorf.de
+END:VEVENT
+END:VCALENDAR

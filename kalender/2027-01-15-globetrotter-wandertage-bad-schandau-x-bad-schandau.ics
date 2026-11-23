@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-15-globetrotter-wandertage-bad-schandau-x-bad-schandau@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270118
+SUMMARY:Globetrotter Wandertage - Bad Schandau
+LOCATION:Bad Schandau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: -\nhttps://wandern.bad-schan
+ dau.de/
+TRANSP:TRANSPARENT
+URL:https://wandern.bad-schandau.de/
+END:VEVENT
+END:VCALENDAR

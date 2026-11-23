@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-bonner-swimathlon-6km-bonn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:Bonner Swimathlon
+LOCATION:Bonn\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 6 km\nhttps://events.endu
+ re-cycling.com/events/bonner-swimathlon-2027/
+TRANSP:TRANSPARENT
+URL:https://events.endure-cycling.com/events/bonner-swimathlon-2027/
+END:VEVENT
+END:VCALENDAR

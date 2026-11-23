@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-lauf-rund-um-die-barenkopfe-21-1km-liebenburg@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Lauf Rund um die Bärenköpfe – Halbmarathon
+LOCATION:Liebenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://tsvliebenbu
+ rg.de/liebenburger-lauf/
+TRANSP:TRANSPARENT
+URL:https://tsvliebenburg.de/liebenburger-lauf/
+END:VEVENT
+END:VCALENDAR

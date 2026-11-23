@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-voralpen-mtb-marathon-32km-st-veit@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Voralpen MTB Marathon – MTB-Marathon 32 km
+LOCATION:St.Veit\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 32 km\nhttp://www.mou
+ ntainbike-challenge.at/-pid489
+TRANSP:TRANSPARENT
+URL:http://www.mountainbike-challenge.at/-pid489
+END:VEVENT
+END:VCALENDAR

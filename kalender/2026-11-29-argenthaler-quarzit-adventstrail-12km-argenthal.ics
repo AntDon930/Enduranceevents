@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-argenthaler-quarzit-adventstrail-12km-argenthal@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Argenthaler Quarzit Adventstrail
+LOCATION:Argenthal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12 km\nhttps://www.llghunsrue
+ ck.de/adventstrail/
+TRANSP:TRANSPARENT
+URL:https://www.llghunsrueck.de/adventstrail/
+END:VEVENT
+END:VCALENDAR

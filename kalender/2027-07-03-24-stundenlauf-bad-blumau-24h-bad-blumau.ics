@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270703
 DTEND;VALUE=DATE:20270705
 SUMMARY:24 Stundenlauf Bad Blumau – Einzelbewerb 24 h
 LOCATION:Bad Blumau\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://my.raceresult.
- com/434134/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://www.24-stunden
+ lauf.at/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/434134/
+URL:https://www.24-stundenlauf.at/
 END:VEVENT
 END:VCALENDAR

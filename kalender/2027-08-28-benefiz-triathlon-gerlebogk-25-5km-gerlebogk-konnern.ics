@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-benefiz-triathlon-gerlebogk-25-5km-gerlebogk-konnern@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Benefiz-Triathlon Gerlebogk – Sprintdistanz 25.5 km
+LOCATION:Gerlebogk (Könnern)\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße · Charity\nLänge: 25.5 km\nhttps:
+ //pacycle.de/benefiz-triathlon/
+TRANSP:TRANSPARENT
+URL:https://pacycle.de/benefiz-triathlon/
+END:VEVENT
+END:VCALENDAR

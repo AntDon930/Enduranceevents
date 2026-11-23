@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-crosslaufserie-luckenwalde-10-1km-luckenwalde@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Crosslaufserie Luckenwalde – 10\,1 km lange Strecke (zwei Runden)
+LOCATION:Luckenwalde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.1 km\nhttps://anmeldung.la
+ ufauswertung.com/Anmeldung/index.php?VID=C24CA79F13
+TRANSP:TRANSPARENT
+URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=C24CA79F1
+ 3
+END:VEVENT
+END:VCALENDAR

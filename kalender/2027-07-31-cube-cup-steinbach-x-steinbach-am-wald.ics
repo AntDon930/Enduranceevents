@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-cube-cup-steinbach-x-steinbach-am-wald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:Cube Cup - Steinbach – Cross-Country
+LOCATION:Steinbach am Wald\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttp://www.funbike
+ r-steinbach.de
+TRANSP:TRANSPARENT
+URL:http://www.funbiker-steinbach.de
+END:VEVENT
+END:VCALENDAR

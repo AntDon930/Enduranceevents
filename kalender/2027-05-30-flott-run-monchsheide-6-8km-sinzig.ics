@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-flott-run-monchsheide-6-8km-sinzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:flott.RUN Mönchsheide – 6\,75 km Walking\, Jahrgang 2022 und älter
+LOCATION:Sinzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.8 km\nhttp://run.team-flot
+ t.com/
+TRANSP:TRANSPARENT
+URL:http://run.team-flott.com/
+END:VEVENT
+END:VCALENDAR

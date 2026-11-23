@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-ganserndorfer-rote-nasen-lauf-x-ganserndorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Gänserndorfer Rote Nasen Lauf
+LOCATION:Gänserndorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.rotenasenlauf
+ .at/lauf/gaenserndorfer-rote-nasen-lauf-2027
+TRANSP:TRANSPARENT
+URL:https://www.rotenasenlauf.at/lauf/gaenserndorfer-rote-nasen-lauf-2027
+END:VEVENT
+END:VCALENDAR

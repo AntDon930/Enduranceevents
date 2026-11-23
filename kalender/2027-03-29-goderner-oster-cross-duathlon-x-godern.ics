@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270329
 DTEND;VALUE=DATE:20270330
 SUMMARY:Goderner Oster-Cross-Duathlon
 LOCATION:Godern\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttps://my.raceresul
- t.com/431246/
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttps://www.trisport
+ schwerin.de/osterduathlon.html
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/431246/
+URL:https://www.trisportschwerin.de/osterduathlon.html
 END:VEVENT
 END:VCALENDAR

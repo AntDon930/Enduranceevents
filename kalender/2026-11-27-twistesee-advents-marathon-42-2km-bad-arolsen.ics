@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-27-twistesee-advents-marathon-42-2km-bad-arolsen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261128
+SUMMARY:Twistesee-Advents-Marathon
+LOCATION:Bad Arolsen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://kassel42.we
+ bador.de
+TRANSP:TRANSPARENT
+URL:https://kassel42.webador.de
+END:VEVENT
+END:VCALENDAR

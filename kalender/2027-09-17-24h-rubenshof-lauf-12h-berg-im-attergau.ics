@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-17-24h-rubenshof-lauf-12h-berg-im-attergau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270917
+DTEND;VALUE=DATE:20270919
+SUMMARY:24h Rubenshof Lauf – 12 hr
+LOCATION:Berg im Attergau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 h\nhttps://www.rubenshofb
+ ewegt.at/
+TRANSP:TRANSPARENT
+URL:https://www.rubenshofbewegt.at/
+END:VEVENT
+END:VCALENDAR

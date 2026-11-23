@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-27-megalithgrab-sloopsteene-ultramarathon-47km-westerkappeln@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:Megalithgrab Sloopsteene Ultramarathon
+LOCATION:Westerkappeln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 47 km\nhttps://my.raceresult
+ .com/412994/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/412994/
+END:VEVENT
+END:VCALENDAR

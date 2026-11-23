@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-backwaterman-backyard-swimrun-x-ottenstein@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Backwaterman Backyard SwimRun – 33 km Advanced Team und Advanced S
+ olo
+LOCATION:Ottenstein\, Österreich
+DESCRIPTION:Sportart: Triathlon / Backyard Ultra\nLänge: Open End\nhttps:/
+ /raceid.com/en/races/15613/about
+TRANSP:TRANSPARENT
+URL:https://raceid.com/en/races/15613/about
+END:VEVENT
+END:VCALENDAR

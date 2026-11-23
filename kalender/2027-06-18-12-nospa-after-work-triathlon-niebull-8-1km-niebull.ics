@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-12-nospa-after-work-triathlon-niebull-8-1km-niebull@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:12. NOSPA After Work Triathlon Niebüll – Jugend (ab 12 Jahre)
+LOCATION:Niebüll\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 8.1 km\nhttps://my.racere
+ sult.com/436482/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/436482/
+END:VEVENT
+END:VCALENDAR

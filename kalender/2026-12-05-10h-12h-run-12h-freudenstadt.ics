@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-10h-12h-run-12h-freudenstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261207
+SUMMARY:10h / 12h Run – 12 hr
+LOCATION:Freudenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 h\nhttps://neckarlauf.com
+ /6hoder12h-run.html
+TRANSP:TRANSPARENT
+URL:https://neckarlauf.com/6hoder12h-run.html
+END:VEVENT
+END:VCALENDAR

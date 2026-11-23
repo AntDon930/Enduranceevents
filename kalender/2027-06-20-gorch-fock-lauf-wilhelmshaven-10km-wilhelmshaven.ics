@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-gorch-fock-lauf-wilhelmshaven-10km-wilhelmshaven@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Gorch-Fock-Lauf Wilhelmshaven – 10 km Lauf
+LOCATION:Wilhelmshaven\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://gorch-fock-la
+ uf.de/index.html
+TRANSP:TRANSPARENT
+URL:https://gorch-fock-lauf.de/index.html
+END:VEVENT
+END:VCALENDAR

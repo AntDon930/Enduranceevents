@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-backyard-ultra-chur-x-chur@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270824
+SUMMARY:Backyard Ultra Chur
+LOCATION:Chur\, Schweiz
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: Open End\nhttps://my
+ .raceresult.com/435693/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/435693/
+END:VEVENT
+END:VCALENDAR

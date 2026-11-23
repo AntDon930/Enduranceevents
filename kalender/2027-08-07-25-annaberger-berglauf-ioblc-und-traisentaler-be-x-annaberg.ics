@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-25-annaberger-berglauf-ioblc-und-traisentaler-be-x-annaberg
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:25. Annaberger Berglauf (IÖBLC und Traisentaler Berglaufcup )
+LOCATION:Annaberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.annaberger-berg
+ lauf.at
+TRANSP:TRANSPARENT
+URL:http://www.annaberger-berglauf.at
+END:VEVENT
+END:VCALENDAR

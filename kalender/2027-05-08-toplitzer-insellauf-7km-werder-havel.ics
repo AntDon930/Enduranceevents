@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270508
 DTEND;VALUE=DATE:20270509
 SUMMARY:Töplitzer Insellauf
 LOCATION:Werder (Havel)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://running.life/d
- e/termine/toplitzer-insellauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://insellauf-toep
+ litz.de/toeplitzer-insellauf/
 TRANSP:TRANSPARENT
-URL:https://running.life/de/termine/toplitzer-insellauf
+URL:https://insellauf-toeplitz.de/toeplitzer-insellauf/
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-39-alpkogellauf-buckltour-x-alpengasthof-kummerbauer-stadl@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:39. Alpkogellauf (Buckltour)
+LOCATION:Alpengasthof Kummerbauer Stadl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://buckltour.at/even
+ ts/alpkogellauf
+TRANSP:TRANSPARENT
+URL:https://buckltour.at/events/alpkogellauf
+END:VEVENT
+END:VCALENDAR

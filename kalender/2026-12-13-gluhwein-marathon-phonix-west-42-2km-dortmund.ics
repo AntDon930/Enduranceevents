@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-gluhwein-marathon-phonix-west-42-2km-dortmund@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Glühwein Marathon Phönix West
+LOCATION:Dortmund\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://endorphinju
+ nkies-dortmund.de
+TRANSP:TRANSPARENT
+URL:https://endorphinjunkies-dortmund.de
+END:VEVENT
+END:VCALENDAR

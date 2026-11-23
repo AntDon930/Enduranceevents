@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-ferndorfer-fruhjahrs-waldlauf-6km-kreuztal@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Ferndorfer Frühjahrs-Waldlauf – 6\,0 km Jugend / Jederfrau / Jeder
+ mann\, Jahrgänge 2010-1937
+LOCATION:Kreuztal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://3staedte-tour.
+ de/home/ausschreibung/ferndorfer-fruehjahrs-waldlauf/
+TRANSP:TRANSPARENT
+URL:https://3staedte-tour.de/home/ausschreibung/ferndorfer-fruehjahrs-wald
+ lauf/
+END:VEVENT
+END:VCALENDAR

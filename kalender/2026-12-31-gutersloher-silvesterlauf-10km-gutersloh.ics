@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-gutersloher-silvesterlauf-10km-gutersloh@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Gütersloher Silvesterlauf
+LOCATION:Gütersloh\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.post-sv-gt
+ .de
+TRANSP:TRANSPARENT
+URL:http://www.post-sv-gt.de
+END:VEVENT
+END:VCALENDAR

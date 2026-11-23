@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-sulzbacher-cross-country-spessart-tour-32km-sulzbach-am-mai
+ n@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Sulzbacher Cross Country Spessart Tour – Cross-Country 32 km
+LOCATION:Sulzbach am Main\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 32 km\nhttps://mtb-su
+ lzbach.de/ausschreibung-cross-country-spessart-tour-2027/
+TRANSP:TRANSPARENT
+URL:https://mtb-sulzbach.de/ausschreibung-cross-country-spessart-tour-2027
+ /
+END:VEVENT
+END:VCALENDAR

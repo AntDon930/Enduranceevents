@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-cube-cup-bad-alexandersbad-x-bad-alexandersbad@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Cube Cup - Bad Alexandersbad – Cross-Country
+LOCATION:Bad Alexandersbad\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttp://www.scw-mou
+ ntainbiker.de
+TRANSP:TRANSPARENT
+URL:http://www.scw-mountainbiker.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-7-run-the-bugles-trailrun-buckltour-x-krumbach@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:7. Run the Bugles Trailrun (Buckltour)
+LOCATION:Krumbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.bikethebugles.a
+ t/trailrun
+TRANSP:TRANSPARENT
+URL:http://www.bikethebugles.at/trailrun
+END:VEVENT
+END:VCALENDAR

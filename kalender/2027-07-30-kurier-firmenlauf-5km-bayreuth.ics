@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270730
 DTEND;VALUE=DATE:20270731
 SUMMARY:Kurier-Firmenlauf
 LOCATION:Bayreuth\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.davengo.co
- m/event/overview/kurier-firmenlauf-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.kurier-fir
+ menlauf.de/
 TRANSP:TRANSPARENT
-URL:https://www.davengo.com/event/overview/kurier-firmenlauf-2027
+URL:https://www.kurier-firmenlauf.de/
 END:VEVENT
 END:VCALENDAR

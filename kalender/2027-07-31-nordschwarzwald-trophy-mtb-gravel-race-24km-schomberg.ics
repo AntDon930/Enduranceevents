@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-nordschwarzwald-trophy-mtb-gravel-race-24km-schomberg@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:Nordschwarzwald Trophy MTB & Gravel Race – MTB-Marathon 24 km
+LOCATION:Schömberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 24 km\nhttps://www.ev
+ entservice-stahl.de/veranstaltungen/nordschwarzwald-trophy/
+TRANSP:TRANSPARENT
+URL:https://www.eventservice-stahl.de/veranstaltungen/nordschwarzwald-trop
+ hy/
+END:VEVENT
+END:VCALENDAR

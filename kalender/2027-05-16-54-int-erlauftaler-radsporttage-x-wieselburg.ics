@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-54-int-erlauftaler-radsporttage-x-wieselburg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:54. Int. Erlauftaler Radsporttage – Straßenrennen
+LOCATION:Wieselburg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.rcpurgstall.
+ at
+TRANSP:TRANSPARENT
+URL:https://www.rcpurgstall.at
+END:VEVENT
+END:VCALENDAR

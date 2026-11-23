@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-sachsenwaldlauf-6km-schwarzenbek@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Sachsenwaldlauf
+LOCATION:Schwarzenbek\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.sachsenwal
+ dlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.sachsenwaldlauf.de/
+END:VEVENT
+END:VCALENDAR

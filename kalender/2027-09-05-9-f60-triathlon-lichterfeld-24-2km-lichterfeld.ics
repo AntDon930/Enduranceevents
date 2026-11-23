@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-9-f60-triathlon-lichterfeld-24-2km-lichterfeld@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:9. F60-Triathlon Lichterfeld
+LOCATION:Lichterfeld\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 24.2 km\nhttps://www.f60t
+ riathlon.de
+TRANSP:TRANSPARENT
+URL:https://www.f60triathlon.de
+END:VEVENT
+END:VCALENDAR

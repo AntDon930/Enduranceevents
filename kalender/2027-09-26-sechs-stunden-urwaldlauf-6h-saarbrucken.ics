@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-26-sechs-stunden-urwaldlauf-6h-saarbrucken@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:Sechs-Stunden-Urwaldlauf – 6 hr
+LOCATION:Saarbrücken\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://urwaldlauf.de/a
+ usschreibung
+TRANSP:TRANSPARENT
+URL:https://urwaldlauf.de/ausschreibung
+END:VEVENT
+END:VCALENDAR

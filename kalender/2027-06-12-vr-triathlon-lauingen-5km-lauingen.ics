@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-vr-triathlon-lauingen-5km-lauingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270614
+SUMMARY:VR-Triathlon Lauingen – Jugend und Volkstriathlon (Jugend A)
+LOCATION:Lauingen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 5 km\nhttps://triathlon.t
+ vl.de/vr-triathlon/ausschreibung-tri/
+TRANSP:TRANSPARENT
+URL:https://triathlon.tvl.de/vr-triathlon/ausschreibung-tri/
+END:VEVENT
+END:VCALENDAR

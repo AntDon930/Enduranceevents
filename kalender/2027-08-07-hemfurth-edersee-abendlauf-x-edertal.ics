@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-hemfurth-edersee-abendlauf-x-edertal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:Hemfurth-Edersee-Abendlauf
+LOCATION:Edertal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://laufcup-waldeck-fr
+ ankenberg.de/infos-laufcup/alle-laeufe/edersee-abendlauf/
+TRANSP:TRANSPARENT
+URL:http://laufcup-waldeck-frankenberg.de/infos-laufcup/alle-laeufe/ederse
+ e-abendlauf/
+END:VEVENT
+END:VCALENDAR

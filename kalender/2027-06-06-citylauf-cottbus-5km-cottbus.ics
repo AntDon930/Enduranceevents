@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-citylauf-cottbus-5km-cottbus@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Citylauf Cottbus
+LOCATION:Cottbus\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://baer-service.d
+ e/veranstaltung/CLC/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/CLC/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-21-einzelzeitfahren-steyr-kurnberg-15-7km-kurnberg@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270522
+SUMMARY:Einzelzeitfahren Steyr–Kürnberg – Einzelzeitfahren 15.7 km
+LOCATION:Kürnberg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 15.7 km\nhttps://www.mo
+ sttour.at/einzelzeitfahren/
+TRANSP:TRANSPARENT
+URL:https://www.mosttour.at/einzelzeitfahren/
+END:VEVENT
+END:VCALENDAR
