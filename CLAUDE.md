@@ -5371,7 +5371,16 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
 - **Freigabe mit einem Klick (14.10.2026, vom Nutzer: „die ersten Videos
   alle gerne vorher mit einem Klick einfach freigeben")**: zwei Läufe am
   Tag (`instagram.yml`: 08:47 Vorschau = nur rendern, 17:47 Posten mit
-  `--posten --freigabe`); `pages.yml` schreibt `marketing/instagram/plan.json`
+  `--posten --freigabe`); **seit dem 23.11.2026 postet der MORGENLAUF um 18 Uhr Berlin**
+  (vom Nutzer: „so um 18:00/19:00 Posten“): GitHub startet die Läufe Stunden zu
+  spät (Abendlauf 21–1 Uhr, Morgenlauf 15–18 Uhr), der Morgenlauf wartet deshalb
+  nach den Vorschauen bis 18:00 Berlin, holt einen zweiten Google-Zugang (der
+  erste gilt nur eine Stunde) und postet mit `--posten --freigabe`
+  (`timeout-minutes: 360`); der späte Abendlauf bleibt Rückfall, und
+  `insta_lauf.schon_gepostet()` (Caption-Anfang unter den letzten Beiträgen)
+  verhindert doppeltes Posten. Von Hand: Haken „freigabe“ = derselbe Ablauf sofort.
+  Ein Anstoß über eine geplante Claude-Aufgabe wurde verworfen: frische Sitzungen
+  haben kein Repo, eine Sitzung mit Repo kostet ~3 $ je Lauf (CLAUDE.md im Kontext); `pages.yml` schreibt `marketing/instagram/plan.json`
   (`insta_inhalte.py --plan 14`, gitignored; der Schritt installiert Pillow
   und trägt `continue-on-error` – am 27.10.2026 hielt ein Plan ohne Pillow
   in Lauf 419 den ganzen Deploy auf, Instagram darf die Website nie

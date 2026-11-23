@@ -5694,6 +5694,9 @@ def test_insta_freigabe() -> None:
     check("instagram.yml: Anstoß mit freigabe wie der Abendlauf",
           ("github.event_name == 'workflow_dispatch' && inputs.freigabe" in wf,
            "inputs.posten && !inputs.freigabe" in wf), (True, True))
+    check("instagram.yml: Morgenlauf wartet bis 18 Uhr und postet freigegeben",
+          ("Warten bis 18 Uhr Berlin" in wf, "--ausgabe ausgabe-18uhr --posten --freigabe" in wf,
+           "steps.google2.outputs.access_token" in wf, "timeout-minutes: 360" in wf), (True, True, True, True))
     import insta_lauf as _il
     check("insta_lauf: Sperre gegen doppeltes Posten", hasattr(_il, "schon_gepostet"), True)
     pages = (wurzel / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
