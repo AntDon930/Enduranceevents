@@ -5374,7 +5374,7 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
 - **Freigabe mit einem Klick (14.10.2026, vom Nutzer: „die ersten Videos
   alle gerne vorher mit einem Klick einfach freigeben")**: zwei Läufe am
   Tag (`instagram.yml`: 08:47 Vorschau = nur rendern, 17:47 Posten mit
-  `--posten --freigabe`); **seit dem 23.11.2026 postet der MORGENLAUF um 18 Uhr Berlin**
+  `--posten --freigabe`); **seit dem 23.11.2026 postet der MORGENLAUF um 18 Uhr Berlin** (auf `main` seit dem 23.11.2026, Commit `cdf33712`, vom Nutzer: „Ja Instagram.yml auf Main“)
   (vom Nutzer: „so um 18:00/19:00 Posten“): GitHub startet die Läufe Stunden zu
   spät (Abendlauf 21–1 Uhr, Morgenlauf 15–18 Uhr), der Morgenlauf wartet deshalb
   nach den Vorschauen bis 18:00 Berlin, holt einen zweiten Google-Zugang (der
