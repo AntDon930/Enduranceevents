@@ -51,6 +51,7 @@ GEPLANTE_AUFGABEN = {
     "monatssuche": {"id": "trig_01NhaaENGay2NUU5tZLraZiP", "monatstag": 1, "zeit": "10:41"},
     "firebase": {"id": "trig_013AV7Nn2GVq1m3LgxL3ukcq", "datum": "2027-01-11", "zeit": "09:00"},
     "insta_woche": {"id": "trig_01MMtRgfNxMfeZjZTrPbKMs8", "wochentage": (6,), "zeit": "17:43"},
+    "insta_posten": {"id": "trig_019VUm359nL6u2WeMdkPjDKT", "wochentage": (0, 1, 2, 3, 4, 5, 6), "zeit": "17:53"},
 }
 
 TYP_TEXT = {

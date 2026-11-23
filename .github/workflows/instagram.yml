@@ -17,6 +17,12 @@ name: Instagram-Reel
 #     immer. Ohne Google-Zugang (nächster Absatz) wird nur gerendert.
 #   - Von Hand („Run workflow"): Haken „posten" postet sofort, ohne
 #     Freigabeprüfung.
+#   - PÜNKTLICH UM 18 UHR (seit 23.11.2026): GitHub startet den Abendlauf
+#     oft 4–8 Stunden zu spät. Eine geplante Aufgabe auf claude.ai startet
+#     den Workflow deshalb täglich gegen 17:53 Berlin von Hand mit dem Haken
+#     „freigabe" – derselbe Ablauf wie der Abendlauf. Der verspätete
+#     Abendlauf bleibt als Rückfall; was schon gepostet ist (Caption steht
+#     auf Instagram), postet er kein zweites Mal (insta_lauf.schon_gepostet).
 #
 # ANMELDUNG ÜBER INSTAGRAM (seit 16.10.2026, vom Nutzer gewählt: keine
 # Facebook-Seite, das private Facebook-Konto bleibt getrennt). Der Schritt
@@ -60,6 +66,11 @@ on:
         options: ['', monat, anmeldung, top, krass, naehe, wuerdest, humor, wochenende, saison, moment, clip, wochenvorschau, spotlight, region]
       posten:
         description: 'Auf Instagram veröffentlichen'
+        required: false
+        default: false
+        type: boolean
+      freigabe:
+        description: 'Nur posten, was im Dashboard freigegeben ist (wie der Abendlauf)'
         required: false
         default: false
         type: boolean
@@ -127,8 +138,8 @@ jobs:
           INSTAGRAM_AUTOPOST: ${{ vars.INSTAGRAM_AUTOPOST }}
           # Der Abendlauf postet mit Freigabeprüfung, der Handlauf mit
           # Haken „posten" sofort; der Morgenlauf rendert nur.
-          ABENDLAUF: ${{ github.event_name == 'schedule' && github.event.schedule == '47 15 * * *' }}
-          HANDPOSTEN: ${{ github.event_name == 'workflow_dispatch' && inputs.posten }}
+          ABENDLAUF: ${{ (github.event_name == 'schedule' && github.event.schedule == '47 15 * * *') || (github.event_name == 'workflow_dispatch' && inputs.freigabe) }}
+          HANDPOSTEN: ${{ github.event_name == 'workflow_dispatch' && inputs.posten && !inputs.freigabe }}
         run: |
           ARGS="--ausgabe ausgabe"
           [ -n "${{ inputs.datum }}" ] && ARGS="$ARGS --datum ${{ inputs.datum }}"

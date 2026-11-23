@@ -5689,6 +5689,13 @@ def test_insta_freigabe() -> None:
     check("instagram.yml: Abendlauf postet mit --freigabe, Handlauf ohne",
           ("--posten --freigabe" in wf, "ABENDLAUF" in wf, "HANDPOSTEN" in wf, "INSTAGRAM_AUTOPOST: ${{ vars.INSTAGRAM_AUTOPOST }}" in wf),
           (True, True, True, True))
+    # Pünktlich um 18 Uhr (23.11.2026): Anstoß von Hand mit „freigabe“ =
+    # derselbe Ablauf wie der Abendlauf, ohne den Sofort-Haken „posten“
+    check("instagram.yml: Anstoß mit freigabe wie der Abendlauf",
+          ("github.event_name == 'workflow_dispatch' && inputs.freigabe" in wf,
+           "inputs.posten && !inputs.freigabe" in wf), (True, True))
+    import insta_lauf as _il
+    check("insta_lauf: Sperre gegen doppeltes Posten", hasattr(_il, "schon_gepostet"), True)
     pages = (wurzel / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
     check("pages.yml erzeugt den Plan", "insta_inhalte.py --plan 14 --json marketing/instagram/plan.json" in pages, True)
     # Lauf 419 (27.10.2026): Der Plan liest die Logos mit Pillow, der
