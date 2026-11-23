@@ -1874,6 +1874,14 @@ COUNTDOWN_TAGE = (100, 60, 30, 14, 7)
 WOCHENTAG_LANG = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
 
 
+# Automatische Stories AUS (vom Nutzer am 23.11.2026 nach der ersten, die
+# mitging: „Die Story musste ich wieder löschen. Die war total Hässlich und
+# überhaupt nicht in unserem Stil mit dem Hintergrundbild"). Plan, Dashboard
+# und Abendlauf sehen dann keine Stories; stories_fuer() und
+# insta_video.rendere_story() bleiben für einen neuen Stil.
+STORIES = False
+
+
 def stories_fuer(datum: dt.date, events: list[dict], beitrag: dict, rng: random.Random) -> list[dict]:
     """Bis zu zwei Stories zum Beitrag des Tages (eine Folie je Story, als
     Bild gerendert, insta_video.rendere_story):
@@ -2084,7 +2092,8 @@ def plane(datum: dt.date, events: list[dict] | None = None, format_: str | None 
                     beitrag = format_anlass(datum, events, rng, naechster[0], grosse)
         if beitrag is None:
             beitrag = format_moment(datum, events, rng, momente)
-    beitrag["stories"] = stories_fuer(datum, events, beitrag, random.Random(datum.toordinal() + 1))
+    beitrag["stories"] = (stories_fuer(datum, events, beitrag, random.Random(datum.toordinal() + 1))
+                          if STORIES else [])
     return beitrag
 
 

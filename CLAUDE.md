@@ -5266,6 +5266,9 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Abendlauf NACH dem Reel, gleiche Freigabe (die Kennung `beitrag_hash`
   umfasst die Story-Folien, plan.json trägt `stories`, das Dashboard zeigt
   eine Zeile). Sticker (Link, Umfrage) und Musik gehen über die API nicht.
+  **Seit dem 23.11.2026 AUS** (`insta_inhalte.STORIES = False`; vom Nutzer nach der ersten
+  automatischen Story: „total Hässlich und überhaupt nicht in unserem Stil mit dem
+  Hintergrundbild“) – erst mit einem neuen Stil (Instagram-Farben, gezeichnet) wieder an.
 - **@-Erwähnung der Veranstalter** (`insta_veranstalter.py`): Name nur von
   der EIGENEN Veranstalterseite (nie Portal – `PORTAL_DOMAINS` wird aus dem
   Quelltext von scraper_lib gelesen, weil der Instagram-Workflow kein bs4

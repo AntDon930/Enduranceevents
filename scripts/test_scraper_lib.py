@@ -5644,15 +5644,15 @@ def test_insta_freigabe() -> None:
     check("Kennung ändert sich mit den Folien", I.beitrag_hash(dict(b, folien=b["folien"][1:])) == h, False)
     check("Kennung ignoriert Felder außerhalb von Format/Folien/Caption/Stories",
           I.beitrag_hash(dict(b, video={"x": 1}, veroeffentlicht=None, erwaehnt=["x"])), h)
-    check("Kennung ändert sich mit den Stories", I.beitrag_hash(dict(b, stories=b["stories"][1:])) == h, False)
+    check("Kennung ändert sich mit den Stories", I.beitrag_hash(dict(b, stories=[{"art": "reel"}])) == h, False)
 
     plan = I.plan_liste(heute, 14, ev, momente=momente, clips=[])
     check("Plan: 14 Tage", len(plan), 14)
     check("Plan: Felder je Tag", sorted(k for k in plan[0] if k not in ("moment_id", "clip_id")),
-          ["caption", "datum", "folien", "format", "hash", "stories", "wochentag"])
+          ["caption", "datum", "folien", "format", "hash", "wochentag"])
     check("Plan: erster Tag = Start, Montag, Wochenplan (ungerade KW: laengste)",
           (plan[0]["datum"], plan[0]["wochentag"], plan[0]["format"]), (heute.isoformat(), "Mo", "laengste"))
-    check("Plan: Stories je Tag mit Art und Folie", all({"art", "folie"} <= set(st) for st in plan[0]["stories"]), True)
+    check("Plan: automatische Stories aus (vom Nutzer am 23.11.2026)", (I.STORIES, any(p_.get("stories") for p_ in plan)), (False, False))
     check("Dashboard: Stories-Zeile", ("storiesText(b.stories)" in (wurzel / "admin.html").read_text(encoding="utf-8")), True)
     check("Plan: Kennung je Tag = beitrag_hash des geplanten Beitrags", plan[0]["hash"], h)
     check("Plan: ist JSON", bool(_json.dumps(plan, ensure_ascii=False)), True)
@@ -5771,8 +5771,10 @@ def test_instagram() -> None:
           ("München", True))
     check("Rennen tragen die Veranstalterseite (für die @-Erwähnung)", woche[0]["folien"][1].get("url"),
           "https://isartal-ultra.de/")
+    woche_stories = [I.stories_fuer(_dt.date.fromisoformat(w["datum"]), ev, w, _random.Random(1)) for w in woche]
     check("Stories: höchstens zwei, bekannte Arten",
-          all(len(w["stories"]) <= 2 and {st["art"] for st in w["stories"]} <= {"rennen", "countdown", "reel"} for w in woche), True)
+          all(len(s_) <= 2 and {st["art"] for st in s_} <= {"rennen", "countdown", "reel"} and all({"art", "folie"} <= set(st) for st in s_)
+              for s_ in woche_stories), True)
     witze = I.lade_humor()
     check("humor.json: Pflichtfelder, eindeutige Ids, kurze Texte",
           [all(w.get(k) for w in witze for k in ("id", "oben", "text_oben", "unten", "text_unten")),
@@ -5888,13 +5890,13 @@ def test_instagram() -> None:
     dnb_plan = V.zeitplan([{"typ": "logo", "blitz": True}, {"typ": "logo", "blitz": True}, {"typ": "cta"}],
                           schlag=M.schlag_s(174))
     check("Drum & Bass: ein Logo steht trotzdem mindestens 0,4 s", min(e_ - s_ for s_, e_, _ in dnb_plan[:2]) >= 0.4, True)
-    for f in woche[0]["folien"] + woche[3]["folien"] + [st["folie"] for st in woche[0]["stories"]]:
+    for f in woche[0]["folien"] + woche[3]["folien"] + [st["folie"] for st in woche_stories[0]]:
         bild = V.folie_bild(f, "Laufen")
         check(f"Folie {f['typ']} wird gezeichnet (1080 × 1920, nicht leer)", [bild.size, bild.getbbox() is not None],
               [(1080, 1920), True])
     import tempfile as _tf0
     with _tf0.TemporaryDirectory() as tmp:
-        st_pfad = V.rendere_story(woche[0]["stories"][0], Path(tmp) / "s.jpg", 1)
+        st_pfad = V.rendere_story(woche_stories[0][0], Path(tmp) / "s.jpg", 1)
         from PIL import Image as _Img
         check("Story: JPEG 1080 × 1920", _Img.open(st_pfad).size, (1080, 1920))
     # Hintergründe wechseln (vom Nutzer am 17.10.2026: „immer das gleiche
