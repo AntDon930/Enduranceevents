@@ -260,11 +260,7 @@
    "IST LOCKER?"
   ],
   "figur": "laeufer",
-  "dx": -200,
-  "blasen": [
-   "Wie war dein",
-   "Wochenende",
-   "eigentlich?"
-  ]
+  "dx": -230,
+  "deko": "schnecke"
  }
 }

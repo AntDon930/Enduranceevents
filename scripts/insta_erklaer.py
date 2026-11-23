@@ -927,6 +927,27 @@ def titelbild(spec: dict) -> Image.Image:
         d.ellipse([mx - 22, my - 22, mx + 22, my + 22], fill=CREME, outline=MIDNIGHT, width=6)
         d.text((mx, my + 60), c.get("tacho_text", "SCHWELLE"), font=schrift(56), fill=schrift_farbe, anchor="mm",
                stroke_width=6, stroke_fill=grund)
+    if c.get("deko") == "schnecke":              # Schnecke vorneweg – „so langsam ist locker“
+        sx, sy, k = B / 2 + 280, unten - 20, 1.25
+        rand = MIDNIGHT
+        d.rounded_rectangle([sx - 170 * k, sy - 60 * k, sx + 120 * k, sy], radius=int(30 * k), fill=GELB,
+                            outline=rand, width=8)                                            # Körper
+        hx = sx + 105 * k
+        for dx_, l in ((-18, 95), (18, 85)):                                              # Fühler
+            d.line([(hx + dx_ * k * 0.6, sy - 50 * k), (hx + dx_ * k, sy - (50 + l) * k)], fill=rand, width=8)
+            d.ellipse([hx + dx_ * k - 14, sy - (50 + l) * k - 14, hx + dx_ * k + 14, sy - (50 + l) * k + 14],
+                      fill=rand)
+        d.ellipse([hx - 30 * k, sy - 95 * k, hx + 25 * k, sy - 40 * k], fill=GELB, outline=rand, width=8)   # Kopf
+        d.ellipse([hx - 2, sy - 75 * k - 6, hx + 10, sy - 75 * k + 6], fill=rand)
+        d.arc([hx - 15 * k, sy - 75 * k, hx + 12 * k, sy - 52 * k], 20, 160, fill=rand, width=6)
+        cx, cy, R = sx - 50 * k, sy - 125 * k, 105 * k                                    # Haus
+        d.ellipse([cx - R, cy - R, cx + R, cy + R], fill=CORAL, outline=rand, width=9)
+        pts = []
+        for i in range(160):
+            a_ = i / 160 * math.pi * 5
+            rr = R * 0.82 * (1 - i / 175)
+            pts.append((cx + rr * math.cos(a_), cy + rr * math.sin(a_)))
+        d.line(pts, fill=rand, width=9, joint="curve")
     for i, txt in enumerate(c.get("blasen", [])):  # Sprechblasen rechts neben der Figur
         blase(d, B / 2 + 230 + 20 * (i % 2), oben_fig + 110 + i * 150, txt, min(70, 700 / max(6, len(txt))), 1.0,
               spitze_x=B / 2 + 40 if i == 0 else None)
