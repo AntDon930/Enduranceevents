@@ -262,7 +262,8 @@ def main() -> int:
             beitrag["veroeffentlicht"] = None
         else:
             erg = posten.poste_reel(ziel / "reel.mp4", beitrag["caption"], meta.get("thumb_offset_ms"),
-                                    z, pflege["token"], kennung=f"reel-{beitrag['datum']}")
+                                    z, pflege["token"], kennung=f"reel-{beitrag['datum']}",
+                                    cover=ziel / meta["cover"] if meta.get("cover") else None)
             beitrag["veroeffentlicht"] = erg
             print(f"  veröffentlicht: {erg.get('permalink') or erg['media_id']}")
             zusammenfassung(f"Veröffentlicht: {erg.get('permalink') or erg['media_id']}\n")

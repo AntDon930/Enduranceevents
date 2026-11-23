@@ -846,6 +846,76 @@ def sz_rad(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     return img
 
 
+# --- Titelbild (Cover) für die Profilseite ------------------------------------
+# Vom Nutzer am 23.11.2026: „Nur damit die Uploads nicht alle gleich aussehen
+# müssen wir das Startbild ein bisschen anders gestalten … Vielleicht kann man
+# das so gestalten, das es gut auf der Profilseite aussieht“. Das Profil zeigt
+# ein Reel im Format 3:4 (Mitte von 1080 × 1920: y 240–1680) – alles Wichtige
+# steht darin. Ein Titelbild je Thema: Grundfarbe aus drei (blau/navy/coral,
+# `cover.farbe` der Vorlage, sonst reihum), oben das Thema groß, unten die Figur
+# in der Pose des Themas. So ergibt das Raster ein ruhiges Muster und jedes
+# Reel ist an Titel und Bild zu erkennen.
+
+COVER_FARBEN = {
+    "blau": (SOFT_BLUE, MIDNIGHT, CORAL, (160, 206, 224)),
+    "navy": (MIDNIGHT, CREME, CORAL, NACHT_HELL),
+    "coral": (CORAL, MIDNIGHT, CREME, (240, 92, 92)),
+}
+COVER_OBEN, COVER_UNTEN = 240, 1680
+
+
+def _cover_figur(c: dict, hoehe: int) -> Image.Image:
+    art = c.get("figur", "daumen")
+    if art == "laeufer":
+        return laeufer(5, hoehe, c.get("mund", "laecheln"))
+    if art == "radler":
+        return radler(0.2, int(hoehe * 0.9))
+    return M.figur(art, hoehe, c.get("person", "er"), c.get("text", ""))
+
+
+def titelbild(spec: dict) -> Image.Image:
+    c = spec.get("cover") or {}
+    farbe = c.get("farbe") or list(COVER_FARBEN)[sum(map(ord, spec.get("thema", ""))) % 3]
+    grund, schrift_farbe, akzent, kreis = COVER_FARBEN[farbe]
+    img = Image.new("RGBA", (B, H), grund + (255,))
+    d = ImageDraw.Draw(img)
+    # Punktraster als Struktur
+    for y in range(COVER_OBEN + 20, COVER_UNTEN, 60):
+        for x in range(30, B, 60):
+            d.ellipse([x - 3, y - 3, x + 3, y + 3], fill=kreis)
+    # Etikett oben
+    etikett = c.get("etikett", "ERKLÄRT IN 30 SEKUNDEN")
+    f = schrift(44)
+    w = f.getlength(etikett) / 2 + 30
+    d.rounded_rectangle([B / 2 - w, COVER_OBEN + 40, B / 2 + w, COVER_OBEN + 112], radius=36, fill=akzent)
+    d.text((B / 2, COVER_OBEN + 76), etikett, font=f, fill=grund if farbe != "coral" else MIDNIGHT, anchor="mm")
+    # Titel: 1–3 Zeilen, so groß wie möglich
+    zeilen = c.get("titel") or [spec.get("thema", "").upper()]
+    g = min(200 if len(zeilen) < 3 else 160, min(960 / max(1, schrift(100).getlength(z) / 100) for z in zeilen))
+    y = COVER_OBEN + 150 + g * 0.55
+    for i, z in enumerate(zeilen):
+        hervor = i == c.get("hervor", len(zeilen) - 1)
+        d.text((B / 2, y), z, font=schrift(g), anchor="mm",
+               fill=akzent if hervor else schrift_farbe,
+               stroke_width=8 if farbe != "navy" else 0, stroke_fill=grund)
+        y += g * 0.95
+    titel_unten = y - g * 0.45
+    unten = COVER_UNTEN - 30
+    platz = unten - titel_unten - 40
+    fig = _cover_figur(c, int(min(c.get("hoehe", 760), platz)))
+    # Kreis hinter der Figur (unter ihr gezeichnet: die Figur kommt danach)
+    my = unten - fig.height * 0.5
+    r = max(200, min(430, my - titel_unten - 50))
+    d.ellipse([B / 2 - r, my - r, B / 2 + r, my + r], fill=kreis)
+    if c.get("deko") == "schnee":
+        rng = random.Random(4)
+        for _ in range(40):
+            x0, y0, rr = rng.uniform(40, B - 40), rng.uniform(titel_unten, unten), rng.uniform(6, 14)
+            d.ellipse([x0 - rr, y0 - rr, x0 + rr, y0 + rr], fill=WEISS)
+    aufkleben(img, fig, B / 2 + c.get("dx", 0), unten)
+    return img
+
+
 SZENEN = {"frage": sz_frage, "denken": sz_denken, "zahl": sz_zahl, "kacheln": sz_kacheln,
           "balken": sz_balken, "figur": sz_figur, "schichten": sz_schichten, "rad": sz_rad, "hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
           "fass": sz_fass, "test": sz_test, "gefuehl": sz_gefuehl, "schluss": sz_schluss}
@@ -971,10 +1041,10 @@ def rendere_beitrag(thema: str, ordner: Path) -> dict:
     dauer = rendere(vorlage, ordner / "reel.mp4", stimme if stimme.exists() else None)
     szenen = plane(json.loads(vorlage.read_text(encoding="utf-8")))
     t = szenen[0]["von"] + (szenen[0]["bis"] - szenen[0]["von"]) * 0.9
-    bild_bei(szenen, wortzeiten(szenen), t).convert("RGB").save(ordner / "cover.jpg", quality=90)
+    titelbild(json.loads(vorlage.read_text(encoding="utf-8"))).convert("RGB").save(ordner / "cover.jpg", quality=92)
     return {"dauer_s": round(dauer, 1), "thumb_offset_ms": int(t * 1000), "hintergrund": {"art": "gezeichnet"},
             "nachweis": None, "musik": "Sprecher + Beat" if stimme.exists() else "Beat",
-            "einstieg": None, "uebergang": None}
+            "einstieg": None, "uebergang": None, "cover": "cover.jpg"}
 
 
 def main(argv=None) -> int:

@@ -219,5 +219,13 @@
    36.9
   ]
  ],
- "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – kraft.mp3 neben dieser Datei"
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – kraft.mp3 neben dieser Datei",
+ "cover": {
+  "farbe": "blau",
+  "titel": [
+   "MACHT KRAFT",
+   "LANGSAM?"
+  ],
+  "figur": "curl4"
+ }
 }

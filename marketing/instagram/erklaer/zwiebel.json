@@ -268,5 +268,16 @@
    28.35,
    31.76
   ]
- ]
+ ],
+ "cover": {
+  "farbe": "navy",
+  "titel": [
+   "DAS",
+   "ZWIEBEL-",
+   "PRINZIP"
+  ],
+  "hervor": 1,
+  "figur": "daumen",
+  "deko": "schnee"
+ }
 }

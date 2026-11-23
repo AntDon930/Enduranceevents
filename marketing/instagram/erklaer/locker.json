@@ -252,5 +252,14 @@
    47.8
   ]
  ],
- "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,16) – locker.mp3 neben dieser Datei"
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,16) – locker.mp3 neben dieser Datei",
+ "cover": {
+  "farbe": "blau",
+  "titel": [
+   "WIE LANGSAM",
+   "IST LOCKER?"
+  ],
+  "figur": "laeufer",
+  "dx": -40
+ }
 }

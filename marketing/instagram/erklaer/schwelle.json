@@ -187,5 +187,17 @@
   "Kennst du deine Schwelle? Schreib dein Tempo in die Kommentare!",
   "#schwellentempo #laktatschwelle #lauftraining #laufen #tempolauf"
  ],
- "gepostet": "2026-11-22 (vom Nutzer von Hand)"
+ "gepostet": "2026-11-22 (vom Nutzer von Hand)",
+ "cover": {
+  "farbe": "coral",
+  "titel": [
+   "KENNST DU",
+   "DEINE",
+   "SCHWELLE?"
+  ],
+  "hervor": 1,
+  "figur": "laeufer",
+  "mund": "angestrengt",
+  "dx": -40
+ }
 }

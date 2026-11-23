@@ -7493,6 +7493,16 @@ def test_insta_logos() -> None:
         bilder_ = {sz["bild"] for sz in __import__("json").loads(p.read_text(encoding="utf-8"))["szenen"]}
         check(f"Erklär-Vorlage {p.stem}: jede Szene hat eine Zeichenroutine, die Aufnahme liegt daneben",
               (sorted(bilder_ - szenen_), p.with_suffix(".mp3").exists()), ([], True))
+    # Titelbild je Thema (23.11.2026): eigenes Cover, nicht das erste Bild des Reels
+    for p in sorted((wurzel / "marketing" / "instagram" / "erklaer").glob("*.json")):
+        c_ = __import__("json").loads(p.read_text(encoding="utf-8")).get("cover") or {}
+        check(f"Erklär-Vorlage {p.stem}: Titelbild mit Titel, Farbe und Figur",
+              (bool(c_.get("titel")), c_.get("farbe") in ("blau", "navy", "coral"), bool(c_.get("figur"))), (True, True, True))
+    check("Titelbild: cover.jpg aus titelbild(), insta_lauf gibt es als cover_url an poste_reel",
+          ('titelbild(json.loads(vorlage.read_text(encoding="utf-8"))).convert("RGB").save(ordner / "cover.jpg"' in erkl_,
+           'cover=ziel / meta["cover"]' in (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8"),
+           'felder["cover_url"]' in (wurzel / "scripts" / "insta_posten.py").read_text(encoding="utf-8")),
+          (True, True, True))
     lauf_ = (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8")
     check("insta_lauf.py: Erklär-Reel und Slides gehen an ihre eigenen Renderer (Lauf und Vorschau)",
           ("rendere_beitrag(beitrag, ziel, datum.toordinal())" in lauf_, "rendere_beitrag(b, ordner, tag.toordinal())" in lauf_,

@@ -236,5 +236,16 @@
    43.96
   ]
  ],
- "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – tapering.mp3 neben dieser Datei"
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – tapering.mp3 neben dieser Datei",
+ "cover": {
+  "farbe": "coral",
+  "titel": [
+   "WENIGER",
+   "TRAINING =",
+   "SCHNELLER?"
+  ],
+  "hervor": 2,
+  "figur": "kalender",
+  "text": "3"
+ }
 }

@@ -222,5 +222,14 @@
    42.91
   ]
  ],
- "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – renntagswaage.mp3 neben dieser Datei"
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – renntagswaage.mp3 neben dieser Datei",
+ "cover": {
+  "farbe": "navy",
+  "titel": [
+   "2 KILO MEHR",
+   "AM RENNTAG?"
+  ],
+  "hervor": 0,
+  "figur": "waage"
+ }
 }

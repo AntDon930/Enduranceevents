@@ -348,7 +348,9 @@ def lade_vorschau(ordner: Path, datum: str, kennung: str, z: dict, session=None)
 
 
 def poste_reel(video: Path, caption: str, thumb_offset_ms: int | None, z: dict, ig_token: str,
-               session=None, warten=time.sleep, kennung: str = "reel") -> dict:
+               session=None, warten=time.sleep, kennung: str = "reel", cover: Path | None = None) -> dict:
+    """`cover`: eigenes Titelbild (cover_url) – Erklär-Reels haben eins, damit das
+    Profilraster nicht aus lauter gleichen ersten Bildern besteht (23.11.2026)."""
     s = session or requests.Session()
     g = Google(z, s)
     basis = _ig(z)
@@ -364,18 +366,22 @@ def poste_reel(video: Path, caption: str, thumb_offset_ms: int | None, z: dict, 
         pass
 
     name = f"{kennung}-{_zufall.token_hex(8)}.mp4"
+    cover_name = name[:-4] + "-cover.jpg"
     adresse = g.video_hochladen(video, name)
     print(f"  Video abgelegt ({video.stat().st_size / 1e6:.1f} MB), Instagram holt es ab …")
     try:
         felder = {"media_type": "REELS", "video_url": adresse, "caption": caption, "share_to_feed": True}
         if thumb_offset_ms is not None:
             felder["thumb_offset"] = int(thumb_offset_ms)
+        if cover is not None and cover.exists():
+            felder["cover_url"] = g.video_hochladen(cover, cover_name, "image/jpeg")
         cid, mid = _veroeffentliche(s, basis, uid, auth, felder, warten, "Reel")
     finally:
-        try:
-            g.video_loeschen(name)
-        except PostenFehler as e:
-            print(f"  Hinweis: Video nicht gelöscht ({e}) – die Lebenszyklus-Regel räumt es nach einem Tag weg.")
+        for n in ([name, cover_name] if cover is not None and cover.exists() else [name]):
+            try:
+                g.video_loeschen(n)
+            except PostenFehler as e:
+                print(f"  Hinweis: {n} nicht gelöscht ({e}) – die Lebenszyklus-Regel räumt es nach einem Tag weg.")
 
     link = None
     try:
