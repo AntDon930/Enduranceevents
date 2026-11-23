@@ -367,7 +367,9 @@ def cta_folie(titel: str = "Dein nächstes Rennen?", *zeilen: str) -> dict:
 
 def hashtags(sport: str | None, land: str | None = None, extra: list[str] | None = None,
              rng: random.Random | None = None, n: int = 10) -> list[str]:
-    tags: list[str] = []
+    # Die besonderen Tags (Rennen, Stadt, Format) zuerst – die Caption nimmt
+    # nur die ersten HASHTAGS_MAX.
+    tags: list[str] = [t for t in (extra or []) if t]
     if sport in HASHTAGS_SPORT:
         tags += HASHTAGS_SPORT[sport]
     else:
@@ -375,7 +377,6 @@ def hashtags(sport: str | None, land: str | None = None, extra: list[str] | None
             tags += HASHTAGS_SPORT[s][:2]
     if land in HASHTAGS_LAND:
         tags.append(HASHTAGS_LAND[land])
-    tags += extra or []
     tags += HASHTAGS_BASIS
     gesehen, ergebnis = set(), []
     for t in tags:
@@ -389,6 +390,8 @@ def wahl(rng: random.Random, varianten: list[str]) -> str:
     return varianten[rng.randrange(len(varianten))]
 
 
+HASHTAGS_MAX = 5
+
 CTA = [
     "Alle Termine, Strecken und Filter: Link in der Bio 👉 {seite}",
     "Mehr als {anzahl} Events mit Umkreissuche und Kalender-Export: Link in der Bio 👉 {seite}",
@@ -398,8 +401,11 @@ CTA = [
 
 
 def caption_bauen(teile: list[str], tags: list[str], rng: random.Random, anzahl: int) -> str:
-    cta = wahl(rng, CTA).format(seite=SEITE, anzahl=f"{(anzahl // 500) * 500:,}".replace(",", "."))
-    text = "\n\n".join(t for t in teile if t) + "\n\n" + cta + "\n\n" + " ".join(tags)
+    # Einfach halten (vom Nutzer am 23.11.2026: „Bitte die Captions einfach
+    # halten. So wie ich bei meinen manuellen uploads gemacht habe"): kein
+    # Link-Absatz (ein Link in der Caption ist auf Instagram nicht klickbar),
+    # höchstens fünf Hashtags. `rng`/`anzahl` bleiben für ältere Aufrufer.
+    text = "\n\n".join(t for t in teile if t) + "\n\n" + " ".join(tags[:HASHTAGS_MAX])
     # Instagram: höchstens 2.200 Zeichen und 30 Hashtags.
     return text[:2200]
 

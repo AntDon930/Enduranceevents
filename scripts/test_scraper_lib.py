@@ -5787,8 +5787,8 @@ def test_instagram() -> None:
     check("Junior-/Kinderläufe sind kein Highlight", "Wolfgangsee Junior-Marathon" in namen, False)
     check("derselbe Tag ergibt denselben Beitrag", I.plane(heute, ev, momente=momente, clips=[]), b)
     caps = [I.plane(heute + _dt.timedelta(days=i), ev, momente=momente, clips=[])["caption"] for i in range(14)]
-    check("Captions: höchstens 2.200 Zeichen, 30 Hashtags, nennen die Seite",
-          all(len(c) <= 2200 and c.count("#") <= 30 and I.SEITE in c for c in caps), True)
+    check("Captions: höchstens 2.200 Zeichen und 5 Hashtags",
+          all(len(c) <= 2200 and c.count("#") <= I.HASHTAGS_MAX for c in caps), True)
     check("Einzahl: 1 Radrennen / 1 Schwimm-Event / 2 Läufe",
           [I.sport_anzahl(1, "Fahrrad"), I.sport_anzahl(1, "Schwimmen"), I.sport_anzahl(2, "Laufen")],
           ["1 Radrennen", "1 Schwimm-Event", "2 Läufe"])
@@ -7518,7 +7518,7 @@ def test_insta_logos() -> None:
     check("plane(): Warteschlange geht dem Wochenplan vor; `heute` bestimmt die Verteilung",
           (bq["format"], bq.get("schlange"), bq2["format"], bq2.get("schlange")), ("karussell", "b", "erklaer", "a"))
     check("Warteschlange: gepostet erkennt der Lauf am Anfang der Caption (auch von Hand gepostet)",
-          I.erledigt_aus_captions(["Was ist wirklich deine Schwelle? 🤔\n\nNicht Vollgas. Nicht dein 5-km-Tempo. Sondern das Tempo", "Etwas anderes"], ws), {"a"})
+          I.erledigt_aus_captions(["Was ist deine Schwelle? 🤔\n\nKennst du deine Schwelle? Schreib dein Tempo in die Kommentare!", "Etwas anderes"], ws), {"a"})
     echt = I.lade_warteschlange(wurzel / "marketing" / "instagram" / "warteschlange.json")
     check("warteschlange.json: eindeutige Ids, jede Vorlage da (mit Caption)",
           (len({e["id"] for e in echt}) == len(echt) > 0, all(I.schlange_beitrag(e, mo) for e in echt)), (True, True))
@@ -7586,7 +7586,7 @@ def test_insta_karussell() -> None:
     for f in dateien:
         daten = K.lade(f.stem)
         check(f"{f.stem}: Blogbeitrag vorhanden", daten["blog"] in blog, True)
-        check(f"{f.stem}: Caption verweist auf den Blog", "endurance-events.de" in K.caption(daten), True)
+        check(f"{f.stem}: Caption einfach (höchstens 5 Hashtags, kein Link-Absatz)", (K.caption(daten).count("#") <= 5, "Link in der Bio" in K.caption(daten)), (True, False))
     daten = K.lade(dateien[0].stem)
     bilder = K.seiten(daten)
     check("Seitenzahl = Themen + Titel + Schluss", len(bilder), len(daten["seiten"]) + 2)

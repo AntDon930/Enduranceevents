@@ -5851,6 +5851,13 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   „angestrengt“ (gerade Braue, Mund offen, Schweißtropfen – nie böse) oder „o“;
   `lauf()` wählt nach dem Tempo (≤ 1,6 lächelt), die Kacheln „hart“ sind
   angestrengt. Nicht wieder eine schräge Braue einbauen.
+- **Captions einfach halten (seit dem 23.11.2026)** (vom Nutzer, mit Bildschirmfotos seiner
+  Uploads: „Bitte die Captions einfach halten. So wie ich bei meinen manuellen uploads gemacht
+  habe“): eine Zeile mit der Frage bzw. dem Thema (Emoji), höchstens ein Satz mit der
+  Kommentar-Frage, dann fünf Hashtags (`HASHTAGS_MAX`, die besonderen zuerst). Kein Absatz mit
+  Erklärung, kein „Link in der Bio“, keine Quellen-/Hinweiszeilen. Gilt für die Vorlagen
+  (`erklaer/*.json`, `karussell/*.json`) und `caption_bauen()` (die Inhaltszeilen der automatischen
+  Formate bleiben, nur Link-Absatz und Hashtag-Flut sind weg).
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für
