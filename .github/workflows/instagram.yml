@@ -17,6 +17,12 @@ name: Instagram-Reel
 #     immer. Ohne Google-Zugang (nächster Absatz) wird nur gerendert.
 #   - Von Hand („Run workflow"): Haken „posten" postet sofort, ohne
 #     Freigabeprüfung.
+#   - PÜNKTLICH UM 18 UHR (seit 23.11.2026): GitHub startet die Läufe
+#     Stunden zu spät (Abendlauf 21–1 Uhr, Morgenlauf 15–18 Uhr Berlin). Der
+#     Morgenlauf wartet deshalb bis 18 Uhr Berlin und postet dann mit
+#     `--posten --freigabe`; der späte Abendlauf ist nur noch Rückfall und
+#     postet nichts doppelt (insta_lauf.schon_gepostet, an der Caption).
+#     Von Hand: Haken „freigabe" = derselbe Ablauf sofort.
 #
 # ANMELDUNG ÜBER INSTAGRAM (seit 16.10.2026, vom Nutzer gewählt: keine
 # Facebook-Seite, das private Facebook-Konto bleibt getrennt). Der Schritt
@@ -63,6 +69,11 @@ on:
         required: false
         default: false
         type: boolean
+      freigabe:
+        description: 'Nur posten, was im Dashboard freigegeben ist (wie der Abendlauf)'
+        required: false
+        default: false
+        type: boolean
       clubs:
         description: 'Statt des Reels: Instagram-Beiträge der Clubs abholen'
         required: false
@@ -81,7 +92,8 @@ jobs:
   reel:
     if: github.event.schedule != '17 5 * * 1' && !inputs.clubs
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 360: Der Morgenlauf wartet bis 18 Uhr Berlin (siehe unten)
+    timeout-minutes: 360
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -127,8 +139,8 @@ jobs:
           INSTAGRAM_AUTOPOST: ${{ vars.INSTAGRAM_AUTOPOST }}
           # Der Abendlauf postet mit Freigabeprüfung, der Handlauf mit
           # Haken „posten" sofort; der Morgenlauf rendert nur.
-          ABENDLAUF: ${{ github.event_name == 'schedule' && github.event.schedule == '47 15 * * *' }}
-          HANDPOSTEN: ${{ github.event_name == 'workflow_dispatch' && inputs.posten }}
+          ABENDLAUF: ${{ (github.event_name == 'schedule' && github.event.schedule == '47 15 * * *') || (github.event_name == 'workflow_dispatch' && inputs.freigabe) }}
+          HANDPOSTEN: ${{ github.event_name == 'workflow_dispatch' && inputs.posten && !inputs.freigabe }}
         run: |
           ARGS="--ausgabe ausgabe"
           [ -n "${{ inputs.datum }}" ] && ARGS="$ARGS --datum ${{ inputs.datum }}"
@@ -137,12 +149,50 @@ jobs:
           [ "$HANDPOSTEN" = "true" ] && ARGS="$ARGS --posten"
           python3 scripts/insta_lauf.py $ARGS
 
+      # PÜNKTLICH UM 18 UHR (seit 23.11.2026, vom Nutzer: „so um 18:00/19:00
+      # posten“): GitHub startet den Abendlauf 4–8 Stunden zu spät, den
+      # Morgenlauf meist zwischen 15 und 18 Uhr Berlin. Der Morgenlauf wartet
+      # deshalb nach den Vorschauen bis 18 Uhr Berlin und postet dann, was im
+      # Dashboard freigegeben ist. Der Zugang von oben gilt nur eine Stunde,
+      # deshalb ein zweiter. Der verspätete Abendlauf bleibt als Rückfall –
+      # was schon gepostet ist, postet er nicht noch einmal
+      # (insta_lauf.schon_gepostet, an der Caption).
+      - name: Warten bis 18 Uhr Berlin
+        if: github.event_name == 'schedule' && github.event.schedule == '47 6 * * *'
+        run: |
+          S=$(python3 -c "import datetime as d, zoneinfo as z; n=d.datetime.now(z.ZoneInfo('Europe/Berlin')); print(max(0, int((n.replace(hour=18, minute=0, second=0, microsecond=0)-n).total_seconds())))")
+          echo "warte $S s bis 18:00 Berlin"
+          [ "$S" -gt 0 ] && [ "$S" -lt 19800 ] && sleep "$S" || true
+
+      - name: Google-Zugang für das Posten um 18 Uhr
+        id: google2
+        if: github.event_name == 'schedule' && github.event.schedule == '47 6 * * *'
+        continue-on-error: true
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: projects/939878897826/locations/global/workloadIdentityPools/github/providers/enduranceevents
+          service_account: instagram-reel@endurance-5177a.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_lifetime: 3600s
+          create_credentials_file: false
+
+      - name: Freigegebenes Reel posten (18 Uhr)
+        if: github.event_name == 'schedule' && github.event.schedule == '47 6 * * *'
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          GCP_ACCESS_TOKEN: ${{ steps.google2.outputs.access_token }}
+          IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+          INSTAGRAM_AUTOPOST: ${{ vars.INSTAGRAM_AUTOPOST }}
+        run: python3 scripts/insta_lauf.py --ausgabe ausgabe-18uhr --posten --freigabe
+
       - name: Reel als Artefakt ablegen
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: reel-${{ github.run_id }}
-          path: ausgabe/
+          path: |
+            ausgabe/
+            ausgabe-18uhr/
           retention-days: 14
           if-no-files-found: ignore
 
