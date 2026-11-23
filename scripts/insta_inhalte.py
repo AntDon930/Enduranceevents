@@ -1828,7 +1828,7 @@ def warteschlange_plan(heute: dt.date, bis: dt.date, schlange: list[dict] | None
     sp = sonderplan if sonderplan is not None else lade_sonderplan()
     aus, tag = {}, max(heute, POST_START)
     while offen and tag <= bis:
-        if not sp.get(tag.isoformat()) and tag.weekday() not in PAUSE_WOCHENTAGE:
+        if not sp.get(tag.isoformat()) and not pausentag(tag):
             i = next((k for k, e in enumerate(offen) if e.get("ab", "") <= tag.isoformat()), None)
             if i is not None:
                 aus[tag.isoformat()] = offen.pop(i)
@@ -1853,6 +1853,17 @@ def lade_sonderplan(pfad: Path | None = None) -> dict[str, dict]:
 # Sonderplan sagen etwas anderes.
 POST_START = dt.date(2026, 11, 4)
 PAUSE_WOCHENTAGE = {1, 3}
+# Zwei Wochen lang JEDEN Tag ein Reel (vom Nutzer am 23.11.2026: „die nächsten 2
+# Wochen jeden Tag ein reel posten (wir posten nur noch reels), damit bisschen
+# traffic auf die Seite kommt … Nach 2 Wochen können wir dann mal schauen wie die
+# Bilanz ist“). Danach gelten wieder die Pausentage – oder der Nutzer entscheidet neu.
+TAEGLICH = (dt.date(2026, 11, 24), dt.date(2026, 12, 7))
+
+
+def pausentag(datum: dt.date) -> bool:
+    if TAEGLICH and TAEGLICH[0] <= datum <= TAEGLICH[1]:
+        return False
+    return datum.weekday() in PAUSE_WOCHENTAGE
 
 
 def postet_am(datum: dt.date, sonderplan: dict[str, dict] | None = None,
@@ -1865,7 +1876,7 @@ def postet_am(datum: dt.date, sonderplan: dict[str, dict] | None = None,
         return not sonder.get("pause")
     if anlass_am(datum, anlaesse) or datum.day == 1:
         return True
-    return datum.weekday() not in PAUSE_WOCHENTAGE
+    return not pausentag(datum)
 
 
 # ------------------------------------------------------------------ Stories

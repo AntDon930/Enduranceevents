@@ -7509,6 +7509,7 @@ def test_insta_logos() -> None:
            "insta_erklaer.rendere_beitrag(" in lauf_, "insta_karussell.rendere_beitrag(" in lauf_),
           (True, True, True, True))
     # Warteschlange (22.11.2026): fertige Beiträge rücken auf den nächsten freien Post-Tag, nichts geht verloren
+    _taeglich, I.TAEGLICH = I.TAEGLICH, None   # die Regel-Tests mit Pausentagen; die zwei Wochen täglich unten
     ws = [{"id": "a", "format": "erklaer", "thema": "schwelle"},
           {"id": "b", "format": "karussell", "slug": "winterkleidung"},
           {"id": "c", "format": "erklaer", "thema": "gibt-es-nicht"}]
@@ -7546,6 +7547,10 @@ def test_insta_logos() -> None:
           ([t.weekday() for t in regel if I.postet_am(t, {}, [])],
            I.postet_am(_dt.date(2026, 11, 10), {}, [{"datum": "2026-11-10", "kategorie": "marathon"}])),
           ([0, 2, 4, 5, 6], True))
+    I.TAEGLICH = _taeglich
+    zwei = [_dt.date(2026, 11, 23) + _dt.timedelta(days=k) for k in range(17)]
+    check("24.11.–07.12.2026 jeden Tag ein Reel (vom Nutzer), danach wieder Di/Do Pause",
+          ([t.day for t in zwei if not I.postet_am(t, {}, [])], I.TAEGLICH[1].isoformat()), ([8], "2026-12-07"))
     import insta_freigabe as _F
     check("POST_START gleich in insta_inhalte und insta_freigabe", I.POST_START.isoformat(), _F.POST_START)
 

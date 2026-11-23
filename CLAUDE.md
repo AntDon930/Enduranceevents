@@ -5776,7 +5776,7 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   **Takt seit dem 22.11.2026** (vom Nutzer, nach dem ersten Reel „Schwelle“ –
   „Video find ich sehr gut“, von Hand gepostet): „am Anfang … mindestens 5
   Uploads in der Woche“, davon die meisten Erklär-Reels, „1-2x die Woche“ eine
-  Slide Show (Karussell). **Kein Telegram-Bot** („Ich will das doch nicht mehr
+  Slide Show (Karussell). **Vom 24.11. bis 07.12.2026 JEDEN Tag ein Reel, nur noch Reels** (vom Nutzer am 23.11.2026: „die nächsten 2 Wochen jeden Tag ein reel posten (wir posten nur noch reels), damit bisschen traffic auf die Seite kommt … Nach 2 Wochen können wir dann mal schauen wie die Bilanz ist“): `insta_inhalte.TAEGLICH` hebt die Pausentage auf, die Sonntagsaufgabe baut sieben Reels je Woche; am 07.12. mit dem Nutzer Bilanz ziehen (Follower, Aufrufe, Besuche über Instagram im Dashboard) und neu entscheiden. **Kein Telegram-Bot** („Ich will das doch nicht mehr
   mit Telegram machen“) – Vorschau und Freigabe bleiben im Dashboard
   (`admin.html`, Karte „Instagram-Freigabe“); das Posten soll wieder automatisch
   laufen, sobald der Schlüssel steht (To-do 13). **Seit dem 22.11.2026 hängen
