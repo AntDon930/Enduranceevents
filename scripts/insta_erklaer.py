@@ -757,8 +757,97 @@ def sz_figur(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     return img
 
 
+def radler(t: float, hoehe: int = 620) -> Image.Image:
+    """Unser Maskottchen auf dem Rennrad, Blick nach rechts (RGBA): Helm mit
+    Mütze darunter, Jacke vorn in Coral (winddicht), hinten Soft Blue
+    (luftig), dunkle Überschuhe; die Kurbel dreht sich."""
+    ss = 2
+    k = hoehe / 520 * ss
+    img = Image.new("RGBA", (int(620 * k), int(520 * k)), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    hinten_rad, vorn_rad, tretlager = (130, 400), (470, 400), (285, 400)
+    sattel, lenker, steuer = (235, 245), (440, 238), (420, 262)
+    r = 100
+    for cx, cy in (hinten_rad, vorn_rad):
+        X, Y = cx * k, cy * k
+        d.ellipse([X - (r + 8) * k, Y - (r + 8) * k, X + (r + 8) * k, Y + (r + 8) * k], fill=MIDNIGHT)
+        d.ellipse([X - (r - 6) * k, Y - (r - 6) * k, X + (r - 6) * k, Y + (r - 6) * k], fill=(214, 230, 238))
+        for i in range(6):
+            a = t * 9 + i * math.pi / 3
+            d.line([(X, Y), (X + (r - 8) * k * math.cos(a), Y + (r - 8) * k * math.sin(a))],
+                   fill=(150, 176, 190), width=int(3 * k))
+        d.ellipse([X - 9 * k, Y - 9 * k, X + 9 * k, Y + 9 * k], fill=MIDNIGHT)
+    rahmen = [(hinten_rad, tretlager), (tretlager, sattel), (sattel, hinten_rad), (sattel, steuer),
+              (tretlager, steuer), (steuer, vorn_rad)]
+    for a, b in rahmen:
+        _glied(d, [a, b], 9, CORAL, k)
+    _glied(d, [steuer, lenker, (452, 262)], 7, MIDNIGHT, k, kontur=False)
+    huefte, schulter, kopf = (232, 228), (360, 168), (405, 128)
+    a = t * 9
+
+    def bein(q, hinten):
+        pedal = (tretlager[0] + 42 * math.cos(q), tretlager[1] + 42 * math.sin(q))
+        dx, dy = pedal[0] - huefte[0], pedal[1] - huefte[1]
+        dist = min(math.hypot(dx, dy), 238)
+        winkel = math.atan2(dy, dx)
+        beuge = math.acos(max(-1, min(1, dist / 240)))
+        knie = (huefte[0] + 120 * math.cos(winkel - beuge), huefte[1] + 120 * math.sin(winkel - beuge))
+        _glied(d, [huefte, knie, pedal], 26, (40, 46, 56) if hinten else M.HOSE, k)
+        _glied(d, [(pedal[0] - 18, pedal[1] + 2), (pedal[0] + 26, pedal[1] + 4)], 22,
+               (20, 30, 44) if hinten else MIDNIGHT, k)
+
+    bein(a + math.pi, True)
+    _glied(d, [huefte, schulter], 58, SOFT_BLUE, k)                   # Rücken: luftig
+    _glied(d, [(huefte[0] + 22, huefte[1] + 14), (schulter[0] + 14, schulter[1] + 20)], 30, CORAL, k,
+           kontur=False)                                               # Front: winddicht
+    bein(a, False)
+    _glied(d, [schulter, (402, 214), lenker], 20, CORAL, k)
+    _glied(d, [lenker], 18, MIDNIGHT, k)                               # Handschuh
+    kx, ky, rk = kopf[0] * k, kopf[1] * k, 36 * k
+    d.ellipse([kx - rk - 5 * k, ky - rk - 5 * k, kx + rk + 5 * k, ky + rk + 5 * k], fill=MIDNIGHT)
+    d.ellipse([kx - rk, ky - rk, kx + rk, ky + rk], fill=M.HAUT)
+    d.chord([kx - rk - 4 * k, ky - rk - 2 * k, kx + rk + 4 * k, ky + rk], 180, 360, fill=SOFT_BLUE)   # Mütze
+    d.chord([kx - rk - 12 * k, ky - rk - 22 * k, kx + rk + 10 * k, ky + rk - 18 * k], 180, 360,
+            fill=CORAL, outline=MIDNIGHT, width=int(5 * k))                                         # Helm
+    d.ellipse([kx + 14 * k, ky + 2 * k, kx + 22 * k, ky + 10 * k], fill=MIDNIGHT)
+    d.arc([kx + 12 * k, ky + 12 * k, kx + 30 * k, ky + 26 * k], 10, 120, fill=MIDNIGHT, width=int(4 * k))
+    return img.resize((img.width // ss, img.height // ss), Image.LANCZOS)
+
+
+def sz_rad(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Auf dem Rad: Fahrtwind von vorn, Hinweise zeigen auf Brust, Rücken, Kopf, Füße.
+    `hinweise`: [[Text, Ziel (brust/ruecken/kopf/fuss), Anteil der Dauer], …]."""
+    p = p or {}
+    img = winter(t, 1.8)
+    d = ImageDraw.Draw(img)
+    rng = random.Random(3)
+    for _ in range(9):                                   # Fahrtwind
+        y, l, v = rng.uniform(700, 1250), rng.uniform(80, 200), rng.uniform(900, 1400)
+        x = B - (rng.uniform(0, B) + t * v) % (B + 300)
+        d.line([(x, y), (x + l, y)], fill=WEISS, width=10)
+    fahrer = radler(t, 700)
+    x0, unten = B / 2 - fahrer.width / 2, 1420
+    img.alpha_composite(fahrer, (int(x0), int(unten - fahrer.height)))
+    s = fahrer.width / 620
+    ziele = {"kopf": (405, 85), "brust": (390, 205), "ruecken": (250, 190), "fuss": (300, 440)}
+    orte = {"kopf": (780, 580), "brust": (830, 1010), "ruecken": (230, 760), "fuss": (210, 1150)}
+    d = ImageDraw.Draw(img)
+    pop(d, B / 2, 440, p.get("titel", "AUF DEM RAD"), p.get("titel_g", 110), t - 0.05, fill=CORAL)
+    for txt, ziel, ab in p.get("hinweise", []):
+        tt = t - dauer * ab
+        if tt <= 0:
+            continue
+        zx, zy = x0 + ziele[ziel][0] * s, unten - fahrer.height + ziele[ziel][1] * s
+        ox, oy = orte[ziel]
+        k = weich(tt / 0.25)
+        d.line([(ox, oy), (ox + (zx - ox) * k, oy + (zy - oy) * k)], fill=MIDNIGHT, width=8)
+        d.ellipse([zx - 14, zy - 14, zx + 14, zy + 14], fill=CORAL, outline=MIDNIGHT, width=5) if k >= 1 else None
+        blase(d, ox, oy, txt, min(70, 820 / max(6, len(txt))), tt)
+    return img
+
+
 SZENEN = {"frage": sz_frage, "denken": sz_denken, "zahl": sz_zahl, "kacheln": sz_kacheln,
-          "balken": sz_balken, "figur": sz_figur, "schichten": sz_schichten, "hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
+          "balken": sz_balken, "figur": sz_figur, "schichten": sz_schichten, "rad": sz_rad, "hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
           "fass": sz_fass, "test": sz_test, "gefuehl": sz_gefuehl, "schluss": sz_schluss}
 
 

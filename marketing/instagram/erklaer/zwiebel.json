@@ -8,27 +8,27 @@
   {
    "bild": "frage",
    "aktion": "winter",
-   "text": "Minusgrade draußen. Was ziehst du zum Laufen an?",
+   "text": "Minusgrade. Was ziehst du an?",
    "zeile": "WAS ZIEHST DU AN?",
    "g": 104,
    "symbol": "?",
    "teile": [
     [
      0.0,
-     1.25,
-     2
+     0.82,
+     1
     ],
     [
-     1.59,
-     2.93,
-     6
+     1.05,
+     1.87,
+     4
     ]
    ]
   },
   {
    "bild": "denken",
    "pose": "denken",
-   "text": "Die dicke Winterjacke? Einen Baumwollpulli? Oder einfach alles übereinander?",
+   "text": "Dicke Jacke? Baumwollpulli? Alles drüber?",
    "worte": [
     "DICKE JACKE?",
     "BAUMWOLLPULLI?",
@@ -36,45 +36,45 @@
    ],
    "teile": [
     [
-     4.11,
-     5.11,
-     3
-    ],
-    [
-     5.54,
-     6.68,
+     2.09,
+     2.7,
      2
     ],
     [
-     7.17,
-     8.92,
-     4
+     2.93,
+     3.64,
+     1
+    ],
+    [
+     3.84,
+     4.53,
+     2
     ]
    ]
   },
   {
    "bild": "entwarnung",
    "pose": "daumen",
-   "text": "Besser: drei dünne Schichten. Das Zwiebelprinzip.",
+   "text": "Nein! Drei dünne Schichten.",
    "blase": "DREI SCHICHTEN!",
    "blase_g": 96,
    "zeile": "DAS ZWIEBELPRINZIP",
    "teile": [
     [
-     9.65,
-     11.49,
-     4
+     4.76,
+     5.37,
+     1
     ],
     [
-     11.83,
-     12.84,
-     2
+     5.61,
+     6.71,
+     3
     ]
    ]
   },
   {
    "bild": "schichten",
-   "text": "Innen eine Funktionsschicht, die den Schweiß nach außen leitet. Darüber eine wärmende Schicht, zum Beispiel dünnes Fleece. Und außen eine leichte Jacke gegen Wind und Regen.",
+   "text": "Innen eine Funktionsschicht gegen Schweiß. Darüber dünnes Fleece. Außen eine Windjacke.",
    "oben": "DAS ZWIEBELPRINZIP",
    "schichten": [
     [
@@ -87,37 +87,105 @@
      "2 WÄRME",
      "dünnes Fleece oder Merino",
      "coral",
-     0.36
+     0.45
     ],
     [
      "3 SCHUTZ",
-     "leichte Jacke gegen Wind & Regen",
+     "leichte Jacke gegen Wind",
      "creme",
-     0.66
+     0.75
     ]
    ],
    "zeile": "",
    "teile": [
     [
-     13.39,
-     16.63,
-     9
+     6.92,
+     8.94,
+     5
     ],
     [
-     17.06,
-     20.2,
+     9.13,
+     10.47,
+     3
+    ],
+    [
+     10.68,
+     11.88,
+     3
+    ]
+   ]
+  },
+  {
+   "bild": "figur",
+   "pose": "daumen",
+   "text": "Dazu Mütze und Handschuhe. Da frierst du zuerst.",
+   "titel": "MÜTZE & HANDSCHUHE",
+   "blasen": [
+    "Kopf & Hände",
+    "frieren zuerst"
+   ],
+   "zeile": "DÜNN REICHT",
+   "teile": [
+    [
+     12.1,
+     13.7,
+     4
+    ],
+    [
+     13.93,
+     14.97,
+     4
+    ]
+   ],
+   "titel_g": 104
+  },
+  {
+   "bild": "rad",
+   "text": "Auf dem Rad brauchst du mehr: vorne winddicht, hinten luftig. Eine Mütze unterm Helm, Überschuhe an die Füße.",
+   "titel": "AUF DEM RAD: WÄRMER",
+   "hinweise": [
+    [
+     "VORNE WINDDICHT",
+     "brust",
+     0.27
+    ],
+    [
+     "HINTEN LUFTIG",
+     "ruecken",
+     0.42
+    ],
+    [
+     "MÜTZE UNTERM HELM",
+     "kopf",
+     0.55
+    ],
+    [
+     "ÜBERSCHUHE",
+     "fuss",
+     0.8
+    ]
+   ],
+   "teile": [
+    [
+     15.18,
+     16.46,
+     6
+    ],
+    [
+     16.65,
+     19.65,
      8
     ],
     [
-     20.75,
-     23.49,
-     9
+     19.88,
+     21.03,
+     4
     ]
    ]
   },
   {
    "bild": "zahl",
-   "text": "Die Faustregel: Beim Loslaufen darfst du leicht frösteln. Nach zehn Minuten ist dir warm.",
+   "text": "Faustregel: Am Start leicht frösteln, nach zehn Minuten ist dir warm.",
    "oben": "DIE FAUSTREGEL: NACH",
    "zahl": 10,
    "einheit": "MINUTEN IST DIR WARM",
@@ -125,46 +193,38 @@
    "g": 80,
    "teile": [
     [
-     24.04,
-     29.34,
-     14
-    ]
-   ]
-  },
-  {
-   "bild": "figur",
-   "pose": "stopp",
-   "text": "Und Finger weg von Baumwolle: Sie saugt sich voll und bleibt nass.",
-   "titel": "KEINE BAUMWOLLE",
-   "blasen": [
-    "saugt sich voll",
-    "bleibt nass"
-   ],
-   "zeile": "LIEBER FUNKTIONSFASER",
-   "teile": [
+     21.25,
+     21.85,
+     1
+    ],
     [
-     29.78,
-     33.68,
-     12
+     22.07,
+     23.42,
+     4
+    ],
+    [
+     23.6,
+     25.16,
+     6
     ]
    ]
   },
   {
    "bild": "schluss",
-   "text": "Was ziehst du bei Frost an? Schreib es in die Kommentare.",
+   "text": "Was ziehst du bei Frost an? Ab in die Kommentare!",
    "frage": "DEIN WINTER-OUTFIT?",
    "g": 120,
    "blase": "Zwiebel – was sonst?",
    "teile": [
     [
-     34.22,
-     35.51,
+     25.33,
+     26.65,
      6
     ],
     [
-     35.84,
-     37.25,
-     5
+     26.88,
+     27.89,
+     4
     ]
    ]
   }
@@ -174,35 +234,39 @@
   "Was ziehst du bei Frost an? Schreib es in die Kommentare!",
   "#laufenimwinter #zwiebelprinzip #wintertraining #laufen #lauftipps"
  ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen auf 0,22 s gekürzt) – zwiebel.mp3 neben dieser Datei",
  "zeiten": [
   [
    0.0,
-   3.52
+   1.98
   ],
   [
-   3.52,
-   9.29
+   1.98,
+   4.64
   ],
   [
-   9.29,
-   13.12
+   4.64,
+   6.81
   ],
   [
-   13.12,
-   23.77
+   6.81,
+   11.99
   ],
   [
-   23.77,
-   29.56
+   11.99,
+   15.07
   ],
   [
-   29.56,
-   33.95
+   15.07,
+   21.14
   ],
   [
-   33.95,
-   37.4
+   21.14,
+   25.24
+  ],
+  [
+   25.24,
+   28.31
   ]
- ],
- "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – zwiebel.mp3 neben dieser Datei"
+ ]
 }

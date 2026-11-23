@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 
 
-def stuecke(mp3: Path, laut: str = "-35dB", pause: float = 0.3) -> tuple[list[list[float]], float]:
+def stuecke(mp3: Path, laut: str = "-35dB", pause: float = 0.15) -> tuple[list[list[float]], float]:
     aus = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(mp3), "-af", f"silencedetect=noise={laut}:d={pause}",
                           "-f", "null", "-"], capture_output=True, text=True).stderr
     dauer = re.search(r"Duration: (\d+):(\d+):([\d.]+)", aus)
