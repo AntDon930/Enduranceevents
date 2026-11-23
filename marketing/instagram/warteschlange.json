@@ -37,13 +37,6 @@
    "format": "erklaer",
    "thema": "renntagswaage",
    "ab": "2026-11-23"
-  },
-  {
-   "id": "carboloading",
-   "format": "erklaer",
-   "thema": "carboloading",
-   "ab": "2026-11-30",
-   "_hinweis": "Erklär-Reel statt der Slide Show (vom Nutzer am 23.11.2026: „ich nehm das raus in einer Woche oder so und dann posten wir ein Reel übers Carboloading“). Vorlage baut die Sonntagsaufgabe am 29.11. aus dem Blogbeitrag carboloading; Titelbild wie karussell/carboloading.json `cover`. Der Nutzer nimmt die Slide Show vorher heraus."
   }
  ]
 }

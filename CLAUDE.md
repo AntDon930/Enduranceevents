@@ -5827,7 +5827,7 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   anstellen, pushen, **danach `instagram.yml` per workflow_dispatch auf `main` ohne
   „posten“ anstoßen**, damit die Vorschauen („View“) am Montagmorgen im Dashboard
   liegen; Bericht mit Captions. Steht in `wochenplan.GEPLANTE_AUFGABEN`
-  (`insta_woche`).
+  (`insta_woche`). **Für den 29.11.2026 vorgemerkt**: ein Erklär-Reel `carboloading` (vom Nutzer am 23.11.2026: „ich nehm das raus in einer Woche oder so und dann posten wir ein Reel übers Carboloading“ – er löscht die Slide Show vorher), Fakten aus dem Blogbeitrag carboloading, Titelbild wie `karussell/carboloading.json` `cover`, frühestens ab 30.11. in die Warteschlange (ein Eintrag braucht die fertige Vorlage, sonst ist der Test rot).
   **Szenen-Baukasten** (22.11.2026): Jede Zeichenroutine bekommt die Szene der
   Vorlage als drittes Argument (`sz_x(t, dauer, p)`), Texte und Zahlen stehen in
   der Vorlage. Allgemein: `frage` (Hook: `zeile`, `symbol`), `raten` (Laufband:
