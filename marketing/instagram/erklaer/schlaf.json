@@ -1,0 +1,206 @@
+{
+ "thema": "Schläfst du genug für dein Training?",
+ "seed": 37,
+ "quellen": [
+  "https://endurance-events.de/blog/regeneration.html",
+  "https://pmc.ncbi.nlm.nih.gov/articles/PMC4434546/",
+  "https://doi.org/10.1136/bjsports-2020-102025",
+  "https://pmc.ncbi.nlm.nih.gov/articles/PMC4531403/"
+ ],
+ "szenen": [
+  {
+   "bild": "frage",
+   "aktion": "nacht",
+   "text": "Du trainierst hart. Aber wie viel schläfst du?",
+   "zeile": "WIE VIEL SCHLAF?",
+   "g": 110,
+   "symbol": "?",
+   "teile": [
+    [
+     0.08,
+     1.33,
+     3
+    ],
+    [
+     1.49,
+     3.06,
+     5
+    ]
+   ]
+  },
+  {
+   "bild": "denken",
+   "text": "Fünf Stunden? Sechs? Reicht doch, oder?",
+   "worte": [
+    "5 STUNDEN?",
+    "6 STUNDEN?",
+    "REICHT DOCH?"
+   ],
+   "teile": [
+    [
+     3.31,
+     4.03,
+     2
+    ],
+    [
+     4.28,
+     4.68,
+     1
+    ],
+    [
+     4.89,
+     5.72,
+     3
+    ]
+   ]
+  },
+  {
+   "bild": "entwarnung",
+   "pose": "zeigen",
+   "text": "Besser wirst du nicht im Training, sondern in der Erholung danach.",
+   "blase": "IM SCHLAF!",
+   "blase_g": 110,
+   "zeile": "ERHOLUNG GEHÖRT ZUM TRAINING",
+   "g": 80,
+   "teile": [
+    [
+     5.97,
+     7.57,
+     6
+    ],
+    [
+     7.68,
+     9.63,
+     5
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Fachgesellschaften empfehlen Erwachsenen mindestens sieben Stunden pro Nacht.",
+   "oben": "MINDESTENS",
+   "zahl": 7,
+   "einheit": "STUNDEN PRO NACHT",
+   "zeile": "RICHTWERT: 7 BIS 9 STUNDEN",
+   "g": 80,
+   "teile": [
+    [
+     9.86,
+     14.03,
+     8
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "In einer Studie wurden Menschen mit weniger als sechs Stunden Schlaf rund viermal so oft erkältet.",
+   "oben": "UNTER 6 STUNDEN SCHLAF",
+   "zahl": 4,
+   "nach": "×",
+   "einheit": "SO OFT ERKÄLTET",
+   "zeile": "UND DIE TRAININGSWOCHE IST WEG",
+   "g": 72,
+   "teile": [
+    [
+     14.12,
+     17.79,
+     16
+    ]
+   ]
+  },
+  {
+   "bild": "figur",
+   "pose": "daumen",
+   "text": "Tipp: Feste Zeiten zum Schlafengehen. Und nach harten Tagen eine Stunde mehr.",
+   "titel": "FESTE ZEITEN",
+   "blasen": [
+    "ins Bett",
+    "aufstehen"
+   ],
+   "zeile": "NACH HARTEN TAGEN: +1 STUNDE",
+   "g": 76,
+   "teile": [
+    [
+     18.04,
+     20.3,
+     1
+    ],
+    [
+     20.48,
+     22.37,
+     4
+    ],
+    [
+     22.59,
+     24.79,
+     7
+    ]
+   ]
+  },
+  {
+   "bild": "schluss",
+   "text": "Wie viele Stunden schläfst du? Ab in die Kommentare!",
+   "frage": "DEIN SCHLAF?",
+   "g": 130,
+   "blase": "Acht Stunden – und du?",
+   "teile": [
+    [
+     24.98,
+     26.37,
+     5
+    ],
+    [
+     26.61,
+     27.74,
+     4
+    ]
+   ]
+  }
+ ],
+ "caption": [
+  "Schläfst du genug für dein Training? 😴",
+  "Wie viele Stunden schläfst du pro Nacht? Schreib es in die Kommentare!",
+  "#regeneration #schlaf #lauftraining #ausdauersport #laufen"
+ ],
+ "cover": {
+  "farbe": "blau",
+  "titel": [
+   "SCHLÄFST DU",
+   "GENUG?"
+  ],
+  "figur": "denken",
+  "deko": "zzz",
+  "dx": -120
+ },
+ "zeiten": [
+  [
+   0.0,
+   3.19
+  ],
+  [
+   3.19,
+   5.84
+  ],
+  [
+   5.84,
+   9.75
+  ],
+  [
+   9.75,
+   14.07
+  ],
+  [
+   14.07,
+   17.91
+  ],
+  [
+   17.91,
+   24.88
+  ],
+  [
+   24.88,
+   28.18
+  ]
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen 0,22 s, atempo 0,89) – schlaf.mp3 neben dieser Datei"
+}

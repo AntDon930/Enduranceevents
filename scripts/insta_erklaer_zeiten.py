@@ -61,9 +61,14 @@ def verteile(woerter: list[str], teile: list[list[float]]) -> list[list]:
 def main(argv=None) -> int:
     args = argv or sys.argv[1:]
     vorlage = Path(args[0])
+    pause = 0.15
+    if "--pause" in args:                       # kürzere Sprechpausen (schnelles Tempo) erkennen
+        i = args.index("--pause")
+        pause = float(args[i + 1])
+        args = args[:i] + args[i + 2:]
     fest = [int(x) for x in args[2].split(",")] if len(args) > 2 and args[1] == "--stuecke" else None
     spec = json.loads(vorlage.read_text(encoding="utf-8"))
-    alle, gesamt = stuecke(vorlage.with_suffix(".mp3"))
+    alle, gesamt = stuecke(vorlage.with_suffix(".mp3"), pause=pause)
     n = len(spec["szenen"])
     # Szenenwechsel: die Pause, an der der Anteil der gesprochenen Zeit am besten
     # zum Anteil der Zeichen passt; eine längere Pause gewinnt bei Gleichstand.
@@ -94,7 +99,7 @@ def main(argv=None) -> int:
         print(f"{von:6.2f}  {s['bild']:10s} " + " | ".join(
             f"{t[1] - t[0]:.1f}s:{t[2]}W" for t in s["teile"]) + f"   {s['text'][:50]}")
     spec["zeiten"] = zeiten
-    spec["stimme"] = (f"Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2) – "
+    spec["stimme"] = (f"Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen 0,22 s, atempo 0,89) – "
                       f"{vorlage.stem}.mp3 neben dieser Datei")
     vorlage.write_text(json.dumps(spec, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     return 0

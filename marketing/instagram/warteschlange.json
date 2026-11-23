@@ -37,6 +37,18 @@
    "format": "erklaer",
    "thema": "renntagswaage",
    "ab": "2026-11-23"
+  },
+  {
+   "id": "carboloading",
+   "format": "erklaer",
+   "thema": "carboloading",
+   "ab": "2026-11-28"
+  },
+  {
+   "id": "schlaf",
+   "format": "erklaer",
+   "thema": "schlaf",
+   "ab": "2026-11-29"
   }
  ]
 }

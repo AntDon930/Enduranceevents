@@ -530,7 +530,7 @@ def winter(t: float, tempo: float = 1.0) -> Image.Image:
 
 # Die Figur im Hook passt zum Thema: läuft (Standard), hebt die Langhantel,
 # hält den Countdown-Kalender, steht auf der Waage, läuft durch den Schnee.
-AKTIONEN = ("lauf", "hantel", "kalender", "waage", "winter")
+AKTIONEN = ("lauf", "hantel", "kalender", "waage", "winter", "nudeln", "nacht")
 
 
 def sz_frage(t: float, dauer: float, p: dict | None = None) -> Image.Image:
@@ -560,6 +560,24 @@ def sz_frage(t: float, dauer: float, p: dict | None = None) -> Image.Image:
             r = 18 + 40 * a
             x, y = B / 2 + 150 + 120 * a, 880 - 40 * a
             d0.ellipse([x - r, y - r * 0.7, x + r, y + r * 0.7], fill=WEISS)
+    elif aktion == "nudeln":                     # Nudelparty am Vorabend
+        img = tag(t * 0.25)
+        aufkleben(img, M.figur("nudeln", 760), B / 2 - 60, 1420 + int(4 * abs(math.sin(t * 6))))
+    elif aktion == "nacht":                      # Schlaf: Nachthimmel, Mond, Sterne, Zzz
+        img = nacht().copy()
+        d0 = ImageDraw.Draw(img)
+        rng = random.Random(9)
+        for _ in range(40):
+            x, y = rng.uniform(30, B - 30), rng.uniform(200, 1100)
+            r0 = 3 + 3 * (0.5 + 0.5 * math.sin(t * 3 + x))
+            d0.ellipse([x - r0, y - r0, x + r0, y + r0], fill=CREME)
+        d0.ellipse([120, 260, 340, 480], fill=GELB)
+        d0.ellipse([180, 230, 400, 450], fill=MIDNIGHT)
+        aufkleben(img, M.figur("denken", 760), B / 2 - 60, 1420)
+        for i in range(3):
+            a_ = (t * 0.6 + i / 3) % 1
+            d0.text((B / 2 + 170 + 90 * a_, 900 - 260 * a_), "Z", font=schrift(70 + 50 * a_), fill=SOFT_BLUE,
+                    anchor="mm")
     elif aktion == "waage":
         img = bad().copy()
         wippen = int(6 * abs(math.sin(t * 5))) if t < 1.2 else 0
@@ -948,6 +966,13 @@ def titelbild(spec: dict) -> Image.Image:
             rr = R * 0.82 * (1 - i / 175)
             pts.append((cx + rr * math.cos(a_), cy + rr * math.sin(a_)))
         d.line(pts, fill=rand, width=9, joint="curve")
+    if c.get("deko") == "zzz":                   # Schlaf: Mond und Zzz
+        mx, my = B / 2 + 300, oben_fig + 150
+        d.ellipse([mx - 90, my - 90, mx + 90, my + 90], fill=GELB)
+        d.ellipse([mx - 40, my - 120, mx + 140, my + 60], fill=grund)
+        for i, (dx_, dy_, gz) in enumerate(((-230, 160, 70), (-180, 70, 95), (-110, -40, 125))):
+            d.text((mx + dx_, my + dy_), "Z", font=schrift(gz), fill=akzent, anchor="mm",
+                   stroke_width=6, stroke_fill=grund)
     for i, txt in enumerate(c.get("blasen", [])):  # Sprechblasen rechts neben der Figur
         blase(d, B / 2 + 230 + 20 * (i % 2), oben_fig + 110 + i * 150, txt, min(70, 700 / max(6, len(txt))), 1.0,
               spitze_x=B / 2 + 40 if i == 0 else None)
