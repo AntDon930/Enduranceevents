@@ -94,7 +94,7 @@ def main(argv=None) -> int:
         print(f"{von:6.2f}  {s['bild']:10s} " + " | ".join(
             f"{t[1] - t[0]:.1f}s:{t[2]}W" for t in s["teile"]) + f"   {s['text'][:50]}")
     spec["zeiten"] = zeiten
-    spec["stimme"] = (f"Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – "
+    spec["stimme"] = (f"Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2) – "
                       f"{vorlage.stem}.mp3 neben dieser Datei")
     vorlage.write_text(json.dumps(spec, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     return 0
