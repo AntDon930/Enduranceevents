@@ -1,0 +1,208 @@
+{
+ "thema": "Was ziehst du bei Minusgraden an?",
+ "seed": 23,
+ "quellen": [
+  "https://endurance-events.de/blog/winterkleidung.html"
+ ],
+ "szenen": [
+  {
+   "bild": "frage",
+   "aktion": "winter",
+   "text": "Minusgrade draußen. Was ziehst du zum Laufen an?",
+   "zeile": "WAS ZIEHST DU AN?",
+   "g": 104,
+   "symbol": "?",
+   "teile": [
+    [
+     0.0,
+     1.25,
+     2
+    ],
+    [
+     1.59,
+     2.93,
+     6
+    ]
+   ]
+  },
+  {
+   "bild": "denken",
+   "pose": "denken",
+   "text": "Die dicke Winterjacke? Einen Baumwollpulli? Oder einfach alles übereinander?",
+   "worte": [
+    "DICKE JACKE?",
+    "BAUMWOLLPULLI?",
+    "ALLES DRÜBER?"
+   ],
+   "teile": [
+    [
+     4.11,
+     5.11,
+     3
+    ],
+    [
+     5.54,
+     6.68,
+     2
+    ],
+    [
+     7.17,
+     8.92,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "entwarnung",
+   "pose": "daumen",
+   "text": "Besser: drei dünne Schichten. Das Zwiebelprinzip.",
+   "blase": "DREI SCHICHTEN!",
+   "blase_g": 96,
+   "zeile": "DAS ZWIEBELPRINZIP",
+   "teile": [
+    [
+     9.65,
+     11.49,
+     4
+    ],
+    [
+     11.83,
+     12.84,
+     2
+    ]
+   ]
+  },
+  {
+   "bild": "schichten",
+   "text": "Innen eine Funktionsschicht, die den Schweiß nach außen leitet. Darüber eine wärmende Schicht, zum Beispiel dünnes Fleece. Und außen eine leichte Jacke gegen Wind und Regen.",
+   "oben": "DAS ZWIEBELPRINZIP",
+   "schichten": [
+    [
+     "1 FUNKTION",
+     "leitet den Schweiß nach außen",
+     "blau",
+     0.0
+    ],
+    [
+     "2 WÄRME",
+     "dünnes Fleece oder Merino",
+     "coral",
+     0.36
+    ],
+    [
+     "3 SCHUTZ",
+     "leichte Jacke gegen Wind & Regen",
+     "creme",
+     0.66
+    ]
+   ],
+   "zeile": "",
+   "teile": [
+    [
+     13.39,
+     16.63,
+     9
+    ],
+    [
+     17.06,
+     20.2,
+     8
+    ],
+    [
+     20.75,
+     23.49,
+     9
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Die Faustregel: Beim Loslaufen darfst du leicht frösteln. Nach zehn Minuten ist dir warm.",
+   "oben": "DIE FAUSTREGEL: NACH",
+   "zahl": 10,
+   "einheit": "MINUTEN IST DIR WARM",
+   "zeile": "AM START LEICHT FRÖSTELN",
+   "g": 80,
+   "teile": [
+    [
+     24.04,
+     29.34,
+     14
+    ]
+   ]
+  },
+  {
+   "bild": "figur",
+   "pose": "stopp",
+   "text": "Und Finger weg von Baumwolle: Sie saugt sich voll und bleibt nass.",
+   "titel": "KEINE BAUMWOLLE",
+   "blasen": [
+    "saugt sich voll",
+    "bleibt nass"
+   ],
+   "zeile": "LIEBER FUNKTIONSFASER",
+   "teile": [
+    [
+     29.78,
+     33.68,
+     12
+    ]
+   ]
+  },
+  {
+   "bild": "schluss",
+   "text": "Was ziehst du bei Frost an? Schreib es in die Kommentare.",
+   "frage": "DEIN WINTER-OUTFIT?",
+   "g": 120,
+   "blase": "Zwiebel – was sonst?",
+   "teile": [
+    [
+     34.22,
+     35.51,
+     6
+    ],
+    [
+     35.84,
+     37.25,
+     5
+    ]
+   ]
+  }
+ ],
+ "caption": [
+  "Was ziehst du bei Minusgraden an? 🧅❄️",
+  "Was ziehst du bei Frost an? Schreib es in die Kommentare!",
+  "#laufenimwinter #zwiebelprinzip #wintertraining #laufen #lauftipps"
+ ],
+ "zeiten": [
+  [
+   0.0,
+   3.52
+  ],
+  [
+   3.52,
+   9.29
+  ],
+  [
+   9.29,
+   13.12
+  ],
+  [
+   13.12,
+   23.77
+  ],
+  [
+   23.77,
+   29.56
+  ],
+  [
+   29.56,
+   33.95
+  ],
+  [
+   33.95,
+   37.4
+  ]
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – zwiebel.mp3 neben dieser Datei"
+}

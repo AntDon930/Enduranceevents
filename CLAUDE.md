@@ -5842,7 +5842,7 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Automatik irrt, sobald ausgeschriebene Zahlen die Längen verschieben; dann die
   Zahl der Sprechstücke je Szene vorgeben und die Ausgabe ansehen. Fakten aus den
   eigenen Blogbeiträgen sind schon belegt (Quellen dort) – zuerst dort suchen.
-  Reels vom 22.11.2026: `locker`, `tapering`, `kraft`, `renntagswaage`.
+  Reels vom 22.11.2026: `locker`, `tapering`, `kraft`, `renntagswaage`. Am 23.11.2026 `zwiebel` (Zwiebelprinzip, statt der Slides „Winterkleidung“ – vom Nutzer: „hätte ich gerne doch als Reel, ich finde das besser“; Aktion `winter` mit Schneefall, Szene `schichten` = Schnitt durch die drei Lagen über der Haut). **Der Nutzer mag Reels lieber als Slides** – ein Slides-Thema im Zweifel als Erklär-Reel bauen.
   **Die laufende Figur (`laeufer()`, Seitenansicht)** (22.11.2026, vom Nutzer:
   „Der Rücken von der Frau sieht irgendwie ganz komisch aus. Und die müssen auch
   nicht so extrem sauer aussehen beim laufen. Können schon bisschen angestrengt

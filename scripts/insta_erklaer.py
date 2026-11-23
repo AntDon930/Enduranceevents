@@ -507,9 +507,30 @@ def bad() -> Image.Image:
     return img
 
 
+def winter(t: float, tempo: float = 1.0) -> Image.Image:
+    """Wintertag: blasser Himmel, verschneite Hügel, Schneefall, Straße mit Schnee am Rand."""
+    img = tag(t, tempo)
+    d = ImageDraw.Draw(img)
+    d.rectangle([0, 0, B, 1250], fill=(214, 230, 238))
+    for farbe, basis, hoehe_, breite, speed in (((236, 244, 248), 1250, 420, 900, 40), ((250, 252, 253), 1330, 300, 640, 90)):
+        for i in range(-1, 4):
+            x = i * breite * 0.8 - (t * speed * tempo) % (breite * 0.8)
+            d.polygon([(x, basis), (x + breite / 2, basis - hoehe_), (x + breite, basis)], fill=farbe,
+                      outline=(176, 200, 214), width=4)
+        d.rectangle([0, basis, B, 1380], fill=farbe)
+    d.rectangle([0, 1366, B, 1384], fill=WEISS)
+    rng = random.Random(11)
+    for _ in range(90):
+        x0, y0, r, v = rng.uniform(0, B), rng.uniform(0, 1500), rng.uniform(5, 13), rng.uniform(90, 200)
+        x = (x0 - t * 60 * tempo + 18 * math.sin(t * 1.3 + y0)) % B
+        y = (y0 + t * v) % 1500
+        d.ellipse([x - r, y - r, x + r, y + r], fill=WEISS)
+    return img
+
+
 # Die Figur im Hook passt zum Thema: läuft (Standard), hebt die Langhantel,
-# hält den Countdown-Kalender, steht auf der Waage.
-AKTIONEN = ("lauf", "hantel", "kalender", "waage")
+# hält den Countdown-Kalender, steht auf der Waage, läuft durch den Schnee.
+AKTIONEN = ("lauf", "hantel", "kalender", "waage", "winter")
 
 
 def sz_frage(t: float, dauer: float, p: dict | None = None) -> Image.Image:
@@ -530,6 +551,15 @@ def sz_frage(t: float, dauer: float, p: dict | None = None) -> Image.Image:
         von = int(p.get("von", 14))
         tag_ = max(1, von - int(t / max(0.2, dauer * 0.8) * (von - 1)))
         aufkleben(img, M.figur("kalender", 760, text=str(tag_)), B / 2 - 130, 1420)
+    elif aktion == "winter":
+        img = winter(t, 0.8)
+        aufkleben(img, lauf(t, tempo=1.3, hoehe=640), B / 2 - 40, 1404)
+        d0 = ImageDraw.Draw(img)
+        for i in range(3):                       # Atemwolken vor dem Gesicht
+            a = (t * 1.4 + i / 3) % 1
+            r = 18 + 40 * a
+            x, y = B / 2 + 150 + 120 * a, 880 - 40 * a
+            d0.ellipse([x - r, y - r * 0.7, x + r, y + r * 0.7], fill=WEISS)
     elif aktion == "waage":
         img = bad().copy()
         wippen = int(6 * abs(math.sin(t * 5))) if t < 1.2 else 0
@@ -670,6 +700,47 @@ def sz_balken(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     return img
 
 
+def sz_schichten(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Das Zwiebelprinzip im Schnitt: unten die Haut, darüber drei Schichten, die
+    nacheinander auftauchen – Schweiß wandert nach außen.
+    `schichten`: [[Titel, Zeile, Farbe, Anteil der Dauer], …] von innen nach außen."""
+    p = p or {}
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    farben = {"coral": CORAL, "blau": SOFT_BLUE, "gruen": GRUEN, "gelb": GELB, "creme": CREME}
+    pop(d, B / 2, 420, p.get("oben", "DAS ZWIEBELPRINZIP"), p.get("oben_g", 110), t - 0.05, fill=CORAL)
+    links, rechts, hoehe, unten = 120, B - 120, 200, 1300
+    d.rounded_rectangle([links, unten, rechts, unten + 90], radius=28, fill=(232, 190, 160), outline=MIDNIGHT, width=8)
+    d.text((B / 2, unten + 45), p.get("haut", "HAUT"), font=schrift(56), fill=MIDNIGHT, anchor="mm")
+    schichten = p.get("schichten", [])
+    sichtbar = 0
+    for i, (titel, zeile, farbe, ab) in enumerate(schichten):
+        tt = t - dauer * ab
+        if tt <= 0:
+            continue
+        sichtbar = i + 1
+        k = federn(tt / 0.4)
+        y1 = unten - 14 - i * (hoehe + 14)
+        y0 = y1 - hoehe * k
+        f = farben.get(farbe, SOFT_BLUE)
+        d.rounded_rectangle([links, y0, rechts, y1], radius=30, fill=f, outline=MIDNIGHT, width=8)
+        if k > 0.9:
+            schrift_farbe = MIDNIGHT if farbe in ("blau", "creme", "gelb") else WEISS
+            d.text((links + 50, y1 - hoehe + 62), titel, font=schrift(74), fill=schrift_farbe, anchor="lm")
+            d.text((links + 50, y1 - hoehe + 142), zeile, font=schrift(50, fett=False), fill=schrift_farbe, anchor="lm")
+    oben_rand = unten - 14 - sichtbar * (hoehe + 14) + 14
+    # Schweißtropfen wandern von der Haut nach außen (nur durch sichtbare Schichten)
+    for j in range(4):
+        a = (t * 0.45 + j / 4) % 1
+        y = unten - a * (unten - oben_rand + 60)
+        x = rechts - 120 - 46 * j
+        r = 16
+        d.polygon([(x, y - r * 1.8), (x - r, y), (x + r, y)], fill=CREME)
+        d.ellipse([x - r, y - r, x + r, y + r], fill=CREME)
+    pop(d, B / 2, 1490, p.get("zeile", ""), p.get("g", 88), t - dauer * 0.9, fill=GRUEN, kontur=None)
+    return img
+
+
 def sz_figur(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     """Die Figur in einer Pose, Titel oben, Sprechblasen nacheinander, Zeile unten."""
     p = p or {}
@@ -687,7 +758,7 @@ def sz_figur(t: float, dauer: float, p: dict | None = None) -> Image.Image:
 
 
 SZENEN = {"frage": sz_frage, "denken": sz_denken, "zahl": sz_zahl, "kacheln": sz_kacheln,
-          "balken": sz_balken, "figur": sz_figur, "hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
+          "balken": sz_balken, "figur": sz_figur, "schichten": sz_schichten, "hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
           "fass": sz_fass, "test": sz_test, "gefuehl": sz_gefuehl, "schluss": sz_schluss}
 
 

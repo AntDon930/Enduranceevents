@@ -11,12 +11,13 @@
    "id": "locker",
    "format": "erklaer",
    "thema": "locker",
-   "ab": "2026-11-23"
+   "ab": "2026-11-23",
+   "gepostet": "2026-11-23"
   },
   {
-   "id": "winterkleidung",
-   "format": "karussell",
-   "slug": "winterkleidung",
+   "id": "zwiebel",
+   "format": "erklaer",
+   "thema": "zwiebel",
    "ab": "2026-11-25"
   },
   {
