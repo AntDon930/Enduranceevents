@@ -4,75 +4,70 @@
  "szenen": [
   {
    "bild": "frage",
-   "text": "Krafttraining für Ausdauersportler? Macht dich das nicht schwer und langsam?",
+   "text": "Krafttraining für Ausdauersportler? Macht dich das nicht langsam?",
    "zeile": "MACHT KRAFT DICH SCHWER?",
    "g": 100,
+   "aktion": "hantel",
    "teile": [
     [
      0.0,
-     1.95,
+     2.33,
      3
     ],
     [
-     2.41,
-     4.33,
-     7
+     2.58,
+     4.04,
+     5
     ]
-   ],
-   "aktion": "hantel"
+   ]
   },
   {
    "bild": "denken",
-   "text": "Dicke Beine? Mehr Gewicht? Langsamer am Berg?",
+   "text": "Dicke Beine? Mehr Kilos? Langsamer?",
    "worte": [
     "DICKE BEINE?",
-    "MEHR GEWICHT?",
+    "MEHR KILOS?",
     "LANGSAMER?"
    ],
    "teile": [
     [
-     5.62,
-     6.37,
+     4.28,
+     5.28,
      2
     ],
     [
-     6.71,
-     7.46,
+     5.5,
+     6.52,
      2
     ],
     [
-     7.8,
-     8.89,
-     3
+     6.67,
+     7.45,
+     1
     ]
    ]
   },
   {
    "bild": "entwarnung",
-   "text": "Nein. Das ist die häufigste Sorge, und sie ist unbegründet.",
+   "text": "Nein! Die Sorge ist unbegründet.",
    "blase": "NEIN!",
    "zeile": "SORGE UNBEGRÜNDET",
    "teile": [
     [
-     9.86,
-     10.24,
+     7.7,
+     8.49,
      1
     ],
     [
-     10.8,
-     12.29,
-     5
-    ],
-    [
-     12.61,
-     13.94,
+     8.74,
+     10.32,
      4
     ]
    ]
   },
   {
    "bild": "figur",
-   "text": "In einer Studie machten Läufer acht Wochen lang schwere Kniebeugen. Ihr Gewicht blieb gleich.",
+   "text": "Läufer machten acht Wochen lang schwere Kniebeugen. Ihr Gewicht blieb gleich.",
    "pose": "waage",
    "titel": "8 WOCHEN KNIEBEUGEN",
    "titel_g": 112,
@@ -83,20 +78,20 @@
    "zeile": "KEIN GRAMM MEHR",
    "teile": [
     [
-     14.72,
-     18.06,
-     10
+     10.48,
+     13.34,
+     7
     ],
     [
-     18.52,
-     19.82,
+     13.57,
+     14.84,
      4
     ]
    ]
   },
   {
    "bild": "zahl",
-   "text": "Aber sie liefen fünf Prozent ökonomischer: gleiches Tempo, weniger Energie.",
+   "text": "Aber sie liefen fünf Prozent sparsamer.",
    "zahl": 5,
    "nach": " %",
    "oben": "LAUFÖKONOMIE",
@@ -106,25 +101,39 @@
    "klein": "Støren et al., 2008",
    "teile": [
     [
-     20.6,
-     22.94,
+     15.06,
+     17.73,
      6
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Und eine große Auswertung zeigt: Mit Krafttraining gab es rund zwei Drittel weniger Verletzungen.",
+   "zahl": 68,
+   "vor": "−",
+   "nach": " %",
+   "oben": "VERLETZUNGEN",
+   "einheit": "MIT KRAFTTRAINING",
+   "zeile": "META-ANALYSE VIELER STUDIEN",
+   "g": 72,
+   "klein": "Lauersen et al., 2014",
+   "teile": [
+    [
+     17.97,
+     19.75,
+     5
     ],
     [
-     23.37,
-     24.19,
-     2
-    ],
-    [
-     24.51,
-     25.33,
-     2
+     19.86,
+     23.59,
+     9
     ]
    ]
   },
   {
    "bild": "test",
-   "text": "Dein Einstieg: zweimal pro Woche, 20 bis 30 Minuten, nur mit dem eigenen Körpergewicht.",
+   "text": "Dein Einstieg: zweimal pro Woche, fünfundzwanzig Minuten, ohne Geräte.",
    "titel": "DEIN EINSTIEG",
    "zeilen": [
     [
@@ -143,44 +152,40 @@
    "fazit": "STÄRKER, NICHT SCHWERER",
    "teile": [
     [
-     26.24,
-     26.96,
+     23.76,
+     24.51,
      2
     ],
     [
-     27.35,
-     30.1,
+     24.75,
+     27.28,
      7
-    ],
-    [
-     30.42,
-     32.08,
-     5
     ]
    ]
   },
   {
    "bild": "schluss",
-   "text": "Machst du Krafttraining? Ja oder nein, schreib es in die Kommentare.",
+   "text": "Machst du Krafttraining? Ab in die Kommentare!",
    "frage": "KRAFT: JA ODER NEIN?",
    "g": 116,
    "blase": "Ja – 2x pro Woche!",
    "teile": [
     [
-     32.88,
-     33.96,
+     27.51,
+     29.62,
      3
     ],
     [
-     34.36,
-     36.75,
-     8
+     29.86,
+     30.87,
+     4
     ]
    ]
   }
  ],
  "quellen": [
   "https://pubmed.ncbi.nlm.nih.gov/18460997/",
+  "https://doi.org/10.1136/bjsports-2013-092538",
   "https://pmc.ncbi.nlm.nih.gov/articles/PMC5889786/",
   "https://endurance-events.de/blog/krafttraining-fuer-laeufer.html"
  ],
@@ -189,37 +194,7 @@
   "Machst du Krafttraining? Schreib es in die Kommentare!",
   "#krafttraining #ausdauersport #laufen #radsport #triathlon"
  ],
- "zeiten": [
-  [
-   0.0,
-   4.97
-  ],
-  [
-   4.97,
-   9.38
-  ],
-  [
-   9.38,
-   14.33
-  ],
-  [
-   14.33,
-   20.21
-  ],
-  [
-   20.21,
-   25.78
-  ],
-  [
-   25.78,
-   32.48
-  ],
-  [
-   32.48,
-   36.9
-  ]
- ],
- "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – kraft.mp3 neben dieser Datei",
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen 0,22 s, atempo 0,89) – kraft.mp3 neben dieser Datei",
  "cover": {
   "farbe": "blau",
   "titel": [
@@ -227,5 +202,39 @@
    "LANGSAM?"
   ],
   "figur": "curl4"
- }
+ },
+ "zeiten": [
+  [
+   0.0,
+   4.16
+  ],
+  [
+   4.16,
+   7.58
+  ],
+  [
+   7.58,
+   10.4
+  ],
+  [
+   10.4,
+   14.95
+  ],
+  [
+   14.95,
+   17.85
+  ],
+  [
+   17.85,
+   23.68
+  ],
+  [
+   23.68,
+   27.4
+  ],
+  [
+   27.4,
+   31.11
+  ]
+ ]
 }
