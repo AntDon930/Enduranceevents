@@ -213,6 +213,35 @@
    ]
   },
   {
+   "bild": "figur",
+   "text": "Denn: Es gibt kein schlechtes Wetter, nur schlechte Kleidung.",
+   "pose": "daumen",
+   "titel": "KEIN SCHLECHTES WETTER",
+   "titel_g": 104,
+   "blasen": [
+    "nur schlechte",
+    "Kleidung!"
+   ],
+   "zeile": "DER KLASSIKER",
+   "teile": [
+    [
+     28.45,
+     28.89,
+     1
+    ],
+    [
+     29.14,
+     30.7,
+     5
+    ],
+    [
+     30.9,
+     32.12,
+     3
+    ]
+   ]
+  },
+  {
    "bild": "schluss",
    "text": "Was ziehst du bei Frost an? Ab in die Kommentare!",
    "frage": "DEIN WINTER-OUTFIT?",
@@ -220,13 +249,13 @@
    "blase": "Zwiebel – was sonst?",
    "teile": [
     [
-     28.45,
-     29.94,
+     32.32,
+     33.81,
      6
     ],
     [
-     30.18,
-     31.34,
+     34.05,
+     35.22,
      4
     ]
    ]
@@ -237,7 +266,7 @@
   "Was ziehst du bei Frost an? Schreib es in die Kommentare!",
   "#laufenimwinter #zwiebelprinzip #wintertraining #laufen #lauftipps"
  ],
- "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen auf 0,22 s gekürzt, danach atempo 0,89) – zwiebel.mp3 neben dieser Datei",
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen auf 0,22 s gekürzt, danach atempo 0,89) – zwiebel.mp3 neben dieser Datei; Satz „Es gibt kein schlechtes Wetter …“ am 24.11.2026 eingesetzt",
  "zeiten": [
   [
    0.0,
@@ -269,7 +298,11 @@
   ],
   [
    28.35,
-   31.76
+   32.22
+  ],
+  [
+   32.22,
+   35.5
   ]
  ],
  "cover": {
