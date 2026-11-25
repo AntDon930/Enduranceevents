@@ -1769,8 +1769,7 @@
   "anmeldung": "nein",
   "webseite": "https://www.komoot.com/user/963269208892",
   "merkmale": [
-   "no_drop",
-   "frauen"
+   "no_drop"
   ],
   "beschreibung_de": "Wöchentliche Feierabendrunden des Fahrradladens Bike Department Ost: montags schnell, dienstags Gravel, mittwochs Rennrad, donnerstags Rennrad nur für FLINTA, gemeinsamer Start und gemeinsame Rückkehr.",
   "beschreibung_en": "Weekly after-work rides from the Bike Department Ost shop: fast on Mondays, gravel on Tuesdays, road on Wednesdays, road FLINTA-only on Thursdays; the group leaves and returns together.",
@@ -29625,8 +29624,7 @@
   "webseite": "https://unlimited-watts.de/kalender/",
   "strava": "https://www.strava.com/clubs/unlimitedwatts",
   "merkmale": [
-   "mehrere_gruppen",
-   "frauen"
+   "mehrere_gruppen"
   ],
   "stufen": [
    "fortgeschritten"
@@ -29911,8 +29909,7 @@
   ],
   "merkmale": [
    "mehrere_gruppen",
-   "no_drop",
-   "frauen"
+   "no_drop"
   ],
   "pause": {
    "hinweis_de": "Winterpause",
