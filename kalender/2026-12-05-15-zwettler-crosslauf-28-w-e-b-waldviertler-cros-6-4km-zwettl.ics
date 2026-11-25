@@ -4,17 +4,18 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-12-05-15-zwettler-crosslauf-28-w-e-b-waldviertler-cros-x-zwettl@a
- ntdon930.github.io
+UID:2026-12-05-15-zwettler-crosslauf-28-w-e-b-waldviertler-cros-6-4km-zwet
+ tl@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:15. Zwettler Crosslauf (28.W.E.B. - Waldviertler Crosslaufserie - 
  2. Lauf
 LOCATION:Zwettl\, Österreich
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://sc-zwickl.zwettl.a
- t/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.4 km\nhttps://sc-zwickl.zwe
+ ttl.at/2026/09/15-crosslauf-im-zwettltal-am-05-12-2026/
 TRANSP:TRANSPARENT
-URL:https://sc-zwickl.zwettl.at/
+URL:https://sc-zwickl.zwettl.at/2026/09/15-crosslauf-im-zwettltal-am-05-12
+ -2026/
 END:VEVENT
 END:VCALENDAR

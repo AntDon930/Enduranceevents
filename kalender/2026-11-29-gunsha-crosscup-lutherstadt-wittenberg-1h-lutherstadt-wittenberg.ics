@@ -4,16 +4,16 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-29-gunsha-crosscup-lutherstadt-wittenberg-x-lutherstadt-witten
- berg@antdon930.github.io
+UID:2026-11-29-gunsha-crosscup-lutherstadt-wittenberg-1h-lutherstadt-witte
+ nberg@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:GUNSHA Crosscup Lutherstadt Wittenberg – Cyclocross\, GUNSHA Cross
  cup
 LOCATION:Lutherstadt Wittenberg\, Deutschland
-DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://crosscup.org
- /rennen/wittenberg/
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 1 h\nhttps://crosscup.o
+ rg/rennen/wittenberg/
 TRANSP:TRANSPARENT
 URL:https://crosscup.org/rennen/wittenberg/
 END:VEVENT

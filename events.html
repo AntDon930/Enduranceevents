@@ -432,12 +432,13 @@
     padding: 0 6px;
     border: 1px dashed var(--border-strong, var(--border));
     border-radius: 999px;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 600;
-    line-height: 1.5;
+    /* Flach genug, dass die Zeile bei 52 px bleibt, auch wenn das
+       Schildchen in die zweite Zeile der Zelle rutscht (1024 px). */
+    line-height: 1.2;
     color: var(--text-muted);
     white-space: nowrap;
-    vertical-align: 1px;
   }
   /* Der aufgeklappte Block ist durchgehend in EINEM Ton hinterlegt,
      auch die gewählte Strecke (so vom Nutzer entschieden, 19.09.2026);

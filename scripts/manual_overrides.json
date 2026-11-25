@@ -5912,8 +5912,10 @@
     "_note": "Veranstalterseite statt obermain-marathon.de: https://www.obermain-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (theramed, datum). Linkprüfung 2026-09-21."
   },
   "Lothar Fricke-Winterlaufserie|2026-12-02": {
-    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/",
-    "_note": "Veranstalterseite statt ladv.de: https://www.leichtathletik-quedlinburg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:quedlinburg, lothar). Linkprüfung 2026-09-21."
+    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/21-lothar-fricke-winterlaufserie-2026-2027/",
+    "_note": "Veranstalterseite statt ladv.de: https://www.leichtathletik-quedlinburg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:quedlinburg, lothar). Linkprüfung 2026-09-21. | Korrekturseite des Nutzers 25.11.2026: Dauer 30 min (die Zeile stand mit 2 h ohne Label), Link auf die Seite der 21. Winterlaufserie.",
+    "dauer_h": 0.5,
+    "wettbewerb": "30 min"
   },
   "39. Silvesterlauf|2026-12-31": {
     "veranstalter_url": "https://www.sc-altenrheine.de/kalender/silvesterlauf/",
@@ -9122,5 +9124,247 @@
   "FEM Teichwiesen Marathon|2026-12-02": {
     "exclude": true,
     "_note": "Duplikat (25.11.2026): raceresult groups/62 ist die Gruppenseite der Fun & Erlebnis Marathons; derselbe Lauf am 02.12.2026 steht als „Fun & Erlebnis Marathons“ (raceresult 423151, Marathon und 50 km)."
+  },
+  "Eversburger Gewässer Ultramarathon|2026-12-05|45": {
+    "laenge_km": 45.3,
+    "_note": "Korrekturliste des Nutzers: Es gibt keine offizielle Webseite"
+  },
+  "Wittenberger Rad-Cross|2026-11-29|@Cyclocross": {
+    "exclude": true,
+    "geloescht": true,
+    "_note": "Korrekturliste des Nutzers: https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=0A88CA3BF8024068885453D9D7C2D774\n\ndas ist der gleiche."
+  },
+  "FEM Teichwiesen Marathon|2026-12-02|42.2": {
+    "exclude": true,
+    "geloescht": true,
+    "_note": "Korrekturliste des Nutzers: finde ich nicht und die Fun und Erlebnis Marathon (FEM) Seite versteh ich nicht"
+  },
+  "Nordic Winter Opening|2026-12-03": {
+    "exclude": true,
+    "geloescht": true,
+    "_note": "Korrekturliste des Nutzers: Das ist Langlaufen und kein Laufen"
+  },
+  "Dinklager Adventslauf|2026-11-29|11": {
+    "laenge_km": 10.5,
+    "_note": "Korrekturliste des Nutzers: Es gibt keine Webseite. Es gibt nur weitere Infos auf dem Instagram Profil burglaeufer.dinklage",
+    "wettbewerb": "10,5 km"
+  },
+  "Flonheimer Adventslauf|2026-11-29|5.1": {
+    "veranstalter_url": "https://www.tsg-flonheim.de/32569-2/",
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "St. Pauli X-Mass-Run|2026-11-29|5": {
+    "veranstalter_url": "https://www.stpauli-x-mass-run.de/",
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "15. Zwettler Crosslauf (28.W.E.B. - Waldviertler Crosslaufserie - 2. Lauf|2026-12-05": {
+    "laenge_km": 6.4,
+    "veranstalter_url": "https://sc-zwickl.zwettl.at/2026/09/15-crosslauf-im-zwettltal-am-05-12-2026/",
+    "_note": "Korrekturliste des Nutzers: https://sc-zwickl.zwettl.at/2026/09/15-crosslauf-im-zwettltal-am-05-12-2026/\n\ndas ist die Ausschreibung"
+  },
+  "Eversburger Gewässer Ultramarathon|2026-12-05|21.1": {
+    "exclude": true,
+    "geloescht": true,
+    "_note": "Korrekturliste des Nutzers: Es gibt da keinen Halbmarathon"
+  },
+  "Course Caritative Living Free with HIV|2026-11-29|5": {
+    "laenge_km": 4.5,
+    "_note": "Korrekturliste des Nutzers: Das sind nur 4,5km. Aber es ist ein Charity run, also nehmen wir den mal auf. Wir sind ja gute Menschen.\n\nes gibt hier keine Webseite nur die Race Result Seite | Korrekturseite des Nutzers 25.11.2026: „Das sind nur 4,5km. Aber es ist ein Charity run, also nehmen wir den mal auf.“ Ausnahme von der 5-km-Grenze (Datenregel 5) auf ausdrückliche Entscheidung des Nutzers; beide Distanzschlüssel, weil der Override die Länge ändert.",
+    "wettbewerb": "4,5 km",
+    "charity": true,
+    "mindestdistanz_ok": true
+  },
+  "Flonheimer Adventslauf|2026-11-29|9.6": {
+    "veranstalter_url": "https://www.tsg-flonheim.de/32569-2/",
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "52. Steinfurter Nikolauslauf 10 km|2026-12-05|10": {
+    "veranstalter_url": "https://www.marathon-steinfurt.de/aktuelles/meldung/51-nikolauslauf-am-06122025/",
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "52. Steinfurter Nikolauslauf 10 km|2026-12-05|42.2": {
+    "exclude": true,
+    "geloescht": true,
+    "_note": "Korrekturliste des Nutzers: 52. Steinfurter Nikolauslauf 10 km das Event ist nur ein 10km Lauf. Der Club heißt nur Marathon Steinfurt."
+  },
+  "57. Int. Lustenauer Crosslaufserie - 1. Lauf|2026-12-05": {
+    "laenge_km": 9.0,
+    "_note": "Korrekturliste des Nutzers: https://www.tslustenau.at/wp-content/uploads/2026-10-25-57-CL-Ausschreibung.pdf\n\ndas hier ist die Ausschreibung, aber bitte die aktuelle Webseite beibehalten"
+  },
+  "Argenthaler Quarzit Adventstrail|2026-11-29|12": {
+    "laenge_km": 11.8,
+    "wettbewerb": "11,8 km",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: „Man kann entweder 11,8 oder 17,6km laufen“ (Ausschreibung auf Google Drive, verlinkt von llghunsrueck.de/adventstrail)."
+  },
+  "Argenthaler Quarzit Adventstrail|2026-11-29|17.6": {
+    "wettbewerb": "17,6 km",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: „Man kann entweder 11,8 oder 17,6km laufen“ - das Label „18 km“ war gerundet."
+  },
+  "Course Caritative Living Free with HIV|2026-11-29|4.5": {
+    "laenge_km": 4.5,
+    "wettbewerb": "4,5 km",
+    "charity": true,
+    "mindestdistanz_ok": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: „Das sind nur 4,5km. Aber es ist ein Charity run, also nehmen wir den mal auf.“ Ausnahme von der 5-km-Grenze (Datenregel 5) auf ausdrückliche Entscheidung des Nutzers; beide Distanzschlüssel, weil der Override die Länge ändert."
+  },
+  "Corrida Raiffeisen|2026-12-05": {
+    "charity": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Strecke unbekannt (ohne Distanz veröffentlichen), „Das Event ist ein Charity Event“."
+  },
+  "Haus Vortlage Marathon|2026-12-02": {
+    "inoffiziell": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: „FEM Marathon“ - Uwe Laig, raceresult 433496: Kofferraumverpflegung, Rahmenstartzeit, „Startgeld: ohne“ (Datenregel 26)."
+  },
+  "Lothar Fricke-Winterlaufserie|2026-12-02|@1 hr": {
+    "dauer_h": 1.0,
+    "wettbewerb": "60 min",
+    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/21-lothar-fricke-winterlaufserie-2026-2027/",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Dauer 60 min. Zweiter Schlüssel, weil der Override das Label ändert und der allgemeine Schlüssel sonst 30 min setzte."
+  },
+  "Lothar Fricke-Winterlaufserie|2026-12-02|@60 min": {
+    "dauer_h": 1.0,
+    "wettbewerb": "60 min",
+    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/21-lothar-fricke-winterlaufserie-2026-2027/",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Dauer 60 min. Zweiter Schlüssel, weil der Override das Label ändert und der allgemeine Schlüssel sonst 30 min setzte."
+  },
+  "GUNSHA Crosscup Lutherstadt Wittenberg|2026-11-29|@Cyclocross, GUNSHA Crosscup": {
+    "dauer_h": 1.0,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: „Das Crossrennen läuft je nach Jahrgang 20-60min“, keine andere Webseite. Wie beim King of Pirates: die kurzen Rennen sind Nachwuchsklassen (Datenregel 24), angezeigt wird die Elite-Dauer; ein Zeitplan je Klasse steht weder auf crosscup.org (Rennseite, Generalausschreibung) noch lesbar bei rad-net."
+  },
+  "Dinklager Adventslauf|2026-11-29": {
+    "instagram": "burglaeufer.dinklage",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: „Es gibt keine Webseite. Es gibt nur weitere Infos auf dem Instagram Profil burglaeufer.dinklage“ - das Konto der Burgläufer Dinklage (Veranstalter) als Instagram-Zeichen."
+  },
+  "Elbwasserwerk Kaltehofe Marathon|2027-01-24": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 423983, Fun & Erlebnis Marathons: „ausdrücklich keine wettkampforientierte oder Bestenlisten fähige Veranstaltung … Zählordnung des 100 Marathon Club Deutschland“."
+  },
+  "Werse Marathon|2027-07-10": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 419969, Rainer Wachsmann: Spendenläufe, „Zeitlimit: Ohne; der Lauf wird nach den Regeln des 100 Marathonclub Deutschland veranstaltet“."
+  },
+  "Gluex Revival|2027-02-13": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 434692, 100 Marathon Club Schweiz, „Mitgliederlauf“: Zeit selbst online eintragen, keine Verpflegung, keine Garderobe."
+  },
+  "Rund um Fehmarn Ultra|2026-12-31": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 423242, Jörg Mönkemann: „Wir sind ein privat organisierter Lauf“, keine bemannten Verpflegungspunkte."
+  },
+  "Schnadegang Rund um Halver|2027-01-17": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 431920, Stefan Niederhofer: „Kleine, privat organisierte Ultralaufveranstaltung“."
+  },
+  "Hemslingen Ultra|2027-03-13": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 426935, Marcel Koch: „privat organisierten Lauf ohne kommerziellen Hintergrund“."
+  },
+  "Rund um Schloß Holte|2027-05-29": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 403275, Ulrich Schilder: „privater Lauf unter Gleichgesinnten“, auf ca. 20 Läufer begrenzt."
+  },
+  "Silvester-Ultramarathon Breuna|2026-12-31": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 422344, Melanie Ruppenthal: „Organisationsbeitrag: 5 € in bar“, höchstens 20 Läufer, Treffpunkt Parkplatz."
+  },
+  "Hofgeismarer Stadtwaldultra|2027-01-09": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 433977, Melanie Ruppenthal: „Organisationsbeitrag: 5 € in bar“, höchstens 18 Läufer, Treffpunkt Parkplatz."
+  },
+  "Peter auf'm Berge Ultramarathon|2027-03-26": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 434627, Ute Karklis: „Startgeld: 5 € in bar vor Ort“, Handzeitnahme, Parkplatz."
+  },
+  "Fernsehturm Steinegge Ultra|2027-03-27": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 434626, Ute Karklis: „Startgeld: 5 € in bar vor Ort“, Handzeitnahme, Parkplatz."
+  },
+  "Im Schatten der Hünenburg Ultra|2027-03-06": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 427847, Ute Karklis: Handzeitnahme, Zeit per Mail/WhatsApp melden, Kofferraumverpflegung, 30 Läufer."
+  },
+  "Holperdorper Berg Ultra Trail|2027-03-29": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 431738, Uwe Laig: 100 Marathon Club, Kofferraumverpflegung, Parkplatz."
+  },
+  "Ultramarathon auf Teutomarsch-Route|2027-04-04": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 431549, Uwe Laig: „Startgeld: 5 €“, 100 Marathon Club, Handzeitnahme."
+  },
+  "Vom See zum Schloss Ultramarathon|2027-05-27": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 432026, Uwe Laig: „Startgeld: 5 €, bar am Veranstaltungstag“, Kofferraumverpflegung, Handzeitnahme."
+  },
+  "X100 Rund um Münster Ultramarathon|2027-04-25": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 432019, Uwe Laig: Handzeitnahme, Komoot/Garmin-Track statt Markierung."
+  },
+  "Lengericher UltraTrail|2027-07-25": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 433158, Uwe Laig: Kofferraumverpflegung, Spende, Handzeitnahme."
+  },
+  "Ahornweg Ultra|2027-08-14": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 431125, Uwe Laig: 100 Marathon Club, Handzeitnahme."
+  },
+  "Ahornweg Ultra|2027-08-28": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 431125, Uwe Laig: 100 Marathon Club, Handzeitnahme."
+  },
+  "Freeden Ultramarathon|2027-03-28": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 431617, TV Hohne: 100 Marathon Club, Kofferraumverpflegung, Handzeitnahme durch Susanne Laig."
+  },
+  "Ultra im Hönnetal|2027-03-13": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 431385, Frank Albrecht: „Startgeld: 10 € in bar vor Ort“, Handzeitnahme durch Uwe Laig, 100 Marathon Club."
+  },
+  "Sylvester Marathon Bremen|2026-12-31": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 410134, Olaf Häsler: „Spende: 10 Euro für Unkosten“ statt Startgeld."
+  },
+  "Metallhenge Lauf|2027-01-02": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 318774, Olaf Häsler: „Spende von drei Euro“, „Lauf findet statt bei drei Anmeldungen“."
+  },
+  "Rosenmontags Marathon|2027-02-08": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 369959, Olaf Häsler: „Spende: 10€ mit Karnevalsorden“ statt Startgeld."
+  },
+  "Treßsee Marathon|2027-02-21": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): raceresult 386628, SV Freie Waldorfschule Flensburg: „Es gibt kein Zeitlimit, da die Zeitnahme ja durch jeden Teilnehmer selbst erfolgt“."
+  },
+  "Frau Holle Märchenland Ultra|2027-03-21": {
+    "charity": true,
+    "_note": "Charity (25.11.2026): raceresult 422662 nennt den Lauf „Spendenlauf zu Gunsten Kilometer für Kinder“."
+  },
+  "Frauenkopf Marathon Stuttgart|2026-12-31": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Datenregel 26): 100-marathon-club.de/index.php/de/node/1157: „Bei dem Lauf handelt es sich ausdrücklich nicht um eine Versammlung oder Veranstaltung, sondern um ein Organisationsangebot für Individualsport … einen Zähler gemäß der Zählordnung des 100 Marathon Club“."
+  },
+  "12. Hamburger 100MC Elbtunnel-Marathon|2027-01-31": {
+    "inoffiziell": false,
+    "_note": "KEIN nicht offizieller Marathon (25.11.2026): Der 100MC-Elbtunnel-Marathon hat Rennleitung, eine 2004 vermessene Strecke und Zielschluss (raceresult 428636). Die erste Fassung der Regel markierte ihn über „100MC“ im Namen;  nimmt die Markierung auch dem Gedächtnis."
+  },
+  "Elbtunnelmarathon|2027-01-31": {
+    "inoffiziell": false,
+    "_note": "KEIN nicht offizieller Marathon (25.11.2026): Der 100MC-Elbtunnel-Marathon hat Rennleitung, eine 2004 vermessene Strecke und Zielschluss (raceresult 428636). Die erste Fassung der Regel markierte ihn über „100MC“ im Namen;  nimmt die Markierung auch dem Gedächtnis."
+  },
+  "Lothar Fricke-Winterlaufserie|2027-01-13|@1/2Stdlauf": {
+    "dauer_h": 0.5,
+    "_note": "25.11.2026: „1/2Stdlauf“ ist eine halbe Stunde; der Scraper las den Nenner als 2 h (parse_duration_h, seitdem behoben - dieselbe Klasse wie die 30-min-Zeile vom 02.12., Korrekturseite des Nutzers)."
+  },
+  "Dinklager Adventslauf|2026-11-29|10.5": {
+    "wettbewerb": "10,5 km",
+    "_note": "Korrekturseite des Nutzers 25.11.2026 (10,5 statt 11 km): zweiter Schlüssel, weil der Override unter |11 die Länge ändert und sich damit selbst nicht mehr trifft."
+  },
+  "Lothar Fricke-Winterlaufserie|2027-03-03": {
+    "dauer_h": 0.5,
+    "_note": "25.11.2026: 2 h ohne Label ist in dieser Serie der falsch gelesene „1/2Stdlauf“ (der Nutzer hat am 02.12. 30 min bestätigt; die Serie hat 30- und 60-min-Läufe). Der Scraper liest den Bruch seitdem richtig."
+  },
+  "Lothar Fricke-Winterlaufserie|2027-12-01": {
+    "dauer_h": 0.5,
+    "_note": "25.11.2026: 2 h ohne Label ist in dieser Serie der falsch gelesene „1/2Stdlauf“ (der Nutzer hat am 02.12. 30 min bestätigt; die Serie hat 30- und 60-min-Läufe). Der Scraper liest den Bruch seitdem richtig."
   }
 }

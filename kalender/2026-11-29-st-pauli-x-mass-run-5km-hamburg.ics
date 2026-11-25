@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:St. Pauli X-Mass-Run
 LOCATION:Hamburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/426800/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.stpauli-x-
+ mass-run.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/426800/
+URL:https://www.stpauli-x-mass-run.de/
 END:VEVENT
 END:VCALENDAR

@@ -2112,10 +2112,10 @@
     "notiz": "'Samstag, 21. November 2026', 11:30 Uhr, Schlosspark Biebrich; die Ausschreibung 2026 ist ein PDF ohne Textebene."
   },
   "AOK Advents-Aaseelauf|2026-11-29": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "advents-aaseelauf.de",
-    "notiz": "'29. November 2026' bestätigt; Strecken-Seite nennt nur 'unterschiedlich viele Runden um den Aasee'."
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.advents-aaseelauf.de/",
+    "notiz": "Korrekturliste des Nutzers"
   },
   "Nikolaus Duathlon|2026-12-05": {
     "am": "2026-09-21",
@@ -3159,10 +3159,10 @@
     "notiz": "Korrekturliste des Nutzers: https://www.pfungstadt-leichtathletik.de/wp/veranstaltungen/adventscross/\n\nDer Lauf ist 7,3km, die anderen Läufe sind alle unter 5km"
   },
   "Argenthaler Quarzit Adventstrail|2026-11-29": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
     "quelle": "https://www.llghunsrueck.de/adventstrail/",
-    "notiz": "Seite nennt keine Angaben zu 2026"
+    "notiz": "Korrekturliste des Nutzers: 11,8 oder 17,6 km laut Ausschreibung (Google Drive)."
   },
   "Nikolauslauf des ALV Mainz|2026-12-05": {
     "am": "2026-09-21",
@@ -6423,10 +6423,10 @@
     "notiz": "Korrekturliste des Nutzers: Das müssen wir den Link nehmen. \n\nhttps://trainerday.com/de/events/de/44-adventslauf"
   },
   "52. Steinfurter Nikolauslauf 10 km|2026-12-05": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "https://laufen.de/laufkalender/details/26V19000301660001",
-    "notiz": "Link leitet auf marathon-steinfurt.de, dort keine Angaben zum Nikolauslauf"
+    "am": "2026-11-25",
+    "ergebnis": "entfernt",
+    "quelle": "https://my.raceresult.com/426356/",
+    "notiz": "Korrekturliste des Nutzers: 52. Steinfurter Nikolauslauf 10 km das Event ist nur ein 10km Lauf. Der Club heißt nur Marathon Steinfurt."
   },
   "1. Lauf 38. Winterlaufserie|2026-12-06": {
     "am": "2026-09-21",
@@ -6579,10 +6579,10 @@
     "notiz": "Deutsche Crosslauf-Meisterschaft im Rahmen des Weinstadtcross (28./29.11.2026) – ausgeschlossen wie die Fälle in Punkt 5"
   },
   "Lothar Fricke-Winterlaufserie|2026-12-02": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "https://ladv.de/ausschreibung/detail/45794/21.Lothar-Fricke-Winterlaufserie-2026-2027-Quedlinburg.htm",
-    "notiz": "ladv-Ausschreibung 21. Winterlaufserie 2026/2027 ohne lesbare Termine/Distanzen"
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.leichtathletik-quedlinburg.de/21-lothar-fricke-winterlaufserie-2026-2027/",
+    "notiz": "Korrekturliste des Nutzers: 30 und 60 min."
   },
   "Silvesterlauf - Krefeld|2026-12-31": {
     "am": "2026-09-21",
@@ -8587,5 +8587,113 @@
     "ergebnis": "korrigiert",
     "quelle": "https://ulckapelln.at/oe3-weihnachtswunder-charity",
     "notiz": "Korrekturliste des Nutzers: 3 Stunden, das steht in dem angegebenen Link\n\nhttps://ulckapelln.at/oe3-weihnachtswunder-charity\n\nEs ist ein Charity Lauf"
+  },
+  "Eversburger Gewässer Ultramarathon|2026-12-05": {
+    "am": "2026-11-25",
+    "ergebnis": "entfernt",
+    "quelle": "https://my.raceresult.com/433609/",
+    "notiz": "Korrekturliste des Nutzers: Es gibt keine offizielle Webseite"
+  },
+  "Wittenberger Rad-Cross|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "entfernt",
+    "quelle": "https://gruenweiss-piesteritz.de/abteilungen/radsport/",
+    "notiz": "Korrekturliste des Nutzers: https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=0A88CA3BF8024068885453D9D7C2D774\n\ndas ist der gleiche."
+  },
+  "Nikolauscrosslauf der Polizei Berlin|2026-12-04": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://myracepartner.com/veranstaltung/?event-id=672207",
+    "notiz": "Korrekturliste des Nutzers: Da gibt es keine offizielle Webseite"
+  },
+  "FEM Teichwiesen Marathon|2026-12-02": {
+    "am": "2026-11-25",
+    "ergebnis": "entfernt",
+    "quelle": "https://my.raceresult.com/groups/62/",
+    "notiz": "Korrekturliste des Nutzers: finde ich nicht und die Fun und Erlebnis Marathon (FEM) Seite versteh ich nicht"
+  },
+  "Park-Cross Böheimkirchen|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=0A88CA3BF8024068885453D9D7C2D774",
+    "notiz": "Korrekturliste des Nutzers: Es gibt hier keine andere Internetseite"
+  },
+  "Nordic Winter Opening|2026-12-03": {
+    "am": "2026-11-25",
+    "ergebnis": "entfernt",
+    "quelle": "https://time2win.at/event/978",
+    "notiz": "Korrekturliste des Nutzers: Das ist Langlaufen und kein Laufen"
+  },
+  "Dinklager Adventslauf|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.laufen-os.de/wettkaempfe/24-dinklager-adventslauf-2026",
+    "notiz": "Korrekturliste des Nutzers: Es gibt keine Webseite. Es gibt nur weitere Infos auf dem Instagram Profil burglaeufer.dinklage"
+  },
+  "Flonheimer Adventslauf|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.tsg-flonheim.de/32569-2/",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "St. Pauli X-Mass-Run|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.stpauli-x-mass-run.de/",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "Fun & Erlebnis Marathons|2026-12-02": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/423151/",
+    "notiz": "Korrekturliste des Nutzers: Da gibts keine Webseite\nFEM Marathon"
+  },
+  "Haus Vortlage Marathon|2026-12-02": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/433496/",
+    "notiz": "Korrekturliste des Nutzers: Da gibts keine Webseite\nFEM Marathon"
+  },
+  "15. Zwettler Crosslauf (28.W.E.B. - Waldviertler Crosslaufserie - 2. Lauf|2026-12-05": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://sc-zwickl.zwettl.at/2026/09/15-crosslauf-im-zwettltal-am-05-12-2026/",
+    "notiz": "Korrekturliste des Nutzers: https://sc-zwickl.zwettl.at/2026/09/15-crosslauf-im-zwettltal-am-05-12-2026/\n\ndas ist die Ausschreibung"
+  },
+  "Course Caritative Living Free with HIV|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://my.raceresult.com/424341/",
+    "notiz": "Korrekturliste des Nutzers: Das sind nur 4,5km. Aber es ist ein Charity run, also nehmen wir den mal auf. Wir sind ja gute Menschen.\n\nes gibt hier keine Webseite nur die Race Result Seite"
+  },
+  "57. Int. Lustenauer Crosslaufserie - 1. Lauf|2026-12-05": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.tslustenau.at/crosslaufserie-2026/",
+    "notiz": "Korrekturliste des Nutzers: https://www.tslustenau.at/wp-content/uploads/2026-10-25-57-CL-Ausschreibung.pdf\n\ndas hier ist die Ausschreibung, aber bitte die aktuelle Webseite beibehalten"
+  },
+  "Cross Camignolo CTC|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.endu.net/it/events/cross-camignolo-ctc",
+    "notiz": "Korrekturliste des Nutzers: keine Angaben zur Länge - ohne Distanz veröffentlichen."
+  },
+  "A Travers Avenches|2026-12-04": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.course-a-travers-avenches.com/",
+    "notiz": "Korrekturliste des Nutzers: keine Distanzangabe - ohne Distanz veröffentlichen."
+  },
+  "Corrida Raiffeisen|2026-12-05": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.corrida-raiffeisen.ch/",
+    "notiz": "Korrekturliste des Nutzers: Strecke unbekannt, Charity-Event."
+  },
+  "GUNSHA Crosscup Lutherstadt Wittenberg|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://crosscup.org/rennen/wittenberg/",
+    "notiz": "Korrekturliste des Nutzers: 20-60 min je nach Jahrgang, keine andere Webseite."
   }
 }

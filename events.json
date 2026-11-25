@@ -1421,7 +1421,6 @@
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
     "veranstalter_url": "https://www.advents-aaseelauf.de/",
-    "pruefung_offen": true,
     "instagram": "advents_aaseelauf",
     "laenge_km": 5.0
   },
@@ -1438,8 +1437,7 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://www.advents-aaseelauf.de/",
-    "instagram": "advents_aaseelauf",
-    "pruefung_offen": true
+    "instagram": "advents_aaseelauf"
   },
   {
     "land": "Deutschland",
@@ -1453,8 +1451,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 17.6,
     "veranstalter_url": "https://www.llghunsrueck.de/adventstrail/",
-    "wettbewerb": "18 km",
-    "pruefung_offen": true
+    "wettbewerb": "17,6 km"
   },
   {
     "land": "Deutschland",
@@ -1466,10 +1463,9 @@
     "art2": "Trail",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "laenge_km": 12.0,
-    "wettbewerb": "12 km",
-    "veranstalter_url": "https://www.llghunsrueck.de/adventstrail/",
-    "pruefung_offen": true
+    "laenge_km": 11.8,
+    "wettbewerb": "11,8 km",
+    "veranstalter_url": "https://www.llghunsrueck.de/adventstrail/"
   },
   {
     "land": "Deutschland",
@@ -1592,10 +1588,11 @@
     "art2": "Straße",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
+    "laenge_km": 4.5,
+    "wettbewerb": "4,5 km",
     "veranstalter_url": "https://my.raceresult.com/424341/",
-    "pruefung_offen": true
+    "charity": true,
+    "mindestdistanz_ok": true
   },
   {
     "land": "Schweiz",
@@ -1607,8 +1604,7 @@
     "art2": "Trail",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "veranstalter_url": "https://www.endu.net/it/events/cross-camignolo-ctc",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.endu.net/it/events/cross-camignolo-ctc"
   },
   {
     "land": "Deutschland",
@@ -1634,10 +1630,10 @@
     "art2": "Straße",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km",
+    "laenge_km": 10.5,
+    "wettbewerb": "10,5 km",
     "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/24-dinklager-adventslauf-2026",
-    "pruefung_offen": true
+    "instagram": "burglaeufer.dinklage"
   },
   {
     "land": "Deutschland",
@@ -1652,7 +1648,7 @@
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
     "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/24-dinklager-adventslauf-2026",
-    "pruefung_offen": true
+    "instagram": "burglaeufer.dinklage"
   },
   {
     "land": "Deutschland",
@@ -1666,8 +1662,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 9.6,
     "wettbewerb": "9,6 km Adventslauf, ca. 2 Runden der Jedermannstrecke",
-    "veranstalter_url": "https://runtix.com/sts/10021/3242",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.tsg-flonheim.de/32569-2/"
   },
   {
     "land": "Deutschland",
@@ -1681,8 +1676,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 5.1,
     "wettbewerb": "5,1 km Jedermannlauf",
-    "veranstalter_url": "https://runtix.com/sts/10021/3242",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.tsg-flonheim.de/32569-2/"
   },
   {
     "land": "Deutschland",
@@ -1696,7 +1690,7 @@
     "datum_ende": "2026-11-29",
     "wettbewerb": "Cyclocross, GUNSHA Crosscup",
     "veranstalter_url": "https://crosscup.org/rennen/wittenberg/",
-    "pruefung_offen": true
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -1937,8 +1931,7 @@
     "datum_ende": "2026-11-29",
     "dauer_h": 0.67,
     "wettbewerb": "Cyclocross 40 min",
-    "veranstalter_url": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=0A88CA3BF8024068885453D9D7C2D774",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=0A88CA3BF8024068885453D9D7C2D774"
   },
   {
     "land": "Österreich",
@@ -2036,8 +2029,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/426800/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.stpauli-x-mass-run.de/"
   },
   {
     "land": "Deutschland",
@@ -2209,20 +2201,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Wittenberger Rad-Cross",
-    "standort": "Wittenberg",
-    "lat": 51.8759649,
-    "lon": 12.5950753,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2026-11-29",
-    "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://gruenweiss-piesteritz.de/abteilungen/radsport/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
     "name": "„MTB-Rennen für Lizenzfahrer und Jedermann\" Forst",
     "standort": "Forst",
     "lat": 51.7289793,
@@ -2248,7 +2226,6 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/423151/",
-    "pruefung_offen": true,
     "inoffiziell": true
   },
   {
@@ -2264,7 +2241,6 @@
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
     "veranstalter_url": "https://my.raceresult.com/423151/",
-    "pruefung_offen": true,
     "inoffiziell": true
   },
   {
@@ -2280,7 +2256,7 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://my.raceresult.com/433496/",
-    "pruefung_offen": true
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -2295,7 +2271,7 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/433496/",
-    "pruefung_offen": true
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -2307,9 +2283,9 @@
     "art2": "Straße",
     "datum_start": "2026-12-02",
     "datum_ende": "2026-12-02",
-    "dauer_h": 2.0,
-    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/",
-    "pruefung_offen": true
+    "dauer_h": 0.5,
+    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/21-lothar-fricke-winterlaufserie-2026-2027/",
+    "wettbewerb": "30 min"
   },
   {
     "land": "Deutschland",
@@ -2322,22 +2298,8 @@
     "datum_start": "2026-12-02",
     "datum_ende": "2026-12-02",
     "dauer_h": 1.0,
-    "wettbewerb": "1 hr",
-    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Österreich",
-    "name": "Nordic Winter Opening",
-    "standort": "Ramsau am Dachstein",
-    "lat": 47.42127,
-    "lon": 13.653102,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-03",
-    "datum_ende": "2026-12-06",
-    "veranstalter_url": "https://time2win.at/event/978",
-    "pruefung_offen": true
+    "wettbewerb": "60 min",
+    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/21-lothar-fricke-winterlaufserie-2026-2027/"
   },
   {
     "land": "Deutschland",
@@ -2363,7 +2325,6 @@
     "datum_start": "2026-12-04",
     "datum_ende": "2026-12-04",
     "veranstalter_url": "https://www.course-a-travers-avenches.com/",
-    "pruefung_offen": true,
     "instagram": "a.travers.avenches"
   },
   {
@@ -2393,8 +2354,7 @@
     "datum_ende": "2026-12-04",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://myracepartner.com/veranstaltung/?event-id=672207",
-    "pruefung_offen": true
+    "veranstalter_url": "https://myracepartner.com/veranstaltung/?event-id=672207"
   },
   {
     "land": "Deutschland",
@@ -2461,8 +2421,8 @@
     "art2": "Trail",
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
-    "veranstalter_url": "https://sc-zwickl.zwettl.at/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://sc-zwickl.zwettl.at/2026/09/15-crosslauf-im-zwettltal-am-05-12-2026/",
+    "laenge_km": 6.4
   },
   {
     "land": "Deutschland",
@@ -2569,22 +2529,7 @@
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://www.marathon-steinfurt.de",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "52. Steinfurter Nikolauslauf 10 km",
-    "standort": "Steinfurt",
-    "lat": 52.1494785,
-    "lon": 7.3362157,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-05",
-    "datum_ende": "2026-12-05",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://my.raceresult.com/426356/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.marathon-steinfurt.de/aktuelles/meldung/51-nikolauslauf-am-06122025/"
   },
   {
     "land": "Österreich",
@@ -2597,7 +2542,7 @@
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
     "veranstalter_url": "https://www.tslustenau.at/crosslaufserie-2026/",
-    "pruefung_offen": true
+    "laenge_km": 9.0
   },
   {
     "land": "Deutschland",
@@ -2973,7 +2918,7 @@
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
     "veranstalter_url": "https://www.corrida-raiffeisen.ch/",
-    "pruefung_offen": true
+    "charity": true
   },
   {
     "land": "Schweiz",
@@ -3017,20 +2962,6 @@
     "laenge_km": 8.5,
     "wettbewerb": "Langstrecke ca. 8.500 m",
     "veranstalter_url": "https://www.vfl-pinneberg.de/de/aktuelles/aktuelles/crosslauf/?returnToListName=News_Newsroom_de&returnToListPage=1"
-  },
-  {
-    "land": "Österreich",
-    "name": "Crosslauf im Zwettltal",
-    "standort": "Zwettl",
-    "lat": 48.6058353,
-    "lon": 15.1662692,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-12-05",
-    "datum_ende": "2026-12-05",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "https://sc-zwickl.zwettl.at/2026/09/15-crosslauf-im-zwettltal-am-05-12-2026/"
   },
   {
     "land": "Deutschland",
@@ -3086,8 +3017,7 @@
     "datum_ende": "2026-12-05",
     "laenge_km": 30.0,
     "wettbewerb": "30 km",
-    "veranstalter_url": "https://my.raceresult.com/433609/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://my.raceresult.com/433609/"
   },
   {
     "land": "Deutschland",
@@ -3099,25 +3029,9 @@
     "art2": "Straße",
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
-    "laenge_km": 45.0,
+    "laenge_km": 45.3,
     "wettbewerb": "45 km",
-    "veranstalter_url": "https://my.raceresult.com/433609/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "Eversburger Gewässer Ultramarathon",
-    "standort": "Osnabrück",
-    "lat": 52.2799112,
-    "lon": 8.0471788,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-05",
-    "datum_ende": "2026-12-05",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/433609/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://my.raceresult.com/433609/"
   },
   {
     "land": "Schweiz",
@@ -4885,19 +4799,6 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
     "veranstalter_url": "https://www.ftjahn-landsberg.de/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Österreich",
-    "name": "Nordic Winter Opening",
-    "standort": "Ramsau am Dachstein",
-    "lat": 47.42127,
-    "lon": 13.653102,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "veranstalter_url": "https://www.nordic-opening.info",
     "pruefung_offen": true
   },
   {
@@ -11914,7 +11815,8 @@
     "laenge_km": 71.0,
     "wettbewerb": "71 km",
     "veranstalter_url": "https://my.raceresult.com/423242/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -11929,7 +11831,8 @@
     "laenge_km": 54.0,
     "wettbewerb": "54 km",
     "veranstalter_url": "https://my.raceresult.com/423242/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -11985,7 +11888,8 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 45.6,
     "wettbewerb": "Ultramarathon",
-    "veranstalter_url": "https://my.raceresult.com/422344/"
+    "veranstalter_url": "https://my.raceresult.com/422344/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -11999,7 +11903,8 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 22.8,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/422344/"
+    "veranstalter_url": "https://my.raceresult.com/422344/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -13469,7 +13374,8 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/410134/"
+    "veranstalter_url": "https://my.raceresult.com/410134/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -14039,7 +13945,8 @@
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
     "veranstalter_url": "https://my.raceresult.com/318774/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -14054,7 +13961,8 @@
     "laenge_km": 51.0,
     "wettbewerb": "51 km",
     "veranstalter_url": "https://my.raceresult.com/318774/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -15552,7 +15460,8 @@
     "laenge_km": 45.0,
     "wettbewerb": "45 km",
     "veranstalter_url": "https://my.raceresult.com/433977/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Schweiz",
@@ -17023,7 +16932,7 @@
     "art2": "Straße",
     "datum_start": "2027-01-13",
     "datum_ende": "2027-01-13",
-    "dauer_h": 2.0,
+    "dauer_h": 0.5,
     "wettbewerb": "1/2Stdlauf",
     "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/",
     "pruefung_offen": true
@@ -18211,7 +18120,8 @@
     "laenge_km": 52.0,
     "wettbewerb": "52 km",
     "veranstalter_url": "https://my.raceresult.com/431920/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -19697,7 +19607,8 @@
     "laenge_km": 22.0,
     "wettbewerb": "22 km",
     "veranstalter_url": "https://my.raceresult.com/423983/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -19712,7 +19623,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/423983/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -20104,20 +20016,6 @@
     "laenge_km": 52.0,
     "wettbewerb": "CTF 52 km",
     "veranstalter_url": "https://westfalen-winter-bike-trophy.org/westfalen-winterbike-trophy-des-rv-witten/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "RausZeit Nordic",
-    "standort": "Reit im Winkl",
-    "lat": 47.6766377,
-    "lon": 12.4692465,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-29",
-    "datum_ende": "2027-01-29",
-    "veranstalter_url": "https://rauszeit.world/",
-    "dauer_h": 5.0,
-    "instagram": "rauszeit.nordic"
   },
   {
     "land": "Österreich",
@@ -20572,7 +20470,7 @@
     "laenge_km": 42.2,
     "veranstalter_url": "https://my.raceresult.com/428636",
     "pruefung_offen": true,
-    "inoffiziell": true
+    "inoffiziell": false
   },
   {
     "land": "Deutschland",
@@ -20726,7 +20624,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/428636/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": false
   },
   {
     "land": "Deutschland",
@@ -22111,7 +22010,8 @@
     "laenge_km": 42.2,
     "veranstalter_url": "https://my.raceresult.com/369959",
     "wettbewerb": "Marathon",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -22126,7 +22026,8 @@
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
     "veranstalter_url": "https://my.raceresult.com/383851/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -22348,7 +22249,8 @@
     "laenge_km": 53.0,
     "wettbewerb": "53 km",
     "veranstalter_url": "https://my.raceresult.com/434692/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -23756,7 +23658,8 @@
     "datum_ende": "2027-02-21",
     "laenge_km": 42.2,
     "veranstalter_url": "https://my.raceresult.com/386628",
-    "wettbewerb": "43 km"
+    "wettbewerb": "43 km",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -23770,7 +23673,8 @@
     "datum_ende": "2027-02-21",
     "laenge_km": 35.0,
     "wettbewerb": "35 km",
-    "veranstalter_url": "https://my.raceresult.com/386628/"
+    "veranstalter_url": "https://my.raceresult.com/386628/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -23784,7 +23688,8 @@
     "datum_ende": "2027-02-21",
     "laenge_km": 29.0,
     "wettbewerb": "29 km",
-    "veranstalter_url": "https://my.raceresult.com/386628/"
+    "veranstalter_url": "https://my.raceresult.com/386628/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -23798,7 +23703,8 @@
     "datum_ende": "2027-02-21",
     "laenge_km": 14.0,
     "wettbewerb": "14 km",
-    "veranstalter_url": "https://my.raceresult.com/386628/"
+    "veranstalter_url": "https://my.raceresult.com/386628/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -23812,7 +23718,8 @@
     "datum_ende": "2027-02-21",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://my.raceresult.com/386628/"
+    "veranstalter_url": "https://my.raceresult.com/386628/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -23826,7 +23733,8 @@
     "datum_ende": "2027-02-21",
     "laenge_km": 20.8,
     "wettbewerb": "20,75 km Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/386628/"
+    "veranstalter_url": "https://my.raceresult.com/386628/",
+    "inoffiziell": true
   },
   {
     "land": "Schweiz",
@@ -25399,7 +25307,7 @@
     "art2": "Straße",
     "datum_start": "2027-03-03",
     "datum_ende": "2027-03-03",
-    "dauer_h": 2.0,
+    "dauer_h": 0.5,
     "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/",
     "pruefung_offen": true
   },
@@ -25962,7 +25870,8 @@
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
     "veranstalter_url": "https://my.raceresult.com/427847/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Österreich",
@@ -28256,7 +28165,8 @@
     "laenge_km": 56.0,
     "wettbewerb": "56 km",
     "veranstalter_url": "https://my.raceresult.com/426935/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Schweiz",
@@ -28877,7 +28787,8 @@
     "laenge_km": 48.0,
     "wettbewerb": "48 km",
     "veranstalter_url": "https://my.raceresult.com/431385/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -32784,7 +32695,8 @@
     "datum_ende": "2027-03-21",
     "laenge_km": 57.0,
     "wettbewerb": "57 km",
-    "veranstalter_url": "https://my.raceresult.com/422662/"
+    "veranstalter_url": "https://my.raceresult.com/422662/",
+    "charity": true
   },
   {
     "land": "Schweiz",
@@ -33726,7 +33638,8 @@
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
     "veranstalter_url": "https://my.raceresult.com/434627/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -33741,7 +33654,8 @@
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
     "veranstalter_url": "https://my.raceresult.com/434627/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -33912,7 +33826,8 @@
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
     "veranstalter_url": "https://my.raceresult.com/434626/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -34316,7 +34231,8 @@
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
     "veranstalter_url": "https://my.raceresult.com/431617/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -34331,7 +34247,8 @@
     "laenge_km": 34.0,
     "wettbewerb": "34 km",
     "veranstalter_url": "https://my.raceresult.com/431617/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -34346,7 +34263,8 @@
     "laenge_km": 45.0,
     "wettbewerb": "45 km",
     "veranstalter_url": "https://my.raceresult.com/431617/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Österreich",
@@ -34451,7 +34369,8 @@
     "laenge_km": 31.0,
     "wettbewerb": "31 km",
     "veranstalter_url": "https://my.raceresult.com/431738/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -34466,7 +34385,8 @@
     "laenge_km": 47.0,
     "wettbewerb": "47 km",
     "veranstalter_url": "https://my.raceresult.com/431738/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -36352,7 +36272,8 @@
     "laenge_km": 47.0,
     "wettbewerb": "47 km",
     "veranstalter_url": "https://my.raceresult.com/431549/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Österreich",
@@ -47746,7 +47667,8 @@
     "laenge_km": 60.0,
     "wettbewerb": "60 km",
     "veranstalter_url": "https://my.raceresult.com/432019/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -68106,7 +68028,8 @@
     "laenge_km": 45.0,
     "wettbewerb": "45 km",
     "veranstalter_url": "https://my.raceresult.com/432026/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Österreich",
@@ -69891,7 +69814,8 @@
     "datum_ende": "2027-05-29",
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
-    "veranstalter_url": "https://my.raceresult.com/403275/"
+    "veranstalter_url": "https://my.raceresult.com/403275/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -97915,7 +97839,8 @@
     "laenge_km": 12.0,
     "wettbewerb": "12 km",
     "veranstalter_url": "https://my.raceresult.com/419969/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -97930,7 +97855,8 @@
     "laenge_km": 18.0,
     "wettbewerb": "18 km",
     "veranstalter_url": "https://my.raceresult.com/419969/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -97945,7 +97871,8 @@
     "laenge_km": 24.0,
     "wettbewerb": "24 km",
     "veranstalter_url": "https://my.raceresult.com/419969/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -97960,7 +97887,8 @@
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
     "veranstalter_url": "https://my.raceresult.com/419969/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -104300,7 +104228,8 @@
     "laenge_km": 63.0,
     "wettbewerb": "63 km",
     "veranstalter_url": "https://my.raceresult.com/433158/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -109180,7 +109109,8 @@
     "laenge_km": 47.0,
     "wettbewerb": "47 km",
     "veranstalter_url": "https://my.raceresult.com/431125/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -109195,7 +109125,8 @@
     "laenge_km": 67.0,
     "wettbewerb": "67 km",
     "veranstalter_url": "https://my.raceresult.com/431125/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -109210,7 +109141,8 @@
     "laenge_km": 114.0,
     "wettbewerb": "114 km",
     "veranstalter_url": "https://my.raceresult.com/431125/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -114443,7 +114375,8 @@
     "laenge_km": 47.0,
     "wettbewerb": "47 km",
     "veranstalter_url": "https://my.raceresult.com/431125/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -114458,7 +114391,8 @@
     "laenge_km": 67.0,
     "wettbewerb": "67 km",
     "veranstalter_url": "https://my.raceresult.com/431125/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -114473,7 +114407,8 @@
     "laenge_km": 114.0,
     "wettbewerb": "114 km",
     "veranstalter_url": "https://my.raceresult.com/431125/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -140671,7 +140606,7 @@
     "art2": "Straße",
     "datum_start": "2027-12-01",
     "datum_ende": "2027-12-01",
-    "dauer_h": 2.0,
+    "dauer_h": 0.5,
     "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/",
     "pruefung_offen": true
   },

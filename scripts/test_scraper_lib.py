@@ -2493,7 +2493,13 @@ def test_stundenlauf() -> None:
             ("15. Bokeler 6 Stundenlauf", 6.0),
             ("24-Stunden-Lauf", 24.0),
             ("12h Lauf", 12.0),
+            # Ein Bruch ist eine halbe Stunde, nicht der Nenner (25.11.2026,
+            # Lothar Fricke-Winterlaufserie: "1/2Stdlauf" stand mit 2 h da).
+            ("1/2Stdlauf", 0.5),
+            ("½ Stunde", 0.5),
+            ("2Std Lauf", 2.0),
             # Gegenproben: kein Zeitrennen.
+            ("½ Marathon", None),
             ("Halbmarathon", None),
             ("Stundenplan der Wettkämpfe", None),
             ("Zeitlimit 6 Stunden", None)):
@@ -2802,7 +2808,7 @@ def test_nicht_ausdauer() -> None:
                  "König-Ludwig-Langlauf", "Gehermeeting: Gehertag Naumburg",
                  # Skilanglauf, am 27.10.2026 sichtbar in der Liste gefunden
                  "Planoiras Volkslanglauf Lenzerheide", "Skadi Loppet", "Gantrisch Loppet",
-                 "Kandersteger Nordic Days", "Gommerlauf", "Ganghoferlauf Leutasch",
+                 "Kandersteger Nordic Days", "Nordic Winter Opening", "RausZeit Nordic", "Gommerlauf", "Ganghoferlauf Leutasch",
                  "Rucksacklauf 100 km Klassisch", "Gommerlauf Gommer Skating-Kombi, 63 km (freie Technik)",
                  # virtuelle Läufe (Nutzer, 21.09.2026)
                  "Virtueller Silvesterlauf", "Virtual Run Berlin"):
@@ -2827,7 +2833,8 @@ def test_nicht_ausdauer() -> None:
                  "Napf-Marathon 42.195 km klassischer Marathon",
                  "Freimarktslauf Garrel 10 km Klassische Strecke durch Garrel",
                  "Giro Media Blenio 10 km , klassische Distanz.", "Lauf am Langlaufzentrum",
-                 "2B Schöckl-Halterhütte-Rucksacklauf", "Nordic Walking Tag"):
+                 "2B Schöckl-Halterhütte-Rucksacklauf", "Nordic Walking Tag",
+                 "Nordic Chase - Berlin to Copenhagen"):
         check(f"{name!r} bleibt", ist_nicht_ausdauer(name), None)
     # Der Ort zählt mit: Die XMAS-Challenge trug "virtuell" nur dort.
     from scraper_lib import nicht_ausdauer_text
@@ -3595,7 +3602,7 @@ def test_inoffiziell() -> None:
                       ("Speck-weg Marathon", None),
                       ("SOBVL Herbstmarathon", None),
                       ("Wir wollen doch nur laufen - Marathon", None),
-                      ("12. Hamburger 100MC Elbtunnel-Marathon", None),
+                      ("100 MCS Green Marathon", "https://www.100marathonclub.ch/termine/100mcs_marathons"),
                       ("Eversburger Gewässer Ultramarathon", "https://www.ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/")):
         check(f"{name!r} -> inoffiziell", ist_inoffiziell(name, url), True)
     # Gegenproben: gewöhnliche Läufe, auch mit ähnlichen Wörtern.
@@ -3603,7 +3610,10 @@ def test_inoffiziell() -> None:
                       ("Femina Lauf Fürth", None),
                       ("100 km von Biel", None),
                       ("Erlebnislauf am Kemnader See", None),
-                      ("Eversburger Gewässer Ultramarathon", "https://my.raceresult.com/433609/")):
+                      ("Eversburger Gewässer Ultramarathon", "https://my.raceresult.com/433609/"),
+                      # Der 100 MC Deutschland richtet auch echte Wettkämpfe aus.
+                      ("12. Hamburger 100MC Elbtunnel-Marathon", "https://my.raceresult.com/428636"),
+                      ("Neckarufer Marathon", "https://www.100-marathon-club.de/")):
         check(f"{name!r} bleibt offiziell", ist_inoffiziell(name, url), False)
 
     rows = [

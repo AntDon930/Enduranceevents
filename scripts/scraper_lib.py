@@ -259,17 +259,24 @@ def ist_charity(text: str) -> bool:
 # "Kofferraumverpflegung", "keine wettkampforientierte Veranstaltung").
 #
 # Die Regel erkennt nur die SERIEN, die das am Namen oder an der Seite
-# tragen - am Bestand vom 25.11.2026 ohne Fehltreffer gezählt: die Fun &
-# Erlebnis Marathons (FEM), Speck-weg, SOBVL, "Wir wollen doch nur
-# laufen", Läufe des 100 Marathon Club ("100MC") und die Termine von
-# "Uwes Laufangebote" (ultra-uwe-unterwegs.de). Einzelne Läufe, die nur
-# über raceresult verlinkt sind, markiert ein Override (`inoffiziell`),
-# und das Gedächtnis je Veranstaltung gibt die Markierung an die nächste
-# Ausgabe weiter (veranstalter_seiten.anwenden).
+# tragen - am Bestand vom 25.11.2026 gezählt: die Fun & Erlebnis
+# Marathons (FEM), Speck-weg, SOBVL, "Wir wollen doch nur laufen", die
+# Termine von "Uwes Laufangebote" (ultra-uwe-unterwegs.de) und die Green
+# Marathon Challenge des 100 Marathon Club Schweiz (100marathonclub.ch).
+# NICHT der 100 Marathon Club Deutschland als Ganzes: Er richtet auch
+# echte Wettkämpfe aus - den 100MC-Elbtunnel-Marathon (Rennleitung,
+# vermessene Strecke, Zielschluss) und den zertifizierten Neckarufer
+# Marathon (25 Euro Startgeld). Die erste Fassung hatte "100MC" im Namen
+# und 100-marathon-club.de als Host und markierte den Elbtunnel-Marathon
+# zu Unrecht; seine Zählläufe (Frauenkopf Marathon Stuttgart: "ausdrücklich
+# nicht um eine … Veranstaltung, sondern um ein Organisationsangebot")
+# stehen per Override. Einzelne Läufe, die nur über raceresult verlinkt
+# sind, ebenso (`inoffiziell`), und das Gedächtnis je Veranstaltung gibt
+# die Markierung an die nächste Ausgabe weiter (veranstalter_seiten.anwenden).
 INOFFIZIELL_NAME = re.compile(
     r"fun\s*(?:&|und|and)\s*erlebnis|\bfem\b|speck[\s-]*weg|\bsobvl\b|"
-    r"wir wollen doch nur laufen|\b100\s*mcs?\b", re.I)
-INOFFIZIELL_HOSTS = ("ultra-uwe-unterwegs.de", "100-marathon-club.de", "100marathonclub.ch")
+    r"wir wollen doch nur laufen", re.I)
+INOFFIZIELL_HOSTS = ("ultra-uwe-unterwegs.de", "100marathonclub.ch")
 
 
 def ist_inoffiziell(name: str | None, url: str | None = None) -> bool:
@@ -1189,8 +1196,12 @@ def parse_elevation_m(text: str) -> float | None:
 #
 # Plausibel sind 1 bis 72 Stunden (typisch 6/12/24/48; Backyard-Rennen
 # laufen theoretisch länger, geben aber keine Dauer an).
+# "/" steht seit dem 25.11.2026 in der Sperre davor: "1/2Stdlauf" (Lothar
+# Fricke-Winterlaufserie Quedlinburg) wurde sonst als 2-Stunden-Lauf
+# gelesen - der Nenner des Bruchs galt als Dauer. Den Bruch selbst liest
+# _STUNDENLAUF_OHNE_ZAHL.
 _DURATION_PATTERN = re.compile(
-    r"(?<![\w,.:])(\d{1,3}(?:[.,]5)?)\s*[-‑–]?\s*"
+    r"(?<![\w,.:/])(\d{1,3}(?:[.,]5)?)\s*[-‑–]?\s*"
     r"(?:h(?![a-zäöü])|std\.?|stunden(?:lauf|rennen)?|stunden-?lauf|hours?|hrs?\b)",
     re.I,
 )
@@ -1221,7 +1232,8 @@ DURATION_MAX_H = 72.0
 # ("6 Stundenlauf") fängt `_DURATION_PATTERN` schon ab, und das läuft
 # zuerst. Hier landet nur, was gar keine Zahl nennt.
 _STUNDENLAUF_OHNE_ZAHL = [
-    (re.compile(r"halbe?s?[-\s]?stundenlauf|halbstundenlauf", re.I), 0.5),
+    (re.compile(r"halbe?s?[-\s]?stundenlauf|halbstundenlauf|"
+                r"(?<![\d,.])(?:1\s*/\s*2|½)\s*-?\s*(?:std\b|stdlauf|stunde)", re.I), 0.5),
     (re.compile(r"stunden(?:lauf|rennen)", re.I), 1.0),
 ]
 
@@ -2836,8 +2848,14 @@ NICHT_AUSDAUER: list[tuple[re.Pattern, str]] = [
     # Ganghoferlauf und die Kandersteger Nordic Days tragen nur ihre Marke.
     # "Inlineskating" (Berlin Marathon), "klassischer Marathon" und der
     # "Langläufer-Cup" bleiben.
+    # Am 25.11.2026 vom Nutzer am "Nordic Winter Opening" (Ramsau) gemeldet
+    # ("Das ist Langlaufen und kein Laufen"): nordic-opening.info nennt
+    # Loipen, Langlaufschulen und Biathlon; "RausZeit nordic" (Reit im
+    # Winkl) ist laut rauszeit.world "das Skilanglauf-Event". Beide tragen
+    # nur ihre Marke. "Nordic Walking" und die "Nordic Chase" (Rad) bleiben.
     (re.compile(r"skilanglauf|ski-langlauf|\w*langlauf\b|skimarathon|\w*loppet\b|"
                 r"ganghoferlauf|gommerlauf|nordic\s+days?\b|\bkm\s+klassisch\b|"
+                r"nordic[\s-]+(?:winter[\s-]+)?opening|rauszeit[\s.]*nordic|"
                 r"(?<!inline)(?<!inline-)(?<!inline\s)\bskating\b|freie\s+technik", re.I),
      "Skilanglauf (keine Laufveranstaltung)"),
     # Virtuelle Läufe ("egal wo, egal wann") haben weder Ort noch Termin

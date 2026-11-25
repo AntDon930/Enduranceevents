@@ -491,6 +491,10 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Mad Chicken Run, …), dort hielt nur das abweichende Label die Zeilen
    auseinander – die Regel macht ausdrücklich, was der Bestand zeigte.
    Ohne JEDE Angabe bleibt es ein Duplikat.
+   **Ein Bruch ist eine halbe Stunde** (25.11.2026): „1/2Stdlauf“ der
+   Quedlinburger Winterlaufserie stand mit 2 h da – `_DURATION_PATTERN`
+   las den Nenner. Seitdem sperrt „/“ davor, und „1/2 Std“/„½ Stunde“
+   stehen bei `_STUNDENLAUF_OHNE_ZAHL` (0,5 h); `test_stundenlauf`.
 
    **Die Rundenlänge ist keine Renndistanz** – inzwischen die vierte
    Begegnung mit dieser Fehlerklasse (Backyard-Runde, „Running Paule
@@ -1231,21 +1235,35 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    true`**, die Kategorie (Straße/Trail) bleibt.
    - **Regel** `scraper_lib.ist_inoffiziell(name, url)`: nur die Serien,
      die es am Namen oder an der Seite tragen – Fun & Erlebnis (FEM),
-     Speck-weg, SOBVL, „Wir wollen doch nur laufen“, „100MC“ im Namen,
-     Hosts `ultra-uwe-unterwegs.de`, `100-marathon-club.de`,
-     `100marathonclub.ch`; nur `art1 == "Laufen"`
-     (`clean_events.fix_inoffiziell()`, setzt nur, nimmt nie weg).
-     Am Bestand 84 Zeilen in 44 Veranstaltungen, ohne Fehltreffer.
+     Speck-weg, SOBVL, „Wir wollen doch nur laufen“, Hosts
+     `ultra-uwe-unterwegs.de` und `100marathonclub.ch`; nur
+     `art1 == "Laufen"` (`clean_events.fix_inoffiziell()`, setzt nur,
+     nimmt nie weg). **NICHT „100MC“ und nicht `100-marathon-club.de`**:
+     Der 100 Marathon Club Deutschland richtet auch echte Wettkämpfe aus
+     (Elbtunnel-Marathon mit Rennleitung und vermessener Strecke,
+     zertifizierter Neckarufer Marathon für 25 €) – die erste Fassung hat
+     den Elbtunnel-Marathon zu Unrecht markiert, er steht jetzt mit
+     `inoffiziell: false` im Override.
    - **Einzelne Läufe, die nur raceresult verlinken**, per Override
-     `inoffiziell: true` (mit Beleg aus der raceresult-Seite: Gerd
-     Junker, Uwe Laig, Volkmar Henke, Bernhard Marathon, 100 MC Schweiz);
-     `false` schaltet eine Fehlmarkierung ab. **Das Gedächtnis gibt die
-     Markierung an die nächste Ausgabe weiter**
-     (`veranstalter_seiten.lerne_ausgabe`/`anwenden`) – sonst verlöre der
-     Lauf sie mit dem Datum des Overrides. Grenzfälle bleiben unmarkiert
-     (Northeimer Heiligabend-Marathon: eigene Zeitnahme, aber
-     Streckenrekorde; Halbmarathon-Trainingsläufe) – der Name sagt
-     „Marathon“, also Marathon und länger.
+     `inoffiziell: true`, je mit Beleg aus der raceresult-Seite (Scan
+     aller 268 raceresult-Läufe am 25.11.2026, die langen zuerst; bei
+     429 mit 20 s Pause und `prio.json` neu starten). **Maßstab** (die
+     Beschreibung des Nutzers: „Parkplatz, 5 Euro oder umsonst, kein
+     offizielles Event, nicht um Bestzeiten“): Die Seite sagt selbst
+     „privat organisiert“, „keine wettkampforientierte Veranstaltung“,
+     „Zählordnung“/„nach den Regeln des 100 Marathon Club“, oder der Lauf
+     kostet höchstens ~10 € bzw. eine Spende bei Hand- oder
+     Selbstzeitnahme (Uwe und Susanne Laig, Ute Karklis, Gerd Junker,
+     Volkmar Henke, Melanie Ruppenthal, Olaf Häslers Spendenläufe).
+     **Unmarkiert bleiben** Läufe mit normalem Startgeld, Chip oder
+     DUV-Meldung, auch wenn derselbe Kreis sie ausrichtet (Osnabrücker
+     Ringweg 28 €, Bremer Bergmarathon, Viadukt Ultra 22 €, 39 Meilen
+     Teuto Challenge, Northeim mit RFID und Streckenrekorden, Thunersee
+     Ultra 20 Fr.) – im Zweifel nicht. `false` schaltet eine
+     Fehlmarkierung ab. **Das Gedächtnis gibt die Markierung an die
+     nächste Ausgabe weiter** (`veranstalter_seiten.lerne_ausgabe`/
+     `anwenden`) – sonst verlöre der Lauf sie mit dem Datum des
+     Overrides. Stand 25.11.2026: 140 Zeilen in 74 Veranstaltungen.
    - **Anzeige**: Schildchen „inoffiziell“ hinter der Kategorie in der
      Tabelle (`inoffiziellMarke`, gestrichelt), Abzeichen „Nicht
      offizieller Marathon“ in der Box mit der Erklärung SICHTBAR darunter
