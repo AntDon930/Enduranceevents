@@ -183,7 +183,7 @@ Dezimaltrennzeichen in DE und EN, die **Mastersuche** (Ort UND Name,
 Chip, `?s=` in der Adresse, das ✕), das **zweizeilige Datum** bei
 mehrtägigen Rennen, die **Startseite als Reise** (`pruefe_startseite`: Events-Knopf
 im Kopf mit demselben Ziel wie die erste Info, links von der Anmeldung; echte
-Zahlen, Karte mit Umriss und Punkten, Menüpunkt orange im Abschnitt, Ziel jeder
+Zahlen, Karte mit Umriss und Punkten, kein Menüpunkt orange, Ziel jeder
 Info, Zoom und Seite im selben Fenster, Rückweg, Menü fährt erst zur Station,
 Strg-Klick = neuer Tab), der **Kartenrahmen**
 (Herauszoomen hat eine Grenze, keine zweite Weltkarte daneben), die
@@ -3436,7 +3436,8 @@ sagt es).
     es deshalb keinen „Seite öffnen“-Knopf. `pageshow` (`persisted`) setzt
     den Zoom zurück, wenn man mit „Zurück“ aus dem Zwischenspeicher kommt.
   - **Die Kopfzeile bleibt stehen** (fest, `--kopf-h` misst ihre Höhe),
-    der Menüpunkt des Abschnitts ist orange (`.aktiv`, `aria-current`),
+    **kein Menüpunkt wird orange markiert** (25.11.2026, vom Nutzer: ein
+    oranges „Events“ beim Ankommen wirkte wie „schon dort“, niemand klickte),
     oben läuft ein Fortschrittsbalken; ein Klick auf Events/Clubs/Karte/
     Blog **fährt erst die Reise bis zur Station**, zoomt dann und öffnet
     die Seite (`fahreZu`; Mausrad, Wischen oder eine Taste brechen die

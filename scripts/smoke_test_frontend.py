@@ -794,7 +794,7 @@ def pruefe_startseite(ctx, basis):
            "am Start nur „N Events“ und „N Clubs“, ohne Kennung und Erklärzeile (%s)" % [i["satz"] for i in start["infos"]])
     pruefe(stand["land"] == 1 and stand["punkte"] > 100,
            "die Karte hat Umriss und Punkte (%d Umriss, %d Punkte)" % (stand["land"], stand["punkte"]))
-    pruefe(stand["aktiv"] == ["events"], "oben ist „Events“ orange markiert (%s)" % stand["aktiv"])
+    pruefe(stand["aktiv"] == [], "oben ist kein Menüpunkt orange markiert (%s)" % stand["aktiv"])
     ende = seite.evaluate("""() => ({
         fuss: Math.round(document.querySelector('.site-footer').getBoundingClientRect().bottom + scrollY),
         hoehe: document.documentElement.scrollHeight,
@@ -865,12 +865,12 @@ def pruefe_startseite(ctx, basis):
                 "events-triathlon>events.html?sportart=Triathlon", "karte>karte.html", "blog>blog.html"}
     pruefe(set(stand["ziele"]) == erwartet, "jede Info führt auf ihre Seite (%s)" % sorted(set(stand["ziele"]) ^ erwartet))
 
-    # Scrollen: der Menüpunkt des Abschnitts wird orange
+    # Scrollen: auch im Abschnitt wird KEIN Menüpunkt orange (25.11.2026)
     seite.evaluate("""() => { const t = document.querySelector('.info[data-station="clubs"]'); const r = t.getBoundingClientRect();
         scrollTo(0, r.top + scrollY + r.height / 2 - innerHeight / 2); }""")
     seite.wait_for_timeout(500)
     aktiv = seite.evaluate("() => Array.from(document.querySelectorAll('.site-nav .nav-link.aktiv')).map(a => a.dataset.station)")
-    pruefe(aktiv == ["clubs"], "beim Sportplatz ist „Clubs“ orange (%s)" % aktiv)
+    pruefe(aktiv == [], "beim Sportplatz ist kein Menüpunkt orange (%s)" % aktiv)
 
     # Die Runde auf der Bahn (20.11.2026, vom Nutzer: „die Laufgruppe soll
     # bitte einmal rumlaufen und danach auf die Karte“): Im Clubs-Abschnitt

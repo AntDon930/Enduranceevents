@@ -145,7 +145,6 @@
      Fluss würde dabei die Seite verschieben. Die Höhe misst das Skript
      (--kopf-h), der Kopf der Reise rückt um sie nach unten. */
   .site-header.top-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 30; }
-  .site-nav .nav-link.aktiv { color: var(--brand); }
   .fortschritt { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; pointer-events: none; }
   .fortschritt i { display: block; height: 100%; width: 0; background: var(--brand); }
   @media (max-width: 900px) {
@@ -1020,7 +1019,7 @@
   const farbeBei = (y) => FARBE_AB.find(([bis]) => y < bis)[1];
   const balken = $('#balken');
   const navLinks = $$('.site-nav .nav-link[data-station]');
-  let offen = false, aktivBereich = null;
+  let offen = false;
   let fingerY = null, sperreAn = false; // Sperre gegen das Nachfedern unten (sperreUnten)
   function alles() {
     const max = scrollMax();
@@ -1046,12 +1045,9 @@
     setzePunkt();
     halo.setAttribute('cx', x); halo.setAttribute('cy', y);
     const farbe = farbeBei(y);
-    // Die Kopfzeile zeigt, wo man gerade ist
-    const bereich = y < 2730 ? 'events' : y < 3420 ? 'clubs' : y < 4310 ? 'karte' : 'blog';
-    if (bereich !== aktivBereich) {
-      aktivBereich = bereich;
-      navLinks.forEach((b) => { const an = b.dataset.station === bereich; b.classList.toggle('aktiv', an); if (an) b.setAttribute('aria-current', 'location'); else b.removeAttribute('aria-current'); });
-    }
+    // KEINE Markierung des Abschnitts im Menü (25.11.2026, vom Nutzer: ein
+    // oranges „Events“ beim Ankommen las sich wie „du bist schon dort“, und
+    // niemand klickte mehr darauf). Nicht wieder einbauen.
     gruppe.forEach((c, k) => {
       const j = v - (k + 1) * 11;
       if (j < 0) { c.setAttribute('opacity', 0); return; }
