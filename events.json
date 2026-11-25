@@ -1,63 +1,6 @@
 [
   {
     "land": "Deutschland",
-    "name": "Gevattersee-Marathon",
-    "standort": "Bückeburg",
-    "lat": 52.2611037,
-    "lon": 9.0488959,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-23",
-    "datum_ende": "2026-11-23",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://jobst-von-palombini.webnode.com",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "Vollmond Community Run & Walk - Marktheidenfeld",
-    "standort": "Marktheidenfeld",
-    "lat": 49.8454938,
-    "lon": 9.6088146,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-24",
-    "datum_ende": "2026-11-24",
-    "veranstalter_url": "https://rickyssporttreff.de/wpa-events/vollmond-community-run-walk-24-11/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "Fun & Erlebnis Marathons",
-    "standort": "Hamburg",
-    "lat": 53.5488282,
-    "lon": 9.9871703,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-25",
-    "datum_ende": "2026-11-25",
-    "laenge_km": 42.2,
-    "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/423148/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "Fun & Erlebnis Marathons",
-    "standort": "Hamburg",
-    "lat": 53.5488282,
-    "lon": 9.9871703,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-25",
-    "datum_ende": "2026-11-25",
-    "laenge_km": 50.0,
-    "wettbewerb": "50 km",
-    "veranstalter_url": "https://my.raceresult.com/423148/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
     "name": "Orange Day Hannover",
     "standort": "Hannover",
     "lat": 52.3758916,
@@ -68,8 +11,7 @@
     "datum_ende": "2026-11-25",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.marathon-hannover.de/orangeday.html",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.marathon-hannover.de/orangeday.html"
   },
   {
     "land": "Schweiz",
@@ -179,8 +121,8 @@
     "art2": "Trail",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
-    "veranstalter_url": "https://lcwaldviertel.com/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://lcwaldviertel.com/?p=3884",
+    "laenge_km": 6.1
   },
   {
     "land": "Deutschland",
@@ -199,7 +141,7 @@
   {
     "land": "Deutschland",
     "name": "33. Villmarer Dorflauf",
-    "standort": "villmar",
+    "standort": "Villmar",
     "lat": 50.3997,
     "lon": 8.2314,
     "art1": "Laufen",
@@ -207,8 +149,23 @@
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://www.lf-1987-villmar.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://lf-1987-villmar.de/33-villmarer-dorflauf-findet-statt/",
+    "wettbewerb": "10 km Hauptlauf"
+  },
+  {
+    "land": "Deutschland",
+    "name": "33. Villmarer Dorflauf",
+    "standort": "Villmar",
+    "lat": 50.3997,
+    "lon": 8.2314,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-28",
+    "datum_ende": "2026-11-28",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://lf-1987-villmar.de/33-villmarer-dorflauf-findet-statt/"
   },
   {
     "land": "Deutschland",
@@ -360,7 +317,7 @@
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
     "veranstalter_url": "https://crosslaufcup.gknet.at",
-    "pruefung_offen": true
+    "laenge_km": 8.0
   },
   {
     "land": "Österreich",
@@ -379,17 +336,31 @@
   {
     "land": "Deutschland",
     "name": "Eschweiler Waldlauf",
-    "standort": "Eschweiler Wald",
-    "lat": 50.7941667,
-    "lon": 6.2569444,
+    "standort": "Eschweiler",
+    "lat": 50.799301,
+    "lon": 6.250463,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
     "laenge_km": 7.0,
-    "wettbewerb": "7 km",
-    "veranstalter_url": "http://www.lsg-eschweiler.de",
-    "pruefung_offen": true
+    "wettbewerb": "7 km Männer (M30+)",
+    "veranstalter_url": "https://www.lsg-eschweiler.de/downloads/ausschreibung_region_waldlauf_26.pdf"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Eschweiler Waldlauf",
+    "standort": "Eschweiler",
+    "lat": 50.799301,
+    "lon": 6.250463,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-11-28",
+    "datum_ende": "2026-11-28",
+    "laenge_km": 5.3,
+    "dauer_h": null,
+    "wettbewerb": "5,25 km Frauen (W30+)",
+    "veranstalter_url": "https://www.lsg-eschweiler.de/downloads/ausschreibung_region_waldlauf_26.pdf"
   },
   {
     "land": "Deutschland",
@@ -520,19 +491,18 @@
     "instagram": "gluehweinlauf_marienhagen"
   },
   {
-    "land": "Schweiz",
-    "name": "Green Suppenlauf Marathon",
-    "standort": "Zürich",
-    "lat": 47.4138487,
-    "lon": 8.5454908,
+    "land": "Deutschland",
+    "name": "Großkarolinenfelder Nikolauslauf",
+    "standort": "Großkarolinenfeld",
+    "lat": 47.8907541,
+    "lon": 12.0809136,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
-    "laenge_km": 42.2,
-    "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/431475/",
-    "pruefung_offen": true
+    "veranstalter_url": "http://www.karolauf.de",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km"
   },
   {
     "land": "Deutschland",
@@ -544,24 +514,9 @@
     "art2": "Straße",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
-    "veranstalter_url": "http://www.karolauf.de",
-    "pruefung_offen": true,
-    "laenge_km": 10.0
-  },
-  {
-    "land": "Deutschland",
-    "name": "Großkarolinenfelder Nikolauslauf",
-    "standort": "Großkarolinenfeld",
-    "lat": 47.8907541,
-    "lon": 12.0809136,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-28",
-    "datum_ende": "2026-11-28",
-    "laenge_km": 7.0,
-    "wettbewerb": "7 km",
-    "veranstalter_url": "http://www.karolauf.de",
-    "pruefung_offen": true
+    "laenge_km": 6.5,
+    "wettbewerb": "6,5 km",
+    "veranstalter_url": "http://www.karolauf.de"
   },
   {
     "land": "Deutschland",
@@ -573,10 +528,11 @@
     "art2": "Trail",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
+    "laenge_km": 4.8,
+    "wettbewerb": "4,8 km",
     "veranstalter_url": "http://www.steinachtallauf.de/hainberglauf/",
-    "pruefung_offen": true
+    "hoehenmeter": 250,
+    "mindestdistanz_ok": true
   },
   {
     "land": "Schweiz",
@@ -602,8 +558,7 @@
     "art2": "Trail",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
-    "veranstalter_url": "https://www.vs-timing.ch/de-CH/Home/Event/257?fromResult=False",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.vs-timing.ch/de-CH/Home/Event/257?fromResult=False"
   },
   {
     "land": "Österreich",
@@ -700,50 +655,40 @@
     "art2": "Cyclecross",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
-    "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://www.cclesvouivres.ch/cx-princes-eveques",
-    "pruefung_offen": true
+    "laenge_km": null,
+    "dauer_h": 0.83,
+    "wettbewerb": "Course populaire, Hommes, Masters I, U19 50 min",
+    "veranstalter_url": "https://www.cclesvouivres.ch/cx-princes-eveques"
   },
   {
-    "land": "Österreich",
-    "name": "Pumptrack Winter Trophy AREA 47",
-    "standort": "Ötztal-Bahnhof",
-    "lat": 47.2358705,
-    "lon": 10.8564829,
+    "land": "Schweiz",
+    "name": "OCR 7 - Cyclocross des Princes-Évêques",
+    "standort": "Porrentruy",
+    "lat": 47.3903225,
+    "lon": 7.0921209,
     "art1": "Fahrrad",
-    "art2": "Mountainbike",
+    "art2": "Cyclecross",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
-    "wettbewerb": "Cycling 4 All, Pumptrack",
-    "veranstalter_url": "https://www.suspensionfactory.at",
-    "pruefung_offen": true
+    "laenge_km": null,
+    "dauer_h": 0.75,
+    "wettbewerb": "Masters II–IV 45 min",
+    "veranstalter_url": "https://www.cclesvouivres.ch/cx-princes-eveques"
   },
   {
-    "land": "Deutschland",
-    "name": "Regionsmeisterschaften im Waldlauf",
-    "standort": "Eschweiler",
-    "lat": 50.8175029,
-    "lon": 6.2630894,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-28",
-    "datum_ende": "2026-11-28",
-    "laenge_km": 5.3,
-    "veranstalter_url": "http://www.lsg-eschweiler.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rheinzaberner Gravelrennen",
-    "standort": "Rheinzabern",
-    "lat": 49.1114132,
-    "lon": 8.292035,
+    "land": "Schweiz",
+    "name": "OCR 7 - Cyclocross des Princes-Évêques",
+    "standort": "Porrentruy",
+    "lat": 47.3903225,
+    "lon": 7.0921209,
     "art1": "Fahrrad",
-    "art2": "Gravel",
+    "art2": "Cyclecross",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
-    "wettbewerb": "Gravel Race",
-    "veranstalter_url": "http://www.rsv-rheinzabern.de",
-    "pruefung_offen": true
+    "laenge_km": null,
+    "dauer_h": 0.58,
+    "wettbewerb": "Frauen (Dames), U17 Filles 35 min",
+    "veranstalter_url": "https://www.cclesvouivres.ch/cx-princes-eveques"
   },
   {
     "land": "Deutschland",
@@ -757,36 +702,7 @@
     "datum_ende": "2026-11-28",
     "laenge_km": 58.0,
     "wettbewerb": "58 km (10 × 5,8 km)",
-    "veranstalter_url": "https://www.rsv-rheinzabern.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rheinzaberner Gravelrennen",
-    "standort": "Rheinzabern",
-    "lat": 49.118509,
-    "lon": 8.275594,
-    "art1": "Fahrrad",
-    "art2": "Gravel",
-    "datum_start": "2026-11-28",
-    "datum_ende": "2026-11-28",
-    "laenge_km": 5.8,
-    "wettbewerb": "5,8 km",
-    "veranstalter_url": "https://www.rsv-rheinzabern.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ruller Bruch Marathon",
-    "standort": "Wallenhorst",
-    "lat": 52.3491544,
-    "lon": 8.0052769,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-28",
-    "datum_ende": "2026-11-28",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/435969/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.rsv-rheinzabern.de/?page_id=4692"
   },
   {
     "land": "Deutschland",
@@ -800,8 +716,7 @@
     "datum_ende": "2026-11-28",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/435969/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://my.raceresult.com/435969/"
   },
   {
     "land": "Deutschland",
@@ -925,22 +840,9 @@
     "art2": "Bahn",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
-    "veranstalter_url": "https://lckapelln.at/oe3-weihnachtswunder-charity",
+    "veranstalter_url": "https://ulckapelln.at/oe3-weihnachtswunder-charity",
     "charity": true,
-    "pruefung_offen": true
-  },
-  {
-    "land": "Österreich",
-    "name": "\"Steiermärkische Sparkasse\" Winter Run Graz 2026/27 (1. Lauf)",
-    "standort": "Grazer Stadtstrand",
-    "lat": 47.0462792,
-    "lon": 15.4427878,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2026-11-29",
-    "veranstalter_url": "https://www.graz-winterrun.at",
-    "pruefung_offen": true
+    "dauer_h": 3.0
   },
   {
     "land": "Deutschland",
@@ -1035,8 +937,24 @@
     "art2": "Straße",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "veranstalter_url": "http://www.klc.at",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.klc.at/events",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Adventlauf"
+  },
+  {
+    "land": "Österreich",
+    "name": "23. KLC Adventlauf",
+    "standort": "Klagenfurt",
+    "lat": 46.623943,
+    "lon": 14.3075976,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "5 km Hobbylauf",
+    "veranstalter_url": "https://www.klc.at/events"
   },
   {
     "land": "Österreich",
@@ -1048,8 +966,24 @@
     "art2": "Straße",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "veranstalter_url": "https://ulc-klosterneuburg.at/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://ulc-klosterneuburg.at/news/2026/09/18/28-klosterneuburger-adventlauf/",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Hauptlauf"
+  },
+  {
+    "land": "Österreich",
+    "name": "28. Klosterneuburger Adventlauf",
+    "standort": "Happyland",
+    "lat": 48.3098332,
+    "lon": 16.3295816,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "5 km Hobbylauf",
+    "veranstalter_url": "https://ulc-klosterneuburg.at/news/2026/09/18/28-klosterneuburger-adventlauf/"
   },
   {
     "land": "Deutschland",
@@ -1174,8 +1108,7 @@
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
     "laenge_km": 10.2,
-    "veranstalter_url": "http://ch.olbrich@gmx.de",
-    "pruefung_offen": true
+    "veranstalter_url": "https://trainerday.com/de/events/de/44-adventslauf"
   },
   {
     "land": "Deutschland",
@@ -1222,16 +1155,30 @@
   {
     "land": "Deutschland",
     "name": "56. Uplengener Adventslauf",
-    "standort": "Großoldendorf",
+    "standort": "Uplengen",
     "lat": 53.3267594,
     "lon": 7.7328515,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
     "laenge_km": 9.2,
-    "veranstalter_url": "http://www.lguplengen.de",
-    "pruefung_offen": true
+    "veranstalter_url": "https://lguplengen.de/adventslauf-2026",
+    "wettbewerb": "9,15 km"
+  },
+  {
+    "land": "Deutschland",
+    "name": "56. Uplengener Adventslauf",
+    "standort": "Uplengen",
+    "lat": 53.3267594,
+    "lon": 7.7328515,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "laenge_km": 6.1,
+    "wettbewerb": "6,1 km",
+    "veranstalter_url": "https://lguplengen.de/adventslauf-2026"
   },
   {
     "land": "Deutschland",
@@ -1243,9 +1190,8 @@
     "art2": "Trail",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://www.pfungstadt-leichtathletik.de/wp/veranstaltungen/adventscross/",
-    "pruefung_offen": true
+    "laenge_km": 7.3,
+    "veranstalter_url": "https://www.pfungstadt-leichtathletik.de/wp/veranstaltungen/adventscross/"
   },
   {
     "land": "Deutschland",
@@ -1314,8 +1260,8 @@
     "art2": "Straße",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
+    "laenge_km": 5.1,
+    "wettbewerb": "5,065 km",
     "veranstalter_url": "https://www.ultralaufteamtulln.at/4.-adventlauf-tulln-2026/"
   },
   {
@@ -1328,8 +1274,8 @@
     "art2": "Straße",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
+    "laenge_km": 10.1,
+    "wettbewerb": "10,13 km",
     "veranstalter_url": "https://www.ultralaufteamtulln.at/4.-adventlauf-tulln-2026/"
   },
   {
@@ -1372,8 +1318,7 @@
     "datum_ende": "2026-11-29",
     "dauer_h": 6.0,
     "wettbewerb": "6 Stunden Wettbewerb",
-    "veranstalter_url": "https://my.raceresult.com/431988/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.ult-tulln.at/"
   },
   {
     "land": "Deutschland",
@@ -1388,7 +1333,8 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km für Läuferinnen und Läufer ab 10 Jahren",
     "veranstalter_url": "https://atleta.cc/e/yzea1HAzSLFw",
-    "charity": true
+    "charity": true,
+    "instagram": "ltsalmtal"
   },
   {
     "land": "Deutschland",
@@ -1420,21 +1366,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Adventslauf Lauftreff Salmtal",
-    "standort": "Salmtal",
-    "lat": 49.9267473,
-    "lon": 6.8403728,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2026-11-29",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Adventslauf",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/adventslauf-lauftreff-salmtal",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
     "name": "Adventslauftreff Dresden",
     "standort": "Dresden",
     "lat": 51.0504088,
@@ -1445,8 +1376,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/OEA/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.oberelbe-marathon.de/2026/10/17/%f0%9f%8e%85-laufschuhe-an-weihnachtsmuetze-auf/"
   },
   {
     "land": "Deutschland",
@@ -1460,8 +1390,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/OEA/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.oberelbe-marathon.de/2026/10/17/%f0%9f%8e%85-laufschuhe-an-weihnachtsmuetze-auf/"
   },
   {
     "land": "Deutschland",
@@ -1475,23 +1404,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/OEA/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "AlbSchotter Gravelride",
-    "standort": "Nürtingen",
-    "lat": 48.6195383,
-    "lon": 9.340515,
-    "art1": "Fahrrad",
-    "art2": "Gravel",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2026-11-29",
-    "wettbewerb": "Gravel Tour",
-    "veranstalter_url": "https://albschotter.de/veranstaltung/albschotter-gravelride-3/",
-    "instagram": "albschotter",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.oberelbe-marathon.de/2026/10/17/%f0%9f%8e%85-laufschuhe-an-weihnachtsmuetze-auf/"
   },
   {
     "land": "Deutschland",
@@ -2202,20 +2115,6 @@
     "laenge_km": 10.5,
     "wettbewerb": "10.5 km",
     "veranstalter_url": "https://www.steinhoelzlilauf.ch/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Uplengener Adventslauf",
-    "standort": "Uplengen",
-    "lat": 53.3045251,
-    "lon": 7.7397965,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2026-11-29",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "http://www.lguplengen.de"
   },
   {
     "land": "Deutschland",
@@ -19586,19 +19485,6 @@
     "instagram": "yeti.trailrun"
   },
   {
-    "land": "Österreich",
-    "name": "\"Steiermärkische Sparkasse\" Winter Run Graz 2026/27 (2. Lauf)",
-    "standort": "Grazer Stadtstrand",
-    "lat": 47.0462792,
-    "lon": 15.4427878,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-24",
-    "datum_ende": "2027-01-24",
-    "veranstalter_url": "https://www.graz-winterrun.at",
-    "pruefung_offen": true
-  },
-  {
     "land": "Deutschland",
     "name": "34. Winterlauf-/Wanderserie TuS Jaderberg 2.Teil",
     "standort": "Jaderberg",
@@ -24609,19 +24495,6 @@
     "laenge_km": 20.0,
     "wettbewerb": "20 km Strecke mit ähnlichem Verlauf und Genuss Rastplätzen",
     "veranstalter_url": "https://www.woid-team-trophy.com/de"
-  },
-  {
-    "land": "Österreich",
-    "name": "\"Steiermärkischer Sparkasse\" Winter Run Graz 2026/27 (3. Lauf)",
-    "standort": "Grazer Stadtstrand",
-    "lat": 47.0462792,
-    "lon": 15.4427878,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-28",
-    "datum_ende": "2027-02-28",
-    "veranstalter_url": "https://www.graz-winterrun.at",
-    "pruefung_offen": true
   },
   {
     "land": "Deutschland",

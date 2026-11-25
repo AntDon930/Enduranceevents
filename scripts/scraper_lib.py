@@ -2487,7 +2487,7 @@ def load_manual_overrides() -> dict:
 OVERRIDE_FIELDS = ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
                    "land", "standort", "veranstalter_url", "lat", "lon",
                    "datum_start", "datum_ende", "datum_vorlaeufig", "charity",
-                   "hoehenmeter")
+                   "hoehenmeter", "mindestdistanz_ok")
 
 
 def override_keys(name: str | None, datum_start: str | None, laenge_km=None,
@@ -3135,7 +3135,11 @@ def filter_min_distance(events: list[Event], min_km: float | None = None) -> tup
     (Laufen 5 km, Schwimmen 500 m). `min_km` überschreibt die Grenze
     fürs Laufen - so riefen ältere Aufrufer die Funktion."""
     if min_km is None:
-        kept = [e for e in events if not ist_zu_kurz(e.art1, e.laenge_km, e.dauer_h)]
+        # mindestdistanz_ok: Ausnahme per Override (Entscheidung des Nutzers
+        # für EINE Veranstaltung), siehe clean_events.drop_too_short().
+        kept = [e for e in events
+                if getattr(e, "mindestdistanz_ok", None)
+                or not ist_zu_kurz(e.art1, e.laenge_km, e.dauer_h)]
     else:
         kept = [
             e for e in events

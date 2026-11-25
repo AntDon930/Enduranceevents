@@ -2013,8 +2013,12 @@
     "_note": "Veranstalterseite statt laufen-os.de: https://otb.de/sportangebot/silvesterlauf - per Websuche gefunden, von Hand geprüft: OTB = Osnabrücker Turnerbund, die Unterseite ‚Silvesterlauf' nennt 10 km und Osnabrück (‚OTB' hat drei Buchstaben, ‚Silvesterlauf' ist ein Allgemeinwort - die Regel konnte es nicht belegen). Linkprüfung 2026-09-21."
   },
   "56. Uplengener Adventslauf|2026-11-29": {
-    "veranstalter_url": "http://www.lguplengen.de",
-    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lguplengen.de. Seite abgerufen, sie nennt den Lauf (uplengener). Linkprüfung 2026-09-19."
+    "veranstalter_url": "https://lguplengen.de/adventslauf-2026",
+    "standort": "Uplengen",
+    "lat": 53.3267594,
+    "lon": 7.7328515,
+    "art2": "Trail",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: lguplengen.de/adventslauf-2026: 56. Uplengener Adventslauf, Crosslauf über Waldwege im Hollsand (Uplengen-Großoldendorf), 6,1 und 9,15 km. Gilt (Auflage überlesen) auch für die Zeile „Uplengener Adventslauf“ – beide auf denselben Ort, damit sie EINE Veranstaltung sind."
   },
   "41. Burgwedeler Silvesterlauf|2026-12-31": {
     "veranstalter_url": "http://www.sv-burgwedel.de",
@@ -2659,8 +2663,12 @@
     "_note": "Veranstalterseite statt my.raceresult.com: https://www.lg-geroldseck-lahr.com/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-19."
   },
   "Eschweiler Waldlauf|2026-11-28": {
-    "veranstalter_url": "http://www.lsg-eschweiler.de",
-    "_note": "Veranstalterseite statt my.raceresult.com: http://www.lsg-eschweiler.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:eschweiler). Linkprüfung 2026-09-19."
+    "veranstalter_url": "https://www.lsg-eschweiler.de/downloads/ausschreibung_region_waldlauf_26.pdf",
+    "standort": "Eschweiler",
+    "lat": 50.799301,
+    "lon": 6.250463,
+    "art2": "Trail",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Ausschreibung der LSG Eschweiler (Meisterschaften der Region Südwest – Waldlauf, Stadtwald Eschweiler, Start an der Schutzhütte, GPS 50.799301, 6.250463): Senioren 7.000 m (4 große Runden), Seniorinnen 5.250 m (3 große Runden); Waldlauf = Trail (Datenregel 6). Die 5,25 km in manual_events.json; die Zeile „Regionsmeisterschaften im Waldlauf“ ist dieselbe Veranstaltung."
   },
   "Großkarolinenfelder Nikolauslauf|2026-11-28": {
     "veranstalter_url": "http://www.karolauf.de",
@@ -5891,8 +5899,9 @@
     "_note": "Veranstalterseite statt zeiler-waldmarathon.de: https://zeiler-waldmarathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:zeiler, datum). Linkprüfung 2026-09-21."
   },
   "33. Villmarer Dorflauf|2026-11-28": {
-    "veranstalter_url": "https://www.lf-1987-villmar.de/",
-    "_note": "Veranstalterseite statt laufen.de: https://www.lf-1987-villmar.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:villmar). Linkprüfung 2026-09-21."
+    "veranstalter_url": "https://lf-1987-villmar.de/33-villmarer-dorflauf-findet-statt/",
+    "standort": "Villmar",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Seite der Veranstaltung statt Startseite; Ausschreibung https://lf-1987-villmar.de/wp-content/uploads/2026/11/Ausschreibung_Dorflauf.pdf nennt 10 km Hauptlauf und 5 km (M/W U20 bis Senioren) – die 5 km in manual_events.json. Bambini 0,5 km, 2 km (U12–U16) und 5 km Walking nicht (Datenregeln 5, 23, 24)."
   },
   "36. Ratzeburger Adventslauf|2026-11-29": {
     "veranstalter_url": "https://www.adventslauf.de/",
@@ -6372,8 +6381,10 @@
     "_note": "Veranstalterseite statt time2win.at: https://www.woidwetza.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:woidwetza). Linkprüfung 2026-09-22."
   },
   "28. Klosterneuburger Adventlauf|2026-11-29": {
-    "veranstalter_url": "https://ulc-klosterneuburg.at/",
-    "_note": "Veranstalterseite statt time-now-sports.at: https://ulc-klosterneuburg.at/ - auf der time-now-sports.at-Seite verlinkt, Zielseite nennt den Lauf (klosterneuburger). Linkprüfung 2026-09-22."
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Hauptlauf",
+    "veranstalter_url": "https://ulc-klosterneuburg.at/news/2026/09/18/28-klosterneuburger-adventlauf/",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Hobbylauf 5 km und Hauptlauf 10 km (ULC Klosterneuburg, Happyland, 29.11.2026); die 5 km in manual_events.json. Inklusionslauf 300 m, Kinderläufe und 3er-Teamlauf nicht."
   },
   "Nordic Winter Opening|2026-12-06": {
     "veranstalter_url": "https://www.nordic-opening.info",
@@ -8893,5 +8904,188 @@
   "ORC 8 - Cyclocross de Bramois|2026-12-06": {
     "veranstalter_url": "https://www.cyclophilesedunois.ch/orc-sion/",
     "_note": "10.11.2026: Seite des ausrichtenden Clubs statt der Serienseite omniumromand.com (Club laut MSO-Serienkalender https://www.mso.swiss/series/1637-omnium-romand-cyclocross). Cyclophile Sédunois: „manche finale de l’Omnium Romand Cyclocross 2026 le dimanche 6 décembre 2026 au Centre Sportif des Glareys à Bramois“. Anlass: Kommentar des Nutzers zu ORC 3 (falscher Link)."
+  },
+  "33. Villmarer Dorflauf|2026-11-28|10": {
+    "wettbewerb": "10 km Hauptlauf",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Ausschreibung „10 km Hauptlauf M / F / Sen. / MW U20 / MW U18“."
+  },
+  "Eschweiler Waldlauf|2026-11-28|7": {
+    "wettbewerb": "7 km Männer (M30+)",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Ausschreibung „Senioren (ab M30 alle 5 Jahre) 7.000 Meter (4 große Runden)“."
+  },
+  "Regionsmeisterschaften im Waldlauf|2026-11-28": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: dieselbe Veranstaltung wie „Eschweiler Waldlauf“ (Meisterschaften der Region Südwest, LSG Eschweiler, 28.11.2026) – die 5,25 km stehen dort."
+  },
+  "Green Suppenlauf Marathon|2026-11-28": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Duplikat mit falschem Namen – am 28.11.2026 läuft laut 100 Marathon Club Schweiz (https://www.100marathonclub.ch/termine/100mcs_marathons) der „28. November Green Marathon“ (raceresult 431475), der schon als „100 MCS Green Marathon“ in der Liste steht; der Suppenlauf ist am 05.12.2026 (suppenlauf.ch)."
+  },
+  "OCR 7 - Cyclocross des Princes-Évêques|2026-11-28|@Cyclocross": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Die Seite https://www.cclesvouivres.ch/cx-princes-eveques/parcours nennt Renndauern, keine Distanz („35–50“ waren Minuten): Course populaire, Hommes/Masters I, U19 50 min, Masters II–IV 45 min, Dames/U17 Filles 35 min (Runde 2.950 m). Drei Zeilen nach Dauer in manual_events.json, Nachwuchs (U9–U15, U17 Garçons allein) nicht."
+  },
+  "Hainberglauf|2026-11-28|5": {
+    "laenge_km": 4.8,
+    "wettbewerb": "4,8 km",
+    "hoehenmeter": 250,
+    "mindestdistanz_ok": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: „Ja, der Lauf ist 4,8km mit 250hm. Nehmen wir trotzdem mit auf wenn er schon hier steht mit allen Informationen.“ – AUSNAHME von der 5-km-Grenze (Datenregel 5) nur für diese Veranstaltung, auf ausdrückliche Entscheidung des Nutzers. Beide Distanzschlüssel, weil der Override die Länge ändert."
+  },
+  "Hainberglauf|2026-11-28|4.8": {
+    "laenge_km": 4.8,
+    "wettbewerb": "4,8 km",
+    "hoehenmeter": 250,
+    "mindestdistanz_ok": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: „Ja, der Lauf ist 4,8km mit 250hm. Nehmen wir trotzdem mit auf wenn er schon hier steht mit allen Informationen.“ – AUSNAHME von der 5-km-Grenze (Datenregel 5) nur für diese Veranstaltung, auf ausdrückliche Entscheidung des Nutzers. Beide Distanzschlüssel, weil der Override die Länge ändert."
+  },
+  "Rheinzaberner Gravelrennen|2026-11-28|@Gravel Race": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Zeile ohne Distanz neben der 58-km-Zeile derselben Veranstaltung (Duplikat). Seite https://www.rsv-rheinzabern.de/?page_id=4692: Runde rund 5,8 km, „Die Renndistanz ist auf 10 Runden festgelegt“, offen ab 16 Jahren."
+  },
+  "Rheinzaberner Gravelrennen|2026-11-28|5.8": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: 5,8 km ist die Rundenlänge, keine Renndistanz (Datenregel 8) – das Rennen sind 10 Runden = 58 km."
+  },
+  "Rheinzaberner Gravelrennen|2026-11-28|58": {
+    "veranstalter_url": "https://www.rsv-rheinzabern.de/?page_id=4692",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Link des Nutzers, Seite des Gravelrennens 28.11.2026 (10 Runden à rund 5,8 km)."
+  },
+  "\"Steiermärkische Sparkasse\" Winter Run Graz 2026/27 (1. Lauf)|2026-11-29": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Zeile ohne Distanz aus dem ÖLV-Kalender; dieselbe Veranstaltung steht als „Winter Run Serie Graz“ mit allen Strecken des Termins (graz-winterrun.at: 29.11. 5/10 km, 24.01. 5/10/15 km, 28.02. 5/10/15/20 km)."
+  },
+  "\"Steiermärkische Sparkasse\" Winter Run Graz 2026/27 (2. Lauf)|2027-01-24": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Zeile ohne Distanz aus dem ÖLV-Kalender; dieselbe Veranstaltung steht als „Winter Run Serie Graz“ mit allen Strecken des Termins (graz-winterrun.at: 29.11. 5/10 km, 24.01. 5/10/15 km, 28.02. 5/10/15/20 km)."
+  },
+  "\"Steiermärkischer Sparkasse\" Winter Run Graz 2026/27 (3. Lauf)|2027-02-28": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Zeile ohne Distanz aus dem ÖLV-Kalender; dieselbe Veranstaltung steht als „Winter Run Serie Graz“ mit allen Strecken des Termins (graz-winterrun.at: 29.11. 5/10 km, 24.01. 5/10/15 km, 28.02. 5/10/15/20 km)."
+  },
+  "23. KLC Adventlauf|2026-11-29": {
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Adventlauf",
+    "veranstalter_url": "https://www.klc.at/events",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: klc.at/events: „Kinder-, Schülerlauf 500m, 1000m, 2180m 5 Km Hobbylauf, 10 Km Adventlauf“, südlich der Leopold Wagner Arena. Die 5 km in manual_events.json."
+  },
+  "56. Uplengener Adventslauf|2026-11-29|9.2": {
+    "wettbewerb": "9,15 km",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: lange Strecke 9,15 km."
+  },
+  "Uplengener Adventslauf|2026-11-29|6": {
+    "laenge_km": 6.1,
+    "wettbewerb": "6,1 km",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: kurze Strecke 6,1 km (die Strecken sind seit der Umstellung auf das Knotenpunktsystem geringfügig kürzer). Beide Distanzschlüssel, weil der Override die Länge ändert."
+  },
+  "Uplengener Adventslauf|2026-11-29|6.1": {
+    "laenge_km": 6.1,
+    "wettbewerb": "6,1 km",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: kurze Strecke 6,1 km (die Strecken sind seit der Umstellung auf das Knotenpunktsystem geringfügig kürzer). Beide Distanzschlüssel, weil der Override die Länge ändert."
+  },
+  "Adventlauf Tulln|2026-11-29|10": {
+    "laenge_km": 10.1,
+    "wettbewerb": "10,13 km",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Rundenkurs (1.266,25 m): Marathon 33 Runden + 407,7 m, Halbmarathon 16 Runden + 836,8 m, 8 Runden = 10.130 m, 4 Runden = 5.065 m. Beide Distanzschlüssel, weil der Override die Länge ändert."
+  },
+  "Adventlauf Tulln|2026-11-29|10.1": {
+    "laenge_km": 10.1,
+    "wettbewerb": "10,13 km",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Rundenkurs (1.266,25 m): Marathon 33 Runden + 407,7 m, Halbmarathon 16 Runden + 836,8 m, 8 Runden = 10.130 m, 4 Runden = 5.065 m. Beide Distanzschlüssel, weil der Override die Länge ändert."
+  },
+  "Adventlauf Tulln|2026-11-29|5": {
+    "laenge_km": 5.1,
+    "wettbewerb": "5,065 km",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Rundenkurs (1.266,25 m): Marathon 33 Runden + 407,7 m, Halbmarathon 16 Runden + 836,8 m, 8 Runden = 10.130 m, 4 Runden = 5.065 m. Beide Distanzschlüssel, weil der Override die Länge ändert."
+  },
+  "Adventlauf Tulln|2026-11-29|5.1": {
+    "laenge_km": 5.1,
+    "wettbewerb": "5,065 km",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: Rundenkurs (1.266,25 m): Marathon 33 Runden + 407,7 m, Halbmarathon 16 Runden + 836,8 m, 8 Runden = 10.130 m, 4 Runden = 5.065 m. Beide Distanzschlüssel, weil der Override die Länge ändert."
+  },
+  "Adventslauf Lauftreff Salmtal|2026-11-29": {
+    "exclude": true,
+    "_note": "Korrekturseite des Nutzers 25.11.2026: dieselbe Veranstaltung wie „Advents Charity Run - Salmtal“ (atleta.cc: „Der Lauftreff Salmtal veranstaltet den 1. Advents Charity Run“, 1 und 5 km, Peter-Rauen-Arena)."
+  },
+  "Advents Charity Run - Salmtal|2026-11-29": {
+    "instagram": "ltsalmtal",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: „Die Infos sind eher auf der Instagram Seite“ – Konto des Lauftreffs Salmtal https://www.instagram.com/ltsalmtal/."
+  },
+  "Adventslauftreff Dresden|2026-11-29|42.2": {
+    "veranstalter_url": "https://www.oberelbe-marathon.de/2026/10/17/%f0%9f%8e%85-laufschuhe-an-weihnachtsmuetze-auf/",
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "Fun & Erlebnis Marathons|2026-11-25|42.2": {
+    "exclude": true,
+    "abgesagt": true,
+    "_note": "Korrekturliste des Nutzers: Ausgabe 2026-11-25 fällt aus - die Veranstaltung bleibt im Gedächtnis: Das Event ist dieses Jahr ausgefallen, können wir uns gerne noch einmal nächstes Jahr anschauen.\n\nDas ist deren Blog Seite, aber es lädt bei mir nicht. teichwiesen.myblog.de"
+  },
+  "44. Adventslauf|2026-11-29|10.2": {
+    "veranstalter_url": "https://trainerday.com/de/events/de/44-adventslauf",
+    "_note": "Korrekturliste des Nutzers: Das müssen wir den Link nehmen. \n\nhttps://trainerday.com/de/events/de/44-adventslauf"
+  },
+  "57. Pfungstädter Advents-Crosslauf|2026-11-29|5": {
+    "laenge_km": 7.3,
+    "_note": "Korrekturliste des Nutzers: https://www.pfungstadt-leichtathletik.de/wp/veranstaltungen/adventscross/\n\nDer Lauf ist 7,3km, die anderen Läufe sind alle unter 5km"
+  },
+  "Adventslauftreff Dresden|2026-11-29|21.1": {
+    "veranstalter_url": "https://www.oberelbe-marathon.de/2026/10/17/%f0%9f%8e%85-laufschuhe-an-weihnachtsmuetze-auf/",
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "Adventslauftreff Dresden|2026-11-29|7": {
+    "veranstalter_url": "https://www.oberelbe-marathon.de/2026/10/17/%f0%9f%8e%85-laufschuhe-an-weihnachtsmuetze-auf/",
+    "_note": "Korrekturliste des Nutzers: https://www.oberelbe-marathon.de/2026/10/17/%f0%9f%8e%85-laufschuhe-an-weihnachtsmuetze-auf/ \n\nDas ist der Link"
+  },
+  "Ruller Bruch Marathon|2026-11-28|21.1": {
+    "exclude": true,
+    "geloescht": true,
+    "_note": "Korrekturliste des Nutzers: Hier gibt es keine Offizielle Webseite. \n\nAllerdings steht hier nichts von einem Halbmarathon"
+  },
+  "28. W.E.B. - Waldviertler Crosslaufserie 2026/27 - 1. Lauf|2026-11-28": {
+    "laenge_km": 6.1,
+    "veranstalter_url": "https://lcwaldviertel.com/?p=3884",
+    "_note": "Korrekturliste des Nutzers: Das ist die Webseite. Der Lauf ist 6,1km\n\nhttps://lcwaldviertel.com/?p=3884"
+  },
+  "Pumptrack Winter Trophy AREA 47|2026-11-28|@Cycling 4 All, Pumptrack": {
+    "exclude": true,
+    "geloescht": true,
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "Fun & Erlebnis Marathons|2026-11-25|50": {
+    "exclude": true,
+    "abgesagt": true,
+    "_note": "Korrekturliste des Nutzers: Ausgabe 2026-11-25 fällt aus - die Veranstaltung bleibt im Gedächtnis: Das Event ist dieses Jahr ausgefallen, können wir uns gerne noch einmal nächstes Jahr anschauen.\n\nDas ist deren Blog Seite, aber es lädt bei mir nicht. teichwiesen.myblog.de"
+  },
+  "Adventlauf Tulln|2026-11-29|@6 Stunden Wettbewerb": {
+    "veranstalter_url": "https://www.ult-tulln.at/",
+    "_note": "Korrekturliste des Nutzers: 1) Marathon: 33 Runden und 407,7 Restmeter\n 2) Halbmarathon: 16 Runden und 836,8 Restmeter \n 3) 8 Runden: 10 130 m         \n4) 4 Runden: 5 065 m\n\nDie Distanzen werden alle angeboten"
+  },
+  "Cross-Lauf Ternitz (STLV- und KLV-CrossCup 2026/27 - 4. Lauf)|2026-11-28": {
+    "laenge_km": 8.0,
+    "_note": "Korrekturliste des Nutzers: https://crosslaufcup.gknet.at/docs/ausschreibungen/Crosslaufausschreibung2026Ternitzneu.pdf\n\ndas ist die Webseite zur Ausschreibung. Der Lauf ist 8km\n\nEs gibt mehrere Läufe aber der Rest ist unter 5km"
+  },
+  "AlbSchotter Gravelride|2026-11-29|@Gravel Tour": {
+    "exclude": true,
+    "geloescht": true,
+    "_note": "Korrekturliste des Nutzers: Das sind Trainingsausfahrten und keine Events"
+  },
+  "Großkarolinenfelder Nikolauslauf|2026-11-28|7": {
+    "laenge_km": 6.5,
+    "_note": "Korrekturliste des Nutzers: es gibt einen 6,5km Lauf und einen 10km Lauf",
+    "wettbewerb": "6,5 km"
+  },
+  "Ö3-Weihnachtswunder Spendenlauf|2026-11-28": {
+    "dauer_h": 3.0,
+    "veranstalter_url": "https://ulckapelln.at/oe3-weihnachtswunder-charity",
+    "_note": "Korrekturliste des Nutzers: 3 Stunden, das steht in dem angegebenen Link\n\nhttps://ulckapelln.at/oe3-weihnachtswunder-charity\n\nEs ist ein Charity Lauf"
+  },
+  "Großkarolinenfelder Nikolauslauf|2026-11-28|6.5": {
+    "laenge_km": 6.5,
+    "_note": "Korrekturliste des Nutzers: es gibt einen 6,5km Lauf und einen 10km Lauf",
+    "wettbewerb": "6,5 km"
+  },
+  "Großkarolinenfelder Nikolauslauf|2026-11-28|10": {
+    "wettbewerb": "10 km",
+    "_note": "Korrekturseite des Nutzers 25.11.2026: „es gibt einen 6,5km Lauf und einen 10km Lauf“."
   }
 }

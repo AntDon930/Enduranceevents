@@ -2241,9 +2241,10 @@
     "notiz": "Ort steht als Kallmünz (49.16/11.96), Kalender (runme, hdsports) nennen Start Marktplatz Amberg; die Veranstalterseite cis-amberg.de/silvesterlauf nennt am 19.09.2026 keinen Startort - 25 km Abstand, aus der Sandbox nicht zu entscheiden."
   },
   "Hainberglauf|2026-11-28": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "notiz": "Kalender nennen 4,8 km statt 5 km; die Veranstalterseite steinachtallauf.de/hainberglauf antwortet am 19.09.2026 mit 503 - Länge nicht belegbar, 5 km bleibt."
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://www.steinachtallauf.de/hainberglauf/",
+    "notiz": "Korrekturliste des Nutzers: Ja, der Lauf ist 4,8km mit 250hm. Nehmen wir trotzdem mit auf wenn er schon hier steht mit allen Informationen."
   },
   "MOUNTAINMAN Reit im Winkl|2026-09-25": {
     "am": "2026-09-21",
@@ -3146,16 +3147,16 @@
     "notiz": "28. & 29.11.2026 laut Seite; die 6,6 km stehen dort nicht ausdrücklich"
   },
   "56. Uplengener Adventslauf|2026-11-29": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
     "quelle": "http://www.lguplengen.de",
-    "notiz": "Seite nennt keine Angaben zu 2026"
+    "notiz": "Korrekturliste des Nutzers: 6,1km und 9,15km wird da gelaufen.\n\nhttps://lguplengen.de/adventslauf-2026\n\nDie Informationen stehen auch auf der RaceResults Seite"
   },
   "57. Pfungstädter Advents-Crosslauf|2026-11-29": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
     "quelle": "https://www.pfungstadt-leichtathletik.de/wp/veranstaltungen/adventscross/",
-    "notiz": "Seite nennt keine Angaben zu 2026"
+    "notiz": "Korrekturliste des Nutzers: https://www.pfungstadt-leichtathletik.de/wp/veranstaltungen/adventscross/\n\nDer Lauf ist 7,3km, die anderen Läufe sind alle unter 5km"
   },
   "Argenthaler Quarzit Adventstrail|2026-11-29": {
     "am": "2026-09-21",
@@ -6410,16 +6411,16 @@
     "notiz": "Link leitet auf nahe-crosslauf-serie.de ohne Termine 2026/27. Dieselbe Veranstaltung steht als „Lauf der Nahe-Crosslauf-Serie in Schwollen“ (21.11.2026, 6 km, raceresult) in der Liste – Duplikat unter zwei Namen, 6,4 gegen 6 km (Punkt 18)"
   },
   "33. Villmarer Dorflauf|2026-11-28": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "https://laufen.de/laufkalender/details/26V07000095060002",
-    "notiz": "Link leitet auf la.net3 (nur per JavaScript lesbar)"
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.lf-1987-villmar.de/",
+    "notiz": "Korrekturliste des Nutzers: https://lf-1987-villmar.de/wp-content/uploads/2026/11/Ausschreibung_Dorflauf.pdf\n\nDas ist der Link zur Ausschreibung.\n\nDas ist der Link zum Event\n\nhttps://lf-1987-villmar.de/33-villmarer-dorflauf-findet-statt/\n\nWenn ich den Link eingebe, dann leitet er nicht weiter. Ist ganz normal erreichbar."
   },
   "44. Adventslauf|2026-11-29": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "https://laufen.de/laufkalender/details/26V09000190160000",
-    "notiz": "Der laufen.de-Link leitet auf gmx.net (E-Mail-Startseite) – toter Veranstalterlink beim DLV, keine Angaben"
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://trainerday.com/de/events/de/44-adventslauf",
+    "notiz": "Korrekturliste des Nutzers: Das müssen wir den Link nehmen. \n\nhttps://trainerday.com/de/events/de/44-adventslauf"
   },
   "52. Steinfurter Nikolauslauf 10 km|2026-12-05": {
     "am": "2026-09-21",
@@ -6890,10 +6891,10 @@
     "notiz": "Termin bestätigt, Strecken nicht auf der Seite"
   },
   "Eschweiler Waldlauf|2026-11-28": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "lsg-eschweiler.de",
-    "notiz": "Sa 28.11.26 bestätigt (Waldlaufmeisterschaften Region Südwest, U8-U12 genannt); Streckenlängen nicht auf der Seite"
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://www.lsg-eschweiler.de",
+    "notiz": "Korrekturliste des Nutzers: https://www.lsg-eschweiler.de/downloads/ausschreibung_region_waldlauf_26.pdf\n\nDas ist der Link zur Ausschreibung. Es gibt auch noch einen 5,25km Lauf."
   },
   "Silvesterlauf - Petershagen|2026-12-31": {
     "am": "2026-09-21",
@@ -6968,10 +6969,10 @@
     "notiz": "Paarlauf über 30 bzw. 60 Minuten, zwei Läufer wechseln sich ab - ein Zweier-Team-Format; ob es unter die Staffel-Regel (16) fällt, hat der Nutzer nicht entschieden (drei Paarläufe im Bestand)"
   },
   "Großkarolinenfelder Nikolauslauf|2026-11-28": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "karolauf.de",
-    "notiz": "Start 28.11.2026 bestätigt; Strecken nur in der Ausschreibung (PDF), Strecke-Seite ohne Text"
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "http://www.karolauf.de",
+    "notiz": "Korrekturliste des Nutzers: es gibt einen 6,5km Lauf und einen 10km Lauf"
   },
   "Nikolaus Waldlauf - Weißenbrunn|2026-12-05": {
     "am": "2026-09-21",
@@ -8478,5 +8479,113 @@
     "ergebnis": "korrigiert",
     "quelle": "https://harsewinkel.dlrg.de/sport/wettkaempfe/24h-schwimmen/",
     "notiz": "24 Stunden Schwimmen 07.–08.11.2026 (Start Sa 14:00, Ende So 14:00), Hallenbad Harsewinkel; Link vom Nutzer, Ende auf den 08.11. gesetzt."
+  },
+  "Ruller Bruch Marathon|2026-11-28": {
+    "am": "2026-11-25",
+    "ergebnis": "entfernt",
+    "quelle": "https://my.raceresult.com/435969/",
+    "notiz": "Korrekturliste des Nutzers: Hier gibt es keine Offizielle Webseite. \n\nAllerdings steht hier nichts von einem Halbmarathon"
+  },
+  "Green Suppenlauf Marathon|2026-11-28": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/431475/",
+    "notiz": "Korrekturliste des Nutzers: https://www.100marathonclub.ch/ausschreibungs-und-anmeldeportal?b=1001523&c=ED1000229&s=djEtITpFOwqPQoMZfK545A1rrIcHF2NRayKWjZUYMsvlCY8=\n\nDas ist die webseite von dem Event."
+  },
+  "Adventslauftreff Dresden|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.oberelbe-marathon.de/2026/10/17/%f0%9f%8e%85-laufschuhe-an-weihnachtsmuetze-auf/",
+    "notiz": "Korrekturliste des Nutzers: https://www.oberelbe-marathon.de/2026/10/17/%f0%9f%8e%85-laufschuhe-an-weihnachtsmuetze-auf/ \n\nDas ist der Link"
+  },
+  "Rheinzaberner Gravelrennen|2026-11-28": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://www.rsv-rheinzabern.de",
+    "notiz": "Korrekturliste des Nutzers: Das ist der richtige Link https://www.rsv-rheinzabern.de/?page_id=4692\n\nDie Distanz wird nur gegeben wenn man die GPX Datei runterlädt also bei Distanz einfach ein \"-\" machen."
+  },
+  "OCR 7 - Cyclocross des Princes-Évêques|2026-11-28": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.cclesvouivres.ch/cx-princes-eveques",
+    "notiz": "Korrekturliste des Nutzers: Distanz ist 35-50km"
+  },
+  "Fun & Erlebnis Marathons|2026-11-25": {
+    "am": "2026-11-25",
+    "ergebnis": "abgesagt",
+    "quelle": "https://my.raceresult.com/423148/",
+    "notiz": "Korrekturliste des Nutzers: Ausgabe fällt aus, nächste Ausgabe sucht das Gedächtnis: Das Event ist dieses Jahr ausgefallen, können wir uns gerne noch einmal nächstes Jahr anschauen.\n\nDas ist deren Blog Seite, aber es lädt bei mir nicht. teichwiesen.myblog.de"
+  },
+  "Orange Day Hannover|2026-11-25": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.marathon-hannover.de/orangeday.html",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "\"Steiermärkische Sparkasse\" Winter Run Graz 2026/27 (1. Lauf)|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.graz-winterrun.at",
+    "notiz": "Korrekturliste des Nutzers: 5 & 10km Lauf. Steht auch auf der Webseite die du bereitgestellt hast."
+  },
+  "Adventslauf Lauftreff Salmtal|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/adventslauf-lauftreff-salmtal",
+    "notiz": "Korrekturliste des Nutzers: https://www.instagram.com/ltsalmtal/\n\nDie Infos sind eher auf der Instagram Seite. Vieleicht kann man die irgendwo noch einbauen. Ansonsten klappt die Seite auch."
+  },
+  "28. Klosterneuburger Adventlauf|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://ulc-klosterneuburg.at/",
+    "notiz": "Korrekturliste des Nutzers: Hier stehen alle Infos zu dem Lauf.\n\nhttps://ulc-klosterneuburg.at/news/2026/09/18/28-klosterneuburger-adventlauf/\n\nEs werden 5 und 10km gelaufen"
+  },
+  "28. W.E.B. - Waldviertler Crosslaufserie 2026/27 - 1. Lauf|2026-11-28": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://lcwaldviertel.com/?p=3884",
+    "notiz": "Korrekturliste des Nutzers: Das ist die Webseite. Der Lauf ist 6,1km\n\nhttps://lcwaldviertel.com/?p=3884"
+  },
+  "Pumptrack Winter Trophy AREA 47|2026-11-28": {
+    "am": "2026-11-25",
+    "ergebnis": "entfernt",
+    "quelle": "https://www.suspensionfactory.at",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "Adventlauf Tulln|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.ult-tulln.at/",
+    "notiz": "Korrekturliste des Nutzers: 1) Marathon: 33 Runden und 407,7 Restmeter\n 2) Halbmarathon: 16 Runden und 836,8 Restmeter \n 3) 8 Runden: 10 130 m         \n4) 4 Runden: 5 065 m\n\nDie Distanzen werden alle angeboten"
+  },
+  "Cross-Lauf Ternitz (STLV- und KLV-CrossCup 2026/27 - 4. Lauf)|2026-11-28": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://crosslaufcup.gknet.at",
+    "notiz": "Korrekturliste des Nutzers: https://crosslaufcup.gknet.at/docs/ausschreibungen/Crosslaufausschreibung2026Ternitzneu.pdf\n\ndas ist die Webseite zur Ausschreibung. Der Lauf ist 8km\n\nEs gibt mehrere Läufe aber der Rest ist unter 5km"
+  },
+  "AlbSchotter Gravelride|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "entfernt",
+    "quelle": "https://albschotter.de/veranstaltung/albschotter-gravelride-3/",
+    "notiz": "Korrekturliste des Nutzers: Das sind Trainingsausfahrten und keine Events"
+  },
+  "Kantonale VS CrossTournee - Naters|2026-11-28": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.vs-timing.ch/de-CH/Home/Event/257?fromResult=False",
+    "notiz": "Korrekturliste des Nutzers: https://www.vs-timing.ch/data/uploads/257/Flyer.pdf\n\nDas hier ist die Ausschreibung. Es steht aber wirklich keine Distanz drinnen. Bitte trotzdem Aufnehmen und bei der Distanz einfach \"-\" hinschreiben."
+  },
+  "23. KLC Adventlauf|2026-11-29": {
+    "am": "2026-11-25",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://www.klc.at",
+    "notiz": "Korrekturliste des Nutzers: 5 & 10km werden hier gelaufen.\nSteht in dem Reiter Events https://www.klc.at/events"
+  },
+  "Ö3-Weihnachtswunder Spendenlauf|2026-11-28": {
+    "am": "2026-11-25",
+    "ergebnis": "korrigiert",
+    "quelle": "https://ulckapelln.at/oe3-weihnachtswunder-charity",
+    "notiz": "Korrekturliste des Nutzers: 3 Stunden, das steht in dem angegebenen Link\n\nhttps://ulckapelln.at/oe3-weihnachtswunder-charity\n\nEs ist ein Charity Lauf"
   }
 }

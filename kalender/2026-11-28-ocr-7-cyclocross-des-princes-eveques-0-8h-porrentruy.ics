@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-ocr-7-cyclocross-des-princes-eveques-0-8h-porrentruy@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:OCR 7 - Cyclocross des Princes-Évêques – Course populaire\, Hommes
+ \, Masters I\, U19 50 min
+LOCATION:Porrentruy\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 50 min\nhttps://www.ccl
+ esvouivres.ch/cx-princes-eveques
+TRANSP:TRANSPARENT
+URL:https://www.cclesvouivres.ch/cx-princes-eveques
+END:VEVENT
+END:VCALENDAR

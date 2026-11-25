@@ -3671,6 +3671,15 @@ def test_schwimmen_regeln() -> None:
         {"name": "Triathlon", "art1": "Triathlon", "laenge_km": 0.3},
         {"name": "24h Halle", "art1": "Schwimmen", "laenge_km": 0.05, "dauer_h": 24}])
     check("clean_events.drop_too_short ebenso", (len(kept), len(dropped)), (3, 1))
+    # Ausnahme nur per Override (25.11.2026, Hainberglauf 4,8 km): die
+    # Zeile mit `mindestdistanz_ok` bleibt, die gleiche ohne fällt.
+    kept, dropped = drop_too_short([
+        {"name": "Hainberglauf", "art1": "Laufen", "laenge_km": 4.8, "mindestdistanz_ok": True},
+        {"name": "Herbstcross", "art1": "Laufen", "laenge_km": 4.8}])
+    check("mindestdistanz_ok hält EINE Zeile unter 5 km", [e["name"] for e in kept], ["Hainberglauf"])
+    ausnahme = Event(art1="Laufen", name="Hainberglauf", laenge_km=4.8)
+    ausnahme.mindestdistanz_ok = True
+    check("… auch beim Einsammeln", filter_min_distance([ausnahme, Event(art1="Laufen", name="X", laenge_km=4.8)])[1], 1)
 
     for name in ("Deutsche Meisterschaften Freiwasser", "Bayerische Freiwassermeisterschaft",
                  "DM Kurzbahn Wuppertal", "Landesmeisterschaften Schwimmen",

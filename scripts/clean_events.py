@@ -1757,12 +1757,18 @@ def drop_too_short(events: list[dict]) -> tuple[list[dict], list[str]]:
     sind eine ernsthafte Distanz, und der 300-m-Schwimmteil eines
     Super-Sprints ist keine Schwimmveranstaltung. Ein Zeitrennen ist nie
     "zu kurz": beim 24-Stunden-Lauf auf einer 1-km-Runde ist die
-    Rundenlänge keine Wettkampfdistanz (`scraper_lib.ist_zu_kurz`)."""
+    Rundenlänge keine Wettkampfdistanz (`scraper_lib.ist_zu_kurz`).
+
+    Einzige Ausnahme: `mindestdistanz_ok: true` im Override - nur auf
+    ausdrückliche Entscheidung des Nutzers für EINE Veranstaltung (am
+    25.11.2026 der Hainberglauf Stadtsteinach, 4,8 km mit 250 hm: „Nehmen
+    wir trotzdem mit auf"). Keine Regel, die Grenze bleibt hart."""
     kept, dropped = [], []
     for event in events:
         km = event.get("laenge_km")
         too_short = (
             isinstance(km, (int, float))
+            and not event.get("mindestdistanz_ok")
             and ist_zu_kurz(event.get("art1"), km, event.get("dauer_h"))
         )
         if too_short:

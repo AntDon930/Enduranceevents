@@ -4,15 +4,16 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-29-uplengener-adventslauf-6km-uplengen@antdon930.github.io
+UID:2026-11-29-56-uplengener-adventslauf-6-1km-uplengen@antdon930.github.i
+ o
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
-SUMMARY:Uplengener Adventslauf
+SUMMARY:56. Uplengener Adventslauf
 LOCATION:Uplengen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttp://www.lguplengen.
- de
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.1 km\nhttps://lguplengen.de
+ /adventslauf-2026
 TRANSP:TRANSPARENT
-URL:http://www.lguplengen.de
+URL:https://lguplengen.de/adventslauf-2026
 END:VEVENT
 END:VCALENDAR

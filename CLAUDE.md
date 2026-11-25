@@ -299,6 +299,13 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    (Herbstcross Saalfeld) stehen mit ihrer echten Länge im Override und
    fallen damit heraus. Wer eine solche Zeile prüft, trägt die gemessene
    Länge ein und lässt die Regel entscheiden – nicht die Marketingzahl.
+   **Einzige Ausnahme: `"mindestdistanz_ok": true` im Override** – nur
+   auf ausdrückliche Entscheidung des Nutzers für EINE Veranstaltung
+   (25.11.2026, Hainberglauf Stadtsteinach, 4,8 km mit 250 hm: „Nehmen
+   wir trotzdem mit auf wenn er schon hier steht“). `drop_too_short()`
+   und `filter_min_distance()` lassen die Zeile stehen; ändert der
+   Override die Länge, beide Distanzschlüssel eintragen. Keine Regel
+   daraus machen.
 6. **`art2`: spezifisch vor generisch.** „Straße"/Marathon steht in
    `ART2_KEYWORDS_LAUFEN` bewusst ZULETZT, sonst wird ein „Bergtrail
    Trail-Marathon" zum Straßenlauf. Zusätzlich: ab 20 Höhenmetern pro km gilt
