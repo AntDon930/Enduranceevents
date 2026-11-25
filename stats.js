@@ -82,6 +82,9 @@
     if (global.location.protocol === 'file:') return true;
     // Die Vorschau des Clubs-Branches (pages.yml, /vorschau/) zählt nicht mit.
     if (/^\/vorschau\//.test(global.location.pathname || '')) return true;
+    // Das Dashboard öffnet nur der Betreiber - seine Aufrufe zählen nie
+    // (25.11.2026; dort schaltet die Anmeldung auch das Gerät ab).
+    if (seite() === 'admin') return true;
     if (navigator.webdriver) return true;
     if (/bot|crawl|spider|slurp|headless|lighthouse|preview|facebookexternalhit|pingdom/i.test(navigator.userAgent || '')) return true;
     if (navigator.globalPrivacyControl === true) return true;

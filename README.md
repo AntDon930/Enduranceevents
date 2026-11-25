@@ -2408,6 +2408,14 @@ auf `localhost`/`127.0.0.1` (Rauchtest, lokaler Server), bei
 nachdem jemand in der Datenschutzerklärung „Statistik für dieses Gerät
 abschalten" gedrückt hat (`localStorage` `endurance-stats` = `aus`).
 
+**Die eigenen Besuche zählen nicht** (seit dem 25.11.2026): `admin.html`
+sendet selbst nie, und wer sich dort als Admin anmeldet, schaltet die
+Statistik für diesen Browser ab (derselbe Eintrag `endurance-stats`). Der
+Knopf „Dieses Gerät zählt nicht mit“ im Dashboard schaltet um. Jeder
+Browser zählt für sich – Safari, Chrome, die App auf dem Home-Bildschirm
+und der Browser in der Instagram-App brauchen je eine Anmeldung im
+Dashboard oder den Schalter in der Datenschutzerklärung.
+
 **Inbetriebnahme** (einmalig, in der Google Cloud Shell wie beim
 E-Mail-Versand):
 

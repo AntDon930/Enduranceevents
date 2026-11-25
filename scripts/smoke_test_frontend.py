@@ -2347,6 +2347,30 @@ def pruefe_statistik_dashboard(ctx, basis):
                and "subscriptions" in en["abo"], "EN: Monate, Sportarten, Regionen und Abo-Kachel übersetzt")
         pruefe(not probleme, "keine Skriptfehler beim Umschalten (%s)"
                % (probleme[0] if probleme else "keine"))
+        pruefe("not counted" in seite.evaluate("() => document.getElementById('geraet-btn').textContent"), "EN: Knopf „Dieses Gerät“ übersetzt")
+
+        # Eigene Besuche (25.11.2026, vom Nutzer: „meine Besuche von meinem
+        # iPad und meinem Handy ausschließen“): Die Anmeldung schließt diesen
+        # Browser aus (localStorage endurance-stats = 'aus', derselbe Eintrag
+        # wie der Schalter in der Datenschutzerklärung), der Knopf schaltet
+        # um, und ein bewusstes „an“ überschreibt die nächste Anmeldung nicht.
+        seite.click('.lang-btn[data-lang="de"]')
+        geraet = seite.evaluate("""() => ({ wert: localStorage.getItem('endurance-stats'),
+            text: document.getElementById('geraet-btn').textContent,
+            gedrueckt: document.getElementById('geraet-btn').getAttribute('aria-pressed') })""")
+        pruefe(geraet["wert"] == "aus" and "nicht mit" in geraet["text"] and geraet["gedrueckt"] == "true",
+               "die Anmeldung nimmt dieses Gerät aus der Statistik (%s, „%s“)" % (geraet["wert"], geraet["text"]))
+        seite.click("#geraet-btn")
+        an = seite.evaluate("() => [localStorage.getItem('endurance-stats'), document.getElementById('geraet-btn').textContent]")
+        pruefe(an[0] == "an" and "zählt mit" in an[1], "der Knopf zählt das Gerät wieder mit (%s, „%s“)" % tuple(an))
+        seite.reload()
+        seite.wait_for_selector("#stat-content:not([hidden])", timeout=15000)
+        seite.wait_for_timeout(300)
+        nach = seite.evaluate("() => localStorage.getItem('endurance-stats')")
+        pruefe(nach == "an", "ein bewusstes Einschalten bleibt nach dem nächsten Anmelden (%s)" % nach)
+        seite.click("#geraet-btn")
+        pruefe(seite.evaluate("() => localStorage.getItem('endurance-stats')") == "aus",
+               "und lässt sich wieder ausschließen")
         seite.close()
     finally:
         kontext.close()

@@ -5193,6 +5193,20 @@ beim Arbeiten wissen muss:
   localhost/127.0.0.1, `navigator.webdriver`, Bot-UA, DNT/GPC,
   `localStorage` `endurance-stats` = `aus`). Der Schalter dafür steht in
   der Datenschutzerklärung (`#stats-schalter`, derselbe Eintrag).
+- **Die eigenen Besuche des Betreibers zählen nicht** (25.11.2026, vom
+  Nutzer: „Kann man meine Besuche von meinem iPad und meinem Handy
+  ausschließen … Das verzerrt es immer nur“): `admin.html` selbst sendet nie
+  (`stumm()` bei Seite `admin`), und die Anmeldung als Admin setzt in DIESEM
+  Browser `endurance-stats` = `aus` (`schliesseGeraetAus()`) – derselbe
+  Eintrag wie der Schalter in der Datenschutzerklärung. Der Knopf „Dieses
+  Gerät zählt nicht mit“ neben „Stand“ schaltet um; wer dort wieder
+  einschaltet, bekommt `an`, und das überschreibt die nächste Anmeldung
+  nicht (automatisch nur, solange nichts im Speicher steht). Jeder Browser
+  hat seinen eigenen Speicher – Safari, Chrome, die App auf dem
+  Home-Bildschirm, der Browser in der Instagram-App: dort einmal im
+  Dashboard anmelden oder den Schalter in der Datenschutzerklärung nehmen.
+  Rückwirkend lässt sich nichts herausrechnen (keine Kennung über den Tag
+  hinaus – gewollt). Rauchtest: `pruefe_statistik_dashboard`.
 - **Zugang zum Dashboard** über `admins/<uid>` in Firestore (Regel
   `istAdmin()`), KEINE E-Mail-Adresse in den Regeln (Repo öffentlich);
   `test_statistik` prüft das. Die Seite zeigt die eigene uid, wenn der

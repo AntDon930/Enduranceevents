@@ -162,7 +162,9 @@
   .stat-range button { font: inherit; font-weight: 600; font-size: 0.88rem; padding: 8px 14px; min-height: 40px; border-radius: 999px; border: 1px solid var(--border-strong); background: var(--panel); color: var(--text); cursor: pointer; }
   .stat-range button:hover { background: var(--accent-bg); }
   .stat-range button.active { background: var(--pill-active-bg, var(--accent)); color: var(--pill-active-fg, var(--on-accent)); border-color: var(--pill-active-border, var(--accent)); }
-  .stat-meta { margin-left: auto; display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 0.85rem; }
+  .stat-meta { margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; color: var(--text-muted); font-size: 0.85rem; }
+  /* Dieses Gerät aus der Statistik: ausgeschlossen = ruhig mit Haken, mitgezählt = Signalrand. */
+  #geraet-btn.zaehlt { border-color: var(--brand); }
   /* Monatswahl neben den Zeitraum-Knöpfen (14.10.2026): ‹ Oktober 2026 › */
   .stat-monat { display: inline-flex; align-items: center; gap: 4px; }
   .stat-monat button { min-width: 40px; padding: 8px 10px; }
@@ -323,6 +325,7 @@
       <div class="stat-range" id="stat-range" role="group"></div>
       <div class="stat-meta">
         <span id="stat-stand"></span>
+        <button type="button" class="stat-btn" id="geraet-btn"></button>
         <button type="button" class="stat-btn" id="csv-btn"></button>
       </div>
     </div>
@@ -435,7 +438,7 @@
 <script defer src="vendor/firebase-10.14.1/firebase-firestore-compat.js"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
-<script defer src="stats.js?v=21731166"></script>
+<script defer src="stats.js?v=8b948eef"></script>
 <script>
 (function () {
   'use strict';
@@ -523,6 +526,9 @@
       monat_zurueck: 'Vormonat', monat_vor: 'Folgemonat',
       monate: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
       stand: 'Stand', csv: 'CSV herunterladen',
+      geraet_aus: '✓ Dieses Gerät zählt nicht mit', geraet_an: 'Dieses Gerät zählt mit – ausschließen',
+      geraet_aus_titel: 'Deine Besuche in diesem Browser fließen nicht in die Statistik ein (beim Anmelden hier automatisch abgeschaltet). Antippen, um sie wieder mitzuzählen.',
+      geraet_an_titel: 'Deine Besuche in diesem Browser werden mitgezählt. Antippen, um sie auszuschließen.',
       kpi_besucher: 'Besucher', kpi_besucher_hint: 'je Tag eindeutig, über den Zeitraum summiert',
       kpi_besuche: 'Besuche', kpi_pv: 'Seitenaufrufe', kpi_je_besuch: 'Seiten je Besuch',
       kpi_absprung: 'Absprungrate', kpi_dauer: 'Ø Besuchsdauer',
@@ -677,6 +683,9 @@
       monat_zurueck: 'Previous month', monat_vor: 'Next month',
       monate: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       stand: 'Updated', csv: 'Download CSV',
+      geraet_aus: '✓ This device is not counted', geraet_an: 'This device is counted – exclude',
+      geraet_aus_titel: 'Your visits in this browser are left out of the statistics (switched off automatically when you signed in here). Tap to count them again.',
+      geraet_an_titel: 'Your visits in this browser are counted. Tap to exclude them.',
       kpi_besucher: 'Visitors', kpi_besucher_hint: 'unique per day, summed over the period',
       kpi_besuche: 'Visits', kpi_pv: 'Page views', kpi_je_besuch: 'Pages per visit',
       kpi_absprung: 'Bounce rate', kpi_dauer: 'Avg. visit duration',
@@ -858,6 +867,7 @@
       const admin = await db.collection('admins').doc(user.uid).get();
       if (!admin.exists) { gateKeinAdmin(user.uid); return; }
       geladenFuer = user.uid;
+      schliesseGeraetAus();
       gateEl.hidden = true;
       contentEl.hidden = false;
       ladeWartung();
@@ -868,6 +878,42 @@
       gateFehler(err);
     }
   }
+
+  // ---------- Eigene Besuche nicht mitzählen ----------
+  // 25.11.2026, vom Nutzer: „Kann man meine Besuche von meinem iPad und
+  // meinem Handy ausschließen von den Statistiken … Das verzerrt es immer
+  // nur.“ Wer sich hier als Admin anmeldet, nimmt DIESEN Browser aus der
+  // Zählung – derselbe Eintrag wie der Schalter in der Datenschutzerklärung
+  // (localStorage endurance-stats = 'aus', geprüft von stats.js auf jeder
+  // Seite). Automatisch nur, solange dort nichts steht: 'an' heißt, jemand
+  // hat hier mit dem Knopf bewusst wieder eingeschaltet. Jeder Browser hat
+  // seinen eigenen Speicher (Safari, Chrome, die App auf dem Home-
+  // Bildschirm, der Browser in der Instagram-App) – dort einmal hier
+  // anmelden oder den Schalter in der Datenschutzerklärung nehmen.
+  const SPEICHER_STATS = 'endurance-stats';
+  function geraetStand() {
+    try { return localStorage.getItem(SPEICHER_STATS); } catch (e) { return null; }
+  }
+  function setzeGeraet(wert) {
+    try { localStorage.setItem(SPEICHER_STATS, wert); } catch (e) { /* privater Modus: bleibt beim Alten */ }
+    zeichneGeraet();
+  }
+  function schliesseGeraetAus() {
+    if (geraetStand() === null) setzeGeraet('aus');
+    else zeichneGeraet();
+  }
+  function zeichneGeraet() {
+    const knopf = document.getElementById('geraet-btn');
+    if (!knopf) return;
+    const aus = geraetStand() === 'aus';
+    knopf.textContent = t(aus ? 'geraet_aus' : 'geraet_an');
+    knopf.title = t(aus ? 'geraet_aus_titel' : 'geraet_an_titel');
+    knopf.setAttribute('aria-pressed', aus ? 'true' : 'false');
+    knopf.classList.toggle('zaehlt', !aus);
+  }
+  document.getElementById('geraet-btn').addEventListener('click', () => {
+    setzeGeraet(geraetStand() === 'aus' ? 'an' : 'aus');
+  });
 
   // ---------- Was ansteht ----------
   // wochenplan.json (scripts/wochenplan.py, Pages-Workflow) trägt je Termin
@@ -2140,6 +2186,7 @@
       document.getElementById('b-' + k).textContent = t('b_' + k);
     });
     document.getElementById('csv-btn').textContent = t('csv');
+    zeichneGeraet();
     document.getElementById('footer-impressum').textContent = l === 'de' ? 'Impressum' : 'Legal notice';
     document.getElementById('footer-datenschutz').textContent = l === 'de' ? 'Datenschutz' : 'Privacy';
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
