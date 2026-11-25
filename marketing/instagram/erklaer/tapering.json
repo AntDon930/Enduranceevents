@@ -4,27 +4,27 @@
  "szenen": [
   {
    "bild": "frage",
-   "text": "Kurz vor dem Rennen weniger trainieren? Macht dich das wirklich schneller?",
+   "text": "Kurz vor dem Rennen weniger trainieren? Macht dich das schneller?",
    "zeile": "WENIGER = SCHNELLER?",
    "g": 116,
+   "aktion": "kalender",
+   "von": 14,
    "teile": [
     [
      0.0,
-     1.95,
+     2.11,
      6
     ],
     [
-     2.3,
-     3.78,
-     5
+     2.36,
+     3.43,
+     4
     ]
-   ],
-   "aktion": "kalender",
-   "von": 14
+   ]
   },
   {
    "bild": "denken",
-   "text": "Verlierst du Form? Werden die Beine schwer? Lieber noch ein langer Lauf?",
+   "text": "Form weg? Schwere Beine? Noch ein langer Lauf?",
    "worte": [
     "FORM WEG?",
     "SCHWERE BEINE?",
@@ -32,45 +32,45 @@
    ],
    "teile": [
     [
-     4.73,
-     5.63,
-     3
+     3.67,
+     4.34,
+     2
     ],
     [
-     6.36,
-     7.49,
+     4.57,
+     5.48,
+     2
+    ],
+    [
+     5.72,
+     6.87,
      4
-    ],
-    [
-     8.18,
-     9.57,
-     5
     ]
    ]
   },
   {
    "bild": "entwarnung",
-   "text": "Nein. Die Müdigkeit verschwindet schneller als deine Fitness.",
+   "text": "Keine Panik! Die Müdigkeit geht, die Form bleibt.",
    "blase": "KEINE PANIK!",
    "blase_g": 96,
    "zeile": "MÜDIGKEIT GEHT, FORM BLEIBT",
    "g": 92,
    "teile": [
     [
-     10.18,
-     10.62,
-     1
+     7.1,
+     8.04,
+     2
     ],
     [
-     11.07,
-     13.59,
-     7
+     8.21,
+     10.25,
+     6
     ]
    ]
   },
   {
    "bild": "zahl",
-   "text": "Forschende haben über 158.000 Freizeit-Marathonläufer ausgewertet. Wer drei Wochen lang Schritt für Schritt reduzierte, war im Schnitt gut fünfeinhalb Minuten schneller.",
+   "text": "Eine Studie mit über hundertfünfzigtausend Marathonläufern zeigt: Wer drei Wochen lang langsam reduzierte, war gut fünfeinhalb Minuten schneller.",
    "zahl": 330,
    "format": "min",
    "oben": "158.000 MARATHONLÄUFER",
@@ -79,25 +79,25 @@
    "klein": "Smyth & Lawlor, 2021",
    "teile": [
     [
-     14.21,
-     18.9,
+     10.49,
+     14.06,
+     7
+    ],
+    [
+     14.22,
+     16.66,
      6
     ],
     [
-     19.46,
-     21.94,
-     8
-    ],
-    [
-     22.29,
-     24.61,
-     7
+     16.8,
+     18.93,
+     5
     ]
    ]
   },
   {
    "bild": "balken",
-   "text": "So geht's: den Umfang etwa halbieren. Zum Beispiel von 50 auf 35 und dann rund 22 Kilometer.",
+   "text": "So geht's: den Umfang halbieren, zum Beispiel von fünfzig auf fünfunddreißig, dann zweiundzwanzig Kilometer.",
    "oben": "KILOMETER PRO WOCHE",
    "balken": [
     [
@@ -122,20 +122,30 @@
    "zeile": "UMFANG ETWA HALBIEREN",
    "teile": [
     [
-     25.22,
-     25.81,
+     19.15,
+     19.79,
      2
     ],
     [
-     26.26,
-     32.73,
-     15
+     20.02,
+     21.25,
+     3
+    ],
+    [
+     21.46,
+     24.06,
+     6
+    ],
+    [
+     24.26,
+     26.03,
+     3
     ]
    ]
   },
   {
    "bild": "test",
-   "text": "Aber: Das Tempo bleibt. Gleiche Trainingstage, ein paar zügige Abschnitte, nur weniger Kilometer.",
+   "text": "Aber: Das Tempo bleibt. Gleiche Trainingstage, ein paar zügige Abschnitte.",
    "titel": "DEIN TAPER",
    "zeilen": [
     [
@@ -154,43 +164,38 @@
    "fazit": "WENIGER KM, GLEICHES TEMPO",
    "teile": [
     [
-     33.24,
-     33.68,
+     26.25,
+     26.7,
      1
     ],
     [
-     34.0,
-     35.15,
-     3
+     26.93,
+     29.54,
+     5
     ],
     [
-     35.62,
-     38.36,
-     6
-    ],
-    [
-     38.68,
-     39.77,
-     3
+     29.78,
+     31.41,
+     4
     ]
    ]
   },
   {
    "bild": "schluss",
-   "text": "Wie lange taperst du vor deinem Rennen? Schreib es in die Kommentare.",
+   "text": "Wie lange taperst du? Ab in die Kommentare!",
    "frage": "WIE LANGE TAPERST DU?",
    "g": 112,
    "blase": "2 Wochen – und du?",
    "teile": [
     [
-     40.29,
-     42.08,
-     7
+     31.64,
+     32.67,
+     4
     ],
     [
-     42.42,
-     43.81,
-     5
+     32.9,
+     33.96,
+     4
     ]
    ]
   }
@@ -206,37 +211,7 @@
   "Wie lange taperst du vor deinem Rennen? Schreib es in die Kommentare!",
   "#tapering #marathontraining #laufen #lauftraining #wettkampf"
  ],
- "zeiten": [
-  [
-   0.0,
-   4.25
-  ],
-  [
-   4.25,
-   9.88
-  ],
-  [
-   9.88,
-   13.9
-  ],
-  [
-   13.9,
-   24.91
-  ],
-  [
-   24.91,
-   32.98
-  ],
-  [
-   32.98,
-   40.03
-  ],
-  [
-   40.03,
-   43.96
-  ]
- ],
- "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – tapering.mp3 neben dieser Datei",
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen gekürzt, atempo 0,89) – tapering.mp3 neben dieser Datei (neu am 25.11.2026)",
  "cover": {
   "farbe": "coral",
   "titel": [
@@ -247,5 +222,35 @@
   "hervor": 2,
   "figur": "kalender",
   "text": "3"
- }
+ },
+ "zeiten": [
+  [
+   0.0,
+   3.55
+  ],
+  [
+   3.55,
+   6.98
+  ],
+  [
+   6.98,
+   10.37
+  ],
+  [
+   10.37,
+   19.04
+  ],
+  [
+   19.04,
+   26.14
+  ],
+  [
+   26.14,
+   31.52
+  ],
+  [
+   31.52,
+   34.25
+  ]
+ ]
 }
