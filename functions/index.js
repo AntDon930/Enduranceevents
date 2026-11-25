@@ -266,6 +266,7 @@ const SUCH_UEBERSETZUNGEN = {
     "Backcountry Ultra": ["Backyard Ultra", "Backyard Ultra"],
     "Backyard": ["Backyard Ultra", "Backyard Ultra"],
     "Charity": ["Charity", "Charity"],
+    "Inoffiziell": ["Nicht offizieller Marathon", "Unofficial marathon"],
     "Freiwasser": ["Freiwasser", "Open Water"],
     "Becken": ["Becken", "Pool"],
     "Zeitfahren": ["Zeitfahren", "Time Trial"],
@@ -301,6 +302,8 @@ function sucheHeuhaufen(event) {
   // soll die Suche nach "Charity"/"Benefiz" auch dann finden, wenn es
   // nicht so heißt.
   if (event.charity) teile.push("Charity", "Benefiz");
+  // Ebenso der nicht offizielle Marathon (event.inoffiziell, 25.11.2026).
+  if (event.inoffiziell) teile.push("Inoffiziell", "Nicht offizieller Marathon", "Unofficial marathon", "100 Marathon Club");
   ["land", "art1", "art2", "standort"].forEach((feld) => {
     const werte = SUCH_UEBERSETZUNGEN[feld] && SUCH_UEBERSETZUNGEN[feld][event[feld]];
     if (werte) teile.push(werte[0], werte[1]);
@@ -337,10 +340,13 @@ function eventMatchesFilters(event, filters) {
   // Event (event.charity). Dieselbe Auflösung steht in filters.js
   // (matchesKategorie); laufen die beiden auseinander, bekommt jemand
   // E-Mails über Events, die seine Suche nie gezeigt hat.
+  // Derselbe Sonderfall für den nicht offiziellen Marathon
+  // (event.inoffiziell, seit dem 25.11.2026).
   if (filters.art2 && filters.art2.length &&
       !filters.art2.includes(event.art2) &&
       !(filters.art2.includes("Charity") &&
-        (event.charity === true || event.art2 === "Charity"))) return false;
+        (event.charity === true || event.art2 === "Charity")) &&
+      !(filters.art2.includes("Inoffiziell") && event.inoffiziell === true)) return false;
   if (filters.standort && filters.standort.length && !filters.standort.includes(event.standort)) return false;
   if (filters.laengeMin && event.laenge_km != null && event.laenge_km < parseFloat(filters.laengeMin)) return false;
   if (filters.laengeMax && event.laenge_km != null && event.laenge_km > parseFloat(filters.laengeMax)) return false;
@@ -457,6 +463,7 @@ function eventKurz(event) {
     art1: event.art1 || null,
     art2: event.art2 || null,
     charity: event.charity === true,
+    inoffiziell: event.inoffiziell === true,
     laenge_km: event.laenge_km != null ? event.laenge_km : null,
     gedaechtnis: event.gedaechtnis === true,
     dauer_h: event.dauer_h != null ? event.dauer_h : null,
@@ -593,6 +600,7 @@ function veranstaltungen(wartend) {
         vorlaeufig: zeilen.some((z) => z.datum_vorlaeufig),
         gedaechtnis: zeilen.some((z) => z.gedaechtnis),
         charity: zeilen.some((z) => z.charity),
+        inoffiziell: zeilen.some((z) => z.inoffiziell),
         url: sichereUrl(zeilen.map((z) => z.veranstalter_url).find(Boolean)),
       };
     })
@@ -617,7 +625,9 @@ function karteHtml(g) {
     (abzeichen ? `<span style="display:inline-block;background:${ton};color:${tonSchrift};border-radius:999px;padding:3px 10px;` +
       `font-family:${SCHRIFT};font-size:12px;font-weight:bold;">${esc(abzeichen)}</span>` : "") +
     (g.charity ? ` <span style="display:inline-block;background:#FDECEF;color:#A3123A;border-radius:999px;padding:3px 10px;` +
-      `font-family:${SCHRIFT};font-size:12px;font-weight:bold;">&#9829; Charity</span>` : "");
+      `font-family:${SCHRIFT};font-size:12px;font-weight:bold;">&#9829; Charity</span>` : "") +
+    (g.inoffiziell ? ` <span style="display:inline-block;background:#ffffff;color:${GRAU};border:1px dashed ${LINIE};border-radius:999px;padding:2px 10px;` +
+      `font-family:${SCHRIFT};font-size:12px;font-weight:bold;">Nicht offizieller Marathon</span>` : "");
   const strecken = g.laengen.length
     ? `<p style="margin:10px 0 0;font-family:${SCHRIFT};font-size:14px;color:${TINTE};">` +
       `<span style="color:${GRAU};">${g.laengen.length > 1 ? "Strecken" : "Strecke"}:</span> ` +

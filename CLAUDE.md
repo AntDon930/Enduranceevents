@@ -1218,6 +1218,45 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    nie wegen einer Längengrenze fallen. Tests:
    `test_marsch_quellen` und die Marsch-Prüfungen bei `test_kategorie`.
 
+26. **Nicht offizielle Marathons (Zählläufe) sind eine MARKIERUNG, keine
+   Kategorie** – vom Nutzer am 25.11.2026: „Ich würde die Kategorie
+   Marathon lassen, aber es soll dann noch eine Unterkategorie geben
+   ‚FEM Marathon‘ oder ‚Nicht offizieller Marathon‘. Damit man das sieht.
+   Weil ziemlich sicher wollen mehr als 90% einen normalen Marathon
+   laufen." Gemeint sind private Läufe, die man für den 100 Marathon Club
+   zählt: Treffpunkt meist ein Parkplatz, kostenlos oder 5 €, die Seite
+   sagt selbst „keine wettkampforientierte Veranstaltung“, „Zählordnung“,
+   „Kofferraumverpflegung“, „Rahmenstartzeit“, „Startgeld: ohne“. Gebaut
+   nach dem Muster von Charity (Datenregel 17): Feld **`inoffiziell:
+   true`**, die Kategorie (Straße/Trail) bleibt.
+   - **Regel** `scraper_lib.ist_inoffiziell(name, url)`: nur die Serien,
+     die es am Namen oder an der Seite tragen – Fun & Erlebnis (FEM),
+     Speck-weg, SOBVL, „Wir wollen doch nur laufen“, „100MC“ im Namen,
+     Hosts `ultra-uwe-unterwegs.de`, `100-marathon-club.de`,
+     `100marathonclub.ch`; nur `art1 == "Laufen"`
+     (`clean_events.fix_inoffiziell()`, setzt nur, nimmt nie weg).
+     Am Bestand 84 Zeilen in 44 Veranstaltungen, ohne Fehltreffer.
+   - **Einzelne Läufe, die nur raceresult verlinken**, per Override
+     `inoffiziell: true` (mit Beleg aus der raceresult-Seite: Gerd
+     Junker, Uwe Laig, Volkmar Henke, Bernhard Marathon, 100 MC Schweiz);
+     `false` schaltet eine Fehlmarkierung ab. **Das Gedächtnis gibt die
+     Markierung an die nächste Ausgabe weiter**
+     (`veranstalter_seiten.lerne_ausgabe`/`anwenden`) – sonst verlöre der
+     Lauf sie mit dem Datum des Overrides. Grenzfälle bleiben unmarkiert
+     (Northeimer Heiligabend-Marathon: eigene Zeitnahme, aber
+     Streckenrekorde; Halbmarathon-Trainingsläufe) – der Name sagt
+     „Marathon“, also Marathon und länger.
+   - **Anzeige**: Schildchen „inoffiziell“ hinter der Kategorie in der
+     Tabelle (`inoffiziellMarke`, gestrichelt), Abzeichen „Nicht
+     offizieller Marathon“ in der Box mit der Erklärung SICHTBAR darunter
+     (ein `title` erscheint auf dem Handy nicht). **Filter**: Wert
+     `Inoffiziell` im Kategorie-Panel unter Laufen (`ART2_BY_ART1`,
+     `EF.matchesKategorie`, Übersetzung DE „Nicht offizieller Marathon“/EN
+     „Unofficial marathon“), die Suche findet „inoffiziell“ und „100
+     Marathon Club“. **Dieselbe Auflösung in `functions/index.js`**
+     (Abo-Filter, Suche, Mail-Abzeichen) – wirkt erst nach `firebase
+     deploy --only functions` (Nutzer). `test_inoffiziell`.
+
 ### Die wichtigste Lektion
 
 **Keine automatische Löschregel auf Heuristik-Basis.** Eine Regel, die

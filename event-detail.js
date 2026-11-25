@@ -44,6 +44,13 @@
       detail_close: 'Schließen',
       charity: 'Charity',
       charity_titel: 'Charity-Event: Die Veranstaltung läuft für einen guten Zweck.',
+      // Nicht offizieller Marathon (e.inoffiziell, seit dem 25.11.2026):
+      // Abzeichen in der Box, kurzes Schildchen in der Tabelle, und die
+      // Erklärung steht in der Box SICHTBAR (ein title erscheint auf dem
+      // Handy nicht).
+      inoffiziell: 'Nicht offizieller Marathon',
+      inoffiziell_kurz: 'inoffiziell',
+      inoffiziell_titel: 'Kein offizieller Wettkampf: ein privater Lauf in kleiner Runde, oft zum Zählen für den 100 Marathon Club. Meist kostenlos oder gegen eine Spende – Bestzeiten sind nicht das Ziel.',
       // Die Fußnote zum Sternchen steht hier statt in beiden Seiten:
       // Liste und Karte zeigen denselben Text, und der Tooltip am
       // Sternchen selbst (formatEventRangeHtml) braucht ihn auch.
@@ -87,6 +94,9 @@
       detail_close: 'Close',
       charity: 'Charity',
       charity_titel: 'Charity event: this race runs for a good cause.',
+      inoffiziell: 'Unofficial marathon',
+      inoffiziell_kurz: 'unofficial',
+      inoffiziell_titel: 'Not an official race: a small private run, often held so runners can count it for a 100 Marathon Club. Usually free or for a donation – personal bests are not the point.',
       datum_vorlaeufig_kurz: 'Date to be confirmed – estimated from last year’s date',
       strecke_vorlaeufig_kurz: 'Distance to be confirmed – taken from the previous year',
       detail_strecke_vorlaeufig: 'Distances to be confirmed – taken from the previous year',
@@ -744,6 +754,12 @@
   // 21.09.2026 gewünscht: "Ich würde die Charity Events irgendwie gerne
   // alle markieren in der Zeile mit einem Icon."
   const CHARITY_PFAD = '<path d="M12 20s-7-4.5-7-9.2A4 4 0 0 1 12 8a4 4 0 0 1 7 2.8C19 15.5 12 20 12 20z"/>';
+  // Das Zeichen am nicht offiziellen Marathon: eine Stoppuhr mit Strich -
+  // "nicht auf Zeit". Konturicon mit 1,8 px wie alle Symbole der Seite.
+  const INOFFIZIELL_SVG = '<svg class="inoffiziell-icon" viewBox="0 0 24 24" width="15" height="15" fill="none"'
+    + ' stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + '<circle cx="12" cy="13" r="7.5"/><path d="M10 3h4M12 3v2.5M12 13V9.5M4 4l16 18"/></svg>';
+
   function charityIcon(size) {
     const px = size || 15;
     return `<svg class="charity-icon" viewBox="0 0 24 24" width="${px}" height="${px}" fill="none"`
@@ -1028,7 +1044,9 @@
       <div class="detail-badges">
         <div class="detail-badge ${sportClass(e.art1)}">${sportIcon(e.art1, 15)}<span>${escapeHtml(kategorie)}</span></div>
         ${e.charity ? `<div class="detail-badge detail-badge--charity" title="${escapeHtml(t('charity_titel'))}">${charityIcon(15)}<span>${escapeHtml(t('charity'))}</span></div>` : ''}
+        ${e.inoffiziell ? `<div class="detail-badge detail-badge--inoffiziell">${INOFFIZIELL_SVG}<span>${escapeHtml(t('inoffiziell'))}</span></div>` : ''}
       </div>
+      ${e.inoffiziell ? `<p class="detail-hinweis-inoffiziell">${escapeHtml(t('inoffiziell_titel'))}</p>` : ''}
       <h2>${escapeHtml(e.name)}</h2>
       ${streckenPillen(e, ctx)}
       <dl class="detail-grid">

@@ -3577,6 +3577,101 @@ def test_charity_merkmal() -> None:
     check("fix_charity ist idempotent", rows, vorher)
 
 
+def test_inoffiziell() -> None:
+    """Nicht offizielle Marathons (Zählläufe für den 100 Marathon Club) sind
+    ein MERKMAL neben der Kategorie, wie Charity (vom Nutzer am 25.11.2026:
+    "Ich würde die Kategorie Marathon lassen, aber es soll dann noch eine
+    Unterkategorie geben … "Nicht offizieller Marathon". Damit man das
+    sieht.")."""
+    print("\nNicht offizieller Marathon (ist_inoffiziell, fix_inoffiziell, Gedächtnis, Filter):")
+    import json as _json
+    import shutil
+    import subprocess
+    from scraper_lib import ist_inoffiziell
+    from clean_events import fix_inoffiziell
+    import veranstalter_seiten as vs
+    for name, url in (("Fun & Erlebnis Marathons", "https://my.raceresult.com/423151/"),
+                      ("FEM Teichwiesen Marathon", None),
+                      ("Speck-weg Marathon", None),
+                      ("SOBVL Herbstmarathon", None),
+                      ("Wir wollen doch nur laufen - Marathon", None),
+                      ("12. Hamburger 100MC Elbtunnel-Marathon", None),
+                      ("Eversburger Gewässer Ultramarathon", "https://www.ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/")):
+        check(f"{name!r} -> inoffiziell", ist_inoffiziell(name, url), True)
+    # Gegenproben: gewöhnliche Läufe, auch mit ähnlichen Wörtern.
+    for name, url in (("Generali Berlin-Marathon", "https://www.bmw-berlin-marathon.com/"),
+                      ("Femina Lauf Fürth", None),
+                      ("100 km von Biel", None),
+                      ("Erlebnislauf am Kemnader See", None),
+                      ("Eversburger Gewässer Ultramarathon", "https://my.raceresult.com/433609/")):
+        check(f"{name!r} bleibt offiziell", ist_inoffiziell(name, url), False)
+
+    rows = [
+        {"name": "Fun & Erlebnis Marathons", "datum_start": "2099-12-02", "art1": "Laufen", "art2": "Straße", "laenge_km": 42.2},
+        {"name": "FEM Swimrun", "datum_start": "2099-12-03", "art1": "Triathlon", "art2": "Swimrun"},
+        {"name": "Stadtlauf Erding", "datum_start": "2099-09-27", "art1": "Laufen", "art2": "Straße", "laenge_km": 10.0},
+        {"name": "Ruller Bruch Marathon", "datum_start": "2099-10-01", "art1": "Laufen", "art2": "Trail", "inoffiziell": True},
+    ]
+    fix_inoffiziell(rows)
+    check("FEM: markiert, Kategorie bleibt", (rows[0].get("inoffiziell"), rows[0].get("art2")), (True, "Straße"))
+    check("nur beim Laufen", rows[1].get("inoffiziell"), None)
+    check("Stadtlauf bleibt ohne Merkmal", rows[2].get("inoffiziell"), None)
+    check("eine Markierung aus Override/Gedächtnis bleibt stehen", rows[3].get("inoffiziell"), True)
+    vorher = [dict(r) for r in rows]
+    fix_inoffiziell(rows)
+    check("fix_inoffiziell ist idempotent", rows, vorher)
+
+    # Das Gedächtnis gibt die Markierung an die nächste Ausgabe weiter - ein
+    # Lauf, den nur seine raceresult-Seite als Zähllauf ausweist, verliert
+    # sie sonst mit dem Datum des Overrides.
+    def z(datum, **mehr):
+        return dict(name="Ruller Bruch Marathon", standort="Wallenhorst", land="Deutschland", lat=52.35, lon=8.0,
+                    art1="Laufen", art2="Trail", datum_start=datum, datum_ende=datum, laenge_km=42.2,
+                    veranstalter_url="https://my.raceresult.com/435969/", **mehr)
+    ged = vs.Gedaechtnis({})
+    vs.lernen([z("2099-10-01", inoffiziell=True)], ged, overrides={})
+    check("gemerkt", ged.finde(z("2099-10-01")).get("inoffiziell"), True)
+    neu = [z("2100-09-30")]
+    bericht = vs.anwenden(neu, ged, overrides={})
+    check("nächste Ausgabe bekommt die Markierung", neu[0].get("inoffiziell"), True)
+    check("... mit Bericht", any("nicht offizieller Marathon" in b for b in bericht), True)
+    aus = [z("2100-09-30", inoffiziell=False)]
+    vs.anwenden(aus, ged, overrides={})
+    check("ein Override `false` geht vor", aus[0].get("inoffiziell"), False)
+    vs.lernen(aus, ged, overrides={})
+    check("... und nimmt sie dem Gedächtnis", ged.finde(aus[0]).get("inoffiziell"), None)
+
+    # Die Abo-Function filtert und sucht genauso wie filters.js.
+    wurzel = Path(__file__).resolve().parent.parent
+    fn = (wurzel / "functions" / "index.js").read_text(encoding="utf-8")
+    check("functions/index.js: Kategorie-Filter kennt 'Inoffiziell'",
+          'filters.art2.includes("Inoffiziell") && event.inoffiziell === true' in fn, True)
+    check("functions/index.js: Suche kennt das Merkmal", "if (event.inoffiziell) teile.push(" in fn, True)
+    ui = (wurzel / "filter-ui.js").read_text(encoding="utf-8")
+    zeile = next(l for l in ui.splitlines() if "'Laufen': [" in l)
+    check("filter-ui.js: Filterwert unter Laufen", "'Inoffiziell'" in zeile, True)
+    node = shutil.which("node")
+    if not node:
+        print("  (node nicht vorhanden - übersprungen)")
+        return
+    skript = (
+        "global.window = global;"
+        f"require({_json.dumps(str(wurzel / 'filters.js'))});"
+        "const EF = global.EnduranceFilters;"
+        "const fem = { name: 'Fun & Erlebnis Marathons', art1: 'Laufen', art2: 'Straße', inoffiziell: true };"
+        "const berlin = { name: 'Berlin-Marathon', art1: 'Laufen', art2: 'Straße' };"
+        "const st = EF.createState(); st.art2 = new Set(['Inoffiziell']);"
+        "const st2 = EF.createState(); st2.art2 = new Set(['Straße']);"
+        "const st3 = EF.createState(); st3.suche = 'inoffiziell';"
+        "console.log(JSON.stringify([EF.matchEvent(st, fem), EF.matchEvent(st, berlin),"
+        " EF.matchEvent(st2, fem), EF.matchEvent(st3, fem), EF.matchEvent(st3, berlin)]));"
+    )
+    ergebnis = subprocess.run([node, "-e", skript], capture_output=True, text=True)
+    if ergebnis.returncode != 0:
+        check("filters.js läuft in node", ergebnis.stderr.strip()[:300], "")
+        return
+    check("Filter 'Inoffiziell' trifft den Zähllauf, nicht den Berlin-Marathon; 'Straße' trifft ihn weiter; die Suche findet ihn",
+          _json.loads(ergebnis.stdout), [True, False, True, True, False])
 def test_veranstalter_links() -> None:
     """Die Prüfregel von scripts/veranstalter_links.py: Eine Kandidatenseite
     gilt nur, wenn sie den Lauf am Namen nennt (neunter Durchgang,
@@ -7692,7 +7787,7 @@ def main() -> int:
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel, test_farbschema_skript, test_wartung, test_clubs, test_clubs_instagram, test_blog,
                  test_lauf_im_triathlonkalender,
-                 test_wettbewerb_zusatz, test_triathlon_format, test_charity_merkmal,
+                 test_wettbewerb_zusatz, test_triathlon_format, test_charity_merkmal, test_inoffiziell,
                  test_triathlon_format_kopie):
         test()
 

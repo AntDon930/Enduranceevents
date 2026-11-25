@@ -244,6 +244,47 @@ def ist_charity(text: str) -> bool:
     """
     return bool(CHARITY_KEYWORD.search(text or ""))
 
+
+# Nicht offizielle Marathons ("Zählmarathons") - seit dem 25.11.2026 ein
+# MERKMAL neben der Kategorie, nach demselben Muster wie Charity (die
+# Lehre aus Datenregel 17: was QUER zur Einteilung liegt, ist kein
+# weiterer Wert in ihr). Vom Nutzer: "Ich würde die Kategorie Marathon
+# lassen, aber es soll dann noch eine Unterkategorie geben "FEM Marathon"
+# oder "Nicht offizieller Marathon". Damit man das sieht. Weil ziemlich
+# sicher wollen mehr als 90% einen normalen Marathon laufen." Gemeint
+# sind private Läufe, die Läufer einander anbieten, um sie für den
+# 100 Marathon Club zu zählen: Treffpunkt meist ein Parkplatz, kostenlos
+# oder 5 Euro, und die Seite sagt selbst, dass es kein offizieller
+# Wettkampf ist und nicht um Bestzeiten geht ("Zählordnung",
+# "Kofferraumverpflegung", "keine wettkampforientierte Veranstaltung").
+#
+# Die Regel erkennt nur die SERIEN, die das am Namen oder an der Seite
+# tragen - am Bestand vom 25.11.2026 ohne Fehltreffer gezählt: die Fun &
+# Erlebnis Marathons (FEM), Speck-weg, SOBVL, "Wir wollen doch nur
+# laufen", Läufe des 100 Marathon Club ("100MC") und die Termine von
+# "Uwes Laufangebote" (ultra-uwe-unterwegs.de). Einzelne Läufe, die nur
+# über raceresult verlinkt sind, markiert ein Override (`inoffiziell`),
+# und das Gedächtnis je Veranstaltung gibt die Markierung an die nächste
+# Ausgabe weiter (veranstalter_seiten.anwenden).
+INOFFIZIELL_NAME = re.compile(
+    r"fun\s*(?:&|und|and)\s*erlebnis|\bfem\b|speck[\s-]*weg|\bsobvl\b|"
+    r"wir wollen doch nur laufen|\b100\s*mcs?\b", re.I)
+INOFFIZIELL_HOSTS = ("ultra-uwe-unterwegs.de", "100-marathon-club.de", "100marathonclub.ch")
+
+
+def ist_inoffiziell(name: str | None, url: str | None = None) -> bool:
+    """Gehört die Zeile zu einer Serie nicht offizieller Marathons?
+
+    Nur Name und Host der Veranstalterseite - geraten wird nie. Ein
+    gewöhnlicher Marathon bleibt unmarkiert, auch wenn Mitglieder des
+    100 Marathon Club dort starten; markiert wird, wer selbst als
+    Zähllauf auftritt.
+    """
+    if INOFFIZIELL_NAME.search(name or ""):
+        return True
+    host = urlparse(url or "").netloc.lower().split(":")[0]
+    return any(host == h or host.endswith("." + h) for h in INOFFIZIELL_HOSTS)
+
 # Märsche und Extremwanderungen ("Mammutmarsch", "Megamarsch",
 # "Hollenmarsch", "Ultra Walk", "Charity Walk", "Wandertag") - seit dem
 # 17.10.2026 eine eigene Kategorie unter Laufen (vom Nutzer: „Es muss
@@ -592,6 +633,9 @@ class Event:
     # datum_vorlaeufig None statt False, damit to_dict() das Feld
     # weglässt, solange es nicht gesetzt ist.
     charity: bool | None = None
+    # Nicht offizieller Marathon (Zähllauf für den 100 Marathon Club) -
+    # ebenfalls ein Merkmal neben der Kategorie, siehe ist_inoffiziell().
+    inoffiziell: bool | None = None
     veranstalter_url: str | None = None
     # Vom Vorjahr abgeschrieben, von keiner Quelle bestätigt (Strecken des
     # Gedächtnisses, veranstalter_seiten.py; Termine, die ein Scraper aus dem
@@ -2487,7 +2531,7 @@ def load_manual_overrides() -> dict:
 OVERRIDE_FIELDS = ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
                    "land", "standort", "veranstalter_url", "lat", "lon",
                    "datum_start", "datum_ende", "datum_vorlaeufig", "charity",
-                   "hoehenmeter", "mindestdistanz_ok")
+                   "hoehenmeter", "mindestdistanz_ok", "inoffiziell")
 
 
 def override_keys(name: str | None, datum_start: str | None, laenge_km=None,
@@ -3246,6 +3290,9 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
 ENRICHABLE_FIELDS = (
     "laenge_km", "dauer_h", "art2", "land", "standort", "lat", "lon",
     "datum_ende", "anmeldeschluss", "veranstalter_url",
+    # Eine Markierung, die EINE Quelle trägt (Override, Gedächtnis), soll
+    # beim Zusammenführen nicht an der anderen Zeile verloren gehen.
+    "inoffiziell",
 )
 
 # Kalender-/Anmelde-Portale. Ein Link dorthin ist als Notlösung brauchbar,

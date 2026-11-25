@@ -95,6 +95,22 @@
   color: var(--charity-fg, #a61e4d);
 }
 .detail-badge--charity .charity-icon { color: var(--charity, #d6336c); flex-shrink: 0; }
+/* Nicht offizieller Marathon: bewusst NEUTRAL (Linie statt Tonfläche) -
+   es ist eine Auskunft, keine Auszeichnung und keine Warnung. Die
+   Erklärung darunter steht sichtbar, weil ein title auf dem Handy nie
+   erscheint. */
+.detail-badge--inoffiziell {
+  background: transparent;
+  color: var(--text);
+  border: 1px dashed var(--border-strong, var(--border));
+}
+.detail-badge--inoffiziell .inoffiziell-icon { color: var(--text-muted); flex-shrink: 0; }
+.detail-hinweis-inoffiziell {
+  margin: -4px 0 14px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
 .detail-panel h2 { margin: 0 0 16px; font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; line-height: 1.15; overflow-wrap: anywhere; }
 .detail-section-title {
   font-size: 0.75rem;

@@ -164,7 +164,9 @@
     // wollte die echte Kategorie zurück. Im Panel bleibt es als
     // Filterwert stehen, weil das Suchen danach sein ursprünglicher
     // Wunsch war; EF.matchesKategorie() löst den Sonderfall auf.
-    'Laufen': ['Straße', 'Trail', 'Bahn', 'Hindernis', 'Backyard Ultra', 'Marsch', 'Charity'],
+    // "Inoffiziell" (nicht offizieller Marathon, seit dem 25.11.2026) ist
+    // derselbe Sonderfall: ein Merkmal (e.inoffiziell), nur beim Laufen.
+    'Laufen': ['Straße', 'Trail', 'Bahn', 'Hindernis', 'Backyard Ultra', 'Marsch', 'Charity', 'Inoffiziell'],
     'Schwimmen': ['Freiwasser', 'Becken', 'Charity'],
     'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross', 'Charity'],
     // Triathlon ist die Mehrsport-Schublade: Duathlon (Laufen-Rad-Laufen),
@@ -322,6 +324,7 @@
       // der Filterwert stillschweigend aus dem Panel, sobald ein
       // Datenlauf die letzte Zeile mit der alten Kategorie ersetzt hat.
       if (getEvents().some(e => e.charity)) roh.push('Charity');
+      if (getEvents().some(e => e.inoffiziell)) roh.push('Inoffiziell');
       const presentArt2 = uniqueSorted(alleWerte ? roh.concat(ALLE_ART2) : roh);
       if (state.art1.size === 0) return presentArt2;
       const allowed = new Set();

@@ -630,6 +630,16 @@ class Gedaechtnis:
         alt["art1"] = zeilen[0].get("art1")
         alt["land"] = zeilen[0].get("land")
         alt["strecken"] = strecken
+        # Nicht offizieller Marathon (Zähllauf, scraper_lib.ist_inoffiziell):
+        # Die Markierung gilt der VERANSTALTUNG, nicht der Ausgabe - die
+        # nächste bekommt sie über anwenden(). Weg nur, wenn eine Zeile
+        # dieser Ausgabe sie ausdrücklich abschaltet (Override `false`).
+        if any(z.get("inoffiziell") is True for z in zeilen):
+            if not alt.get("inoffiziell"):
+                alt["inoffiziell"] = True
+                geaendert = True
+        elif any(z.get("inoffiziell") is False for z in zeilen) and alt.pop("inoffiziell", None):
+            geaendert = True
         if datum > (alt.get("datum") or "") or not alt.get("url"):
             # Name, Ort und Lage der jüngsten Ausgabe - bei einer Zeile mit
             # Seite hat lerne() das schon getan, dann nur nachziehen.
@@ -957,6 +967,14 @@ def anwenden(events: list[dict], ged: Gedaechtnis, overrides: dict | None = None
         if not isinstance(e.get("lat"), (int, float)) and isinstance(eintrag.get("lat"), (int, float)):
             e["lat"], e["lon"] = eintrag["lat"], eintrag["lon"]
             bericht.append(f"{e.get('name')} ({e.get('datum_start')}): Koordinaten der Ausgabe {eintrag.get('datum')} übernommen")
+        # Ein nicht offizieller Marathon bleibt einer: Die Seite der neuen
+        # Ausgabe sagt es selten im Namen (Läufe, die nur raceresult
+        # verlinkt, tragen die Markierung per Override - und der hängt am
+        # Datum). Ein Override mit `inoffiziell` (auch `false`) steht schon
+        # in der Zeile und geht vor.
+        if eintrag.get("inoffiziell") and "inoffiziell" not in e and e.get("art1") == "Laufen":
+            e["inoffiziell"] = True
+            bericht.append(f"{e.get('name')} ({e.get('datum_start')}): nicht offizieller Marathon wie {eintrag.get('datum')}")
         alt = e.get("veranstalter_url")
         if eigene_seite(alt) or not eintrag.get("url"):
             continue

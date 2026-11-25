@@ -9087,5 +9087,40 @@
   "Großkarolinenfelder Nikolauslauf|2026-11-28|10": {
     "wettbewerb": "10 km",
     "_note": "Korrekturseite des Nutzers 25.11.2026: „es gibt einen 6,5km Lauf und einen 10km Lauf“."
+  },
+  "Bernhard Marathon|2026-11-28": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Wunsch des Nutzers): raceresult 416674, Joachim Kortyka: Geburtstagsmarathon in Erinnerung an Bernhard Hertinger, „Startgebühr: Keine“, „Eigene Verpflegung auf dem Parkplatz“, Teilstrecken möglich."
+  },
+  "Ruller Bruch Marathon|2026-11-28": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Wunsch des Nutzers): raceresult 435969, Gerd Junker (Wallenhorst): 100 Marathon Club, Kofferraumverpflegung, „Startgeld: ohne“, Spende."
+  },
+  "Green Suppenlauf Marathon|2026-12-05": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Wunsch des Nutzers): raceresult 433264, 100 Marathon Club Schweiz: „Der Lauf ist gratis, es ist kein Wettkampf“, Zeit selbst eintragen, zählt für die 100 MCS Green Marathon Challenge."
+  },
+  "Bergpfad Trailmarathon Plus Hexenküche|2026-12-13": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Wunsch des Nutzers): raceresult 435430, Uwe Laig (Lengerich): Kofferraumverpflegung, Parkplatz, Spende."
+  },
+  "Rheine Kloster/Schloss Bentlage Marathon|2026-12-19": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Wunsch des Nutzers): raceresult 423444, Dr. Volkmar Henke: „Rahmenstartzeit von 7-12 Uhr - Kein Zeitlimit - Keine Startgebühr“, Kofferraum, Parkplatz."
+  },
+  "Haddorfer Seen Marathon|2026-12-20": {
+    "inoffiziell": true,
+    "standort": "Wettringen",
+    "lat": 52.2385,
+    "lon": 7.3409,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Wunsch des Nutzers): raceresult 423451, Dr. Volkmar Henke, zweiter Tag des Double Marathon: „Rahmenstartzeit von 7-12 Uhr - Kein Zeitlimit - Keine Startgebühr“. Dazu der Ort: Die Zeile „1. Haddorfer Seen Marathon“ lag in Wettringen in BAYERN (49,26/10,16), die Haddorfer Seen liegen bei Wettringen im Kreis Steinfurt (Anfahrt über Neuenkirchen/Salzbergen laut Ausschreibung); die zweite Zeile derselben Seite stand am Offlumer See daneben. Beide Schreibweisen trifft dieser Schlüssel (Auflage vorn wird überlesen) - mit gleichem Ort werden sie eine Zeile. Koordinaten am Offlumer/Haddorfer See."
+  },
+  "Megalithgrab Sloopsteene Ultramarathon|2026-12-27": {
+    "inoffiziell": true,
+    "_note": "Nicht offizieller Marathon (25.11.2026, Wunsch des Nutzers): raceresult 412994, Uwe Laig (Lengerich): 100 Marathon Club, Kofferraumverpflegung, Parkplatz."
+  },
+  "FEM Teichwiesen Marathon|2026-12-02": {
+    "exclude": true,
+    "_note": "Duplikat (25.11.2026): raceresult groups/62 ist die Gruppenseite der Fun & Erlebnis Marathons; derselbe Lauf am 02.12.2026 steht als „Fun & Erlebnis Marathons“ (raceresult 423151, Marathon und 50 km)."
   }
 }

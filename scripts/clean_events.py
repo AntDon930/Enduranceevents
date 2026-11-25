@@ -85,6 +85,7 @@ from scraper_lib import (  # noqa: E402
     guess_art1,
     guess_art2,
     ist_charity,
+    ist_inoffiziell,
     ist_nicht_offen_schwimmen,
     ist_zu_kurz,
     guess_land,
@@ -569,6 +570,35 @@ def fix_charity(events: list[dict]) -> list[str]:
             # Stand nur über die alte Kategorie als Charity da, der Name
             # sagt es aber nicht - dann ist es auch keine Markierung.
             changed.append(f"{event.get('name')}: Kategorie 'Charity' -> echte Kategorie")
+    return changed
+
+
+def fix_inoffiziell(events: list[dict]) -> list[str]:
+    """Setzt das Merkmal `inoffiziell` (nicht offizieller Marathon,
+    Zähllauf für den 100 Marathon Club) aus Name oder Veranstalterseite -
+    siehe scraper_lib.ist_inoffiziell(). Nur beim Laufen; die Kategorie
+    bleibt, wie sie ist (vom Nutzer am 25.11.2026: "Ich würde die
+    Kategorie Marathon lassen, aber es soll dann noch eine Unterkategorie
+    geben").
+
+    Wie fix_charity(): Ein Override mit ausdrücklichem `inoffiziell`
+    entscheidet allein (`true` für einen Lauf, den nur seine Seite als
+    Zähllauf ausweist, `false` gegen eine Fehlmarkierung), und die Regel
+    setzt nur, sie nimmt nie weg - eine Markierung aus dem Gedächtnis
+    (veranstalter_seiten.anwenden) bleibt stehen. Idempotent.
+    """
+    overrides = load_manual_overrides()
+    changed: list[str] = []
+    for event in events:
+        if event.get("art1") != "Laufen" or event.get("inoffiziell"):
+            continue
+        own = find_override(overrides, event.get("name"), event.get("datum_start"),
+                            event.get("laenge_km"), event.get("wettbewerb"))
+        if own and "inoffiziell" in own:
+            continue
+        if ist_inoffiziell(event.get("name"), event.get("veranstalter_url")):
+            changed.append(f"{event.get('name')} ({event.get('datum_start')}): inoffiziell -> True")
+            event["inoffiziell"] = True
     return changed
 
 
@@ -2385,6 +2415,7 @@ def main() -> None:
     # VOR refresh_art2: fix_charity leert die alte Kategorie "Charity",
     # refresh_art2 holt die echte danach aus der Stichwortliste.
     charity_changes = fix_charity(events)
+    inoffiziell_changes = fix_inoffiziell(events)
     art2_changes = refresh_art2(events)
     distance_fixes = fix_halbmarathon_distance(events)
     meter_fixes = fix_meter_labels(events)
@@ -2496,6 +2527,7 @@ def main() -> None:
     section("Kategorie bei Nicht-Lauf-Sportarten nachgetragen", art2_andere)
     section("Alte Kategorie-Werte zusammengefasst (Trail, Backyard Ultra)", art2_merges)
     section("Charity-Merkmal gesetzt", charity_changes)
+    section("Nicht offizieller Marathon markiert", inoffiziell_changes)
     section("Kategorie (art2) korrigiert", art2_changes)
     section("Distanz korrigiert (Halbmarathon-Bugfix)", distance_fixes)
     section("Satzzeichen am Rand des Namens entfernt", namens_raender)

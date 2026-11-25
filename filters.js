@@ -115,6 +115,13 @@
       // Der Zweck als Kategorie (Laufen, Schwimmen, Fahrrad) - in beiden
       // Sprachen dasselbe Wort.
       'Charity': { de: 'Charity', en: 'Charity' },
+      // Nicht offizieller Marathon (Zähllauf für den 100 Marathon Club) -
+      // wie Charity ein Merkmal am Event (e.inoffiziell), kein Wert in
+      // art2; im Kategorie-Panel steht es als Filterwert (vom Nutzer am
+      // 25.11.2026: "eine Unterkategorie … "Nicht offizieller Marathon".
+      // Damit man das sieht."). Der Schlüssel ist kurz, weil er in geteilten
+      // Links steht.
+      'Inoffiziell': { de: 'Nicht offizieller Marathon', en: 'Unofficial marathon' },
       'Freiwasser': { de: 'Freiwasser', en: 'Open Water' },
       'Becken': { de: 'Becken', en: 'Pool' },
       'Zeitfahren': { de: 'Zeitfahren', en: 'Time Trial' },
@@ -1068,6 +1075,9 @@
     // "Benefiz" auch dann finden, wenn es nicht so heißt - die Kategorie
     // trug das Wort früher, jetzt tut es das Merkmal.
     if (e.charity) teile.push('Charity', 'Benefiz');
+    // Ebenso der nicht offizielle Marathon: "inoffiziell", "100 Marathon
+    // Club" oder "unofficial" finden ihn, auch wenn der Name es nicht sagt.
+    if (e.inoffiziell) teile.push('Inoffiziell', 'Nicht offizieller Marathon', 'Unofficial marathon', '100 Marathon Club');
     ['land', 'art1', 'art2', 'standort'].forEach(feld => {
       const eintrag = VALUE_TRANSLATIONS[feld] && VALUE_TRANSLATIONS[feld][e[feld]];
       if (eintrag) teile.push(eintrag.de, eintrag.en);
@@ -1091,9 +1101,13 @@
   // `e.art2 === 'Charity'` bleibt mitgeprüft: Ein geteilter Link aus
   // der Zeit, als es die Kategorie noch gab, soll weiter etwas finden.
   // Dasselbe steht in functions/index.js (ABO-Filter).
+  // Derselbe Sonderfall für den nicht offiziellen Marathon (e.inoffiziell,
+  // seit dem 25.11.2026): Er bleibt Straße oder Trail und ist zusätzlich
+  // unter "Inoffiziell" zu finden.
   function matchesKategorie(state, e) {
     if (state.art2.has(e.art2)) return true;
-    return state.art2.has('Charity') && (e.charity === true || e.art2 === 'Charity');
+    if (state.art2.has('Charity') && (e.charity === true || e.art2 === 'Charity')) return true;
+    return state.art2.has('Inoffiziell') && e.inoffiziell === true;
   }
 
   function matchEvent(state, e) {

@@ -94,7 +94,7 @@
 <link rel="stylesheet" href="site.css?v=49a6f457">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
-<link rel="stylesheet" href="event-detail.css?v=acdd5b94">
+<link rel="stylesheet" href="event-detail.css?v=168ad9dc">
 <style>
   /* Farben, Kopfzeile, Filterleiste, Werkzeugleiste und Fußzeile stehen
      in site.css (geteilt mit Karte und Startseite); hier nur, was allein
@@ -422,6 +422,23 @@
     color: var(--charity);
   }
   .charity-marke svg { flex-shrink: 0; }
+  /* Der nicht offizielle Marathon (seit dem 25.11.2026): ein kleines
+     Schildchen hinter der Kategorie, gestrichelt wie das Abzeichen der
+     Box. Es bricht nie in sich um; passt es nicht neben "Straße", steht
+     es in der zweiten Zeile der Zelle. */
+  .inoffiziell-marke {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 0 6px;
+    border: 1px dashed var(--border-strong, var(--border));
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--text-muted);
+    white-space: nowrap;
+    vertical-align: 1px;
+  }
   /* Der aufgeklappte Block ist durchgehend in EINEM Ton hinterlegt,
      auch die gewählte Strecke (so vom Nutzer entschieden, 19.09.2026);
      `active` bleibt an der Zeile für Tastatur und Rauchtest. */
@@ -1137,9 +1154,9 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=52e85793"></script>
-<script src="filter-ui.js?v=c2e03f22"></script>
-<script src="event-detail.js?v=1b8f61ef"></script>
+<script src="filters.js?v=f7f60679"></script>
+<script src="filter-ui.js?v=cd13eb98"></script>
+<script src="event-detail.js?v=b8d15953"></script>
 
 <script>
 (async function () {
@@ -2226,6 +2243,18 @@
       + ` title="${escapeHtml(t('charity_titel'))}">${EED.charityIcon(14)}</span>`;
   }
 
+  // Das Schildchen am nicht offiziellen Marathon (Zähllauf für den
+  // 100 Marathon Club) - vom Nutzer am 25.11.2026: "Damit man das sieht.
+  // Weil ziemlich sicher wollen mehr als 90% einen normalen Marathon
+  // laufen." Text statt Symbol: Für "nicht offiziell" gibt es kein
+  // Zeichen, das jeder ohne Erklärung liest. Die Erklärung steht im title
+  // und sichtbar in der Detail-Box.
+  function inoffiziellMarke(e) {
+    if (!e.inoffiziell) return '';
+    return `<span class="inoffiziell-marke" title="${escapeHtml(t('inoffiziell') + ': ' + t('inoffiziell_titel'))}">`
+      + `${escapeHtml(t('inoffiziell_kurz'))}</span>`;
+  }
+
   // Unter dem Namen steht die Wettbewerbs-Bezeichnung, aber nur, wenn
   // sie etwas sagt, was nicht schon in einer eigenen Spalte steht
   // (displayWettbewerb schneidet dafür jede Maßzahl heraus).
@@ -2259,7 +2288,7 @@
       // in der Tabelle sagt der Spaltenkopf, was die Zahl ist.
       case 'entfernung': return td(`<div class="cell-clamp"><span class="kachel-label">${escapeHtml(t('col_entfernung'))}: </span>${escapeHtml(formatDistance(e))}</div>`);
       case 'art1': return td(`<div class="cell-clamp sport-cell ${EED.sportClass(e.art1)}">${EED.sportIcon(e.art1)}<span>${escapeHtml(tv('art1', e.art1))}</span></div>`);
-      case 'art2': return td(`<div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}${charityMarke(e)}</div>`);
+      case 'art2': return td(`<div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}${charityMarke(e)}${inoffiziellMarke(e)}</div>`);
       case 'laenge_km': return td(`<div class="cell-clamp${EED.triathlonFormat(e) ? ' format' : ''}">${EED.formatLengthHtml(e, currentLang)}</div>`);
       default: return td('');
     }
@@ -2335,6 +2364,7 @@
     // Eine Veranstaltung gilt als Charity, sobald EINE ihrer Strecken so
     // markiert ist - zugeklappt steht diese Zeile für alle.
     const charity = g.rows.some(({ e: r }) => r.charity);
+    const inoffiziell = g.rows.some(({ e: r }) => r.inoffiziell);
     const kategorien = [];
     g.rows.forEach(({ e: r }) => {
       const k = r.art2 ? tv('art2', r.art2) : null;
@@ -2364,7 +2394,7 @@
           // Strecke - die übrigen stehen in ihren eigenen Zeilen.
           if (offen) return cellHtml(col, e);
           return `<td class="col-art2"><div class="cell-clamp">${kategorien.length ? escapeHtml(kategorien.join(' · ')) : '–'}`
-               + `${charityMarke({ charity })}</div></td>`;
+               + `${charityMarke({ charity })}${inoffiziellMarke({ inoffiziell })}</div></td>`;
         case 'laenge_km':
           if (offen) return cellHtml(col, e);
           return `<td class="col-laenge_km"><div class="cell-clamp${g.rows.every(r => r.e.art1 === 'Triathlon') ? ' format' : ''}">${EED.formatLengthSpanHtml(g.rows.map(r => r.e), currentLang)}</div></td>`;

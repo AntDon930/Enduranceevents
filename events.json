@@ -67,7 +67,8 @@
     "datum_ende": "2026-11-28",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://www.100marathonclub.ch/termine/100mcs_marathons"
+    "veranstalter_url": "https://www.100marathonclub.ch/termine/100mcs_marathons",
+    "inoffiziell": true
   },
   {
     "land": "Österreich",
@@ -219,7 +220,8 @@
     "datum_ende": "2026-11-28",
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
-    "veranstalter_url": "https://my.raceresult.com/416674/"
+    "veranstalter_url": "https://my.raceresult.com/416674/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -233,7 +235,8 @@
     "datum_ende": "2026-11-28",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://my.raceresult.com/416674/"
+    "veranstalter_url": "https://my.raceresult.com/416674/",
+    "inoffiziell": true
   },
   {
     "land": "Schweiz",
@@ -716,7 +719,8 @@
     "datum_ende": "2026-11-28",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/435969/"
+    "veranstalter_url": "https://my.raceresult.com/435969/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -1762,7 +1766,8 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -1776,7 +1781,8 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -1790,7 +1796,8 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -2230,18 +2237,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "FEM Teichwiesen Marathon",
-    "standort": "Hamburg-Teichwiesen",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-02",
-    "datum_ende": "2026-12-02",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://my.raceresult.com/groups/62/",
-    "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
     "name": "Fun & Erlebnis Marathons",
     "standort": "Hamburg",
     "lat": 53.5488282,
@@ -2253,7 +2248,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/423151/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -2268,7 +2264,8 @@
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
     "veranstalter_url": "https://my.raceresult.com/423151/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -3180,7 +3177,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/433264/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -4298,7 +4296,8 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -4312,7 +4311,8 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 26.0,
     "wettbewerb": "26 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -5280,7 +5280,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/423152/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -5295,7 +5296,8 @@
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
     "veranstalter_url": "https://my.raceresult.com/423152/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -5879,7 +5881,8 @@
     "datum_ende": "2026-12-12",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -5893,7 +5896,8 @@
     "datum_ende": "2026-12-12",
     "laenge_km": 56.0,
     "wettbewerb": "56 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -5907,7 +5911,8 @@
     "datum_ende": "2026-12-12",
     "laenge_km": 14.0,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -6299,7 +6304,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/435430/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -6314,7 +6320,8 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://my.raceresult.com/435430/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -7313,7 +7320,8 @@
     "datum_ende": "2026-12-15",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -7327,7 +7335,8 @@
     "datum_ende": "2026-12-15",
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -7342,7 +7351,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/424305/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -7357,7 +7367,8 @@
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
     "veranstalter_url": "https://my.raceresult.com/424305/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -7577,7 +7588,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/423444/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Schweiz",
@@ -7649,20 +7661,6 @@
     "datum_ende": "2026-12-19",
     "laenge_km": 15.0,
     "veranstalter_url": "https://psvlehrte.de/sportarten/laufen"
-  },
-  {
-    "land": "Deutschland",
-    "name": "1. Haddorfer Seen Marathon",
-    "standort": "Wettringen",
-    "lat": 49.2585334,
-    "lon": 10.1567964,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-20",
-    "datum_ende": "2026-12-20",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://my.raceresult.com/423451/info",
-    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -8086,9 +8084,9 @@
   {
     "land": "Deutschland",
     "name": "Haddorfer Seen Marathon",
-    "standort": "Offlumer See",
-    "lat": 52.2384743,
-    "lon": 7.3409343,
+    "standort": "Wettringen",
+    "lat": 52.2385,
+    "lon": 7.3409,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-12-20",
@@ -8096,7 +8094,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/423451/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8252,7 +8251,8 @@
     "datum_ende": "2026-12-20",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/365996/"
+    "veranstalter_url": "https://my.raceresult.com/365996/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8266,7 +8266,8 @@
     "datum_ende": "2026-12-20",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/365996/"
+    "veranstalter_url": "https://my.raceresult.com/365996/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8280,7 +8281,8 @@
     "datum_ende": "2026-12-20",
     "laenge_km": 14.0,
     "wettbewerb": "14 km",
-    "veranstalter_url": "https://my.raceresult.com/365996/"
+    "veranstalter_url": "https://my.raceresult.com/365996/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8294,7 +8296,8 @@
     "datum_ende": "2026-12-20",
     "laenge_km": 28.0,
     "wettbewerb": "28 km",
-    "veranstalter_url": "https://my.raceresult.com/365996/"
+    "veranstalter_url": "https://my.raceresult.com/365996/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8308,7 +8311,8 @@
     "datum_ende": "2026-12-20",
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
-    "veranstalter_url": "https://my.raceresult.com/365996/"
+    "veranstalter_url": "https://my.raceresult.com/365996/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8484,7 +8488,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/424292/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8499,7 +8504,8 @@
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
     "veranstalter_url": "https://my.raceresult.com/424292/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8527,7 +8533,8 @@
     "datum_ende": "2026-12-23",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/410899/"
+    "veranstalter_url": "https://my.raceresult.com/410899/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8708,7 +8715,8 @@
     "datum_ende": "2026-12-24",
     "laenge_km": 47.0,
     "wettbewerb": "47 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8722,7 +8730,8 @@
     "datum_ende": "2026-12-24",
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Österreich",
@@ -8765,7 +8774,8 @@
     "datum_ende": "2026-12-25",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://www.100marathonclub.ch/termine/100mcs_marathons"
+    "veranstalter_url": "https://www.100marathonclub.ch/termine/100mcs_marathons",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8792,7 +8802,8 @@
     "datum_ende": "2026-12-25",
     "laenge_km": 45.0,
     "wettbewerb": "45 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8806,7 +8817,8 @@
     "datum_ende": "2026-12-25",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8821,7 +8833,8 @@
     "laenge_km": 44.0,
     "wettbewerb": "44 km",
     "veranstalter_url": "https://my.raceresult.com/410855/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8849,7 +8862,8 @@
     "datum_ende": "2026-12-26",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8863,7 +8877,8 @@
     "datum_ende": "2026-12-26",
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8877,7 +8892,8 @@
     "datum_ende": "2026-12-26",
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -8891,7 +8907,8 @@
     "datum_ende": "2026-12-27",
     "laenge_km": 42.2,
     "veranstalter_url": "https://my.raceresult.com/groups/3832",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9009,7 +9026,8 @@
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
     "veranstalter_url": "https://my.raceresult.com/412994/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9024,7 +9042,8 @@
     "laenge_km": 47.0,
     "wettbewerb": "47 km",
     "veranstalter_url": "https://my.raceresult.com/412994/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Schweiz",
@@ -9168,7 +9187,8 @@
     "datum_ende": "2026-12-27",
     "laenge_km": 46.9,
     "wettbewerb": "Ultra",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9182,7 +9202,8 @@
     "datum_ende": "2026-12-27",
     "laenge_km": 23.0,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9196,7 +9217,8 @@
     "datum_ende": "2026-12-27",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/414030/"
+    "veranstalter_url": "https://my.raceresult.com/414030/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9210,7 +9232,8 @@
     "datum_ende": "2026-12-27",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/414030/"
+    "veranstalter_url": "https://my.raceresult.com/414030/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9311,7 +9334,8 @@
     "datum_ende": "2026-12-28",
     "laenge_km": 45.6,
     "wettbewerb": "Marathon 45,6 km und ca. 1.120 Hm",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9325,7 +9349,8 @@
     "datum_ende": "2026-12-28",
     "laenge_km": 22.8,
     "wettbewerb": "Halbmarathon 22,8 km und ca. 560 Hm",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9339,7 +9364,8 @@
     "datum_ende": "2026-12-28",
     "laenge_km": 11.3,
     "wettbewerb": "Runde 11,35 km und ca. 280 Hm",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9353,7 +9379,8 @@
     "datum_ende": "2026-12-28",
     "laenge_km": 34.2,
     "wettbewerb": "3/4 Marathon 34,2 km, ca. 840 Hm (3 Runden)",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9383,7 +9410,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Strecke \"über den Brocken\"",
     "veranstalter_url": "https://my.raceresult.com/414031/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9456,7 +9484,8 @@
     "datum_ende": "2026-12-29",
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9471,7 +9500,8 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://my.raceresult.com/414032/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9486,7 +9516,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/414032/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9514,7 +9545,8 @@
     "datum_ende": "2026-12-30",
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9528,7 +9560,8 @@
     "datum_ende": "2026-12-30",
     "laenge_km": 30.8,
     "wettbewerb": "30,8 km zwei Runden, 2/3 Marathon, ca. 740 Hm",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de",
+    "inoffiziell": true
   },
   {
     "land": "Schweiz",
@@ -9670,7 +9703,8 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://my.raceresult.com/414033/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -9685,7 +9719,8 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://my.raceresult.com/414033/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Österreich",
@@ -11123,7 +11158,8 @@
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
     "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -11292,7 +11328,8 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 42.2,
     "veranstalter_url": "https://www.100-marathon-club.de/index.php/de/node/1157",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -11320,7 +11357,8 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 43.5,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/378406/"
+    "veranstalter_url": "https://my.raceresult.com/378406/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -11334,7 +11372,8 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 21.8,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/378406/"
+    "veranstalter_url": "https://my.raceresult.com/378406/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -11348,7 +11387,8 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
-    "veranstalter_url": "https://my.raceresult.com/378406/"
+    "veranstalter_url": "https://my.raceresult.com/378406/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -11362,7 +11402,8 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://my.raceresult.com/378406/"
+    "veranstalter_url": "https://my.raceresult.com/378406/",
+    "inoffiziell": true
   },
   {
     "land": "Österreich",
@@ -13597,7 +13638,8 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/410853/"
+    "veranstalter_url": "https://my.raceresult.com/410853/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -13694,7 +13736,8 @@
     "datum_ende": "2027-01-01",
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -13708,7 +13751,8 @@
     "datum_ende": "2027-01-01",
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -13949,7 +13993,8 @@
     "datum_ende": "2027-01-02",
     "laenge_km": 45.0,
     "wettbewerb": "45 km (drei Runden)",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -13963,7 +14008,8 @@
     "datum_ende": "2027-01-02",
     "laenge_km": 30.0,
     "wettbewerb": "30 km (zwei Runden)",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Schweiz",
@@ -14279,7 +14325,8 @@
     "datum_ende": "2027-01-03",
     "laenge_km": 45.3,
     "wettbewerb": "45,3 km (drei Runden à 15,1 km)",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -14293,7 +14340,8 @@
     "datum_ende": "2027-01-03",
     "laenge_km": 30.0,
     "wettbewerb": "30 km (zwei Runden)",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -14307,7 +14355,8 @@
     "datum_ende": "2027-01-03",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -18018,7 +18067,8 @@
     "datum_ende": "2027-01-17",
     "laenge_km": 52.0,
     "wettbewerb": "52 km",
-    "veranstalter_url": "https://my.raceresult.com/379965/"
+    "veranstalter_url": "https://my.raceresult.com/379965/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -20521,7 +20571,8 @@
     "datum_ende": "2027-01-31",
     "laenge_km": 42.2,
     "veranstalter_url": "https://my.raceresult.com/428636",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -36520,7 +36571,8 @@
     "datum_ende": "2027-04-09",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/400258/"
+    "veranstalter_url": "https://my.raceresult.com/400258/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -36534,7 +36586,8 @@
     "datum_ende": "2027-04-09",
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
-    "veranstalter_url": "https://my.raceresult.com/400258/"
+    "veranstalter_url": "https://my.raceresult.com/400258/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -36548,7 +36601,8 @@
     "datum_ende": "2027-04-09",
     "laenge_km": 11.1,
     "wettbewerb": "Viertelmarathon",
-    "veranstalter_url": "https://my.raceresult.com/400258/"
+    "veranstalter_url": "https://my.raceresult.com/400258/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -36562,7 +36616,8 @@
     "datum_ende": "2027-04-09",
     "laenge_km": 21.5,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/400258/"
+    "veranstalter_url": "https://my.raceresult.com/400258/",
+    "inoffiziell": true
   },
   {
     "land": "Österreich",
@@ -50310,7 +50365,8 @@
     "datum_ende": "2027-05-02",
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -50324,7 +50380,8 @@
     "datum_ende": "2027-05-02",
     "laenge_km": 25.5,
     "wettbewerb": "25,5 km Alternative, 3 Runden",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -55288,7 +55345,8 @@
     "datum_ende": "2027-05-08",
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -68016,7 +68074,8 @@
     "laenge_km": 45.2,
     "wettbewerb": "Ultra",
     "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -68031,7 +68090,8 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
-    "pruefung_offen": true
+    "pruefung_offen": true,
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -103650,7 +103710,8 @@
     "datum_ende": "2027-07-24",
     "laenge_km": 57.0,
     "wettbewerb": "57 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Schweiz",
@@ -104193,7 +104254,8 @@
     "datum_ende": "2027-07-25",
     "laenge_km": 69.0,
     "wettbewerb": "69 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -104207,7 +104269,8 @@
     "datum_ende": "2027-07-25",
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -104221,7 +104284,8 @@
     "datum_ende": "2027-07-25",
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -107286,7 +107350,8 @@
     "datum_ende": "2027-08-07",
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Österreich",
@@ -112235,7 +112300,8 @@
     "datum_ende": "2027-08-21",
     "laenge_km": 52.0,
     "wettbewerb": "52 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "inoffiziell": true
   },
   {
     "land": "Deutschland",
@@ -140325,7 +140391,8 @@
     "datum_ende": "2027-11-14",
     "laenge_km": 48.0,
     "wettbewerb": "48 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/",
+    "inoffiziell": true
   },
   {
     "land": "Schweiz",
