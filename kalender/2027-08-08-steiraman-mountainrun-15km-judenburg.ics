@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-steiraman-mountainrun-15km-judenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:Steiraman MountainRun
+LOCATION:Judenburg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 15 km\nhttps://www.steiraman.
+ at/steiraman-mountainrun/
+TRANSP:TRANSPARENT
+URL:https://www.steiraman.at/steiraman-mountainrun/
+END:VEVENT
+END:VCALENDAR

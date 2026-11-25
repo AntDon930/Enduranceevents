@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-16-lauf-und-walking-abzeichen-luchtringen-x-hoxter@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261217
+SUMMARY:Lauf- und Walking-Abzeichen Lüchtringen
+LOCATION:Höxter\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://lf-luechtringen.d
+ e/artikel/lauf-und-walking-abzeichen-am-16-12-2026
+TRANSP:TRANSPARENT
+URL:https://lf-luechtringen.de/artikel/lauf-und-walking-abzeichen-am-16-12
+ -2026
+END:VEVENT
+END:VCALENDAR

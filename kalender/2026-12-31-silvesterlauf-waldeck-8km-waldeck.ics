@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Silvesterlauf - Waldeck
 LOCATION:Waldeck\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://ladv.de/aussch
- reibung/detail/49785/21.-Silvesterlauf-Waldeck-%28Th%C3%BCringen%29.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://bw-buergel.de/
+ silvesterlauf
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49785/21.-Silvesterlauf-Waldeck-%
- 28Th%C3%BCringen%29.htm
+URL:https://bw-buergel.de/silvesterlauf
 END:VEVENT
 END:VCALENDAR

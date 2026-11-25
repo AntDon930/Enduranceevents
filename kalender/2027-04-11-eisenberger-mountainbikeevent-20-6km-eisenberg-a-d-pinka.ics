@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-eisenberger-mountainbikeevent-20-6km-eisenberg-a-d-pinka@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Eisenberger Mountainbikeevent – MTB-Marathon 20.6 km (Termin vorlä
+ ufig)
+LOCATION:Eisenberg a.d.Pinka\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / Mo
+ untainbike\nLänge: 20.6 km\nhttps://mtb.eisenberg.at/
+TRANSP:TRANSPARENT
+URL:https://mtb.eisenberg.at/
+END:VEVENT
+END:VCALENDAR

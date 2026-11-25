@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
 SUMMARY:I-Run Achim
 LOCATION:Achim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://portal.run-ti
- ming.de/1054/registration
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://i-run-achim.d
+ e/
 TRANSP:TRANSPARENT
-URL:https://portal.run-timing.de/1054/registration
+URL:https://i-run-achim.de/
 END:VEVENT
 END:VCALENDAR

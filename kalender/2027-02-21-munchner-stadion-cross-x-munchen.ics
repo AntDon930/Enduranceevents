@@ -10,11 +10,9 @@ DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
 SUMMARY:Münchner Stadion-Cross
 LOCATION:München\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://ladv.de/ausschreib
- ung/detail/49721/18.-M%C3%BCnchner-Stadion-Cross-mit-Obb.-Crosslaufmeiste
- rschaft-M%C3%BCnchen.htm
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.stadioncrossmu
+ enchen.de/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49721/18.-M%C3%BCnchner-Stadion-C
- ross-mit-Obb.-Crosslaufmeisterschaft-M%C3%BCnchen.htm
+URL:https://www.stadioncrossmuenchen.de/
 END:VEVENT
 END:VCALENDAR

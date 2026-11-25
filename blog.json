@@ -1,5 +1,21 @@
 [
  {
+  "slug": "regeneration",
+  "titel": "Regeneration: Schlaf, Muskelkater und lockere Tage richtig nutzen",
+  "titel_en": "Recovery is where you get fitter: sleep, sore legs and easy days",
+  "teaser": "Warum du in der Pause besser wirst, wie viel Schlaf Ausdauersportler brauchen, was gegen Muskelkater wirklich hilft – und weshalb lockere Tage locker bleiben müssen.",
+  "teaser_en": "Why you improve while you rest, how much sleep endurance athletes need, what actually helps with sore muscles – and why easy days have to stay easy.",
+  "datum": "2026-11-23",
+  "kategorie": "Training",
+  "lesezeit_min": 8,
+  "bild": "bilder/blog/regeneration.webp",
+  "bild_klein": "bilder/blog/regeneration-480.webp",
+  "bild_alt": "Radfahrerfeld auf einer von Bäumen gesäumten Straße, am Rand Zuschauer",
+  "bild_alt_en": "Bunch of cyclists on a tree-lined road with spectators along the side",
+  "bild_nachweis": "Tour de France 2017 in Düsseldorf. Foto: Dronepicr, <a href=\"https://commons.wikimedia.org/wiki/File:Tour_De_France_2017_Deutschland_Peloton_(218348847).jpeg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by/3.0/\" rel=\"noopener\">CC BY 3.0</a>",
+  "bild_nachweis_en": "Tour de France 2017 in Düsseldorf. Photo: Dronepicr, <a href=\"https://commons.wikimedia.org/wiki/File:Tour_De_France_2017_Deutschland_Peloton_(218348847).jpeg\" rel=\"noopener\">Wikimedia Commons</a>, <a href=\"https://creativecommons.org/licenses/by/3.0/\" rel=\"noopener\">CC BY 3.0</a>"
+ },
+ {
   "slug": "rollentraining-winter",
   "titel": "Rollentraining im Winter: So bleibst du auf dem Rad fit, bis die Saison startet",
   "titel_en": "Turbo season: how to stay bike-fit until spring",

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270703
 DTEND;VALUE=DATE:20270705
 SUMMARY:24 Stundenlauf Bad Blumau – 100 km Lauf (ÖMS)
 LOCATION:Bad Blumau\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://my.raceresul
- t.com/434134/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://www.24-stund
+ enlauf.at/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/434134/
+URL:https://www.24-stundenlauf.at/
 END:VEVENT
 END:VCALENDAR

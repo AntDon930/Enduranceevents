@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-herzlauf-vorarlberg-x-bludenz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Herzlauf Vorarlberg
+LOCATION:Bludenz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.herzlauf.at/v
+ orarlberg
+TRANSP:TRANSPARENT
+URL:https://www.herzlauf.at/vorarlberg
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-mosttour-39km-kurnberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Mosttour – MTB-Marathon 39 km
+LOCATION:Kürnberg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 39 km\nhttps://www.mo
+ sttour.at/
+TRANSP:TRANSPARENT
+URL:https://www.mosttour.at/
+END:VEVENT
+END:VCALENDAR

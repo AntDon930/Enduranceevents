@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-valiant-marathon-du-jura-42-2km-delsberg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Valiant Marathon du Jura – Marathon 42.19 km
+LOCATION:Delsberg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://marathonduj
+ ura.ch/
+TRANSP:TRANSPARENT
+URL:https://marathondujura.ch/
+END:VEVENT
+END:VCALENDAR

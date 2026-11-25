@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-zugspitz-duathlon-x-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:Zugspitz-Duathlon – Duathlon
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttps://www.laufcoac
+ hes.com/zugspitz-duathlon
+TRANSP:TRANSPARENT
+URL:https://www.laufcoaches.com/zugspitz-duathlon
+END:VEVENT
+END:VCALENDAR

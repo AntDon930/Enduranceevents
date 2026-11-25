@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-volkslauf-um-die-himmelsschaukel-5km-wolfhagen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:Volkslauf "Um die Himmelsschaukel" – 5 km Frauen\, Männer\, Jugend
+  U18/U20
+LOCATION:Wolfhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.laufcup-wa
+ ldeck-frankenberg.de/wp-content/uploads/2026/06/Ausschreibung_Lauf_um_die
+ _Himmelsschaukel.pdf
+TRANSP:TRANSPARENT
+URL:https://www.laufcup-waldeck-frankenberg.de/wp-content/uploads/2026/06/
+ Ausschreibung_Lauf_um_die_Himmelsschaukel.pdf
+END:VEVENT
+END:VCALENDAR

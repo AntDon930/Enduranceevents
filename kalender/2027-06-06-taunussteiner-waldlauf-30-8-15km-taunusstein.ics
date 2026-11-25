@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-taunussteiner-waldlauf-30-8-15km-taunusstein@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Taunussteiner Waldlauf 30.8 – 15 Kilometer Hauptstrecke\, landscha
+ ftlich vielfältig
+LOCATION:Taunusstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.tvhahn.de
+ /taunussteiner-waldlauf/
+TRANSP:TRANSPARENT
+URL:https://www.tvhahn.de/taunussteiner-waldlauf/
+END:VEVENT
+END:VCALENDAR

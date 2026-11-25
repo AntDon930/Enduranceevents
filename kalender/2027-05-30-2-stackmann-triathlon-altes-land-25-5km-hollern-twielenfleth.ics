@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-2-stackmann-triathlon-altes-land-25-5km-hollern-twielenflet
+ h@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:2. Stackmann Triathlon Altes Land – Sprintdistanz 25.5 km
+LOCATION:Hollern-Twielenfleth\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.5 km\nhttps://bsv-buxt
+ ehude.de/dein-sport/triathlon/stackmann-altes-land-2025
+TRANSP:TRANSPARENT
+URL:https://bsv-buxtehude.de/dein-sport/triathlon/stackmann-altes-land-202
+ 5
+END:VEVENT
+END:VCALENDAR

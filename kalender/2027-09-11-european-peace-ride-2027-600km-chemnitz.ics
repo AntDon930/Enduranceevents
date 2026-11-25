@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-european-peace-ride-2027-600km-chemnitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270914
+SUMMARY:European Peace Ride 2027
+LOCATION:Chemnitz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 600 km\nhttps://peace-ride.
+ com/pages/epr-2027
+TRANSP:TRANSPARENT
+URL:https://peace-ride.com/pages/epr-2027
+END:VEVENT
+END:VCALENDAR

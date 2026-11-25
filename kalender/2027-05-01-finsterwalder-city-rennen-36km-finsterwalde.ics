@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-finsterwalder-city-rennen-36km-finsterwalde@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Finsterwalder City-Rennen – Jedermannrennen 36 km
+LOCATION:Finsterwalde\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 36 km\nhttps://rsv-finsterw
+ alde.de/
+TRANSP:TRANSPARENT
+URL:https://rsv-finsterwalde.de/
+END:VEVENT
+END:VCALENDAR

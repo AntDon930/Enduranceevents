@@ -367,7 +367,9 @@ def cta_folie(titel: str = "Dein nächstes Rennen?", *zeilen: str) -> dict:
 
 def hashtags(sport: str | None, land: str | None = None, extra: list[str] | None = None,
              rng: random.Random | None = None, n: int = 10) -> list[str]:
-    tags: list[str] = []
+    # Die besonderen Tags (Rennen, Stadt, Format) zuerst – die Caption nimmt
+    # nur die ersten HASHTAGS_MAX.
+    tags: list[str] = [t for t in (extra or []) if t]
     if sport in HASHTAGS_SPORT:
         tags += HASHTAGS_SPORT[sport]
     else:
@@ -375,7 +377,6 @@ def hashtags(sport: str | None, land: str | None = None, extra: list[str] | None
             tags += HASHTAGS_SPORT[s][:2]
     if land in HASHTAGS_LAND:
         tags.append(HASHTAGS_LAND[land])
-    tags += extra or []
     tags += HASHTAGS_BASIS
     gesehen, ergebnis = set(), []
     for t in tags:
@@ -389,6 +390,8 @@ def wahl(rng: random.Random, varianten: list[str]) -> str:
     return varianten[rng.randrange(len(varianten))]
 
 
+HASHTAGS_MAX = 5
+
 CTA = [
     "Alle Termine, Strecken und Filter: Link in der Bio 👉 {seite}",
     "Mehr als {anzahl} Events mit Umkreissuche und Kalender-Export: Link in der Bio 👉 {seite}",
@@ -398,8 +401,11 @@ CTA = [
 
 
 def caption_bauen(teile: list[str], tags: list[str], rng: random.Random, anzahl: int) -> str:
-    cta = wahl(rng, CTA).format(seite=SEITE, anzahl=f"{(anzahl // 500) * 500:,}".replace(",", "."))
-    text = "\n\n".join(t for t in teile if t) + "\n\n" + cta + "\n\n" + " ".join(tags)
+    # Einfach halten (vom Nutzer am 23.11.2026: „Bitte die Captions einfach
+    # halten. So wie ich bei meinen manuellen uploads gemacht habe"): kein
+    # Link-Absatz (ein Link in der Caption ist auf Instagram nicht klickbar),
+    # höchstens fünf Hashtags. `rng`/`anzahl` bleiben für ältere Aufrufer.
+    text = "\n\n".join(t for t in teile if t) + "\n\n" + " ".join(tags[:HASHTAGS_MAX])
     # Instagram: höchstens 2.200 Zeichen und 30 Hashtags.
     return text[:2200]
 
@@ -1822,7 +1828,7 @@ def warteschlange_plan(heute: dt.date, bis: dt.date, schlange: list[dict] | None
     sp = sonderplan if sonderplan is not None else lade_sonderplan()
     aus, tag = {}, max(heute, POST_START)
     while offen and tag <= bis:
-        if not sp.get(tag.isoformat()) and tag.weekday() not in PAUSE_WOCHENTAGE:
+        if not sp.get(tag.isoformat()) and not pausentag(tag):
             i = next((k for k, e in enumerate(offen) if e.get("ab", "") <= tag.isoformat()), None)
             if i is not None:
                 aus[tag.isoformat()] = offen.pop(i)
@@ -1847,6 +1853,17 @@ def lade_sonderplan(pfad: Path | None = None) -> dict[str, dict]:
 # Sonderplan sagen etwas anderes.
 POST_START = dt.date(2026, 11, 4)
 PAUSE_WOCHENTAGE = {1, 3}
+# Zwei Wochen lang JEDEN Tag ein Reel (vom Nutzer am 23.11.2026: „die nächsten 2
+# Wochen jeden Tag ein reel posten (wir posten nur noch reels), damit bisschen
+# traffic auf die Seite kommt … Nach 2 Wochen können wir dann mal schauen wie die
+# Bilanz ist“). Danach gelten wieder die Pausentage – oder der Nutzer entscheidet neu.
+TAEGLICH = (dt.date(2026, 11, 24), dt.date(2026, 12, 7))
+
+
+def pausentag(datum: dt.date) -> bool:
+    if TAEGLICH and TAEGLICH[0] <= datum <= TAEGLICH[1]:
+        return False
+    return datum.weekday() in PAUSE_WOCHENTAGE
 
 
 def postet_am(datum: dt.date, sonderplan: dict[str, dict] | None = None,
@@ -1859,13 +1876,21 @@ def postet_am(datum: dt.date, sonderplan: dict[str, dict] | None = None,
         return not sonder.get("pause")
     if anlass_am(datum, anlaesse) or datum.day == 1:
         return True
-    return datum.weekday() not in PAUSE_WOCHENTAGE
+    return not pausentag(datum)
 
 
 # ------------------------------------------------------------------ Stories
 
 COUNTDOWN_TAGE = (100, 60, 30, 14, 7)
 WOCHENTAG_LANG = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+
+
+# Automatische Stories AUS (vom Nutzer am 23.11.2026 nach der ersten, die
+# mitging: „Die Story musste ich wieder löschen. Die war total Hässlich und
+# überhaupt nicht in unserem Stil mit dem Hintergrundbild"). Plan, Dashboard
+# und Abendlauf sehen dann keine Stories; stories_fuer() und
+# insta_video.rendere_story() bleiben für einen neuen Stil.
+STORIES = False
 
 
 def stories_fuer(datum: dt.date, events: list[dict], beitrag: dict, rng: random.Random) -> list[dict]:
@@ -2078,7 +2103,8 @@ def plane(datum: dt.date, events: list[dict] | None = None, format_: str | None 
                     beitrag = format_anlass(datum, events, rng, naechster[0], grosse)
         if beitrag is None:
             beitrag = format_moment(datum, events, rng, momente)
-    beitrag["stories"] = stories_fuer(datum, events, beitrag, random.Random(datum.toordinal() + 1))
+    beitrag["stories"] = (stories_fuer(datum, events, beitrag, random.Random(datum.toordinal() + 1))
+                          if STORIES else [])
     return beitrag
 
 

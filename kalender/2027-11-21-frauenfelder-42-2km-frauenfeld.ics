@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-21-frauenfelder-42-2km-frauenfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271121
+DTEND;VALUE=DATE:20271122
+SUMMARY:Frauenfelder – Marathon
+LOCATION:Frauenfeld\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://derfrauenfe
+ lder.ch/
+TRANSP:TRANSPARENT
+URL:https://derfrauenfelder.ch/
+END:VEVENT
+END:VCALENDAR

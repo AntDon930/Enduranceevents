@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-findlingsparklauf-nochten-5km-boxberg-o-l@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Findlingsparklauf Nochten – 5\,0 km Lauf\, Organisationsbeitrag 10
+ \,00 €
+LOCATION:Boxberg/O.L.\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://baer-service.d
+ e/veranstaltung/FPN/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/FPN/
+END:VEVENT
+END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270124
 SUMMARY:3B Rhoihesse Crosslauf – 8 km Crosslauf
 LOCATION:Wachenheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://my.raceresult.c
- om/434942/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://mrsv.de/rhoihes
+ secross/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/434942/
+URL:https://mrsv.de/rhoihessecross/
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-26-feldkircher-stadtlauf-x-feldkirch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:Feldkircher Stadtlauf
+LOCATION:Feldkirch\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.lsv-feldkirch
+ .at/Stadtlauf.php
+TRANSP:TRANSPARENT
+URL:https://www.lsv-feldkirch.at/Stadtlauf.php
+END:VEVENT
+END:VCALENDAR

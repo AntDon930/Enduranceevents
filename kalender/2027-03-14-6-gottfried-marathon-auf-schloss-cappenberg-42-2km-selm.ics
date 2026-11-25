@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-6-gottfried-marathon-auf-schloss-cappenberg-42-2km-selm@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:6. Gottfried-Marathon auf Schloss Cappenberg
+LOCATION:Selm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.pater-t
+ obias.de/kipa-run-5-gottfried-marathon
+TRANSP:TRANSPARENT
+URL:https://www.pater-tobias.de/kipa-run-5-gottfried-marathon
+END:VEVENT
+END:VCALENDAR

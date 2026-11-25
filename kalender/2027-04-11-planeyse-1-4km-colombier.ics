@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-planeyse-1-4km-colombier@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Planeyse – Cross-Country 1.4 km
+LOCATION:Colombier\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 1.4 km\nhttps://vc-vi
+ gnoble.ch/planeyse
+TRANSP:TRANSPARENT
+URL:https://vc-vignoble.ch/planeyse
+END:VEVENT
+END:VCALENDAR

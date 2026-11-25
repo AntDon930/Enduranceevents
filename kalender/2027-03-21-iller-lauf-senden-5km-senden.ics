@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:Iller-Lauf Senden
 LOCATION:Senden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/431062/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://illerlauf-send
+ en.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/431062/
+URL:https://illerlauf-senden.de/
 END:VEVENT
 END:VCALENDAR

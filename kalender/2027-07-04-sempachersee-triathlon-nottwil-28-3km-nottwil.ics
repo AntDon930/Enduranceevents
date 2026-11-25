@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-sempachersee-triathlon-nottwil-28-3km-nottwil@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Sempachersee-Triathlon\, Nottwil – Duathlon Series 28.3 km (5 km L
+ aufen / 20 km Rad / 3.3 km Laufen)
+LOCATION:Nottwil\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 28.3 km\nhttps://www.se
+ mpacherseetri.ch/
+TRANSP:TRANSPARENT
+URL:https://www.sempacherseetri.ch/
+END:VEVENT
+END:VCALENDAR

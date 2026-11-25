@@ -18,7 +18,9 @@
      3.78,
      5
     ]
-   ]
+   ],
+   "aktion": "kalender",
+   "von": 14
   },
   {
    "bild": "denken",
@@ -201,11 +203,8 @@
  ],
  "caption": [
   "Weniger trainieren – und trotzdem schneller? 🤯",
-  "Ja. Die Müdigkeit verschwindet schneller als deine Fitness. In einer Auswertung von über 158.000 Freizeit-Marathonläufern waren die mit einem sauberen Drei-Wochen-Taper im Schnitt gut fünfeinhalb Minuten schneller im Ziel.",
-  "So geht's: Umfang etwa halbieren, Trainingstage beibehalten, ein paar zügige Abschnitte drinlassen. Spar an den Kilometern, nicht am Tempo.",
-  "Wie lange taperst du vor deinem Rennen? Schreib es in die Kommentare 👇",
-  "Der ganze Beitrag mit allen Quellen im Blog – Link in der Bio.",
-  "#laufen #lauftraining #ausdauersport #marathontraining #halbmarathon #laufenmachtglücklich #tapering #läufer #triathlon #ausdauermaschine"
+  "Wie lange taperst du vor deinem Rennen? Schreib es in die Kommentare!",
+  "#tapering #marathontraining #laufen #lauftraining #wettkampf"
  ],
  "zeiten": [
   [
@@ -237,5 +236,16 @@
    43.96
   ]
  ],
- "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – tapering.mp3 neben dieser Datei"
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – tapering.mp3 neben dieser Datei",
+ "cover": {
+  "farbe": "coral",
+  "titel": [
+   "WENIGER",
+   "TRAINING =",
+   "SCHNELLER?"
+  ],
+  "hervor": 2,
+  "figur": "kalender",
+  "text": "3"
+ }
 }

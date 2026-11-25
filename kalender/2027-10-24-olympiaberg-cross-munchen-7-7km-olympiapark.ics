@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-24-olympiaberg-cross-munchen-7-7km-olympiapark@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271024
+DTEND;VALUE=DATE:20271025
+SUMMARY:Olympiaberg Cross München
+LOCATION:Olympiapark\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.7 km\nhttps://olympiaberg-c
+ ross-muenchen.de/
+TRANSP:TRANSPARENT
+URL:https://olympiaberg-cross-muenchen.de/
+END:VEVENT
+END:VCALENDAR

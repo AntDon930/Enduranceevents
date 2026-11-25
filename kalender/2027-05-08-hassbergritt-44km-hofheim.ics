@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-hassbergritt-44km-hofheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Haßbergritt – MTB-Marathon 44 km
+LOCATION:Hofheim\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 44 km\nhttp://www.tri
+ a-hofheim.de/
+TRANSP:TRANSPARENT
+URL:http://www.tria-hofheim.de/
+END:VEVENT
+END:VCALENDAR

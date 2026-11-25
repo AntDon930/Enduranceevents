@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-ippinghauser-abendlauf-21-1km-naumburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Ippinghäuser Abendlauf – Halbmarathon auf befestigten/geteerten Wa
+ ldwegen
+LOCATION:Naumburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.wila-ipp
+ inghausen.de/Abendlauf/Ausschreibung
+TRANSP:TRANSPARENT
+URL:http://www.wila-ippinghausen.de/Abendlauf/Ausschreibung
+END:VEVENT
+END:VCALENDAR

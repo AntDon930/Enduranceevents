@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-halfmarathon-op-poel-21-1km-insel-poel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Halfmarathon op Poel – Halbmarathon
+LOCATION:Insel Poel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://poelersv.de
+ /halfmarathon-op-poel-ausschreibung-2027/
+TRANSP:TRANSPARENT
+URL:https://poelersv.de/halfmarathon-op-poel-ausschreibung-2027/
+END:VEVENT
+END:VCALENDAR

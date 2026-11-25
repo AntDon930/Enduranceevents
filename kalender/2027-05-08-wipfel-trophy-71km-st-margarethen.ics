@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-wipfel-trophy-71km-st-margarethen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Wipfel Trophy – MTB-Marathon 71 km
+LOCATION:St. Margarethen\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 71 km\nhttps://www.wi
+ pfeltrophy.at
+TRANSP:TRANSPARENT
+URL:https://www.wipfeltrophy.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-40-enni-brunnenlauf-sonsbeck-5km-sonsbeck@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:40. ENNI Brunnenlauf Sonsbeck – ENNI 5 km Jedermann/Firmenlauf und
+  U16-U20 - 5 km
+LOCATION:Sonsbeck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/436026/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/436026/
+END:VEVENT
+END:VCALENDAR

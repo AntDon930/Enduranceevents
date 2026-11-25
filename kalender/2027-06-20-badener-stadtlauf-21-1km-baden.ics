@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270620
 DTEND;VALUE=DATE:20270621
 SUMMARY:Badener Stadtlauf – 21\,1 km Halbmarathon
 LOCATION:Baden\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.pentek-
- payment.at/ppay.php?p=1745&s_p=1
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.badener
+ stadtlauf.at/
 TRANSP:TRANSPARENT
-URL:https://www.pentek-payment.at/ppay.php?p=1745&s_p=1
+URL:https://www.badenerstadtlauf.at/
 END:VEVENT
 END:VCALENDAR

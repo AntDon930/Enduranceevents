@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-swim-and-run-forchheim-5-6km-forchheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Swim and Run Forchheim
+LOCATION:Forchheim\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 5.6 km\nhttps://swimandr
+ un-forchheim.de/
+TRANSP:TRANSPARENT
+URL:https://swimandrun-forchheim.de/
+END:VEVENT
+END:VCALENDAR

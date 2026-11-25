@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-sachsenwaldlauf-21-1km-schwarzenbek@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Sachsenwaldlauf – Halbmarathon
+LOCATION:Schwarzenbek\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.sachsen
+ waldlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.sachsenwaldlauf.de/
+END:VEVENT
+END:VCALENDAR

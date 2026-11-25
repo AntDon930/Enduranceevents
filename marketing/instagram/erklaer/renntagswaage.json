@@ -19,7 +19,8 @@
      5.35,
      3
     ]
-   ]
+   ],
+   "aktion": "waage"
   },
   {
    "bild": "denken",
@@ -187,12 +188,9 @@
   "https://endurance-events.de/blog/carboloading.html"
  ],
  "caption": [
-  "Zwei Kilo mehr am Renntag – alles falsch gemacht? ⚖️",
-  "Im Gegenteil. Dein Muskel speichert Kohlenhydrate als Glykogen, und jedes Gramm davon bindet rund drei Gramm Wasser. Mehr auf der Waage heißt: Die Speicher sind voll.",
-  "Für Rennen über 90 Minuten gelten 10–12 g Kohlenhydrate pro Kilo Körpergewicht am Tag, 36–48 Stunden lang. Bei 70 Kilo sind das rund 700 g. Zwei Tage reichen – und nichts Neues ausprobieren.",
-  "Was isst du am Abend vor dem Rennen? Schreib es in die Kommentare 👇",
-  "Der ganze Beitrag mit allen Quellen im Blog – Link in der Bio.",
-  "#laufen #lauftraining #ausdauersport #marathontraining #halbmarathon #laufenmachtglücklich #carboloading #läufer #triathlon #ausdauermaschine"
+  "Zwei Kilo mehr am Renntag? ⚖️",
+  "Was isst du am Abend vor dem Rennen? Schreib es in die Kommentare!",
+  "#carboloading #marathon #laufen #ernährung #wettkampf"
  ],
  "zeiten": [
   [
@@ -224,5 +222,14 @@
    42.91
   ]
  ],
- "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – renntagswaage.mp3 neben dieser Datei"
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – renntagswaage.mp3 neben dieser Datei",
+ "cover": {
+  "farbe": "navy",
+  "titel": [
+   "2 KILO MEHR",
+   "AM RENNTAG?"
+  ],
+  "hervor": 0,
+  "figur": "waage"
+ }
 }

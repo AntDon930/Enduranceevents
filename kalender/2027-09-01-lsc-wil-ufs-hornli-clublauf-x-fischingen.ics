@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-01-lsc-wil-ufs-hornli-clublauf-x-fischingen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270901
+DTEND;VALUE=DATE:20270902
+SUMMARY:LSC Wil Ufs Hörnli Clublauf
+LOCATION:Fischingen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.lscwil.ch/wet
+ tkaempfe/hoernliclublauf
+TRANSP:TRANSPARENT
+URL:https://www.lscwil.ch/wettkaempfe/hoernliclublauf
+END:VEVENT
+END:VCALENDAR

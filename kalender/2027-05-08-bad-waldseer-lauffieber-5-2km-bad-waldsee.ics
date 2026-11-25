@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-bad-waldseer-lauffieber-5-2km-bad-waldsee@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Bad Waldseer Lauffieber – VBAO Swim & Run
+LOCATION:Bad Waldsee\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 5.2 km\nhttps://badwalds
+ eer-lauffieber.de/
+TRANSP:TRANSPARENT
+URL:https://badwaldseer-lauffieber.de/
+END:VEVENT
+END:VCALENDAR

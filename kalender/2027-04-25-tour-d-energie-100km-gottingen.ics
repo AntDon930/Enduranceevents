@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-tour-d-energie-100km-gottingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Tour d´Energie – Jedermannrennen 2026 100 km (Termin vorläufig)
+LOCATION:Göttingen\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / St
+ raße\nLänge: 100 km\nhttps://www.tourdenergie.de/
+TRANSP:TRANSPARENT
+URL:https://www.tourdenergie.de/
+END:VEVENT
+END:VCALENDAR

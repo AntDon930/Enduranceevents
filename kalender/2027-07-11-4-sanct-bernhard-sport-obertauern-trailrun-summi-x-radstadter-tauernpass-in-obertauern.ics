@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-4-sanct-bernhard-sport-obertauern-trailrun-summi-x-radstadt
+ er-tauernpass-in-obertauern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:4. Sanct Bernhard Sport Obertauern Trailrun Summit (OTS) 2027 - Fa
+ mily Trail
+LOCATION:Radstädter Tauernpass in Obertauern\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.trailrun-summit
+ .com
+TRANSP:TRANSPARENT
+URL:http://www.trailrun-summit.com
+END:VEVENT
+END:VCALENDAR

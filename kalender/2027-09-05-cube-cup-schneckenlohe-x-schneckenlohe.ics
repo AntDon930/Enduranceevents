@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-cube-cup-schneckenlohe-x-schneckenlohe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Cube Cup - Schneckenlohe – Cross-Country
+LOCATION:Schneckenlohe\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://rsv-querfe
+ ldein-schneckenlohe.de
+TRANSP:TRANSPARENT
+URL:https://rsv-querfeldein-schneckenlohe.de
+END:VEVENT
+END:VCALENDAR

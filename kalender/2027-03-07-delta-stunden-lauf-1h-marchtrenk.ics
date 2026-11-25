@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-delta-stunden-lauf-1h-marchtrenk@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:DELTA Stunden-Lauf – 1 hr
+LOCATION:Marchtrenk\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttps://www.lscdelta.at
+ /2026/12/31/save-the-date-7-m%C3%A4rz-2027-16-delta-stunden-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.lscdelta.at/2026/12/31/save-the-date-7-m%C3%A4rz-2027-16-d
+ elta-stunden-lauf/
+END:VEVENT
+END:VCALENDAR

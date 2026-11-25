@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-assa-abloy-albstadt-bike-marathon-45km-albstadt-ebingen@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Assa Abloy Albstadt Bike Marathon – MTB-Marathon 45 km
+LOCATION:Albstadt-Ebingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 45 km\nhttp://www.alb
+ stadt-bike-marathon.de
+TRANSP:TRANSPARENT
+URL:http://www.albstadt-bike-marathon.de
+END:VEVENT
+END:VCALENDAR

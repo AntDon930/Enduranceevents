@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-super-cross-sprint-triathlon-merzig-x-merzig@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Super-Cross-Sprint Triathlon Merzig
+LOCATION:Merzig\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Cross\nLänge: -\nhttps://www.tri-sport.d
+ e
+TRANSP:TRANSPARENT
+URL:https://www.tri-sport.de
+END:VEVENT
+END:VCALENDAR

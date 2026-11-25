@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-barnbach-in-bewegung-presented-von-der-woche-x-barnbach@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Bärnbach in Bewegung presented von der "Woche"
+LOCATION:Bärnbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://baernbach.gv.at/b
+ aernbach-in-bewegung/
+TRANSP:TRANSPARENT
+URL:https://baernbach.gv.at/baernbach-in-bewegung/
+END:VEVENT
+END:VCALENDAR

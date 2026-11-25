@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-rad-race-last-wo-man-standing-x-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Rad Race Last Wo/Man Standing – Jedermannrennen
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.rad-race.com
+ /
+TRANSP:TRANSPARENT
+URL:https://www.rad-race.com/
+END:VEVENT
+END:VCALENDAR

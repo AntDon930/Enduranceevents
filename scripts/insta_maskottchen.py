@@ -90,6 +90,12 @@ POSEN: dict[str, dict] = {
     "kalender": {"links": (-30, -100), "rechts": (-30, -100), "mund": "laecheln", "zubehoer": ["kalender"]},
     "jubeln": {"links": (150, 165), "rechts": (150, 165), "mund": "lachen", "zubehoer": ["konfetti"]},
 }
+# Bizepscurl mit der Langhantel in fünf Stufen (curl0 = Arme unten,
+# curl4 = Hantel vor der Brust) – für Krafttraining-Szenen im Wechsel
+for _i in range(5):
+    _u = _i / 4
+    POSEN[f"curl{_i}"] = {"links": (10 - 12 * _u, 10 + 150 * _u), "rechts": (10 - 12 * _u, 10 + 150 * _u),
+                          "mund": "o" if _i >= 3 else "laecheln", "zubehoer": ["langhantel"]}
 
 
 class _Stift:
@@ -164,7 +170,7 @@ def _schrift(g: int) -> ImageFont.FreeTypeFont | None:
         return None
 
 
-def _zubehoer_hinten(s: _Stift, name: str, haende: dict) -> None:
+def _zubehoer_hinten(s: _Stift, name: str, haende: dict, text: str = "") -> None:
     """Zubehör, das HINTER der Figur liegt (Waage unter den Füßen, Stuhl)."""
     if name == "stuhl":
         s.rechteck(92, 150, 208, 270, HOLZ_DUNKEL, radius=14)
@@ -174,10 +180,17 @@ def _zubehoer_hinten(s: _Stift, name: str, haende: dict) -> None:
         s.rechteck(130, BODEN + 1, 170, BODEN + 10, CORAL, radius=3, kontur=False)
 
 
-def _zubehoer(s: _Stift, name: str, haende: dict, img: Image.Image) -> None:
+def _zubehoer(s: _Stift, name: str, haende: dict, img: Image.Image, text: str = "") -> None:
     hl, hr = haende["links"], haende["rechts"]
     k = s.k
-    if name == "tisch":
+    if name == "langhantel":
+        y = (hl[1] + hr[1]) / 2
+        s.glied([(22, y), (278, y)], 6, METALL)
+        for x, b, h in ((40, 16, 70), (58, 12, 54), (260, 16, 70), (242, 12, 54)):
+            s.rechteck(x - b / 2, y - h / 2, x + b / 2, y + h / 2, CORAL if b == 16 else MIDNIGHT, radius=4)
+        for h in (hl, hr):
+            s.kreis(h[0], h[1], 11, HAUT)
+    elif name == "tisch":
         # Tischplatte vor dem Bauch, Tischtuch in Soft Blue, Teller Nudeln
         s.rechteck(18, 252, 282, 272, HOLZ, radius=6)
         s.rechteck(26, 270, 274, 314, SOFT_BLUE, radius=4)
@@ -261,7 +274,7 @@ def _zubehoer(s: _Stift, name: str, haende: dict, img: Image.Image) -> None:
             s.linie([(x + dx, y - 70), (x + dx, y - 52)], 6, KONTUR)
         f = _schrift(int(54 * k))
         if f:
-            s.d.text((x * k, (y - 8) * k), "2", font=f, fill=KONTUR, anchor="mm")
+            s.d.text((x * k, (y - 8) * k), text or "2", font=f, fill=KONTUR, anchor="mm")
         for h in (hl, hr):
             s.kreis(h[0], h[1], 10, HAUT)
     elif name == "konfetti":
@@ -385,7 +398,7 @@ def _gesicht(s: _Stift, pose: str, mund: str, mx, my, person: str) -> None:
     _mund(s, mund, mx, my + 40)
 
 
-def _figur_gross(pose: str, person: str = "er") -> Image.Image:
+def _figur_gross(pose: str, person: str = "er", text: str = "") -> Image.Image:
     p = POSEN[pose]
     farben = PERSONEN[person]
     k = SS
@@ -400,7 +413,7 @@ def _figur_gross(pose: str, person: str = "er") -> Image.Image:
         ellbogen[seite], haende[seite] = e, h
     zub = p.get("zubehoer", [])
     for z in zub:
-        _zubehoer_hinten(s, z, haende)
+        _zubehoer_hinten(s, z, haende, text)
     sitzt = p.get("sitzen", False)
     if not sitzt:
         # Beine und Schuhe
@@ -437,7 +450,7 @@ def _figur_gross(pose: str, person: str = "er") -> Image.Image:
         _haar_sie_hinten(s)
     _kopf(s, pose, p.get("mund", "laecheln"), person)
     for z in zub:
-        _zubehoer(s, z, haende, img)
+        _zubehoer(s, z, haende, img, text)
     return img
 
 
@@ -451,14 +464,14 @@ def _sticker(img: Image.Image, rand: int) -> Image.Image:
 
 
 @lru_cache(maxsize=64)
-def figur(pose: str, hoehe: int = 400, person: str = "er") -> Image.Image:
+def figur(pose: str, hoehe: int = 400, person: str = "er", text: str = "") -> Image.Image:
     """Die Figur in der Pose `pose`, `hoehe` Pixel hoch, mit weißem
     Sticker-Rand und weichem Schatten; RGBA, freigestellt."""
     if pose not in POSEN:
         raise KeyError(f"unbekannte Pose: {pose} (bekannt: {', '.join(POSEN)})")
     if person not in PERSONEN:
         raise KeyError(f"unbekannte Person: {person} (bekannt: {', '.join(PERSONEN)})")
-    gross = _figur_gross(pose, person)
+    gross = _figur_gross(pose, person, text)
     b = round(EIN_B * hoehe / EIN_H)
     klein = gross.resize((b, hoehe), Image.LANCZOS)
     rand = max(3, hoehe // 70)

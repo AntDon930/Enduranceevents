@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270619
 DTEND;VALUE=DATE:20270621
 SUMMARY:24-Stundenlauf Herne
 LOCATION:Herne\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://my.raceresult.
- com/426888/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://24stundenlaufh
+ erne.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/426888/
+URL:https://24stundenlaufherne.de/
 END:VEVENT
 END:VCALENDAR

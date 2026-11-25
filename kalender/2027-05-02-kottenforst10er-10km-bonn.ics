@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-kottenforst10er-10km-bonn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Kottenforst10er
+LOCATION:Bonn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.beueler10
+ er.de/kottenforst10er/
+TRANSP:TRANSPARENT
+URL:https://www.beueler10er.de/kottenforst10er/
+END:VEVENT
+END:VCALENDAR

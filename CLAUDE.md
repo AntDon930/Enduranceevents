@@ -5280,6 +5280,9 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Abendlauf NACH dem Reel, gleiche Freigabe (die Kennung `beitrag_hash`
   umfasst die Story-Folien, plan.json trägt `stories`, das Dashboard zeigt
   eine Zeile). Sticker (Link, Umfrage) und Musik gehen über die API nicht.
+  **Seit dem 23.11.2026 AUS** (`insta_inhalte.STORIES = False`; vom Nutzer nach der ersten
+  automatischen Story: „total Hässlich und überhaupt nicht in unserem Stil mit dem
+  Hintergrundbild“) – erst mit einem neuen Stil (Instagram-Farben, gezeichnet) wieder an.
 - **@-Erwähnung der Veranstalter** (`insta_veranstalter.py`): Name nur von
   der EIGENEN Veranstalterseite (nie Portal – `PORTAL_DOMAINS` wird aus dem
   Quelltext von scraper_lib gelesen, weil der Instagram-Workflow kein bs4
@@ -5385,7 +5388,16 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
 - **Freigabe mit einem Klick (14.10.2026, vom Nutzer: „die ersten Videos
   alle gerne vorher mit einem Klick einfach freigeben")**: zwei Läufe am
   Tag (`instagram.yml`: 08:47 Vorschau = nur rendern, 17:47 Posten mit
-  `--posten --freigabe`); `pages.yml` schreibt `marketing/instagram/plan.json`
+  `--posten --freigabe`); **seit dem 23.11.2026 postet der MORGENLAUF um 18 Uhr Berlin** (auf `main` seit dem 23.11.2026, Commit `cdf33712`, vom Nutzer: „Ja Instagram.yml auf Main“)
+  (vom Nutzer: „so um 18:00/19:00 Posten“): GitHub startet die Läufe Stunden zu
+  spät (Abendlauf 21–1 Uhr, Morgenlauf 15–18 Uhr), der Morgenlauf wartet deshalb
+  nach den Vorschauen bis 18:00 Berlin, holt einen zweiten Google-Zugang (der
+  erste gilt nur eine Stunde) und postet mit `--posten --freigabe`
+  (`timeout-minutes: 360`); der späte Abendlauf bleibt Rückfall, und
+  `insta_lauf.schon_gepostet()` (Caption-Anfang unter den letzten Beiträgen)
+  verhindert doppeltes Posten. Von Hand: Haken „freigabe“ = derselbe Ablauf sofort.
+  Ein Anstoß über eine geplante Claude-Aufgabe wurde verworfen: frische Sitzungen
+  haben kein Repo, eine Sitzung mit Repo kostet ~3 $ je Lauf (CLAUDE.md im Kontext); `pages.yml` schreibt `marketing/instagram/plan.json`
   (`insta_inhalte.py --plan 14`, gitignored; der Schritt installiert Pillow
   und trägt `continue-on-error` – am 27.10.2026 hielt ein Plan ohne Pillow
   in Lauf 419 den ganzen Deploy auf, Instagram darf die Website nie
@@ -5778,7 +5790,7 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   **Takt seit dem 22.11.2026** (vom Nutzer, nach dem ersten Reel „Schwelle“ –
   „Video find ich sehr gut“, von Hand gepostet): „am Anfang … mindestens 5
   Uploads in der Woche“, davon die meisten Erklär-Reels, „1-2x die Woche“ eine
-  Slide Show (Karussell). **Kein Telegram-Bot** („Ich will das doch nicht mehr
+  Slide Show (Karussell). **Vom 24.11. bis 07.12.2026 JEDEN Tag ein Reel, nur noch Reels** (vom Nutzer am 23.11.2026: „die nächsten 2 Wochen jeden Tag ein reel posten (wir posten nur noch reels), damit bisschen traffic auf die Seite kommt … Nach 2 Wochen können wir dann mal schauen wie die Bilanz ist“): `insta_inhalte.TAEGLICH` hebt die Pausentage auf, die Sonntagsaufgabe baut sieben Reels je Woche; am 07.12. mit dem Nutzer Bilanz ziehen (Follower, Aufrufe, Besuche über Instagram im Dashboard) und neu entscheiden. **Kein Telegram-Bot** („Ich will das doch nicht mehr
   mit Telegram machen“) – Vorschau und Freigabe bleiben im Dashboard
   (`admin.html`, Karte „Instagram-Freigabe“); das Posten soll wieder automatisch
   laufen, sobald der Schlüssel steht (To-do 13). **Seit dem 22.11.2026 hängen
@@ -5829,7 +5841,7 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   anstellen, pushen, **danach `instagram.yml` per workflow_dispatch auf `main` ohne
   „posten“ anstoßen**, damit die Vorschauen („View“) am Montagmorgen im Dashboard
   liegen; Bericht mit Captions. Steht in `wochenplan.GEPLANTE_AUFGABEN`
-  (`insta_woche`).
+  (`insta_woche`). **Carboloading als Reel** (vom Nutzer am 23.11.2026: „ich nehm das raus in einer Woche oder so und dann posten wir ein Reel übers Carboloading“): gebaut am 23.11. (`erklaer/carboloading.json`, Sa 28.11.), dazu `schlaf` (So 29.11.); der Nutzer nimmt die Slide Show vorher heraus.
   **Szenen-Baukasten** (22.11.2026): Jede Zeichenroutine bekommt die Szene der
   Vorlage als drittes Argument (`sz_x(t, dauer, p)`), Texte und Zahlen stehen in
   der Vorlage. Allgemein: `frage` (Hook: `zeile`, `symbol`), `raten` (Laufband:
@@ -5839,12 +5851,30 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   `balken` ([[Name, Wert, Text, Farbe]]), `figur` (`pose`, `titel`, `blasen`,
   `zeile`), `test` (Abreißkalender: `titel`, `zeilen`, `fazit`), `schluss`
   (`frage`, `blase`); nur für die Schwelle: `hook`, `stunde`, `fass`, `gefuehl`.
-  Ein neues Reel ist damit meist nur eine Vorlage. `scripts/insta_erklaer_zeiten.py
+  Ein neues Reel ist damit meist nur eine Vorlage. **Der Einstieg passt zum Thema** (22.11.2026, vom Nutzer: „Das Video muss nicht immer gleich anfangen … Bei dem Krafttraining Video macht es keinen Sinn, dass der Charakter läuft … Das Video soll schon auf das jeweilige Thema zugeschnitten sein“): `frage` nimmt `aktion` – `lauf` (Standard, Straße), `hantel` (Langhanteln-Curl im Kraftraum, Posen `curl0`–`curl4`), `kalender` (Countdown `von` … 1, draußen), `waage` (Badezimmer); `figur(pose, hoehe, person, text)` beschriftet den Kalender. Neue Themen bekommen eine eigene Aktion samt Kulisse, statt den Läufer zu wiederholen; auch die Szenenfolge darf je Thema abweichen. **Zielgruppe**: das meiste auf Läufer zugeschnitten (die größte Gruppe), aber allgemeine Themen wie Krafttraining sprechen alle Ausdauersportler an („Krafttraining für Ausdauersportler?“ – vom Nutzer: „Wir bieten ja auch Events für Radfahrer und Schwimmer an“); eine Studie mit Läufern bleibt als solche benannt. `scripts/insta_erklaer_zeiten.py
   <vorlage> [--stuecke 2,3,1,…]` trägt `zeiten`/`teile` aus der Aufnahme ein – die
   Automatik irrt, sobald ausgeschriebene Zahlen die Längen verschieben; dann die
   Zahl der Sprechstücke je Szene vorgeben und die Ausgabe ansehen. Fakten aus den
   eigenen Blogbeiträgen sind schon belegt (Quellen dort) – zuerst dort suchen.
-  Reels vom 22.11.2026: `locker`, `tapering`, `kraft`, `renntagswaage`.
+  Reels vom 22.11.2026: `locker`, `tapering`, `kraft`, `renntagswaage`. Am 23.11.2026 `zwiebel` (Zwiebelprinzip, statt der Slides „Winterkleidung“ – vom Nutzer: „hätte ich gerne doch als Reel, ich finde das besser“; Aktion `winter` mit Schneefall, Szene `schichten` = Schnitt durch die drei Lagen über der Haut, je Lage optional ein fünfter Wert = Material als Etikett rechts – vom Nutzer: „Bei dem Zwiebel Video fehlt mir noch die Merino Wolle oder welcher Stoff generell. Muss man nicht sagen aber es sollte darstehen“). **Der Nutzer mag Reels lieber als Slides** – ein Slides-Thema im Zweifel als Erklär-Reel bauen. **Eigenes Titelbild je Reel** (23.11.2026, vom Nutzer: „Nur damit die Uploads nicht alle gleich aussehen müssen wir das Startbild ein bisschen anders gestalten … das es gut auf der Profilseite aussieht“ – vorher war das Cover das erste Bild mit dem ?-Kreis): `insta_erklaer.titelbild()` aus `cover` der Vorlage (`titel` 1–3 Zeilen, `hervor` = Zeile in Akzentfarbe, `farbe` blau/navy/coral, `figur` = Pose, `laeufer` oder `radler`, optional `text`, `mund`, `dx`, `deko` schnee/tacho, `blasen` = Sprechblasen neben der Figur) – das Bild zeigt das THEMA, nicht nur die Figur im Laufschritt (vom Nutzer: „Vielleicht auch das Bild zugeschnitten auf das Thema“: locker = Sprechblasen, Schwelle = Tacho), alles Wichtige im 3:4-Ausschnitt des Profils (y 240–1680); im Raster die Farben abwechseln. Geht als `cover.jpg` in Vorschau und – über `cover_url` – ins Posten (`poste_reel(…, cover=)`); wer von Hand postet, lädt das Titelbild in der App als Cover hoch. Jede neue Erklär-Vorlage braucht ein `cover` (Test). **Tempo (23.11.2026, vom Nutzer: „Instagram hat eine so kurze Aufmerksamkeitsspanne, da muss das schnell gehen!“)**: Sprecher mit `speed` 1,2, Pausen mit `ffmpeg -af silenceremove=stop_periods=-1:stop_duration=0.22:stop_threshold=-38dB` kürzen, danach das Ganze mit `atempo=0.89` etwas langsamer (vom Nutzer: „vielleicht macht man das ganze 32-33 Sekunden … Also nur vom speed. Sonst bleibt alles gleich“; Runways `speed` wirkte bei eleven_v4 kaum – 1,05 und 1,2 ergaben fast gleich lange Aufnahmen), kurze Sätze, keine Szene länger als nötig – Zwiebel-Reel 37 → 32 s; `insta_erklaer_zeiten.py` misst Pausen ab 0,15 s. Wo Radfahrer betroffen sind, eine Rad-Szene dazu (`sz_rad`: Radler von der Seite im Schnee, `hinweise` [[Text, brust/ruecken/kopf/fuss, Anteil]]).
+  **Die laufende Figur (`laeufer()`, Seitenansicht)** (22.11.2026, vom Nutzer:
+  „Der Rücken von der Frau sieht irgendwie ganz komisch aus. Und die müssen auch
+  nicht so extrem sauer aussehen beim laufen. Können schon bisschen angestrengt
+  aussehen oder bei einem entspannten Lauf auch mal bisschen lächeln“): Es ist
+  ER (das Maskottchen) – die Haare reichten bis in den Nacken und lasen sich als
+  Bob, die Hose bildete hinten eine Beule, die schräge Braue wirkte böse. Jetzt
+  kurze Haare mit rundem Ansatz (auf den Kopf beschnitten, nur bis Ohrhöhe, KEIN
+  Dutt-Knubbel), schlanke Hüfte, Gesicht `mund=` „laecheln“ (locker),
+  „angestrengt“ (gerade Braue, Mund offen, Schweißtropfen – nie böse) oder „o“;
+  `lauf()` wählt nach dem Tempo (≤ 1,6 lächelt), die Kacheln „hart“ sind
+  angestrengt. Nicht wieder eine schräge Braue einbauen.
+- **Captions einfach halten (seit dem 23.11.2026)** (vom Nutzer, mit Bildschirmfotos seiner
+  Uploads: „Bitte die Captions einfach halten. So wie ich bei meinen manuellen uploads gemacht
+  habe“): eine Zeile mit der Frage bzw. dem Thema (Emoji), höchstens ein Satz mit der
+  Kommentar-Frage, dann fünf Hashtags (`HASHTAGS_MAX`, die besonderen zuerst). Kein Absatz mit
+  Erklärung, kein „Link in der Bio“, keine Quellen-/Hinweiszeilen. Gilt für die Vorlagen
+  (`erklaer/*.json`, `karussell/*.json`) und `caption_bauen()` (die Inhaltszeilen der automatischen
+  Formate bleiben, nur Link-Absatz und Hashtag-Flut sind weg).
 - **Die Instagram-Farben seit dem 10.11.2026** (vom Nutzer mit einem Bild:
   „Die Farben für alle neuen Insta posts bitte dem Bild entnehmen“): Soft
   Blue #B6DFED, Midnight Navy #002941, Coral Orange #FD6E6E. Gilt für

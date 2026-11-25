@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-bergpfad-trailmarathon-plus-hexenkuche-42-2km-tecklenburg@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Bergpfad Trailmarathon Plus Hexenküche – Marathon
+LOCATION:Tecklenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttps://my.raceresul
+ t.com/435430/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/435430/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-18-iron-power-bauer-49-7km-dranse@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:18. Iron Power Bauer
+LOCATION:Dranse\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 49.7 km\nhttps://fk-hansa
+ -wittstock.de/
+TRANSP:TRANSPARENT
+URL:https://fk-hansa-wittstock.de/
+END:VEVENT
+END:VCALENDAR

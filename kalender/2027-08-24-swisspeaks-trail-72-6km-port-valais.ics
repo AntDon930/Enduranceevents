@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-24-swisspeaks-trail-72-6km-port-valais@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270824
+DTEND;VALUE=DATE:20270906
+SUMMARY:Swisspeaks Trail – Challenge
+LOCATION:Port-Valais\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 72.6 km\nhttps://swisspeaks.c
+ h/
+TRANSP:TRANSPARENT
+URL:https://swisspeaks.ch/
+END:VEVENT
+END:VCALENDAR

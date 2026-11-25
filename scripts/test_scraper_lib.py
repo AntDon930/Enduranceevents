@@ -5644,15 +5644,15 @@ def test_insta_freigabe() -> None:
     check("Kennung ändert sich mit den Folien", I.beitrag_hash(dict(b, folien=b["folien"][1:])) == h, False)
     check("Kennung ignoriert Felder außerhalb von Format/Folien/Caption/Stories",
           I.beitrag_hash(dict(b, video={"x": 1}, veroeffentlicht=None, erwaehnt=["x"])), h)
-    check("Kennung ändert sich mit den Stories", I.beitrag_hash(dict(b, stories=b["stories"][1:])) == h, False)
+    check("Kennung ändert sich mit den Stories", I.beitrag_hash(dict(b, stories=[{"art": "reel"}])) == h, False)
 
     plan = I.plan_liste(heute, 14, ev, momente=momente, clips=[])
     check("Plan: 14 Tage", len(plan), 14)
     check("Plan: Felder je Tag", sorted(k for k in plan[0] if k not in ("moment_id", "clip_id")),
-          ["caption", "datum", "folien", "format", "hash", "stories", "wochentag"])
+          ["caption", "datum", "folien", "format", "hash", "wochentag"])
     check("Plan: erster Tag = Start, Montag, Wochenplan (ungerade KW: laengste)",
           (plan[0]["datum"], plan[0]["wochentag"], plan[0]["format"]), (heute.isoformat(), "Mo", "laengste"))
-    check("Plan: Stories je Tag mit Art und Folie", all({"art", "folie"} <= set(st) for st in plan[0]["stories"]), True)
+    check("Plan: automatische Stories aus (vom Nutzer am 23.11.2026)", (I.STORIES, any(p_.get("stories") for p_ in plan)), (False, False))
     check("Dashboard: Stories-Zeile", ("storiesText(b.stories)" in (wurzel / "admin.html").read_text(encoding="utf-8")), True)
     check("Plan: Kennung je Tag = beitrag_hash des geplanten Beitrags", plan[0]["hash"], h)
     check("Plan: ist JSON", bool(_json.dumps(plan, ensure_ascii=False)), True)
@@ -5689,6 +5689,16 @@ def test_insta_freigabe() -> None:
     check("instagram.yml: Abendlauf postet mit --freigabe, Handlauf ohne",
           ("--posten --freigabe" in wf, "ABENDLAUF" in wf, "HANDPOSTEN" in wf, "INSTAGRAM_AUTOPOST: ${{ vars.INSTAGRAM_AUTOPOST }}" in wf),
           (True, True, True, True))
+    # Pünktlich um 18 Uhr (23.11.2026): Anstoß von Hand mit „freigabe“ =
+    # derselbe Ablauf wie der Abendlauf, ohne den Sofort-Haken „posten“
+    check("instagram.yml: Anstoß mit freigabe wie der Abendlauf",
+          ("github.event_name == 'workflow_dispatch' && inputs.freigabe" in wf,
+           "inputs.posten && !inputs.freigabe" in wf), (True, True))
+    check("instagram.yml: Morgenlauf wartet bis 18 Uhr und postet freigegeben",
+          ("Warten bis 18 Uhr Berlin" in wf, "--ausgabe ausgabe-18uhr --posten --freigabe" in wf,
+           "steps.google2.outputs.access_token" in wf, "timeout-minutes: 360" in wf), (True, True, True, True))
+    import insta_lauf as _il
+    check("insta_lauf: Sperre gegen doppeltes Posten", hasattr(_il, "schon_gepostet"), True)
     pages = (wurzel / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
     check("pages.yml erzeugt den Plan", "insta_inhalte.py --plan 14 --json marketing/instagram/plan.json" in pages, True)
     # Lauf 419 (27.10.2026): Der Plan liest die Logos mit Pillow, der
@@ -5761,8 +5771,10 @@ def test_instagram() -> None:
           ("München", True))
     check("Rennen tragen die Veranstalterseite (für die @-Erwähnung)", woche[0]["folien"][1].get("url"),
           "https://isartal-ultra.de/")
+    woche_stories = [I.stories_fuer(_dt.date.fromisoformat(w["datum"]), ev, w, _random.Random(1)) for w in woche]
     check("Stories: höchstens zwei, bekannte Arten",
-          all(len(w["stories"]) <= 2 and {st["art"] for st in w["stories"]} <= {"rennen", "countdown", "reel"} for w in woche), True)
+          all(len(s_) <= 2 and {st["art"] for st in s_} <= {"rennen", "countdown", "reel"} and all({"art", "folie"} <= set(st) for st in s_)
+              for s_ in woche_stories), True)
     witze = I.lade_humor()
     check("humor.json: Pflichtfelder, eindeutige Ids, kurze Texte",
           [all(w.get(k) for w in witze for k in ("id", "oben", "text_oben", "unten", "text_unten")),
@@ -5777,8 +5789,8 @@ def test_instagram() -> None:
     check("Junior-/Kinderläufe sind kein Highlight", "Wolfgangsee Junior-Marathon" in namen, False)
     check("derselbe Tag ergibt denselben Beitrag", I.plane(heute, ev, momente=momente, clips=[]), b)
     caps = [I.plane(heute + _dt.timedelta(days=i), ev, momente=momente, clips=[])["caption"] for i in range(14)]
-    check("Captions: höchstens 2.200 Zeichen, 30 Hashtags, nennen die Seite",
-          all(len(c) <= 2200 and c.count("#") <= 30 and I.SEITE in c for c in caps), True)
+    check("Captions: höchstens 2.200 Zeichen und 5 Hashtags",
+          all(len(c) <= 2200 and c.count("#") <= I.HASHTAGS_MAX for c in caps), True)
     check("Einzahl: 1 Radrennen / 1 Schwimm-Event / 2 Läufe",
           [I.sport_anzahl(1, "Fahrrad"), I.sport_anzahl(1, "Schwimmen"), I.sport_anzahl(2, "Laufen")],
           ["1 Radrennen", "1 Schwimm-Event", "2 Läufe"])
@@ -5878,13 +5890,13 @@ def test_instagram() -> None:
     dnb_plan = V.zeitplan([{"typ": "logo", "blitz": True}, {"typ": "logo", "blitz": True}, {"typ": "cta"}],
                           schlag=M.schlag_s(174))
     check("Drum & Bass: ein Logo steht trotzdem mindestens 0,4 s", min(e_ - s_ for s_, e_, _ in dnb_plan[:2]) >= 0.4, True)
-    for f in woche[0]["folien"] + woche[3]["folien"] + [st["folie"] for st in woche[0]["stories"]]:
+    for f in woche[0]["folien"] + woche[3]["folien"] + [st["folie"] for st in woche_stories[0]]:
         bild = V.folie_bild(f, "Laufen")
         check(f"Folie {f['typ']} wird gezeichnet (1080 × 1920, nicht leer)", [bild.size, bild.getbbox() is not None],
               [(1080, 1920), True])
     import tempfile as _tf0
     with _tf0.TemporaryDirectory() as tmp:
-        st_pfad = V.rendere_story(woche[0]["stories"][0], Path(tmp) / "s.jpg", 1)
+        st_pfad = V.rendere_story(woche_stories[0][0], Path(tmp) / "s.jpg", 1)
         from PIL import Image as _Img
         check("Story: JPEG 1080 × 1920", _Img.open(st_pfad).size, (1080, 1920))
     # Hintergründe wechseln (vom Nutzer am 17.10.2026: „immer das gleiche
@@ -7481,12 +7493,23 @@ def test_insta_logos() -> None:
         bilder_ = {sz["bild"] for sz in __import__("json").loads(p.read_text(encoding="utf-8"))["szenen"]}
         check(f"Erklär-Vorlage {p.stem}: jede Szene hat eine Zeichenroutine, die Aufnahme liegt daneben",
               (sorted(bilder_ - szenen_), p.with_suffix(".mp3").exists()), ([], True))
+    # Titelbild je Thema (23.11.2026): eigenes Cover, nicht das erste Bild des Reels
+    for p in sorted((wurzel / "marketing" / "instagram" / "erklaer").glob("*.json")):
+        c_ = __import__("json").loads(p.read_text(encoding="utf-8")).get("cover") or {}
+        check(f"Erklär-Vorlage {p.stem}: Titelbild mit Titel, Farbe und Figur",
+              (bool(c_.get("titel")), c_.get("farbe") in ("blau", "navy", "coral"), bool(c_.get("figur"))), (True, True, True))
+    check("Titelbild: cover.jpg aus titelbild(), insta_lauf gibt es als cover_url an poste_reel",
+          ('titelbild(json.loads(vorlage.read_text(encoding="utf-8"))).convert("RGB").save(ordner / "cover.jpg"' in erkl_,
+           'cover=ziel / meta["cover"]' in (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8"),
+           'felder["cover_url"]' in (wurzel / "scripts" / "insta_posten.py").read_text(encoding="utf-8")),
+          (True, True, True))
     lauf_ = (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8")
     check("insta_lauf.py: Erklär-Reel und Slides gehen an ihre eigenen Renderer (Lauf und Vorschau)",
           ("rendere_beitrag(beitrag, ziel, datum.toordinal())" in lauf_, "rendere_beitrag(b, ordner, tag.toordinal())" in lauf_,
            "insta_erklaer.rendere_beitrag(" in lauf_, "insta_karussell.rendere_beitrag(" in lauf_),
           (True, True, True, True))
     # Warteschlange (22.11.2026): fertige Beiträge rücken auf den nächsten freien Post-Tag, nichts geht verloren
+    _taeglich, I.TAEGLICH = I.TAEGLICH, None   # die Regel-Tests mit Pausentagen; die zwei Wochen täglich unten
     ws = [{"id": "a", "format": "erklaer", "thema": "schwelle"},
           {"id": "b", "format": "karussell", "slug": "winterkleidung"},
           {"id": "c", "format": "erklaer", "thema": "gibt-es-nicht"}]
@@ -7508,7 +7531,7 @@ def test_insta_logos() -> None:
     check("plane(): Warteschlange geht dem Wochenplan vor; `heute` bestimmt die Verteilung",
           (bq["format"], bq.get("schlange"), bq2["format"], bq2.get("schlange")), ("karussell", "b", "erklaer", "a"))
     check("Warteschlange: gepostet erkennt der Lauf am Anfang der Caption (auch von Hand gepostet)",
-          I.erledigt_aus_captions(["Was ist wirklich deine Schwelle? 🤔\n\nNicht Vollgas. Nicht dein 5-km-Tempo. Sondern das Tempo", "Etwas anderes"], ws), {"a"})
+          I.erledigt_aus_captions(["Was ist deine Schwelle? 🤔\n\nKennst du deine Schwelle? Schreib dein Tempo in die Kommentare!", "Etwas anderes"], ws), {"a"})
     echt = I.lade_warteschlange(wurzel / "marketing" / "instagram" / "warteschlange.json")
     check("warteschlange.json: eindeutige Ids, jede Vorlage da (mit Caption)",
           (len({e["id"] for e in echt}) == len(echt) > 0, all(I.schlange_beitrag(e, mo) for e in echt)), (True, True))
@@ -7524,6 +7547,10 @@ def test_insta_logos() -> None:
           ([t.weekday() for t in regel if I.postet_am(t, {}, [])],
            I.postet_am(_dt.date(2026, 11, 10), {}, [{"datum": "2026-11-10", "kategorie": "marathon"}])),
           ([0, 2, 4, 5, 6], True))
+    I.TAEGLICH = _taeglich
+    zwei = [_dt.date(2026, 11, 23) + _dt.timedelta(days=k) for k in range(17)]
+    check("24.11.–07.12.2026 jeden Tag ein Reel (vom Nutzer), danach wieder Di/Do Pause",
+          ([t.day for t in zwei if not I.postet_am(t, {}, [])], I.TAEGLICH[1].isoformat()), ([8], "2026-12-07"))
     import insta_freigabe as _F
     check("POST_START gleich in insta_inhalte und insta_freigabe", I.POST_START.isoformat(), _F.POST_START)
 
@@ -7576,7 +7603,7 @@ def test_insta_karussell() -> None:
     for f in dateien:
         daten = K.lade(f.stem)
         check(f"{f.stem}: Blogbeitrag vorhanden", daten["blog"] in blog, True)
-        check(f"{f.stem}: Caption verweist auf den Blog", "endurance-events.de" in K.caption(daten), True)
+        check(f"{f.stem}: Caption einfach (höchstens 5 Hashtags, kein Link-Absatz)", (K.caption(daten).count("#") <= 5, "Link in der Bio" in K.caption(daten)), (True, False))
     daten = K.lade(dateien[0].stem)
     bilder = K.seiten(daten)
     check("Seitenzahl = Themen + Titel + Schluss", len(bilder), len(daten["seiten"]) + 2)

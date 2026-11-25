@@ -11,13 +11,14 @@
    "id": "locker",
    "format": "erklaer",
    "thema": "locker",
-   "ab": "2026-11-23"
+   "ab": "2026-11-23",
+   "gepostet": "2026-11-23"
   },
   {
-   "id": "winterkleidung",
-   "format": "karussell",
-   "slug": "winterkleidung",
-   "ab": "2026-11-25"
+   "id": "zwiebel",
+   "format": "erklaer",
+   "thema": "zwiebel",
+   "ab": "2026-11-24"
   },
   {
    "id": "tapering",
@@ -36,6 +37,18 @@
    "format": "erklaer",
    "thema": "renntagswaage",
    "ab": "2026-11-23"
+  },
+  {
+   "id": "carboloading",
+   "format": "erklaer",
+   "thema": "carboloading",
+   "ab": "2026-11-28"
+  },
+  {
+   "id": "schlaf",
+   "format": "erklaer",
+   "thema": "schlaf",
+   "ab": "2026-11-29"
   }
  ]
 }

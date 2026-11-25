@@ -115,15 +115,21 @@ def _glied(d, pts, w, fill, k, kontur=True):
 
 
 @lru_cache(maxsize=None)
-def laeufer(phase_i: int, hoehe: int = 560, mund: str = "ernst") -> Image.Image:
-    """Unser Maskottchen im Laufschritt, Blick nach rechts (RGBA)."""
+def laeufer(phase_i: int, hoehe: int = 560, mund: str = "laecheln") -> Image.Image:
+    """Unser Maskottchen im Laufschritt, Blick nach rechts (RGBA).
+
+    `mund`: "laecheln" (lockerer Lauf), "angestrengt" (schnell – Brauen
+    gerade, Mund leicht offen, kein böser Blick) oder "o" (fliegt vom Band).
+    Kurze Haare nur oben am Kopf (bis zum Ohr, nicht in den Nacken – sonst
+    liest man einen Bob), Oberkörper schlank und leicht nach vorn geneigt.
+    """
     ss = 3
     k = hoehe / 300 * ss
     img = Image.new("RGBA", (int(300 * k), int(300 * k)), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     p = 2 * math.pi * phase_i / PHASEN
     bob = 5 * math.cos(2 * p)
-    hufte, schulter, kopf = (140, 170 + bob), (156, 98 + bob), (168, 58 + bob)
+    hufte, schulter, kopf = (140, 170 + bob), (158, 100 + bob), (170, 60 + bob)
 
     def bein(q, hinten):
         a = 0.85 * math.sin(q)
@@ -131,42 +137,67 @@ def laeufer(phase_i: int, hoehe: int = 560, mund: str = "ernst") -> Image.Image:
         knie = (hufte[0] + 55 * math.sin(a), hufte[1] + 55 * math.cos(a))
         fuss = (knie[0] + 58 * math.sin(b), knie[1] + 58 * math.cos(b))
         haut = M.HAUT_SCHATTEN if hinten else M.HAUT
-        _glied(d, [hufte, knie, fuss], 20, haut, k)
+        _glied(d, [hufte, knie, fuss], 19, haut, k)
         spitze = (fuss[0] + 20 * math.cos(b), fuss[1] - 20 * math.sin(b))
         _glied(d, [fuss, spitze], 17, WEISS, k)
         _glied(d, [fuss, spitze], 4, CORAL, k, kontur=False)
-        _glied(d, [hufte, (hufte[0] + 22 * math.sin(a), hufte[1] + 22 * math.cos(a))], 27, M.HOSE, k)
+        _glied(d, [hufte, (hufte[0] + 20 * math.sin(a), hufte[1] + 20 * math.cos(a))], 22, M.HOSE, k)
 
     def arm(q, hinten):
         ua = -0.9 * math.sin(q)
         fa = ua + 1.5
         e = (schulter[0] + 34 * math.sin(ua), schulter[1] + 34 * math.cos(ua))
         h = (e[0] + 30 * math.sin(fa), e[1] + 30 * math.cos(fa))
-        _glied(d, [schulter, e, h], 17, M.HAUT_SCHATTEN if hinten else M.HAUT, k)
-        _glied(d, [schulter, (schulter[0] + 14 * math.sin(ua), schulter[1] + 14 * math.cos(ua))], 25,
+        _glied(d, [schulter, e, h], 16, M.HAUT_SCHATTEN if hinten else M.HAUT, k)
+        _glied(d, [schulter, (schulter[0] + 12 * math.sin(ua), schulter[1] + 12 * math.cos(ua))], 21,
                M.SHIRT, k)
 
     arm(p, True)
     bein(p + math.pi, True)
-    _glied(d, [schulter, (hufte[0] + 4, hufte[1] - 14)], 46, M.SHIRT, k)
-    _glied(d, [(schulter[0] - 15, schulter[1] + 6), (hufte[0] - 12, hufte[1] - 22)], 6, SOFT_BLUE, k, kontur=False)
-    _glied(d, [(hufte[0] + 3, hufte[1] - 8), (hufte[0], hufte[1] + 8)], 46, M.HOSE, k)
+    rumpf_unten = (hufte[0] + 2, hufte[1] - 12)
+    _glied(d, [schulter, rumpf_unten], 40, M.SHIRT, k)
+    # Seitenstreifen vorn an der Flanke (nicht am Rücken)
+    _glied(d, [(schulter[0] + 7, schulter[1] + 12), (rumpf_unten[0] + 9, rumpf_unten[1] - 6)], 5, SOFT_BLUE, k,
+           kontur=False)
+    _glied(d, [(hufte[0] + 4, hufte[1] - 4), (hufte[0] + 3, hufte[1] + 5)], 34, M.HOSE, k)
     bein(p, False)
-    kx, ky, r, o = kopf[0] * k, kopf[1] * k, 31 * k, 5 * k
+    kx, ky, r, o = kopf[0] * k, kopf[1] * k, 30 * k, 5 * k
     d.ellipse([kx - r - o, ky - r - o, kx + r + o, ky + r + o], fill=MIDNIGHT)
     d.ellipse([kx - r, ky - r, kx + r, ky + r], fill=M.HAUT)
-    d.pieslice([kx - r, ky - r, kx + r, ky + r], 150, 318, fill=M.HAAR)
-    d.ellipse([kx + 11 * k, ky - 5 * k, kx + 18 * k, ky + 4 * k], fill=MIDNIGHT)
-    if mund == "ernst":
-        d.line([(kx + 12 * k, ky + 16 * k), (kx + 24 * k, ky + 14 * k)], fill=MIDNIGHT, width=int(4 * k))
-        d.line([(kx + 6 * k, ky - 13 * k), (kx + 21 * k, ky - 9 * k)], fill=MIDNIGHT, width=int(4 * k))
+    # kurze Haare: auf den Kopf beschnitten, runder Ansatz über der Stirn,
+    # hinten nur bis Ohrhöhe – kein Dutt, kein Bob
+    maske = Image.new("L", img.size, 0)
+    ImageDraw.Draw(maske).ellipse([kx - r, ky - r, kx + r, ky + r], fill=255)
+    haar = Image.new("L", img.size, 0)
+    hd = ImageDraw.Draw(haar)
+    hd.ellipse([kx - r * 1.25, ky - r * 1.35, kx + r * 0.95, ky - r * 0.05], fill=255)
+    hd.ellipse([kx - r * 1.15, ky - r * 0.6, kx - r * 0.25, ky + r * 0.25], fill=255)
+    from PIL import ImageChops
+    img.paste(Image.new("RGBA", img.size, M.HAAR + (255,)), (0, 0), ImageChops.multiply(maske, haar))
+    # Ohr
+    d.ellipse([kx - 8 * k, ky - 3 * k, kx + 2 * k, ky + 9 * k], fill=M.HAUT_SCHATTEN)
+    d.ellipse([kx + 11 * k, ky - 4 * k, kx + 18 * k, ky + 5 * k], fill=MIDNIGHT)
+    w = int(3.5 * k)
+    if mund == "laecheln":
+        d.line([(kx + 7 * k, ky - 12 * k), (kx + 20 * k, ky - 13 * k)], fill=MIDNIGHT, width=w)
+        d.arc([kx + 9 * k, ky + 4 * k, kx + 27 * k, ky + 20 * k], 10, 120, fill=MIDNIGHT, width=w)
+    elif mund == "angestrengt":
+        d.line([(kx + 7 * k, ky - 11 * k), (kx + 21 * k, ky - 13 * k)], fill=MIDNIGHT, width=w)
+        d.ellipse([kx + 15 * k, ky + 10 * k, kx + 24 * k, ky + 18 * k], fill=MIDNIGHT)
+        # ein Schweißtropfen hinten an der Stirn
+        tx, ty = kx + 38 * k, ky - 18 * k
+        d.polygon([(tx, ty - 10 * k), (tx - 5 * k, ty), (tx + 5 * k, ty)], fill=SOFT_BLUE)
+        d.ellipse([tx - 5 * k, ty - 4 * k, tx + 5 * k, ty + 6 * k], fill=SOFT_BLUE)
     else:
-        d.ellipse([kx + 12 * k, ky + 9 * k, kx + 24 * k, ky + 22 * k], fill=MIDNIGHT)
+        d.line([(kx + 7 * k, ky - 14 * k), (kx + 20 * k, ky - 16 * k)], fill=MIDNIGHT, width=w)
+        d.ellipse([kx + 12 * k, ky + 8 * k, kx + 24 * k, ky + 21 * k], fill=MIDNIGHT)
     arm(p + math.pi, False)
     return img.resize((img.width // ss, img.height // ss), Image.LANCZOS)
 
 
 def lauf(t: float, tempo: float = 1.6, **kw) -> Image.Image:
+    """Laufschritt im Takt; locker (tempo <= 1.6) mit Lächeln, schneller angestrengt."""
+    kw.setdefault("mund", "laecheln" if tempo <= 1.6 else "angestrengt")
     return laeufer(int(t * tempo * PHASEN) % PHASEN, **kw)
 
 
@@ -357,7 +388,8 @@ def sz_test(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     for i in range(6):
         cx = x0 + 90 + i * 128
         d.rounded_rectangle([cx - 11, y0 - 44, cx + 11, y0 + 36], radius=11, fill=CREME, outline=MIDNIGHT, width=6)
-    d.text(((x0 + x1) / 2, y0 + 96), p.get("titel", "DEIN TEST"), font=schrift(120), fill=WEISS, anchor="mm")
+    titel = p.get("titel", "DEIN TEST")
+    d.text(((x0 + x1) / 2, y0 + 96), titel, font=schrift(min(120, 1450 / len(titel))), fill=WEISS, anchor="mm")
     zeilen = p.get("zeilen", (("30", "MINUTEN"), ("1", "ALLEIN LAUFEN"), ("=", "GLEICHMÄSSIG")))
     for i, (z, wort) in enumerate(zeilen):
         tt = t - dauer * (0.12 + 0.17 * i)
@@ -369,7 +401,7 @@ def sz_test(t: float, dauer: float, p: dict | None = None) -> Image.Image:
         s = federn(tt / 0.3)
         d.ellipse([x0 + 60, yy - 62 * s, x0 + 60 + 124 * s, yy + 62 * s], fill=MIDNIGHT)
         d.text((x0 + 60 + 62 * s, yy), z, font=schrift(76 * s), fill=CREME, anchor="mm")
-        d.text((x0 + 220, yy), wort, font=schrift(76), fill=MIDNIGHT, anchor="lm")
+        d.text((x0 + 220, yy), wort, font=schrift(min(76, 1250 / max(1, len(wort)))), fill=MIDNIGHT, anchor="lm")
     tt = t - dauer * 0.66
     if tt > 0:
         s = federn(tt / 0.35)
@@ -420,17 +452,143 @@ def sz_schluss(t: float, dauer: float, p: dict | None = None) -> Image.Image:
 
 # --- Allgemeine Szenen (Texte und Zahlen kommen aus der Vorlage) -------------
 
-def sz_frage(t: float, dauer: float, p: dict | None = None) -> Image.Image:
-    """Hook: die Figur läuft, darüber ein großes Fragezeichen und die Frage."""
-    p = p or {}
-    img = tag(t)
+METALL_E = (176, 188, 202)
+
+
+@lru_cache(maxsize=None)
+def gym() -> Image.Image:
+    """Kraftraum: Wand mit Streifen, Gummiboden, Hantelständer mit Scheiben."""
+    img = Image.new("RGBA", (B, H), (210, 232, 240, 255))
     d = ImageDraw.Draw(img)
-    aufkleben(img, lauf(t, hoehe=640), B / 2 - 40, 1404)
+    d.rectangle([0, 760, B, 820], fill=SOFT_BLUE)
+    d.rectangle([0, 1380, B, H], fill=(38, 52, 66))
+    d.rectangle([0, 1380, B, 1394], fill=MIDNIGHT)
+    for x in range(0, B, 180):
+        d.line([(x, 1394), (x - 120, H)], fill=(52, 68, 84), width=6)
+    # Kurzhanteln im Regal rechts
+    d.rounded_rectangle([780, 1250, 1060, 1272], radius=8, fill=MIDNIGHT)
+    for x in (800, 1040):
+        d.rounded_rectangle([x - 10, 1262, x + 10, 1390], radius=6, fill=MIDNIGHT)
+    for i, x in enumerate((830, 905, 980)):
+        g = 26 + i * 6
+        d.rounded_rectangle([x - 30, 1222, x + 30, 1234], radius=5, fill=METALL_E, outline=MIDNIGHT, width=4)
+        for dx in (-30, 30):
+            d.rounded_rectangle([x + dx - 11, 1228 - g, x + dx + 11, 1228 + g * 0.4], radius=6,
+                                fill=CORAL if i != 1 else MIDNIGHT, outline=MIDNIGHT, width=4)
+    # Wandscheiben links
+    for i, (x, r) in enumerate(((120, 70), (260, 56))):
+        d.ellipse([x - r, 560 - r, x + r, 560 + r], fill=MIDNIGHT)
+        d.ellipse([x - r + 12, 560 - r + 12, x + r - 12, 560 + r - 12], fill=CORAL if i == 0 else SOFT_BLUE)
+        d.ellipse([x - 12, 548, x + 12, 572], fill=MIDNIGHT)
+    return img
+
+
+@lru_cache(maxsize=None)
+def bad() -> Image.Image:
+    """Badezimmer: Fliesenwand, Boden – für die Waage am Morgen."""
+    img = Image.new("RGBA", (B, H), (232, 242, 246, 255))
+    d = ImageDraw.Draw(img)
+    for y in range(0, 1380, 120):
+        d.line([(0, y), (B, y)], fill=(200, 222, 232), width=5)
+    for x in range(0, B, 120):
+        d.line([(x, 0), (x, 1380)], fill=(200, 222, 232), width=5)
+    d.rectangle([0, 1380, B, H], fill=(120, 160, 180))
+    d.rectangle([0, 1380, B, 1394], fill=MIDNIGHT)
+    for x in range(-60, B, 160):
+        d.line([(x, 1394), (x - 80, H)], fill=(104, 144, 166), width=6)
+    # runder Spiegel mit Glanz, daneben ein Handtuch am Haken
+    d.ellipse([40, 440, 320, 800], fill=(214, 236, 244), outline=MIDNIGHT, width=10)
+    d.line([(110, 540), (170, 480)], fill=CREME, width=14)
+    d.line([(120, 600), (220, 500)], fill=CREME, width=8)
+    d.ellipse([168, 880, 192, 904], fill=MIDNIGHT)
+    d.rounded_rectangle([120, 896, 240, 1140], radius=16, fill=CORAL, outline=MIDNIGHT, width=6)
+    for y in (1080, 1104):
+        d.line([(124, y), (236, y)], fill=CREME, width=6)
+    return img
+
+
+def winter(t: float, tempo: float = 1.0) -> Image.Image:
+    """Wintertag: blasser Himmel, verschneite Hügel, Schneefall, Straße mit Schnee am Rand."""
+    img = tag(t, tempo)
+    d = ImageDraw.Draw(img)
+    d.rectangle([0, 0, B, 1250], fill=(214, 230, 238))
+    for farbe, basis, hoehe_, breite, speed in (((236, 244, 248), 1250, 420, 900, 40), ((250, 252, 253), 1330, 300, 640, 90)):
+        for i in range(-1, 4):
+            x = i * breite * 0.8 - (t * speed * tempo) % (breite * 0.8)
+            d.polygon([(x, basis), (x + breite / 2, basis - hoehe_), (x + breite, basis)], fill=farbe,
+                      outline=(176, 200, 214), width=4)
+        d.rectangle([0, basis, B, 1380], fill=farbe)
+    d.rectangle([0, 1366, B, 1384], fill=WEISS)
+    rng = random.Random(11)
+    for _ in range(90):
+        x0, y0, r, v = rng.uniform(0, B), rng.uniform(0, 1500), rng.uniform(5, 13), rng.uniform(90, 200)
+        x = (x0 - t * 60 * tempo + 18 * math.sin(t * 1.3 + y0)) % B
+        y = (y0 + t * v) % 1500
+        d.ellipse([x - r, y - r, x + r, y + r], fill=WEISS)
+    return img
+
+
+# Die Figur im Hook passt zum Thema: läuft (Standard), hebt die Langhantel,
+# hält den Countdown-Kalender, steht auf der Waage, läuft durch den Schnee.
+AKTIONEN = ("lauf", "hantel", "kalender", "waage", "winter", "nudeln", "nacht")
+
+
+def sz_frage(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Hook: die Figur tut, worum es geht; darüber ein großes Fragezeichen und die Frage."""
+    p = p or {}
+    aktion = p.get("aktion", "lauf")
+    if aktion == "lauf":
+        img = tag(t)
+        aufkleben(img, lauf(t, hoehe=640), B / 2 - 40, 1404)
+    elif aktion == "hantel":
+        img = gym().copy()
+        # eine Wiederholung je Sekunde, oben kurz halten
+        w = 0.5 - 0.5 * math.cos(t * 2 * math.pi * 0.9)
+        stufe = min(4, int(w * 5))
+        aufkleben(img, M.figur(f"curl{stufe}", 760), B / 2 - 130, 1420)
+    elif aktion == "kalender":
+        img = tag(t * 0.25)
+        von = int(p.get("von", 14))
+        tag_ = max(1, von - int(t / max(0.2, dauer * 0.8) * (von - 1)))
+        aufkleben(img, M.figur("kalender", 760, text=str(tag_)), B / 2 - 130, 1420)
+    elif aktion == "winter":
+        img = winter(t, 0.8)
+        aufkleben(img, lauf(t, tempo=1.3, hoehe=640), B / 2 - 40, 1404)
+        d0 = ImageDraw.Draw(img)
+        for i in range(3):                       # Atemwolken vor dem Gesicht
+            a = (t * 1.4 + i / 3) % 1
+            r = 18 + 40 * a
+            x, y = B / 2 + 150 + 120 * a, 880 - 40 * a
+            d0.ellipse([x - r, y - r * 0.7, x + r, y + r * 0.7], fill=WEISS)
+    elif aktion == "nudeln":                     # Nudelparty am Vorabend
+        img = tag(t * 0.25)
+        aufkleben(img, M.figur("nudeln", 760), B / 2 - 60, 1420 + int(4 * abs(math.sin(t * 6))))
+    elif aktion == "nacht":                      # Schlaf: Nachthimmel, Mond, Sterne, Zzz
+        img = nacht().copy()
+        d0 = ImageDraw.Draw(img)
+        rng = random.Random(9)
+        for _ in range(40):
+            x, y = rng.uniform(30, B - 30), rng.uniform(200, 1100)
+            r0 = 3 + 3 * (0.5 + 0.5 * math.sin(t * 3 + x))
+            d0.ellipse([x - r0, y - r0, x + r0, y + r0], fill=CREME)
+        d0.ellipse([120, 260, 340, 480], fill=GELB)
+        d0.ellipse([180, 230, 400, 450], fill=MIDNIGHT)
+        aufkleben(img, M.figur("denken", 760), B / 2 - 60, 1420)
+        for i in range(3):
+            a_ = (t * 0.6 + i / 3) % 1
+            d0.text((B / 2 + 170 + 90 * a_, 900 - 260 * a_), "Z", font=schrift(70 + 50 * a_), fill=SOFT_BLUE,
+                    anchor="mm")
+    elif aktion == "waage":
+        img = bad().copy()
+        wippen = int(6 * abs(math.sin(t * 5))) if t < 1.2 else 0
+        aufkleben(img, M.figur("waage", 760), B / 2 - 40, 1420 + wippen)
+    else:
+        raise KeyError(f"unbekannte Aktion: {aktion} (bekannt: {', '.join(AKTIONEN)})")
+    d = ImageDraw.Draw(img)
     k = federn(t / 0.4)
     wackeln = 14 * math.sin(t * 3.4)
-    r = 190 * k
     r = 170 * k
-    mx, my = B / 2 + 250, 560
+    mx, my = B / 2 + 250, 560 if aktion == "lauf" else 440
     d.ellipse([mx - r - 12, my - r - 12, mx + r + 12, my + r + 12], fill=MIDNIGHT)
     d.ellipse([mx - r, my - r, mx + r, my + r], fill=CORAL)
     d.polygon([(mx - 130 * k, my + 90 * k), (mx - 50 * k, my + 150 * k), (mx - 200 * k, my + 240 * k)], fill=MIDNIGHT)
@@ -510,7 +668,8 @@ def sz_kacheln(t: float, dauer: float, p: dict | None = None) -> Image.Image:
         h = kb / 2 * k
         d.rounded_rectangle([cx - h - 8, cy - h - 8, cx + h + 8, cy + h + 8], radius=36, fill=(0, 22, 36))
         d.rounded_rectangle([cx - h, cy - h, cx + h, cy + h], radius=30, fill=farbe)
-        f = laeufer((i * 3 + int(t * (30 if ist_hart else 14))) % PHASEN, hoehe=150)
+        f = laeufer((i * 3 + int(t * (30 if ist_hart else 14))) % PHASEN, hoehe=150,
+                    mund="angestrengt" if ist_hart else "laecheln")
         f = f.resize((int(f.width * k) or 1, int(f.height * k) or 1))
         img.alpha_composite(f, (int(cx - f.width / 2), int(cy - f.height / 2)))
     tt = t - dauer * 0.55
@@ -559,6 +718,58 @@ def sz_balken(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     return img
 
 
+def sz_schichten(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Das Zwiebelprinzip im Schnitt: unten die Haut, darüber drei Schichten, die
+    nacheinander auftauchen – Schweiß wandert nach außen.
+    `schichten`: [[Titel, Zeile, Farbe, Anteil der Dauer], …] von innen nach außen."""
+    p = p or {}
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    farben = {"coral": CORAL, "blau": SOFT_BLUE, "gruen": GRUEN, "gelb": GELB, "creme": CREME}
+    pop(d, B / 2, 420, p.get("oben", "DAS ZWIEBELPRINZIP"), p.get("oben_g", 110), t - 0.05, fill=CORAL)
+    links, rechts, hoehe, unten = 120, B - 120, 200, 1300
+    d.rounded_rectangle([links, unten, rechts, unten + 90], radius=28, fill=(232, 190, 160), outline=MIDNIGHT, width=8)
+    d.text((B / 2, unten + 45), p.get("haut", "HAUT"), font=schrift(56), fill=MIDNIGHT, anchor="mm")
+    schichten = p.get("schichten", [])
+    sichtbar = 0
+    etiketten = []
+    for i, (titel, zeile, farbe, ab, *mat) in enumerate(schichten):
+        tt = t - dauer * ab
+        if tt <= 0:
+            continue
+        sichtbar = i + 1
+        k = federn(tt / 0.4)
+        y1 = unten - 14 - i * (hoehe + 14)
+        y0 = y1 - hoehe * k
+        f = farben.get(farbe, SOFT_BLUE)
+        d.rounded_rectangle([links, y0, rechts, y1], radius=30, fill=f, outline=MIDNIGHT, width=8)
+        if k > 0.9:
+            schrift_farbe = MIDNIGHT if farbe in ("blau", "creme", "gelb") else WEISS
+            d.text((links + 50, y1 - hoehe + 62), titel, font=schrift(74), fill=schrift_farbe, anchor="lm")
+            d.text((links + 50, y1 - hoehe + 142), zeile, font=schrift(50, fett=False), fill=schrift_farbe, anchor="lm")
+            if mat:                              # Material als Etikett rechts oben (vom Nutzer: „welcher Stoff“)
+                f_m = schrift(42)
+                wm = f_m.getlength(mat[0])
+                xr, ym = rechts - 34, y1 - hoehe + 62
+                hint = MIDNIGHT if farbe in ("blau", "creme", "gelb") else CREME
+                etiketten.append(((xr - wm - 28, ym - 32, xr, ym + 32), hint, (xr - 14, ym), mat[0], f_m,
+                                  f if hint == MIDNIGHT else MIDNIGHT))
+    oben_rand = unten - 14 - sichtbar * (hoehe + 14) + 14
+    # Schweißtropfen wandern von der Haut nach außen (nur durch sichtbare Schichten)
+    for j in range(4):
+        a = (t * 0.45 + j / 4) % 1
+        y = unten - a * (unten - oben_rand + 60)
+        x = rechts - 120 - 46 * j
+        r = 16
+        d.polygon([(x, y - r * 1.8), (x - r, y), (x + r, y)], fill=CREME)
+        d.ellipse([x - r, y - r, x + r, y + r], fill=CREME)
+    for box, hint, xy, txt, f_m, fg in etiketten:   # Etiketten über den Tropfen
+        d.rounded_rectangle(box, radius=32, fill=hint)
+        d.text(xy, txt, font=f_m, fill=fg, anchor="rm")
+    pop(d, B / 2, 1490, p.get("zeile", ""), p.get("g", 88), t - dauer * 0.9, fill=GRUEN, kontur=None)
+    return img
+
+
 def sz_figur(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     """Die Figur in einer Pose, Titel oben, Sprechblasen nacheinander, Zeile unten."""
     p = p or {}
@@ -575,8 +786,212 @@ def sz_figur(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     return img
 
 
+def radler(t: float, hoehe: int = 620) -> Image.Image:
+    """Unser Maskottchen auf dem Rennrad, Blick nach rechts (RGBA): Helm mit
+    Mütze darunter, Jacke vorn in Coral (winddicht), hinten Soft Blue
+    (luftig), dunkle Überschuhe; die Kurbel dreht sich."""
+    ss = 2
+    k = hoehe / 520 * ss
+    img = Image.new("RGBA", (int(620 * k), int(520 * k)), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    hinten_rad, vorn_rad, tretlager = (130, 400), (470, 400), (285, 400)
+    sattel, lenker, steuer = (235, 245), (440, 238), (420, 262)
+    r = 100
+    for cx, cy in (hinten_rad, vorn_rad):
+        X, Y = cx * k, cy * k
+        d.ellipse([X - (r + 8) * k, Y - (r + 8) * k, X + (r + 8) * k, Y + (r + 8) * k], fill=MIDNIGHT)
+        d.ellipse([X - (r - 6) * k, Y - (r - 6) * k, X + (r - 6) * k, Y + (r - 6) * k], fill=(214, 230, 238))
+        for i in range(6):
+            a = t * 9 + i * math.pi / 3
+            d.line([(X, Y), (X + (r - 8) * k * math.cos(a), Y + (r - 8) * k * math.sin(a))],
+                   fill=(150, 176, 190), width=int(3 * k))
+        d.ellipse([X - 9 * k, Y - 9 * k, X + 9 * k, Y + 9 * k], fill=MIDNIGHT)
+    rahmen = [(hinten_rad, tretlager), (tretlager, sattel), (sattel, hinten_rad), (sattel, steuer),
+              (tretlager, steuer), (steuer, vorn_rad)]
+    for a, b in rahmen:
+        _glied(d, [a, b], 9, CORAL, k)
+    _glied(d, [steuer, lenker, (452, 262)], 7, MIDNIGHT, k, kontur=False)
+    huefte, schulter, kopf = (232, 228), (360, 168), (405, 128)
+    a = t * 9
+
+    def bein(q, hinten):
+        pedal = (tretlager[0] + 42 * math.cos(q), tretlager[1] + 42 * math.sin(q))
+        dx, dy = pedal[0] - huefte[0], pedal[1] - huefte[1]
+        dist = min(math.hypot(dx, dy), 238)
+        winkel = math.atan2(dy, dx)
+        beuge = math.acos(max(-1, min(1, dist / 240)))
+        knie = (huefte[0] + 120 * math.cos(winkel - beuge), huefte[1] + 120 * math.sin(winkel - beuge))
+        _glied(d, [huefte, knie, pedal], 26, (40, 46, 56) if hinten else M.HOSE, k)
+        _glied(d, [(pedal[0] - 18, pedal[1] + 2), (pedal[0] + 26, pedal[1] + 4)], 22,
+               (20, 30, 44) if hinten else MIDNIGHT, k)
+
+    bein(a + math.pi, True)
+    _glied(d, [huefte, schulter], 58, SOFT_BLUE, k)                   # Rücken: luftig
+    _glied(d, [(huefte[0] + 22, huefte[1] + 14), (schulter[0] + 14, schulter[1] + 20)], 30, CORAL, k,
+           kontur=False)                                               # Front: winddicht
+    bein(a, False)
+    _glied(d, [schulter, (402, 214), lenker], 20, CORAL, k)
+    _glied(d, [lenker], 18, MIDNIGHT, k)                               # Handschuh
+    kx, ky, rk = kopf[0] * k, kopf[1] * k, 36 * k
+    d.ellipse([kx - rk - 5 * k, ky - rk - 5 * k, kx + rk + 5 * k, ky + rk + 5 * k], fill=MIDNIGHT)
+    d.ellipse([kx - rk, ky - rk, kx + rk, ky + rk], fill=M.HAUT)
+    d.chord([kx - rk - 4 * k, ky - rk - 2 * k, kx + rk + 4 * k, ky + rk], 180, 360, fill=SOFT_BLUE)   # Mütze
+    d.chord([kx - rk - 12 * k, ky - rk - 22 * k, kx + rk + 10 * k, ky + rk - 18 * k], 180, 360,
+            fill=CORAL, outline=MIDNIGHT, width=int(5 * k))                                         # Helm
+    d.ellipse([kx + 14 * k, ky + 2 * k, kx + 22 * k, ky + 10 * k], fill=MIDNIGHT)
+    d.arc([kx + 12 * k, ky + 12 * k, kx + 30 * k, ky + 26 * k], 10, 120, fill=MIDNIGHT, width=int(4 * k))
+    return img.resize((img.width // ss, img.height // ss), Image.LANCZOS)
+
+
+def sz_rad(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Auf dem Rad: Fahrtwind von vorn, Hinweise zeigen auf Brust, Rücken, Kopf, Füße.
+    `hinweise`: [[Text, Ziel (brust/ruecken/kopf/fuss), Anteil der Dauer], …]."""
+    p = p or {}
+    img = winter(t, 1.8)
+    d = ImageDraw.Draw(img)
+    rng = random.Random(3)
+    for _ in range(9):                                   # Fahrtwind
+        y, l, v = rng.uniform(700, 1250), rng.uniform(80, 200), rng.uniform(900, 1400)
+        x = B - (rng.uniform(0, B) + t * v) % (B + 300)
+        d.line([(x, y), (x + l, y)], fill=WEISS, width=10)
+    fahrer = radler(t, 700)
+    x0, unten = B / 2 - fahrer.width / 2, 1420
+    img.alpha_composite(fahrer, (int(x0), int(unten - fahrer.height)))
+    s = fahrer.width / 620
+    ziele = {"kopf": (405, 85), "brust": (390, 205), "ruecken": (250, 190), "fuss": (300, 440)}
+    orte = {"kopf": (780, 580), "brust": (830, 1010), "ruecken": (230, 760), "fuss": (210, 1150)}
+    d = ImageDraw.Draw(img)
+    pop(d, B / 2, 440, p.get("titel", "AUF DEM RAD"), p.get("titel_g", 110), t - 0.05, fill=CORAL)
+    for txt, ziel, ab in p.get("hinweise", []):
+        tt = t - dauer * ab
+        if tt <= 0:
+            continue
+        zx, zy = x0 + ziele[ziel][0] * s, unten - fahrer.height + ziele[ziel][1] * s
+        ox, oy = orte[ziel]
+        k = weich(tt / 0.25)
+        d.line([(ox, oy), (ox + (zx - ox) * k, oy + (zy - oy) * k)], fill=MIDNIGHT, width=8)
+        d.ellipse([zx - 14, zy - 14, zx + 14, zy + 14], fill=CORAL, outline=MIDNIGHT, width=5) if k >= 1 else None
+        blase(d, ox, oy, txt, min(70, 820 / max(6, len(txt))), tt)
+    return img
+
+
+# --- Titelbild (Cover) für die Profilseite ------------------------------------
+# Vom Nutzer am 23.11.2026: „Nur damit die Uploads nicht alle gleich aussehen
+# müssen wir das Startbild ein bisschen anders gestalten … Vielleicht kann man
+# das so gestalten, das es gut auf der Profilseite aussieht“. Das Profil zeigt
+# ein Reel im Format 3:4 (Mitte von 1080 × 1920: y 240–1680) – alles Wichtige
+# steht darin. Ein Titelbild je Thema: Grundfarbe aus drei (blau/navy/coral,
+# `cover.farbe` der Vorlage, sonst reihum), oben das Thema groß, unten die Figur
+# in der Pose des Themas. So ergibt das Raster ein ruhiges Muster und jedes
+# Reel ist an Titel und Bild zu erkennen.
+
+COVER_FARBEN = {
+    "blau": (SOFT_BLUE, MIDNIGHT, CORAL, (160, 206, 224)),
+    "navy": (MIDNIGHT, CREME, CORAL, NACHT_HELL),
+    "coral": (CORAL, MIDNIGHT, CREME, (240, 92, 92)),
+}
+COVER_OBEN, COVER_UNTEN = 240, 1680
+
+
+def _cover_figur(c: dict, hoehe: int) -> Image.Image:
+    art = c.get("figur", "daumen")
+    if art == "laeufer":
+        return laeufer(5, hoehe, c.get("mund", "laecheln"))
+    if art == "radler":
+        return radler(0.2, int(hoehe * 0.9))
+    return M.figur(art, hoehe, c.get("person", "er"), c.get("text", ""))
+
+
+def titelbild(spec: dict) -> Image.Image:
+    c = spec.get("cover") or {}
+    farbe = c.get("farbe") or list(COVER_FARBEN)[sum(map(ord, spec.get("thema", ""))) % 3]
+    grund, schrift_farbe, akzent, kreis = COVER_FARBEN[farbe]
+    img = Image.new("RGBA", (B, H), grund + (255,))
+    d = ImageDraw.Draw(img)
+    # Punktraster als Struktur
+    for y in range(COVER_OBEN + 20, COVER_UNTEN, 60):
+        for x in range(30, B, 60):
+            d.ellipse([x - 3, y - 3, x + 3, y + 3], fill=kreis)
+    # Etikett oben
+    etikett = c.get("etikett", "ERKLÄRT IN 30 SEKUNDEN")
+    f = schrift(44)
+    w = f.getlength(etikett) / 2 + 30
+    d.rounded_rectangle([B / 2 - w, COVER_OBEN + 40, B / 2 + w, COVER_OBEN + 112], radius=36, fill=akzent)
+    d.text((B / 2, COVER_OBEN + 76), etikett, font=f, fill=grund if farbe != "coral" else MIDNIGHT, anchor="mm")
+    # Titel: 1–3 Zeilen, so groß wie möglich
+    zeilen = c.get("titel") or [spec.get("thema", "").upper()]
+    g = min(200 if len(zeilen) < 3 else 160, min(960 / max(1, schrift(100).getlength(z) / 100) for z in zeilen))
+    y = COVER_OBEN + 150 + g * 0.55
+    for i, z in enumerate(zeilen):
+        hervor = i == c.get("hervor", len(zeilen) - 1)
+        d.text((B / 2, y), z, font=schrift(g), anchor="mm",
+               fill=akzent if hervor else schrift_farbe,
+               stroke_width=8 if farbe != "navy" else 0, stroke_fill=grund)
+        y += g * 0.95
+    titel_unten = y - g * 0.45
+    unten = COVER_UNTEN - 30
+    platz = unten - titel_unten - 40
+    fig = _cover_figur(c, int(min(c.get("hoehe", 760), platz)))
+    # Kreis hinter der Figur (unter ihr gezeichnet: die Figur kommt danach)
+    my = unten - fig.height * 0.5
+    r = max(200, min(430, my - titel_unten - 50))
+    mx0 = B / 2 + c.get("dx", 0) * 0.5
+    d.ellipse([mx0 - r, my - r, mx0 + r, my + r], fill=kreis)
+    if c.get("deko") == "schnee":
+        rng = random.Random(4)
+        for _ in range(40):
+            x0, y0, rr = rng.uniform(40, B - 40), rng.uniform(titel_unten, unten), rng.uniform(6, 14)
+            d.ellipse([x0 - rr, y0 - rr, x0 + rr, y0 + rr], fill=WEISS)
+    aufkleben(img, fig, B / 2 + c.get("dx", 0), unten)
+    d = ImageDraw.Draw(img)
+    oben_fig = unten - fig.height
+    if c.get("deko") == "tacho":                 # Tacho, Nadel genau an der Grenze zum roten Bereich
+        mx, my, r = B / 2 + 250, oben_fig + 230, 165
+        d.pieslice([mx - r - 10, my - r - 10, mx + r + 10, my + r + 10], 180, 360, fill=MIDNIGHT)
+        d.pieslice([mx - r, my - r, mx + r, my + r], 180, 360, fill=CREME)
+        d.pieslice([mx - r, my - r, mx + r, my + r], 300, 360, fill=CORAL if farbe != "coral" else (196, 36, 58))
+        d.pieslice([mx - r + 50, my - r + 50, mx + r - 50, my + r - 50], 180, 360, fill=MIDNIGHT)
+        w = math.radians(298)
+        d.line([(mx, my), (mx + (r - 20) * math.cos(w), my + (r - 20) * math.sin(w))], fill=GELB, width=14)
+        d.ellipse([mx - 22, my - 22, mx + 22, my + 22], fill=CREME, outline=MIDNIGHT, width=6)
+        d.text((mx, my + 60), c.get("tacho_text", "SCHWELLE"), font=schrift(56), fill=schrift_farbe, anchor="mm",
+               stroke_width=6, stroke_fill=grund)
+    if c.get("deko") == "schnecke":              # Schnecke vorneweg – „so langsam ist locker“
+        sx, sy, k = B / 2 + 280, unten - 20, 1.25
+        rand = MIDNIGHT
+        d.rounded_rectangle([sx - 170 * k, sy - 60 * k, sx + 120 * k, sy], radius=int(30 * k), fill=GELB,
+                            outline=rand, width=8)                                            # Körper
+        hx = sx + 105 * k
+        for dx_, l in ((-18, 95), (18, 85)):                                              # Fühler
+            d.line([(hx + dx_ * k * 0.6, sy - 50 * k), (hx + dx_ * k, sy - (50 + l) * k)], fill=rand, width=8)
+            d.ellipse([hx + dx_ * k - 14, sy - (50 + l) * k - 14, hx + dx_ * k + 14, sy - (50 + l) * k + 14],
+                      fill=rand)
+        d.ellipse([hx - 30 * k, sy - 95 * k, hx + 25 * k, sy - 40 * k], fill=GELB, outline=rand, width=8)   # Kopf
+        d.ellipse([hx - 2, sy - 75 * k - 6, hx + 10, sy - 75 * k + 6], fill=rand)
+        d.arc([hx - 15 * k, sy - 75 * k, hx + 12 * k, sy - 52 * k], 20, 160, fill=rand, width=6)
+        cx, cy, R = sx - 50 * k, sy - 125 * k, 105 * k                                    # Haus
+        d.ellipse([cx - R, cy - R, cx + R, cy + R], fill=CORAL, outline=rand, width=9)
+        pts = []
+        for i in range(160):
+            a_ = i / 160 * math.pi * 5
+            rr = R * 0.82 * (1 - i / 175)
+            pts.append((cx + rr * math.cos(a_), cy + rr * math.sin(a_)))
+        d.line(pts, fill=rand, width=9, joint="curve")
+    if c.get("deko") == "zzz":                   # Schlaf: Mond und Zzz
+        mx, my = B / 2 + 300, oben_fig + 150
+        d.ellipse([mx - 90, my - 90, mx + 90, my + 90], fill=GELB)
+        d.ellipse([mx - 40, my - 120, mx + 140, my + 60], fill=grund)
+        for i, (dx_, dy_, gz) in enumerate(((-230, 160, 70), (-180, 70, 95), (-110, -40, 125))):
+            d.text((mx + dx_, my + dy_), "Z", font=schrift(gz), fill=akzent, anchor="mm",
+                   stroke_width=6, stroke_fill=grund)
+    for i, txt in enumerate(c.get("blasen", [])):  # Sprechblasen rechts neben der Figur
+        blase(d, B / 2 + 230 + 20 * (i % 2), oben_fig + 110 + i * 150, txt, min(70, 700 / max(6, len(txt))), 1.0,
+              spitze_x=B / 2 + 40 if i == 0 else None)
+    return img
+
+
 SZENEN = {"frage": sz_frage, "denken": sz_denken, "zahl": sz_zahl, "kacheln": sz_kacheln,
-          "balken": sz_balken, "figur": sz_figur, "hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
+          "balken": sz_balken, "figur": sz_figur, "schichten": sz_schichten, "rad": sz_rad, "hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
           "fass": sz_fass, "test": sz_test, "gefuehl": sz_gefuehl, "schluss": sz_schluss}
 
 
@@ -700,10 +1115,10 @@ def rendere_beitrag(thema: str, ordner: Path) -> dict:
     dauer = rendere(vorlage, ordner / "reel.mp4", stimme if stimme.exists() else None)
     szenen = plane(json.loads(vorlage.read_text(encoding="utf-8")))
     t = szenen[0]["von"] + (szenen[0]["bis"] - szenen[0]["von"]) * 0.9
-    bild_bei(szenen, wortzeiten(szenen), t).convert("RGB").save(ordner / "cover.jpg", quality=90)
+    titelbild(json.loads(vorlage.read_text(encoding="utf-8"))).convert("RGB").save(ordner / "cover.jpg", quality=92)
     return {"dauer_s": round(dauer, 1), "thumb_offset_ms": int(t * 1000), "hintergrund": {"art": "gezeichnet"},
             "nachweis": None, "musik": "Sprecher + Beat" if stimme.exists() else "Beat",
-            "einstieg": None, "uebergang": None}
+            "einstieg": None, "uebergang": None, "cover": "cover.jpg"}
 
 
 def main(argv=None) -> int:

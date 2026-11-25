@@ -102,6 +102,20 @@ def erledigte_aktualisieren() -> set[str] | None:
         return None
 
 
+def schon_gepostet(caption: str, z: dict, token: str) -> bool:
+    """Steht der Anfang dieser Caption schon am Anfang eines der letzten
+    Beiträge? Dann ist der Tag gepostet (auch von Hand). Bei einem Lesefehler
+    False – lieber posten als einen Tag auslassen."""
+    import insta_posten as posten
+    kern = inhalte._caption_kern(caption)
+    if len(kern) < 15:
+        return False
+    try:
+        return any(inhalte._caption_kern(c).startswith(kern) for c in posten.letzte_captions(z, token) if c)
+    except Exception:                                        # noqa: BLE001
+        return False
+
+
 def rendere_beitrag(beitrag: dict, ziel: Path, seed: int) -> dict:
     """reel.mp4 + cover.jpg nach `ziel`. Erklär-Reels und Karussells
     (Sonderplan, seit 22.11.2026) haben ihre eigenen Renderer; alles andere
@@ -240,9 +254,16 @@ def main() -> int:
         elif not pflege:
             print("  --posten: ohne gültigen Instagram-Schlüssel nicht möglich (siehe oben).", file=sys.stderr)
             beitrag["veroeffentlicht"] = None
+        elif schon_gepostet(beitrag["caption"], z, pflege["token"]):
+            # Der pünktliche Anstoß um 18 Uhr und der verspätete Abendlauf
+            # von GitHub posten denselben Tag – der zweite erkennt die Caption
+            print("  schon gepostet (Caption steht auf Instagram) – kein zweites Mal")
+            zusammenfassung("Schon gepostet – kein zweites Mal\n")
+            beitrag["veroeffentlicht"] = None
         else:
             erg = posten.poste_reel(ziel / "reel.mp4", beitrag["caption"], meta.get("thumb_offset_ms"),
-                                    z, pflege["token"], kennung=f"reel-{beitrag['datum']}")
+                                    z, pflege["token"], kennung=f"reel-{beitrag['datum']}",
+                                    cover=ziel / meta["cover"] if meta.get("cover") else None)
             beitrag["veroeffentlicht"] = erg
             print(f"  veröffentlicht: {erg.get('permalink') or erg['media_id']}")
             zusammenfassung(f"Veröffentlicht: {erg.get('permalink') or erg['media_id']}\n")

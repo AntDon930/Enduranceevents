@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-les-classiques-du-littoral-100km-marin-epagnier@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Les classiques du Littoral – Jedermannrennen 100 km
+LOCATION:Marin-Epagnier\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 100 km\nhttps://www.cclitto
+ ral.ch/activites/classiques.php
+TRANSP:TRANSPARENT
+URL:https://www.cclittoral.ch/activites/classiques.php
+END:VEVENT
+END:VCALENDAR

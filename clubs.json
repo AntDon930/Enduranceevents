@@ -2153,6 +2153,12 @@
     "wochentag": 6,
     "uhrzeit": "09:30",
     "bezeichnung": "Samstagslauf ab Hauptbahnhof"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 6,
+    "uhrzeit": "08:30",
+    "bezeichnung": "Early Bird Run vor dem Social Run, ab MediaMarkt am Hauptbahnhof"
    }
   ],
   "anmeldung": "nein",
@@ -2169,10 +2175,12 @@
   "beschreibung_en": "International running group since 2016 with two groups for all paces, Tuesdays at the Brandenburg Gate and Saturdays at the main station, no sign-up.",
   "quelle": [
    "https://socialrunclubs.de/potsdam/potsdam-runners/",
-   "https://www.strava.com/clubs/potsdamrunners"
+   "https://www.strava.com/clubs/potsdamrunners",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "potsdam-love-and-pace",
@@ -2204,10 +2212,11 @@
   "beschreibung_en": "Relaxed social run from Café Zanotto on Sundays and Thursdays, about 8 km at an easy pace; no runner left behind.",
   "quelle": [
    "https://socialrunclubs.de/potsdam/love-pace/",
-   "https://www.strava.com/clubs/2238494"
+   "https://www.strava.com/clubs/2238494",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-23",
   "distanz_km": [
    8,
    8
@@ -2215,7 +2224,8 @@
   "pace": {
    "von": "6:00",
    "bis": "6:00"
-  }
+  },
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "magdeburg-apex-running-club",
@@ -2975,12 +2985,6 @@
    },
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-21",
-    "uhrzeit": "09:30",
-    "bezeichnung": "Long Run 22 km (5:45–6:00 min/km) ab der Europahalle"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-11-29",
     "uhrzeit": "09:00",
     "bezeichnung": "Long Run 15 km (5:45–6:00 min/km) ab der Europahalle"
@@ -3609,16 +3613,19 @@
   "beschreibung_en": "Monday session with running drills and a relaxed 6–8 km social run along the Dreisam, every pace welcome, free.",
   "quelle": [
    "https://www.grouprides.cc/rides/freiburg-or-ryzon-running-unit-2026-10-19",
-   "https://www.fitmitkim.com/events?tag=ryzon+running+unit"
+   "https://www.fitmitkim.com/events?tag=ryzon+running+unit",
+   "https://www.strava.com/clubs/fitmitkim",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-11-23",
   "sprachen": [
    "de",
    "en"
   ],
   "merkmale": [
    "anfaengerfreundlich"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "freiburg-ryzon-cycling-unit",
@@ -3716,6 +3723,12 @@
     "wochentag": 4,
     "uhrzeit": "19:00",
     "bezeichnung": "Community Run"
+   },
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 1,
+    "uhrzeit": "20:30",
+    "bezeichnung": "Late Night Run Club: 10 km Richtung St. Ottilien"
    }
   ],
   "strava": "https://www.strava.com/clubs/freiburg-run",
@@ -3724,9 +3737,10 @@
   "quelle": [
    "https://socialrunclubs.de/freiburg-im-breisgau/freiburg-run-club/",
    "https://freiburg.run/community-run/",
-   "https://www.strava.com/clubs/freiburg-run"
+   "https://www.strava.com/clubs/freiburg-run",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-11-23",
   "distanz_km": [
    8,
    8
@@ -3736,7 +3750,8 @@
    "bis": "6:30"
   },
   "webseite": "https://freiburg.run/community-run/",
-  "instagram": "https://www.instagram.com/freiburg.run/"
+  "instagram": "https://www.instagram.com/freiburg.run/",
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "freiburg-community-trailrun",
@@ -3752,12 +3767,6 @@
     "rhythmus": "woechentlich",
     "wochentag": 3,
     "uhrzeit": "18:00"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-21",
-    "uhrzeit": "10:00",
-    "bezeichnung": "Heartbeat Ultra x Freiburg Community Trailrun: 23 km in zwei Tempogruppen (ca. 5:10 und 6:40 min/km), Start Sandfangweg"
    }
   ],
   "instagram": "https://www.instagram.com/freiburgcommunitytrailrun/",
@@ -6675,11 +6684,6 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-21",
-    "uhrzeit": "09:00"
-   },
-   {
-    "rhythmus": "einmalig",
     "datum": "2026-12-05",
     "uhrzeit": "09:00"
    },
@@ -8332,6 +8336,12 @@
     "rhythmus": "woechentlich",
     "wochentag": 2,
     "uhrzeit": "06:15"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-26",
+    "uhrzeit": "06:15",
+    "bezeichnung": "Track Thursday: gemeinsamer Lauf zur Bahn Sihlhölzli, dort Intervalle"
    }
   ],
   "distanz_km": [
@@ -8365,11 +8375,11 @@
    "https://img1.wsimg.com/blobby/go/5844c0cf-a8c6-41e2-8150-db0c2c524167/WHAT%20WHERE%20%26%20WHEN.pdf",
    "Instagram-Profil @the6zhclub (Bio und Beiträge), Screenshot des Betreibers vom 19.10.2026",
    "https://www.strava.com/clubs/1153380",
-   "Strava-Club-Termine, abgerufen am 18.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Schweiz",
-  "geprueft": "2026-11-18",
-  "zuletzt_aktiv": "2026-11-18"
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "zuerich-district-runners",
@@ -11752,11 +11762,13 @@
   "beschreibung_de": "Veganer Runners Club, montags rund 60 Minuten in zwei Tempogruppen ab dem Prinzenpark; alle sind willkommen.",
   "beschreibung_en": "Vegan runners club, Mondays about 60 minutes in two pace groups from Prinzenpark; everyone welcome.",
   "quelle": [
-   "https://socialrunclubs.de/braunschweig/plant-paced/"
+   "https://socialrunclubs.de/braunschweig/plant-paced/",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-23",
   "pruefung_offen": true,
-  "pruefung_grund": "Mo 18:00 Prinzenpark nur Sammelseite (12.07.2026); Strava-Club (268 Mitglieder) ohne öffentliche Beschreibung, Events hinter Login"
+  "pruefung_grund": "Mo 18:00 Prinzenpark nur Sammelseite (12.07.2026); Strava-Club (268 Mitglieder) ohne öffentliche Beschreibung, Events hinter Login",
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "braunschweig-sweet-run-club",
@@ -11904,9 +11916,10 @@
   "quelle": [
    "https://socialrunclubs.de/oldenburg/espresso-run-club-oldenburg/"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-23",
   "pruefung_offen": true,
-  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "pruefung_grund": "Strava bestätigt den wöchentlichen Espresso Run Club sonntags 10:30 (23.11.2026), nennt als Ort aber nur „26122 Oldenburg“ – genauer Treffpunkt (Schlossgarten?) weiter offen",
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "oldenburg-harbor-running",
@@ -12004,16 +12017,18 @@
   "beschreibung_en": "Sunday run from Julius-Mosen-Platz in the city centre.",
   "quelle": [
    "https://socialrunclubs.de/oldenburg/social-run-club-oldenburg/",
-   "https://www.strava.com/clubs/src-ol"
+   "https://www.strava.com/clubs/src-ol",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-11-23",
   "distanz_km": [
    5,
    7
   ],
   "merkmale": [
    "kaffee"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "oldenburg-running-club-eversten",
@@ -12061,9 +12076,9 @@
   "art": "Laufen",
   "stadt": "Osnabrück",
   "land": "Deutschland",
-  "treffpunkt": "„Die Scholle“, Limberger Straße 71",
-  "lat": 52.26256,
-  "lon": 8.0327,
+  "treffpunkt": "Osnabrücker Sportclub, Hiärm-Grupe-Straße 8 (Wüste)",
+  "lat": 52.26766,
+  "lon": 8.02404,
   "termine": [
    {
     "rhythmus": "woechentlich",
@@ -12087,9 +12102,12 @@
   "beschreibung_de": "Community Run am Donnerstag in mehreren Tempogruppen für Einsteiger bis Fortgeschrittene, mit Musik durch die Osnabrücker Wüste.",
   "beschreibung_en": "Thursday community run in several pace groups from beginners to advanced, with music through the Wüste park area.",
   "quelle": [
-   "https://osrunningclub.de/"
+   "https://osrunningclub.de/",
+   "https://www.strava.com/clubs/1342383",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "osnabrueck-os-runningclub-sunday-long-run",
@@ -12123,9 +12141,10 @@
   "quelle": [
    "https://osrunningclub.de/",
    "https://osrunningclub.de/info",
-   "https://www.strava.com/clubs/1342383"
+   "https://www.strava.com/clubs/1342383",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-23",
   "distanz_km": [
    10,
    13
@@ -12133,7 +12152,8 @@
   "pace": {
    "von": "5:00",
    "bis": "6:30"
-  }
+  },
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "osnabrueck-active-lauftreff",
@@ -12164,9 +12184,10 @@
   "quelle": [
    "https://socialrunclubs.de/osnabrueck/active-lauftreff/",
    "https://active-sportshop.de/",
-   "https://www.strava.com/clubs/1331486"
+   "https://www.strava.com/clubs/1331486",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-23",
   "webseite": "https://active-sportshop.de/",
   "distanz_km": [
    6,
@@ -12180,7 +12201,8 @@
   "merkmale": [
    "mehrere_gruppen",
    "gepaeck"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "goettingen-paceheads-community-ride",
@@ -12545,9 +12567,9 @@
   "art": "Laufen",
   "stadt": "Lübeck",
   "land": "Deutschland",
-  "treffpunkt": "An der Brauerei",
-  "lat": 53.87806,
-  "lon": 10.68357,
+  "treffpunkt": "Brauerei in der Halle 50, Einsiedelstraße 6",
+  "lat": 53.87873,
+  "lon": 10.68353,
   "termine": [
    {
     "rhythmus": "woechentlich",
@@ -12569,11 +12591,12 @@
   "beschreibung_de": "Mittwochslauf ab einer Brauerei, offen für Erfahrene und Anfänger.",
   "beschreibung_en": "Wednesday run from a brewery, open to experienced runners and beginners.",
   "quelle": [
-   "https://socialrunclubs.de/luebeck/sudden-death-running-club/"
+   "https://socialrunclubs.de/luebeck/sudden-death-running-club/",
+   "https://www.strava.com/clubs/1372598",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Angaben nur von der Sammelseite socialrunclubs.de (dort automatisch aus Instagram/Strava übernommen), nicht auf einer eigenen Seite des Treffs bestätigt; welche Brauerei, nur aus dem Kartenpunkt der Sammelseite; dritte Recherche 20.10.2026 (Websuche, Linktree, Eventbrite, Urban Sports Club) fand keine eigene Quelle; Instagram/Strava aus der Sandbox gesperrt"
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "luebeck-laeuft-bunt",
@@ -12669,9 +12692,10 @@
   "beschreibung_en": "Free Tuesday evening run at 7 pm from the Kabutzenhof ferry landing (Petribrücke around 7:17 pm) in pace groups from 4:45 to 6:30 min/km; you should be able to run about 10 km non-stop.",
   "quelle": [
    "https://socialrunclubs.de/rostock/rostock-runningcrew/",
-   "https://www.strava.com/clubs/rostockrunningcrew"
+   "https://www.strava.com/clubs/rostockrunningcrew",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19",
+  "geprueft": "2026-11-23",
   "pace": {
    "von": "4:45",
    "bis": "6:30"
@@ -12679,7 +12703,8 @@
   "strava": "https://www.strava.com/clubs/rostockrunningcrew",
   "merkmale": [
    "mehrere_gruppen"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "schwerin-lake-runners",
@@ -14286,6 +14311,12 @@
     "uhrzeit": "10:15",
     "ab": "2026-10-31",
     "bezeichnung": "Saturday Legends Run, 7 km am Main (~6:00 min/km), ab Kunstverein Familie Montez, danach Kaffee und Kuchen"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-29",
+    "uhrzeit": "10:15",
+    "bezeichnung": "Legends Advent Run ab dem Kunstverein Familie Montez"
    }
   ],
   "pace": {
@@ -14302,11 +14333,11 @@
   "quelle": [
    "https://socialrunclubs.de/frankfurt-am-main/local-legends-run-club/",
    "https://www.strava.com/clubs/1647549",
-   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
   "art": "Laufen",
-  "geprueft": "2026-11-09",
+  "geprueft": "2026-11-23",
   "sprachen": [
    "de"
   ],
@@ -14315,7 +14346,7 @@
    10
   ],
   "strava": "https://www.strava.com/clubs/1647549",
-  "zuletzt_aktiv": "2026-11-09"
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "frankfurt-main-runners",
@@ -15303,11 +15334,12 @@
   "quelle": [
    "https://socialrunclubs.de/kassel/running-party-crew/",
    "https://www.hessenschau.de/panorama/instagram-hype-social-run-club-viel-mehr-als-der-lauf-treff-von-frueher-v1,running-clubs-hessen-100.html",
-   "https://www.strava.com/clubs/runningpartycrew"
+   "https://www.strava.com/clubs/runningpartycrew",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
   "land": "Deutschland",
   "art": "Laufen",
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-23",
   "sprachen": [
    "de"
   ],
@@ -15323,7 +15355,8 @@
   "merkmale": [
    "gepaeck",
    "anfaengerfreundlich"
-  ]
+  ],
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "kassel-running-flow",
@@ -16319,9 +16352,12 @@
   "beschreibung_en": "Free volunteer-run 5 km event every Saturday at 9 am, around Ophovener Weiher and the Mühlenbach valley; walkers, joggers and runners welcome.",
   "quelle": [
    "https://images.parkrun.com/events.json",
-   "https://parkruns.de/ophovenerweiher"
+   "https://parkruns.de/ophovenerweiher",
+   "https://www.strava.com/clubs/1718435",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-19"
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "moenchengladbach-schlossrheydt-parkrun",
@@ -21978,6 +22014,12 @@
     "rhythmus": "woechentlich",
     "wochentag": 6,
     "uhrzeit": "09:30"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-25",
+    "uhrzeit": "18:00",
+    "bezeichnung": "Glühwein Run in mehreren Tempogruppen"
    }
   ],
   "sprachen": [
@@ -21989,11 +22031,13 @@
   "beschreibung_de": "Social Run Club („Run And Connect Erlangen“) für alle Niveaus, samstags ab dem Hugenottenplatz.",
   "beschreibung_en": "Social run club (“Run And Connect Erlangen”) for all levels, Saturdays from Hugenottenplatz.",
   "quelle": [
-   "https://socialrunclubs.de/erlangen/race-run-club/"
+   "https://socialrunclubs.de/erlangen/race-run-club/",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
+  "geprueft": "2026-11-23",
   "pruefung_offen": true,
-  "pruefung_grund": "Termin nur auf Sammelseite socialrunclubs.de (08/2025); Strava-Club aktiv (Posts 08/2026), dort aber keine Zeiten lesbar; Runde 4 (20.10.2026): öffentliche Strava-Beschreibung (1.067 Mitglieder) bestätigt Social Run Club in Erlangen für alle Niveaus, nennt aber weder Samstag 9:30 noch Treffpunkt"
+  "pruefung_grund": "Termin nur auf Sammelseite socialrunclubs.de (08/2025); Strava-Club aktiv (Posts 08/2026), dort aber keine Zeiten lesbar; Runde 4 (20.10.2026): öffentliche Strava-Beschreibung (1.067 Mitglieder) bestätigt Social Run Club in Erlangen für alle Niveaus, nennt aber weder Samstag 9:30 noch Treffpunkt",
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "erlangen-run-club-erlangen",
@@ -22087,15 +22131,15 @@
   "art": "Laufen",
   "stadt": "Hagen",
   "land": "Deutschland",
-  "treffpunkt": "Pacepresso Clubhouse",
-  "lat": 51.36609,
-  "lon": 7.48089,
+  "treffpunkt": "Pacepresso Clubhouse, Heinitzstraße 45",
+  "lat": 51.36504,
+  "lon": 7.48135,
   "termine": [
    {
     "rhythmus": "woechentlich",
     "wochentag": 7,
     "uhrzeit": "09:45",
-    "bezeichnung": "Clubhouse Run"
+    "bezeichnung": "Tür auf 9:45, Start 10:00, zwei Tempogruppen (5:00–5:30 und 6:00–6:30 min/km) – „fast“ jeden Sonntag"
    }
   ],
   "merkmale": [
@@ -22108,11 +22152,12 @@
   "beschreibung_en": "Pacepresso's Sunday clubhouse run in Hagen, with coffee afterwards.",
   "quelle": [
    "https://www.pacepresso.de/clubhouse/clubhouse-run/",
-   "https://socialrunclubs.de/hagen/pacepresso/"
+   "https://socialrunclubs.de/hagen/pacepresso/",
+   "https://www.strava.com/clubs/576813",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-10-20",
-  "pruefung_offen": true,
-  "pruefung_grund": "Zeit nur auf Sammelseite socialrunclubs.de (08/2025); pacepresso.de aus der Sandbox nicht abrufbar (TLS-Fehler); Runde 4 (20.10.2026): pacepresso.de weiter nicht abrufbar (TLS-Fehler/503); Strava-Club ist der Podcast-Club ohne Lauftermine"
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "hamm-lippe-park-move",
@@ -30074,12 +30119,6 @@
     "wochentag": 7,
     "uhrzeit": "17:30",
     "bezeichnung": "10K Brückenlauf (statt des Shakeout Runs), Start 18:00"
-   },
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-22",
-    "uhrzeit": "12:00",
-    "bezeichnung": "Butter Brunch Run, 5 km in drei Pacegruppen mit Lauf-ABC am Rhein (statt des Shakeout Runs)"
    }
   ],
   "distanz_km": [
@@ -30287,9 +30326,9 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-21",
+    "datum": "2026-11-29",
     "uhrzeit": "11:00",
-    "bezeichnung": "Gravel Grind & Mind #3, Start Heerstraße 37A (Westend)"
+    "bezeichnung": "Advents-Graveln: 60 km Social Ride ab dem Trek Store Heerstraße 37a – die Samstagstouren pausieren, im Advent wird sonntags gefahren"
    }
   ],
   "distanz_km": [
@@ -30313,11 +30352,10 @@
   "beschreibung_en": "Trek Store Adlershof hosts gravel rides; next up a beginner-friendly no-drop loop of about 40 km at a moderate pace, with coffee at the store afterwards.",
   "quelle": [
    "https://www.strava.com/clubs/1030482",
-   "Strava-Club-Termine, abgerufen am 09.11.2026 über das Strava-Konto des Betreibers",
-   "Strava-Club-Termine, abgerufen am 16.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-11-16",
-  "zuletzt_aktiv": "2026-11-16",
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23",
   "pruefung_offen": true,
   "pruefung_grund": "Bisher nur Einzeltermine auf Strava (07.11. Adlershof, 14.11. Charlottenburg); prüfen, ob es regelmäßige Ausfahrten gibt."
  },
@@ -30481,9 +30519,21 @@
   "termine": [
    {
     "rhythmus": "einmalig",
-    "datum": "2026-11-20",
+    "datum": "2026-11-27",
     "uhrzeit": "06:25",
-    "bezeichnung": "sweet EARLY BIRD ride vor der Arbeit"
+    "bezeichnung": "sweet EARLY BIRD ride, Abfahrt 6:30"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-12-04",
+    "uhrzeit": "06:25",
+    "bezeichnung": "sweet EARLY BIRD ride, Abfahrt 6:30"
+   },
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-12-13",
+    "uhrzeit": "10:00",
+    "bezeichnung": "sweet GRAVEL ride im Plaudertempo, Abfahrt 11:00"
    }
   ],
   "pace": {
@@ -30498,11 +30548,10 @@
   "beschreibung_en": "Gravel ride by sweet spot studio through the woods and fields around Braunschweig at conversational pace; nobody gets dropped. Helmet required.",
   "quelle": [
    "https://www.strava.com/clubs/1319911",
-   "Strava-Club-Termine, abgerufen am 10.11.2026 über das Strava-Konto des Betreibers",
-   "Strava-Club-Termine, abgerufen am 16.11.2026 über das Strava-Konto des Betreibers"
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
   ],
-  "geprueft": "2026-11-16",
-  "zuletzt_aktiv": "2026-11-16"
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23"
  },
  {
   "id": "berlin-rapha-clubhouse-rides",
@@ -30891,42 +30940,6 @@
   ]
  },
  {
-  "id": "zuerich-run-club-zurich",
-  "name": "Run Club Zurich – Run Store Social Run",
-  "art": "Laufen",
-  "stadt": "Zürich",
-  "land": "Schweiz",
-  "treffpunkt": "Run Store Zurich, Niederdorfstrasse 18",
-  "lat": 47.37358,
-  "lon": 8.54387,
-  "termine": [
-   {
-    "rhythmus": "einmalig",
-    "datum": "2026-11-21",
-    "uhrzeit": "10:00",
-    "bezeichnung": "Social Run 10 km, flach, 5:30–6:00 min/km"
-   }
-  ],
-  "distanz_km": [
-   10,
-   10
-  ],
-  "pace": {
-   "von": "5:30",
-   "bis": "6:00"
-  },
-  "strava": "https://www.strava.com/clubs/1595470",
-  "webseite": "https://www.runclubzurich.com",
-  "beschreibung_de": "Lockerer 10-km-Social-Run der Community des Run Store Zurich ab der Niederdorfstrasse.",
-  "beschreibung_en": "Easy 10 km social run of the Run Store Zurich community from Niederdorfstrasse.",
-  "geprueft": "2026-11-20",
-  "zuletzt_aktiv": "2026-11-20",
-  "quelle": [
-   "https://www.strava.com/clubs/1595470",
-   "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
-  ]
- },
- {
   "id": "wien-trailrunning-vienna",
   "name": "Trailrunning Vienna – Neujahrslauf U4-U4",
   "art": "Laufen",
@@ -31058,5 +31071,173 @@
    "https://www.strava.com/clubs/212228",
    "Strava-Club-Termine, abgerufen am 20.11.2026 über das Strava-Konto des Betreibers"
   ]
+ },
+ {
+  "id": "mattsee-rerun-laufshop",
+  "name": "Re:RUN Laufshop Salzburg – Lauf um den Mattsee",
+  "art": "Laufen",
+  "stadt": "Mattsee",
+  "land": "Österreich",
+  "treffpunkt": "Parkplatz beim Strandbad Mattsee",
+  "lat": 47.97407,
+  "lon": 13.10725,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-12-08",
+    "uhrzeit": "08:30",
+    "bezeichnung": "Feiertagslauf rund um den Mattsee: Aufwärmen 8:30, Start 8:45, 12 km in zwei Tempogruppen (5:30 und 6:45 min/km), danach Punsch"
+   }
+  ],
+  "distanz_km": [
+   12,
+   12
+  ],
+  "pace": {
+   "von": "5:30",
+   "bis": "6:45"
+  },
+  "kosten": {
+   "gratis": true,
+   "betrag_eur": null,
+   "text": null
+  },
+  "strava": "https://www.strava.com/clubs/2115669",
+  "merkmale": [
+   "mehrere_gruppen"
+  ],
+  "beschreibung_de": "Kostenloser Feiertagslauf des Salzburger Laufgeschäfts Re:RUN einmal rund um den Mattsee, mit Schuhtest und Punsch.",
+  "beschreibung_en": "Free holiday run by the Salzburg running shop Re:RUN once around Lake Mattsee, with a shoe test and punch afterwards.",
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23",
+  "quelle": [
+   "https://www.strava.com/clubs/2115669",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "id": "linz-run-crew-linz",
+  "name": "Run Crew Linz – Wednesday Tempo",
+  "art": "Laufen",
+  "stadt": "Linz",
+  "land": "Österreich",
+  "treffpunkt": "Runners Store, Hauptstraße 28 (Urfahr)",
+  "lat": 48.3121,
+  "lon": 14.28244,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 3,
+    "uhrzeit": "18:00",
+    "bezeichnung": "15 min Einlaufen, Intervalle, 15 min Auslaufen"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/runcrewlinz",
+  "webseite": "https://runcrewlinz.at",
+  "instagram": "https://www.instagram.com/runcrewlinz/",
+  "beschreibung_de": "Wöchentliches Tempotraining am Mittwochabend ab dem Runners Store in Urfahr: Einlaufen, Intervalle, Auslaufen.",
+  "beschreibung_en": "Weekly tempo session on Wednesday evenings from the Runners Store in Urfahr: warm-up, intervals, cool-down.",
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23",
+  "quelle": [
+   "https://www.strava.com/clubs/runcrewlinz",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "id": "freiburg-salty-collective-run",
+  "name": "SALTY Collective Run Freiburg",
+  "art": "Laufen",
+  "stadt": "Freiburg im Breisgau",
+  "treffpunkt": "Restaurant Castillo, Nägeleseestraße 20",
+  "lat": 47.98712,
+  "lon": 7.86127,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-24",
+    "uhrzeit": "17:45",
+    "bezeichnung": "Collective Run #11: Treffpunkt 17:45, Start 18:00, ca. 10 km / 400 hm, ca. 6:30 min/km"
+   }
+  ],
+  "distanz_km": [
+   10,
+   10
+  ],
+  "pace": {
+   "von": "6:30",
+   "bis": "6:30"
+  },
+  "strava": "https://www.strava.com/clubs/1228075",
+  "beschreibung_de": "Gemeinsamer Traillauf der SALTY-Community am letzten Dienstag im Monat, ohne Anmeldung – der Startort wechselt.",
+  "beschreibung_en": "Community trail run by SALTY on the last Tuesday of the month, no sign-up needed – the start location changes.",
+  "land": "Deutschland",
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23",
+  "quelle": [
+   "https://www.strava.com/clubs/1228075",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
+  ]
+ },
+ {
+  "id": "braunschweig-gravel-braunschweig",
+  "name": "Gravel Braunschweig",
+  "art": "Fahrrad",
+  "stadt": "Braunschweig",
+  "land": "Deutschland",
+  "treffpunkt": "sweet spot studio, Marienstraße 34 (Östliches Ringgebiet)",
+  "lat": 52.26478,
+  "lon": 10.5495,
+  "termine": [
+   {
+    "rhythmus": "einmalig",
+    "datum": "2026-11-25",
+    "uhrzeit": "18:00",
+    "bezeichnung": "Graviér Petit: Feierabendrunde Richtung Norden"
+   }
+  ],
+  "rad_typ": "Gravel",
+  "strava": "https://www.strava.com/clubs/gravel-braunschweig",
+  "beschreibung_de": "Gravel-Community aus Braunschweig mit Feierabendrunden ab dem sweet spot studio.",
+  "beschreibung_en": "Gravel community from Braunschweig with after-work rides from the sweet spot studio.",
+  "quelle": [
+   "https://www.strava.com/clubs/gravel-braunschweig",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23",
+  "merkmale": [
+   "no_drop"
+  ]
+ },
+ {
+  "id": "hannover-plant-paced",
+  "name": "Plant Paced Hannover – Weekly Run",
+  "art": "Laufen",
+  "stadt": "Hannover",
+  "land": "Deutschland",
+  "treffpunkt": "Bernadotteallee (Eilenriede)",
+  "lat": 52.38945,
+  "lon": 9.75493,
+  "termine": [
+   {
+    "rhythmus": "woechentlich",
+    "wochentag": 4,
+    "uhrzeit": "18:00",
+    "bezeichnung": "Weekly Run"
+   }
+  ],
+  "strava": "https://www.strava.com/clubs/2057243",
+  "instagram": "https://www.instagram.com/plant_paced/",
+  "beschreibung_de": "Wöchentlicher Lauf der Plant-Paced-Community in Hannover am Donnerstagabend.",
+  "beschreibung_en": "Weekly Thursday evening run of the Plant Paced community in Hannover.",
+  "quelle": [
+   "https://www.strava.com/clubs/2057243",
+   "Strava-Club-Termine, abgerufen am 23.11.2026 über das Strava-Konto des Betreibers"
+  ],
+  "geprueft": "2026-11-23",
+  "zuletzt_aktiv": "2026-11-23",
+  "pruefung_offen": true,
+  "pruefung_grund": "Strava nennt nur „Bernadotteallee, 30163 Hannover“ ohne genauen Treffpunkt an der Straße und ohne Beschreibung"
  }
 ]

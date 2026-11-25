@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-sneak-peaks-director-s-cut-500km-bozen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270905
+SUMMARY:SNEAK PEAKS DIRECTOR'S CUT – Bikepacking 500 km
+LOCATION:Bozen\, Italien (Südtirol)
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 500 km\nhttps://www.o
+ rbit360.cc/de/sneak-peaks
+TRANSP:TRANSPARENT
+URL:https://www.orbit360.cc/de/sneak-peaks
+END:VEVENT
+END:VCALENDAR

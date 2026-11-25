@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-nordenhamer-umweltlauf-10km-nordenham@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Nordenhamer Umweltlauf
+LOCATION:Nordenham\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sv-norden
+ ham.de/de/sportangebote/weitere-sportarten/nordenhamer-umweltlauf/
+TRANSP:TRANSPARENT
+URL:https://www.sv-nordenham.de/de/sportangebote/weitere-sportarten/norden
+ hamer-umweltlauf/
+END:VEVENT
+END:VCALENDAR

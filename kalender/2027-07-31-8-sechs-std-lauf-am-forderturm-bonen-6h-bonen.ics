@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-8-sechs-std-lauf-am-forderturm-bonen-6h-bonen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:8. Sechs-Std.-Lauf am Förderturm Bönen – 6 hr
+LOCATION:Bönen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://lauffreundeboen
+ en.de/unsere-laeufe/sechs-stunden-lauf/sechs-stunden-lauf-ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://lauffreundeboenen.de/unsere-laeufe/sechs-stunden-lauf/sechs-st
+ unden-lauf-ausschreibung/
+END:VEVENT
+END:VCALENDAR

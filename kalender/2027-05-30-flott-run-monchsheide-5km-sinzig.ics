@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-flott-run-monchsheide-5km-sinzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:flott.RUN Mönchsheide – 5 km Jedermann\, Jahrgang 2013 und älter
+LOCATION:Sinzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://run.team-flott.
+ com/
+TRANSP:TRANSPARENT
+URL:http://run.team-flott.com/
+END:VEVENT
+END:VCALENDAR
