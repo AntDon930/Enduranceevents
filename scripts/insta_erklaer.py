@@ -453,7 +453,7 @@ def sz_schluss(t: float, dauer: float, p: dict | None = None) -> Image.Image:
 
 # Am Schluss jedes Erklär-Reels (25.11.2026, vom Nutzer nach 2.000 Aufrufen
 # und 0 neuen Followern beim Zwiebel-Reel: „Folg uns für tägliche Tipps oder so“).
-FOLGEN_TEXT = "FOLG UNS FÜR TÄGLICHE TIPPS"
+FOLGEN_TEXT = "FOLG UNS FÜR TÄGLICHES WISSEN"
 
 
 def folgen_zeile(d: ImageDraw.ImageDraw, t: float, text: str) -> None:
