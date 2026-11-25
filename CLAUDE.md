@@ -3372,6 +3372,15 @@ sagt es).
     Veranstaltung auf den Umrissen aus `laender.json` (`{ laender: … }`),
     Saison = Veranstaltungen je Monat der nächsten zwölf Monate. Bis die
     Daten da sind, steht „…“; beim ersten Sichtbarwerden zählen sie hoch.
+  - **Am Start nur zwei Zahlen** (25.11.2026, vom Nutzer: „Vielleicht kann
+    man bei dem Start einfach 3548 Events hinschreiben und 457 Clubs … Ich
+    finde das ist zu kompliziert am Anfang für jemanden der die Seite nicht
+    kennt und dann so viele Zahlen sieht.“): Die beiden Infos neben der
+    Startlinie (`.info.start`) zeigen nur „3.548 Events“ bzw. „457 Clubs“
+    groß mit „Klick hier“, ohne Kennung und Erklärzeile; der Satz unter der
+    Überschrift trägt keine Zahl mehr („Events und Clubs in …“, `lead` als
+    Text). Die Sportarten mit ihren Zahlen folgen unten auf der Strecke.
+    Rauchtest prüft beides (`pruefe_startseite`).
   - **Die Infos sind Links** (`<a class="info" href=…>`): ohne Skript, mit
     Strg/Cmd/Mittelklick ganz normal. Ein gewöhnlicher Klick zoomt in die
     Strecke an der Station (`#seite` × 3,4, Kreis in `--bg` mit dem

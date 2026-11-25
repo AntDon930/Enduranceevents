@@ -712,7 +712,7 @@ def pruefe_plattformen(ctx, basis):
         start.wait_for_selector('.info[data-ziel="events"] .los')
         start.wait_for_timeout(500)
         # Seit der Reise (11.11.2026): die beiden ersten Infos der Strecke
-        # („Entdecke … Events“ und die Clubs) samt „Klick hier“
+        # (seit dem 25.11.2026 nur „3.548 Events“ und „457 Clubs“) samt „Klick hier“
         cta = start.evaluate("""() => Math.round(Math.max(...['.info[data-station="events"] .los', '.info[data-ziel="clubs"]:not([data-station]) .los']
             .map(s => document.querySelector(s).getBoundingClientRect().bottom)))""")
         pruefe(cta <= hoehe, "Startseite %d x %d: „Klick hier“ der ersten beiden Infos liegt im ersten Bild (Unterkante %d px)" % (breite, hoehe, cta))
@@ -758,7 +758,7 @@ def pruefe_startseite(ctx, basis):
     }""")
     pruefe(bool(stand["text"]), "im Kopf steht ein Events-Knopf (%s)" % stand["text"])
     pruefe(stand["ziel"] == stand["infoZiel"] == "events.html",
-           "er führt zur Liste, wie die erste Info „Entdecke … Events“ (%s / %s)"
+           "er führt zur Liste, wie die erste Info „… Events“ (%s / %s)"
            % (stand["ziel"], stand["infoZiel"]))
     pruefe(stand["vorAnmelden"], "er steht links von der Anmeldung")
 
@@ -779,6 +779,19 @@ def pruefe_startseite(ctx, basis):
     pruefe(teile == zahl(stand["zahlen"].get("gesamt")),
            "die vier Sportarten ergeben zusammen die Gesamtzahl (%d / %s)" % (teile, stand["zahlen"].get("gesamt")))
     pruefe(zahl(stand["zahlen"].get("clubs")) > 0, "Clubs: eine Zahl steht da (%s)" % stand["zahlen"].get("clubs"))
+    # Am Start nur zwei Zahlen (25.11.2026, vom Nutzer: „zu kompliziert am
+    # Anfang … so viele Zahlen“): „N Events“ und „N Clubs“, ohne Kennung und
+    # Erklärzeile, und keine Zahl im Satz unter der Überschrift.
+    start = seite.evaluate("""() => ({
+        lead: document.getElementById('hero-lead').textContent,
+        infos: Array.from(document.querySelectorAll('.info.start')).map(a => ({
+            satz: a.querySelector('.satz').textContent.trim(),
+            extra: a.querySelectorAll('.kennung, .zeile').length })) })""")
+    pruefe(not re.search(r"\\d", start["lead"]), "unter der Überschrift steht keine Zahl („%s“)" % start["lead"])
+    pruefe(len(start["infos"]) == 2
+           and re.fullmatch(r"[\d.]+ Events", start["infos"][0]["satz"]) and re.fullmatch(r"[\d.]+ Clubs", start["infos"][1]["satz"])
+           and all(i["extra"] == 0 for i in start["infos"]),
+           "am Start nur „N Events“ und „N Clubs“, ohne Kennung und Erklärzeile (%s)" % [i["satz"] for i in start["infos"]])
     pruefe(stand["land"] == 1 and stand["punkte"] > 100,
            "die Karte hat Umriss und Punkte (%d Umriss, %d Punkte)" % (stand["land"], stand["punkte"]))
     pruefe(stand["aktiv"] == ["events"], "oben ist „Events“ orange markiert (%s)" % stand["aktiv"])

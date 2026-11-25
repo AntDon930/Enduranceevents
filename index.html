@@ -234,6 +234,8 @@
   .info.links::after { left: 100%; }
   .info.rechts::after { right: 100%; }
   .info.gross .satz { font-size: clamp(2rem, 3.4vw, 3.4rem); }
+  /* Am Start nur die Zahl mit einem Wort, dafür groß. */
+  .info.start .satz { font-size: clamp(2.4rem, 4.2vw, 4.2rem); white-space: nowrap; }
   .info.gross .los { background: var(--r-sonne); border-color: var(--r-sonne); color: var(--r-nacht); }
   .legende { display: grid; grid-template-columns: auto auto; gap: 4px 16px; margin: 4px 0 0; padding: 0; list-style: none; font-size: .95rem; }
   .legende li { display: flex; align-items: center; gap: 8px; }
@@ -273,6 +275,7 @@
     .info .zeile { display: none; }
     .info .los { min-height: 34px; padding: 0 12px; font-size: .84rem; margin-top: 4px; }
     .info.gross .satz { font-size: 1.3rem; }
+    .info.start .satz { font-size: 1.15rem; }
     .legende { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -320,7 +323,7 @@
   <section class="hero">
     <div class="eyebrow" data-i="eyebrow">Laufen · Rad · Schwimmen · Triathlon</div>
     <h1 data-i="headline">Finde jetzt deine nächste Herausforderung!</h1>
-    <p id="hero-lead">Events in Deutschland, Österreich, der Schweiz und Südtirol.</p>
+    <p id="hero-lead" data-i="lead">Events und Clubs in Deutschland, Österreich, der Schweiz und Südtirol.</p>
   </section>
 
   <!-- Die Reise: Landschaft als SVG (vom Skript gezeichnet), darüber die
@@ -334,16 +337,17 @@
     <div class="schatten l" id="schatten-l"></div>
     <div class="schatten r" id="schatten-r"></div>
 
-    <a class="info" href="events.html" data-ziel="events" data-station="events" data-y="160" data-seite="links" style="--farbe: var(--r-sonne)">
-      <span class="kennung"><i></i><span data-i="k_alle">Alle Sportarten</span></span>
-      <span class="satz" data-satz="events">Entdecke alle Events</span>
-      <span class="zeile" data-i="z_events">Laufen, Rad, Schwimmen und Triathlon in Deutschland, Österreich, der Schweiz und Südtirol.</span>
+    <!-- Am Start nur zwei Zahlen (25.11.2026, vom Nutzer: „Vielleicht kann
+         man bei dem Start einfach 3548 Events hinschreiben und 457 Clubs …
+         Ich finde das ist zu kompliziert am Anfang für jemanden der die
+         Seite nicht kennt und dann so viele Zahlen sieht.“) – ohne Kennung
+         und Erklärzeile; die Sportarten folgen unten auf der Strecke. -->
+    <a class="info start" href="events.html" data-ziel="events" data-station="events" data-y="160" data-seite="links" style="--farbe: var(--r-sonne)">
+      <span class="satz" data-satz="events">Events</span>
       <span class="los" data-i="los">Klick hier →</span>
     </a>
-    <a class="info" href="clubs.html" data-ziel="clubs" data-y="160" data-seite="rechts" style="--farbe: var(--r-club)">
-      <span class="kennung"><i></i><span data-i="k_clubs">Clubs</span></span>
-      <span class="satz" data-satz="clubs_start">Finde Lauftreffs und Clubs</span>
-      <span class="zeile" data-i="z_clubs_start">Jede Woche gemeinsam trainieren, offen für alle.</span>
+    <a class="info start" href="clubs.html" data-ziel="clubs" data-y="160" data-seite="rechts" style="--farbe: var(--r-club)">
+      <span class="satz" data-satz="clubs_start">Clubs</span>
       <span class="los" data-i="los">Klick hier →</span>
     </a>
     <a class="info" href="events.html?sportart=Laufen" data-ziel="events-laufen" data-y="640" data-seite="rechts" style="--farbe: var(--r-laufen)">
@@ -445,13 +449,13 @@
     de: {
       eyebrow: 'Laufen · Rad · Schwimmen · Triathlon',
       headline: 'Finde jetzt deine nächste Herausforderung!',
-      lead: (n) => (n ? n + ' Events' : 'Events') + ' in Deutschland, Österreich, der Schweiz und Südtirol.',
+      lead: 'Events und Clubs in Deutschland, Österreich, der Schweiz und Südtirol.',
       nav_events: 'Events', nav_map: 'Karte', nav_blog: 'Blog',
       welt: 'Die Strecke von oben: Start, Stadtlauf, Passstraße, See, Wechselzone, Sportplatz, Karte, Blog und Ziel',
-      k_alle: 'Alle Sportarten', k_clubs: 'Clubs', k_laufen: 'Laufen', k_rad: 'Rad', k_schwimmen: 'Schwimmen',
+      k_clubs: 'Clubs', k_laufen: 'Laufen', k_rad: 'Rad', k_schwimmen: 'Schwimmen',
       k_tri: 'Triathlon', k_karte: 'Karte', k_saison: 'Nächste 12 Monate', k_blog: 'Blog', k_ziel: 'Ziel',
-      satz_events: (z) => `Entdecke ${z('gesamt')} Events`,
-      satz_clubs_start: (z) => `Finde ${z('clubs')} Lauftreffs und Clubs`,
+      satz_events: (z) => `${z('gesamt')} Events`,
+      satz_clubs_start: (z) => `${z('clubs')} Clubs`,
       satz_laufen: (z) => `Entdecke ${z('Laufen')} Lauf-Events`,
       satz_rad: (z) => `Entdecke ${z('Fahrrad')} Rad-Events`,
       satz_schwimmen: (z) => `Entdecke ${z('Schwimmen')} Schwimm-Events`,
@@ -459,8 +463,6 @@
       satz_clubs: (z) => `Finde ${z('clubs')} Clubs in deiner Nähe`,
       satz_karte: (z) => `${z('gesamt')} Events an ${z('orte')} Orten`,
       satz_blog: (z) => `Lies ${z('blog')} Beiträge im Blog`,
-      z_events: 'Laufen, Rad, Schwimmen und Triathlon in Deutschland, Österreich, der Schweiz und Südtirol.',
-      z_clubs_start: 'Jede Woche gemeinsam trainieren, offen für alle.',
       z_laufen: 'Vom 5-km-Stadtlauf über den Marathon bis zum Ultratrail.',
       z_rad: 'Radmarathons, Gravel, Cyclocross und Jedermann-Rennen, auch über die Alpenpässe.',
       z_schwimmen: 'Seequerungen, Freiwasser und 24-Stunden-Schwimmen, ab 500 m.',
@@ -483,13 +485,13 @@
     en: {
       eyebrow: 'Running · Cycling · Swimming · Triathlon',
       headline: 'Find your next challenge now!',
-      lead: (n) => (n ? n + ' events' : 'Events') + ' in Germany, Austria, Switzerland and South Tyrol.',
+      lead: 'Events and clubs in Germany, Austria, Switzerland and South Tyrol.',
       nav_events: 'Events', nav_map: 'Map', nav_blog: 'Blog',
       welt: 'The route from above: start, city run, mountain pass, lake, transition zone, sports ground, map, blog and finish',
-      k_alle: 'All sports', k_clubs: 'Clubs', k_laufen: 'Running', k_rad: 'Cycling', k_schwimmen: 'Swimming',
+      k_clubs: 'Clubs', k_laufen: 'Running', k_rad: 'Cycling', k_schwimmen: 'Swimming',
       k_tri: 'Triathlon', k_karte: 'Map', k_saison: 'Next 12 months', k_blog: 'Blog', k_ziel: 'Finish',
-      satz_events: (z) => `Discover ${z('gesamt')} events`,
-      satz_clubs_start: (z) => `Find ${z('clubs')} run clubs and groups`,
+      satz_events: (z) => `${z('gesamt')} events`,
+      satz_clubs_start: (z) => `${z('clubs')} clubs`,
       satz_laufen: (z) => `Discover ${z('Laufen')} running events`,
       satz_rad: (z) => `Discover ${z('Fahrrad')} cycling events`,
       satz_schwimmen: (z) => `Discover ${z('Schwimmen')} swimming events`,
@@ -497,8 +499,6 @@
       satz_clubs: (z) => `Find ${z('clubs')} clubs near you`,
       satz_karte: (z) => `${z('gesamt')} events in ${z('orte')} places`,
       satz_blog: (z) => `Read ${z('blog')} articles on the blog`,
-      z_events: 'Running, cycling, swimming and triathlon in Germany, Austria, Switzerland and South Tyrol.',
-      z_clubs_start: 'Train together every week, open to everyone.',
       z_laufen: 'From 5K city runs to marathons and ultra trails.',
       z_rad: 'Gran fondos, gravel, cyclocross and amateur races, including the Alpine passes.',
       z_schwimmen: 'Lake crossings, open water and 24-hour swims, from 500 m.',
@@ -1119,7 +1119,6 @@
       const f = T()['satz_' + n.dataset.satz];
       if (f) n.innerHTML = f((k) => `<b data-zahl="${k}">${zahlText(k)}</b>`);
     });
-    $('#hero-lead').textContent = T().lead(ZAHLEN.gesamt == null ? '' : fmt(ZAHLEN.gesamt));
     $('#legende').innerHTML = ZAHLEN.Laufen == null ? '' : SPORTARTEN.map((sp, i) =>
       `<li style="--farbe:${SPORT_FARBE[i]}"><i></i>${T().sport[sp]}<b>${fmt(ZAHLEN[sp] || 0)}</b></li>`).join('');
     zeichneSaison();
