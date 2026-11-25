@@ -4961,6 +4961,28 @@ def test_gedaechtnis() -> None:
     vo = {"url": "https://lauf.de/ausschreibung", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "quelle"}
     ro, fo = vs.pruefe_eintrag("k", vo, FakeAbrufer({"https://lauf.de/ausschreibung": (200, seite)}), "2026-10-05")
     check("ohne Sportart im Gedächtnis -> nur NEU? (jede Zeile braucht art1)", (ro["flag"], fo), ("NEU?", None))
+    # Reiter (25.11.2026): Termin und Strecken stehen oft nur unter
+    # „Strecken"/„Veranstaltungen" - die Startseite nennt nur den Namen.
+    start = ('<html><body><h1>Fuchsburglauf Erding</h1><a href="/strecken">Strecken</a>'
+             '<a href="/veranstaltungen">Veranstaltungen</a><a href="/ergebnisse">Ergebnisse 2026</a></body></html>')
+    reiter_seite = "<html><body>Fuchsburglauf Erding am Sonntag, 3. Oktober 2027: 10 km und 5 km</body></html>"
+    vr = {"url": "https://fuchsburglauf.de/", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "quelle", "art1": "Laufen"}
+    rr, fr = vs.pruefe_eintrag("k", vr, FakeAbrufer({"https://fuchsburglauf.de/": (200, start),
+                                                       "https://fuchsburglauf.de/strecken": (200, reiter_seite),
+                                                       "https://fuchsburglauf.de/ergebnisse": (200, "Fuchsburglauf 5. Oktober 2027 99 km")}), "2026-10-05")
+    check("Reiter der Website des Laufs: Termin und Strecken von dort -> NEU, Ergebnisse nie gelesen",
+          (rr["flag"], fr and fr[2], sorted(fr[4]) if fr else None, rr.get("reiter")),
+          ("NEU", "2027-10-03", [5.0, 10.0], ["https://fuchsburglauf.de/strecken"]))
+    vv = {"url": "https://tsv-erding.de/", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "quelle", "art1": "Laufen"}
+    rv, fv = vs.pruefe_eintrag("k", vv, FakeAbrufer({"https://tsv-erding.de/": (200, start),
+                                                       "https://tsv-erding.de/veranstaltungen": (200, reiter_seite)}), "2026-10-05")
+    check("Reiter einer Vereinsseite: der Termin ist nur ein Hinweis (NEU?)", (rv["flag"], fv), ("NEU?", None))
+    import veranstalter_links as vlk
+    check("reiter_links: Strecken vor Veranstaltungen vor Infos, nie Ergebnisse/Impressum/fremde Hosts",
+          vlk.reiter_links('<a href="/info">Infos</a><a href="/events/">Events</a><a href="https://www.x.de/strecken-2027">Die Strecken</a>'
+                           '<a href="/ergebnisse">Ergebnisse</a><a href="/impressum">Impressum</a><a href="https://raceresult.com/1">Ausschreibung</a>',
+                           "https://x.de/"),
+          ["https://www.x.de/strecken-2027", "https://x.de/events/", "https://x.de/info"])
     # Übernahme: Vorjahreskopien räumt uebernehmen() wieder weg, wenn sie vorbei sind.
     with tempfile.TemporaryDirectory() as tmp:
         pfad = Path(tmp) / "manual_events.json"

@@ -231,6 +231,66 @@ def text_von(html: str) -> str:
     return norm(re.sub(r"\s+", " ", t))
 
 
+
+# Reiter einer Veranstalterseite (vom Nutzer am 25.11.2026: „Du musst mehr
+# auf den Webseiten auf Veranstaltungen oder Events die Reiter benutzen. Da
+# stehen die meisten Informationen drinnen"). Die Startseite eines Laufs
+# nennt oft weder Termin noch Strecken - die stehen unter „Strecken",
+# „Ausschreibung", „Veranstaltungen", „Events". Gefolgt wird nur Links auf
+# DENSELBEN Host, nie Ergebnissen/Archiv (alte Termine und Distanzen).
+_REITER_STUFEN = (
+    re.compile(r"strecke|ausschreibung|wettbewerb|bewerb|distan|disziplin|courses?\b|parcours|percors|routes?\b|races?\b|rennen", re.I),
+    re.compile(r"veranstaltung|events?\b|termin|kalender|l[aä]ufe\b|programm|zeitplan|ablauf", re.I),
+    re.compile(r"info|teilnehm|anmeld|registr|ausdauer", re.I),
+)
+_REITER_NICHT = re.compile(r"ergebnis|result|archiv|galerie|gallery|foto|photo|bilder|video|impressum|"
+                           r"datenschutz|privacy|kontakt|contact|sponsor|partner|shop|presse|news|login|"
+                           r"agb|cookie|mitglied|hallen|sportheim|volunteer|helfer|zum verein|zum-verein|ueber-uns|über uns|about|vorstand|satzung|\.pdf\b|\.jpe?g\b|\.png\b|mailto:|tel:|javascript:|#$", re.I)
+_A_RE = re.compile(r"<a\b[^>]*href\s*=\s*[\"']([^\"'#]+)[^\"']*[\"'][^>]*>(.*?)</a>", re.I | re.S)
+
+
+def reiter_links(html: str, basis: str, max_n: int = 5) -> list[str]:
+    """Bis zu `max_n` Unterseiten (Reiter/Menüpunkte) derselben Website, die
+    Termin oder Strecken versprechen - nach Stufe sortiert (Strecken und
+    Ausschreibung vor Veranstaltungen/Termine vor Infos), je Stufe in der
+    Reihenfolge der Seite. Der Linktext UND der Pfad zählen."""
+    from urllib.parse import urljoin, urlparse
+    def _h(u: str) -> str:
+        return urlparse(u).netloc.lower().removeprefix("www.")
+    host = _h(basis)
+    basis_ohne = basis.split("#")[0].rstrip("/")
+    gefunden: list[tuple[int, int, str]] = []
+    gesehen = set()
+    for i, (href, inhalt) in enumerate(_A_RE.findall(html or "")):
+        ziel = urljoin(basis, html_mod.unescape(href.strip())).split("#")[0]
+        if not ziel.startswith(("http://", "https://")) or _h(ziel) != host:
+            continue
+        if ziel.rstrip("/") == basis_ohne or ziel in gesehen:
+            continue
+        text = html_mod.unescape(re.sub(r"<[^>]+>", " ", inhalt))
+        pfad = urlparse(ziel).path.replace("-", " ").replace("_", " ").replace("/", " ")
+        merkmal = f"{text} {pfad}"
+        if _REITER_NICHT.search(ziel) or _REITER_NICHT.search(text):
+            continue
+        stufe = next((n for n, rx in enumerate(_REITER_STUFEN) if rx.search(merkmal)), None)
+        if stufe is None:
+            continue
+        gesehen.add(ziel)
+        gefunden.append((stufe, i, ziel))
+    return [z for _, _, z in sorted(gefunden)[:max_n]]
+
+
+def text_mit_reitern(ab, url: str, html: str, max_n: int = 5) -> tuple[str, list[str]]:
+    """Der Text der Seite plus der Text ihrer Reiter (siehe reiter_links).
+    Gibt (Text, gelesene Reiter) zurück; nicht erreichbare Reiter fallen weg."""
+    teile, gelesen = [text_von(html)], []
+    for ziel in reiter_links(html, url, max_n):
+        st, body = ab.hole(ziel)
+        if st == 200 and body:
+            teile.append(text_von(body))
+            gelesen.append(ziel)
+    return " ".join(teile), gelesen
+
 def nennt_den_lauf(html: str, ziel: str, namen: list[str], daten: list[str],
                    orte: list[str] = (), ort_im_host: bool = False) -> list[str]:
     """Die Wörter, an denen die Zielseite den Lauf erkennen lässt.

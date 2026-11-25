@@ -150,7 +150,7 @@ from scraper_lib import (  # noqa: E402
     _haversine_km, _kern_tokens, find_override, is_portal_link, is_same_event,
     ist_kinder, ist_walking, load_manual_overrides, normalize_event_name,
 )
-from veranstalter_links import ALLGEMEIN, host_von, kein_veranstalter  # noqa: E402
+from veranstalter_links import ALLGEMEIN, host_von, kein_veranstalter, norm  # noqa: E402
 
 PFAD = REPO / "scripts" / "veranstalter_seiten.json"
 EVENTS = REPO / "events.json"
@@ -1294,8 +1294,12 @@ def pruefe_eintrag(k: str, v: dict, ab, heute: str) -> tuple[OrderedDict, tuple 
       nächste Ausgabe oft zuerst dort an.
     - **Strecken**: Nennt die Seite Kilometer, gehen in die neue Ausgabe
       nur die Strecken des Vorjahrs, die dort noch stehen
-      (`manual_events_aus`)."""
-    from veranstalter_links import text_von, nennt_den_lauf
+      (`manual_events_aus`).
+    - **Reiter** (seit 25.11.2026): Fehlt der Termin oder nennt die Seite
+      keine Kilometer, werden bis zu fünf Reiter derselben Website gelesen
+      (Strecken, Ausschreibung, Veranstaltungen, Events, Termine), sofern
+      sie den Lauf nennen."""
+    from veranstalter_links import text_von, nennt_den_lauf, reiter_links
     url = v["url"]
     status, body = ab.hole(url)
     r = OrderedDict(name=v.get("name"), ort=v.get("standort"), url=url,
@@ -1362,6 +1366,35 @@ def pruefe_eintrag(k: str, v: dict, ab, heute: str) -> tuple[OrderedDict, tuple 
                 r["termin_von"] = wurzel
                 txt = txt + " " + txt2
                 von_startseite = True
+    if belegt and (not kand or not distanzen_aus(txt)):
+        # Die Reiter der Seite lesen („Strecken", „Ausschreibung",
+        # „Veranstaltungen", „Events" - seit 25.11.2026 auf Wunsch des
+        # Nutzers): Termin und Strecken stehen meist dort, nicht auf der
+        # Seite selbst. Ein Reiter zählt nur, wenn er den Lauf nennt; ein
+        # Termin von dort ist nur dann ein Fund, wenn die Website die des
+        # LAUFS ist (Namenswort im Hostnamen) - eine Vereinsseite listet
+        # unter „Veranstaltungen" auch die anderen Läufe des Vereins.
+        # Der ORT im Hostnamen zählt dafür nicht (tsv-erding.de ist der
+        # Verein, nicht der Fuchsburglauf Erding).
+        ort_norm = norm(v.get("standort") or "")
+        eigene_website = any(b.startswith("host:") and b[5:] not in ort_norm for b in belegt)
+        gelesen = []
+        for ziel in reiter_links(body, url):
+            st3, body3 = ab.hole(ziel)
+            if st3 != 200 or not nennt_den_lauf(body3, ziel, namen, [], orte):
+                continue
+            txt3 = text_von(body3)
+            gelesen.append(ziel)
+            txt = txt + " " + txt3
+            if not kand:
+                daten |= daten_aus(txt3)
+                kand = kandidaten_termine(daten, v.get("datum"), heute)
+                if kand:
+                    r["termin_von"] = ziel
+                    if not eigene_website:
+                        von_startseite = True
+        if gelesen:
+            r["reiter"] = gelesen
     r["kuenftige_termine"] = sorted(d for d in daten if d > heute)[:10]
     r["kandidaten"] = kand
     r["textlaenge"] = len(txt)
