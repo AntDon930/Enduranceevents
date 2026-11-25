@@ -7463,6 +7463,26 @@ Verweise auf alte Nummern stehen in Klammern.
     Bsuch Bham Bsuch sind Ziele)? Bleiben die gut 100 kleinen Standorte
     sichtbar, oder nur die großen? Erst die Klasse zählen und dem Nutzer die
     Entscheidung vorlegen; keine `NICHT_AUSDAUER`-Zeile ohne sein Ja.
+17. **Frauen-Clubs: Filter „Nur Frauen“ und der Strava-Zugang**
+    (eingetragen am 25.11.2026, vom Nutzer: „lass das mal weg mit den Woman
+    Only. Und schreibs auf die To-do Liste. Da müssen wir uns noch was
+    einfallen lassen mit dem Strava Zugang“). Zwei Teile:
+    (a) **Haken „Nur Frauen“ in `clubs.html`** neben „Nur kostenlos“ – am
+    25.11.2026 gebaut (Merkmal `frauen`, `?frauen=1`, Rauchtest) und auf
+    Wunsch des Nutzers wieder herausgenommen, bevor er live ging. Nicht
+    ohne sein Ja wieder einbauen. Rund 30 Clubs tragen das Merkmal (Club 261
+    Wernberg, Female Run Club, Girls Run Hannover, Pink Girls Club …); am
+    selben Tag aus drei GEMISCHTEN Radgruppen entfernt, die nur eine
+    Frauengruppe haben (BDO Feierabendrunde Leipzig, Unlimited Watts
+    Braunschweig, Early Birds Cycling Wien) – die Box zeigte dort „Nur
+    Frauen“. Regel: `frauen` nur, wenn der ganze Club Frauen/FLINTA*
+    vorbehalten ist.
+    (b) **Strava-Zugang**: Frauen-Clubs nehmen das Strava-Profil des Nutzers
+    nicht auf, ihre Termine liest der Montags-/Donnerstagslauf also nicht.
+    Bis eine Lösung steht, kommen Frauen-Clubs NICHT in die Beitrittslisten;
+    ihre Termine kommen von Instagram und den eigenen Seiten. Ideen sammeln
+    (z. B. ein zweites Strava-Konto, Anfrage an die Clubs, Termine über
+    Instagram/Webseite) und dem Nutzer vorlegen.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
