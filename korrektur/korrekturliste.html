@@ -65,6 +65,9 @@ thead th {
    Nutzer am 20.10.2026: „das Fixieren der ersten Spalten auflösen“). */
 .inhalt { white-space: pre-wrap; word-break: break-word; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .inhalt .vorl { font-size: .72rem; font-weight: 600; }
+/* Der Prüfhinweis steht immer ganz da (vom Nutzer am 25.11.2026: „Das ‚was
+   fehlt / fraglich‘ kann ich nie ganz sehen“) – keine Grenze von vier Zeilen. */
+td.voll .inhalt { display: block; -webkit-line-clamp: none; overflow: visible; }
 td.c-fest { background: var(--fest); color: var(--grau); }
 td.c-fest.name { color: var(--text); font-weight: 500; }
 td.c-fehlt { background: var(--fehlt); }
@@ -340,7 +343,10 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   // Schmal gerechnet (vom Nutzer am 20.10.2026: „alles bisschen komprimieren,
   // dass ich nicht immer nach links und rechts wischen muss“) – lange Texte
   // brechen um, höchstens vier Zeilen je Zelle.
+  // Prüfhinweise stehen ungekürzt da und sind deshalb etwas breiter.
+  const VOLL_SPALTEN = new Set(['Was fehlt / was ist fraglich', 'Grund der Prüfung']);
   function breitePx(s, rollen) {
+    if (VOLL_SPALTEN.has(s.kopf)) return 240;
     if (s.kopf === 'Datum Start') return 78;
     if (s.kopf === 'Datum Ende') return 64;
     if (s.kopf === rollen.status) return 128;                        // „Check again“ passt auch mit 16 px (Handy)
@@ -381,6 +387,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
     else if (hat(a, s.kopf)) { wert = a.werte[s.kopf]; geaendert = true; }
     if (!s.edit) kl.push('c-fest');
     if (s.kopf === d.rollen.name) kl.push('name');
+    if (VOLL_SPALTEN.has(s.kopf)) kl.push('voll');
     let m = z.m && z.m[String(i)];
     // Datum kurz, und beim Start der vorläufige Termin gleich darunter – die
     // Spalte „Termin vorläufig“ ist ausgeblendet, ihre Farbe gilt hier.
