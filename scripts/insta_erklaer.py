@@ -436,7 +436,7 @@ def sz_schluss(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     img = tag(t * 0.4)
     d = ImageDraw.Draw(img)
     sprung = abs(math.sin(t * 5.2)) * 46
-    aufkleben(img, M.figur("jubeln", 820), B / 2, 1410 - sprung)
+    aufkleben(img, M.figur("jubeln", 650), B / 2, 1410 - sprung)
     rng = random.Random(7)
     for i in range(46):
         x = rng.uniform(40, B - 40)
@@ -447,7 +447,26 @@ def sz_schluss(t: float, dauer: float, p: dict | None = None) -> Image.Image:
                fill=farbe, width=11)
     pop(d, B / 2, 500, p.get("frage", "KENNST DU DEINE?"), p.get("g", 132), t - 0.2, fill=CORAL)
     blase(d, B / 2, 1490, p.get("blase", "4:45 /km – und du?"), 88, t - dauer * 0.45)
+    folgen_zeile(d, t - dauer * 0.25, p.get("folgen", FOLGEN_TEXT))
     return img
+
+
+# Am Schluss jedes Erklär-Reels (25.11.2026, vom Nutzer nach 2.000 Aufrufen
+# und 0 neuen Followern beim Zwiebel-Reel: „Folg uns für tägliche Tipps oder so“).
+FOLGEN_TEXT = "FOLG UNS FÜR TÄGLICHES WISSEN"
+
+
+def folgen_zeile(d: ImageDraw.ImageDraw, t: float, text: str) -> None:
+    """Pille in Midnight Navy unter der Frage: Aufruf zum Folgen."""
+    if not text or t <= 0:
+        return
+    k = federn(t / 0.35)
+    f = schrift(62 * k)
+    breite = d.textlength(text, font=f)
+    x, y = B / 2, 640
+    d.rounded_rectangle([x - breite / 2 - 34, y - 48 * k, x + breite / 2 + 34, y + 48 * k],
+                        radius=int(48 * k), fill=MIDNIGHT, outline=CORAL, width=5)
+    d.text((x, y), text, font=f, fill=CREME, anchor="mm")
 
 
 # --- Allgemeine Szenen (Texte und Zahlen kommen aus der Vorlage) -------------
