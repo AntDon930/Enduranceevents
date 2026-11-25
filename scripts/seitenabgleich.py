@@ -20,6 +20,11 @@ Host, 30-s-Frist) und der Text gegen unsere Daten gehalten:
     LEER     unter 300 Zeichen Text (JS-Seite, Frames, Platzhalter)
     FEHLER   Abruf gescheitert (Status, robots, Timeout)
 
+Fehlt auf der Seite unser Datum oder eine Strecke, werden vorher bis zu
+fünf Reiter derselben Website gelesen (Strecken, Ausschreibung,
+Veranstaltungen, Events, Termine - `reiter_links()`, seit 25.11.2026 auf
+Wunsch des Nutzers); welche, steht im Bericht unter `reiter`.
+
 Nichts davon ist ein Fehler in den Daten - es sagt nur, wo man hinsehen
 sollte. Am 21.09.2026 (Elfter Durchgang, siehe CLAUDE.md): 1.849
 Veranstaltungen in ~65 Minuten, 1.154 ohne Befund; von den gemeldeten
@@ -34,7 +39,7 @@ import json, re, sys, time
 from collections import OrderedDict, Counter
 from pathlib import Path
 sys.path.insert(0, "scripts")
-from veranstalter_links import Abrufer, text_von, kein_veranstalter, host_von
+from veranstalter_links import Abrufer, text_von, text_mit_reitern, kein_veranstalter, host_von
 from scraper_lib import is_portal_link
 from veranstalter_seiten import daten_aus, distanzen_aus, km_passt as passt  # noqa: E402
 
@@ -71,6 +76,14 @@ for i,(k,g) in enumerate(gruppen.items(),1):
         txt=text_von(body)
         daten=daten_aus(txt); dist=distanzen_aus(txt)
         jahr=g["datum"][:4]
+        # Fehlt unser Datum oder eine Strecke, erst die Reiter der Seite lesen
+        # („Strecken", „Ausschreibung", „Veranstaltungen" - seit 25.11.2026):
+        # dort steht es meistens, die Startseite nennt es oft nicht.
+        if g["datum"] not in daten or any(not passt(km,dist) for km in g["km"]):
+            txt,reiter=text_mit_reitern(ab,g["url"],body)
+            if reiter:
+                r["reiter"]=reiter
+                daten=daten_aus(txt); dist=distanzen_aus(txt)
         nah=sorted(d for d in daten if d[:4] in (jahr, str(int(jahr)-1), str(int(jahr)+1)))
         r["datum_ok"]=g["datum"] in daten
         r["seiten_daten"]=nah[:40]

@@ -6856,6 +6856,24 @@ dort nur `antwort`, Korrekturen von Hand im Checkout. Auch im Chat sagen,
 was herauskam. `test_check_again` hält Import, Auftragsliste, `erledigt`
 und die Seite fest.
 
+**Immer die Reiter der Veranstalterseite lesen** (vom Nutzer am 25.11.2026:
+„Du musst mehr auf den Webseiten auf Veranstaltungen oder Events die Reiter
+benutzen. Da stehen die meisten Informationen drinnen die du benötigst für
+die Korrekturliste."): Bei jeder Prüfung von Hand (Check again, Einzelprüfung,
+Nachtrag) nicht bei der verlinkten Seite aufhören – die Menüpunkte
+„Veranstaltungen“, „Events“, „Strecken“, „Ausschreibung“, „Termine“,
+„Infos“ öffnen; dort stehen Termin, Distanzen, Startort und Anmeldung, die
+Startseite nennt sie oft nicht. Erst wenn auch die Reiter nichts sagen, gilt
+ein Fall als `unklar`. Die Skripte tun es seitdem selbst:
+`veranstalter_links.reiter_links()`/`text_mit_reitern()` (bis zu fünf Reiter
+DERSELBEN Website, Strecken/Ausschreibung vor Veranstaltungen/Termine vor
+Infos, nie Ergebnisse, Archiv, Impressum, Vereinsseiten), genutzt von
+`seitenabgleich.py` (wenn Datum oder eine Strecke fehlt; Bericht `reiter`)
+und `veranstalter_seiten.pruefe_eintrag()` (wenn Termin oder Kilometer
+fehlen; ein Reiter zählt nur, wenn er den Lauf nennt, ein Termin von dort
+ist nur auf der Website des LAUFS ein Fund – Namenswort im Host, nicht der
+Ort –, auf einer Vereinsseite NEU?). `test_gedaechtnis` hält es fest.
+
 **Erledigte Zeilen sind ausgeblendet** (seit 20.10.2026, vom Nutzer: „Kann
 man die korrigierten und die ‚stimmt so‘ dann ausblenden … Sonst muss ich
 immer runterscrollen“): Status gesetzt und kein „Check again“ (bereit oder
