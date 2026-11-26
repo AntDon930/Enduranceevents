@@ -4,72 +4,34 @@
  "szenen": [
   {
    "bild": "frage",
-   "text": "Krafttraining für Ausdauersportler? Macht dich das nicht langsam?",
-   "zeile": "MACHT KRAFT DICH SCHWER?",
-   "g": 100,
+   "text": "Siebzehn Läufer, acht Wochen. Die Hälfte macht zusätzlich schwere Kniebeugen.",
+   "symbol": "8",
+   "zeile": "DAS EXPERIMENT",
+   "g": 110,
    "aktion": "hantel",
    "teile": [
     [
-     0.0,
-     2.33,
-     3
-    ],
-    [
-     2.58,
-     4.04,
-     5
-    ]
-   ]
-  },
-  {
-   "bild": "denken",
-   "text": "Dicke Beine? Mehr Kilos? Langsamer?",
-   "worte": [
-    "DICKE BEINE?",
-    "MEHR KILOS?",
-    "LANGSAMER?"
-   ],
-   "teile": [
-    [
-     4.28,
-     5.28,
+     0,
+     1.16,
      2
     ],
     [
-     5.5,
-     6.52,
+     1.39,
+     2.06,
      2
     ],
     [
-     6.67,
-     7.45,
-     1
-    ]
-   ]
-  },
-  {
-   "bild": "entwarnung",
-   "text": "Nein! Die Sorge ist unbegründet.",
-   "blase": "NEIN!",
-   "zeile": "SORGE UNBEGRÜNDET",
-   "teile": [
-    [
-     7.7,
-     8.49,
-     1
-    ],
-    [
-     8.74,
-     10.32,
-     4
+     2.26,
+     4.81,
+     6
     ]
    ]
   },
   {
    "bild": "figur",
-   "text": "Läufer machten acht Wochen lang schwere Kniebeugen. Ihr Gewicht blieb gleich.",
+   "text": "Ihr Gewicht danach? Kein Gramm mehr.",
    "pose": "waage",
-   "titel": "8 WOCHEN KNIEBEUGEN",
+   "titel": "NACH 8 WOCHEN",
    "titel_g": 112,
    "blasen": [
     "Gewicht:",
@@ -78,20 +40,59 @@
    "zeile": "KEIN GRAMM MEHR",
    "teile": [
     [
-     10.48,
-     13.34,
-     7
+     5.03,
+     5.88,
+     3
     ],
     [
-     13.57,
-     14.84,
-     4
+     6.07,
+     6.96,
+     3
+    ]
+   ]
+  },
+  {
+   "bild": "balken",
+   "text": "Aber im Maximaltempo hielten sie gut zwanzig Prozent länger durch. Die anderen: keine Veränderung.",
+   "oben": "DURCHHALTEN IM MAXIMALTEMPO",
+   "oben_g": 80,
+   "balken": [
+    [
+     "OHNE KRAFT",
+     100,
+     "±0 %",
+     "blau"
+    ],
+    [
+     "MIT KRAFT",
+     121,
+     "+21 %",
+     "coral"
+    ]
+   ],
+   "zeile": "BIS ZUR ERSCHÖPFUNG",
+   "g": 80,
+   "teile": [
+    [
+     7.2,
+     11.01,
+     10
+    ],
+    [
+     11.14,
+     11.69,
+     2
+    ],
+    [
+     11.94,
+     12.82,
+     2
     ]
    ]
   },
   {
    "bild": "zahl",
-   "text": "Aber sie liefen fünf Prozent sparsamer.",
+   "text": "Und sie liefen fünf Prozent sparsamer.",
    "zahl": 5,
    "nach": " %",
    "oben": "LAUFÖKONOMIE",
@@ -101,15 +102,15 @@
    "klein": "Støren et al., 2008",
    "teile": [
     [
-     15.06,
-     17.73,
+     13.06,
+     15.53,
      6
     ]
    ]
   },
   {
    "bild": "zahl",
-   "text": "Und eine große Auswertung zeigt: Mit Krafttraining gab es rund zwei Drittel weniger Verletzungen.",
+   "text": "Dazu zeigt eine große Auswertung: rund zwei Drittel weniger Verletzungen.",
    "zahl": 68,
    "vor": "−",
    "nach": " %",
@@ -120,14 +121,14 @@
    "klein": "Lauersen et al., 2014",
    "teile": [
     [
-     17.97,
-     19.75,
+     15.68,
+     17.6,
      5
     ],
     [
-     19.86,
-     23.59,
-     9
+     17.85,
+     20.09,
+     5
     ]
    ]
   },
@@ -152,14 +153,19 @@
    "fazit": "STÄRKER, NICHT SCHWERER",
    "teile": [
     [
-     23.76,
-     24.51,
+     20.24,
+     20.99,
      2
     ],
     [
+     21.22,
+     23.76,
+     5
+    ],
+    [
+     23.97,
      24.75,
-     27.28,
-     7
+     2
     ]
    ]
   },
@@ -171,13 +177,13 @@
    "blase": "Ja – 2x pro Woche!",
    "teile": [
     [
-     27.51,
-     29.62,
+     25.0,
+     26.03,
      3
     ],
     [
-     29.86,
-     30.87,
+     26.27,
+     27.34,
      4
     ]
    ]
@@ -205,36 +211,32 @@
  },
  "zeiten": [
   [
-   0.0,
-   4.16
+   0,
+   4.92
   ],
   [
-   4.16,
-   7.58
+   4.92,
+   7.08
   ],
   [
-   7.58,
-   10.4
+   7.08,
+   12.94
   ],
   [
-   10.4,
-   14.95
+   12.94,
+   15.6
   ],
   [
-   14.95,
-   17.85
+   15.6,
+   20.17
   ],
   [
-   17.85,
-   23.68
+   20.17,
+   24.88
   ],
   [
-   23.68,
-   27.4
-  ],
-  [
-   27.4,
-   31.11
+   24.88,
+   27.6
   ]
  ]
 }
