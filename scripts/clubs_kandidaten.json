@@ -1654,6 +1654,18 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
+  "schluessel": "club:bielefeld-cycling-bats",
+  "name": "Cycling Bats x Active – Lauf",
+  "stadt": "Bielefeld",
+  "art": "Laufen",
+  "letzter_beleg": "2026-11-19",
+  "geprueft": "2026-11-26",
+  "grund": "Nach dem Lauf mit Active am 23.11.2026 kein neuer Treff auf Strava (nur Fahrten zu Rund um Köln und zur Tour de France 2027). Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 26.11.2026",
+  "strava": "https://www.strava.com/clubs/1098712",
+  "instagram": "https://www.instagram.com/cycling_bats/"
+ },
+ {
   "schluessel": "ig:europeancyclingindustries",
   "name": "europeancyclingindustries · Brussels · Instagram photos and videos",
   "stadt": "Bocholt",
@@ -2013,6 +2025,17 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:braunschweig-gravel-braunschweig",
+  "name": "Gravel Braunschweig",
+  "stadt": "Braunschweig",
+  "art": "Fahrrad",
+  "letzter_beleg": "2026-11-23",
+  "geprueft": "2026-11-26",
+  "grund": "Nach der Feierabendrunde am 25.11.2026 kein neuer Treff auf Strava. Wieder anlegen, sobald ein neuer Treff angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 26.11.2026",
+  "strava": "https://www.strava.com/clubs/gravel-braunschweig"
  },
  {
   "schluessel": "ig:ballernballern",
@@ -2564,6 +2587,17 @@
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
  },
  {
+  "schluessel": "club:freiburg-salty-collective-run",
+  "name": "SALTY Collective Run Freiburg",
+  "stadt": "Freiburg im Breisgau",
+  "art": "Laufen",
+  "letzter_beleg": "2026-11-23",
+  "geprueft": "2026-11-26",
+  "grund": "Collective Run Freiburg #11 am 24.11.2026 war der letzte Termin; am 29.11. nur ein Gear-Test im Münstertal. Der Collective Run findet am letzten Dienstag im Monat statt (Startort wechselt) – wieder anlegen, sobald der nächste angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 26.11.2026",
+  "strava": "https://www.strava.com/clubs/1228075"
+ },
+ {
   "schluessel": "ig:2runningclub",
   "name": "2 RUNNING CLUB",
   "stadt": "Graz",
@@ -3069,7 +3103,8 @@
   "strava": "https://www.strava.com/clubs/InnsbruckRunners",
   "letzter_beleg": null,
   "grund": "Strava-Club zeigt „Upcoming Club Event“, Details nur angemeldet; kein Wochentag/Treffpunkt öffentlich",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-26"
  },
  {
   "schluessel": "ig:kasasportsclub",
@@ -3387,6 +3422,18 @@
   "letzter_beleg": null,
   "grund": "nur Instagram-Profil als Hinweis, noch nicht geprüft",
   "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+ },
+ {
+  "schluessel": "club:koeln-sportscheck-community",
+  "name": "SportScheck Community Köln",
+  "stadt": "Köln",
+  "art": "Laufen",
+  "letzter_beleg": "2026-11-09",
+  "geprueft": "2026-11-26",
+  "grund": "Auf Strava stehen nur noch Community Runs in anderen Städten (Dortmund 01.12.) und die SportScheck-RUN-Wettkämpfe 2027 – kein Termin in Köln. Wieder anlegen, sobald einer angekündigt ist.",
+  "hinweis": "aus clubs.json übernommen am 26.11.2026",
+  "strava": "https://www.strava.com/clubs/260630",
+  "webseite": "https://www.sportscheck.com/"
  },
  {
   "schluessel": "ig:thirdplacerunningclub",
