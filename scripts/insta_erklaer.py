@@ -1221,13 +1221,15 @@ def sz_dawghook(t: float, dauer: float, p: dict | None = None) -> Image.Image:
         return img
     tt = t - wechsel
     img = nacht().copy()
-    regenlauf(img, tt, knie=False, mx=B / 2 - 40, hoehe=700)
+    regenlauf(img, tt, knie=p.get("knie", False), mx=B / 2 - 40, hoehe=700)
     d = ImageDraw.Draw(img)
-    text(d, B / 2, 520, p.get("oben", "DER DAWG FACTOR"), 120, fill=CORAL)
+    oben = p.get("oben", "DER DAWG FACTOR")
+    og = min(120, 120 * 980 / max(1, schrift(120).getlength(oben)))
+    text(d, B / 2, 520, oben, og * federn(min(1.0, (t + 0.3) / 0.3)), fill=CORAL)
     zittern = 12 * math.sin(tt * 55) * max(0.0, 1 - tt / 0.35)
     tz = tt - p.get("zeile_bei", 0.15)
     zittern = 12 * math.sin(tz * 55) * max(0.0, 1 - tz / 0.35) if tz > 0 else 0
-    pop(d, B / 2 + zittern, 700, p.get("zeile", "WART'S AB."), 190, tz, fill=CREME)
+    pop(d, B / 2 + zittern, 700, p.get("zeile", "WART'S AB."), p.get("zeile_g", 190), tz, fill=CREME)
     return img
 
 
