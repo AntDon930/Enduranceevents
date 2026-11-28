@@ -1188,13 +1188,25 @@ def regenlauf(img: Image.Image, t: float, knie: bool = True, mx: float = B / 2 -
         bob = 5 * math.cos(2 * q)
         kx = links + (140 + 55 * math.sin(a)) * k
         ky = oben + (170 + bob + 55 * math.cos(a)) * k
-        puls = 0.75 + 0.25 * abs(math.sin(t * 7))
-        for w in range(8):
-            ww = w * math.pi / 4 + 0.3
-            r0, r1 = 34 * puls, 78 * puls
-            d.line([(kx + r0 * math.cos(ww), ky + r0 * math.sin(ww)), (kx + r1 * math.cos(ww), ky + r1 * math.sin(ww))],
-                   fill=ROT_SCHMERZ, width=10)
-        d.ellipse([kx - 22, ky - 22, kx + 22, ky + 22], outline=ROT_SCHMERZ, width=8)
+        puls = 0.5 + 0.5 * abs(math.sin(t * 6))
+        glut = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        dg = ImageDraw.Draw(glut)
+        for r, a in ((60, 70), (42, 110), (26, 160)):          # pochender roter Schein ums Knie
+            r *= 0.85 + 0.25 * puls
+            dg.ellipse([kx - r, ky - r, kx + r, ky + r], fill=ROT_SCHMERZ + (int(a * (0.6 + 0.4 * puls)),))
+        img.alpha_composite(glut)
+        d = ImageDraw.Draw(img)
+        for w in (150, 195, 240):                              # drei Zickzack-Blitze vom Knie weg nach außen
+            ww = math.radians(w)
+            ux, uy = math.cos(ww), math.sin(ww)
+            nx, ny = -uy, ux
+            r0, r1 = 66, 66 + 70 * (0.8 + 0.2 * puls)
+            pts = []
+            for k_ in range(4):
+                f = r0 + (r1 - r0) * k_ / 3
+                seite = 14 if k_ % 2 else -14
+                pts.append((kx + ux * f + nx * seite, ky + uy * f + ny * seite))
+            d.line(pts, fill=ROT_SCHMERZ, width=10, joint="curve")
 
 
 def sz_dawghook(t: float, dauer: float, p: dict | None = None) -> Image.Image:
