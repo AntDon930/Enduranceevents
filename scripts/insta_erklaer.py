@@ -1162,7 +1162,7 @@ ROT_SCHMERZ = (226, 48, 54)
 
 
 def regenlauf(img: Image.Image, t: float, knie: bool = True, mx: float = B / 2 - 230, unten: float = 1416,
-              hoehe: int = 640, tempo: float = 2.6) -> None:
+              hoehe: int = 640, tempo: float = 1.5) -> None:
     """Dawg-Modus: Regen von schräg vorn, die Figur läuft angestrengt dagegen an,
     auf Wunsch mit pochendem Knieschmerz am vorderen Knie."""
     d = ImageDraw.Draw(img)
