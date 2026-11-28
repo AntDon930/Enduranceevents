@@ -1009,9 +1009,148 @@ def titelbild(spec: dict) -> Image.Image:
     return img
 
 
+
+# --- Dawg Factor (28.11.2026): Aufzählung, Wette, Honorable Mentions ----------
+
+def _zeitpunkte(p: dict, n: int, dauer: float, von: float = 0.12, bis: float = 0.9) -> list[float]:
+    """Einsatz je Eintrag: `bei` (Sekunden ab Szenenbeginn) oder gleichmäßig verteilt."""
+    if p.get("bei"):
+        return [float(x) for x in p["bei"]][:n] + [dauer] * max(0, n - len(p["bei"]))
+    return [dauer * (von + (bis - von) * i / max(1, n)) for i in range(n)]
+
+
+def sz_liste(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Wörter poppen nacheinander auf. `wut`: groß, Coral, das Bild wackelt."""
+    p = p or {}
+    wut = p.get("wut", False)
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    eintraege = p.get("eintraege", [])
+    n = max(1, len(eintraege))
+    bei = _zeitpunkte(p, n, dauer)
+    titel = p.get("titel", "")
+    if titel:
+        pop(d, B / 2, 500, titel, p.get("titel_g", 110), t - 0.05, fill=CORAL if not wut else CREME)
+    unter = p.get("unter", "")
+    if unter:
+        pop(d, B / 2, 620, unter, p.get("unter_g", min(76, 1700 / max(6, len(unter)))), t - p.get("unter_bei", 0.9),
+            fill=CREME, kontur=None)
+    oben = (740 if unter else 640) if titel else 560
+    abstand = min(150, (1440 - oben) / n) if not wut else (1400 - oben) / n
+    for i, w in enumerate(eintraege):
+        tt = t - bei[i]
+        if tt <= 0:
+            continue
+        y = oben + abstand * (i + 0.5)
+        if wut:
+            zittern = 10 * math.sin(tt * 60) * max(0.0, 1 - tt / 0.4)
+            g = min(170, 1800 / max(6, len(w)))
+            text(d, B / 2 + zittern, y, w, g * federn(tt / 0.25), fill=CORAL, rand=10)
+        else:
+            g = p.get("g", min(104, 1500 / max(6, len(w))))
+            x = B / 2 + (i % 2 * 2 - 1) * 60
+            text(d, x, y, w, g * federn(tt / 0.3), fill=CREME if i % 2 else SOFT_BLUE, rand=8)
+    if wut:
+        # roter Puls am Rand bei jedem neuen Wort
+        puls = max([max(0.0, 1 - (t - b) / 0.35) for b in bei if t >= b] or [0.0])
+        if puls > 0:
+            rahmen = Image.new("RGBA", img.size, (0, 0, 0, 0))
+            dr = ImageDraw.Draw(rahmen)
+            for k in range(6):
+                dr.rectangle([k * 14, k * 14, B - k * 14, H - k * 14], outline=CORAL + (int(140 * puls * (1 - k / 6)),),
+                             width=14)
+            img.alpha_composite(rahmen)
+    return img
+
+
+def _uhr(img: Image.Image, mx: float, my: float, oben: str, zeit: str, farbe=CREME) -> None:
+    d = ImageDraw.Draw(img)
+    for dy, h in ((-330, 140), (330, 140)):            # Armband
+        d.rounded_rectangle([mx - 150, my + dy - h / 2 - (40 if dy < 0 else -40), mx + 150, my + dy + h / 2],
+                            radius=30, fill=(28, 40, 52), outline=MIDNIGHT, width=8)
+    r = 300
+    d.ellipse([mx - r - 18, my - r - 18, mx + r + 18, my + r + 18], fill=(150, 162, 176), outline=MIDNIGHT, width=10)
+    d.ellipse([mx - r, my - r, mx + r, my + r], fill=(10, 18, 26))
+    d.rounded_rectangle([mx + r + 4, my - 50, mx + r + 40, my + 50], radius=12, fill=(150, 162, 176), outline=MIDNIGHT,
+                        width=6)
+    d.text((mx, my - 120), oben, font=schrift(64), fill=SOFT_BLUE, anchor="mm")
+    d.text((mx, my + 20), zeit, font=schrift(170), fill=farbe, anchor="mm")
+    d.text((mx, my + 150), "MARATHON", font=schrift(52), fill=(150, 176, 190), anchor="mm")
+
+
+def sz_wette(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Erst die Uhr mit der Prognose, dann der Schnitt ins Ziel: schneller als vorhergesagt."""
+    p = p or {}
+    wechsel = float(p.get("wechsel", dauer * 0.45))
+    if t < wechsel:
+        img = nacht().copy()
+        k = federn(t / 0.4)
+        _uhr(img, B / 2, 900, p.get("uhr_oben", "PROGNOSE"), p.get("prognose", "3:13:00"))
+        d = ImageDraw.Draw(img)
+        if k < 1:
+            pass
+        pop(d, B / 2, 1450, p.get("zeile_uhr", "SAGT DIE UHR"), 92, t - wechsel * 0.4, fill=SOFT_BLUE, kontur=None)
+        return img
+    tt = t - wechsel
+    img = tag(tt * 0.3)
+    d = ImageDraw.Draw(img)
+    # Zielbogen
+    d.rectangle([120, 520, 170, 1395], fill=MIDNIGHT)
+    d.rectangle([910, 520, 960, 1395], fill=MIDNIGHT)
+    d.rounded_rectangle([90, 470, 990, 640], radius=30, fill=CORAL, outline=MIDNIGHT, width=10)
+    d.text((B / 2, 555), "ZIEL", font=schrift(120), fill=CREME, anchor="mm")
+    sprung = abs(math.sin(tt * 5.5)) * 40
+    aufkleben(img, M.figur("jubeln", 620), B / 2, 1405 - sprung)
+    rng = random.Random(3)
+    for i in range(36):
+        x = rng.uniform(40, B - 40)
+        y = (rng.uniform(-300, 700) + tt * rng.uniform(260, 480)) % 1400
+        w = rng.uniform(0, 3.1) + tt * 4
+        d.line([(x - 14 * math.cos(w), y - 14 * math.sin(w)), (x + 14 * math.cos(w), y + 14 * math.sin(w))],
+               fill=(CORAL, CREME, GELB, GRUEN, MIDNIGHT)[i % 5], width=10)
+    # Ergebnis-Tafel, die Zeit zählt hoch
+    ziel_s = sum(int(x) * f for x, f in zip(p.get("ergebnis", "2:59:41").split(":"), (3600, 60, 1)))
+    jetzt = ziel_s * weich(tt / 0.9)
+    zeit = f"{int(jetzt // 3600)}:{int(jetzt % 3600 // 60):02d}:{int(jetzt % 60):02d}"
+    d.rounded_rectangle([170, 1480, 910, 1700], radius=40, fill=MIDNIGHT, outline=CORAL, width=8)
+    d.text((B / 2, 1530), p.get("strecke", "42,2 KM"), font=schrift(56), fill=SOFT_BLUE, anchor="mm")
+    d.text((B / 2, 1625), zeit, font=schrift(140), fill=CORAL, anchor="mm")
+    return img
+
+
+def sz_mentions(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Honorable Mentions: Titel, dann je Person eine Karte mit Name, @Konto und einer Zeile."""
+    p = p or {}
+    img = nacht().copy()
+    d = ImageDraw.Draw(img)
+    pop(d, B / 2, 480, p.get("titel", "HONORABLE MENTIONS"), p.get("titel_g", 104), t - 0.05, fill=CORAL)
+    leute = p.get("leute", [])
+    n = max(1, len(leute))
+    bei = _zeitpunkte(p, n, dauer, 0.15, 0.85)
+    oben, hoehe = 580, min(220, (1500 - 580) / n - 20)
+    for i, person in enumerate(leute):
+        tt = t - bei[i]
+        if tt <= 0:
+            continue
+        k = weich(tt / 0.3)
+        y = oben + i * (hoehe + 20)
+        x0 = B + 40 - (B - 60) * k
+        d.rounded_rectangle([x0, y, x0 + B - 120, y + hoehe], radius=34, fill=NACHT_HELL, outline=CORAL, width=6)
+        d.ellipse([x0 + 34, y + hoehe / 2 - 50, x0 + 134, y + hoehe / 2 + 50], fill=CORAL)
+        d.text((x0 + 84, y + hoehe / 2), str(i + 1), font=schrift(76), fill=MIDNIGHT, anchor="mm")
+        gn = min(72, 72 * (B - 340) / max(1, schrift(72).getlength(person[0])))
+        d.text((x0 + 170, y + hoehe * 0.3), person[0], font=schrift(gn), fill=CREME, anchor="lm")
+        if len(person) > 1 and person[1]:
+            d.text((x0 + 170, y + hoehe * 0.58), person[1], font=schrift(46), fill=SOFT_BLUE, anchor="lm")
+        if len(person) > 2 and person[2]:
+            d.text((x0 + 170, y + hoehe * 0.82), person[2], font=schrift(40), fill=GELB, anchor="lm")
+    return img
+
+
 SZENEN = {"frage": sz_frage, "denken": sz_denken, "zahl": sz_zahl, "kacheln": sz_kacheln,
           "balken": sz_balken, "figur": sz_figur, "schichten": sz_schichten, "rad": sz_rad, "hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
-          "fass": sz_fass, "test": sz_test, "gefuehl": sz_gefuehl, "schluss": sz_schluss}
+          "fass": sz_fass, "test": sz_test, "gefuehl": sz_gefuehl, "schluss": sz_schluss,
+          "liste": sz_liste, "wette": sz_wette, "mentions": sz_mentions}
 
 
 # --- Untertitel: Wort für Wort ----------------------------------------------

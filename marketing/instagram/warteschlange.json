@@ -49,6 +49,12 @@
    "format": "erklaer",
    "thema": "schlaf",
    "ab": "2026-11-29"
+  },
+  {
+   "id": "dawg",
+   "format": "erklaer",
+   "thema": "dawg",
+   "ab": "2026-12-01"
   }
  ]
 }

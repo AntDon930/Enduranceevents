@@ -1,0 +1,332 @@
+{
+ "thema": "Der Dawg Factor",
+ "seed": 21,
+ "_quellen": {
+  "studie": "Stone MR et al. (2012): Effects of deception on exercise performance: implications for determinants of fatigue in humans. Med Sci Sports Exerc 44(3):534-541, https://pubmed.ncbi.nlm.nih.gov/21886012/ – 9 trainierte Radfahrer, 4000-m-Zeitfahren gegen einen Avatar, der heimlich 102 % ihrer Bestleistung fuhr; sie waren schneller als in der Bestleistung.",
+  "iron_cowboy": "James Lawrence, 100 (101) Ironman-Distanzen in 100 Tagen 2021, https://www.si.com/edge/2021/06/09/iron-cowboy-james-lawrence-completes-100-triathlons-100-days-video",
+  "hardest_geezer": "Russ Cook lief 2023/24 in 352 Tagen die Länge Afrikas, https://www.aljazeera.com/news/2024/4/7/uk-hardest-geezer-completes-challenge-run-length-africa",
+  "hans_troyer": "Hans 'The Destroyer' Troyer, Sieger JFK 50 Mile 2025, https://trailrunner.com/trail-news/hans-troyer-at-the-jfk-50-mile-when-impossible-becomes-realistic/",
+  "vorbild": "Idee nach Reels von liftwithjp und dominicfusco (Uhrprognose gegen Ergebnis) – eigene Umsetzung, nichts übernommen"
+ },
+ "cover": {
+  "titel": [
+   "DER",
+   "DAWG",
+   "FACTOR"
+  ],
+  "farbe": "navy",
+  "figur": "jubeln",
+  "etikett": "HAST DU IHN?",
+  "blasen": [
+   "Uhr sagt 3:13",
+   "Ich: 2:59"
+  ]
+ },
+ "caption": [
+  "Deine Uhr rechnet den Dawg in dir nicht rein. 🐕🔥",
+  "Hast du ihn? Tag a Dawg. 👇",
+  "#dawgfactor #marathon #laufen #runnersofinstagram #mentaltoughness"
+ ],
+ "szenen": [
+  {
+   "bild": "frage",
+   "aktion": "lauf",
+   "symbol": "DAWG",
+   "zeile": "HALT DIE FRESSE!",
+   "text": "Deine Uhr sagt: Heute keine Bestzeit. Der Dawg in dir sagt: Halt die Fresse!",
+   "teile": [
+    [
+     0,
+     0.86,
+     3
+    ],
+    [
+     1.09,
+     2.39,
+     3
+    ],
+    [
+     2.57,
+     3.69,
+     5
+    ],
+    [
+     3.86,
+     4.79,
+     3
+    ]
+   ]
+  },
+  {
+   "bild": "liste",
+   "titel": "DER DAWG FACTOR",
+   "eintraege": [
+    "ÜBERTRAINIERT",
+    "UNDERPREPARED",
+    "SCHEISSWETTER",
+    "KRÄMPFE",
+    "UNDERFUELED",
+    "BEINE WIE BETON"
+   ],
+   "text": "Der Dawg Factor heißt: Abliefern, wenn alles gegen dich ist. Übertrainiert. Underprepared. Scheißwetter. Krämpfe. Underfueled. Beine wie Beton.",
+   "teile": [
+    [
+     5.01,
+     8.04,
+     10
+    ],
+    [
+     8.26,
+     9.05,
+     1
+    ],
+    [
+     9.22,
+     10.97,
+     2
+    ],
+    [
+     11.19,
+     11.72,
+     1
+    ],
+    [
+     11.96,
+     12.56,
+     1
+    ],
+    [
+     12.76,
+     13.65,
+     3
+    ]
+   ],
+   "bei": [
+    3.31,
+    4.27,
+    5.15,
+    6.24,
+    7.01,
+    7.81
+   ],
+   "unter": "ABLIEFERN, WENN ALLES GEGEN DICH IST",
+   "unter_bei": 1.2
+  },
+  {
+   "bild": "liste",
+   "wut": true,
+   "eintraege": [
+    "FUCK DIE STATS",
+    "FUCK DEN NOISE",
+    "FUCK, WIE ICH MICH FÜHLE"
+   ],
+   "text": "Fuck die Stats! Fuck den Noise! Fuck, wie ich mich fühle!",
+   "teile": [
+    [
+     13.86,
+     14.76,
+     3
+    ],
+    [
+     14.99,
+     15.86,
+     3
+    ],
+    [
+     16.08,
+     17.23,
+     5
+    ]
+   ],
+   "bei": [
+    0.11,
+    1.24,
+    2.33
+   ]
+  },
+  {
+   "bild": "wette",
+   "prognose": "3:13:00",
+   "ergebnis": "2:59:41",
+   "zeile_uhr": "SAGT DIE UHR",
+   "text": "Die Uhr sagt: drei Stunden dreizehn. Der Dawg sagt: unter drei. Oder ich sterbe beim Versuch.",
+   "teile": [
+    [
+     17.45,
+     19.53,
+     6
+    ],
+    [
+     19.7,
+     21.21,
+     5
+    ],
+    [
+     21.41,
+     23.51,
+     5
+    ]
+   ],
+   "wechsel": 2.36
+  },
+  {
+   "bild": "zahl",
+   "zahl": 2,
+   "vor": "+",
+   "nach": " %",
+   "oben": "RADFAHRER GEGEN IHREN REKORD",
+   "einheit": "HEIMLICH MEHR LEISTUNG",
+   "zeile": "UND SIE HIELTEN MIT",
+   "klein": "Stone et al. 2012, Med Sci Sports Exerc",
+   "text": "Klingt verrückt? In einer Studie fuhren Radfahrer gegen ihren eigenen Rekord. Der war heimlich zwei Prozent schneller. Und sie hielten mit. Deine Uhr rechnet den Dawg in dir nicht rein.",
+   "teile": [
+    [
+     23.63,
+     29.03,
+     17
+    ],
+    [
+     29.25,
+     30.09,
+     4
+    ],
+    [
+     30.25,
+     32.43,
+     9
+    ]
+   ]
+  },
+  {
+   "bild": "mentions",
+   "titel": "MY HONORABLE MENTIONS",
+   "leute": [
+    [
+     "DAVID GOGGINS",
+     "@davidgoggins",
+     ""
+    ],
+    [
+     "IRON COWBOY",
+     "James Lawrence",
+     "100 Ironmans in 100 Tagen"
+    ],
+    [
+     "HARDEST GEEZER",
+     "@hardestgeezer",
+     "einmal Afrika der Länge nach"
+    ],
+    [
+     "HANS TROYER",
+     "@hanstroyer",
+     "„The Destroyer“"
+    ]
+   ],
+   "text": "Meine Honorable Mentions: David Goggins. Der Iron Cowboy: hundert Ironmans in hundert Tagen. Der Hardest Geezer: einmal Afrika der Länge nach. Und Hans Troyer: The Destroyer.",
+   "teile": [
+    [
+     32.61,
+     33.88,
+     3
+    ],
+    [
+     34.1,
+     35.06,
+     2
+    ],
+    [
+     35.26,
+     38.29,
+     8
+    ],
+    [
+     38.44,
+     39.39,
+     3
+    ],
+    [
+     39.6,
+     41.1,
+     5
+    ],
+    [
+     41.26,
+     42.32,
+     3
+    ],
+    [
+     42.5,
+     43.29,
+     1
+    ],
+    [
+     43.47,
+     43.84,
+     1
+    ]
+   ],
+   "bei": [
+    1.58,
+    2.74,
+    5.92,
+    8.74
+   ]
+  },
+  {
+   "bild": "schluss",
+   "frage": "HAST DU DEN DAWG IN DIR?",
+   "g": 88,
+   "blase": "TAG A DAWG!",
+   "text": "Also: Hast du den Dawg in dir? Tag a Dawg!",
+   "teile": [
+    [
+     44.06,
+     45.38,
+     7
+    ],
+    [
+     45.61,
+     46.55,
+     3
+    ]
+   ]
+  }
+ ],
+ "zeiten": [
+  [
+   0,
+   4.95
+  ],
+  [
+   4.95,
+   13.75
+  ],
+  [
+   13.75,
+   17.34
+  ],
+  [
+   17.34,
+   23.57
+  ],
+  [
+   23.57,
+   32.52
+  ],
+  [
+   32.52,
+   43.95
+  ],
+  [
+   43.95,
+   47.0
+  ]
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen 0,22 s, atempo 0,89) – dawg.mp3 neben dieser Datei",
+ "quellen": [
+  "https://pubmed.ncbi.nlm.nih.gov/21886012/",
+  "https://www.si.com/edge/2021/06/09/iron-cowboy-james-lawrence-completes-100-triathlons-100-days-video",
+  "https://www.aljazeera.com/news/2024/4/7/uk-hardest-geezer-completes-challenge-run-length-africa",
+  "https://trailrunner.com/trail-news/hans-troyer-at-the-jfk-50-mile-when-impossible-becomes-realistic/"
+ ]
+}
