@@ -6709,7 +6709,18 @@ wartet die Entwicklung, nicht der Wochenablauf.
 - *Quartalsweise, Claude* – nach dem Kalender, fällig ab 01.01., 01.04.,
   01.07. und 01.10. (vom Nutzer am 27.10.2026 so festgelegt); die
   Quellensuche ist seit dem 12.11.2026 monatlich (oben, Teil A)
-  (zuletzt: –):
+  (zuletzt: 28.11.2026 – Geräte-Check: 10 Seiten × 8 Größen von 320 bis
+  1920 px × hell/dunkel ohne Befund (Überlauf, Skriptfehler, 404); `vendor/`:
+  `npm audit` meldet für Leaflet 1.9.4 und markercluster 1.5.3 nichts, für
+  Firebase 10.14.1 nur `undici` – das ist der HTTP-Client der Node-Fassung
+  und steht nicht in den Browser-Dateien (geprüft); kein Update (markercluster
+  2.0.0 und Firebase 13 sind Major-Sprünge ohne Sicherheitsgrund).
+  **`functions/`**: `npm audit fix` (nur Patch-Stände: body-parser 1.20.9 gegen
+  einen DoS über komprimierte Anfragen – `collect` ist öffentlich –, grpc-js,
+  qs, fast-xml-parser) in `package-lock.json`; wirkt erst mit dem nächsten
+  `firebase deploy --only functions`. Offen bleibt `uuid` über
+  firebase-admin 13 (nur bei v3/v5/v6 mit Puffer, so nutzt es niemand) –
+  verschwindet mit firebase-admin 14, das ist ein Major-Sprung):
   - Geräte-Check (Handy, iPad, Rechner; Rauchtest plus
     `pruefe_plattformen`) und `vendor/` auf Sicherheits-Updates
     (Leaflet, markercluster, Firebase).
@@ -7446,6 +7457,29 @@ Verweise auf alte Nummern stehen in Klammern.
     Bsuch Bham Bsuch sind Ziele)? Bleiben die gut 100 kleinen Standorte
     sichtbar, oder nur die großen? Erst die Klasse zählen und dem Nutzer die
     Entscheidung vorlegen; keine `NICHT_AUSDAUER`-Zeile ohne sein Ja.
+    **Gezählt am 28.11.2026** (alle 156 Standortseiten abgerufen, 2 s Pause;
+    robots.txt sperrt nur `/api/` und Spendenseiten; dazu die Standortliste
+    `__sitemap__/de-AT.xml`, 328 Standorte weltweit): **96 „App Run Event“**
+    für So 09.05.2027 bestätigt (AT 68, DE 28) – Seite mit Treffpunkt,
+    Anfahrt, Startzeit 13:00 und „Verabrede dich mit deinen Freunden“, das
+    Catcher Car ist virtuell (startet 30 min nach dem Start mit 14 km/h);
+    **3 Flagship Runs** (München, Wien, Zug – alle „Ausverkauft“, echtes
+    Catcher Car); **3** mit fremder Seite (Itter zweimal, Schaffhausen);
+    **62 Standorte ohne 2027-Seite** (404, nicht in der Standortliste – die
+    Liste wurde für 2027 offenbar neu begonnen, Standorte melden sich nach und
+    nach an). Die 62 stehen als `unklar` in `geprueft.json` (vorher 17 davon
+    sichtbar mit totem Link, u. a. Berlin, Bonn, Frankfurt, Linz) – kommen
+    sie in die Standortliste zurück, den Eintrag löschen. „Wings for Life -
+    Munich“ (Link auf Niederaula, 404; Doppel des Flagship München) und
+    „Wings for Life - Dietikon“ (Link auf den Flagship Schweiz = Zug) per
+    `exclude`. Danach sichtbar: 34 App Runs (alle bestätigt); ausgeblendet:
+    62 bestätigte App Runs (fehlende Distanz), die 3 Flagships, die 3 mit
+    fremder Seite. 29 App Runs tragen Kilometer (5/10/15/20/40 km) – das sind
+    die Ziele des „Goal Calculator“, keine Strecken. **Offen beim Nutzer**:
+    (a) App Runs drin lassen (Ort + feste Startzeit, nur die Ziellinie ist
+    virtuell)? (b) Länge: die Zielkilometer entfernen und „Open End“ zeigen
+    wie beim Backyard, eine Zeile je Standort? (c) dann die 62 ausgeblendeten
+    bestätigten App Runs und die 3 Flagships freigeben?
 16. **Frauen-Clubs: Filter „Nur Frauen“ und der Strava-Zugang**
     (eingetragen am 25.11.2026, vom Nutzer: „lass das mal weg mit den Woman
     Only. Und schreibs auf die To-do Liste. Da müssen wir uns noch was

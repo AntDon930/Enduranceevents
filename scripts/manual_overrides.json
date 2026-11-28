@@ -5679,9 +5679,9 @@
     "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
   },
   "Wings for Life - Munich|2027-05-09": {
-    "charity": true,
-    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
-    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+    "_quelle": "https://www.wingsforlifeworldrun.com/__sitemap__/de-AT.xml",
+    "_note": "Doppel des „Wings for Life World Flagship Run München“ (gleicher Tag, gleiche Stadt); der Link zeigte auf die Standortseite Niederaula, die es 2027 nicht gibt (404). Geprüft 2026-11-28.",
+    "exclude": true
   },
   "Wings for Life - Möhnesee Körbecke|2027-05-09": {
     "charity": true,
@@ -9366,5 +9366,10 @@
   "Lothar Fricke-Winterlaufserie|2027-12-01": {
     "dauer_h": 0.5,
     "_note": "25.11.2026: 2 h ohne Label ist in dieser Serie der falsch gelesene „1/2Stdlauf“ (der Nutzer hat am 02.12. 30 min bestätigt; die Serie hat 30- und 60-min-Läufe). Der Scraper liest den Bruch seitdem richtig."
+  },
+  "Wings for Life - Dietikon|2027-05-09": {
+    "exclude": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/__sitemap__/de-AT.xml",
+    "_note": "Doppel von „Wings for Life - Zug“: Der Link zeigt auf den Flagship Run Schweiz, und der läuft 2027 in Zug; einen App Run Dietikon gibt es 2027 nicht (nicht in der Standortliste). Geprüft 2026-11-28."
   }
 }

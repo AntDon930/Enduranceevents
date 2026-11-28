@@ -1,48 +1,6 @@
 [
   {
     "land": "Deutschland",
-    "name": "Orange Day Hannover",
-    "standort": "Hannover",
-    "lat": 52.3758916,
-    "lon": 9.7320104,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-25",
-    "datum_ende": "2026-11-25",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.marathon-hannover.de/orangeday.html"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Santarun Bern",
-    "standort": "Bern",
-    "lat": 46.9484742,
-    "lon": 7.4521749,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-27",
-    "datum_ende": "2026-11-27",
-    "laenge_km": 5.4,
-    "wettbewerb": "5.4 km",
-    "veranstalter_url": "https://www.santarunbern.ch",
-    "instagram": "santarunbern"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Twistesee-Advents-Marathon",
-    "standort": "Bad Arolsen",
-    "lat": 51.3649894,
-    "lon": 9.0376388,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-27",
-    "datum_ende": "2026-11-27",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://kassel42.webador.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "10 Seen Rundfahrt",
     "standort": "München",
     "lat": 48.1209806,
@@ -56625,19 +56583,6 @@
     "pruefung_offen": true
   },
   {
-    "land": "Schweiz",
-    "name": "Wings for Life - Dietikon",
-    "standort": "Dietikon",
-    "lat": 47.4053885,
-    "lon": 8.39977,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-09",
-    "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/switzerland",
-    "pruefung_offen": true
-  },
-  {
     "land": "Österreich",
     "name": "Wings for Life - Dorfplatz Itter Kitzbühel",
     "standort": "Itter",
@@ -56753,7 +56698,8 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/frankfurt-am-main",
-    "charity": true
+    "charity": true,
+    "pruefung_offen": true
   },
   {
     "land": "Schweiz",
@@ -56922,7 +56868,8 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/hannover-eilenriede",
-    "charity": true
+    "charity": true,
+    "pruefung_offen": true
   },
   {
     "land": "Deutschland",
@@ -57026,7 +56973,8 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/kiel-monkeberg",
-    "charity": true
+    "charity": true,
+    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -57192,7 +57140,8 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/liezen",
-    "laenge_km": 6.0
+    "laenge_km": 6.0,
+    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -57301,7 +57250,8 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/lutherstadt-eisleben",
-    "charity": true
+    "charity": true,
+    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -57354,20 +57304,6 @@
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/mittersill",
     "pruefung_offen": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "Wings for Life - Munich",
-    "standort": "München",
-    "lat": 48.1351253,
-    "lon": 11.5819806,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-09",
-    "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/niederaula",
-    "charity": true,
-    "instagram": "wingsforlifeworldrun"
   },
   {
     "land": "Deutschland",
@@ -57511,7 +57447,8 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/obertshausen",
-    "charity": true
+    "charity": true,
+    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -57564,7 +57501,8 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/oldenburg",
-    "charity": true
+    "charity": true,
+    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -57778,7 +57716,8 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/regensburg-donaupark",
-    "charity": true
+    "charity": true,
+    "pruefung_offen": true
   },
   {
     "land": "Deutschland",
@@ -58132,7 +58071,8 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/toging",
-    "charity": true
+    "charity": true,
+    "pruefung_offen": true
   },
   {
     "land": "Deutschland",
@@ -58583,7 +58523,8 @@
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/bamberg-gaustadt",
     "charity": true,
-    "instagram": "wflworldrun"
+    "instagram": "wflworldrun",
+    "pruefung_offen": true
   },
   {
     "land": "Deutschland",
@@ -58597,7 +58538,8 @@
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
     "charity": true,
-    "instagram": "wflworldrun"
+    "instagram": "wflworldrun",
+    "pruefung_offen": true
   },
   {
     "land": "Deutschland",
@@ -58611,7 +58553,8 @@
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/bonn",
     "charity": true,
-    "instagram": "wflworldrun"
+    "instagram": "wflworldrun",
+    "pruefung_offen": true
   },
   {
     "land": "Deutschland",
@@ -58625,7 +58568,8 @@
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/bremen-neustadt",
     "charity": true,
-    "instagram": "wflworldrun"
+    "instagram": "wflworldrun",
+    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -58653,7 +58597,8 @@
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/erfurt-luisenpark",
     "charity": true,
-    "instagram": "wflworldrun"
+    "instagram": "wflworldrun",
+    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -58751,7 +58696,8 @@
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/gottingen",
     "charity": true,
-    "instagram": "wflworldrun"
+    "instagram": "wflworldrun",
+    "pruefung_offen": true
   },
   {
     "land": "Deutschland",
@@ -58823,7 +58769,8 @@
     "datum_ende": "2027-05-09",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/linz-oberosterreich",
     "instagram": "wflworldrun",
-    "laenge_km": 5.0
+    "laenge_km": 5.0,
+    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -58838,7 +58785,8 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/linz-urfahr",
-    "instagram": "wflworldrun"
+    "instagram": "wflworldrun",
+    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -58853,7 +58801,8 @@
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/linz-urfahr",
-    "instagram": "wflworldrun"
+    "instagram": "wflworldrun",
+    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -58868,7 +58817,8 @@
     "laenge_km": 20.0,
     "wettbewerb": "20 km",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/linz-urfahr",
-    "instagram": "wflworldrun"
+    "instagram": "wflworldrun",
+    "pruefung_offen": true
   },
   {
     "land": "Österreich",
@@ -58883,7 +58833,8 @@
     "laenge_km": 40.0,
     "wettbewerb": "40 km",
     "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/linz-urfahr",
-    "instagram": "wflworldrun"
+    "instagram": "wflworldrun",
+    "pruefung_offen": true
   },
   {
     "land": "Deutschland",
