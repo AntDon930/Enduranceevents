@@ -536,8 +536,9 @@
   "strava": "https://www.strava.com/clubs/runners-high-collective-954",
   "instagram": "https://www.instagram.com/runnershigh.collective.954/",
   "letzter_beleg": null,
-  "grund": "Run Club in Bayreuth laut Strava, IG @runnershigh.collective.954; nur Strava-Club; Strava antwortet 403, kein datierter Beleg auffindbar; Termine unbekannt; Abgrenzung zu bayreuth-werunbt prüfen",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava-Club hat 0 Mitglieder (vom Nutzer am 28.11.2026 gesehen) – kein Strava-Beleg möglich; Run Club in Bayreuth laut Strava, IG @runnershigh.collective.954; nur Strava-Club; Strava antwortet 403, kein datierter Beleg auffindbar; Termine unbekannt; Abgrenzung zu bayreuth-werunbt prüfen",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-28"
  },
  {
   "schluessel": "ig:runnershigh.collective.954",
@@ -1953,8 +1954,9 @@
   "art": "Laufen",
   "strava": "https://www.strava.com/clubs/1534775",
   "letzter_beleg": null,
-  "grund": "Strava-Club 403, Websuche ohne Treffer.",
-  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026"
+  "grund": "Strava-Club ohne Club-Termine: dort tragen nur die Mitglieder ein, wann sie selbst laufen (vom Nutzer am 28.11.2026 gesehen) – kein offener Treff belegt; Strava-Club 403, Websuche ohne Treffer.",
+  "hinweis": "runningclubnearme.org (Meta-Suche), 26.10.2026",
+  "geprueft": "2026-11-28"
  },
  {
   "schluessel": "ig:therunningclubit",
