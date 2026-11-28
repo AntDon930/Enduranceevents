@@ -7530,14 +7530,15 @@ Verweise auf alte Nummern stehen in Klammern.
     Endurance Events (z. B. info@endurance-events.de), alle Clubs dort neu
     beitreten (Tageslimit, wenige Wochen) und das Konto im Connector
     „Strava“ in claude.ai verbinden; das private Konto kann danach
-    austreten. **Entschieden am 28.11.2026** (vom Nutzer: „Das dauert jetzt
-    wieder ewig, aber ich glaube das ist die beste Lösung.“). Ablauf: Der
-    Connector bleibt mit dem PRIVATEN Konto verbunden (er kennt nur ein
-    Konto), der Abgleich Mo/Do liest weiter dort; mit dem neuen Konto tritt
-    der Nutzer auf dem iPad allen Clubs bei – Listen zuerst die Clubs MIT
-    Strava-Terminen (der Rest bringt keine Daten), je ~30 am Tag; erst wenn
-    das neue Konto alle hat, Connector umstellen und einmal beide
-    Club-Listen vergleichen; danach tritt das private Konto aus.
+    austreten. **Entschieden am 28.11.2026: vorerst KEIN zweites Konto** (vom Nutzer:
+    „Ich mach kein extra Account. Vielleicht irgendwann später, aber jetzt
+    machen wir das auslesen erst einmal mit dem privaten Account.“ – ein
+    zweites Strava-Abo, das der Connector braucht, kann er nicht zahlen).
+    Der Abgleich Mo/Do liest weiter das private Konto; der Nutzer geht mit
+    seinen Followern selbst um (Blockieren/Entfernen erwogen). Wird das
+    zweite Konto später gewünscht: Abo umziehen statt zweites Abo, neues
+    Konto tritt zuerst den Clubs MIT Strava-Terminen bei, dann Connector
+    umstellen und beide Club-Listen vergleichen.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
