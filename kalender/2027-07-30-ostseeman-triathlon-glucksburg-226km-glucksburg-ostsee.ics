@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-30-ostseeman-triathlon-glucksburg-226km-glucksburg-ostsee@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270730
+DTEND;VALUE=DATE:20270802
+SUMMARY:OstseeMan Triathlon Glücksburg – Langdistanz
+LOCATION:Glücksburg (Ostsee)\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 226 km\nhttps://www.ostse
+ eman.de/startseite.html
+TRANSP:TRANSPARENT
+URL:https://www.ostseeman.de/startseite.html
+END:VEVENT
+END:VCALENDAR

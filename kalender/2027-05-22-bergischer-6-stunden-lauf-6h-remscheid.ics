@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-bergischer-6-stunden-lauf-6h-remscheid@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Bergischer 6 Stunden Lauf
+LOCATION:Remscheid\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://www.feinerlauf.
+ de/bergischer-6-stunden-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.feinerlauf.de/bergischer-6-stunden-lauf/
+END:VEVENT
+END:VCALENDAR

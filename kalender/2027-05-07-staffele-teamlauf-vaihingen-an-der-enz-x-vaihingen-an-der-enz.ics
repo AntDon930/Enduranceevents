@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-staffele-teamlauf-vaihingen-an-der-enz-x-vaihingen-an-der-e
+ nz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:Stäffele-Teamlauf - Vaihingen an der Enz
+LOCATION:Vaihingen an der Enz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.eventservice-s
+ tahl.de/veranstaltungen/401-st%C3%A4ffele-teamlauf/
+TRANSP:TRANSPARENT
+URL:https://www.eventservice-stahl.de/veranstaltungen/401-st%C3%A4ffele-te
+ amlauf/
+END:VEVENT
+END:VCALENDAR

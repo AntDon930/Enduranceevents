@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-19-17-traditioneller-fuldaufer-marathon-42-2km-kassel@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+SUMMARY:17. traditioneller Fuldaufer-Marathon
+LOCATION:Kassel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://kassel42.we
+ bador.de/fuldaufermarathon
+TRANSP:TRANSPARENT
+URL:https://kassel42.webador.de/fuldaufermarathon
+END:VEVENT
+END:VCALENDAR

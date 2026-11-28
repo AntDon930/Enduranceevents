@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-mistelbacher-crosslauf-x-mistelbach-martinsklause@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Mistelbacher Crosslauf
+LOCATION:Mistelbach Martinsklause\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.weinviertlerla
+ ufcup.at/events/wintercup-mistelbach-09-1-2027/
+TRANSP:TRANSPARENT
+URL:https://www.weinviertlerlaufcup.at/events/wintercup-mistelbach-09-1-20
+ 27/
+END:VEVENT
+END:VCALENDAR

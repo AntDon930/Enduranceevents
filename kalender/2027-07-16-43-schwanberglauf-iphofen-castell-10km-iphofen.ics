@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-16-43-schwanberglauf-iphofen-castell-10km-iphofen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270716
+DTEND;VALUE=DATE:20270717
+SUMMARY:43. Schwanberglauf Iphofen-Castell
+LOCATION:Iphofen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.schwanberg
+ lauf.de
+TRANSP:TRANSPARENT
+URL:https://www.schwanberglauf.de
+END:VEVENT
+END:VCALENDAR

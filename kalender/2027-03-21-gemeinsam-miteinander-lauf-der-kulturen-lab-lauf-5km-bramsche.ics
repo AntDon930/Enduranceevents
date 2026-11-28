@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-gemeinsam-miteinander-lauf-der-kulturen-lab-lauf-5km-bramsc
+ he@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Gemeinsam - Miteinander - Lauf der Kulturen - LAB Lauf in Bramsche
+ -Hesepe
+LOCATION:Bramsche\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.laufen-os.
+ de/wettkaempfe/gemeinsam-miteinander-lauf-der-kulturen-der-1-lab-lauf-in-
+ bramsche-hesepe-2027
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/gemeinsam-miteinander-lauf-der-ku
+ lturen-der-1-lab-lauf-in-bramsche-hesepe-2027
+END:VEVENT
+END:VCALENDAR

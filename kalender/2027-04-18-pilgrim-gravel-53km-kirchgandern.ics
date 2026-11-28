@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-pilgrim-gravel-53km-kirchgandern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Pilgrim.GRAVEL – Gravel Ride 53 km
+LOCATION:Kirchgandern\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 53 km\nhttps://www.instagra
+ m.com/gravel.eichsfeld
+TRANSP:TRANSPARENT
+URL:https://www.instagram.com/gravel.eichsfeld
+END:VEVENT
+END:VCALENDAR

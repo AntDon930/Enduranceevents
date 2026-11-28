@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-rund-um-munchenbernsdorf-72km-munchenbernsdorf@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Rund um Münchenbernsdorf – Jedermannrennen 72 km
+LOCATION:Münchenbernsdorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 72 km\nhttps://www.ostthuer
+ ingentour.de/jedermann/
+TRANSP:TRANSPARENT
+URL:https://www.ostthueringentour.de/jedermann/
+END:VEVENT
+END:VCALENDAR

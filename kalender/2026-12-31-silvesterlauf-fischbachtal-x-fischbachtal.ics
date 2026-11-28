@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-fischbachtal-x-fischbachtal@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Fischbachtal
+LOCATION:Fischbachtal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.lauftreff-fis
+ chbachtal.de/veranstaltungen/
+TRANSP:TRANSPARENT
+URL:https://www.lauftreff-fischbachtal.de/veranstaltungen/
+END:VEVENT
+END:VCALENDAR

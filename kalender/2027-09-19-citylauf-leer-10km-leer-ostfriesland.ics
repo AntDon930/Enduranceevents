@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-citylauf-leer-10km-leer-ostfriesland@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Citylauf Leer – 10 km Lauf auf dem 2\,5 km Rundkurs (grün)
+LOCATION:Leer (Ostfriesland)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://citylauf-leer
+ .de
+TRANSP:TRANSPARENT
+URL:https://citylauf-leer.de
+END:VEVENT
+END:VCALENDAR

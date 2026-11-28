@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-scharfenberger-silberlauf-11-3km-klipphausen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Scharfenberger Silberlauf – 11\,3 km M20 bis M55 und W20 bis W50
+LOCATION:Klipphausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.3 km\nhttps://www.laufen-
+ im-kreis-meissen.de/wettkaempfe-2027.html
+TRANSP:TRANSPARENT
+URL:https://www.laufen-im-kreis-meissen.de/wettkaempfe-2027.html
+END:VEVENT
+END:VCALENDAR

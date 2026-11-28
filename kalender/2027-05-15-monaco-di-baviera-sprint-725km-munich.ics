@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-monaco-di-baviera-sprint-725km-munich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Monaco di Baviera Sprint – Ultracycling 725 km
+LOCATION:Munich\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 725 km\nhttps://ultracyclin
+ gchallenges.com
+TRANSP:TRANSPARENT
+URL:https://ultracyclingchallenges.com
+END:VEVENT
+END:VCALENDAR

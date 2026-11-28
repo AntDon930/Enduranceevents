@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-grabenseelauf-13km-perwang-am-grabensee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Grabenseelauf
+LOCATION:Perwang am Grabensee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://www.grabensee
+ lauf.at/
+TRANSP:TRANSPARENT
+URL:https://www.grabenseelauf.at/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-30-15-pitz-alpine-glacier-trail-x-pitztal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270730
+DTEND;VALUE=DATE:20270731
+SUMMARY:15. Pitz Alpine Glacier Trail
+LOCATION:Pitztal\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.pitz-alpine.at
+TRANSP:TRANSPARENT
+URL:http://www.pitz-alpine.at
+END:VEVENT
+END:VCALENDAR

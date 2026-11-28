@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-dc-tower-run-x-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270605
+SUMMARY:DC Tower Run
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://dctowerrun.com/tow
+ er-run-home.html
+TRANSP:TRANSPARENT
+URL:https://dctowerrun.com/tower-run-home.html
+END:VEVENT
+END:VCALENDAR

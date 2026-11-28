@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-20-brunnenfestlauf-2027-21-1km-oberursel@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:20. Brunnenfestlauf 2027
+LOCATION:Oberursel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.brunnenf
+ estlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.brunnenfestlauf.de
+END:VEVENT
+END:VCALENDAR

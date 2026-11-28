@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-08-sugar-gravel-550km-stuttgart@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271008
+DTEND;VALUE=DATE:20271011
+SUMMARY:Sugar Gravel – Bikepacking 550 km
+LOCATION:Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 550 km\nhttps://sugar-grave
+ l.jimdosite.com/
+TRANSP:TRANSPARENT
+URL:https://sugar-gravel.jimdosite.com/
+END:VEVENT
+END:VCALENDAR

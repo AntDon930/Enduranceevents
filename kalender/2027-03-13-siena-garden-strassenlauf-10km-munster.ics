@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-siena-garden-strassenlauf-10km-munster@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Siena Garden-Strassenlauf
+LOCATION:Münster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lsf-muens
+ ter.de/eigene-veranstaltungen/strassen-und-firmenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.lsf-muenster.de/eigene-veranstaltungen/strassen-und-firmen
+ lauf/
+END:VEVENT
+END:VCALENDAR

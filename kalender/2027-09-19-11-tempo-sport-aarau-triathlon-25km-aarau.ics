@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-11-tempo-sport-aarau-triathlon-25km-aarau@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:11. Tempo-Sport Aarau Triathlon – Sprintdistanz 25 km
+LOCATION:Aarau\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25 km\nhttps://triclubaar
+ au.clubdesk.com/aarautriathlon
+TRANSP:TRANSPARENT
+URL:https://triclubaarau.clubdesk.com/aarautriathlon
+END:VEVENT
+END:VCALENDAR

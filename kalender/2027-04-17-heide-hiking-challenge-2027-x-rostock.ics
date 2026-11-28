@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-heide-hiking-challenge-2027-x-rostock@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Heide Hiking Challenge 2027
+LOCATION:Rostock\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: -\nhttps://heide-hiking.de
+TRANSP:TRANSPARENT
+URL:https://heide-hiking.de
+END:VEVENT
+END:VCALENDAR

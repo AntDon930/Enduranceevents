@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-mo-pla-neuseenman-51-5km-grafenhainichen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270531
+SUMMARY:mo.pla neuseenMAN – Olympische Distanz 51\,5 km (1\,5 km Schwimmen
+  / 40 km Rad / 10 km Laufen)
+LOCATION:Gräfenhainichen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://neuseenm
+ an.maximalpuls.com/
+TRANSP:TRANSPARENT
+URL:https://neuseenman.maximalpuls.com/
+END:VEVENT
+END:VCALENDAR

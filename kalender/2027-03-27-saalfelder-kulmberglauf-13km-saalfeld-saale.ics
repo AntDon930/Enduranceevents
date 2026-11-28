@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-27-saalfelder-kulmberglauf-13km-saalfeld-saale@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:Saalfelder Kulmberglauf
+LOCATION:Saalfeld/Saale\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 13 km\nhttps://ladv.de/aussch
+ reibung/detail/49765/46.-Saalfelder-Kulmberglauf-Saalfeld.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49765/46.-Saalfelder-Kulmberglauf
+ -Saalfeld.htm
+END:VEVENT
+END:VCALENDAR

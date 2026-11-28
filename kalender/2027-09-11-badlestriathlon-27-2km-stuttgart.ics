@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-badlestriathlon-27-2km-stuttgart@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Bädlestriathlon – Classic
+LOCATION:Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 27.2 km\nhttps://my.racer
+ esult.com/429372/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/429372/
+END:VEVENT
+END:VCALENDAR

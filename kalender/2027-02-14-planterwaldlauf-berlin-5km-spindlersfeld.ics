@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-14-planterwaldlauf-berlin-5km-spindlersfeld@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:Plänterwaldlauf Berlin – 5 km (U12 und älter)
+LOCATION:Spindlersfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.abczb.de/p
+ laenterwaldlauf/
+TRANSP:TRANSPARENT
+URL:https://www.abczb.de/plaenterwaldlauf/
+END:VEVENT
+END:VCALENDAR

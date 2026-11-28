@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-29-essen-600-bergig-ara-ruhrgebiet-606km-essen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270629
+DTEND;VALUE=DATE:20270630
+SUMMARY:Essen 600 bergig - ARA Ruhrgebiet – Brevet 606 km
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 606 km\nhttps://ara-ruhrgeb
+ iet.de/brevets-2027/
+TRANSP:TRANSPARENT
+URL:https://ara-ruhrgebiet.de/brevets-2027/
+END:VEVENT
+END:VCALENDAR

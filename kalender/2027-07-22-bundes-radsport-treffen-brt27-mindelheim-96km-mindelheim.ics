@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-22-bundes-radsport-treffen-brt27-mindelheim-96km-mindelheim@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270722
+DTEND;VALUE=DATE:20270723
+SUMMARY:Bundes-Radsport-Treffen BRT27 – Mindelheim – RTF 96 km
+LOCATION:Mindelheim\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 96 km\nhttps://brt27.de
+TRANSP:TRANSPARENT
+URL:https://brt27.de
+END:VEVENT
+END:VCALENDAR

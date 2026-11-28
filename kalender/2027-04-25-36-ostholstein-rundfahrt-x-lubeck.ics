@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-36-ostholstein-rundfahrt-x-lubeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:36. Ostholstein-Rundfahrt – RTF
+LOCATION:Lübeck\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.rst-luebeck.
+ de
+TRANSP:TRANSPARENT
+URL:https://www.rst-luebeck.de
+END:VEVENT
+END:VCALENDAR

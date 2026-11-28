@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-brevet-zum-kloster-bier-300km-treuchtlingen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Brevet Zum Kloster Bier – Brevet 300 km
+LOCATION:Treuchtlingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 300 km\nhttp://www.randonne
+ ure.de/
+TRANSP:TRANSPARENT
+URL:http://www.randonneure.de/
+END:VEVENT
+END:VCALENDAR

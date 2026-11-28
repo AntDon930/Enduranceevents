@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-zeller-baderbau-triathlon-30-4km-heidenheim@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Zeller-Bäderbau Triathlon – Triathlon
+LOCATION:Heidenheim\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 30.4 km\nhttps://triathlo
+ n-heidenheim.de/auschreibung/
+TRANSP:TRANSPARENT
+URL:https://triathlon-heidenheim.de/auschreibung/
+END:VEVENT
+END:VCALENDAR

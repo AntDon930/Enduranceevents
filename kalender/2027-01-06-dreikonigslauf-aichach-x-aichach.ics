@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-dreikonigslauf-aichach-x-aichach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Dreikönigslauf - Aichach
+LOCATION:Aichach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://lc-aichach.jimdow
+ eb.com/
+TRANSP:TRANSPARENT
+URL:https://lc-aichach.jimdoweb.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-ringringsemmering-gravel-63-1km-semmering-kurort@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:RingRingSemmering Gravel – Gravel Tour 63.1 km
+LOCATION:Semmering-Kurort\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 63.1 km\nhttps://www.ringri
+ ngsemmering.com
+TRANSP:TRANSPARENT
+URL:https://www.ringringsemmering.com
+END:VEVENT
+END:VCALENDAR

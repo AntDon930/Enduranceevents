@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-10-6-panaromagravel-buhlertal-50km-buhlertal@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
+SUMMARY:6. Panaromagravel Bühlertal – Gravel Tour 50 km
+LOCATION:Bühlertal\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 50 km\nhttps://RSV-falkenfe
+ ls.de/panaromagravel
+TRANSP:TRANSPARENT
+URL:https://RSV-falkenfels.de/panaromagravel
+END:VEVENT
+END:VCALENDAR

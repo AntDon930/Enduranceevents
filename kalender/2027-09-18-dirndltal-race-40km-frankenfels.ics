@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-dirndltal-race-40km-frankenfels@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Dirndltal Race – MTB-Marathon 40 km
+LOCATION:Frankenfels\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 40 km\nhttp://www.dir
+ ndltal-race.at/
+TRANSP:TRANSPARENT
+URL:http://www.dirndltal-race.at/
+END:VEVENT
+END:VCALENDAR

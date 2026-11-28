@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-06-trophee-vallee-du-flon-13km-le-flon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271106
+DTEND;VALUE=DATE:20271108
+SUMMARY:Trophée Vallée du Flon
+LOCATION:Le Flon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://csvf.ch/
+TRANSP:TRANSPARENT
+URL:https://csvf.ch/
+END:VEVENT
+END:VCALENDAR

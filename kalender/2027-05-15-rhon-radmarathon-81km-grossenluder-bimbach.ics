@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-rhon-radmarathon-81km-grossenluder-bimbach@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270517
+SUMMARY:Rhön Radmarathon – CTF Strecke 2026 81 km
+LOCATION:Großenlüder-Bimbach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 81 km\nhttp://www.rho
+ en-radmarathon.de/
+TRANSP:TRANSPARENT
+URL:http://www.rhoen-radmarathon.de/
+END:VEVENT
+END:VCALENDAR

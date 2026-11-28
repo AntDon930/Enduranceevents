@@ -1,0 +1,76 @@
+{
+  "_note": "Karussell zum Blogbeitrag „Winterkleidung“ (scripts/blog_texte/winterkleidung.html). Alles steht dort; der Beitrag nennt die Tipps als Erfahrungswerte – hier nichts ergänzen, was der Beitrag nicht sagt.",
+  "blog": "winterkleidung",
+  "titel": "Winterkleidung",
+  "untertitel": "Dos & Don'ts",
+  "einleitung": "Warm, trocken und sichtbar durch den Winter – beim Laufen und auf dem Rad.",
+  "figur": "winken",
+  "seiten": [
+    {
+      "art": "info",
+      "titel": "Das Zwiebelprinzip",
+      "figur": "zeigen",
+      "punkte": [
+        {"zeichen": "info", "fett": "1. Funktionsschicht:", "text": "leitet den Schweiß nach außen – Funktionsfaser oder Merino."},
+        {"zeichen": "info", "fett": "2. Wärmende Schicht:", "text": "dünnes Fleece oder Langarmshirt aus Merino."},
+        {"zeichen": "info", "fett": "3. Schutzschicht:", "text": "leichte, atmungsaktive Jacke gegen Wind und Regen."}
+      ]
+    },
+    {
+      "art": "info",
+      "titel": "Die Faustregel",
+      "figur": "denken",
+      "punkte": [
+        {"zeichen": "ja", "fett": "Beim Loslaufen", "text": "darfst du leicht frösteln."},
+        {"zeichen": "ja", "fett": "Nach zehn Minuten", "text": "ist dir warm."},
+        {"zeichen": "nein", "fett": "Schwitzen schon beim Start?", "text": "Dann hast du zu viel an."}
+      ]
+    },
+    {
+      "art": "do",
+      "titel": "Kopf, Hände, Füße",
+      "figur": "daumen",
+      "punkte": [
+        {"zeichen": "ja", "fett": "Kopf:", "text": "Stirnband an milden Tagen, dünne Mütze bei Frost."},
+        {"zeichen": "ja", "fett": "Hände:", "text": "dünne Handschuhe – wem schnell kalt wird, nimmt Fäustlinge."},
+        {"zeichen": "ja", "fett": "Füße:", "text": "etwas dickere Socken aus Funktionsfaser oder Merino."}
+      ]
+    },
+    {
+      "art": "info",
+      "titel": "Auf dem Rad ist es kälter",
+      "figur": "stehen",
+      "punkte": [
+        {"zeichen": "info", "fett": "Fahrtwind:", "text": "kühlt deutlich mehr aus als beim Laufen."},
+        {"zeichen": "ja", "fett": "Winddichte Front:", "text": "Jacke oder Weste, vorne dicht, hinten luftig."},
+        {"zeichen": "ja", "fett": "Überschuhe:", "text": "die Füße bewegen sich kaum und werden schnell kalt."}
+      ]
+    },
+    {
+      "art": "info",
+      "titel": "Sehen und gesehen werden",
+      "figur": "jubeln",
+      "punkte": [
+        {"zeichen": "ja", "fett": "Reflektoren an Knöcheln und Händen:", "text": "fallen auf, weil sie sich bewegen."},
+        {"zeichen": "ja", "fett": "Stirnlampe:", "text": "damit du Bordsteine und Wurzeln siehst."},
+        {"zeichen": "ja", "fett": "Am Rad:", "text": "Licht vorne und hinten, dazu ein Rücklicht am Helm."}
+      ]
+    },
+    {
+      "art": "dont",
+      "titel": "Don'ts",
+      "figur": "stopp",
+      "punkte": [
+        {"zeichen": "nein", "fett": "Baumwolle:", "text": "saugt sich voll und bleibt nass."},
+        {"zeichen": "nein", "fett": "Zu enge Schuhe:", "text": "mit dicken Socken wird es erst recht kalt."},
+        {"zeichen": "nein", "fett": "In nassen Sachen bleiben:", "text": "nach dem Training sofort umziehen."}
+      ]
+    }
+  ],
+  "schluss": {
+    "titel": "Speichern für den nächsten kalten Morgen!",
+    "text": "Alle Tipps zum Laufen und Radfahren im Winter findest du auf endurance-events.de – Link in der Bio.",
+    "figur": "daumen"
+  },
+  "caption": ["🧤 Winterkleidung – Dos & Don'ts", "Was ziehst du bei Frost an? Schreib es in die Kommentare!", "#laufenimwinter #wintertraining #laufen #radfahren #zwiebelprinzip"]
+}

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-4-bonanza-rad-cross-gravel-bamberg-2-3km-bamberg@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:4. Bonanza Rad-Cross & Gravel Bamberg – Cyclocross 2.3 km
+LOCATION:Bamberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 2.3 km\nhttps://www.bon
+ anza-radmobil.de
+TRANSP:TRANSPARENT
+URL:https://www.bonanza-radmobil.de
+END:VEVENT
+END:VCALENDAR

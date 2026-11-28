@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-pankower-pfannkuchenlauf-berlin-x-berlin@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Pankower Pfannkuchenlauf Berlin
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.ksv-90.de/KSV
+ 90-Lauf/44-Pankower-GESOBAU-Pfannkuchenlauf-2026/
+TRANSP:TRANSPARENT
+URL:https://www.ksv-90.de/KSV90-Lauf/44-Pankower-GESOBAU-Pfannkuchenlauf-2
+ 026/
+END:VEVENT
+END:VCALENDAR

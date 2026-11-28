@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-velofondo-bike-festival-11-3km-schipkau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270906
+SUMMARY:Velofondo Bike Festival – 24-Stunden-Rennen 11.3 km
+LOCATION:Schipkau\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 11.3 km\nhttps://www.maxima
+ lpuls.com/events/velofondo24h/
+TRANSP:TRANSPARENT
+URL:https://www.maximalpuls.com/events/velofondo24h/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-andechs-trail-20km-andechs@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Andechs Trail
+LOCATION:Andechs\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 20 km\nhttps://laufportal.spo
+ rtprogramme.org/event/c0cbf327-71e5-42d3-95f7-82c560af2785
+TRANSP:TRANSPARENT
+URL:https://laufportal.sportprogramme.org/event/c0cbf327-71e5-42d3-95f7-82
+ c560af2785
+END:VEVENT
+END:VCALENDAR

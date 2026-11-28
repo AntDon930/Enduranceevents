@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-19-3-prestart-zuger-trophy-zug-5-9km-zug@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:19. 3. Prestart Zuger-Trophy Zug
+LOCATION:Zug\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.9 km\nhttps://www.zuger-tr
+ ophy.ch
+TRANSP:TRANSPARENT
+URL:https://www.zuger-trophy.ch
+END:VEVENT
+END:VCALENDAR

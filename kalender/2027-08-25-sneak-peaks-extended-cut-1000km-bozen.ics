@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-25-sneak-peaks-extended-cut-1000km-bozen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270825
+DTEND;VALUE=DATE:20270905
+SUMMARY:SNEAK PEAKS EXTENDED CUT
+LOCATION:Bozen\, Italien (Südtirol)
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 1000 km\nhttps://www.
+ orbit360.cc/de/sneak-peaks
+TRANSP:TRANSPARENT
+URL:https://www.orbit360.cc/de/sneak-peaks
+END:VEVENT
+END:VCALENDAR

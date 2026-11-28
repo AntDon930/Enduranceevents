@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-husumer-tinefahrt-nordseeradmarathon-102km-husum@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Husumer Tinefahrt & Nordseeradmarathon – Radmarathon 102 km (Termi
+ n vorläufig)
+LOCATION:Husum\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / St
+ raße\nLänge: 102 km\nhttps://www.rsv-husum.de/
+TRANSP:TRANSPARENT
+URL:https://www.rsv-husum.de/
+END:VEVENT
+END:VCALENDAR

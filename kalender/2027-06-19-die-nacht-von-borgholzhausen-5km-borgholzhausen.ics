@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-die-nacht-von-borgholzhausen-5km-borgholzhausen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Die Nacht Von Borgholzhausen – Firmenlauf 5 km als Teamwettbewerb
+LOCATION:Borgholzhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://rsv-borgholzha
+ usen.de/nacht
+TRANSP:TRANSPARENT
+URL:https://rsv-borgholzhausen.de/nacht
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-tagitri-22-7km-wettingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:TägiTri – Triathlon Kurz 22.7 km (0.5 km Schwimmen / 18.4 km Rad /
+  3.8 km Laufen)
+LOCATION:Wettingen\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 22.7 km\nhttps://taegit
+ ri.ch/home
+TRANSP:TRANSPARENT
+URL:https://taegitri.ch/home
+END:VEVENT
+END:VCALENDAR

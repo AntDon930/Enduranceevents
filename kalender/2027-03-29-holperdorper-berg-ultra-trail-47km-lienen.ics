@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-29-holperdorper-berg-ultra-trail-47km-lienen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+SUMMARY:Holperdorper Berg Ultra Trail
+LOCATION:Lienen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 47 km\nhttps://my.raceresult.
+ com/431738/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/431738/
+END:VEVENT
+END:VCALENDAR

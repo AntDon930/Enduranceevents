@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-fruhlingslauf-rot-an-der-rot-10km-rot-an-der-rot@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Frühlingslauf Rot an der Rot – 10 km Lauf
+LOCATION:Rot an der Rot\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.rcs-team-
+ rot.de/Fruehlingslauf/
+TRANSP:TRANSPARENT
+URL:https://www.rcs-team-rot.de/Fruehlingslauf/
+END:VEVENT
+END:VCALENDAR

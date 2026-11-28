@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-13-vohwinkeler-fuchslauf-2027-10km-wuppertal@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:13. Vohwinkeler Fuchslauf 2027
+LOCATION:Wuppertal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.vstv.de
+TRANSP:TRANSPARENT
+URL:http://www.vstv.de
+END:VEVENT
+END:VCALENDAR

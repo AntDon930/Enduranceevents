@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-16-firmenlauf-feuerbach-5km-stuttgart@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270916
+DTEND;VALUE=DATE:20270917
+SUMMARY:Firmenlauf Feuerbach
+LOCATION:Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://feuerbach.bw-r
+ unning.de/home
+TRANSP:TRANSPARENT
+URL:https://feuerbach.bw-running.de/home
+END:VEVENT
+END:VCALENDAR

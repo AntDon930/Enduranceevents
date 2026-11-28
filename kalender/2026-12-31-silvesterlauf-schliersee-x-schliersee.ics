@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-schliersee-x-schliersee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Schliersee
+LOCATION:Schliersee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.medius-fitnes
+ s.de/jasnas-testseite/
+TRANSP:TRANSPARENT
+URL:https://www.medius-fitness.de/jasnas-testseite/
+END:VEVENT
+END:VCALENDAR

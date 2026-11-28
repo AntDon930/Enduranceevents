@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-bodensee-marathon-10km-kressbronn-am-bodensee@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Bodensee Marathon – 10 km Lauf DORF10er
+LOCATION:Kressbronn am Bodensee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.bodensee-
+ marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.bodensee-marathon.de/
+END:VEVENT
+END:VCALENDAR

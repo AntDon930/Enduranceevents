@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-vintage-tour-donau-69km-rohrendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Vintage Tour Donau – Vintage-Tour 69 km
+LOCATION:Rohrendorf\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 69 km\nhttps://www.vintage-
+ tour.at/
+TRANSP:TRANSPARENT
+URL:https://www.vintage-tour.at/
+END:VEVENT
+END:VCALENDAR

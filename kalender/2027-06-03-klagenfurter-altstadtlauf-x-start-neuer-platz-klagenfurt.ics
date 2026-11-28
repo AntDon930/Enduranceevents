@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-03-klagenfurter-altstadtlauf-x-start-neuer-platz-klagenfurt@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270603
+DTEND;VALUE=DATE:20270604
+SUMMARY:Klagenfurter Altstadtlauf
+LOCATION:Start Neuer Platz Klagenfurt\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.altstadtlauf-
+ klagenfurt.at/
+TRANSP:TRANSPARENT
+URL:https://www.altstadtlauf-klagenfurt.at/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-23-autohaus-reiser-irrseelauf-2027-x-zell-am-moos@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:23. Autohaus Reiser Irrseelauf 2027
+LOCATION:Zell am Moos\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://irrseesport.at/ir
+ rseelauf/
+TRANSP:TRANSPARENT
+URL:https://irrseesport.at/irrseelauf/
+END:VEVENT
+END:VCALENDAR

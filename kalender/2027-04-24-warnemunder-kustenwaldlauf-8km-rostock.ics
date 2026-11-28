@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-warnemunder-kustenwaldlauf-8km-rostock@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Warnemünder Küstenwaldlauf
+LOCATION:Rostock\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://svwarnemuende.
+ de/news/leichtathletik/43-warnemuender-kuestenwaldlauf-starker-auftritt-t
+ rotz-stuermischer-bedingungen/
+TRANSP:TRANSPARENT
+URL:https://svwarnemuende.de/news/leichtathletik/43-warnemuender-kuestenwa
+ ldlauf-starker-auftritt-trotz-stuermischer-bedingungen/
+END:VEVENT
+END:VCALENDAR

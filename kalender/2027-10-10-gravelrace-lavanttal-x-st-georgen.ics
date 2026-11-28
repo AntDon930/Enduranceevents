@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-10-gravelrace-lavanttal-x-st-georgen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
+SUMMARY:Gravelrace Lavanttal – Cycling 4 All
+LOCATION:St. Georgen\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: -\nhttps://www.hrc-wolfsber
+ g.com
+TRANSP:TRANSPARENT
+URL:https://www.hrc-wolfsberg.com
+END:VEVENT
+END:VCALENDAR

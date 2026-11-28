@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-57-int-lustenauer-crosslaufserie-4-lauf-x-lustenau@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:57. Int. Lustenauer Crosslaufserie - 4. Lauf
+LOCATION:Lustenau\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.tslustenau.at/
+ crosslaufserie-2026/
+TRANSP:TRANSPARENT
+URL:https://www.tslustenau.at/crosslaufserie-2026/
+END:VEVENT
+END:VCALENDAR

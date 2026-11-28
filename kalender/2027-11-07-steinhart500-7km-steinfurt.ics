@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-07-steinhart500-7km-steinfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271107
+DTEND;VALUE=DATE:20271108
+SUMMARY:Steinhart500 – 7 km verkürzte Runde
+LOCATION:Steinfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.tb-burgste
+ infurt.de/steinhart500/start/
+TRANSP:TRANSPARENT
+URL:https://www.tb-burgsteinfurt.de/steinhart500/start/
+END:VEVENT
+END:VCALENDAR

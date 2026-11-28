@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-muddy-albler-hindernislauf-7km-albstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Muddy Älbler Hindernislauf – Muddy S LIGHT\, 2 Runden\, 7 km
+LOCATION:Albstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 7 km\nhttps://muddy-aelbl
+ er.de/
+TRANSP:TRANSPARENT
+URL:https://muddy-aelbler.de/
+END:VEVENT
+END:VCALENDAR

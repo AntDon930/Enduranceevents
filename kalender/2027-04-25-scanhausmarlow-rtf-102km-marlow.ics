@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-scanhausmarlow-rtf-102km-marlow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:ScanHausMarlow RTF – RTF 102 km
+LOCATION:Marlow\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 102 km\nhttps://www.scanhau
+ scup-marlow.de/scanhausmarlow-rtf/
+TRANSP:TRANSPARENT
+URL:https://www.scanhauscup-marlow.de/scanhausmarlow-rtf/
+END:VEVENT
+END:VCALENDAR

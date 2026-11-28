@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-cvjm-silvesterlauf-21-1km-netphen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:CVJM Silvesterlauf
+LOCATION:Netphen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.cvjm-sil
+ vesterlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.cvjm-silvesterlauf.de
+END:VEVENT
+END:VCALENDAR

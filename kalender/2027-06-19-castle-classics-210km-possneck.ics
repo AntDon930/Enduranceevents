@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-castle-classics-210km-possneck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Castle Classics – Radmarathon 210 km
+LOCATION:Pößneck\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 210 km\nhttps://www.castle-
+ classics.de/
+TRANSP:TRANSPARENT
+URL:https://www.castle-classics.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-steinhuder-meer-marathon-42-2km-hagenburg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Steinhuder Meer Marathon – Marathon
+LOCATION:Hagenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://lauffieber-
+ schaumburg.de/2026/09/22/16-steinhuder-meer-marathon/
+TRANSP:TRANSPARENT
+URL:https://lauffieber-schaumburg.de/2026/09/22/16-steinhuder-meer-maratho
+ n/
+END:VEVENT
+END:VCALENDAR

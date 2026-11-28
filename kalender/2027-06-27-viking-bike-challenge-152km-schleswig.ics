@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-viking-bike-challenge-152km-schleswig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Viking Bike Challenge – Radmarathon 152 km (Termin vorläufig)
+LOCATION:Schleswig\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / St
+ raße\nLänge: 152 km\nhttp://www.rv-schleswig.de
+TRANSP:TRANSPARENT
+URL:http://www.rv-schleswig.de
+END:VEVENT
+END:VCALENDAR

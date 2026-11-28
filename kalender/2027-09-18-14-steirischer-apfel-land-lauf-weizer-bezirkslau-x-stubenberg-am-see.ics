@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-14-steirischer-apfel-land-lauf-weizer-bezirkslau-x-stubenbe
+ rg-am-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:14. Steirischer Apfel Land Lauf (Weizer Bezirkslaufcup)
+LOCATION:Stubenberg am See\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.lg-apfelland.a
+ t
+TRANSP:TRANSPARENT
+URL:http://www.lg-apfelland.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-nusslocher-wiesenlauf-10km-nussloch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Nußlocher Wiesenlauf
+LOCATION:Nußloch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.nussloche
+ r-wiesenlauf.de/wordpress/
+TRANSP:TRANSPARENT
+URL:https://www.nusslocher-wiesenlauf.de/wordpress/
+END:VEVENT
+END:VCALENDAR

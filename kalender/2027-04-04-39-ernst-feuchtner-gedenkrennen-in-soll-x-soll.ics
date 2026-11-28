@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-39-ernst-feuchtner-gedenkrennen-in-soll-x-soll@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:39. Ernst Feuchtner Gedenkrennen in Söll – Straßenrennen
+LOCATION:Söll\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.cyclingaustr
+ ia.at/index.php?option=com_events&view=event&id=F872352324254E258A8DA248C
+ 0487432
+TRANSP:TRANSPARENT
+URL:https://www.cyclingaustria.at/index.php?option=com_events&view=event&i
+ d=F872352324254E258A8DA248C0487432
+END:VEVENT
+END:VCALENDAR

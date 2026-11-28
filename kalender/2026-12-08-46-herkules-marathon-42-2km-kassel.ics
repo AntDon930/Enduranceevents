@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-08-46-herkules-marathon-42-2km-kassel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261208
+DTEND;VALUE=DATE:20261209
+SUMMARY:46. Herkules-Marathon
+LOCATION:Kassel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://laufwerkkas
+ sel.jimdoweb.com/herkules-marathon
+TRANSP:TRANSPARENT
+URL:https://laufwerkkassel.jimdoweb.com/herkules-marathon
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-30-meinbezirk-silvesterlauf-graz-5km-graz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20270101
+SUMMARY:MeinBezirk Silvesterlauf Graz
+LOCATION:Graz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://sportpay24.com
+ /events/1438
+TRANSP:TRANSPARENT
+URL:https://sportpay24.com/events/1438
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-emder-berglauf-x-emden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Emder Berglauf
+LOCATION:Emden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://ladv.de/ausschreib
+ ung/detail/49797/13.-Emder-Berglauf-Emden.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49797/13.-Emder-Berglauf-Emden.ht
+ m
+END:VEVENT
+END:VCALENDAR

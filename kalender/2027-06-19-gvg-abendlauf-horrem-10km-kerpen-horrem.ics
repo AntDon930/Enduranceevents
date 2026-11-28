@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-gvg-abendlauf-horrem-10km-kerpen-horrem@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:GVG-Abendlauf Horrem
+LOCATION:Kerpen-Horrem\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.horremer-
+ abendlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.horremer-abendlauf.de/
+END:VEVENT
+END:VCALENDAR

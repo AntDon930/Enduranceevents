@@ -1,0 +1,256 @@
+{
+ "thema": "Weniger trainieren, schneller laufen?",
+ "seed": 11,
+ "szenen": [
+  {
+   "bild": "frage",
+   "text": "Kurz vor dem Rennen weniger trainieren? Macht dich das schneller?",
+   "zeile": "WENIGER = SCHNELLER?",
+   "g": 116,
+   "aktion": "kalender",
+   "von": 14,
+   "teile": [
+    [
+     0.0,
+     2.11,
+     6
+    ],
+    [
+     2.36,
+     3.43,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "denken",
+   "text": "Form weg? Schwere Beine? Noch ein langer Lauf?",
+   "worte": [
+    "FORM WEG?",
+    "SCHWERE BEINE?",
+    "NOCH EIN LANGER LAUF?"
+   ],
+   "teile": [
+    [
+     3.67,
+     4.34,
+     2
+    ],
+    [
+     4.57,
+     5.48,
+     2
+    ],
+    [
+     5.72,
+     6.87,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "entwarnung",
+   "text": "Keine Panik! Die Müdigkeit geht, die Form bleibt.",
+   "blase": "KEINE PANIK!",
+   "blase_g": 96,
+   "zeile": "MÜDIGKEIT GEHT, FORM BLEIBT",
+   "g": 92,
+   "teile": [
+    [
+     7.1,
+     8.04,
+     2
+    ],
+    [
+     8.21,
+     10.25,
+     6
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Eine Studie mit über hundertfünfzigtausend Marathonläufern zeigt: Wer drei Wochen lang langsam reduzierte, war gut fünfeinhalb Minuten schneller.",
+   "zahl": 330,
+   "format": "min",
+   "oben": "158.000 MARATHONLÄUFER",
+   "einheit": "MINUTEN SCHNELLER",
+   "zeile": "IM SCHNITT, IM ZIEL",
+   "klein": "Smyth & Lawlor, 2021",
+   "teile": [
+    [
+     10.49,
+     14.06,
+     7
+    ],
+    [
+     14.22,
+     16.66,
+     6
+    ],
+    [
+     16.8,
+     18.93,
+     5
+    ]
+   ]
+  },
+  {
+   "bild": "balken",
+   "text": "So geht's: den Umfang halbieren, zum Beispiel von fünfzig auf fünfunddreißig, dann zweiundzwanzig Kilometer.",
+   "oben": "KILOMETER PRO WOCHE",
+   "balken": [
+    [
+     "HÖCHSTWOCHE",
+     50,
+     "50 km",
+     "coral"
+    ],
+    [
+     "2 WO. VORHER",
+     35,
+     "35 km",
+     "blau"
+    ],
+    [
+     "RENNWOCHE",
+     22,
+     "22 km",
+     "gruen"
+    ]
+   ],
+   "zeile": "UMFANG ETWA HALBIEREN",
+   "teile": [
+    [
+     19.15,
+     19.79,
+     2
+    ],
+    [
+     20.02,
+     21.25,
+     3
+    ],
+    [
+     21.46,
+     24.06,
+     6
+    ],
+    [
+     24.26,
+     26.03,
+     3
+    ]
+   ]
+  },
+  {
+   "bild": "test",
+   "text": "Aber: Das Tempo bleibt. Gleiche Trainingstage, ein paar zügige Abschnitte.",
+   "titel": "DEIN TAPER",
+   "zeilen": [
+    [
+     "1",
+     "UMFANG HALBIEREN"
+    ],
+    [
+     "2",
+     "TAGE BEIBEHALTEN"
+    ],
+    [
+     "3",
+     "TEMPO BEHALTEN"
+    ]
+   ],
+   "fazit": "WENIGER KM, GLEICHES TEMPO",
+   "teile": [
+    [
+     26.25,
+     26.7,
+     1
+    ],
+    [
+     26.93,
+     29.54,
+     5
+    ],
+    [
+     29.78,
+     31.41,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "schluss",
+   "text": "Wie lange taperst du? Ab in die Kommentare!",
+   "frage": "WIE LANGE TAPERST DU?",
+   "g": 112,
+   "blase": "2 Wochen – und du?",
+   "teile": [
+    [
+     31.64,
+     32.67,
+     4
+    ],
+    [
+     32.9,
+     33.96,
+     4
+    ]
+   ]
+  }
+ ],
+ "quellen": [
+  "https://pmc.ncbi.nlm.nih.gov/articles/PMC8506252/",
+  "https://doi.org/10.2165/00007256-200434130-00003",
+  "https://doi.org/10.1249/mss.0b013e31806010e0",
+  "https://endurance-events.de/blog/tapering.html"
+ ],
+ "caption": [
+  "Weniger trainieren – und trotzdem schneller? 🤯",
+  "Wie lange taperst du vor deinem Rennen? Schreib es in die Kommentare!",
+  "#tapering #marathontraining #laufen #lauftraining #wettkampf"
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen gekürzt, atempo 0,89) – tapering.mp3 neben dieser Datei (neu am 25.11.2026)",
+ "cover": {
+  "farbe": "coral",
+  "titel": [
+   "WENIGER",
+   "TRAINING =",
+   "SCHNELLER?"
+  ],
+  "hervor": 2,
+  "figur": "kalender",
+  "text": "3"
+ },
+ "zeiten": [
+  [
+   0.0,
+   3.55
+  ],
+  [
+   3.55,
+   6.98
+  ],
+  [
+   6.98,
+   10.37
+  ],
+  [
+   10.37,
+   19.04
+  ],
+  [
+   19.04,
+   26.14
+  ],
+  [
+   26.14,
+   31.52
+  ],
+  [
+   31.52,
+   34.25
+  ]
+ ]
+}

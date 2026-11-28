@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-vorchdorfer-pfingstlauf-10km-vorchdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Vorchdorfer Pfingstlauf
+LOCATION:Vorchdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.traunvier
+ tler-laufcup.at/laufe/vorchdorfer-pfingstlauf/
+TRANSP:TRANSPARENT
+URL:https://www.traunviertler-laufcup.at/laufe/vorchdorfer-pfingstlauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-dlrg-winterschwimmen-im-neckar-3-5km-remseck-am-neckar@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:DLRG-Winterschwimmen im Neckar – 3\,5 km vom Neckarstrand Remseck 
+ zum Wasserrettungszentrum Schießtal (ab 12 Jahren\, max. 150 Teilnehmer)
+LOCATION:Remseck am Neckar\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 3.5 km\nhttps://ludwi
+ gsburg-remseck.dlrg.de/die-ortsgruppe/winterschwimmen/
+TRANSP:TRANSPARENT
+URL:https://ludwigsburg-remseck.dlrg.de/die-ortsgruppe/winterschwimmen/
+END:VEVENT
+END:VCALENDAR

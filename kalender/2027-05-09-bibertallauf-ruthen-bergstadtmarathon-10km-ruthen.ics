@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-bibertallauf-ruthen-bergstadtmarathon-10km-ruthen@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Bibertallauf Rüthen & Bergstadtmarathon
+LOCATION:Rüthen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://bibertal-lauf
+ .de/
+TRANSP:TRANSPARENT
+URL:https://bibertal-lauf.de/
+END:VEVENT
+END:VCALENDAR

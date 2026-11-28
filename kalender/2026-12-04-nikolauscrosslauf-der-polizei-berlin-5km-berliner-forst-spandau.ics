@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-04-nikolauscrosslauf-der-polizei-berlin-5km-berliner-forst-spa
+ ndau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+SUMMARY:Nikolauscrosslauf der Polizei Berlin
+LOCATION:Berliner Forst Spandau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://myracepartner.c
+ om/veranstaltung/?event-id=672207
+TRANSP:TRANSPARENT
+URL:https://myracepartner.com/veranstaltung/?event-id=672207
+END:VEVENT
+END:VCALENDAR

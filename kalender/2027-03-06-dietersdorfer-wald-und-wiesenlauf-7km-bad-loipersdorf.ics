@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-dietersdorfer-wald-und-wiesenlauf-7km-bad-loipersdorf@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:Dietersdorfer Wald- und Wiesenlauf
+LOCATION:Bad Loipersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttp://www.brunnenlauf
+ .com 
+TRANSP:TRANSPARENT
+URL:http://www.brunnenlauf.com 
+END:VEVENT
+END:VCALENDAR

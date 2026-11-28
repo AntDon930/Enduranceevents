@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-der-lg-kaufungen-7-7km-kaufungen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf der LG Kaufungen
+LOCATION:Kaufungen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://www.lg-kaufu
+ ngen.de/
+TRANSP:TRANSPARENT
+URL:https://www.lg-kaufungen.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-27-47-osterlauf-des-lc-marathon-80-e-v-18km-rotenburg-a-d-fuld
+ a@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:47. Osterlauf des LC- Marathon 80 e.V.
+LOCATION:Rotenburg a. d. Fulda\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://www.lcm-roten
+ burg.de/
+TRANSP:TRANSPARENT
+URL:https://www.lcm-rotenburg.de/
+END:VEVENT
+END:VCALENDAR

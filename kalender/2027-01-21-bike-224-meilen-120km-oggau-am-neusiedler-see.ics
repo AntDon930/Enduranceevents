@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-21-bike-224-meilen-120km-oggau-am-neusiedler-see@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270121
+DTEND;VALUE=DATE:20270122
+SUMMARY:Bike 224 Meilen – Gravel Brevet 120 km
+LOCATION:Oggau am Neusiedler See\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 120 km\nhttps://24stundenbu
+ rgenland.com/bike224meilen/
+TRANSP:TRANSPARENT
+URL:https://24stundenburgenland.com/bike224meilen/
+END:VEVENT
+END:VCALENDAR

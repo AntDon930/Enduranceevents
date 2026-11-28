@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-27-paderborner-osterlauf-10km-paderborn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:Paderborner Osterlauf
+LOCATION:Paderborn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.paderborn
+ er-osterlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.paderborner-osterlauf.de/
+END:VEVENT
+END:VCALENDAR

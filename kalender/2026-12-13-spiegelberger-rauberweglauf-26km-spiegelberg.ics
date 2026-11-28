@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-spiegelberger-rauberweglauf-26km-spiegelberg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Spiegelberger Räuberweglauf – 26 km / ca. ±800 Hm
+LOCATION:Spiegelberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 26 km\nhttps://ultras.prospec
+ tum.com/events/2026_06_raeuberweglauf/
+TRANSP:TRANSPARENT
+URL:https://ultras.prospectum.com/events/2026_06_raeuberweglauf/
+END:VEVENT
+END:VCALENDAR

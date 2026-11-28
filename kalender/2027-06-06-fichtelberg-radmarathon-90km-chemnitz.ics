@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-fichtelberg-radmarathon-90km-chemnitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Fichtelberg Radmarathon – Radmarathon ca. 90 km / 1.900 hm
+LOCATION:Chemnitz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 90 km\nhttps://fichtelberg-
+ radmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://fichtelberg-radmarathon.de/
+END:VEVENT
+END:VCALENDAR

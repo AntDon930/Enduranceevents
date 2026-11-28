@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-crosslaufserie-luckenwalde-9-3km-luckenwalde@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:Crosslaufserie Luckenwalde
+LOCATION:Luckenwalde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9.3 km\nhttps://anmeldung.lau
+ fauswertung.com/Anmeldung/index.php?VID=38C52AE33E
+TRANSP:TRANSPARENT
+URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=38C52AE33
+ E
+END:VEVENT
+END:VCALENDAR

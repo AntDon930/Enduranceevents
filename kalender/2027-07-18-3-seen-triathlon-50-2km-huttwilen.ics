@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-18-3-seen-triathlon-50-2km-huttwilen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:3-Seen-Triathlon – Olympic Distance 50.2 km (1.5 km Schwimmen / 38
+ .2 km Rad / 10.5 km Laufen)
+LOCATION:Hüttwilen\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 50.2 km\nhttps://www.3-se
+ en-triathlon.ch
+TRANSP:TRANSPARENT
+URL:https://www.3-seen-triathlon.ch
+END:VEVENT
+END:VCALENDAR

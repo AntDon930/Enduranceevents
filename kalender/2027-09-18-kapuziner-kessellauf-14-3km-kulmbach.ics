@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-kapuziner-kessellauf-14-3km-kulmbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Kapuziner Kessellauf – 14\,3 km Kapuziner Kessellauf
+LOCATION:Kulmbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14.3 km\nhttps://www.ausdaue
+ rsport-kulmbach.de/Kessellauf/KesselAusschreibung.html
+TRANSP:TRANSPARENT
+URL:https://www.ausdauersport-kulmbach.de/Kessellauf/KesselAusschreibung.h
+ tml
+END:VEVENT
+END:VCALENDAR

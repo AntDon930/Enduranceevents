@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-transalpine-run-250km-vaz-obervaz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270925
+SUMMARY:Transalpine Run
+LOCATION:Vaz/Obervaz\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 250 km\nhttps://www.transalpi
+ ne-run.com/
+TRANSP:TRANSPARENT
+URL:https://www.transalpine-run.com/
+END:VEVENT
+END:VCALENDAR

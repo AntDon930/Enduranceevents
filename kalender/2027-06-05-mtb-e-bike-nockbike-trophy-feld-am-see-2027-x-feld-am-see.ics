@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-mtb-e-bike-nockbike-trophy-feld-am-see-2027-x-feld-am-see@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:MTB/E-Bike - NOCKBIKE Trophy Feld am See 2027 – Hillclimb
+LOCATION:Feld am See\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.rc-fel
+ damsee.at
+TRANSP:TRANSPARENT
+URL:https://www.rc-feldamsee.at
+END:VEVENT
+END:VCALENDAR

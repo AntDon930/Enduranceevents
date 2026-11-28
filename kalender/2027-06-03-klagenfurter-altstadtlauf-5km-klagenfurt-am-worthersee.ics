@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-03-klagenfurter-altstadtlauf-5km-klagenfurt-am-worthersee@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270603
+DTEND;VALUE=DATE:20270604
+SUMMARY:Klagenfurter Altstadtlauf
+LOCATION:Klagenfurt am Wörthersee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.altstadtla
+ uf-klagenfurt.at/
+TRANSP:TRANSPARENT
+URL:https://www.altstadtlauf-klagenfurt.at/
+END:VEVENT
+END:VCALENDAR

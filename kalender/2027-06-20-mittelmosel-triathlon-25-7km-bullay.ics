@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-mittelmosel-triathlon-25-7km-bullay@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Mittelmosel Triathlon
+LOCATION:Bullay\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.7 km\nhttp://www.mitte
+ lmosel-triathlon.de
+TRANSP:TRANSPARENT
+URL:http://www.mittelmosel-triathlon.de
+END:VEVENT
+END:VCALENDAR

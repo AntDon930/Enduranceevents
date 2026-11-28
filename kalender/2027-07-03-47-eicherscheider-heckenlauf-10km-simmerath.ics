@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-47-eicherscheider-heckenlauf-10km-simmerath@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:47. Eicherscheider Heckenlauf
+LOCATION:Simmerath\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://germania-eich
+ erscheid.de
+TRANSP:TRANSPARENT
+URL:https://germania-eicherscheid.de
+END:VEVENT
+END:VCALENDAR

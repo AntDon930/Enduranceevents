@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-besenbinder-lauf-rund-um-hainrode-15km-sudharz@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Besenbinder Lauf - Rund um Hainrode – Südharztrail 15 km
+LOCATION:Südharz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 15 km\nhttps://besenbinderlau
+ f.de/
+TRANSP:TRANSPARENT
+URL:https://besenbinderlauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-itterer-herbstlauf-x-itter@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Itterer Herbstlauf
+LOCATION:Itter\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.alpencup.cc/i
+ ndex.php?get=1&jahr=2027&v_id=27
+TRANSP:TRANSPARENT
+URL:https://www.alpencup.cc/index.php?get=1&jahr=2027&v_id=27
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-bruder-grimm-lauf-82km-hanau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270614
+SUMMARY:Brüder-Grimm-Lauf – Gesamtlauf 82 km (5 Etappen)
+LOCATION:Hanau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 82 km\nhttps://www.mkk.de/bu
+ ergerservice/lebenslagen_1/sport_kultur_ehrenamt/40_sport/sportveranstalt
+ ungen/brueder_grimm_lauf/brueder_grimm_lauf.html
+TRANSP:TRANSPARENT
+URL:https://www.mkk.de/buergerservice/lebenslagen_1/sport_kultur_ehrenamt/
+ 40_sport/sportveranstaltungen/brueder_grimm_lauf/brueder_grimm_lauf.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-zurich-city-triathlon-25-8km-zurich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270628
+SUMMARY:Zurich City Triathlon – Sprint
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.8 km\nhttps://dataspor
+ t.com/de/events/zurich-city-triathlon-2027
+TRANSP:TRANSPARENT
+URL:https://datasport.com/de/events/zurich-city-triathlon-2027
+END:VEVENT
+END:VCALENDAR

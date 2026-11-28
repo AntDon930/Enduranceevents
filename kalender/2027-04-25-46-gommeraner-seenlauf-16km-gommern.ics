@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-46-gommeraner-seenlauf-16km-gommern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:46. Gommeraner Seenlauf
+LOCATION:Gommern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16 km\nhttp://www.eintracht-
+ gommern.de/
+TRANSP:TRANSPARENT
+URL:http://www.eintracht-gommern.de/
+END:VEVENT
+END:VCALENDAR

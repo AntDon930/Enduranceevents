@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-zuri-rannt-guetzlilauf-12km-letten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Züri rännt Guetzlilauf
+LOCATION:Letten\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://zueriraennt.c
+ h/blog/zuri-rannt-guetzlilauf
+TRANSP:TRANSPARENT
+URL:https://zueriraennt.ch/blog/zuri-rannt-guetzlilauf
+END:VEVENT
+END:VCALENDAR

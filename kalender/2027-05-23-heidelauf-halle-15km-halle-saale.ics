@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-heidelauf-halle-15km-halle-saale@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Heidelauf Halle – 15 km Lauf
+LOCATION:Halle (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://Heidelauf-hal
+ le.de
+TRANSP:TRANSPARENT
+URL:https://Heidelauf-halle.de
+END:VEVENT
+END:VCALENDAR

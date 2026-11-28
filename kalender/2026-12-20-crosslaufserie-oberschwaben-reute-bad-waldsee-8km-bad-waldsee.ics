@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-crosslaufserie-oberschwaben-reute-bad-waldsee-8km-bad-walds
+ ee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Crosslaufserie Oberschwaben - Reute/Bad Waldsee – 8\,0 km Hauptlau
+ f
+LOCATION:Bad Waldsee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.crosslaufse
+ rie-oberschwaben.de/veranstaltungsorte/20-12-2026-reute-bad-waldsee/
+TRANSP:TRANSPARENT
+URL:https://www.crosslaufserie-oberschwaben.de/veranstaltungsorte/20-12-20
+ 26-reute-bad-waldsee/
+END:VEVENT
+END:VCALENDAR

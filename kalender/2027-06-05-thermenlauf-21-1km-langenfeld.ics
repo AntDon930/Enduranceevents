@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-thermenlauf-21-1km-langenfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Thermenlauf – 21\,1 km Halbmarathon
+LOCATION:Längenfeld\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.thermen
+ lauf.at/
+TRANSP:TRANSPARENT
+URL:https://www.thermenlauf.at/
+END:VEVENT
+END:VCALENDAR

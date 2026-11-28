@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-vr-halbmarathon-geislingen-2027-5km-geislingen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:VR-Halbmarathon Geislingen 2027
+LOCATION:Geislingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://geislingen21.d
+ e
+TRANSP:TRANSPARENT
+URL:https://geislingen21.de
+END:VEVENT
+END:VCALENDAR

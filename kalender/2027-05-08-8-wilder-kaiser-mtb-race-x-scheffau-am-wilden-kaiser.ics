@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-8-wilder-kaiser-mtb-race-x-scheffau-am-wilden-kaiser@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270510
+SUMMARY:8. Wilder Kaiser MTB Race – Cross-Country\, Cycling 4 All\, Short-
+ Track
+LOCATION:Scheffau am Wilden Kaiser\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.rvsche
+ ffau.at
+TRANSP:TRANSPARENT
+URL:https://www.rvscheffau.at
+END:VEVENT
+END:VCALENDAR

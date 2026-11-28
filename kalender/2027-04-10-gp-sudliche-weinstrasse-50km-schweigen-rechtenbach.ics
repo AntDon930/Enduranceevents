@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-gp-sudliche-weinstrasse-50km-schweigen-rechtenbach@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:GP Südliche Weinstraße – Jedermannrennen 50 km
+LOCATION:Schweigen Rechtenbach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 50 km\nhttps://gp-suew.de/j
+ edermannrennen-2/
+TRANSP:TRANSPARENT
+URL:https://gp-suew.de/jedermannrennen-2/
+END:VEVENT
+END:VCALENDAR

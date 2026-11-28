@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-aquadays-langenzersdorf-x-langenzersdorf@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:AQUADAYS Langenzersdorf – Aquathlon (Termin vorläufig)
+LOCATION:Langenzersdorf\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Aquathlon\nLänge: -\nhttps://www.aquadays.at/
+TRANSP:TRANSPARENT
+URL:https://www.aquadays.at/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-20-ketteler-lauf-lauf-dem-krebs-davon-7km-offenbach@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:20. Ketteler-Lauf\, Lauf dem Krebs davon
+LOCATION:Offenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttp://www.ketteler-kr
+ ankenhaus.de
+TRANSP:TRANSPARENT
+URL:http://www.ketteler-krankenhaus.de
+END:VEVENT
+END:VCALENDAR

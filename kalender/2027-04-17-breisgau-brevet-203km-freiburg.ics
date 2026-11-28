@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-breisgau-brevet-203km-freiburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Breisgau-Brevet – Brevet 203 km
+LOCATION:Freiburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 203 km\nhttps://audax-breis
+ gau.de/brm/breisgau-brevet-1
+TRANSP:TRANSPARENT
+URL:https://audax-breisgau.de/brm/breisgau-brevet-1
+END:VEVENT
+END:VCALENDAR

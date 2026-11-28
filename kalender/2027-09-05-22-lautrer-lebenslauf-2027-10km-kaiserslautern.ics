@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-22-lautrer-lebenslauf-2027-10km-kaiserslautern@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:22. Lautrer Lebenslauf 2027 – 10 km Lauf/Walking
+LOCATION:Kaiserslautern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.fck-runni
+ ng.de/lebenslauf/allgemeines/
+TRANSP:TRANSPARENT
+URL:https://www.fck-running.de/lebenslauf/allgemeines/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-08-saualmlauf-des-laufclub-althofen-12km-eberstein@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261208
+DTEND;VALUE=DATE:20261209
+SUMMARY:Saualmlauf des Laufclub Althofen
+LOCATION:Eberstein\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.laufclub-
+ althofen.at/saualmlauf/
+TRANSP:TRANSPARENT
+URL:https://www.laufclub-althofen.at/saualmlauf/
+END:VEVENT
+END:VCALENDAR

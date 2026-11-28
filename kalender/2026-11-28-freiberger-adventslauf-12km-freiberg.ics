@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-freiberger-adventslauf-12km-freiberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Freiberger Adventslauf – Hauptlauf\, 12 km\, ab 2007\, Startgebühr
+  18\,00 €
+LOCATION:Freiberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttp://freiberger-adv
+ entslauf.de/
+TRANSP:TRANSPARENT
+URL:http://freiberger-adventslauf.de/
+END:VEVENT
+END:VCALENDAR

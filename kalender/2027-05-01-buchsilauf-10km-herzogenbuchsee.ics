@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-buchsilauf-10km-herzogenbuchsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Buchsilauf
+LOCATION:Herzogenbuchsee\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.scalpina.
+ ch/aktivit%C3%A4ten/buchsilauf/
+TRANSP:TRANSPARENT
+URL:https://www.scalpina.ch/aktivit%C3%A4ten/buchsilauf/
+END:VEVENT
+END:VCALENDAR

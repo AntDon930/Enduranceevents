@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-loburg-ultra-marathon-55km-ostbevern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Loburg Ultra Marathon
+LOCATION:Ostbevern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 55 km\nhttps://racetimer-app
+ .de/event_details.php?id=72
+TRANSP:TRANSPARENT
+URL:https://racetimer-app.de/event_details.php?id=72
+END:VEVENT
+END:VCALENDAR

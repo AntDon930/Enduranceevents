@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-sandhasen-gravel-tour-wolfersheim-63km-wolfersheim@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Sandhasen Gravel-Tour Wölfersheim – Gravel 63 km
+LOCATION:Wölfersheim\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 63 km\nhttps://www.rtc-sand
+ hasen.de/
+TRANSP:TRANSPARENT
+URL:https://www.rtc-sandhasen.de/
+END:VEVENT
+END:VCALENDAR

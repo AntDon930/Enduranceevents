@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-12-bergische-50-2027-50km-wipperfurth@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:12. Bergische 50 2027
+LOCATION:Wipperfürth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://www.bergische
+ 50.de/Disziplinen/Bergische-50
+TRANSP:TRANSPARENT
+URL:https://www.bergische50.de/Disziplinen/Bergische-50
+END:VEVENT
+END:VCALENDAR

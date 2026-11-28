@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-02-velotour-rund-um-berlin-222km-erkner@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271002
+DTEND;VALUE=DATE:20271003
+SUMMARY:VeloTour – Rund um Berlin – Radmarathon 222 km
+LOCATION:Erkner\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 222 km\nhttp://www.velotour
+ -radmarathon.de
+TRANSP:TRANSPARENT
+URL:http://www.velotour-radmarathon.de
+END:VEVENT
+END:VCALENDAR

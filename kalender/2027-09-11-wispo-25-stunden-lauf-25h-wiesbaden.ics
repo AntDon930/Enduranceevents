@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-wispo-25-stunden-lauf-25h-wiesbaden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270913
+SUMMARY:WISPO 25-Stunden-Lauf
+LOCATION:Wiesbaden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25 h\nhttps://www.wispo-onli
+ ne.de/veranstaltungen/25-std-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.wispo-online.de/veranstaltungen/25-std-lauf/
+END:VEVENT
+END:VCALENDAR

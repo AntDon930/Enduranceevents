@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-26-seestadt-open-water-swimming-3-8km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270526
+DTEND;VALUE=DATE:20270527
+SUMMARY:Seestadt Open Water Swimming – Open-Water-Swimming 3.800 m
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 3.8 km\nhttps://seest
+ adt-triathlon.at/
+TRANSP:TRANSPARENT
+URL:https://seestadt-triathlon.at/
+END:VEVENT
+END:VCALENDAR

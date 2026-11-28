@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-stuttgart-lauf-21-1km-stuttgart@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:Stuttgart-Lauf – Halbmarathon
+LOCATION:Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://stuttgart-l
+ auf.de/
+TRANSP:TRANSPARENT
+URL:https://stuttgart-lauf.de/
+END:VEVENT
+END:VCALENDAR

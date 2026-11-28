@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-06-westumer-murre-lauf-x-sinzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+SUMMARY:Westumer Murre-Lauf
+LOCATION:Sinzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://lauftreff-westum.
+ de/volkslauf/volkslauf.html
+TRANSP:TRANSPARENT
+URL:https://lauftreff-westum.de/volkslauf/volkslauf.html
+END:VEVENT
+END:VCALENDAR

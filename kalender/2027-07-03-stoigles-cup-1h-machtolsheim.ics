@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-stoigles-cup-1h-machtolsheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Stoigles Cup – Stundenrennen (Termin vorläufig)
+LOCATION:Machtolsheim\, Deutschland
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Fahrrad / Mo
+ untainbike\nLänge: 1 h\nhttp://www.sportverein-machtolsheim.de
+TRANSP:TRANSPARENT
+URL:http://www.sportverein-machtolsheim.de
+END:VEVENT
+END:VCALENDAR

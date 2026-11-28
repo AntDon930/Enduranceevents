@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-triathlon-locarno-51-6km-locarno@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Triathlon Locarno – Olympic Distance 51.6 km (1.6 km Schwimmen / 4
+ 0 km Rad / 10 km Laufen)
+LOCATION:Locarno\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.6 km\nhttps://www.3loc
+ arno.ch
+TRANSP:TRANSPARENT
+URL:https://www.3locarno.ch
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-wald-und-crosslaufserie-hamburg-x-hamburg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:Wald- und Crosslaufserie Hamburg
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.bsv-hamburg.de
+ /
+TRANSP:TRANSPARENT
+URL:https://www.bsv-hamburg.de/
+END:VEVENT
+END:VCALENDAR

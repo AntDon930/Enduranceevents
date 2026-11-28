@@ -1,0 +1,199 @@
+{
+ "thema": "Zwei Kilo mehr am Renntag?",
+ "seed": 17,
+ "szenen": [
+  {
+   "bild": "frage",
+   "text": "Am Renntag zwei Kilo mehr auf der Waage? Kein Grund zur Panik.",
+   "zeile": "2 KILO MEHR AM RENNTAG?",
+   "g": 100,
+   "symbol": "+2",
+   "aktion": "waage",
+   "teile": [
+    [
+     0,
+     2.62,
+     8
+    ],
+    [
+     2.87,
+     4.05,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "entwarnung",
+   "text": "Das ist ein gutes Zeichen: Deine Speicher sind voll.",
+   "blase": "GUTES ZEICHEN!",
+   "blase_g": 88,
+   "zeile": "SPEICHER VOLL",
+   "teile": [
+    [
+     4.22,
+     5.49,
+     5
+    ],
+    [
+     5.71,
+     6.96,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "balken",
+   "text": "Jedes Gramm Glykogen im Muskel bindet rund drei Gramm Wasser.",
+   "oben": "IM MUSKEL",
+   "balken": [
+    [
+     "GLYKOGEN",
+     1,
+     "1 g",
+     "coral"
+    ],
+    [
+     "WASSER",
+     3,
+     "3 g",
+     "blau"
+    ]
+   ],
+   "zeile": "1 GRAMM BINDET 3 GRAMM WASSER",
+   "g": 76,
+   "teile": [
+    [
+     7.2,
+     10.9,
+     10
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Beim Carboloading isst du zehn bis zwölf Gramm Kohlenhydrate pro Kilo Körpergewicht. Bei siebzig Kilo sind das rund siebenhundert Gramm am Tag.",
+   "zahl": 700,
+   "oben": "BEI 70 KILO, PRO TAG",
+   "einheit": "GRAMM KOHLENHYDRATE",
+   "zeile": "10–12 g PRO KILO KÖRPERGEWICHT",
+   "g": 72,
+   "klein": "für Rennen über 90 Minuten",
+   "teile": [
+    [
+     11.11,
+     16.1,
+     12
+    ],
+    [
+     16.22,
+     19.38,
+     10
+    ]
+   ]
+  },
+  {
+   "bild": "figur",
+   "text": "Zwei Tage vorher reichen: Nudeln, Reis, Kartoffeln, Brot. Und nichts Neues ausprobieren.",
+   "pose": "nudeln",
+   "titel": "2 TAGE REICHEN",
+   "blasen": [
+    "Nudeln, Reis,",
+    "Kartoffeln, Brot"
+   ],
+   "zeile": "NICHTS NEUES TESTEN",
+   "teile": [
+    [
+     19.52,
+     20.92,
+     4
+    ],
+    [
+     21.12,
+     21.66,
+     1
+    ],
+    [
+     21.82,
+     23.18,
+     2
+    ],
+    [
+     23.33,
+     23.69,
+     1
+    ],
+    [
+     23.92,
+     25.6,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "schluss",
+   "text": "Was isst du am Abend vor dem Rennen? Schreib es in die Kommentare.",
+   "frage": "DEIN ESSEN VOR DEM RENNEN?",
+   "g": 92,
+   "blase": "Pasta – was sonst?",
+   "teile": [
+    [
+     25.79,
+     27.52,
+     8
+    ],
+    [
+     27.77,
+     29.06,
+     5
+    ]
+   ]
+  }
+ ],
+ "quellen": [
+  "https://doi.org/10.1080/02640414.2011.585473",
+  "https://doi.org/10.1249/MSS.0000000000000852",
+  "https://doi.org/10.1007/s00421-015-3175-z",
+  "https://endurance-events.de/blog/carboloading.html"
+ ],
+ "caption": [
+  "Zwei Kilo mehr am Renntag? ⚖️",
+  "Was isst du am Abend vor dem Rennen? Schreib es in die Kommentare!",
+  "#carboloading #marathon #laufen #ernährung #wettkampf"
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen 0,22 s, atempo 0,89) – renntagswaage.mp3 neben dieser Datei",
+ "cover": {
+  "farbe": "navy",
+  "titel": [
+   "2 KILO MEHR",
+   "AM RENNTAG?"
+  ],
+  "hervor": 0,
+  "figur": "waage"
+ },
+ "zeiten": [
+  [
+   0,
+   4.14
+  ],
+  [
+   4.14,
+   7.08
+  ],
+  [
+   7.08,
+   11.0
+  ],
+  [
+   11.0,
+   19.45
+  ],
+  [
+   19.45,
+   25.7
+  ],
+  [
+   25.7,
+   29.34
+  ]
+ ]
+}

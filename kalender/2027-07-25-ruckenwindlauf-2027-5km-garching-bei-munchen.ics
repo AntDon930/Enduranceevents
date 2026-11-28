@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-ruckenwindlauf-2027-5km-garching-bei-munchen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Rückenwindlauf 2027 – Rückenwindlauf 5 km
+LOCATION:Garching bei München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.rueckenwin
+ dlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.rueckenwindlauf.de/
+END:VEVENT
+END:VCALENDAR

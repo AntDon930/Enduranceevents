@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-24-barenfels-heiligabend-lauf-8-1km-hoppstadten-weiersbach@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261224
+DTEND;VALUE=DATE:20261225
+SUMMARY:Bärenfels Heiligabend Lauf – Sprint 8\,1 km (1 Runde\, 200 Hm)
+LOCATION:Hoppstädten-Weiersbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.1 km\nhttps://baerenfelstea
+ m.de/
+TRANSP:TRANSPARENT
+URL:https://baerenfelsteam.de/
+END:VEVENT
+END:VCALENDAR

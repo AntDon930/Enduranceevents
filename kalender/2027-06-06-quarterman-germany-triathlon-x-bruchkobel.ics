@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-quarterman-germany-triathlon-x-bruchkobel@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Quarterman Germany Triathlon
+LOCATION:Bruchköbel\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: -\nhttps://my.raceresult
+ .com/424804/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/424804/
+END:VEVENT
+END:VCALENDAR

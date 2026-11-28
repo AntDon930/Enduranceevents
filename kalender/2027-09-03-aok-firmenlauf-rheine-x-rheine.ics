@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-03-aok-firmenlauf-rheine-x-rheine@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270903
+DTEND;VALUE=DATE:20270904
+SUMMARY:AOK-Firmenlauf Rheine
+LOCATION:Rheine\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://aok-firmenlauf-rh
+ eine.de/
+TRANSP:TRANSPARENT
+URL:https://aok-firmenlauf-rheine.de/
+END:VEVENT
+END:VCALENDAR

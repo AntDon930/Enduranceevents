@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-wurm-enztal-radtourenfahrt-81km-weil-der-stadt-merklingen@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:Würm-Enztal-Radtourenfahrt – RTF 81 km
+LOCATION:Weil der Stadt - Merklingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 81 km\nhttps://rvwmerklinge
+ n.de/radtourenfahrt/
+TRANSP:TRANSPARENT
+URL:https://rvwmerklingen.de/radtourenfahrt/
+END:VEVENT
+END:VCALENDAR

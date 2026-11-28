@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-sanbe-trail-and-vertical-contest-21-1km-mesocco@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:Sanbe Trail and Vertical Contest – Halbmarathon
+LOCATION:Mesocco\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttps://www.vertical
+ sanbe.ch/
+TRANSP:TRANSPARENT
+URL:https://www.verticalsanbe.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-backyard-ultra-cologne-x-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270809
+SUMMARY:Backyard Ultra Cologne
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: Open End\nhttps://my
+ .raceresult.com/434469/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/434469/
+END:VEVENT
+END:VCALENDAR

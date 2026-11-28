@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-klausenlauf-allschwil-10km-allschwil@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Klausenlauf Allschwil
+LOCATION:Allschwil\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.allschwil
+ er-klausenlauf.ch
+TRANSP:TRANSPARENT
+URL:https://www.allschwiler-klausenlauf.ch
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-30-lungau-180-3h-mauterndorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:Lungau 180 – 3 hr
+LOCATION:Mauterndorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 3 h\nhttps://www.lungau.at/d
+ e/lungau-180
+TRANSP:TRANSPARENT
+URL:https://www.lungau.at/de/lungau-180
+END:VEVENT
+END:VCALENDAR

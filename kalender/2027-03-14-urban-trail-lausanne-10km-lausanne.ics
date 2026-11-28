@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-urban-trail-lausanne-10km-lausanne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Urban Trail Lausanne
+LOCATION:Lausanne\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://urbantrail-lau
+ sanne.com
+TRANSP:TRANSPARENT
+URL:https://urbantrail-lausanne.com
+END:VEVENT
+END:VCALENDAR

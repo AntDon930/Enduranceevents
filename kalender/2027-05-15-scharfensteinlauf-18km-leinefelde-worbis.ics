@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-scharfensteinlauf-18km-leinefelde-worbis@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Scharfensteinlauf – 18 km für Frauen\, Männer und Senioren
+LOCATION:Leinefelde-Worbis\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://www.concordia
+ -beuren.de/index.php/scharfensteinlauf/anmeldeinformation/
+TRANSP:TRANSPARENT
+URL:https://www.concordia-beuren.de/index.php/scharfensteinlauf/anmeldeinf
+ ormation/
+END:VEVENT
+END:VCALENDAR

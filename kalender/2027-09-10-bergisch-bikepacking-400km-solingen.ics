@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-10-bergisch-bikepacking-400km-solingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270910
+DTEND;VALUE=DATE:20270913
+SUMMARY:Bergisch Bikepacking – Bikepacking 400 km
+LOCATION:Solingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 400 km\nhttps://www.bergisc
+ h-bikepacking.de/
+TRANSP:TRANSPARENT
+URL:https://www.bergisch-bikepacking.de/
+END:VEVENT
+END:VCALENDAR

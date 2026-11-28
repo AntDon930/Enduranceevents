@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-02-jpmorganchase-corporate-challenge-5-6km-frankfurt@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270602
+DTEND;VALUE=DATE:20270603
+SUMMARY:JPMorganChase Corporate Challenge
+LOCATION:Frankfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://www.jpmorgan
+ chasecc.com/de/frankfurt
+TRANSP:TRANSPARENT
+URL:https://www.jpmorganchasecc.com/de/frankfurt
+END:VEVENT
+END:VCALENDAR

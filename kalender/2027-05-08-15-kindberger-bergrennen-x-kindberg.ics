@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-15-kindberger-bergrennen-x-kindberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:15. Kindberger Bergrennen – Bergrennen
+LOCATION:Kindberg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.rc-arboe-kin
+ dberg.at
+TRANSP:TRANSPARENT
+URL:https://www.rc-arboe-kindberg.at
+END:VEVENT
+END:VCALENDAR

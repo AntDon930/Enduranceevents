@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-assamstadter-volkslauf-ansmann-cup-10km-assamstadt@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Assamstadter Volkslauf – Ansmann Cup
+LOCATION:Assamstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufgemeinsch
+ aft-tauberfranken.de/21-assamstadter-volkslauf/
+TRANSP:TRANSPARENT
+URL:https://laufgemeinschaft-tauberfranken.de/21-assamstadter-volkslauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-fricktaler-waffenlauf-16km-kaisten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Fricktaler Waffenlauf
+LOCATION:Kaisten\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16 km\nhttps://www.vckaisten
+ .ch/veranstaltungen/fricktaler-waffenlauf
+TRANSP:TRANSPARENT
+URL:https://www.vckaisten.ch/veranstaltungen/fricktaler-waffenlauf
+END:VEVENT
+END:VCALENDAR

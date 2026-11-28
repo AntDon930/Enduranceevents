@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-taunus-bikepacking-1000km-eppstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Taunus Bikepacking
+LOCATION:Eppstein\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 1000 km\nhttps://taunus-bik
+ epacking.com
+TRANSP:TRANSPARENT
+URL:https://taunus-bikepacking.com
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-weinparadieslauf-ippesheim-6km-ippesheim@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Weinparadieslauf Ippesheim
+LOCATION:Ippesheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://weinparadiesla
+ uf.weinbauverein-ippesheim.de/
+TRANSP:TRANSPARENT
+URL:https://weinparadieslauf.weinbauverein-ippesheim.de/
+END:VEVENT
+END:VCALENDAR

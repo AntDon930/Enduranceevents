@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-bramscher-100-charity-lauf-100km-bramsche@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Bramscher 100 Charity-Lauf
+LOCATION:Bramsche\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 100 km\nhttps://ww
+ w.laufen-os.de/wettkaempfe/bramscher-100-charity-lauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/bramscher-100-charity-lauf-2026
+END:VEVENT
+END:VCALENDAR

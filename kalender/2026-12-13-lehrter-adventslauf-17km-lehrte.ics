@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-lehrter-adventslauf-17km-lehrte@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Lehrter Adventslauf – 17 km Lauf
+LOCATION:Lehrte\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17 km\nhttps://lehrtersv.de/
+ tri-wettkaempfe/adventslauf
+TRANSP:TRANSPARENT
+URL:https://lehrtersv.de/tri-wettkaempfe/adventslauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-03-landesmeisterschaft-aquathlon-0-6km-knittelfeld@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270603
+DTEND;VALUE=DATE:20270604
+SUMMARY:Landesmeisterschaft Aquathlon – Volksschule 1+2\, 550 m
+LOCATION:Knittelfeld\, Österreich
+DESCRIPTION:Sportart: Triathlon / Aquathlon\nLänge: 0.6 km\nhttps://ergebn
+ isliste.at/Event/1264
+TRANSP:TRANSPARENT
+URL:https://ergebnisliste.at/Event/1264
+END:VEVENT
+END:VCALENDAR

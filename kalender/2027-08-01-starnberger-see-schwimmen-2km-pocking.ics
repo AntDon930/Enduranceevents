@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-starnberger-see-schwimmen-2km-pocking@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Starnberger See Schwimmen – 2 km Possenhofen – Leoni
+LOCATION:Pöcking\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 2 km\nhttps://starnbe
+ rgersee-schwimmen.de/
+TRANSP:TRANSPARENT
+URL:https://starnbergersee-schwimmen.de/
+END:VEVENT
+END:VCALENDAR

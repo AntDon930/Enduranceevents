@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-06-gruntalultra-50km-freudenstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+SUMMARY:Grüntalultra
+LOCATION:Freudenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.neckarlau
+ f.com/gr%C3%BCntalultra.html
+TRANSP:TRANSPARENT
+URL:https://www.neckarlauf.com/gr%C3%BCntalultra.html
+END:VEVENT
+END:VCALENDAR

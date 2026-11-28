@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-27-langenberg-cross-duathlon-6km-leck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:Langenberg Cross-Duathlon
+LOCATION:Leck\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 6 km\nhttps://my.racere
+ sult.com/433995/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/433995/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-32-stockseeer-abendlauf-7km-stocksee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:32. Stockseeer Abendlauf
+LOCATION:Stocksee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://abendlauf.me/
+TRANSP:TRANSPARENT
+URL:https://abendlauf.me/
+END:VEVENT
+END:VCALENDAR

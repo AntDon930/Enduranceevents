@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-generali-run-the-sun-ascona-locarno-marathon-5km-locarno@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:Generali Run The Sun Ascona-Locarno Marathon – 5km Grand Prix Citt
+ à Vecchia
+LOCATION:Locarno\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.generaliru
+ nthesun.com/
+TRANSP:TRANSPARENT
+URL:https://www.generalirunthesun.com/
+END:VEVENT
+END:VCALENDAR

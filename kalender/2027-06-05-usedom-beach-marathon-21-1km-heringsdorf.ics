@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-usedom-beach-marathon-21-1km-heringsdorf@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Usedom Beach Marathon
+LOCATION:Heringsdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://usedom.de/u
+ sedom-beach-marathon
+TRANSP:TRANSPARENT
+URL:https://usedom.de/usedom-beach-marathon
+END:VEVENT
+END:VCALENDAR

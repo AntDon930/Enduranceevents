@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-10-arberland-ultra-trail-102km-bayerisch-eisenstein@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:10. ARBERLAND Ultra Trail – Arberland Ultra Trail (102km)
+LOCATION:Bayerisch Eisenstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 102 km\nhttps://www.woidlaeuf
+ er.de/
+TRANSP:TRANSPARENT
+URL:https://www.woidlaeufer.de/
+END:VEVENT
+END:VCALENDAR

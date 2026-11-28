@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-27-l-hivern-alle-5-3km-alle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:L'Hivern'Alle – 5\,30 km Hauptlauf.
+LOCATION:Alle\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttps://defichrono.c
+ h/pages/informations.php?IdRace=165
+TRANSP:TRANSPARENT
+URL:https://defichrono.ch/pages/informations.php?IdRace=165
+END:VEVENT
+END:VCALENDAR

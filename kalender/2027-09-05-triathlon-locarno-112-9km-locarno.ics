@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-triathlon-locarno-112-9km-locarno@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Triathlon Locarno – Triathlon Medium 112.9 km (1.9 km Schwimmen / 
+ 90 km Rad / 21 km Laufen)
+LOCATION:Locarno\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 112.9 km\nhttps://www.3lo
+ carno.ch
+TRANSP:TRANSPARENT
+URL:https://www.3locarno.ch
+END:VEVENT
+END:VCALENDAR

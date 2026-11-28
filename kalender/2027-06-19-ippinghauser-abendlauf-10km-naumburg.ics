@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-ippinghauser-abendlauf-10km-naumburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Ippinghäuser Abendlauf – 10 km auf befestigten/geteerten Waldwegen
+LOCATION:Naumburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.wila-ippin
+ ghausen.de/Abendlauf/Ausschreibung
+TRANSP:TRANSPARENT
+URL:http://www.wila-ippinghausen.de/Abendlauf/Ausschreibung
+END:VEVENT
+END:VCALENDAR

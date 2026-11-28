@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-rund-um-den-fuhlinger-see-21-1km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Rund um den Fühlinger See – 21\,1 km Halbmarathon\, Männer\, Fraue
+ n\, Jugend U18 und älter
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.llg80nor
+ dparkkoeln.de/?page_id=225
+TRANSP:TRANSPARENT
+URL:http://www.llg80nordparkkoeln.de/?page_id=225
+END:VEVENT
+END:VCALENDAR

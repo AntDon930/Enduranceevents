@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-swe-albtal-triathlon-39-9km-ettlingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:SWE Albtal Triathlon – 39\,9 km Radfahren
+LOCATION:Ettlingen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 39.9 km\nhttps://www.swe-
+ albtal-triathlon.de/triathlon/
+TRANSP:TRANSPARENT
+URL:https://www.swe-albtal-triathlon.de/triathlon/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-erlanger-winterwaldlauf-12-6km-erlangen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Erlanger Winterwaldlauf – ca. 12\,6 km \, City-Trail\, ab 16 Jahre
+ n\, 18 €
+LOCATION:Erlangen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12.6 km\nhttps://www.winterwa
+ ldlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.winterwaldlauf.de/
+END:VEVENT
+END:VCALENDAR

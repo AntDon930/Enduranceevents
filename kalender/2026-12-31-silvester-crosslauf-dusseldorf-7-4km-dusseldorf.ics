@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvester-crosslauf-dusseldorf-7-4km-dusseldorf@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvester Crosslauf Düsseldorf
+LOCATION:Düsseldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.4 km\nhttps://silvestercros
+ slauf.my.canva.site/
+TRANSP:TRANSPARENT
+URL:https://silvestercrosslauf.my.canva.site/
+END:VEVENT
+END:VCALENDAR

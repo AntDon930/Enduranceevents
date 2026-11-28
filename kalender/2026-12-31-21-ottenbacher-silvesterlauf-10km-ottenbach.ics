@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-21-ottenbacher-silvesterlauf-10km-ottenbach@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:21. Ottenbacher Silvesterlauf
+LOCATION:Ottenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsv-otten
+ bach.de/abteilungen/ottsilla/silvesterlauf/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-ottenbach.de/abteilungen/ottsilla/silvesterlauf/
+END:VEVENT
+END:VCALENDAR

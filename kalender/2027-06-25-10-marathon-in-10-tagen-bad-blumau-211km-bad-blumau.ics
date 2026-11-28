@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-10-marathon-in-10-tagen-bad-blumau-211km-bad-blumau@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270705
+SUMMARY:10 Marathon in 10 Tagen Bad Blumau
+LOCATION:Bad Blumau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 211 km\nhttps://my.raceresul
+ t.com/434136/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/434136/
+END:VEVENT
+END:VCALENDAR

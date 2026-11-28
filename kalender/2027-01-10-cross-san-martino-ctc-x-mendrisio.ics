@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-cross-san-martino-ctc-x-mendrisio@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Cross San Martino CTC
+LOCATION:Mendrisio\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.endu.net/it/ev
+ ents/cross-sa-n-martino-ctc
+TRANSP:TRANSPARENT
+URL:https://www.endu.net/it/events/cross-sa-n-martino-ctc
+END:VEVENT
+END:VCALENDAR

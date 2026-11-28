@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-norderstedt-triathlon-26km-norderstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Norderstedt Triathlon
+LOCATION:Norderstedt\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 26 km\nhttps://nordersted
+ t-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://norderstedt-triathlon.de/
+END:VEVENT
+END:VCALENDAR

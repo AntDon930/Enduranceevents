@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-08-tour-de-tirol-110km-soll@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271008
+DTEND;VALUE=DATE:20271009
+SUMMARY:Tour de Tirol
+LOCATION:Söll\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 110 km\nhttp://tourdetirol.at
+TRANSP:TRANSPARENT
+URL:http://tourdetirol.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-tolzer-triathlon-x-kirchsee-sachsenkam@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Tölzer Triathlon
+LOCATION:Kirchsee\, Sachsenkam\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://wsv-toelz.de/t
+ oelzer-triathlon/
+TRANSP:TRANSPARENT
+URL:https://wsv-toelz.de/toelzer-triathlon/
+END:VEVENT
+END:VCALENDAR

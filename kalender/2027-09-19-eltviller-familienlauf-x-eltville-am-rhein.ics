@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-eltviller-familienlauf-x-eltville-am-rhein@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Eltviller FamilienLauf
+LOCATION:Eltville am Rhein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.eltville.de/f
+ reizeit-tourismus/kultur-veranstaltungen/feste-events/eltvillerfamilienla
+ uf/
+TRANSP:TRANSPARENT
+URL:https://www.eltville.de/freizeit-tourismus/kultur-veranstaltungen/fest
+ e-events/eltvillerfamilienlauf/
+END:VEVENT
+END:VCALENDAR

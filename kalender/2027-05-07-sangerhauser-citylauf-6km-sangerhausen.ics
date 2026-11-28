@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-sangerhauser-citylauf-6km-sangerhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:Sangerhäuser Citylauf – 6 km City Runde
+LOCATION:Sangerhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://ladv.de/aussch
+ reibung/detail/49634/1.-Sangerh%C3%A4user-Citylauf-Sangerhausen.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49634/1.-Sangerh%C3%A4user-Cityla
+ uf-Sangerhausen.htm
+END:VEVENT
+END:VCALENDAR

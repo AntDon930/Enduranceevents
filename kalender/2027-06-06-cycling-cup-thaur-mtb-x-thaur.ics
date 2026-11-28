@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-cycling-cup-thaur-mtb-x-thaur@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Cycling Cup Thaur MTB – Cross-Country
+LOCATION:Thaur\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.innsbr
+ ucker-schwalben.at
+TRANSP:TRANSPARENT
+URL:https://www.innsbrucker-schwalben.at
+END:VEVENT
+END:VCALENDAR

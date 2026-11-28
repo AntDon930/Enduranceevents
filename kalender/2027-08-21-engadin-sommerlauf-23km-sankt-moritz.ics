@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-engadin-sommerlauf-23km-sankt-moritz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270823
+SUMMARY:Engadin Sommerlauf
+LOCATION:Sankt Moritz\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 23 km\nhttps://engadin-somme
+ rlauf.ch/
+TRANSP:TRANSPARENT
+URL:https://engadin-sommerlauf.ch/
+END:VEVENT
+END:VCALENDAR

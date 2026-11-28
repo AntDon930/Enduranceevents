@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-sparkassen-neujahrs-teamlauf-10km-coburg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Sparkassen Neujahrs-Teamlauf
+LOCATION:Coburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runandbike-te
+ am.de/neujahrsteamlauf/
+TRANSP:TRANSPARENT
+URL:https://runandbike-team.de/neujahrsteamlauf/
+END:VEVENT
+END:VCALENDAR

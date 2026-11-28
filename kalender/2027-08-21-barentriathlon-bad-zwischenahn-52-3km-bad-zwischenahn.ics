@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-barentriathlon-bad-zwischenahn-52-3km-bad-zwischenahn@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270823
+SUMMARY:Bärentriathlon Bad Zwischenahn
+LOCATION:Bad Zwischenahn\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 52.3 km\nhttps://www.die-
+ baeren.org
+TRANSP:TRANSPARENT
+URL:https://www.die-baeren.org
+END:VEVENT
+END:VCALENDAR

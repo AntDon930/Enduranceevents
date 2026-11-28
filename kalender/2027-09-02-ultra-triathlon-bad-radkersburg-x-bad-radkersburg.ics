@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-02-ultra-triathlon-bad-radkersburg-x-bad-radkersburg@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270902
+DTEND;VALUE=DATE:20270907
+SUMMARY:Ultra Triathlon Bad Radkersburg
+LOCATION:Bad Radkersburg\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.ultratriat
+ hlon.at/
+TRANSP:TRANSPARENT
+URL:https://www.ultratriathlon.at/
+END:VEVENT
+END:VCALENDAR

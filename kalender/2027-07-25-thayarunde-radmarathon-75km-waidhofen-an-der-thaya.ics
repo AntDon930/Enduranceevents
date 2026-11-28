@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-thayarunde-radmarathon-75km-waidhofen-an-der-thaya@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Thayarunde Radmarathon – Radmarathon 75 km
+LOCATION:Waidhofen an der Thaya\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 75 km\nhttps://www.thayarun
+ de.eu/radmarathon/
+TRANSP:TRANSPARENT
+URL:https://www.thayarunde.eu/radmarathon/
+END:VEVENT
+END:VCALENDAR

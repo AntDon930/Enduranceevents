@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-7-globus-theissen-lauf-14km-theissen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:7. Globus-Theißen-Lauf
+LOCATION:Theißen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://www.sveintrac
+ ht91theissen.de/globus-theissen-lauf
+TRANSP:TRANSPARENT
+URL:https://www.sveintracht91theissen.de/globus-theissen-lauf
+END:VEVENT
+END:VCALENDAR

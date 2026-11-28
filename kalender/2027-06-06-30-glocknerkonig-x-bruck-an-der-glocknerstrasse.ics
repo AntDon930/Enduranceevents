@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-30-glocknerkonig-x-bruck-an-der-glocknerstrasse@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:30. Glocknerkönig – Cycling 4 All
+LOCATION:Bruck an der Glocknerstraße\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.cyclingaustr
+ ia.at/index.php?option=com_events&view=event&id=9BCC5ED9925B4B4781BA38862
+ D16DD1F&filter=page=4
+TRANSP:TRANSPARENT
+URL:https://www.cyclingaustria.at/index.php?option=com_events&view=event&i
+ d=9BCC5ED9925B4B4781BA38862D16DD1F&filter=page=4
+END:VEVENT
+END:VCALENDAR

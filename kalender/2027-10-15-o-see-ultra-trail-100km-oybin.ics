@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-15-o-see-ultra-trail-100km-oybin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271015
+DTEND;VALUE=DATE:20271018
+SUMMARY:O-SEE Ultra Trail
+LOCATION:Oybin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 100 km\nhttps://www.o-see-spo
+ rts.de/O-SEE-Ultra-Trail.html
+TRANSP:TRANSPARENT
+URL:https://www.o-see-sports.de/O-SEE-Ultra-Trail.html
+END:VEVENT
+END:VCALENDAR

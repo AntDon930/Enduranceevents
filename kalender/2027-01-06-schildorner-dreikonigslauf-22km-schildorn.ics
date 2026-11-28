@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-schildorner-dreikonigslauf-22km-schildorn@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Schildorner Dreikönigslauf
+LOCATION:Schildorn\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 22 km\nhttp://www.lg-innvier
+ tel.at/dreikoenigslauf/
+TRANSP:TRANSPARENT
+URL:http://www.lg-innviertel.at/dreikoenigslauf/
+END:VEVENT
+END:VCALENDAR

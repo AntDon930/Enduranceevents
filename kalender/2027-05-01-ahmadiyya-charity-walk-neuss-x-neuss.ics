@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-ahmadiyya-charity-walk-neuss-x-neuss@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Ahmadiyya Charity Walk Neuss
+LOCATION:Neuss\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch · Charity\nLänge: -\nhttps://charity
+ walk.de/events/15-ahmadiyya-charity-walk-neuss-inklusion-und-gemeinschaft
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/15-ahmadiyya-charity-walk-neuss-inklusio
+ n-und-gemeinschaft
+END:VEVENT
+END:VCALENDAR

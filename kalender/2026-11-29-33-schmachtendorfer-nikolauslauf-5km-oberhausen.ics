@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-33-schmachtendorfer-nikolauslauf-5km-oberhausen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:33. Schmachtendorfer Nikolauslauf – 5.000 m
+LOCATION:Oberhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sterkrade-
+ nord.de/nikolauslauf
+TRANSP:TRANSPARENT
+URL:https://www.sterkrade-nord.de/nikolauslauf
+END:VEVENT
+END:VCALENDAR

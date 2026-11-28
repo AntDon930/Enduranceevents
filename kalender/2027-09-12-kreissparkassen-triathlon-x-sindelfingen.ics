@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-kreissparkassen-triathlon-x-sindelfingen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Kreissparkassen Triathlon – Triathlon
+LOCATION:Sindelfingen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.eventservi
+ ce-stahl.de/veranstaltungen/kreissparkassen-triathlon
+TRANSP:TRANSPARENT
+URL:https://www.eventservice-stahl.de/veranstaltungen/kreissparkassen-tria
+ thlon
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-24-wwbt-4-rv-witten-52km-witten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270124
+DTEND;VALUE=DATE:20270125
+SUMMARY:WWBT #4 - RV Witten – CTF 52 km
+LOCATION:Witten\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 52 km\nhttps://westfa
+ len-winter-bike-trophy.org/westfalen-winterbike-trophy-des-rv-witten/
+TRANSP:TRANSPARENT
+URL:https://westfalen-winter-bike-trophy.org/westfalen-winterbike-trophy-d
+ es-rv-witten/
+END:VEVENT
+END:VCALENDAR

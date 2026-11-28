@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-11-firmenlauf-pforzheim-5km-pforzheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270511
+DTEND;VALUE=DATE:20270512
+SUMMARY:Firmenlauf Pforzheim
+LOCATION:Pforzheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://pforzheim.bw-r
+ unning.de/home
+TRANSP:TRANSPARENT
+URL:https://pforzheim.bw-running.de/home
+END:VEVENT
+END:VCALENDAR

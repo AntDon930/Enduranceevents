@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-51-kieler-silvesterlauf-5km-kiel-ellerbek@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:51. Kieler Silvesterlauf
+LOCATION:Kiel-Ellerbek\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.ltvkiel-os
+ t.de/kieler-silvester-lauf
+TRANSP:TRANSPARENT
+URL:https://www.ltvkiel-ost.de/kieler-silvester-lauf
+END:VEVENT
+END:VCALENDAR

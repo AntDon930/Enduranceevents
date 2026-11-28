@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-nikolauslauf-beilngries-5km-beilngries@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Nikolauslauf Beilngries – Hobbylauf 5 km
+LOCATION:Beilngries\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://fcbeilngries.d
+ e/abteilung/triathlon/
+TRANSP:TRANSPARENT
+URL:https://fcbeilngries.de/abteilung/triathlon/
+END:VEVENT
+END:VCALENDAR

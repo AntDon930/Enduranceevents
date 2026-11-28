@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-biest-chiemgau-triathlon-120km-chieming@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270621
+SUMMARY:Biest - Chiemgau Triathlon
+LOCATION:Chieming\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 120 km\nhttps://biest-tr
+ iathlon.de/
+TRANSP:TRANSPARENT
+URL:https://biest-triathlon.de/
+END:VEVENT
+END:VCALENDAR

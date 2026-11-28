@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-einzelzeitfahren-thun-11km-thun@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Einzelzeitfahren Thun – Einzelzeitfahren 11 km
+LOCATION:Thun\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 11 km\nhttps://www.ezf-
+ thun.ch/
+TRANSP:TRANSPARENT
+URL:https://www.ezf-thun.ch/
+END:VEVENT
+END:VCALENDAR

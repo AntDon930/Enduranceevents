@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-rund-um-den-muggelturm-der-lauf-in-den-fruhling-5km-berlin@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Rund um den Müggelturm - der Lauf in den Frühling – 5 Kilometer
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ww-sport.de/mu
+ eggelturm-lauf/
+TRANSP:TRANSPARENT
+URL:https://ww-sport.de/mueggelturm-lauf/
+END:VEVENT
+END:VCALENDAR

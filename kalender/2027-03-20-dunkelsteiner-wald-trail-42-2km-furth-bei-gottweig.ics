@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-dunkelsteiner-wald-trail-42-2km-furth-bei-gottweig@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Dunkelsteiner Wald Trail – Marathon
+LOCATION:Furth bei Göttweig\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttps://www.dunkelst
+ einerwaldtrail.at/
+TRANSP:TRANSPARENT
+URL:https://www.dunkelsteinerwaldtrail.at/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-02-wildschonauer-hohenweg-trophy-30km-niederau@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271002
+DTEND;VALUE=DATE:20271003
+SUMMARY:Wildschönauer Höhenweg Trophy – Gipfel Trail \, 30 km\, 2000 - 230
+ 0 hm
+LOCATION:Niederau\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 30 km\nhttps://www.wildschoen
+ au.com/de/aktivitaeten/wandern/hoehenwegtrophy
+TRANSP:TRANSPARENT
+URL:https://www.wildschoenau.com/de/aktivitaeten/wandern/hoehenwegtrophy
+END:VEVENT
+END:VCALENDAR

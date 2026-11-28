@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-6-o-see-backyard-ultra-2027-x-zittau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270714
+SUMMARY:6. O-SEE Backyard Ultra 2027 – 6\,7056 km je Runde
+LOCATION:Zittau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: Open End\nhttps://ww
+ w.o-see-sports.de/veranstaltungen/o-see-backyard-ultra
+TRANSP:TRANSPARENT
+URL:https://www.o-see-sports.de/veranstaltungen/o-see-backyard-ultra
+END:VEVENT
+END:VCALENDAR

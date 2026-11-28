@@ -1,0 +1,194 @@
+{
+ "thema": "Carboloading: Brauchst du das wirklich?",
+ "seed": 31,
+ "quellen": [
+  "https://endurance-events.de/blog/carboloading.html",
+  "https://doi.org/10.1080/02640414.2011.585473",
+  "https://doi.org/10.1249/MSS.0000000000000852",
+  "https://doi.org/10.2165/00007256-199724020-00001"
+ ],
+ "szenen": [
+  {
+   "bild": "frage",
+   "aktion": "nudeln",
+   "text": "Nudelparty vor dem Rennen. Brauchst du das wirklich?",
+   "zeile": "CARBOLOADING?",
+   "g": 110,
+   "symbol": "?",
+   "teile": [
+    [
+     0.0,
+     1.76,
+     4
+    ],
+    [
+     1.92,
+     3.15,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "entwarnung",
+   "pose": "daumen",
+   "text": "Nein! Es lohnt sich erst ab neunzig Minuten Renndauer.",
+   "blase": "AB 90 MINUTEN!",
+   "blase_g": 84,
+   "zeile": "MARATHON, RADMARATHON, LANGDISTANZ",
+   "g": 72,
+   "teile": [
+    [
+     3.36,
+     4.16,
+     1
+    ],
+    [
+     4.41,
+     6.99,
+     8
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Dann zwei Tage lang zehn bis zwölf Gramm Kohlenhydrate pro Kilo.",
+   "oben": "ZWEI TAGE LANG",
+   "zahl": 10,
+   "nach": " G",
+   "einheit": "BIS 12 G PRO KILO",
+   "zeile": "KOHLENHYDRATE AM TAG",
+   "g": 80,
+   "teile": [
+    [
+     7.2,
+     11.46,
+     11
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Bei siebzig Kilo sind das rund siebenhundert Gramm am Tag.",
+   "oben": "BEI 70 KILO",
+   "zahl": 700,
+   "nach": " G",
+   "einheit": "KOHLENHYDRATE AM TAG",
+   "zeile": "MEHR ALS DIE MEISTEN DENKEN",
+   "g": 76,
+   "teile": [
+    [
+     11.68,
+     14.77,
+     10
+    ]
+   ]
+  },
+  {
+   "bild": "figur",
+   "pose": "banane",
+   "text": "Nicht mehr essen, sondern anders verteilen. Nudeln, Reis, Brot, Banane.",
+   "titel": "ANDERS VERTEILEN",
+   "blasen": [
+    "Nudeln & Reis",
+    "Brot & Banane"
+   ],
+   "zeile": "WENIGER FETT & BALLASTSTOFFE",
+   "g": 76,
+   "teile": [
+    [
+     14.88,
+     15.81,
+     3
+    ],
+    [
+     15.91,
+     16.26,
+     3
+    ],
+    [
+     16.37,
+     17.31,
+     1
+    ],
+    [
+     17.55,
+     18.75,
+     1
+    ],
+    [
+     18.99,
+     19.36,
+     1
+    ],
+    [
+     19.58,
+     19.99,
+     1
+    ]
+   ]
+  },
+  {
+   "bild": "schluss",
+   "text": "Wie viele Teller Nudeln schaffst du? Ab in die Kommentare!",
+   "frage": "DEINE NUDELPARTY?",
+   "g": 120,
+   "blase": "Zwei Teller – mindestens!",
+   "teile": [
+    [
+     20.21,
+     21.74,
+     6
+    ],
+    [
+     22.0,
+     23.1,
+     4
+    ]
+   ]
+  }
+ ],
+ "caption": [
+  "Carboloading: Brauchst du das wirklich? 🍝",
+  "Wie viele Teller Nudeln schaffst du am Vorabend? Schreib es in die Kommentare!",
+  "#carboloading #marathon #sporternaehrung #laufen #radmarathon"
+ ],
+ "cover": {
+  "farbe": "coral",
+  "etikett": "ERKLÄRT IN 30 SEKUNDEN",
+  "titel": [
+   "CARBO-",
+   "LOADING:",
+   "RICHTIG SO?"
+  ],
+  "hervor": 1,
+  "figur": "nudeln",
+  "hoehe": 700
+ },
+ "zeiten": [
+  [
+   0.0,
+   3.24
+  ],
+  [
+   3.24,
+   7.1
+  ],
+  [
+   7.1,
+   11.57
+  ],
+  [
+   11.57,
+   14.83
+  ],
+  [
+   14.83,
+   20.1
+  ],
+  [
+   20.1,
+   23.53
+  ]
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen 0,22 s, atempo 0,89) – carboloading.mp3 neben dieser Datei"
+}

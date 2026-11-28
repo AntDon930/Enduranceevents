@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-donnersberglauf-7km-steinbach-am-donnersberg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:Donnersberglauf
+LOCATION:Steinbach am Donnersberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://lc-donnersberg.
+ de/
+TRANSP:TRANSPARENT
+URL:https://lc-donnersberg.de/
+END:VEVENT
+END:VCALENDAR

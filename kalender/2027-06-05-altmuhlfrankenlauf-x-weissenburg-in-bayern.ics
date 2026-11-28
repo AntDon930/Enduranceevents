@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-altmuhlfrankenlauf-x-weissenburg-in-bayern@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Altmühlfrankenlauf
+LOCATION:Weißenburg in Bayern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.altmuehlfrank
+ en.de/af-leben/kultur-und-freizeit/altmuehlfrankenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.altmuehlfranken.de/af-leben/kultur-und-freizeit/altmuehlfr
+ ankenlauf/
+END:VEVENT
+END:VCALENDAR

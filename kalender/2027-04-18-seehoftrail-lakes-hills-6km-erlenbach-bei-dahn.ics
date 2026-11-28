@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-seehoftrail-lakes-hills-6km-erlenbach-bei-dahn@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Seehoftrail Lakes & Hills
+LOCATION:Erlenbach bei Dahn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://www.seehoftrail
+ .de/
+TRANSP:TRANSPARENT
+URL:https://www.seehoftrail.de/
+END:VEVENT
+END:VCALENDAR

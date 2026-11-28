@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-cartisa-mountain-run-5km-kartitsch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:CARTISA Mountain Run
+LOCATION:Kartitsch\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.cartisa.at/
+TRANSP:TRANSPARENT
+URL:https://www.cartisa.at/
+END:VEVENT
+END:VCALENDAR

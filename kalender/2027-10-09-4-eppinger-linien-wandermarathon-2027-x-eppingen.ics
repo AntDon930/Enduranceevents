@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-09-4-eppinger-linien-wandermarathon-2027-x-eppingen@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271009
+DTEND;VALUE=DATE:20271010
+SUMMARY:4. Eppinger-Linien-Wandermarathon 2027
+LOCATION:Eppingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: -\nhttps://bw.tourismusnetzw
+ erk.info/2026/10/19/eppinger-linien-wandermarathon-kehrt-2027-mit-neuem-v
+ eranstalter-zurueck/
+TRANSP:TRANSPARENT
+URL:https://bw.tourismusnetzwerk.info/2026/10/19/eppinger-linien-wandermar
+ athon-kehrt-2027-mit-neuem-veranstalter-zurueck/
+END:VEVENT
+END:VCALENDAR

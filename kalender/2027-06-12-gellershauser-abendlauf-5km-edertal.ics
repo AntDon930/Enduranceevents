@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-gellershauser-abendlauf-5km-edertal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Gellershäuser Abendlauf
+LOCATION:Edertal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.laufcup-wa
+ ldeck-frankenberg.de/wp-content/uploads/2026/06/Gellershausen-2026.pdf
+TRANSP:TRANSPARENT
+URL:https://www.laufcup-waldeck-frankenberg.de/wp-content/uploads/2026/06/
+ Gellershausen-2026.pdf
+END:VEVENT
+END:VCALENDAR

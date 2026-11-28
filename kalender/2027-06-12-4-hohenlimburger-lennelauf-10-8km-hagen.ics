@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-4-hohenlimburger-lennelauf-10-8km-hagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:4. Hohenlimburger Lennelauf
+LOCATION:Hagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttps://www.elseyer
+ -turnverein.de/
+TRANSP:TRANSPARENT
+URL:https://www.elseyer-turnverein.de/
+END:VEVENT
+END:VCALENDAR

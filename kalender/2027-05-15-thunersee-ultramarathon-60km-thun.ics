@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-thunersee-ultramarathon-60km-thun@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Thunersee Ultramarathon
+LOCATION:Thun\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 60 km\nhttps://my.raceresult
+ .com/436371/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/436371/
+END:VEVENT
+END:VCALENDAR

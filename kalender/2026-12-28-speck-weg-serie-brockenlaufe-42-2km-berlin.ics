@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-28-speck-weg-serie-brockenlaufe-42-2km-berlin@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261228
+DTEND;VALUE=DATE:20261229
+SUMMARY:Speck weg Serie Brockenläufe – Strecke "über den Brocken"
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttps://my.raceresul
+ t.com/414031/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/414031/
+END:VEVENT
+END:VCALENDAR

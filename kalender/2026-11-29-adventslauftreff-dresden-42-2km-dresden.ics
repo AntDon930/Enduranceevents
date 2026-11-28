@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-adventslauftreff-dresden-42-2km-dresden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Adventslauftreff Dresden – Marathon
+LOCATION:Dresden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.oberelb
+ e-marathon.de/2026/10/17/%f0%9f%8e%85-laufschuhe-an-weihnachtsmuetze-auf/
+TRANSP:TRANSPARENT
+URL:https://www.oberelbe-marathon.de/2026/10/17/%f0%9f%8e%85-laufschuhe-an
+ -weihnachtsmuetze-auf/
+END:VEVENT
+END:VCALENDAR

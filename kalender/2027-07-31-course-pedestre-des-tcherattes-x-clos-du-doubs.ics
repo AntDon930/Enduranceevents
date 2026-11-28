@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-course-pedestre-des-tcherattes-x-clos-du-doubs@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:Course pédestre des Tchérattes
+LOCATION:Clos du Doubs\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.tcherattes.ch
+ /
+TRANSP:TRANSPARENT
+URL:https://www.tcherattes.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-14-la-peripherie-2500km-fladungen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270614
+DTEND;VALUE=DATE:20270615
+SUMMARY:La Peripherie
+LOCATION:Fladungen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 2500 km\nhttps://laperipher
+ ie.com/
+TRANSP:TRANSPARENT
+URL:https://laperipherie.com/
+END:VEVENT
+END:VCALENDAR

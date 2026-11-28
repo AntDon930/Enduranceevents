@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-49-rohrener-volkslauf-10km-monschau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270529
+SUMMARY:49. Rohrener Volkslauf
+LOCATION:Monschau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.bergwacht-
+ rohren.de
+TRANSP:TRANSPARENT
+URL:http://www.bergwacht-rohren.de
+END:VEVENT
+END:VCALENDAR

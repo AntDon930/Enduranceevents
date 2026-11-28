@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-bremensanktpauli-100-miles-in-a-day-50km-kleine-weser-und-w
+ erdersee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:BremenSanktPauli – 100 Miles in a Day – 50 Kilometer
+LOCATION:Kleine Weser und Werdersee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.bremensan
+ ktpauli.de/infos
+TRANSP:TRANSPARENT
+URL:https://www.bremensanktpauli.de/infos
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-lut-crosslauf-8km-sulzbach-am-main@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:LuT-Crosslauf
+LOCATION:Sulzbach am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.lut-aschaff
+ enburg.de/index.php/lut-veranstaltungen/lut-crosslauf
+TRANSP:TRANSPARENT
+URL:https://www.lut-aschaffenburg.de/index.php/lut-veranstaltungen/lut-cro
+ sslauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-lausitz-marathon-11-4km-schipkau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Lausitz-Marathon
+LOCATION:Schipkau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.4 km\nhttps://lausitz-mar
+ athon.de
+TRANSP:TRANSPARENT
+URL:https://lausitz-marathon.de
+END:VEVENT
+END:VCALENDAR

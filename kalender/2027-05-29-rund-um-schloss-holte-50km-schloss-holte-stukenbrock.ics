@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-rund-um-schloss-holte-50km-schloss-holte-stukenbrock@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Rund um Schloß Holte
+LOCATION:Schloß Holte-Stukenbrock\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://my.raceresult
+ .com/403275/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/403275/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-schwerin-8km-schwerin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Schwerin
+LOCATION:Schwerin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.fuenf-seen
+ -lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&tx
+ _news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=11&cHash=4c6ada5f351
+ 08e839a11d0e0ed81cfe7
+TRANSP:TRANSPARENT
+URL:https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_
+ pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnew
+ s%5D=11&cHash=4c6ada5f35108e839a11d0e0ed81cfe7
+END:VEVENT
+END:VCALENDAR

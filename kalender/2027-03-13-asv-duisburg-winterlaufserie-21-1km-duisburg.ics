@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-asv-duisburg-winterlaufserie-21-1km-duisburg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:ASV Duisburg Winterlaufserie – Große Serie
+LOCATION:Duisburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.asv-win
+ terlaufserie.de/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://www.asv-winterlaufserie.de/ausschreibung/
+END:VEVENT
+END:VCALENDAR

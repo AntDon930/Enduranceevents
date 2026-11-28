@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-ueckermunder-haffmarathon-5km-ueckermunde@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:Ueckermünder Haffmarathon
+LOCATION:Ueckermünde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://haffmarathon.de
+ /
+TRANSP:TRANSPARENT
+URL:http://haffmarathon.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-2x200-ultra-challenge-389km-la-chaux-de-fonds@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270628
+SUMMARY:2x200 Ultra Challenge – Brevet 389 km
+LOCATION:La Chaux-de-Fonds\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 389 km\nhttps://2x200.dubra
+ quet.ch/
+TRANSP:TRANSPARENT
+URL:https://2x200.dubraquet.ch/
+END:VEVENT
+END:VCALENDAR

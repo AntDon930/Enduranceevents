@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-07-benrather-volkslauf-21-1km-dusseldorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270407
+DTEND;VALUE=DATE:20270408
+SUMMARY:Benrather Volkslauf – 21\,1 km Halbmarathon
+LOCATION:Düsseldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.lt-dues
+ seldorf-sued.de/veranstaltungen/veranstaltungen-2027/45-benrather-volksla
+ uf-2027
+TRANSP:TRANSPARENT
+URL:https://www.lt-duesseldorf-sued.de/veranstaltungen/veranstaltungen-202
+ 7/45-benrather-volkslauf-2027
+END:VEVENT
+END:VCALENDAR

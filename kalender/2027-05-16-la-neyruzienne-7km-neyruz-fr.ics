@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-la-neyruzienne-7km-neyruz-fr@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:La Neyruzienne – 7 km Erwachsene (2 Runden)
+LOCATION:Neyruz (FR)\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.skiclubney
+ ruz.ch/la-neyruzienne
+TRANSP:TRANSPARENT
+URL:https://www.skiclubneyruz.ch/la-neyruzienne
+END:VEVENT
+END:VCALENDAR

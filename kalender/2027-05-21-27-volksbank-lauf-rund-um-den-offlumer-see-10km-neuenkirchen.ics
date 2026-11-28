@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-21-27-volksbank-lauf-rund-um-den-offlumer-see-10km-neuenkirche
+ n@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270522
+SUMMARY:27. Volksbank-Lauf "Rund um den Offlumer See"
+LOCATION:Neuenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sus-neuenk
+ irchen.de/de/abteilungen/lauftreff/volkslauf/ausschreibung/
+TRANSP:TRANSPARENT
+URL:http://www.sus-neuenkirchen.de/de/abteilungen/lauftreff/volkslauf/auss
+ chreibung/
+END:VEVENT
+END:VCALENDAR

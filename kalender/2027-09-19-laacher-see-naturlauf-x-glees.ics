@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-laacher-see-naturlauf-x-glees@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Laacher See Naturlauf
+LOCATION:Glees\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ladv.de/ausschrei
+ bung/detail/49662/51.-Laacher-See-Naturlauf-mit-22.-VR-Bank-Cup-Maria-Laa
+ ch.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49662/51.-Laacher-See-Naturlauf-m
+ it-22.-VR-Bank-Cup-Maria-Laach.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-reiling-harsewinkel-triathlon-51km-harsewinkel@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Reiling - Harsewinkel Triathlon – Kurzdistanz 51 km (1 km Schwimme
+ n / 40 km Rad / 10 km Laufen)
+LOCATION:Harsewinkel\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51 km\nhttp://trispeed.de
+ /triathlon/
+TRANSP:TRANSPARENT
+URL:http://trispeed.de/triathlon/
+END:VEVENT
+END:VCALENDAR

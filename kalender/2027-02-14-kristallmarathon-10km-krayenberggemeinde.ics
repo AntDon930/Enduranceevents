@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-14-kristallmarathon-10km-krayenberggemeinde@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:Kristallmarathon
+LOCATION:Krayenberggemeinde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.triathlon
+ verein-werratal.de/kristallmarathon/
+TRANSP:TRANSPARENT
+URL:https://www.triathlonverein-werratal.de/kristallmarathon/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-muppberg-trailrun-7km-neustadt-bei-coburg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Muppberg Trailrun
+LOCATION:Neustadt bei Coburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://www.alpenverein
+ -neustadt.de/Muppberg%20Trailrun
+TRANSP:TRANSPARENT
+URL:https://www.alpenverein-neustadt.de/Muppberg%20Trailrun
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-berndorfer-volkslauf-x-twistetal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Berndorfer Volkslauf
+LOCATION:Twistetal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://laufcup-waldeck-fr
+ ankenberg.de/infos-laufcup/alle-laeufe/berndorfer-volkslauf/
+TRANSP:TRANSPARENT
+URL:http://laufcup-waldeck-frankenberg.de/infos-laufcup/alle-laeufe/berndo
+ rfer-volkslauf/
+END:VEVENT
+END:VCALENDAR

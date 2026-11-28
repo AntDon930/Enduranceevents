@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-hildener-winterlaufserie-10km-hilden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Hildener Winterlaufserie – 10er Serie
+LOCATION:Hilden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.hildenspo
+ rt.de/de/startseite-winterlaufserie/
+TRANSP:TRANSPARENT
+URL:https://www.hildensport.de/de/startseite-winterlaufserie/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-stilfserjoch-stelvio-trail-run-21km-stelvio@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Stilfserjoch Stelvio Trail Run
+LOCATION:Stelvio\, Italien (Südtirol)
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21 km\nhttp://www.stelviomara
+ thon.it/
+TRANSP:TRANSPARENT
+URL:http://www.stelviomarathon.it/
+END:VEVENT
+END:VCALENDAR

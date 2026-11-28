@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-48-silvesterlauf-zossen-ludwigsfelde-17-8km-zossen@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:48. Silvesterlauf Zossen-Ludwigsfelde
+LOCATION:Zossen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17.8 km\nhttp://www.llv-ludw
+ igsfelde.de
+TRANSP:TRANSPARENT
+URL:http://www.llv-ludwigsfelde.de
+END:VEVENT
+END:VCALENDAR

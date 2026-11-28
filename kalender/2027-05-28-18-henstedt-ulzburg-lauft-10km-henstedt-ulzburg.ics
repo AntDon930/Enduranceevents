@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-18-henstedt-ulzburg-lauft-10km-henstedt-ulzburg@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270529
+SUMMARY:18. Henstedt-Ulzburg läuft
+LOCATION:Henstedt-Ulzburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sv-hu.de
+TRANSP:TRANSPARENT
+URL:http://www.sv-hu.de
+END:VEVENT
+END:VCALENDAR

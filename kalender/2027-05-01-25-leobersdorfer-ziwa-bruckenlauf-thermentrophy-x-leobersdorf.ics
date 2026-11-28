@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-25-leobersdorfer-ziwa-bruckenlauf-thermentrophy-x-leobersdo
+ rf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:25. Leobersdorfer ZIWA Brückenlauf (Thermentrophy)
+LOCATION:Leobersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.brueckenlauf.a
+ t
+TRANSP:TRANSPARENT
+URL:http://www.brueckenlauf.at
+END:VEVENT
+END:VCALENDAR

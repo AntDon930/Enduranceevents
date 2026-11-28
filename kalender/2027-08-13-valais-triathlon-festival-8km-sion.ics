@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-13-valais-triathlon-festival-8km-sion@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270813
+DTEND;VALUE=DATE:20270816
+SUMMARY:Valais Triathlon Festival – Stand Up Paddle Race
+LOCATION:Sion\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 8 km\nhttps://valaistriat
+ hlon.ch/
+TRANSP:TRANSPARENT
+URL:https://valaistriathlon.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-30-raschutzlauf-lampertswalde-11-4km-lampertswalde@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:Raschützlauf Lampertswalde
+LOCATION:Lampertswalde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.4 km\nhttps://sv-lamperts
+ walde.de/leichtathletik.htm
+TRANSP:TRANSPARENT
+URL:https://sv-lampertswalde.de/leichtathletik.htm
+END:VEVENT
+END:VCALENDAR

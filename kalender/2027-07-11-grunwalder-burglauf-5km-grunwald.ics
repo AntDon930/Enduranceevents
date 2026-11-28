@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-grunwalder-burglauf-5km-grunwald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Grünwalder Burglauf – 5 km Strecke\, ebenfalls als Einzel- oder Du
+ o-Staffel möglich
+LOCATION:Grünwald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tsv-gruenw
+ ald.de/verein/burglauf/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-gruenwald.de/verein/burglauf/
+END:VEVENT
+END:VCALENDAR

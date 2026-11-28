@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-schloss-harkotten-ultra-marathon-51km-glandorf@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Schloss Harkotten Ultra Marathon
+LOCATION:Glandorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 51 km\nhttps://racetimer-app
+ .de/event_details.php?id=54
+TRANSP:TRANSPARENT
+URL:https://racetimer-app.de/event_details.php?id=54
+END:VEVENT
+END:VCALENDAR

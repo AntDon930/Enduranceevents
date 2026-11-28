@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-03-regensburger-leukamielauf-x-regensburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271003
+DTEND;VALUE=DATE:20271004
+SUMMARY:Regensburger Leukämielauf
+LOCATION:Regensburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.leukaemiehilf
+ e-ostbayern.de/leukaemielauf
+TRANSP:TRANSPARENT
+URL:https://www.leukaemiehilfe-ostbayern.de/leukaemielauf
+END:VEVENT
+END:VCALENDAR

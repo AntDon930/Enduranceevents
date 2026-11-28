@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-24-23-rst-lubeck-o-ctf-x-lubeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271024
+DTEND;VALUE=DATE:20271025
+SUMMARY:23. RST Lübeck O-CTF – O-CTF
+LOCATION:Lübeck\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.radspo
+ rt-sh.de/termin/23rst-luebeck-o-ctf
+TRANSP:TRANSPARENT
+URL:https://www.radsport-sh.de/termin/23rst-luebeck-o-ctf
+END:VEVENT
+END:VCALENDAR

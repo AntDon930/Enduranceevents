@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-internationaler-erndtebrucker-volkslauf-21-1km-erndtebruck@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Internationaler Erndtebrücker Volkslauf – Halbmarathon
+LOCATION:Erndtebrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.rothaar
+ -laufserie.de/veranstaltungen/
+TRANSP:TRANSPARENT
+URL:https://www.rothaar-laufserie.de/veranstaltungen/
+END:VEVENT
+END:VCALENDAR

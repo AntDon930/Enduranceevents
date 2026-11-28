@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-39-cj-schmidt-hafentagelauf-10km-husum@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:39. CJ Schmidt Hafentagelauf
+LOCATION:Husum\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://sportinhusum.
+ de/sportangebot/outdoor/lav/veranstaltungen/hafentagelauf/
+TRANSP:TRANSPARENT
+URL:https://sportinhusum.de/sportangebot/outdoor/lav/veranstaltungen/hafen
+ tagelauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-brevet-300-ara-westfalen-300km-dorsten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Brevet 300 - ARA Westfalen – Brevet 300 km
+LOCATION:Dorsten\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 300 km\nhttps://www.ara-wes
+ tfalen.de/die-brevetsaison-2027/
+TRANSP:TRANSPARENT
+URL:https://www.ara-westfalen.de/die-brevetsaison-2027/
+END:VEVENT
+END:VCALENDAR

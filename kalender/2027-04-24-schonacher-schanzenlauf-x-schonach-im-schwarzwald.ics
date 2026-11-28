@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-schonacher-schanzenlauf-x-schonach-im-schwarzwald@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Schonacher Schanzenlauf
+LOCATION:Schonach im Schwarzwald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
+ 432722/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/432722/
+END:VEVENT
+END:VCALENDAR

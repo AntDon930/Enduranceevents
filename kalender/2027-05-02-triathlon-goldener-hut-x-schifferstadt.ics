@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-triathlon-goldener-hut-x-schifferstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Triathlon Goldener Hut
+LOCATION:Schifferstadt\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://runtix.com/sts
+ /10021/3235
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3235
+END:VEVENT
+END:VCALENDAR

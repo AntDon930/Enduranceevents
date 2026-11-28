@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-cross-lauf-leoben-stlv-und-klv-crosscup-2026-27-x-leoben@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:Cross-Lauf Leoben (STLV- und KLV-CrossCup 2026/27 - FINALE)
+LOCATION:Leoben\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://crosslaufcup.gknet
+ .at
+TRANSP:TRANSPARENT
+URL:https://crosslaufcup.gknet.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-stadtlauf-duren-21-1km-duren@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Stadtlauf Düren – Halbmarathon
+LOCATION:Düren\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://stadtlauf-d
+ ueren.de/
+TRANSP:TRANSPARENT
+URL:https://stadtlauf-dueren.de/
+END:VEVENT
+END:VCALENDAR

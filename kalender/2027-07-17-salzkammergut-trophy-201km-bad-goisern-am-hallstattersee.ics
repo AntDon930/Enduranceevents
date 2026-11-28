@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-salzkammergut-trophy-201km-bad-goisern-am-hallstattersee@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Salzkammergut Trophy – Gran Fondo 201 km
+LOCATION:Bad Goisern am Hallstättersee\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 201 km\nhttps://www.salzkam
+ mergut-trophy.at/
+TRANSP:TRANSPARENT
+URL:https://www.salzkammergut-trophy.at/
+END:VEVENT
+END:VCALENDAR

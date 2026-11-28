@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-26-22-kettwiger-hugeltour-125km-essen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:22. Kettwiger Hügeltour – RTF 125 km
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 125 km\nhttps://rsc-essen-k
+ ettwig.org/kettwiger-huegeltour/
+TRANSP:TRANSPARENT
+URL:https://rsc-essen-kettwig.org/kettwiger-huegeltour/
+END:VEVENT
+END:VCALENDAR

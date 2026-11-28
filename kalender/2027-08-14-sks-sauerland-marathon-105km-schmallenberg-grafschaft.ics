@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-sks-sauerland-marathon-105km-schmallenberg-grafschaft@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:SKS Sauerland Marathon – MTB-Marathon 105 km
+LOCATION:Schmallenberg-Grafschaft\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 105 km\nhttps://www.r
+ adsport-grafschaft.de/bike-marathon/
+TRANSP:TRANSPARENT
+URL:https://www.radsport-grafschaft.de/bike-marathon/
+END:VEVENT
+END:VCALENDAR

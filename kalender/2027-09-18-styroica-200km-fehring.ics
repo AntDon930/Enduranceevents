@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-styroica-200km-fehring@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Styroica – Gran Fondo 200 km
+LOCATION:Fehring\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 200 km\nhttps://www.styroic
+ a.at/
+TRANSP:TRANSPARENT
+URL:https://www.styroica.at/
+END:VEVENT
+END:VCALENDAR

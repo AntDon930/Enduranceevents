@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-07-lop-dwasch-dorn-wildenloh-9km-edewecht@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271107
+DTEND;VALUE=DATE:20271108
+SUMMARY:Lop dwasch dörn Wildenloh
+LOCATION:Edewecht\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://team-laufrausch
+ .de/lop/
+TRANSP:TRANSPARENT
+URL:https://team-laufrausch.de/lop/
+END:VEVENT
+END:VCALENDAR

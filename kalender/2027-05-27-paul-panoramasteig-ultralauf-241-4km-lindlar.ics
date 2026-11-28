@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-paul-panoramasteig-ultralauf-241-4km-lindlar@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270531
+SUMMARY:Paul - Panoramasteig Ultralauf – PAUL150 - 150 Meilen (ca. 7.000 h
+ m)
+LOCATION:Lindlar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 241.4 km\nhttps://paul-ultral
+ auf.de
+TRANSP:TRANSPARENT
+URL:https://paul-ultralauf.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-12-firmenlauf-dillingen-5km-dillingen-saar@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270812
+DTEND;VALUE=DATE:20270813
+SUMMARY:Firmenlauf Dillingen
+LOCATION:Dillingen/Saar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://firmenlauf-dil
+ lingen.de/
+TRANSP:TRANSPARENT
+URL:https://firmenlauf-dillingen.de/
+END:VEVENT
+END:VCALENDAR

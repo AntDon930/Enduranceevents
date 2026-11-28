@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-seven-summits-tour-schrocken-48km-schrocken@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Seven Summits Tour Schröcken
+LOCATION:Schröcken\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 48 km\nhttps://7berge.at/
+TRANSP:TRANSPARENT
+URL:https://7berge.at/
+END:VEVENT
+END:VCALENDAR

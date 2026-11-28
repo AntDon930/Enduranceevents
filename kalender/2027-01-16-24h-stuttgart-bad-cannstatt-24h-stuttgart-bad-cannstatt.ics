@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-24h-stuttgart-bad-cannstatt-24h-stuttgart-bad-cannstatt@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270118
+SUMMARY:24h Stuttgart-Bad Cannstatt
+LOCATION:Stuttgart-Bad Cannstatt\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 24 h\nhttp://www.sb-schwa
+ ben.de/
+TRANSP:TRANSPARENT
+URL:http://www.sb-schwaben.de/
+END:VEVENT
+END:VCALENDAR

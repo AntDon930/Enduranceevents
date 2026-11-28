@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-49-augsburger-aok-winterlaufserie-9-3km-augsburg@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:49. Augsburger AOK-Winterlaufserie – 4. Lauf\, ca. 9\,3 km (3 Rund
+ en)
+LOCATION:Augsburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.3 km\nhttps://tgva.de/augs
+ burger-winterlaufserie/
+TRANSP:TRANSPARENT
+URL:https://tgva.de/augsburger-winterlaufserie/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-03-14-osterfeiner-sgh-dummerlauf-10km-damme@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271003
+DTEND;VALUE=DATE:20271004
+SUMMARY:14. Osterfeiner SgH-Dümmerlauf – 10 km Lauf
+LOCATION:Damme\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://sw-osterfeine
+ .de/
+TRANSP:TRANSPARENT
+URL:https://sw-osterfeine.de/
+END:VEVENT
+END:VCALENDAR

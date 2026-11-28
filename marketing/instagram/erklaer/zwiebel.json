@@ -1,0 +1,255 @@
+{
+ "thema": "Was ziehst du bei Minusgraden an?",
+ "seed": 23,
+ "quellen": [
+  "https://endurance-events.de/blog/winterkleidung.html"
+ ],
+ "szenen": [
+  {
+   "bild": "frage",
+   "aktion": "winter",
+   "text": "Es gibt kein schlechtes Wetter, nur schlechte Kleidung!",
+   "zeile": "NUR SCHLECHTE KLEIDUNG!",
+   "g": 96,
+   "symbol": "!",
+   "teile": [
+    [
+     0.05,
+     1.68,
+     5
+    ],
+    [
+     1.85,
+     3.21,
+     3
+    ]
+   ]
+  },
+  {
+   "bild": "entwarnung",
+   "pose": "daumen",
+   "text": "Das ziehst du bei Minusgraden an: drei dünne Schichten.",
+   "blase": "DREI SCHICHTEN!",
+   "blase_g": 96,
+   "zeile": "DAS ZWIEBELPRINZIP",
+   "teile": [
+    [
+     3.45,
+     5.3,
+     6
+    ],
+    [
+     5.52,
+     6.67,
+     3
+    ]
+   ]
+  },
+  {
+   "bild": "schichten",
+   "text": "Innen eine Funktionsschicht gegen Schweiß. Darüber dünnes Fleece. Außen eine Windjacke.",
+   "oben": "DAS ZWIEBELPRINZIP",
+   "schichten": [
+    [
+     "1 FUNKTION",
+     "leitet den Schweiß nach außen",
+     "blau",
+     0.0,
+     "FUNKTIONSFASER / MERINO"
+    ],
+    [
+     "2 WÄRME",
+     "hält die Wärme am Körper",
+     "coral",
+     0.46,
+     "FLEECE / MERINO"
+    ],
+    [
+     "3 SCHUTZ",
+     "gegen Wind & Regen, atmungsaktiv",
+     "creme",
+     0.75,
+     "WIND- / REGENJACKE"
+    ]
+   ],
+   "zeile": "",
+   "teile": [
+    [
+     7.28,
+     9.55,
+     5
+    ],
+    [
+     9.76,
+     11.26,
+     3
+    ],
+    [
+     11.5,
+     12.85,
+     3
+    ]
+   ]
+  },
+  {
+   "bild": "figur",
+   "pose": "daumen",
+   "text": "Dazu Mütze und Handschuhe. Da frierst du zuerst.",
+   "titel": "MÜTZE & HANDSCHUHE",
+   "blasen": [
+    "Kopf & Hände",
+    "frieren zuerst"
+   ],
+   "zeile": "DÜNN REICHT",
+   "teile": [
+    [
+     13.09,
+     14.89,
+     4
+    ],
+    [
+     15.14,
+     16.31,
+     4
+    ]
+   ],
+   "titel_g": 104
+  },
+  {
+   "bild": "rad",
+   "text": "Auf dem Rad brauchst du mehr: vorne winddicht, hinten luftig. Eine Mütze unterm Helm, Überschuhe an die Füße.",
+   "titel": "AUF DEM RAD: WÄRMER",
+   "hinweise": [
+    [
+     "VORNE WINDDICHT",
+     "brust",
+     0.26
+    ],
+    [
+     "HINTEN LUFTIG",
+     "ruecken",
+     0.41
+    ],
+    [
+     "MÜTZE UNTERM HELM",
+     "kopf",
+     0.57
+    ],
+    [
+     "ÜBERSCHUHE",
+     "fuss",
+     0.79
+    ]
+   ],
+   "teile": [
+    [
+     16.55,
+     17.99,
+     6
+    ],
+    [
+     18.2,
+     21.59,
+     8
+    ],
+    [
+     21.82,
+     23.12,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Faustregel: Am Start leicht frösteln, nach zehn Minuten ist dir warm.",
+   "oben": "DIE FAUSTREGEL: NACH",
+   "zahl": 10,
+   "einheit": "MINUTEN IST DIR WARM",
+   "zeile": "AM START LEICHT FRÖSTELN",
+   "g": 80,
+   "teile": [
+    [
+     23.37,
+     24.05,
+     1
+    ],
+    [
+     24.29,
+     25.81,
+     4
+    ],
+    [
+     26.01,
+     27.76,
+     6
+    ]
+   ]
+  },
+  {
+   "bild": "schluss",
+   "text": "Was ziehst du bei Frost an? Ab in die Kommentare!",
+   "frage": "DEIN WINTER-OUTFIT?",
+   "g": 120,
+   "blase": "Zwiebel – was sonst?",
+   "teile": [
+    [
+     27.96,
+     29.45,
+     6
+    ],
+    [
+     29.69,
+     30.85,
+     4
+    ]
+   ]
+  }
+ ],
+ "caption": [
+  "Was ziehst du bei Minusgraden an? 🧅❄️",
+  "Was ziehst du bei Frost an? Schreib es in die Kommentare!",
+  "#laufenimwinter #zwiebelprinzip #wintertraining #laufen #lauftipps"
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen auf 0,22 s gekürzt, danach atempo 0,89) – zwiebel.mp3 neben dieser Datei; Einstieg „Es gibt kein schlechtes Wetter …“ am 24.11.2026 neu aufgenommen",
+ "zeiten": [
+  [
+   0.0,
+   3.33
+  ],
+  [
+   3.33,
+   6.86
+  ],
+  [
+   6.86,
+   12.97
+  ],
+  [
+   12.97,
+   16.43
+  ],
+  [
+   16.43,
+   23.24
+  ],
+  [
+   23.24,
+   27.86
+  ],
+  [
+   27.86,
+   31.14
+  ]
+ ],
+ "cover": {
+  "farbe": "navy",
+  "titel": [
+   "DAS",
+   "ZWIEBEL-",
+   "PRINZIP"
+  ],
+  "hervor": 1,
+  "figur": "daumen",
+  "deko": "schnee"
+ }
+}

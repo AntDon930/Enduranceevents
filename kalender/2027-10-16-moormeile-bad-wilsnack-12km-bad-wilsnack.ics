@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-16-moormeile-bad-wilsnack-12km-bad-wilsnack@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271017
+SUMMARY:Moormeile Bad Wilsnack
+LOCATION:Bad Wilsnack\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.moormeile
+ .de/
+TRANSP:TRANSPARENT
+URL:https://www.moormeile.de/
+END:VEVENT
+END:VCALENDAR

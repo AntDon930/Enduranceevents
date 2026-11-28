@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-ctf-wenigumstadt-25km-wenigumstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:CTF Wenigumstadt – CTF 25 km
+LOCATION:Wenigumstadt\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 25 km\nhttps://rsv-we
+ nigumstadt.de/radsportwochenende/ctf
+TRANSP:TRANSPARENT
+URL:https://rsv-wenigumstadt.de/radsportwochenende/ctf
+END:VEVENT
+END:VCALENDAR

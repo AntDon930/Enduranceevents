@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-nordseeman-nordseewoman-51-5km-wilhelmshaven@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:NordseeMan & NordseeWoman – Olympische Distanz 51\,5 km (1\,5 km S
+ chwimmen / 40 km Rad / 10 km Laufen)
+LOCATION:Wilhelmshaven\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://nordseem
+ an.de/
+TRANSP:TRANSPARENT
+URL:https://nordseeman.de/
+END:VEVENT
+END:VCALENDAR

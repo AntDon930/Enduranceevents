@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-othaler-gutshof-lauf-10km-beyernaumburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Othaler Gutshof Lauf
+LOCATION:Beyernaumburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://othaler-gutsh
+ of-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://othaler-gutshof-lauf.de/
+END:VEVENT
+END:VCALENDAR

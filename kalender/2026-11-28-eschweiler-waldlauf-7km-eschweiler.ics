@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-eschweiler-waldlauf-7km-eschweiler@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Eschweiler Waldlauf – 7 km Männer (M30+)
+LOCATION:Eschweiler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://www.lsg-eschwei
+ ler.de/downloads/ausschreibung_region_waldlauf_26.pdf
+TRANSP:TRANSPARENT
+URL:https://www.lsg-eschweiler.de/downloads/ausschreibung_region_waldlauf_
+ 26.pdf
+END:VEVENT
+END:VCALENDAR

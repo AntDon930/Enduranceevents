@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-advents-charity-run-salmtal-5km-salmtal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Advents Charity Run - Salmtal – 5 km für Läuferinnen und Läufer ab
+  10 Jahren
+LOCATION:Salmtal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 5 km\nhttps://atle
+ ta.cc/e/yzea1HAzSLFw
+TRANSP:TRANSPARENT
+URL:https://atleta.cc/e/yzea1HAzSLFw
+END:VEVENT
+END:VCALENDAR

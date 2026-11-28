@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-schluchsee-triathlon-47-5km-schluchsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Schluchsee Triathlon – Olympische Distanz 47.5 km
+LOCATION:Schluchsee\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 47.5 km\nhttps://www.tria
+ thlon-schluchsee.de
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-schluchsee.de
+END:VEVENT
+END:VCALENDAR

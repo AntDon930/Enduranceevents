@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-maintal-crosslauf-8-8km-kemmern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Maintal-Crosslauf – 8750 m Langstrecke
+LOCATION:Kemmern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.8 km\nhttps://maintal-cross
+ .de/informationen
+TRANSP:TRANSPARENT
+URL:https://maintal-cross.de/informationen
+END:VEVENT
+END:VCALENDAR

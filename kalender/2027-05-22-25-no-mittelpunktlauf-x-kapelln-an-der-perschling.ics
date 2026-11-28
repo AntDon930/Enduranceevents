@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-25-no-mittelpunktlauf-x-kapelln-an-der-perschling@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:25. NÖ Mittelpunktlauf
+LOCATION:Kapelln an der Perschling\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://lckapelln.at
+TRANSP:TRANSPARENT
+URL:https://lckapelln.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,242 @@
+{
+ "thema": "Macht Krafttraining Läufer schwer?",
+ "seed": 13,
+ "szenen": [
+  {
+   "bild": "frage",
+   "text": "Siebzehn Läufer, acht Wochen. Die Hälfte macht zusätzlich schwere Kniebeugen.",
+   "symbol": "8",
+   "zeile": "DAS EXPERIMENT",
+   "g": 110,
+   "aktion": "hantel",
+   "teile": [
+    [
+     0,
+     1.16,
+     2
+    ],
+    [
+     1.39,
+     2.06,
+     2
+    ],
+    [
+     2.26,
+     4.81,
+     6
+    ]
+   ]
+  },
+  {
+   "bild": "figur",
+   "text": "Ihr Gewicht danach? Kein Gramm mehr.",
+   "pose": "waage",
+   "titel": "NACH 8 WOCHEN",
+   "titel_g": 112,
+   "blasen": [
+    "Gewicht:",
+    "unverändert!"
+   ],
+   "zeile": "KEIN GRAMM MEHR",
+   "teile": [
+    [
+     5.03,
+     5.88,
+     3
+    ],
+    [
+     6.07,
+     6.96,
+     3
+    ]
+   ]
+  },
+  {
+   "bild": "balken",
+   "text": "Aber im Maximaltempo hielten sie gut zwanzig Prozent länger durch. Die anderen: keine Veränderung.",
+   "oben": "DURCHHALTEN IM MAXIMALTEMPO",
+   "oben_g": 80,
+   "balken": [
+    [
+     "OHNE KRAFT",
+     100,
+     "±0 %",
+     "blau"
+    ],
+    [
+     "MIT KRAFT",
+     121,
+     "+21 %",
+     "coral"
+    ]
+   ],
+   "zeile": "BIS ZUR ERSCHÖPFUNG",
+   "g": 80,
+   "teile": [
+    [
+     7.2,
+     11.01,
+     10
+    ],
+    [
+     11.14,
+     11.69,
+     2
+    ],
+    [
+     11.94,
+     12.82,
+     2
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Und sie liefen fünf Prozent sparsamer.",
+   "zahl": 5,
+   "nach": " %",
+   "oben": "LAUFÖKONOMIE",
+   "einheit": "SPARSAMER",
+   "zeile": "GLEICHES TEMPO, WENIGER ENERGIE",
+   "g": 72,
+   "klein": "Støren et al., 2008",
+   "teile": [
+    [
+     13.06,
+     15.53,
+     6
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "text": "Dazu zeigt eine große Auswertung: rund zwei Drittel weniger Verletzungen.",
+   "zahl": 68,
+   "vor": "−",
+   "nach": " %",
+   "oben": "VERLETZUNGEN",
+   "einheit": "MIT KRAFTTRAINING",
+   "zeile": "META-ANALYSE VIELER STUDIEN",
+   "g": 72,
+   "klein": "Lauersen et al., 2014",
+   "teile": [
+    [
+     15.68,
+     17.6,
+     5
+    ],
+    [
+     17.85,
+     20.09,
+     5
+    ]
+   ]
+  },
+  {
+   "bild": "test",
+   "text": "Dein Einstieg: zweimal pro Woche, fünfundzwanzig Minuten, ohne Geräte.",
+   "titel": "DEIN EINSTIEG",
+   "zeilen": [
+    [
+     "2",
+     "MAL PRO WOCHE"
+    ],
+    [
+     "25",
+     "MINUTEN"
+    ],
+    [
+     "0",
+     "GERÄTE NÖTIG"
+    ]
+   ],
+   "fazit": "STÄRKER, NICHT SCHWERER",
+   "teile": [
+    [
+     20.24,
+     20.99,
+     2
+    ],
+    [
+     21.22,
+     23.76,
+     5
+    ],
+    [
+     23.97,
+     24.75,
+     2
+    ]
+   ]
+  },
+  {
+   "bild": "schluss",
+   "text": "Machst du Krafttraining? Ab in die Kommentare!",
+   "frage": "KRAFT: JA ODER NEIN?",
+   "g": 116,
+   "blase": "Ja – 2x pro Woche!",
+   "teile": [
+    [
+     25.0,
+     26.03,
+     3
+    ],
+    [
+     26.27,
+     27.34,
+     4
+    ]
+   ]
+  }
+ ],
+ "quellen": [
+  "https://pubmed.ncbi.nlm.nih.gov/18460997/",
+  "https://doi.org/10.1136/bjsports-2013-092538",
+  "https://pmc.ncbi.nlm.nih.gov/articles/PMC5889786/",
+  "https://endurance-events.de/blog/krafttraining-fuer-laeufer.html"
+ ],
+ "caption": [
+  "Macht Krafttraining Ausdauersportler langsam? 🏋️",
+  "Machst du Krafttraining? Schreib es in die Kommentare!",
+  "#krafttraining #ausdauersport #laufen #radsport #triathlon"
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen 0,22 s, atempo 0,89) – kraft.mp3 neben dieser Datei",
+ "cover": {
+  "farbe": "blau",
+  "titel": [
+   "MACHT KRAFT",
+   "LANGSAM?"
+  ],
+  "figur": "curl4"
+ },
+ "zeiten": [
+  [
+   0,
+   4.92
+  ],
+  [
+   4.92,
+   7.08
+  ],
+  [
+   7.08,
+   12.94
+  ],
+  [
+   12.94,
+   15.6
+  ],
+  [
+   15.6,
+   20.17
+  ],
+  [
+   20.17,
+   24.88
+  ],
+  [
+   24.88,
+   27.6
+  ]
+ ]
+}

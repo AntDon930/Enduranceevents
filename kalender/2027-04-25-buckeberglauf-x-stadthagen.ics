@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-buckeberglauf-x-stadthagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Bückeberglauf
+LOCATION:Stadthagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://tsv-eintracht-buec
+ keberge.de/wp-content/uploads/2026/10/Veranstaltungskalender-2026.27-pdf.
+ jpg
+TRANSP:TRANSPARENT
+URL:https://tsv-eintracht-bueckeberge.de/wp-content/uploads/2026/10/Verans
+ taltungskalender-2026.27-pdf.jpg
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-mondorfer-weihnachtslauf-10km-niederkassel@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Mondorfer Weihnachtslauf – 10 km REWE Walking und Nordic Walking (
+ Jg. 2017 und älter)
+LOCATION:Niederkassel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tus-mondo
+ rf.de/abteilungen/lauftreff/weihnachtslauf/
+TRANSP:TRANSPARENT
+URL:https://www.tus-mondorf.de/abteilungen/lauftreff/weihnachtslauf/
+END:VEVENT
+END:VCALENDAR

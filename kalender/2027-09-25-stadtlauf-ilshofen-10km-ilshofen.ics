@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-stadtlauf-ilshofen-10km-ilshofen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Stadtlauf Ilshofen – 10 km Volkslauf (9\,8 km\, zwei Runden à 4\,9
+  km)
+LOCATION:Ilshofen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.stadtlauf-
+ ilshofen.de/
+TRANSP:TRANSPARENT
+URL:http://www.stadtlauf-ilshofen.de/
+END:VEVENT
+END:VCALENDAR

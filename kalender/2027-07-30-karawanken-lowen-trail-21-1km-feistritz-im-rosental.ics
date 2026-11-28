@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-30-karawanken-lowen-trail-21-1km-feistritz-im-rosental@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270730
+DTEND;VALUE=DATE:20270801
+SUMMARY:Karawanken Löwen Trail – Halbmarathon
+LOCATION:Feistritz im Rosental\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttps://www.lcsuetsc
+ hach.at/
+TRANSP:TRANSPARENT
+URL:https://www.lcsuetschach.at/
+END:VEVENT
+END:VCALENDAR

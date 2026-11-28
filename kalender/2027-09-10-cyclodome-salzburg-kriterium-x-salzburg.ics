@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-10-cyclodome-salzburg-kriterium-x-salzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270910
+DTEND;VALUE=DATE:20270911
+SUMMARY:Cyclodome Salzburg Kriterium – Straßenrennen
+LOCATION:Salzburg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.lrv-salzburg
+ .at
+TRANSP:TRANSPARENT
+URL:https://www.lrv-salzburg.at
+END:VEVENT
+END:VCALENDAR

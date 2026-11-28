@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-samstagslauf-grossenmeer-10km-ovelgonne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Samstagslauf Großenmeer
+LOCATION:Ovelgönne\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.gtv-grosse
+ nmeer.de
+TRANSP:TRANSPARENT
+URL:http://www.gtv-grossenmeer.de
+END:VEVENT
+END:VCALENDAR

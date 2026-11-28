@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-33-villmarer-dorflauf-5km-villmar@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:33. Villmarer Dorflauf
+LOCATION:Villmar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lf-1987-villma
+ r.de/33-villmarer-dorflauf-findet-statt/
+TRANSP:TRANSPARENT
+URL:https://lf-1987-villmar.de/33-villmarer-dorflauf-findet-statt/
+END:VEVENT
+END:VCALENDAR

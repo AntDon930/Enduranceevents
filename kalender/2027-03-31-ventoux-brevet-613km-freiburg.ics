@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-31-ventoux-brevet-613km-freiburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270331
+DTEND;VALUE=DATE:20270401
+SUMMARY:Ventoux-Brevet – Brevet 613 km
+LOCATION:Freiburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 613 km\nhttps://audax-breis
+ gau.de/brm/ventoux-brevet
+TRANSP:TRANSPARENT
+URL:https://audax-breisgau.de/brm/ventoux-brevet
+END:VEVENT
+END:VCALENDAR

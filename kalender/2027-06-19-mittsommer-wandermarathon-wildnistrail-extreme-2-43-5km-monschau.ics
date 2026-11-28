@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-mittsommer-wandermarathon-wildnistrail-extreme-2-43-5km-mon
+ schau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Mittsommer-Wandermarathon Wildnistrail extreme 2027 – Wildnistrail
+  43\,5 km
+LOCATION:Monschau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 43.5 km\nhttps://www.dav-eif
+ el.de/wandern/termine-angebote?id=4611&recurring=
+TRANSP:TRANSPARENT
+URL:https://www.dav-eifel.de/wandern/termine-angebote?id=4611&recurring=
+END:VEVENT
+END:VCALENDAR

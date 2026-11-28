@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-mtb-event-veringendorf-53km-veringendorf@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:MTB-Event Veringendorf – MTB-Marathon 53 km
+LOCATION:Veringendorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 53 km\nhttp://www.tvv
+ eringendorf.de/tvv-website/index.php/bike-event/
+TRANSP:TRANSPARENT
+URL:http://www.tvveringendorf.de/tvv-website/index.php/bike-event/
+END:VEVENT
+END:VCALENDAR

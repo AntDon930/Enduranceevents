@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-29-lechtal-rundfahrt-200km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261229
+DTEND;VALUE=DATE:20261230
+SUMMARY:Lechtal Rundfahrt – Brevet 200 km
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 200 km\nhttps://aramuc.de/b
+ revets/200-km-lechtal-rundfahrt-2026
+TRANSP:TRANSPARENT
+URL:https://aramuc.de/brevets/200-km-lechtal-rundfahrt-2026
+END:VEVENT
+END:VCALENDAR

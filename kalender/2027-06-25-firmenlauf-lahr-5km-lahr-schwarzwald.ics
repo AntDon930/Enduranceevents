@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-firmenlauf-lahr-5km-lahr-schwarzwald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:Firmenlauf Lahr
+LOCATION:Lahr/Schwarzwald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://firmenlauf-lah
+ r.de/
+TRANSP:TRANSPARENT
+URL:https://firmenlauf-lahr.de/
+END:VEVENT
+END:VCALENDAR

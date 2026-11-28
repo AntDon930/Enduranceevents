@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-park-cross-boheimkirchen-0-7h-boheimkirchen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Park-Cross Böheimkirchen – Cyclocross 40 min
+LOCATION:Böheimkirchen\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 40 min\nhttps://www.cyc
+ lingaustria.at/index.php?option=com_events&view=event&id=0A88CA3BF8024068
+ 885453D9D7C2D774
+TRANSP:TRANSPARENT
+URL:https://www.cyclingaustria.at/index.php?option=com_events&view=event&i
+ d=0A88CA3BF8024068885453D9D7C2D774
+END:VEVENT
+END:VCALENDAR

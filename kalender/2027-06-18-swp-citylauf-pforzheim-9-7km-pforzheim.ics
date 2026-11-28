@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-swp-citylauf-pforzheim-9-7km-pforzheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:SWP Citylauf Pforzheim – SWP-Hauptlauf
+LOCATION:Pforzheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.7 km\nhttps://www.citylauf
+ -pforzheim.de/home
+TRANSP:TRANSPARENT
+URL:https://www.citylauf-pforzheim.de/home
+END:VEVENT
+END:VCALENDAR

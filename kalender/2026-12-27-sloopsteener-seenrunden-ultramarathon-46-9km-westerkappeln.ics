@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-27-sloopsteener-seenrunden-ultramarathon-46-9km-westerkappeln@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:Sloopsteener Seenrunden Ultramarathon – Ultra
+LOCATION:Westerkappeln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46.9 km\nhttps://ultra-uwe-u
+ nterwegs.de/veranstaltungen/uwes-laufangebote/
+TRANSP:TRANSPARENT
+URL:https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/
+END:VEVENT
+END:VCALENDAR

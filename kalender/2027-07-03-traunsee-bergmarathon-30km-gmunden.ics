@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-traunsee-bergmarathon-30km-gmunden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Traunsee Bergmarathon – 30 km \, ca. 2000 Hm
+LOCATION:Gmunden\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 30 km\nhttps://time2win.at/ev
+ ent/1158
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1158
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-kustenmarathon-otterndorf-7-5km-osterbruch@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Küstenmarathon Otterndorf – Handbiker/Pedalo
+LOCATION:Osterbruch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://kuestenmarat
+ hon.de/
+TRANSP:TRANSPARENT
+URL:https://kuestenmarathon.de/
+END:VEVENT
+END:VCALENDAR

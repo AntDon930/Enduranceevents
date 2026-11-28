@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-brevet-300-ara-schleswig-holstein-300km-schonkirchen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:Brevet 300 - ARA Schleswig-Holstein – Brevet 300 km
+LOCATION:Schönkirchen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 300 km\nhttps://www.audax-r
+ andonneure.de/startorte/schleswig-hostein
+TRANSP:TRANSPARENT
+URL:https://www.audax-randonneure.de/startorte/schleswig-hostein
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-06-41-fruhjahrslauf-unter-vorbehalt-10km-gross-gerau@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:41. Frühjahrslauf (unter Vorbehalt)
+LOCATION:Groß-Gerau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tvgg.de
+TRANSP:TRANSPARENT
+URL:http://www.tvgg.de
+END:VEVENT
+END:VCALENDAR

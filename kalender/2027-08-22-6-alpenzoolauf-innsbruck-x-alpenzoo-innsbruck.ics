@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-6-alpenzoolauf-innsbruck-x-alpenzoo-innsbruck@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:6. Alpenzoolauf Innsbruck
+LOCATION:Alpenzoo Innsbruck\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.innsbrucklaeuf
+ t.com
+TRANSP:TRANSPARENT
+URL:http://www.innsbrucklaeuft.com
+END:VEVENT
+END:VCALENDAR

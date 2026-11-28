@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-12-siegendorfer-fruhlingslauf-x-siegendorf-rathausplatz@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:12. Siegendorfer Frühlingslauf
+LOCATION:Siegendorf-Rathausplatz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://lc-siegendorf.at/
+ fruehlingslauf
+TRANSP:TRANSPARENT
+URL:https://lc-siegendorf.at/fruehlingslauf
+END:VEVENT
+END:VCALENDAR

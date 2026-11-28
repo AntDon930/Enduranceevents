@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-saarschleifen-bike-marathon-100km-mettlach@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Saarschleifen-Bike-Marathon – MTB-Marathon 100 km
+LOCATION:Mettlach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 100 km\nhttps://www.s
+ aarschleifen.bike/
+TRANSP:TRANSPARENT
+URL:https://www.saarschleifen.bike/
+END:VEVENT
+END:VCALENDAR

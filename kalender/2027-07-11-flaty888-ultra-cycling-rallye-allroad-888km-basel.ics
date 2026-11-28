@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-flaty888-ultra-cycling-rallye-allroad-888km-basel@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270716
+SUMMARY:FLATY888 Ultra-Cycling Rallye Allroad – Ultracycling 888 km
+LOCATION:Basel\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 888 km\nhttps://www.flaty88
+ 8.cc/
+TRANSP:TRANSPARENT
+URL:https://www.flaty888.cc/
+END:VEVENT
+END:VCALENDAR

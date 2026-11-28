@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-07-hansa-ctf-wwbt-6-80km-soest@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:Hansa CTF - WWBT #6 – CTF 80 km
+LOCATION:Soest\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 80 km\nhttps://westfa
+ len-winter-bike-trophy.org/westfalen-winterbike-trophy-des-rsv-hansa-soes
+ t/
+TRANSP:TRANSPARENT
+URL:https://westfalen-winter-bike-trophy.org/westfalen-winterbike-trophy-d
+ es-rsv-hansa-soest/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-09-race-around-austria-2200km-st-georgen-im-attergau@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270809
+DTEND;VALUE=DATE:20270816
+SUMMARY:Race Around Austria
+LOCATION:St. Georgen im Attergau\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 2200 km\nhttps://www.racear
+ oundaustria.at
+TRANSP:TRANSPARENT
+URL:https://www.racearoundaustria.at
+END:VEVENT
+END:VCALENDAR

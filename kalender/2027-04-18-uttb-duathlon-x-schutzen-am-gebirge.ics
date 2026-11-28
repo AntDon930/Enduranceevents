@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-uttb-duathlon-x-schutzen-am-gebirge@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:UTTB Duathlon – Duathlon (Termin vorläufig)
+LOCATION:Schützen am Gebirge\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Duathlon\nLänge: -\nhttps://uttb.at/duathlon/
+TRANSP:TRANSPARENT
+URL:https://uttb.at/duathlon/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-montreux-trail-festival-30km-montreux@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270726
+SUMMARY:Montreux Trail Festival
+LOCATION:Montreux\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 30 km\nhttps://www.montreux-t
+ rail.ch/
+TRANSP:TRANSPARENT
+URL:https://www.montreux-trail.ch/
+END:VEVENT
+END:VCALENDAR

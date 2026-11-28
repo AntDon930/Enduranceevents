@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-otztaler-mountainbike-festival-2027-x-haiming@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270426
+SUMMARY:Ötztaler Mountainbike Festival 2027 – Cross-Country
+LOCATION:Haiming\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.racing
+ team-haiming.at
+TRANSP:TRANSPARENT
+URL:https://www.racingteam-haiming.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-pless-bergzeitfahren-7-3km-breitungen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Pleß-Bergzeitfahren – Hillclimb 7.3 km
+LOCATION:Breitungen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 7.3 km\nhttp://www.ples
+ slauf.de/
+TRANSP:TRANSPARENT
+URL:http://www.plesslauf.de/
+END:VEVENT
+END:VCALENDAR

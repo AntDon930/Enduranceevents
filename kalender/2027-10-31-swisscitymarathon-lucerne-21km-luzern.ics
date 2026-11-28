@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-31-swisscitymarathon-lucerne-21km-luzern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271031
+DTEND;VALUE=DATE:20271101
+SUMMARY:SwissCityMarathon - Lucerne – 21 km Halbmarathon
+LOCATION:Luzern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://www.swisscity
+ marathon.ch/
+TRANSP:TRANSPARENT
+URL:https://www.swisscitymarathon.ch/
+END:VEVENT
+END:VCALENDAR

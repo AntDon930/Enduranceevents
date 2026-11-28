@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-sparkassen-city-lauf-saarbrucken-10km-saarbrucken@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Sparkassen-City-Lauf Saarbrücken
+LOCATION:Saarbrücken\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://saar05-leicht
+ athletik.de/
+TRANSP:TRANSPARENT
+URL:https://saar05-leichtathletik.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-pfaffenhofen-a-d-glonn-5km-pfaffenhofen-an-de
+ r-glonn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Pfaffenhofen a.d. Glonn
+LOCATION:Pfaffenhofen an der Glonn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.silvesterl
+ auf-pfaffenhofen-glonn.de/
+TRANSP:TRANSPARENT
+URL:https://www.silvesterlauf-pfaffenhofen-glonn.de/
+END:VEVENT
+END:VCALENDAR

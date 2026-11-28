@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-19-hutwisch-berglauf-buckltour-x-bad-schonau@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:19. Hutwisch Berglauf (Buckltour)
+LOCATION:Bad Schönau\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.buckltour.at
+TRANSP:TRANSPARENT
+URL:http://www.buckltour.at
+END:VEVENT
+END:VCALENDAR

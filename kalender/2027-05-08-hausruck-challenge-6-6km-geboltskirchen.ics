@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-hausruck-challenge-6-6km-geboltskirchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Hausruck Challenge – Light Challenge
+LOCATION:Geboltskirchen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.6 km\nhttps://www.hausruck
+ -challenge.at
+TRANSP:TRANSPARENT
+URL:https://www.hausruck-challenge.at
+END:VEVENT
+END:VCALENDAR

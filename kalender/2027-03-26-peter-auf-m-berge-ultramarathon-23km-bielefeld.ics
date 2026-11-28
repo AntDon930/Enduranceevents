@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-26-peter-auf-m-berge-ultramarathon-23km-bielefeld@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:Peter auf'm Berge Ultramarathon
+LOCATION:Bielefeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 23 km\nhttps://my.raceresult
+ .com/434627/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/434627/
+END:VEVENT
+END:VCALENDAR

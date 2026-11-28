@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-kufsteinerland-radmarathon-48km-kufstein@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:Kufsteinerland Radmarathon – Radmarathon 48 km
+LOCATION:Kufstein\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 48 km\nhttps://www.kufstein
+ erland-radmarathon.at/
+TRANSP:TRANSPARENT
+URL:https://www.kufsteinerland-radmarathon.at/
+END:VEVENT
+END:VCALENDAR

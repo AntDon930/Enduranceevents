@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-leonardo-hotels-neujahrslauf-koln-2027-x-koln@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Leonardo Hotels Neujahrslauf Köln 2027
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://leonardo-hotels-n
+ eujahrslauf-koeln.de/
+TRANSP:TRANSPARENT
+URL:https://leonardo-hotels-neujahrslauf-koeln.de/
+END:VEVENT
+END:VCALENDAR

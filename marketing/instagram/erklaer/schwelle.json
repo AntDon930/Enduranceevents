@@ -1,0 +1,204 @@
+{
+ "thema": "Was ist wirklich deine Schwelle?",
+ "seed": 5,
+ "szenen": [
+  {
+   "bild": "hook",
+   "text": "Alle reden vom Schwellentempo. Aber was ist wirklich deine Schwelle?",
+   "teile": [
+    [
+     0.05,
+     1.7,
+     4
+    ],
+    [
+     2.27,
+     4.3,
+     6
+    ]
+   ]
+  },
+  {
+   "bild": "raten",
+   "text": "Vollgas? Dein 5-Kilometer-Tempo? Puls 180?",
+   "teile": [
+    [
+     5.43,
+     6.07,
+     1
+    ],
+    [
+     6.5,
+     7.9,
+     2
+    ],
+    [
+     8.36,
+     9.28,
+     2
+    ]
+   ]
+  },
+  {
+   "bild": "entwarnung",
+   "text": "Nein. Die Schwelle ist viel entspannter, als du denkst.",
+   "teile": [
+    [
+     10.2,
+     13.39,
+     9
+    ]
+   ]
+  },
+  {
+   "bild": "stunde",
+   "text": "Es ist das Tempo, das du etwa eine Stunde lang durchhalten könntest.",
+   "teile": [
+    [
+     14.15,
+     17.85,
+     12
+    ]
+   ]
+  },
+  {
+   "bild": "fass",
+   "text": "Darunter baut dein Körper Laktat so schnell ab, wie es entsteht. Darüber läuft das Fass über.",
+   "teile": [
+    [
+     18.62,
+     21.79,
+     11
+    ],
+    [
+     22.26,
+     23.82,
+     5
+    ]
+   ]
+  },
+  {
+   "bild": "test",
+   "text": "Der Test: 30 Minuten allein, so schnell du gleichmäßig kannst. Dein Durchschnittstempo ist deine Schwelle.",
+   "teile": [
+    [
+     24.56,
+     25.08,
+     2
+    ],
+    [
+     25.51,
+     28.68,
+     8
+    ],
+    [
+     29.15,
+     31.11,
+     5
+    ]
+   ]
+  },
+  {
+   "bild": "gefuehl",
+   "text": "Fühlt sich an wie: angenehm hart. Ein paar Worte gehen noch, ein Gespräch nicht mehr.",
+   "teile": [
+    [
+     31.71,
+     32.74,
+     4
+    ],
+    [
+     33.1,
+     34.11,
+     2
+    ],
+    [
+     34.5,
+     35.65,
+     5
+    ],
+    [
+     35.95,
+     37.03,
+     4
+    ]
+   ]
+  },
+  {
+   "bild": "schluss",
+   "text": "Kennst du deine Schwelle? Schreib dein Tempo in die Kommentare.",
+   "teile": [
+    [
+     37.67,
+     38.65,
+     4
+    ],
+    [
+     39.01,
+     40.8,
+     6
+    ]
+   ]
+  }
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,08) – schwelle.mp3 neben dieser Datei",
+ "zeiten": [
+  [
+   0,
+   4.9
+  ],
+  [
+   4.9,
+   9.8
+  ],
+  [
+   9.8,
+   13.8
+  ],
+  [
+   13.8,
+   18.2
+  ],
+  [
+   18.2,
+   24.2
+  ],
+  [
+   24.2,
+   31.4
+  ],
+  [
+   31.4,
+   37.35
+  ],
+  [
+   37.35,
+   41.0
+  ]
+ ],
+ "quellen": [
+  "https://joefrielsblog.com/the-30-minute-test-is-easy-really/",
+  "https://pubmed.ncbi.nlm.nih.gov/16095403/",
+  "https://runnersconnect.net/what-is-lactate-threshold/",
+  "https://www.trainingpeaks.com/learn/articles/thresholds-411/"
+ ],
+ "caption": [
+  "Was ist deine Schwelle? 🤔",
+  "Kennst du deine Schwelle? Schreib dein Tempo in die Kommentare!",
+  "#schwellentempo #laktatschwelle #lauftraining #laufen #tempolauf"
+ ],
+ "gepostet": "2026-11-22 (vom Nutzer von Hand)",
+ "cover": {
+  "farbe": "coral",
+  "titel": [
+   "KENNST DU",
+   "DEINE",
+   "SCHWELLE?"
+  ],
+  "hervor": 1,
+  "figur": "laeufer",
+  "mund": "angestrengt",
+  "dx": -200,
+  "deko": "tacho"
+ }
+}

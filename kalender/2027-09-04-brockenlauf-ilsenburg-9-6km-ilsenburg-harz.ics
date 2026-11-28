@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-brockenlauf-ilsenburg-9-6km-ilsenburg-harz@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Brockenlauf Ilsenburg
+LOCATION:Ilsenburg (Harz)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.6 km\nhttps://brockenlauf.
+ de/brockenlauf
+TRANSP:TRANSPARENT
+URL:https://brockenlauf.de/brockenlauf
+END:VEVENT
+END:VCALENDAR

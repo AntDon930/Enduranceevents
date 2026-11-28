@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-nordhauser-silvesterlauf-7-1km-nordhausen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Nordhäuser Silvesterlauf – Pokallauf 7\,1 km
+LOCATION:Nordhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.1 km\nhttps://my.raceresul
+ t.com/425813/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/425813/
+END:VEVENT
+END:VCALENDAR

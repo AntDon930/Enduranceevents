@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-kulkiathlon-markranstadt-22km-markranstadt@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Kulkiathlon Markranstädt – 3 × 7\,2 Kilometer = ca. 22 km
+LOCATION:Markranstädt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 22 km\nhttps://kulkiathlon.c
+ om/
+TRANSP:TRANSPARENT
+URL:https://kulkiathlon.com/
+END:VEVENT
+END:VCALENDAR

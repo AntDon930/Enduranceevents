@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-gremsdorfer-kerwalauf-x-gremsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Gremsdorfer Kerwalauf
+LOCATION:Gremsdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ladv.de/ausschrei
+ bung/detail/49451/10.-Gremsdorfer-Kerwalauf-2027-Gremsdorf.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49451/10.-Gremsdorfer-Kerwalauf-2
+ 027-Gremsdorf.htm
+END:VEVENT
+END:VCALENDAR

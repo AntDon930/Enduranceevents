@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-25-schierker-sommerlauf-16-3km-schierke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:25. Schierker Sommerlauf
+LOCATION:Schierke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16.3 km\nhttp://www.schierke
+ r-sommerlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.schierker-sommerlauf.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-03-nuff-na-500km-horb-am-neckar@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270903
+DTEND;VALUE=DATE:20270906
+SUMMARY:Nuff Na – Bikepacking 500 km
+LOCATION:Horb am Neckar\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 500 km\nhttps://nuffna.de/
+TRANSP:TRANSPARENT
+URL:https://nuffna.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-20-eierweglauf-seerhausen-6-5km-stauchitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270820
+DTEND;VALUE=DATE:20270821
+SUMMARY:Eierweglauf - Seerhausen
+LOCATION:Stauchitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://www.laufen-i
+ m-kreis-meissen.de/wettkaempfe-2027.html
+TRANSP:TRANSPARENT
+URL:https://www.laufen-im-kreis-meissen.de/wettkaempfe-2027.html
+END:VEVENT
+END:VCALENDAR

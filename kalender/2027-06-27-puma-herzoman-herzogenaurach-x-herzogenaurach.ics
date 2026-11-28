@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-puma-herzoman-herzogenaurach-x-herzogenaurach@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:PUMA Herzoman Herzogenaurach
+LOCATION:Herzogenaurach\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.herzoman.d
+ e/
+TRANSP:TRANSPARENT
+URL:https://www.herzoman.de/
+END:VEVENT
+END:VCALENDAR

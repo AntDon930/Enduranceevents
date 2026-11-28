@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-cross-eschlikon-6km-eschlikon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Cross Eschlikon
+LOCATION:Eschlikon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://cross.tveschlik
+ on.ch
+TRANSP:TRANSPARENT
+URL:https://cross.tveschlikon.ch
+END:VEVENT
+END:VCALENDAR

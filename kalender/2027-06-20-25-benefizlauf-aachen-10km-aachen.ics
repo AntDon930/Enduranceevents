@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-25-benefizlauf-aachen-10km-aachen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:25. Benefizlauf Aachen
+LOCATION:Aachen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 10 km\nhttps://www
+ .benefizlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.benefizlauf.de/
+END:VEVENT
+END:VCALENDAR

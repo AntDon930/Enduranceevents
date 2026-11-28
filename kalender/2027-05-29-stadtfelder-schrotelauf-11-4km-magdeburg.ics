@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-stadtfelder-schrotelauf-11-4km-magdeburg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Stadtfelder Schrotelauf – 11\,4 km Physioeck Lauf\, ab AK U14\, mi
+ t Zeitnahme
+LOCATION:Magdeburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.4 km\nhttps://schrotelauf
+ .de/
+TRANSP:TRANSPARENT
+URL:https://schrotelauf.de/
+END:VEVENT
+END:VCALENDAR

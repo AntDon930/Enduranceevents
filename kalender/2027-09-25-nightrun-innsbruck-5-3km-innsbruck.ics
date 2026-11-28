@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-nightrun-innsbruck-5-3km-innsbruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Nightrun Innsbruck – 5\,27 km Fitnesslauf (1 Runde)
+LOCATION:Innsbruck\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttps://www.innsbruc
+ klaeuft.com/laeufe/nightrun/
+TRANSP:TRANSPARENT
+URL:https://www.innsbrucklaeuft.com/laeufe/nightrun/
+END:VEVENT
+END:VCALENDAR

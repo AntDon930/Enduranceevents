@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-zurich-city-triathlon-25-8km-zurich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Zurich City Triathlon – PREMIUM Sprint 25.8 km (0.8 km Schwimmen /
+  20 km Rad / 5 km Laufen)
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.8 km\nhttps://zurichci
+ tytriathlon.ch/
+TRANSP:TRANSPARENT
+URL:https://zurichcitytriathlon.ch/
+END:VEVENT
+END:VCALENDAR

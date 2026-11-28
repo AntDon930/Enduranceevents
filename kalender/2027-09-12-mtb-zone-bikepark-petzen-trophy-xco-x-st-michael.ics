@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-mtb-zone-bikepark-petzen-trophy-xco-x-st-michael@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:MTB Zone Bikepark Petzen Trophy XCO – Cross-Country
+LOCATION:St. Michael\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.facebo
+ ok.com/rcpetzen
+TRANSP:TRANSPARENT
+URL:https://www.facebook.com/rcpetzen
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-winterlaufserie-tsv-ippinghausen-15km-wolfhagen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:Winterlaufserie TSV Ippinghausen – 15 km befestigte/geteerte Waldw
+ ege
+LOCATION:Wolfhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://wila-ippingha
+ usen.de/WILA/Ausschreibung
+TRANSP:TRANSPARENT
+URL:https://wila-ippinghausen.de/WILA/Ausschreibung
+END:VEVENT
+END:VCALENDAR

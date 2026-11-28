@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-area-sud-marathon-63km-innere-stadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20271011
+SUMMARY:Area Süd Marathon
+LOCATION:Innere Stadt\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 63 km\nhttps://areasued-mara
+ thon.at/
+TRANSP:TRANSPARENT
+URL:https://areasued-marathon.at/
+END:VEVENT
+END:VCALENDAR

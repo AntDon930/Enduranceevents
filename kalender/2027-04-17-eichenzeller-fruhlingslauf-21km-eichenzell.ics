@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-eichenzeller-fruhlingslauf-21km-eichenzell@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Eichenzeller Frühlingslauf – 21 km Diel Druck Halbmarathon\, inklu
+ sive Zugtransfer
+LOCATION:Eichenzell\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://xn--eichenzel
+ ler-frhlingslauf-twc.de/
+TRANSP:TRANSPARENT
+URL:https://xn--eichenzeller-frhlingslauf-twc.de/
+END:VEVENT
+END:VCALENDAR

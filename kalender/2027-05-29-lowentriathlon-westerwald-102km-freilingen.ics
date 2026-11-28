@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-lowentriathlon-westerwald-102km-freilingen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270531
+SUMMARY:Löwentriathlon Westerwald
+LOCATION:Freilingen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 102 km\nhttps://www.loewe
+ ntriathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.loewentriathlon.de/
+END:VEVENT
+END:VCALENDAR

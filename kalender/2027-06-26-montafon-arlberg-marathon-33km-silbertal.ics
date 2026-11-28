@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-montafon-arlberg-marathon-33km-silbertal@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Montafon Arlberg Marathon – 33 km T33 Trail\, Start St. Anton am A
+ rlberg\, Ziel Silbertal
+LOCATION:Silbertal\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 33 km\nhttps://www.montafon.a
+ t/montafon-arlberg-marathon/de
+TRANSP:TRANSPARENT
+URL:https://www.montafon.at/montafon-arlberg-marathon/de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-dreikonigslauf-schwabisch-hall-5km-schwabisch-hall@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Dreikönigslauf Schwäbisch Hall – 5 km Röwisch Wohnbau Cup
+LOCATION:Schwäbisch Hall\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://3koenigslauf.d
+ e/
+TRANSP:TRANSPARENT
+URL:https://3koenigslauf.de/
+END:VEVENT
+END:VCALENDAR

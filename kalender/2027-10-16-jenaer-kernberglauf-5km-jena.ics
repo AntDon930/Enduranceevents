@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-16-jenaer-kernberglauf-5km-jena@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271017
+SUMMARY:Jenaer Kernberglauf – 5 km Einsteigerlauf
+LOCATION:Jena\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.kernberglau
+ f.de/
+TRANSP:TRANSPARENT
+URL:https://www.kernberglauf.de/
+END:VEVENT
+END:VCALENDAR

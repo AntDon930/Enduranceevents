@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-grunberg-xc-challenge-x-obsteig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Grünberg XC Challenge – Cross-Country
+LOCATION:Obsteig\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.radspo
+ rtclub-mieming.com
+TRANSP:TRANSPARENT
+URL:https://www.radsportclub-mieming.com
+END:VEVENT
+END:VCALENDAR

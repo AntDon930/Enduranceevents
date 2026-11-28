@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-dieburger-stadtlauf-10km-dieburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Dieburger Stadtlauf
+LOCATION:Dieburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://dieburger-sta
+ dtlauf.de/
+TRANSP:TRANSPARENT
+URL:https://dieburger-stadtlauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-laimischter-elimination-circle-186km-simmerath-lammersdorf@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Laimischter Elimination Circle – Gravel Race 186 km
+LOCATION:Simmerath Lammersdorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 186 km\nhttps://laimischter
+ -elimination-circle.de/
+TRANSP:TRANSPARENT
+URL:https://laimischter-elimination-circle.de/
+END:VEVENT
+END:VCALENDAR

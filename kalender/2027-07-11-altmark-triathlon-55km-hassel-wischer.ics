@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-altmark-triathlon-55km-hassel-wischer@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Altmark-Triathlon – Olympische Distanz 55 km
+LOCATION:Hassel (Wischer)\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 55 km\nhttps://altmark-tr
+ iathlon.com
+TRANSP:TRANSPARENT
+URL:https://altmark-triathlon.com
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-49-hausener-volks-waldlauf-tgs-hausen-21-1km-obertshausen@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:49. Hausener Volks-Waldlauf (TGS-Hausen)
+LOCATION:Obertshausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.tgs-haus
+ en.de/volkslauf
+TRANSP:TRANSPARENT
+URL:http://www.tgs-hausen.de/volkslauf
+END:VEVENT
+END:VCALENDAR

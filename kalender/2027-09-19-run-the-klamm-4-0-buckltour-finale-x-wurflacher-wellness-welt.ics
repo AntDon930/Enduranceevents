@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-run-the-klamm-4-0-buckltour-finale-x-wurflacher-wellness-we
+ lt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Run The Klamm 4.0 (Buckltour-Finale)
+LOCATION:Würflacher Wellness Welt\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://buckltour.at/even
+ ts/run-the-klamm
+TRANSP:TRANSPARENT
+URL:https://buckltour.at/events/run-the-klamm
+END:VEVENT
+END:VCALENDAR

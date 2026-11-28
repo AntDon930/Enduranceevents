@@ -1,0 +1,29 @@
+{
+ "_hinweis": "Läuferhumor für das Format 'humor' (scripts/insta_inhalte.py). Je Eintrag zwei Folien: oben + text_oben (die Erwartung), unten + text_unten (die Wirklichkeit). Eigene Texte, keine fremden Memes. Neue Einträge: kurz halten (je Text höchstens ~70 Zeichen), niemanden vorführen, keine Marken, keine Personen.",
+ "witze": [
+  {"id": "locker", "sport": "Laufen", "oben": "Vor dem Rennen", "text_oben": "Heute laufe ich ganz locker. Nur zum Spaß.", "unten": "Bei km 1", "text_unten": "Wieso steht 4:05 auf der Uhr?!"},
+  {"id": "kurzer-lauf", "sport": "Laufen", "oben": "Ich", "text_oben": "Ich geh nur kurz eine Runde laufen.", "unten": "Zwei Stunden später", "text_unten": "Bin gleich da. Noch 14 km."},
+  {"id": "ruhewoche", "sport": null, "oben": "Montag", "text_oben": "Diese Woche ruhe ich mich mal richtig aus.", "unten": "Mittwoch", "text_unten": "Hab mich für einen Ultra angemeldet."},
+  {"id": "nie-wieder", "sport": "Laufen", "oben": "Bei km 35", "text_oben": "Nie wieder. Nie. Wieder.", "unten": "Zwei Stunden nach dem Ziel", "text_unten": "Wann öffnet die Anmeldung fürs nächste Jahr?"},
+  {"id": "samstag", "sport": null, "oben": "Normale Menschen am Samstag", "text_oben": "Ausschlafen.", "unten": "Ausdauersportler am Samstag", "text_unten": "Wecker 4:30. Startschuss 7:00."},
+  {"id": "triathlet", "sport": "Triathlon", "oben": "Woran erkennt man einen Triathleten?", "text_oben": "Keine Sorge.", "unten": "Spätestens nach zwei Minuten", "text_unten": "Er erzählt es dir selbst."},
+  {"id": "n-plus-1", "sport": "Fahrrad", "oben": "Wie viele Räder braucht man?", "text_oben": "Eins mehr, als man hat.", "unten": "Die Formel", "text_unten": "N + 1. Immer."},
+  {"id": "fuss", "sport": "Schwimmen", "oben": "Im Freiwasser", "text_oben": "Was war das gerade an meinem Fuß?", "unten": "Die einzig richtige Antwort", "text_unten": "Nicht nachdenken. Weiterkraulen."},
+  {"id": "ruhetag", "sport": "Laufen", "oben": "Ich", "text_oben": "Heute ist Ruhetag.", "unten": "Auch ich", "text_unten": "Also nur 10 km Regenerationslauf."},
+  {"id": "split", "sport": "Laufen", "oben": "Der Plan", "text_oben": "Negativer Split.", "unten": "Die Wirklichkeit", "text_unten": "Positiver Split. Negative Laune."},
+  {"id": "toilette", "sport": null, "oben": "Vor dem Start", "text_oben": "Siebenmal auf der Toilette.", "unten": "Beim Startschuss", "text_unten": "Ich muss schon wieder."},
+  {"id": "urlaub", "sport": null, "oben": "„Wohin fährst du in den Urlaub?“", "text_oben": "Irgendwohin, wo es schön ist.", "unten": "Übersetzt", "text_unten": "Irgendwohin, wo ein Rennen ist."},
+  {"id": "feiern", "sport": null, "oben": "Meine Freunde", "text_oben": "Samstag wird gefeiert!", "unten": "Ich", "text_unten": "Kann nicht. Wettkampf. Und Sonntag lange Einheit."},
+  {"id": "powerhiking", "sport": "Laufen", "oben": "Trailläufer bergauf", "text_oben": "Das ist kein Gehen.", "unten": "Das ist", "text_unten": "Strategisches Powerhiking."},
+  {"id": "treppe", "sport": "Laufen", "oben": "Am Tag nach dem Marathon", "text_oben": "Treppe hoch geht irgendwie.", "unten": "Treppe runter", "text_unten": "Nur noch rückwärts."},
+  {"id": "halbmarathon", "sport": "Laufen", "oben": "„Ein Halbmarathon, also nur die Hälfte?“", "text_oben": "Genau, nur 21,1 Kilometer.", "unten": "Am Stück", "text_unten": "Ohne Pause. Freiwillig."},
+  {"id": "essen", "sport": null, "oben": "„Was ist dein Lieblingsessen?“", "text_oben": "Ganz einfach.", "unten": "Alles, was", "text_unten": "nach dem Zieleinlauf kommt."},
+  {"id": "gegenwind", "sport": "Fahrrad", "oben": "Rennradfahrer bei Gegenwind", "text_oben": "Heute ist ein schöner Tag …", "unten": "… für", "text_unten": "Krafttraining."},
+  {"id": "medaille", "sport": "Laufen", "oben": "„Du zahlst Geld, um 42 km zu laufen?“", "text_oben": "Ja.", "unten": "Dafür gibt es", "text_unten": "Eine Medaille. Und eine Banane."},
+  {"id": "wasser", "sport": "Schwimmen", "oben": "Ausschreibung", "text_oben": "Wassertemperatur: 16 Grad.", "unten": "Gefühlt", "text_unten": "6 Grad. Und es wird nicht wärmer."},
+  {"id": "backyard", "sport": "Laufen", "oben": "Backyard Ultra, Stunde 1", "text_oben": "Nur noch eine Runde.", "unten": "Stunde 24", "text_unten": "Nur noch eine Runde."},
+  {"id": "morgenmensch", "sport": null, "oben": "Ich", "text_oben": "Ich bin kein Morgenmensch.", "unten": "Außer", "text_unten": "Um 6 Uhr ist ein Startschuss."},
+  {"id": "taper", "sport": null, "oben": "Taper-Woche", "text_oben": "Weniger trainieren. Mehr erholen.", "unten": "Mein Kopf", "text_unten": "Ich habe alles verlernt. Ich bin nicht fit."},
+  {"id": "wechselzone", "sport": "Triathlon", "oben": "Wechselzone im Training", "text_oben": "30 Sekunden.", "unten": "Wechselzone im Rennen", "text_unten": "Wo ist mein Rad? Wo bin ICH?"}
+ ]
+}

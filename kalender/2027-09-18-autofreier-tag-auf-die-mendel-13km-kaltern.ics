@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-autofreier-tag-auf-die-mendel-13km-kaltern@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Autofreier Tag auf die Mendel – Volksradfahren 13 km
+LOCATION:Kaltern\, Italien (Südtirol)
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 13 km\nhttps://www.ka
+ ltern.com/de/autofreier-tag-auf-die-mendel.html
+TRANSP:TRANSPARENT
+URL:https://www.kaltern.com/de/autofreier-tag-auf-die-mendel.html
+END:VEVENT
+END:VCALENDAR

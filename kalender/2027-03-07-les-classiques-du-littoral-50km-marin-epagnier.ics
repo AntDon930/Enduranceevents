@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-les-classiques-du-littoral-50km-marin-epagnier@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Les classiques du Littoral – Jedermannrennen 50 km
+LOCATION:Marin-Epagnier\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 50 km\nhttps://www.cclittor
+ al.ch/activites/classiques.php
+TRANSP:TRANSPARENT
+URL:https://www.cclittoral.ch/activites/classiques.php
+END:VEVENT
+END:VCALENDAR

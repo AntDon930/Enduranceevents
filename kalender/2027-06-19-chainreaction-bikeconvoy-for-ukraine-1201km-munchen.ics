@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-chainreaction-bikeconvoy-for-ukraine-1201km-munchen@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Chainreaction - Bikeconvoy for Ukraine
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 1201 km\nhttps://aramuc.de/
+ brevets/1200-km-chainreaction-bikeconvoy-ukraine-brevet-mit-zeitlimit-202
+ 7
+TRANSP:TRANSPARENT
+URL:https://aramuc.de/brevets/1200-km-chainreaction-bikeconvoy-ukraine-bre
+ vet-mit-zeitlimit-2027
+END:VEVENT
+END:VCALENDAR

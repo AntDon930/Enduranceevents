@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-11-schnebelhorn-panoramatrail-21-1km-mosnang@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:11. Schnebelhorn Panoramatrail – Halbmarathon 21\,1 km (989 hm\, S
+ chnebelhorn 1291 m)
+LOCATION:Mosnang\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttps://panoramatrai
+ l.ch/
+TRANSP:TRANSPARENT
+URL:https://panoramatrail.ch/
+END:VEVENT
+END:VCALENDAR

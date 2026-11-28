@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-trails-du-besso-25-5km-anniviers@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Trails du Besso – 25\,5 km mit rund +2230 m Höhenunterschied
+LOCATION:Anniviers\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 25.5 km\nhttps://www.traildub
+ esso.com/
+TRANSP:TRANSPARENT
+URL:https://www.traildubesso.com/
+END:VEVENT
+END:VCALENDAR

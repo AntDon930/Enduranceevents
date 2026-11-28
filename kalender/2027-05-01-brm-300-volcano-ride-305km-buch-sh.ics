@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-brm-300-volcano-ride-305km-buch-sh@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:BRM 300 VOLCANO RIDE – Gravel Brevet 305 km
+LOCATION:Buch SH\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 305 km\nhttps://www.audax-s
+ uisse.ch/brevets/brm-200-angel-ride-bodensee/
+TRANSP:TRANSPARENT
+URL:https://www.audax-suisse.ch/brevets/brm-200-angel-ride-bodensee/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-40-silvesterlauf-sigmaringen-10km-sigmaringen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:40. Silvesterlauf Sigmaringen
+LOCATION:Sigmaringen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sig-run.d
+ e/silvesterlauf-sigmaringen/
+TRANSP:TRANSPARENT
+URL:https://www.sig-run.de/silvesterlauf-sigmaringen/
+END:VEVENT
+END:VCALENDAR

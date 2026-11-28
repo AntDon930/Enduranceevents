@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-fest-am-see-crosslauf-fichtenau-5-2km-fichtenau@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Fest am See Crosslauf Fichtenau – Jedermannslauf (5\,2 km)
+LOCATION:Fichtenau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.2 km\nhttps://www.fichtenau
+ .de/freizeit-erlebnis/fichtenauer-momente/crosslauf
+TRANSP:TRANSPARENT
+URL:https://www.fichtenau.de/freizeit-erlebnis/fichtenauer-momente/crossla
+ uf
+END:VEVENT
+END:VCALENDAR

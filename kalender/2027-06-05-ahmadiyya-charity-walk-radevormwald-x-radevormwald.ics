@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-ahmadiyya-charity-walk-radevormwald-x-radevormwald@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Ahmadiyya Charity Walk Radevormwald
+LOCATION:Radevormwald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch · Charity\nLänge: -\nhttps://charity
+ walk.de/events/1-ahmadiyya-charity-walk-radevormwald
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/1-ahmadiyya-charity-walk-radevormwald
+END:VEVENT
+END:VCALENDAR

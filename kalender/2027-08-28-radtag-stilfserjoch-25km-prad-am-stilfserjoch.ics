@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-radtag-stilfserjoch-25km-prad-am-stilfserjoch@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Radtag-Stilfserjoch – Volksradfahren 25 km
+LOCATION:Prad am Stilfserjoch\, Italien (Südtirol)
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 25 km\nhttps://www.national
+ park-stelvio.it/de/erleben/radfahren-mountainbiken/radtag-stilfserjoch.ht
+ ml
+TRANSP:TRANSPARENT
+URL:https://www.nationalpark-stelvio.it/de/erleben/radfahren-mountainbiken
+ /radtag-stilfserjoch.html
+END:VEVENT
+END:VCALENDAR

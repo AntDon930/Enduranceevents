@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-crosslaufserie-luckenwalde-7-2km-luckenwalde@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Crosslaufserie Luckenwalde – 7\,2 km mittlere Strecke
+LOCATION:Luckenwalde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.2 km\nhttps://anmeldung.lau
+ fauswertung.com/Anmeldung/index.php?VID=C24CA79F13
+TRANSP:TRANSPARENT
+URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=C24CA79F1
+ 3
+END:VEVENT
+END:VCALENDAR

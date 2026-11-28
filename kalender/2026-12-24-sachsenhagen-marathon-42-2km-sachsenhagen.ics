@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-24-sachsenhagen-marathon-42-2km-sachsenhagen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261224
+DTEND;VALUE=DATE:20261225
+SUMMARY:Sachsenhagen-Marathon – Marathon
+LOCATION:Sachsenhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://lauffieber-
+ schaumburg.de/2026/11/04/9-sachsenhagen-marathon/
+TRANSP:TRANSPARENT
+URL:https://lauffieber-schaumburg.de/2026/11/04/9-sachsenhagen-marathon/
+END:VEVENT
+END:VCALENDAR

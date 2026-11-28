@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-14-bertlicher-marathon-42-2km-herten-bertlich@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:Bertlicher Marathon
+LOCATION:Herten-Bertlich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.bertlich
+ er-strassenlaeufe.de
+TRANSP:TRANSPARENT
+URL:http://www.bertlicher-strassenlaeufe.de
+END:VEVENT
+END:VCALENDAR

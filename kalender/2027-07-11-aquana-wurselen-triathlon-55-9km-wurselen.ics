@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-aquana-wurselen-triathlon-55-9km-wurselen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Aquana Würselen Triathlon – Düvel Distanz 55.9 km (0.9 km Schwimme
+ n / 45 km Rad / 10 km Laufen)
+LOCATION:Würselen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 55.9 km\nhttps://www.mc-e
+ schweiler.de
+TRANSP:TRANSPARENT
+URL:https://www.mc-eschweiler.de
+END:VEVENT
+END:VCALENDAR

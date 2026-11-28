@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-zugspitz-ultra-trail-by-utmb-44km-garmisch-partenkirchen@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Zugspitz Ultra Trail by UTMB – Mittenwald Trail (44 km)
+LOCATION:Garmisch-Partenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 44 km\nhttps://zugspitz.utmb.
+ world/
+TRANSP:TRANSPARENT
+URL:https://zugspitz.utmb.world/
+END:VEVENT
+END:VCALENDAR

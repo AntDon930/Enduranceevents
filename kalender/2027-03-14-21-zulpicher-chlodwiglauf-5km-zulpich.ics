@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-21-zulpicher-chlodwiglauf-5km-zulpich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:21. Zülpicher Chlodwiglauf – Jedermann-Lauf ca. 5 km
+LOCATION:Zülpich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tuszuelpic
+ h-leichtathletik.de/chlodwiglauf-2.html
+TRANSP:TRANSPARENT
+URL:https://www.tuszuelpich-leichtathletik.de/chlodwiglauf-2.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-05-run-the-sun-ascona-locarno-marathon-10km-locarno@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270305
+DTEND;VALUE=DATE:20270308
+SUMMARY:Run The Sun Ascona-Locarno Marathon – 10 km Run / Walking / Nordic
+  Walking
+LOCATION:Locarno\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://generalirunth
+ esun.com/de
+TRANSP:TRANSPARENT
+URL:https://generalirunthesun.com/de
+END:VEVENT
+END:VCALENDAR

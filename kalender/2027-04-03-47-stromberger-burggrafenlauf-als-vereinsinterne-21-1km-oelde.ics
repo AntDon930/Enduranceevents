@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-47-stromberger-burggrafenlauf-als-vereinsinterne-21-1km-oel
+ de@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:47. Stromberger Burggrafenlauf als vereinsinterner Wettkampf
+LOCATION:Oelde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.lv-oeld
+ e.de/de/veranstaltungen/stromberger-burggrafenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.lv-oelde.de/de/veranstaltungen/stromberger-burggrafenlauf/
+END:VEVENT
+END:VCALENDAR

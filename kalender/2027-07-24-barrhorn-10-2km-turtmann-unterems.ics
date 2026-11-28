@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-barrhorn-10-2km-turtmann-unterems@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270725
+SUMMARY:Barrhorn – Blüomatt Skyrun
+LOCATION:Turtmann-Unterems\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.2 km\nhttps://barrhorn.ch
+ /
+TRANSP:TRANSPARENT
+URL:https://barrhorn.ch/
+END:VEVENT
+END:VCALENDAR

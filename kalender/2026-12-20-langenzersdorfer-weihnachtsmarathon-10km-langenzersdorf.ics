@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-langenzersdorfer-weihnachtsmarathon-10km-langenzersdorf@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Langenzersdorfer Weihnachtsmarathon – 10 km 10 Runden
+LOCATION:Langenzersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://weihnachtsmar
+ athon.at/
+TRANSP:TRANSPARENT
+URL:https://weihnachtsmarathon.at/
+END:VEVENT
+END:VCALENDAR

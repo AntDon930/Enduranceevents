@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-36-unterallgauer-triathlon-2027-x-ottobeuren@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:36. Unterallgäuer Triathlon 2027 – Sprint
+LOCATION:Ottobeuren\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.triathlon-
+ ottobeuren.de/index.html
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-ottobeuren.de/index.html
+END:VEVENT
+END:VCALENDAR

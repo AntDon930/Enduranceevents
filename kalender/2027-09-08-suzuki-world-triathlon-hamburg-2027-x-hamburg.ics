@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-08-suzuki-world-triathlon-hamburg-2027-x-hamburg@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270908
+DTEND;VALUE=DATE:20270909
+SUMMARY:SUZUKI World Triathlon Hamburg 2027 – Sprint
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttp://events.triathlo
+ n.org/de/2027-wtcf-hamburg
+TRANSP:TRANSPARENT
+URL:http://events.triathlon.org/de/2027-wtcf-hamburg
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-berliner-strassenlauf-die-generalprobe-21-1km-berlin@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:Berliner Straßenlauf - Die Generalprobe – Halbmarathon
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.berline
+ r-generalprobe.de/
+TRANSP:TRANSPARENT
+URL:https://www.berliner-generalprobe.de/
+END:VEVENT
+END:VCALENDAR

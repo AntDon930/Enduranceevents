@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-11-06-community-run-coswig-x-coswig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271106
+DTEND;VALUE=DATE:20271107
+SUMMARY:Community Run - Coswig
+LOCATION:Coswig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.laufen-im-kre
+ is-meissen.de/wettkaempfe-2027.html
+TRANSP:TRANSPARENT
+URL:https://www.laufen-im-kreis-meissen.de/wettkaempfe-2027.html
+END:VEVENT
+END:VCALENDAR

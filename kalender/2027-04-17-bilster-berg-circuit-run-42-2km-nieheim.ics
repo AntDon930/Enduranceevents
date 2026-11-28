@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-bilster-berg-circuit-run-42-2km-nieheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Bilster Berg Circuit Run – Marathon
+LOCATION:Nieheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://hardloop.ev
+ ents/bilster-berg-circuit-run/
+TRANSP:TRANSPARENT
+URL:https://hardloop.events/bilster-berg-circuit-run/
+END:VEVENT
+END:VCALENDAR

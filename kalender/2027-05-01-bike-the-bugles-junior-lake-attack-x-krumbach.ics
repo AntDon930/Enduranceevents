@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-bike-the-bugles-junior-lake-attack-x-krumbach@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:bike the bugles Junior Lake aTtAcK – Cross-Country
+LOCATION:Krumbach\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.biketh
+ ebugles.at
+TRANSP:TRANSPARENT
+URL:https://www.bikethebugles.at
+END:VEVENT
+END:VCALENDAR

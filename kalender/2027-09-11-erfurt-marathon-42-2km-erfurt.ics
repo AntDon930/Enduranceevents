@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-erfurt-marathon-42-2km-erfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Erfurt Marathon – Marathon
+LOCATION:Erfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://annakram.de
+ /chronik.php?jahr=2026&artikel=341
+TRANSP:TRANSPARENT
+URL:https://annakram.de/chronik.php?jahr=2026&artikel=341
+END:VEVENT
+END:VCALENDAR

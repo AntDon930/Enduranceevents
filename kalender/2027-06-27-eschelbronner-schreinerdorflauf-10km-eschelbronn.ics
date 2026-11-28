@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-eschelbronner-schreinerdorflauf-10km-eschelbronn@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Eschelbronner Schreinerdorflauf
+LOCATION:Eschelbronn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.turnverei
+ n-eschelbronn.de/schreinerdorflauf/
+TRANSP:TRANSPARENT
+URL:https://www.turnverein-eschelbronn.de/schreinerdorflauf/
+END:VEVENT
+END:VCALENDAR

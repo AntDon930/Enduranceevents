@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-29-giro-media-blenio-5km-acquarossa@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+SUMMARY:Giro Media Blenio – 5 km \, kurze Distanz.
+LOCATION:Acquarossa\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.mediableni
+ o.com/
+TRANSP:TRANSPARENT
+URL:https://www.mediablenio.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-22-charity-run-zum-o3-weihnachtswunder-adlwang-12km-adlwang@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261222
+DTEND;VALUE=DATE:20261223
+SUMMARY:Charity Run zum Ö3 Weihnachtswunder - Adlwang
+LOCATION:Adlwang\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 12 km\nhttps://tim
+ e2win.at/event/1182
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1182
+END:VEVENT
+END:VCALENDAR

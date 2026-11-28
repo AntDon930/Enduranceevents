@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-16-bodener-brinkenlauf-x-boden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270416
+DTEND;VALUE=DATE:20270417
+SUMMARY:Bodener Brinkenlauf
+LOCATION:Boden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.ergebnisliste
+ .de/wlc-laufveranstaltungen/brinkenlauf-boden
+TRANSP:TRANSPARENT
+URL:https://www.ergebnisliste.de/wlc-laufveranstaltungen/brinkenlauf-boden
+END:VEVENT
+END:VCALENDAR

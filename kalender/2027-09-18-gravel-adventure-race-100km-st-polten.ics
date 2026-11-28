@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-gravel-adventure-race-100km-st-polten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:GRAVEL Adventure Race – Gravel Race 100 km
+LOCATION:St. Pölten\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 100 km\nhttps://www.dirndlt
+ al-race.at/adventurerace
+TRANSP:TRANSPARENT
+URL:https://www.dirndltal-race.at/adventurerace
+END:VEVENT
+END:VCALENDAR

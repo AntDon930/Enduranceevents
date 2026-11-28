@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-windkraft-simonsfeld-steinbergrennen-40km-neusiedl-an-der-z
+ aya@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Windkraft Simonsfeld Steinbergrennen – Jedermannrennen 40 km
+LOCATION:Neusiedl an der Zaya\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 40 km\nhttp://www.weinviert
+ ler-radcup.at/steinberg.php
+TRANSP:TRANSPARENT
+URL:http://www.weinviertler-radcup.at/steinberg.php
+END:VEVENT
+END:VCALENDAR

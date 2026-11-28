@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-hunsbuckeltrail-hubut-27km-laubach-hunsruck@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:Hunsbuckeltrail (HuBuT)
+LOCATION:Laubach\, Hunsrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 27 km\nhttps://hunsbuckel-tra
+ il.de/
+TRANSP:TRANSPARENT
+URL:https://hunsbuckel-trail.de/
+END:VEVENT
+END:VCALENDAR

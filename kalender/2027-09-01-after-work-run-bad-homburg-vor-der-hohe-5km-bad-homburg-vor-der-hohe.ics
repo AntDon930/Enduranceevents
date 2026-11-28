@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-01-after-work-run-bad-homburg-vor-der-hohe-5km-bad-homburg-vor
+ -der-hohe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270901
+DTEND;VALUE=DATE:20270902
+SUMMARY:After Work Run - Bad Homburg vor der Höhe
+LOCATION:Bad Homburg vor der Höhe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.bad-hombur
+ g.de/de/erleben/ausgehen/veranstaltungen/after-work-run-bad-homburg
+TRANSP:TRANSPARENT
+URL:https://www.bad-homburg.de/de/erleben/ausgehen/veranstaltungen/after-w
+ ork-run-bad-homburg
+END:VEVENT
+END:VCALENDAR

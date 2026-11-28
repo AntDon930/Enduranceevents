@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-21-no-frauenlauf-x-st-polten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:21. NÖ Frauenlauf
+LOCATION:St. Pölten\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.noe-frauenlauf
+ .at
+TRANSP:TRANSPARENT
+URL:http://www.noe-frauenlauf.at
+END:VEVENT
+END:VCALENDAR

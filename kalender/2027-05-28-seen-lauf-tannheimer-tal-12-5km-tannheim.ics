@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-seen-lauf-tannheimer-tal-12-5km-tannheim@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270530
+SUMMARY:Seen-Lauf Tannheimer Tal – 12\,5 km Trailrun (3 Hütten)
+LOCATION:Tannheim\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12.5 km\nhttps://www.seen-lau
+ f.com/
+TRANSP:TRANSPARENT
+URL:https://www.seen-lauf.com/
+END:VEVENT
+END:VCALENDAR

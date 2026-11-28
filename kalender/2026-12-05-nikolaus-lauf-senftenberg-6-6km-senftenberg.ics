@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-nikolaus-lauf-senftenberg-6-6km-senftenberg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Nikolaus-Lauf Senftenberg – 6\,6 km Lauf am Senftenberger See und 
+ Schwarzer Elster
+LOCATION:Senftenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.6 km\nhttps://www.lausitze
+ r-sportevents.de/anmeldung/anm.php?N=2026121
+TRANSP:TRANSPARENT
+URL:https://www.lausitzer-sportevents.de/anmeldung/anm.php?N=2026121
+END:VEVENT
+END:VCALENDAR

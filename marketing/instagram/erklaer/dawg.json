@@ -1,0 +1,336 @@
+{
+ "thema": "Der Dog Factor",
+ "seed": 21,
+ "_quellen": {
+  "studie": "Stone MR et al. (2012): Effects of deception on exercise performance: implications for determinants of fatigue in humans. Med Sci Sports Exerc 44(3):534-541, https://pubmed.ncbi.nlm.nih.gov/21886012/ – 9 trainierte Radfahrer, 4000-m-Zeitfahren gegen einen Avatar, der heimlich 102 % ihrer Bestleistung fuhr; sie waren schneller als in der Bestleistung.",
+  "iron_cowboy": "James Lawrence, 100 (101) Ironman-Distanzen in 100 Tagen 2021, https://www.si.com/edge/2021/06/09/iron-cowboy-james-lawrence-completes-100-triathlons-100-days-video",
+  "hardest_geezer": "Russ Cook lief 2023/24 in 352 Tagen die Länge Afrikas, https://www.aljazeera.com/news/2024/4/7/uk-hardest-geezer-completes-challenge-run-length-africa",
+  "hans_troyer": "Hans 'The Destroyer' Troyer, Sieger JFK 50 Mile 2025, https://trailrunner.com/trail-news/hans-troyer-at-the-jfk-50-mile-when-impossible-becomes-realistic/",
+  "vorbild": "Idee nach Reels von liftwithjp und dominicfusco (Uhrprognose gegen Ergebnis) – eigene Umsetzung, nichts übernommen"
+ },
+ "cover": {
+  "titel": [
+   "DER",
+   "DOG",
+   "FACTOR"
+  ],
+  "farbe": "navy",
+  "figur": "jubeln",
+  "etikett": "HAST DU IHN?",
+  "blasen": [
+   "Uhr sagt 3:13",
+   "Ich: 2:59"
+  ]
+ },
+ "caption": [
+  "Hast du den Dog in dir? 🐕",
+  "#dogfactor #marathon #laufen #runnersofinstagram #mentaltoughness"
+ ],
+ "szenen": [
+  {
+   "bild": "dawghook",
+   "wechsel": 0,
+   "knie": true,
+   "oben": "HAST DU DEN DOG IN DIR?",
+   "zeile_g": 100,
+   "zeile_bei": 1.7,
+   "text": "Hast du den Dog in dir?",
+   "teile": [
+    [
+     0,
+     1.48,
+     6
+    ]
+   ],
+   "zeile": ""
+  },
+  {
+   "bild": "liste",
+   "titel": "DER DOG FACTOR",
+   "eintraege": [
+    "ÜBERTRAINIERT",
+    "UNDERPREPARED",
+    "DRECKSWETTER",
+    "KRÄMPFE",
+    "UNDERFUELED",
+    "SCHWERE BEINE"
+   ],
+   "text": "Der Dog Factor heißt: Abliefern, wenn alles gegen dich ist. Übertrainiert. Underprepared. Dreckswetter. Krämpfe. Underfueled. Schwere Beine.",
+   "unter": "ABLIEFERN, WENN ALLES GEGEN DICH IST",
+   "unter_bei": 1.52,
+   "bei": [
+    3.6,
+    4.61,
+    5.63,
+    6.66,
+    7.53,
+    8.56
+   ],
+   "teile": [
+    [
+     1.7,
+     2.9,
+     4
+    ],
+    [
+     3.1,
+     3.86,
+     1
+    ],
+    [
+     3.99,
+     6.07,
+     6
+    ],
+    [
+     6.19,
+     7.09,
+     1
+    ],
+    [
+     7.21,
+     8.05,
+     1
+    ],
+    [
+     8.24,
+     8.92,
+     1
+    ],
+    [
+     9.11,
+     10.04,
+     1
+    ],
+    [
+     10.14,
+     11.07,
+     2
+    ]
+   ]
+  },
+  {
+   "bild": "figur",
+   "pose": "kampf",
+   "grund": "nacht",
+   "titel": "DU HAST DEN DOG, WENN DU …",
+   "titel_g": 84,
+   "blasen": [
+    "trotzdem ablieferst",
+    "die Prognose schlägst",
+    "egal, wie's sich anfühlt"
+   ],
+   "zeile": "",
+   "text": "Du hast den Dog Factor in dir, wenn du trotz all dieser Probleme ablieferst, die Statistik und jede Prognose schlägst. Egal, wie du dich fühlst!",
+   "blasen_g": 58,
+   "blasen_bei": [
+    3.0,
+    5.2,
+    6.67
+   ],
+   "teile": [
+    [
+     11.18,
+     12.68,
+     7
+    ],
+    [
+     12.79,
+     15.2,
+     7
+    ],
+    [
+     15.32,
+     17.66,
+     6
+    ],
+    [
+     17.8,
+     19.2,
+     5
+    ]
+   ]
+  },
+  {
+   "bild": "wette",
+   "prognose": "3:13:00",
+   "ergebnis": "2:59:41",
+   "zeile_uhr": "SAGT DIE UHR",
+   "text": "Die Uhr sagt: drei Stunden dreizehn. Der Dog sagt: unter drei. Koste es, was es wolle.",
+   "wechsel": 2.35,
+   "teile": [
+    [
+     19.33,
+     20.04,
+     3
+    ],
+    [
+     20.16,
+     21.45,
+     3
+    ],
+    [
+     21.61,
+     22.48,
+     3
+    ],
+    [
+     22.63,
+     23.31,
+     2
+    ],
+    [
+     23.5,
+     24.76,
+     5
+    ]
+   ]
+  },
+  {
+   "bild": "zahl",
+   "zahl": 2,
+   "vor": "+",
+   "nach": " %",
+   "oben": "RADFAHRER, OHNE ES ZU WISSEN",
+   "einheit": "SCHNELLER ALS IHR REKORD",
+   "zeile": "UND SIE HIELTEN MIT",
+   "klein": "Stone et al. 2012, Med Sci Sports Exerc",
+   "text": "In einer Studie fuhren Radfahrer heimlich zwei Prozent schneller als ihr Rekord. Sie wussten es nicht. Und hielten mit. Deine Uhr rechnet den Dog in dir nicht rein.",
+   "teile": [
+    [
+     24.94,
+     29.05,
+     12
+    ],
+    [
+     29.19,
+     30.0,
+     4
+    ],
+    [
+     30.11,
+     30.93,
+     3
+    ],
+    [
+     31.04,
+     33.29,
+     9
+    ]
+   ]
+  },
+  {
+   "bild": "mentions",
+   "titel": "MEINE TOP 5 DOGS",
+   "titel_g": 110,
+   "zeile": "WER FEHLT NOCH?",
+   "leute": [
+    [
+     "HARDEST GEEZER",
+     "@hardestgeezer",
+     "EINMAL AFRIKA DER LÄNGE NACH"
+    ],
+    [
+     "IRON COWBOY",
+     "James Lawrence",
+     "100 IRONMANS IN 100 TAGEN"
+    ],
+    [
+     "HANS TROYER",
+     "@hanstroyer",
+     "THE DESTROYER"
+    ],
+    [
+     "DAVID GOGGINS",
+     "@davidgoggins",
+     "NAVY SEAL & ULTRALÄUFER"
+    ],
+    [
+     "MAX JOLLIFFE",
+     "@woah_max",
+     "KING OF MOAB"
+    ]
+   ],
+   "text": "Hier ein paar Honorable Mentions.",
+   "bei": [
+    0.2,
+    0.5,
+    0.8,
+    1.1,
+    1.4
+   ],
+   "zeile_bei": 2.0,
+   "teile": [
+    [
+     33.47,
+     35.22,
+     5
+    ]
+   ]
+  },
+  {
+   "bild": "schluss",
+   "frage": "HAST DU DEN DOG IN DIR?",
+   "g": 88,
+   "blase": "KOMMENTIER ODER TAG EINEN DOG!",
+   "text": "Hast du den Dog in dir? Schreib's in die Kommentare oder tag einen Dog!",
+   "teile": [
+    [
+     36.86,
+     38.01,
+     6
+    ],
+    [
+     38.24,
+     39.37,
+     4
+    ],
+    [
+     39.47,
+     40.67,
+     4
+    ]
+   ],
+   "blase_g": 64
+  }
+ ],
+ "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen 0,22 s, atempo 0,89) – dog.mp3 neben dieser Datei",
+ "quellen": [
+  "https://pubmed.ncbi.nlm.nih.gov/21886012/",
+  "https://www.si.com/edge/2021/06/09/iron-cowboy-james-lawrence-completes-100-triathlons-100-days-video",
+  "https://www.aljazeera.com/news/2024/4/7/uk-hardest-geezer-completes-challenge-run-length-africa",
+  "https://trailrunner.com/trail-news/hans-troyer-at-the-jfk-50-mile-when-impossible-becomes-realistic/",
+  "https://marathonhandbook.com/max-jolliffe-on-winning-badwater-135-heat-training-his-path-to-running/",
+  "https://satisfyrunning.com/blogs/possessed/max-jolliffe-2"
+ ],
+ "zeiten": [
+  [
+   0,
+   1.6
+  ],
+  [
+   1.6,
+   11.13
+  ],
+  [
+   11.13,
+   19.26
+  ],
+  [
+   19.26,
+   24.85
+  ],
+  [
+   24.85,
+   33.38
+  ],
+  [
+   33.38,
+   36.76
+  ],
+  [
+   36.76,
+   41.26
+  ]
+ ]
+}

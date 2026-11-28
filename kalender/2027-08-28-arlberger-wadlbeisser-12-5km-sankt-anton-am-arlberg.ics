@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-arlberger-wadlbeisser-12-5km-sankt-anton-am-arlberg@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Arlberger Wadlbeisser – 12\,5 Kilometer
+LOCATION:Sankt Anton am Arlberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12.5 km\nhttps://arlberger-wa
+ dlbeisser.at/at
+TRANSP:TRANSPARENT
+URL:https://arlberger-wadlbeisser.at/at
+END:VEVENT
+END:VCALENDAR

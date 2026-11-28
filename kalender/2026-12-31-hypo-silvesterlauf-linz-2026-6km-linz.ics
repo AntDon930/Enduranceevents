@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-hypo-silvesterlauf-linz-2026-6km-linz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:HYPO Silvesterlauf Linz 2026 – 6 km Hauptlauf (2 Runden à 3 km)
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.finisher.a
+ t/silvesterlauf/
+TRANSP:TRANSPARENT
+URL:https://www.finisher.at/silvesterlauf/
+END:VEVENT
+END:VCALENDAR

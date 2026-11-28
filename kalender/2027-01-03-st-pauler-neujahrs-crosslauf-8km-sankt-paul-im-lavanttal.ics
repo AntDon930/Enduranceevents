@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-st-pauler-neujahrs-crosslauf-8km-sankt-paul-im-lavanttal@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:St. Pauler Neujahrs-Crosslauf
+LOCATION:Sankt Paul im Lavanttal\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.lg-stpaul.a
+ t/
+TRANSP:TRANSPARENT
+URL:https://www.lg-stpaul.at/
+END:VEVENT
+END:VCALENDAR
