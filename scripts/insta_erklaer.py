@@ -795,13 +795,28 @@ def sz_figur(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     img = tag(t * 0.25) if p.get("grund", "tag") == "tag" else nacht().copy()
     d = ImageDraw.Draw(img)
     atem = 1 + 0.012 * math.sin(t * 3.2)
-    aufkleben(img, M.figur(p.get("pose", "zeigen"), int(800 * atem), p.get("person", "er")), B / 2 - 190, 1410)
+    if p.get("pose") == "kampf":
+        # Dawg-Modus: Regen von schräg vorn, die Figur läuft angestrengt dagegen an
+        rng = random.Random(5)
+        for _ in range(70):
+            x0, y0, v = rng.uniform(-200, B + 200), rng.uniform(0, 1500), rng.uniform(1300, 1900)
+            y = (y0 + t * v) % 1300 + 560
+            x = (x0 - (y - 560) * 0.35) % (B + 200) - 100
+            d.line([(x, y), (x - 18, y + 52)], fill=SOFT_BLUE, width=5)
+        d.rectangle([0, 1410, B, 1424], fill=CREME)
+        aufkleben(img, lauf(t, tempo=2.6, hoehe=640, mund="angestrengt"), B / 2 - 230, 1416)
+        for i in range(3):                        # Tempo-Striche hinter der Figur
+            yy = 1060 + i * 80
+            dx = (t * 700 + i * 90) % 140
+            d.line([(30 + dx, yy), (110 + dx, yy)], fill=CREME, width=9)
+    else:
+        aufkleben(img, M.figur(p.get("pose", "zeigen"), int(800 * atem), p.get("person", "er")), B / 2 - 190, 1410)
     pop(d, B / 2, 500, p.get("titel", ""), p.get("titel_g", 130), t - dauer * 0.08, fill=CORAL)
     blasen = p.get("blasen", [])
     for i, w in enumerate(blasen):
         einsatz = p["blasen_bei"][i] if p.get("blasen_bei") else dauer * (0.3 + 0.5 * i / max(1, len(blasen)))
         blase(d, 750 + 20 * (i % 2), 720 + i * 170, w, p.get("blasen_g") or min(84, 960 / max(6, len(w))),
-              t - einsatz, spitze_x=590 if i == 0 else None)
+              t - einsatz, spitze_x=590 if i == 0 and p.get("pose") != "kampf" else None)
     pop(d, B / 2, 1490, p.get("zeile", ""), p.get("g", 96), t - dauer * 0.6, fill=CREME)
     return img
 
