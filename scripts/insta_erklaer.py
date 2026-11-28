@@ -1044,13 +1044,13 @@ def sz_liste(t: float, dauer: float, p: dict | None = None) -> Image.Image:
         y = oben + abstand * (i + 0.5)
         if wut:
             zittern = 10 * math.sin(tt * 60) * max(0.0, 1 - tt / 0.4)
-            g = min(170, 1800 / max(6, len(w)))
+            g = min(170, 170 * 960 / max(1, schrift(170).getlength(w)))
             text(d, B / 2 + zittern, y, w, g * federn(tt / 0.25), fill=CORAL, rand=10)
         else:
             g = p.get("g", min(104, 1500 / max(6, len(w))))
             x = B / 2 + (i % 2 * 2 - 1) * 60
             text(d, x, y, w, g * federn(tt / 0.3), fill=CREME if i % 2 else SOFT_BLUE, rand=8)
-    if wut:
+    if wut and p.get("blitz"):
         # roter Puls am Rand bei jedem neuen Wort
         puls = max([max(0.0, 1 - (t - b) / 0.35) for b in bei if t >= b] or [0.0])
         if puls > 0:
