@@ -2923,9 +2923,12 @@ def pruefe_farbschema(ctx, basis):
         const s = () => document.documentElement.getAttribute('data-theme');
         const bg = () => getComputedStyle(document.body).backgroundColor;
         const kopf = () => getComputedStyle(document.querySelector('.site-header')).backgroundColor;
-        const vorher = { schema: s(), bg: bg(), kopf: kopf() };
+        const welt = () => getComputedStyle(document.getElementById('seite')).backgroundColor;
+        const boden = () => { const r = document.querySelector('#streifen svg rect[style*="rf16294a"]'); return r ? getComputedStyle(r).fill : null; };
+        const titel = () => getComputedStyle(document.querySelector('.hero h1')).color;
+        const vorher = { schema: s(), bg: bg(), kopf: kopf(), welt: welt(), boden: boden(), titel: titel() };
         document.querySelector('.theme-btn').click();
-        const nachher = { schema: s(), bg: bg(), kopf: kopf() };
+        const nachher = { schema: s(), bg: bg(), kopf: kopf(), welt: welt(), boden: boden(), titel: titel() };
         let gespeichert = null;
         try { gespeichert = localStorage.getItem('endurance-theme'); } catch (e) { /* egal */ }
         return { vorher, nachher, gespeichert }; }""")
@@ -2939,6 +2942,16 @@ def pruefe_farbschema(ctx, basis):
     pruefe(stand["vorher"]["kopf"] != stand["nachher"]["kopf"],
            "… und die Kopfzeile der Startseite wechselt sichtbar die Farbe (%s → %s)"
            % (stand["vorher"]["kopf"], stand["nachher"]["kopf"]))
+    # 28.11.2026, vom Nutzer: „Kann man hier den Hintergrund im hell modus
+    # nicht blau machen sondern eine helle Farbe … sonst sehen sie nicht wie
+    # der funktioniert“ - seitdem wechselt die ganze Reise mit: Grund,
+    # Landschaft (CSS-Variablen aus HELL) und Überschrift.
+    pruefe(stand["vorher"]["welt"] != stand["nachher"]["welt"],
+           "… und die Reise der Startseite wechselt den Grund (%s → %s)" % (stand["vorher"]["welt"], stand["nachher"]["welt"]))
+    pruefe(stand["vorher"]["boden"] and stand["vorher"]["boden"] != stand["nachher"]["boden"],
+           "… die Landschaft wechselt sofort mit, ohne neu zu laden (%s → %s)" % (stand["vorher"]["boden"], stand["nachher"]["boden"]))
+    pruefe(stand["vorher"]["titel"] != stand["nachher"]["titel"],
+           "… und die Überschrift wechselt die Farbe (%s → %s)" % (stand["vorher"]["titel"], stand["nachher"]["titel"]))
     pruefe(stand["gespeichert"] == stand["nachher"]["schema"], "die Wahl wird gespeichert (%s)" % stand["gespeichert"])
     seite.goto(basis + "/karte.html")
     seite.wait_for_selector(".filter-bar", timeout=30000)

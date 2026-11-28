@@ -3461,10 +3461,30 @@ sagt es).
     die Seite (`fahreZu`; Mausrad, Wischen oder eine Taste brechen die
     Fahrt ab). Auf dem Handy klappt die zweite Zeile (Hell/Dunkel, DE/EN,
     Anmelden) beim Scrollen weg (`body.kopf-klein`).
-  - **Die Welt ist in beiden Farbschemata dunkel** (wie vorher der Hero),
-    die Kopfzeile folgt dem Schema; feste Farben nur in `--r-*` auf
-    `.reise-seite`. Texte DE/EN in `I18N`, die Schilder und Städte der
-    Landschaft über `SPRACHE` (München → Munich …).
+  - **Die Welt folgt dem Farbschema** (seit dem 28.11.2026, vom Nutzer: „Kann
+    man hier den Hintergrund im hell modus nicht blau machen sondern eine
+    helle Farbe eben. Die Leute benutzen den Knopf auf der Startseite, und
+    sonst sehen sie nicht wie der funktioniert“; bis dahin war sie in beiden
+    Schemata dunkel): dunkel = Nacht, hell = Tageslicht (Kreide-Grund, grüne
+    Bäume, hellblauer See, weiße Karte, Navy-Schrift). Die Farben der Seite
+    stehen in `--r-*` auf `.reise-seite` (hell im Block
+    `:root[data-theme="light"] .reise-seite`, Navy-Verläufe über
+    `--r-nacht-rgb`), die der Landschaft im Skript: Gezeichnet wird in den
+    DUNKLEN Farben, `HELL` nennt je dunkler Farbe die helle Fassung, `el()`
+    hängt an jede solche Farbe `style="fill: var(--rf<hex>, <hex>)"`, und ein
+    eingefügter Stil-Block setzt die Variablen nur im hellen Schema – so
+    wechselt die Landschaft mit dem Knopf sofort, ohne neu zu zeichnen. Eine
+    Farbe mit eigener Rolle schreibt man `'@name:#hex'` (`HELL_ROLLE`:
+    Kartengrund, Stadtnamen, Schrift auf dem Boden, Rand der Schilder) –
+    dasselbe dunkle `#f4f2ed` bleibt am Schild hell und wird als Schrift auf
+    dem Boden dunkel. **Farben, die das Skript beim Scrollen setzt**
+    (Sportfarben, Orange der Linie und der Gruppe), **gehören nicht in
+    `HELL`**: Die Variable im style-Attribut ginge dem späteren
+    `setAttribute` vor. Wer etwas Neues zeichnet, nimmt eine dunkle Farbe und
+    trägt ihre helle Fassung in `HELL` ein. Texte DE/EN in `I18N`, die
+    Schilder und Städte der Landschaft über `SPRACHE` (München → Munich …).
+    Rauchtest: `pruefe_farbschema` (Grund, Boden der Landschaft, Überschrift
+    wechseln mit dem Knopf).
   - Rauchtest: `pruefe_startseite`, dazu die niedrigen Laptop-Fenster in
     `pruefe_plattformen` (die ersten beiden Infos samt „Klick hier“ im
     ersten Bild – dafür die Stufe `max-height: 700px`).
@@ -3679,9 +3699,10 @@ sagt es).
     zurück. Vom Nutzer gemeldet: „Wenn ich auf der Startseite wechsle
     zwischen Nacht- und Tagmodus, dann merkt man da gar nichts … damit
     die User nicht denken, dass der Button nicht funktioniert." Der Hero
-    (Foto unter Navy-Verlauf) bleibt in beiden Schemata dunkel – so
-    gewollt –, also war die Kopfzeile das Einzige im ersten Bild, das
-    den Wechsel zeigen kann. Der Rauchtest prüft seitdem, dass die
+    (Foto unter Navy-Verlauf) blieb damals in beiden Schemata dunkel,
+    also war die Kopfzeile das Einzige im ersten Bild, das den Wechsel
+    zeigen konnte. **Seit dem 28.11.2026 wechselt die ganze Reise mit**
+    (siehe „Die Startseite ist eine Reise“). Der Rauchtest prüft seitdem, dass die
     Kopfzeile der Startseite beim Umschalten die Farbe wechselt
     (`pruefe_farbschema`, Weiß ↔ Navy).
   - **Bildsprache**: seit dem 05.10.2026 **Fotos** (der im Guide

@@ -108,8 +108,11 @@
      hier“); ein Klick zoomt in die Strecke hinein und öffnet die Seite im
      selben Fenster. Die Kopfzeile bleibt stehen, ihr Menüpunkt wird orange,
      sobald man im Abschnitt ist, und ein Klick darauf fährt die Reise erst
-     bis zur Station. Die Welt ist in BEIDEN Farbschemata dunkel (wie vorher
-     der Hero) - deshalb feste Farben in eigenen Variablen (--r-*); die
+     bis zur Station. Die Welt folgt seit dem 28.11.2026 dem Farbschema
+     (vom Nutzer: „Kann man hier den Hintergrund im hell modus nicht blau
+     machen sondern eine helle Farbe eben … sonst sehen sie nicht wie der
+     funktioniert“): dunkel = Nacht, hell = Tageslicht. Die Farben der
+     Seite stehen in --r-*, die der Landschaft im Skript (HELL). Die
      Kopfzeile folgt dem Schema (site.css). Einzelheiten in CLAUDE.md
      („Die Startseite ist eine Reise“). */
   html, body { overflow-x: clip; }
@@ -135,8 +138,28 @@
     --r-tri: #9a7bf0;
     --r-club: #ffb27a;
     --r-blog: #c4b3fa;
+    --r-nacht-rgb: 11, 27, 51;
+    --r-titel: #fff;
     background: var(--r-nacht);
     color: var(--r-text);
+  }
+  /* Hell: Tageslicht, in den Farben des Style Guides (Kreide, Tinte, die
+     Sportfarben in ihrer dunkleren Fassung für Schrift auf hellem Grund). */
+  :root[data-theme="light"] .reise-seite {
+    --r-nacht: #f4f2ed;
+    --r-boden: #e6eadd;
+    --r-linie: #d8d3c8;
+    --r-text: #0f1b20;
+    --r-grau: #5d6675;
+    --r-sonne: #e8590c;
+    --r-laufen: #e8590c;
+    --r-rad: #2b8a3e;
+    --r-schwimmen: #1971c2;
+    --r-tri: #7048e8;
+    --r-club: #c2570c;
+    --r-blog: #8b5cf6;
+    --r-nacht-rgb: 244, 242, 237;
+    --r-titel: #0b1b33;
   }
 
   /* ---------- Kopfzeile bleibt stehen ----------
@@ -162,12 +185,12 @@
     display: flex; flex-direction: column; align-items: center;
     text-align: center;
     padding: calc(var(--kopf-h, 73px) + clamp(40px, 6vh, 76px)) var(--seite-rand) clamp(100px, 18vh, 180px);
-    background: linear-gradient(to bottom, var(--r-nacht) 0%, var(--r-nacht) 38%, rgba(11, 27, 51, .72) 66%, rgba(11, 27, 51, .25) 86%, rgba(11, 27, 51, 0) 100%);
+    background: linear-gradient(to bottom, var(--r-nacht) 0%, var(--r-nacht) 38%, rgba(var(--r-nacht-rgb), .72) 66%, rgba(var(--r-nacht-rgb), .25) 86%, rgba(var(--r-nacht-rgb), 0) 100%);
     pointer-events: none;
   }
   .hero .eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--r-club); }
   .hero h1 {
-    font-family: var(--font-display); font-weight: 700; line-height: .98; color: #fff;
+    font-family: var(--font-display); font-weight: 700; line-height: .98; color: var(--r-titel);
     font-size: clamp(2rem, 4.6vw, 3.8rem);
     margin: 20px auto 22px; max-width: 22ch; text-wrap: balance;
   }
@@ -200,8 +223,8 @@
     -webkit-mask-image: linear-gradient(to bottom, transparent, #000 220px);
     mask-image: linear-gradient(to bottom, transparent, #000 220px);
   }
-  .schatten.l { left: 0; background: linear-gradient(to right, rgba(11, 27, 51, .84), rgba(11, 27, 51, .66) 72%, rgba(11, 27, 51, 0)); }
-  .schatten.r { right: 0; background: linear-gradient(to left, rgba(11, 27, 51, .84), rgba(11, 27, 51, .66) 72%, rgba(11, 27, 51, 0)); }
+  .schatten.l { left: 0; background: linear-gradient(to right, rgba(var(--r-nacht-rgb), .84), rgba(var(--r-nacht-rgb), .66) 72%, rgba(var(--r-nacht-rgb), 0)); }
+  .schatten.r { right: 0; background: linear-gradient(to left, rgba(var(--r-nacht-rgb), .84), rgba(var(--r-nacht-rgb), .66) 72%, rgba(var(--r-nacht-rgb), 0)); }
 
   /* Die Infos sind Links (ohne Skript führen sie direkt zur Seite). */
   .info {
@@ -216,7 +239,7 @@
   .info .kennung { display: inline-flex; align-items: center; gap: 8px; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--r-grau); }
   .info .kennung i { width: 10px; height: 10px; border-radius: 50%; background: var(--farbe); }
   .info .satz {
-    font-family: var(--font-display); font-weight: 700; line-height: 1.02; color: #fff;
+    font-family: var(--font-display); font-weight: 700; line-height: 1.02; color: var(--r-titel);
     font-size: clamp(1.7rem, 2.6vw, 2.6rem); text-wrap: balance;
   }
   .info .satz b { color: var(--farbe); font-variant-numeric: tabular-nums; }
@@ -235,7 +258,7 @@
   .info.gross .satz { font-size: clamp(2rem, 3.4vw, 3.4rem); }
   /* Am Start nur die Zahl mit einem Wort, dafür groß. */
   .info.start .satz { font-size: clamp(2.4rem, 4.2vw, 4.2rem); white-space: nowrap; }
-  .info.gross .los { background: var(--r-sonne); border-color: var(--r-sonne); color: var(--r-nacht); }
+  .info.gross .los { background: var(--r-sonne); border-color: var(--r-sonne); color: #0b1b33; }
   .legende { display: grid; grid-template-columns: auto auto; gap: 4px 16px; margin: 4px 0 0; padding: 0; list-style: none; font-size: .95rem; }
   .legende li { display: flex; align-items: center; gap: 8px; }
   .legende i { width: 9px; height: 9px; border-radius: 50%; background: var(--farbe); flex: none; }
@@ -265,7 +288,7 @@
     .info, .info.links {
       text-align: left; align-items: flex-start; gap: 3px;
       padding: 10px 12px 12px;
-      background: rgba(11, 27, 51, .9); border: 1px solid var(--r-linie);
+      background: rgba(var(--r-nacht-rgb), .9); border: 1px solid var(--r-linie);
       box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
     }
     .info::after { display: none; }
@@ -585,9 +608,45 @@
   oben.setAttribute('aria-hidden', 'true');
   oben.setAttribute('viewBox', `${X0} 0 ${BREITE} ${H}`);
   streifen.appendChild(oben);
+  // Hell/Dunkel (28.11.2026): Die Landschaft ist in den dunklen Farben
+  // geschrieben; HELL nennt für jede, die sich bei Tageslicht ändert, die
+  // helle Fassung. el() hängt an solche Farben eine CSS-Variable
+  // (var(--rf<hex>, <hex>)), und ein Stil-Block setzt die Variablen nur im
+  // hellen Schema - so wechselt die Landschaft mit dem Knopf sofort, ohne
+  // neu zu zeichnen. Eine Farbe mit eigener ROLLE ('@name:#hex') bekommt
+  // var(--rt-name): dieselbe dunkle Farbe kann hell zweierlei werden (das
+  // Kreide-Weiß der Schilder bleibt, die Schrift auf dem Boden wird dunkel).
+  // Farben, die das Skript beim Scrollen setzt (Sportfarben, Orange), stehen
+  // bewusst NICHT in HELL - eine Variable im style-Attribut ginge vor.
+  const HELL = {
+    '#16294a': '#e6eadd', '#22324d': '#d4d0c6', '#2b3d5c': '#d4d0c6', '#edf1f7': '#5b6578',
+    '#1f4a3c': '#9dc49a', '#245744': '#85b583',
+    '#172b4e': '#e0e4d6', '#192e52': '#d9ded0', '#1c3256': '#d2d8ca', '#1f365b': '#cad1c3', '#223a60': '#c2cabc', '#263f66': '#bac3b5', '#34507c': '#f9faf8',
+    '#2f7fcf': '#9fcdf2', '#1a4f8c': '#62ade6', '#1f6e4f': '#bcdab5', '#2b6a4f': '#a9cfa3', '#9cc8f5': '#ffffff', '#2a3a56': '#cfc9bc',
+    '#1b2d4a': '#ebe7f8', '#c4b3fa': '#6d4fd6', '#a3afc2': '#8b93a2',
+    '#183a35': '#cfe4cb', '#22573f': '#acd2a6', '#255f45': '#9fc799',
+    '#1e3558': '#e8edf4', '#3a5683': '#b3bfd2',
+  };
+  const HELL_ROLLE = { karte: '#ffffff', stadt: '#0b1b33', 'stadt-klein': '#5d6675', 'stadt-rand': '#ffffff', 'boden-text': '#0b1b33', 'schild-rand': '#c9c3b6' };
+  {
+    const st = document.createElement('style');
+    st.textContent = ':root[data-theme="light"] .reise-seite{' +
+      Object.entries(HELL).map(([k, v]) => `--rf${k.slice(1)}:${v};`).join('') +
+      Object.entries(HELL_ROLLE).map(([k, v]) => `--rt-${k}:${v};`).join('') + '}';
+    document.head.appendChild(st);
+  }
+  const FARB_ATTR = { fill: 1, stroke: 1, 'stop-color': 1 };
   const el = (tag, attrs, eltern) => {
     const n = document.createElementNS(NS, tag);
-    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    for (const k in attrs) {
+      const v = attrs[k];
+      if (FARB_ATTR[k] && typeof v === 'string') {
+        const rolle = /^@([a-z-]+):(#[0-9a-f]{3,6})$/i.exec(v);
+        if (rolle) { n.setAttribute(k, rolle[2]); n.style.setProperty(k, `var(--rt-${rolle[1]}, ${rolle[2]})`); continue; }
+        if (HELL[v]) n.style.setProperty(k, `var(--rf${v.slice(1)}, ${v})`);
+      }
+      n.setAttribute(k, v);
+    }
     (eltern || svg).appendChild(n);
     return n;
   };
@@ -609,7 +668,7 @@
   const sprachText = (inhalt, attrs, eltern) => { const t = text('', attrs, eltern); SPRACHE.push([t, inhalt]); return t; };
   // Schild an der Strecke; die Breite folgt dem Text der Sprache
   const schild = (x, y, inhalt, grund, schrift) => {
-    const r = el('rect', { y: y - 22, height: 36, rx: 6, fill: grund });
+    const r = el('rect', { y: y - 22, height: 36, rx: 6, fill: grund, stroke: '@schild-rand:' + grund, 'stroke-width': 2 });
     const t = text('', { x, y: y + 5, fill: schrift, 'font-size': 24, 'letter-spacing': 1 });
     SPRACHE.push([t, inhalt, (txt) => { const b = txt.length * 15 + 26; r.setAttribute('x', x - b / 2); r.setAttribute('width', b); }]);
   };
@@ -767,7 +826,7 @@
   }
 
   // --- Karte (wird nach dem Laden gefüllt) ---
-  el('rect', { x: KARTE.x - 50, y: KARTE.y - 40, width: KARTE.b + 100, height: KARTE.h + 80, rx: 24, fill: '#0b1b33', stroke: '#2a3a56', 'stroke-width': 3 });
+  el('rect', { x: KARTE.x - 50, y: KARTE.y - 40, width: KARTE.b + 100, height: KARTE.h + 80, rx: 24, fill: '@karte:#0b1b33', stroke: '#2a3a56', 'stroke-width': 3 });
   const landG = el('g', {});
 
   // --- Blog und Ziel ---
@@ -791,7 +850,7 @@
       for (let i = 0; i < 4; i++) el('rect', { x: x + 8, y: y + 52 + i * 12, width: i === 3 ? 34 : 62, height: 5, rx: 2, fill: '#a3afc2' }, k);
       el('circle', { cx: x + 39, cy: y + 4, r: 6, fill: '#e8590c' }, k);
     });
-    text('BLOG', { x: 706, y: 4510, fill: '#f4f2ed', 'font-size': 28, 'letter-spacing': 6 }, g);
+    text('BLOG', { x: 706, y: 4510, fill: '@boden-text:#f4f2ed', 'font-size': 28, 'letter-spacing': 6 }, g);
     el('rect', { x: 420, y: 4720, width: 160, height: 360, fill: '#22324d' }, g);
     for (const x of [414, 586]) el('line', { x1: x, y1: 4730, x2: x, y2: 5060, stroke: '#edf1f7', 'stroke-opacity': '.3', 'stroke-width': 3, 'stroke-dasharray': '18 8' }, g);
     karierteLinie(ZIEL_Y, g);
@@ -911,7 +970,7 @@
     const anStrasse = STAEDTE.some((st) => st[0] === name);
     el('circle', { cx: x, cy: y, r: anStrasse ? 6 : 4, fill: '#f4f2ed', stroke: '#0b1b33', 'stroke-width': 2 }, stadtG);
     const rechts = x < 500;
-    SPRACHE.push([el('text', { x: x + (rechts ? 12 : -12), y: y + 5, 'text-anchor': rechts ? 'start' : 'end', fill: anStrasse ? '#f4f2ed' : '#a3afc2', 'font-family': 'Barlow, system-ui, sans-serif', 'font-weight': 600, 'font-size': anStrasse ? 16 : 14, stroke: '#0b1b33', 'stroke-width': 4, 'paint-order': 'stroke' }, stadtG), { de: name, en: STADT_EN[name] || name }]);
+    SPRACHE.push([el('text', { x: x + (rechts ? 12 : -12), y: y + 5, 'text-anchor': rechts ? 'start' : 'end', fill: anStrasse ? '@stadt:#f4f2ed' : '@stadt-klein:#a3afc2', 'font-family': 'Barlow, system-ui, sans-serif', 'font-weight': 600, 'font-size': anStrasse ? 16 : 14, stroke: '@stadt-rand:#0b1b33', 'stroke-width': 4, 'paint-order': 'stroke' }, stadtG), { de: name, en: STADT_EN[name] || name }]);
   }
   const konfetti = [];
   const KONF_FARBEN = ['#f97316', '#3db55a', '#4a9be6', '#9a7bf0', '#f4f2ed'];
