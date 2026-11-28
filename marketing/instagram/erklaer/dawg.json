@@ -37,22 +37,17 @@
    "teile": [
     [
      0,
-     0.98,
+     0.99,
      3
     ],
     [
-     1.17,
-     2.6,
-     3
+     1.18,
+     3.85,
+     8
     ],
     [
-     2.75,
-     3.97,
-     5
-    ],
-    [
-     4.14,
-     4.85,
+     4.01,
+     4.67,
      2
     ]
    ]
@@ -63,63 +58,63 @@
    "eintraege": [
     "ÜBERTRAINIERT",
     "UNDERPREPARED",
-    "SCHEISSWETTER",
+    "DRECKSWETTER",
     "KRÄMPFE",
     "UNDERFUELED",
     "BEINE WIE BETON"
    ],
-   "text": "Der Dawg Factor heißt: Abliefern, wenn alles gegen dich ist. Übertrainiert. Underprepared. Scheißwetter. Krämpfe. Underfueled. Beine wie Beton.",
+   "text": "Der Dawg Factor heißt: Abliefern, wenn alles gegen dich ist. Übertrainiert. Underprepared. Dreckswetter. Krämpfe. Underfueled. Beine wie Beton.",
    "unter": "ABLIEFERN, WENN ALLES GEGEN DICH IST",
-   "unter_bei": 1.47,
+   "unter_bei": 1.52,
+   "bei": [
+    3.6,
+    4.61,
+    5.63,
+    6.66,
+    7.53,
+    8.44
+   ],
    "teile": [
     [
-     5.08,
-     6.32,
+     4.9,
+     6.1,
      4
     ],
     [
-     6.43,
+     6.3,
+     7.06,
+     1
+    ],
+    [
      7.19,
+     9.27,
+     6
+    ],
+    [
+     9.39,
+     10.29,
      1
     ],
     [
-     7.33,
-     8.42,
-     5
-    ],
-    [
-     8.54,
-     10.28,
-     2
-    ],
-    [
-     10.4,
-     11.21,
+     10.41,
+     11.25,
      1
     ],
     [
-     11.41,
-     11.97,
+     11.44,
+     12.12,
      1
     ],
     [
-     12.19,
-     12.95,
+     12.31,
+     13.11,
      1
     ],
     [
-     13.07,
-     14.24,
+     13.22,
+     14.39,
      3
     ]
-   ],
-   "bei": [
-    3.58,
-    4.45,
-    5.44,
-    6.45,
-    7.23,
-    8.11
    ]
   },
   {
@@ -135,28 +130,33 @@
    ],
    "zeile": "",
    "text": "Du hast den Dawg Factor in dir, wenn du trotz all dieser Probleme ablieferst, die Statistik und jede Prognose schlägst. Egal, wie du dich fühlst!",
+   "blasen_g": 58,
+   "blasen_bei": [
+    3.0,
+    5.2,
+    6.67
+   ],
    "teile": [
     [
-     14.4,
-     18.34,
-     14
+     14.5,
+     16.0,
+     7
     ],
     [
-     18.45,
-     20.77,
+     16.11,
+     18.52,
+     7
+    ],
+    [
+     18.64,
+     20.98,
      6
     ],
     [
-     20.92,
-     22.25,
+     21.12,
+     22.52,
      5
     ]
-   ],
-   "blasen_g": 58,
-   "blasen_bei": [
-    1.6,
-    4.3,
-    6.7
    ]
   },
   {
@@ -165,69 +165,64 @@
    "ergebnis": "2:59:41",
    "zeile_uhr": "SAGT DIE UHR",
    "text": "Die Uhr sagt: drei Stunden dreizehn. Der Dawg sagt: unter drei. Koste es, was es wolle.",
+   "wechsel": 2.35,
    "teile": [
     [
-     22.39,
-     23.2,
+     22.65,
+     23.36,
      3
     ],
     [
-     23.37,
-     24.55,
+     23.48,
+     24.77,
      3
     ],
     [
-     24.69,
-     25.59,
+     24.93,
+     25.8,
      3
     ],
     [
-     25.77,
-     26.46,
+     25.95,
+     26.63,
      2
     ],
     [
-     26.65,
-     27.88,
+     26.82,
+     28.08,
      5
     ]
-   ],
-   "wechsel": 2.37
+   ]
   },
   {
    "bild": "zahl",
    "zahl": 2,
    "vor": "+",
    "nach": " %",
-   "oben": "RADFAHRER GEGEN IHREN REKORD",
-   "einheit": "HEIMLICH MEHR LEISTUNG",
+   "oben": "RADFAHRER, OHNE ES ZU WISSEN",
+   "einheit": "SCHNELLER ALS IHR REKORD",
    "zeile": "UND SIE HIELTEN MIT",
    "klein": "Stone et al. 2012, Med Sci Sports Exerc",
-   "text": "Klingt verrückt? In einer Studie fuhren Radfahrer gegen ihren eigenen Rekord. Der war heimlich zwei Prozent schneller. Und sie hielten mit. Deine Uhr rechnet den Dawg in dir nicht rein.",
+   "text": "In einer Studie fuhren Radfahrer heimlich zwei Prozent schneller als ihr Rekord. Sie wussten es nicht. Und hielten mit. Deine Uhr rechnet den Dawg in dir nicht rein.",
    "teile": [
     [
-     28.08,
-     28.73,
-     2
+     28.26,
+     32.37,
+     12
     ],
     [
-     28.81,
-     32.13,
-     9
-    ],
-    [
-     32.25,
-     34.07,
-     6
-    ],
-    [
-     34.27,
-     35.14,
+     32.51,
+     33.32,
      4
     ],
     [
-     35.27,
-     37.44,
+     33.43,
+     34.25,
+     3
+    ],
+    [
+     34.36,
+     36.61,
      9
     ]
    ]
@@ -264,46 +259,47 @@
      "KING OF MOAB"
     ]
    ],
-   "text": "Das sind meine Top 5 Dawgs. Wer gehört deiner Meinung nach noch auf die Liste?",
+   "text": "Das sind meine Honorable Mentions.",
+   "bei": [
+    0.2,
+    0.5,
+    0.8,
+    1.1,
+    1.4
+   ],
+   "zeile_bei": 2.0,
    "teile": [
     [
-     37.59,
-     39.43,
-     6
-    ],
-    [
-     39.61,
-     41.54,
-     9
+     36.79,
+     38.38,
+     5
     ]
-   ],
-   "bei": [
-    0.3,
-    0.6,
-    0.9,
-    1.2,
-    1.5
-   ],
-   "zeile_bei": 2.09
+   ]
   },
   {
    "bild": "schluss",
    "frage": "HAST DU DEN DAWG IN DIR?",
    "g": 88,
-   "blase": "TAG A DAWG!",
-   "text": "Also: Hast du den Dawg in dir? Tag a Dawg!",
+   "blase": "KOMMENTIER ODER TAG EINEN DAWG!",
+   "text": "Hast du den Dawg in dir? Schreib's in die Kommentare oder tag einen Dawg!",
    "teile": [
     [
-     41.74,
-     43.64,
-     7
+     40.18,
+     41.33,
+     6
     ],
     [
-     43.86,
-     44.78,
-     3
+     41.56,
+     42.69,
+     4
+    ],
+    [
+     42.79,
+     43.99,
+     4
     ]
-   ]
+   ],
+   "blase_g": 64
   }
  ],
  "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen 0,22 s, atempo 0,89) – dawg.mp3 neben dieser Datei",
@@ -318,31 +314,31 @@
  "zeiten": [
   [
    0,
-   4.96
+   4.78
   ],
   [
-   4.96,
-   14.32
+   4.78,
+   14.45
   ],
   [
-   14.32,
-   22.32
+   14.45,
+   22.58
   ],
   [
-   22.32,
-   28.0
+   22.58,
+   28.17
   ],
   [
-   28.0,
-   37.52
+   28.17,
+   36.7
   ],
   [
-   37.52,
-   41.64
+   36.7,
+   40.08
   ],
   [
-   41.64,
-   45.4
+   40.08,
+   44.58
   ]
  ]
 }

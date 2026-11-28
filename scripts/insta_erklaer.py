@@ -446,7 +446,7 @@ def sz_schluss(t: float, dauer: float, p: dict | None = None) -> Image.Image:
         d.line([(x - 15 * math.cos(w), y - 15 * math.sin(w)), (x + 15 * math.cos(w), y + 15 * math.sin(w))],
                fill=farbe, width=11)
     pop(d, B / 2, 500, p.get("frage", "KENNST DU DEINE?"), p.get("g", 132), t - 0.2, fill=CORAL)
-    blase(d, B / 2, 1490, p.get("blase", "4:45 /km – und du?"), 88, t - dauer * 0.45)
+    blase(d, B / 2, 1490, p.get("blase", "4:45 /km – und du?"), p.get("blase_g", 88), t - dauer * 0.45)
     folgen_zeile(d, t - dauer * 0.25, p.get("folgen", FOLGEN_TEXT))
     return img
 
