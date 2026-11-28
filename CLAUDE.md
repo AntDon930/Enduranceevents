@@ -7466,6 +7466,16 @@ Verweise auf alte Nummern stehen in Klammern.
     ihre Termine kommen von Instagram und den eigenen Seiten. Ideen sammeln
     (z. B. ein zweites Strava-Konto, Anfrage an die Clubs, Termine über
     Instagram/Webseite) und dem Nutzer vorlegen.
+    (c) **Beitritte im Feed der Freunde** (28.11.2026, vom Nutzer mit
+    Bildschirmfoto: Seine Follower sehen in ihrem Feed „Toni Dnr joined a
+    club“ mit „Join Club“-Knopf – bei rund 270 Beitritten „langsam
+    langweilig“ für sie). Eine Einstellung zum Verbergen fand sich in der
+    Strava-Hilfe nicht (Profil-Privatsphäre „Follower“ blendet Clubs nur
+    für Nicht-Follower aus). Vorschlag: ein eigenes Strava-Konto für
+    Endurance Events (z. B. info@endurance-events.de), alle Clubs dort neu
+    beitreten (Tageslimit, wenige Wochen) und das Konto im Connector
+    „Strava“ in claude.ai verbinden; das private Konto kann danach
+    austreten. Entscheidung des Nutzers offen.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
