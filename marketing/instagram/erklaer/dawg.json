@@ -239,7 +239,7 @@
   },
   {
    "bild": "mentions",
-   "titel": "MY HONORABLE MENTIONS",
+   "titel": "MEINE HONORABLE MENTIONS",
    "leute": [
     [
      "HARDEST GEEZER",
@@ -326,7 +326,9 @@
     7.86,
     9.74,
     10.83
-   ]
+   ],
+   "unter": "TOP 5 DAWGS",
+   "titel_g": 90
   },
   {
    "bild": "schluss",

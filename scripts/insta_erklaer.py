@@ -1124,10 +1124,14 @@ def sz_mentions(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     img = nacht().copy()
     d = ImageDraw.Draw(img)
     pop(d, B / 2, 480, p.get("titel", "HONORABLE MENTIONS"), p.get("titel_g", 104), t - 0.05, fill=CORAL)
+    unter = p.get("unter", "")
+    if unter:
+        pop(d, B / 2, 575, unter, 64, t - 0.35, fill=GELB, kontur=None)
     leute = p.get("leute", [])
     n = max(1, len(leute))
     bei = _zeitpunkte(p, n, dauer, 0.15, 0.85)
-    oben, hoehe = 570, min(220, (1560 - 570) / n - 16)
+    oben = 640 if unter else 570
+    hoehe = min(220, (1590 - oben) / n - 16)
     fk = hoehe / 220
     for i, person in enumerate(leute):
         tt = t - bei[i]
