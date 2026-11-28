@@ -41,18 +41,18 @@
      3
     ],
     [
-     1.16,
-     1.48,
-     1
+     1.17,
+     2.6,
+     3
     ],
     [
-     1.56,
-     3.81,
-     7
+     2.75,
+     3.97,
+     5
     ],
     [
-     3.89,
-     4.61,
+     4.14,
+     4.85,
      2
     ]
    ]
@@ -70,93 +70,93 @@
    ],
    "text": "Der Dawg Factor heißt: Abliefern, wenn alles gegen dich ist. Übertrainiert. Underprepared. Scheißwetter. Krämpfe. Underfueled. Beine wie Beton.",
    "unter": "ABLIEFERN, WENN ALLES GEGEN DICH IST",
-   "unter_bei": 1.46,
+   "unter_bei": 1.47,
    "teile": [
     [
-     4.84,
-     6.05,
+     5.08,
+     6.32,
      4
     ],
     [
-     6.18,
-     6.94,
+     6.43,
+     7.19,
      1
     ],
     [
-     7.08,
-     8.17,
+     7.33,
+     8.42,
      5
     ],
     [
-     8.28,
-     9.1,
+     8.54,
+     10.28,
+     2
+    ],
+    [
+     10.4,
+     11.21,
      1
     ],
     [
-     9.27,
-     10.14,
+     11.41,
+     11.97,
      1
     ],
     [
-     10.23,
-     11.06,
+     12.19,
+     12.95,
      1
     ],
     [
-     11.24,
-     11.87,
-     1
-    ],
-    [
-     12.04,
-     12.79,
-     1
-    ],
-    [
-     12.9,
-     13.94,
+     13.07,
+     14.24,
      3
     ]
    ],
    "bei": [
-    3.56,
-    4.55,
-    5.51,
-    6.52,
-    7.32,
-    8.18
+    3.58,
+    4.45,
+    5.44,
+    6.45,
+    7.23,
+    8.11
    ]
   },
   {
-   "bild": "liste",
-   "wut": true,
-   "eintraege": [
-    "SCHEISS AUF DIE STATISTIK",
-    "VERGISS DIE PROGNOSE",
-    "EGAL, WIE DU DICH FÜHLST"
+   "bild": "figur",
+   "pose": "daumen",
+   "grund": "nacht",
+   "titel": "DU HAST DEN DAWG, WENN DU …",
+   "titel_g": 84,
+   "blasen": [
+    "trotzdem ablieferst",
+    "die Prognose schlägst",
+    "egal, wie's sich anfühlt"
    ],
-   "text": "Scheiß auf die Statistik. Vergiss die Prognose. Egal, wie du dich fühlst.",
+   "zeile": "",
+   "text": "Du hast den Dawg Factor in dir, wenn du trotz all dieser Probleme ablieferst, die Statistik und jede Prognose schlägst. Egal, wie du dich fühlst!",
    "teile": [
     [
-     14.12,
-     15.37,
-     4
+     14.4,
+     18.34,
+     14
     ],
     [
-     15.48,
-     16.59,
-     3
+     18.45,
+     20.77,
+     6
     ],
     [
-     16.81,
-     18.1,
+     20.92,
+     22.25,
      5
     ]
    ],
-   "bei": [
-    0.1,
-    1.46,
-    2.79
+   "blasen_g": 58,
+   "blasen_bei": [
+    1.6,
+    4.3,
+    6.7
    ]
   },
   {
@@ -164,35 +164,35 @@
    "prognose": "3:13:00",
    "ergebnis": "2:59:41",
    "zeile_uhr": "SAGT DIE UHR",
-   "text": "Die Uhr sagt: drei Stunden dreizehn. Der Dawg sagt: unter drei. Oder ich sterbe beim Versuch.",
+   "text": "Die Uhr sagt: drei Stunden dreizehn. Der Dawg sagt: unter drei. Koste es, was es wolle.",
    "teile": [
     [
-     18.23,
-     18.92,
+     22.39,
+     23.2,
      3
     ],
     [
-     19.03,
-     20.37,
+     23.37,
+     24.55,
      3
     ],
     [
-     20.49,
-     21.3,
+     24.69,
+     25.59,
      3
     ],
     [
-     21.39,
-     22.04,
+     25.77,
+     26.46,
      2
     ],
     [
-     22.24,
-     23.83,
+     26.65,
+     27.88,
      5
     ]
    ],
-   "wechsel": 2.34
+   "wechsel": 2.37
   },
   {
    "bild": "zahl",
@@ -206,55 +206,52 @@
    "text": "Klingt verrückt? In einer Studie fuhren Radfahrer gegen ihren eigenen Rekord. Der war heimlich zwei Prozent schneller. Und sie hielten mit. Deine Uhr rechnet den Dawg in dir nicht rein.",
    "teile": [
     [
-     23.93,
-     24.57,
+     28.08,
+     28.73,
      2
     ],
     [
-     24.66,
-     26.88,
-     5
+     28.81,
+     32.13,
+     9
     ],
     [
-     26.97,
-     27.87,
-     4
-    ],
-    [
-     27.97,
-     29.8,
+     32.25,
+     34.07,
      6
     ],
     [
-     30.02,
-     30.91,
+     34.27,
+     35.14,
      4
     ],
     [
-     31.02,
-     33.06,
+     35.27,
+     37.44,
      9
     ]
    ]
   },
   {
    "bild": "mentions",
-   "titel": "MEINE HONORABLE MENTIONS",
+   "titel": "MEINE TOP 5 DAWGS",
+   "titel_g": 110,
+   "zeile": "WER FEHLT NOCH?",
    "leute": [
     [
      "HARDEST GEEZER",
      "@hardestgeezer",
-     "einmal Afrika der Länge nach"
+     ""
     ],
     [
      "IRON COWBOY",
      "James Lawrence",
-     "100 Ironmans in 100 Tagen"
+     ""
     ],
     [
      "HANS TROYER",
      "@hanstroyer",
-     "„The Destroyer“"
+     ""
     ],
     [
      "DAVID GOGGINS",
@@ -267,68 +264,27 @@
      "KING OF MOAB"
     ]
    ],
-   "text": "Meine Honorable Mentions: Der Hardest Geezer: einmal Afrika der Länge nach. Der Iron Cowboy: hundert Ironmans in hundert Tagen. Hans Troyer: The Destroyer. David Goggins. Und Max Jolliffe: der King of Moab.",
+   "text": "Das sind meine Top 5 Dawgs. Wer gehört deiner Meinung nach noch auf die Liste?",
    "teile": [
     [
-     33.21,
-     34.54,
-     3
+     37.59,
+     39.43,
+     6
     ],
     [
-     34.74,
-     35.91,
-     3
-    ],
-    [
-     36.06,
-     37.63,
-     5
-    ],
-    [
-     37.74,
-     38.76,
-     3
-    ],
-    [
-     38.95,
-     40.8,
-     5
-    ],
-    [
-     40.99,
-     41.77,
-     2
-    ],
-    [
-     41.96,
-     42.71,
-     2
-    ],
-    [
-     42.87,
-     43.79,
-     2
-    ],
-    [
-     43.96,
-     45.2,
-     3
-    ],
-    [
-     45.31,
-     46.87,
-     4
+     39.61,
+     41.54,
+     9
     ]
    ],
    "bei": [
-    1.61,
-    4.61,
-    7.86,
-    9.74,
-    10.83
+    0.3,
+    0.6,
+    0.9,
+    1.2,
+    1.5
    ],
-   "unter": "TOP 5 DAWGS",
-   "titel_g": 90
+   "zeile_bei": 2.09
   },
   {
    "bild": "schluss",
@@ -338,13 +294,13 @@
    "text": "Also: Hast du den Dawg in dir? Tag a Dawg!",
    "teile": [
     [
-     47.09,
-     48.32,
+     41.74,
+     43.64,
      7
     ],
     [
-     48.55,
-     49.4,
+     43.86,
+     44.78,
      3
     ]
    ]
@@ -362,31 +318,31 @@
  "zeiten": [
   [
    0,
-   4.72
+   4.96
   ],
   [
-   4.72,
-   14.02
+   4.96,
+   14.32
   ],
   [
-   14.02,
-   18.15
+   14.32,
+   22.32
   ],
   [
-   18.15,
-   23.88
+   22.32,
+   28.0
   ],
   [
-   23.88,
-   33.13
+   28.0,
+   37.52
   ],
   [
-   33.13,
-   46.98
+   37.52,
+   41.64
   ],
   [
-   46.98,
-   49.95
+   41.64,
+   45.4
   ]
  ]
 }

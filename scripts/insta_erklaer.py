@@ -799,8 +799,9 @@ def sz_figur(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     pop(d, B / 2, 500, p.get("titel", ""), p.get("titel_g", 130), t - dauer * 0.08, fill=CORAL)
     blasen = p.get("blasen", [])
     for i, w in enumerate(blasen):
-        blase(d, 750 + 20 * (i % 2), 720 + i * 170, w, min(84, 960 / max(6, len(w))),
-              t - dauer * (0.3 + 0.5 * i / max(1, len(blasen))), spitze_x=590 if i == 0 else None)
+        einsatz = p["blasen_bei"][i] if p.get("blasen_bei") else dauer * (0.3 + 0.5 * i / max(1, len(blasen)))
+        blase(d, 750 + 20 * (i % 2), 720 + i * 170, w, p.get("blasen_g") or min(84, 960 / max(6, len(w))),
+              t - einsatz, spitze_x=590 if i == 0 else None)
     pop(d, B / 2, 1490, p.get("zeile", ""), p.get("g", 96), t - dauer * 0.6, fill=CREME)
     return img
 
@@ -1149,6 +1150,7 @@ def sz_mentions(t: float, dauer: float, p: dict | None = None) -> Image.Image:
             d.text((x0 + 170, y + hoehe * 0.58), person[1], font=schrift(48 * fk), fill=SOFT_BLUE, anchor="lm")
         if len(person) > 2 and person[2]:
             d.text((x0 + 170, y + hoehe * 0.82), person[2], font=schrift(42 * fk), fill=GELB, anchor="lm")
+    pop(d, B / 2, 1660, p.get("zeile", ""), p.get("g", 84), t - p.get("zeile_bei", dauer * 0.5), fill=GELB, kontur=None)
     return img
 
 
