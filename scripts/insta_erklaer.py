@@ -796,19 +796,7 @@ def sz_figur(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     d = ImageDraw.Draw(img)
     atem = 1 + 0.012 * math.sin(t * 3.2)
     if p.get("pose") == "kampf":
-        # Dawg-Modus: Regen von schräg vorn, die Figur läuft angestrengt dagegen an
-        rng = random.Random(5)
-        for _ in range(70):
-            x0, y0, v = rng.uniform(-200, B + 200), rng.uniform(0, 1500), rng.uniform(1300, 1900)
-            y = (y0 + t * v) % 1300 + 560
-            x = (x0 - (y - 560) * 0.35) % (B + 200) - 100
-            d.line([(x, y), (x - 18, y + 52)], fill=SOFT_BLUE, width=5)
-        d.rectangle([0, 1410, B, 1424], fill=CREME)
-        aufkleben(img, lauf(t, tempo=2.6, hoehe=640, mund="angestrengt"), B / 2 - 230, 1416)
-        for i in range(3):                        # Tempo-Striche hinter der Figur
-            yy = 1060 + i * 80
-            dx = (t * 700 + i * 90) % 140
-            d.line([(30 + dx, yy), (110 + dx, yy)], fill=CREME, width=9)
+        regenlauf(img, t, knie=p.get("knie", True))
     else:
         aufkleben(img, M.figur(p.get("pose", "zeigen"), int(800 * atem), p.get("person", "er")), B / 2 - 190, 1410)
     pop(d, B / 2, 500, p.get("titel", ""), p.get("titel_g", 130), t - dauer * 0.08, fill=CORAL)
@@ -1169,10 +1157,85 @@ def sz_mentions(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     return img
 
 
+
+ROT_SCHMERZ = (226, 48, 54)
+
+
+def regenlauf(img: Image.Image, t: float, knie: bool = True, mx: float = B / 2 - 230, unten: float = 1416,
+              hoehe: int = 640, tempo: float = 2.6) -> None:
+    """Dawg-Modus: Regen von schräg vorn, die Figur läuft angestrengt dagegen an,
+    auf Wunsch mit pochendem Knieschmerz am vorderen Knie."""
+    d = ImageDraw.Draw(img)
+    rng = random.Random(5)
+    for _ in range(70):
+        x0, y0, v = rng.uniform(-200, B + 200), rng.uniform(0, 1500), rng.uniform(1300, 1900)
+        y = (y0 + t * v) % 1300 + 560
+        x = (x0 - (y - 560) * 0.35) % (B + 200) - 100
+        d.line([(x, y), (x - 18, y + 52)], fill=SOFT_BLUE, width=5)
+    d.rectangle([0, unten - 6, B, unten + 8], fill=CREME)
+    phase = int(t * tempo * PHASEN) % PHASEN
+    fig = laeufer(phase, hoehe, "angestrengt")
+    links, oben = mx - fig.width / 2, unten - fig.height
+    img.alpha_composite(fig, (int(links), int(oben)))
+    for i in range(3):                            # Tempo-Striche hinter der Figur
+        yy = unten - 356 + i * 80
+        dx = (t * 700 + i * 90) % 140
+        d.line([(30 + dx, yy), (110 + dx, yy)], fill=CREME, width=9)
+    if knie:                                      # Schmerzblitz am vorderen Knie (wie in laeufer() gerechnet)
+        k = hoehe / 300
+        q = 2 * math.pi * phase / PHASEN
+        a = 0.85 * math.sin(q)
+        bob = 5 * math.cos(2 * q)
+        kx = links + (140 + 55 * math.sin(a)) * k
+        ky = oben + (170 + bob + 55 * math.cos(a)) * k
+        puls = 0.75 + 0.25 * abs(math.sin(t * 7))
+        for w in range(8):
+            ww = w * math.pi / 4 + 0.3
+            r0, r1 = 34 * puls, 78 * puls
+            d.line([(kx + r0 * math.cos(ww), ky + r0 * math.sin(ww)), (kx + r1 * math.cos(ww), ky + r1 * math.sin(ww))],
+                   fill=ROT_SCHMERZ, width=10)
+        d.ellipse([kx - 22, ky - 22, kx + 22, ky + 22], outline=ROT_SCHMERZ, width=8)
+
+
+def sz_dawghook(t: float, dauer: float, p: dict | None = None) -> Image.Image:
+    """Hook ab dem ersten Bild: die Uhr sagt „keine Bestzeit“ (rot gestempelt),
+    dann Schnitt in den Regen – die Figur läuft trotzdem, „WART'S AB.“ knallt rein."""
+    p = p or {}
+    wechsel = float(p.get("wechsel", dauer * 0.5))
+    if t < wechsel:
+        img = nacht().copy()
+        _uhr(img, B / 2, 940, "PROGNOSE", p.get("prognose", "3:13:00"))
+        d = ImageDraw.Draw(img)
+        text(d, B / 2, 520, p.get("oben", "DER DAWG FACTOR"), 120 * federn(min(1.0, (t + 0.35) / 0.35)), fill=CORAL)
+        tt = t - p.get("stempel_bei", 0.9)
+        if tt > 0:
+            k = federn(tt / 0.25)
+            stempel = Image.new("RGBA", (900, 220), (0, 0, 0, 0))
+            ds = ImageDraw.Draw(stempel)
+            ds.rounded_rectangle([10, 10, 890, 210], radius=26, outline=ROT_SCHMERZ, width=14)
+            ds.text((450, 112), p.get("stempel", "KEINE BESTZEIT"), font=schrift(130), fill=ROT_SCHMERZ, anchor="mm")
+            stempel = stempel.rotate(-9, expand=True, resample=Image.BICUBIC)
+            g = max(1, int(stempel.width * (2.2 - 1.2 * k)))
+            stempel = stempel.resize((g, int(stempel.height * g / stempel.width)))
+            img.alpha_composite(stempel, (int(B / 2 - stempel.width / 2), int(1440 - stempel.height / 2)))
+        return img
+    tt = t - wechsel
+    img = nacht().copy()
+    regenlauf(img, tt, knie=False, mx=B / 2 - 40, hoehe=700)
+    d = ImageDraw.Draw(img)
+    text(d, B / 2, 520, p.get("oben", "DER DAWG FACTOR"), 120, fill=CORAL)
+    zittern = 12 * math.sin(tt * 55) * max(0.0, 1 - tt / 0.35)
+    tz = tt - p.get("zeile_bei", 0.15)
+    zittern = 12 * math.sin(tz * 55) * max(0.0, 1 - tz / 0.35) if tz > 0 else 0
+    pop(d, B / 2 + zittern, 700, p.get("zeile", "WART'S AB."), 190, tz, fill=CREME)
+    return img
+
+
 SZENEN = {"frage": sz_frage, "denken": sz_denken, "zahl": sz_zahl, "kacheln": sz_kacheln,
           "balken": sz_balken, "figur": sz_figur, "schichten": sz_schichten, "rad": sz_rad, "hook": sz_hook, "raten": sz_raten, "entwarnung": sz_entwarnung, "stunde": sz_stunde,
           "fass": sz_fass, "test": sz_test, "gefuehl": sz_gefuehl, "schluss": sz_schluss,
-          "liste": sz_liste, "wette": sz_wette, "mentions": sz_mentions}
+          "liste": sz_liste, "wette": sz_wette, "mentions": sz_mentions,
+          "dawghook": sz_dawghook}
 
 
 # --- Untertitel: Wort für Wort ----------------------------------------------

@@ -29,9 +29,7 @@
  ],
  "szenen": [
   {
-   "bild": "frage",
-   "aktion": "lauf",
-   "symbol": "DAWG",
+   "bild": "dawghook",
    "zeile": "WART'S AB.",
    "text": "Deine Uhr sagt: Heute keine Bestzeit. Der Dawg in dir sagt: Wart's ab.",
    "teile": [
@@ -50,7 +48,10 @@
      4.67,
      2
     ]
-   ]
+   ],
+   "wechsel": 2.75,
+   "stempel_bei": 1.2,
+   "zeile_bei": 1.35
   },
   {
    "bild": "liste",
