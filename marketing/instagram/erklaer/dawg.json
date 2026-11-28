@@ -220,9 +220,14 @@
      "HANS TROYER",
      "@hanstroyer",
      "„The Destroyer“"
+    ],
+    [
+     "MAX JOLLIFFE",
+     "@woah_max",
+     "Sieger Moab 240"
     ]
    ],
-   "text": "Meine Honorable Mentions: David Goggins. Der Iron Cowboy: hundert Ironmans in hundert Tagen. Der Hardest Geezer: einmal Afrika der Länge nach. Und Hans Troyer: The Destroyer.",
+   "text": "Meine Honorable Mentions: David Goggins. Der Iron Cowboy: hundert Ironmans in hundert Tagen. Der Hardest Geezer: einmal Afrika der Länge nach. Und Hans Troyer: The Destroyer. Und Max Jolliffe: zweihundertvierzig Meilen durch die Wüste von Moab. Gewonnen.",
    "teile": [
     [
      32.61,
@@ -263,13 +268,29 @@
      43.47,
      43.84,
      1
+    ],
+    [
+     43.95,
+     45.08,
+     3
+    ],
+    [
+     45.28,
+     48.03,
+     7
+    ],
+    [
+     48.18,
+     48.67,
+     1
     ]
    ],
    "bei": [
     1.58,
     2.74,
     5.92,
-    8.74
+    8.74,
+    11.43
    ]
   },
   {
@@ -280,13 +301,13 @@
    "text": "Also: Hast du den Dawg in dir? Tag a Dawg!",
    "teile": [
     [
-     44.06,
-     45.38,
+     48.93,
+     50.25,
      7
     ],
     [
-     45.61,
-     46.55,
+     50.48,
+     51.42,
      3
     ]
    ]
@@ -315,11 +336,11 @@
   ],
   [
    32.52,
-   43.95
+   48.82
   ],
   [
-   43.95,
-   47.0
+   48.82,
+   51.87
   ]
  ],
  "stimme": "Dennis (Runway, voiceId bGkjVHUyQ9rRhorWJufM, Tempo 1,2, Pausen 0,22 s, atempo 0,89) – dawg.mp3 neben dieser Datei",
@@ -327,6 +348,8 @@
   "https://pubmed.ncbi.nlm.nih.gov/21886012/",
   "https://www.si.com/edge/2021/06/09/iron-cowboy-james-lawrence-completes-100-triathlons-100-days-video",
   "https://www.aljazeera.com/news/2024/4/7/uk-hardest-geezer-completes-challenge-run-length-africa",
-  "https://trailrunner.com/trail-news/hans-troyer-at-the-jfk-50-mile-when-impossible-becomes-realistic/"
+  "https://trailrunner.com/trail-news/hans-troyer-at-the-jfk-50-mile-when-impossible-becomes-realistic/",
+  "https://marathonhandbook.com/max-jolliffe-on-winning-badwater-135-heat-training-his-path-to-running/",
+  "https://satisfyrunning.com/blogs/possessed/max-jolliffe-2"
  ]
 }

@@ -1127,23 +1127,24 @@ def sz_mentions(t: float, dauer: float, p: dict | None = None) -> Image.Image:
     leute = p.get("leute", [])
     n = max(1, len(leute))
     bei = _zeitpunkte(p, n, dauer, 0.15, 0.85)
-    oben, hoehe = 580, min(220, (1500 - 580) / n - 20)
+    oben, hoehe = 570, min(220, (1560 - 570) / n - 16)
+    fk = hoehe / 220
     for i, person in enumerate(leute):
         tt = t - bei[i]
         if tt <= 0:
             continue
         k = weich(tt / 0.3)
-        y = oben + i * (hoehe + 20)
+        y = oben + i * (hoehe + 16)
         x0 = B + 40 - (B - 60) * k
         d.rounded_rectangle([x0, y, x0 + B - 120, y + hoehe], radius=34, fill=NACHT_HELL, outline=CORAL, width=6)
         d.ellipse([x0 + 34, y + hoehe / 2 - 50, x0 + 134, y + hoehe / 2 + 50], fill=CORAL)
         d.text((x0 + 84, y + hoehe / 2), str(i + 1), font=schrift(76), fill=MIDNIGHT, anchor="mm")
-        gn = min(72, 72 * (B - 340) / max(1, schrift(72).getlength(person[0])))
-        d.text((x0 + 170, y + hoehe * 0.3), person[0], font=schrift(gn), fill=CREME, anchor="lm")
+        gn = min(72 * fk, 72 * fk * (B - 340) / max(1, schrift(72 * fk).getlength(person[0])))
+        d.text((x0 + 170, y + hoehe * 0.27), person[0], font=schrift(gn), fill=CREME, anchor="lm")
         if len(person) > 1 and person[1]:
-            d.text((x0 + 170, y + hoehe * 0.58), person[1], font=schrift(46), fill=SOFT_BLUE, anchor="lm")
+            d.text((x0 + 170, y + hoehe * 0.58), person[1], font=schrift(48 * fk), fill=SOFT_BLUE, anchor="lm")
         if len(person) > 2 and person[2]:
-            d.text((x0 + 170, y + hoehe * 0.82), person[2], font=schrift(40), fill=GELB, anchor="lm")
+            d.text((x0 + 170, y + hoehe * 0.82), person[2], font=schrift(42 * fk), fill=GELB, anchor="lm")
     return img
 
 
