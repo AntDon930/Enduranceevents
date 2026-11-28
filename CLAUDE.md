@@ -1272,8 +1272,8 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      `EF.matchesKategorie`, Übersetzung DE „Nicht offizieller Marathon“/EN
      „Unofficial marathon“), die Suche findet „inoffiziell“ und „100
      Marathon Club“. **Dieselbe Auflösung in `functions/index.js`**
-     (Abo-Filter, Suche, Mail-Abzeichen) – wirkt erst nach `firebase
-     deploy --only functions` (Nutzer). `test_inoffiziell`.
+     (Abo-Filter, Suche, Mail-Abzeichen) – deployt am 28.11.2026.
+     `test_inoffiziell`.
 
 ### Die wichtigste Lektion
 
@@ -4423,8 +4423,8 @@ sagt es).
     Duathlon heißt wie auf der Seite „Mitteldistanz"/„Langstrecke"/
     „Ultra-Duathlon" (`DUATHLON_NAME`; am 26.10.2026 vom Test am
     „Chemnitzer Indoor Triathlon" gefunden – „Triple Duathlon" stand als
-    „Ultra-Triathlon" in der Mail). Wirkt erst
-    nach `firebase deploy --only functions` aus der Cloud Shell (Nutzer).
+    „Ultra-Triathlon" in der Mail). Deployt am
+    28.11.2026 (bis dahin verschickte `checkNewEvents` die alte Vorlage).
     Vorschau bauen: Abschnitt wie im Test in node rendern.
   - **`?abos=1` öffnet die Verwaltung** (darauf zeigt der Abmelde-Link
     der E-Mails, solange `UNSUBSCRIBE_URL` fehlt). Gelesen wird der
@@ -5867,7 +5867,7 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Slide Show (Karussell). **Vom 24.11. bis 07.12.2026 JEDEN Tag ein Reel, nur noch Reels** (vom Nutzer am 23.11.2026: „die nächsten 2 Wochen jeden Tag ein reel posten (wir posten nur noch reels), damit bisschen traffic auf die Seite kommt … Nach 2 Wochen können wir dann mal schauen wie die Bilanz ist“): `insta_inhalte.TAEGLICH` hebt die Pausentage auf, die Sonntagsaufgabe baut sieben Reels je Woche; am 07.12. mit dem Nutzer Bilanz ziehen (Follower, Aufrufe, Besuche über Instagram im Dashboard) und neu entscheiden. **Kein Telegram-Bot** („Ich will das doch nicht mehr
   mit Telegram machen“) – Vorschau und Freigabe bleiben im Dashboard
   (`admin.html`, Karte „Instagram-Freigabe“); das Posten soll wieder automatisch
-  laufen, sobald der Schlüssel steht (To-do 13). **Seit dem 22.11.2026 hängen
+  laufen, sobald der Schlüssel steht (To-do 12). **Seit dem 22.11.2026 hängen
   beide in Plan und Freigabe**: Formate `erklaer` und `karussell`, NUR über
   `sonderplan.json` (`{"format": "erklaer", "thema": "<name>"}` bzw.
   `{"format": "karussell", "slug": "<name>"}`); `insta_inhalte.format_erklaer`/
@@ -7300,24 +7300,7 @@ Verweise auf alte Nummern stehen in Klammern.
     `storage.googleapis.com/endurance-5177a-instagram/ig.html` eintippen,
     Zulassen, Adresse zurück) – erst dann zeigt die Auswertung
     Reichweite, Gespeichert und Geteilt.
-10. **Functions deployen für die neue Abo-Mail (den „neuen Newsletter“) –
-    VOR MONTAG 02.11.2026** (eingetragen am 20.10.2026, vom Nutzer: „Bitte
-    deploy auf die to-do liste setzen. Mach ich morgen."; am 26.10.2026
-    noch einmal: „Bitte firebase deploy für den neuen Newsletter auf die
-    to-do Liste nehmen" – die erste Frist, Montag 26.10., ist verstrichen;
-    nur der Nutzer, Cloud Shell):
-    `cd ~/Enduranceevents && git pull && firebase deploy --only functions`
-    (Erwartung: vier Funktionen „Successful update operation", „Deploy
-    complete!"; `STATS_ORIGINS` fragt die CLI nicht, der Wert steht in
-    `functions/.env.endurance-5177a` im Klon dort). Das `git pull` holt
-    auch die Duathlon-Namen vom 26.10.2026 (Commit `ed74477f`). Bis dahin
-    verschickt `checkNewEvents` die ALTE Vorlage – so ging am 26.10.2026
-    die Montagsmail raus (Job `abo`: 574 neu sichtbare Events, 2 Abos
-    geprüft, 1 Mail; die seit dem 19.10. freigegebenen Zeilen waren
-    dabei). Erledigt, sobald die nächste Montagsmail im neuen Aussehen
-    kommt (Log des Jobs `abo` nach dem Datenlauf-Deploy: „E-Mails
-    verschickt: N"). Siehe „Abos sind Filter + Rhythmus“ (Die Mail selbst).
-11. **Instagram-Profile der Clubs automatisch auswerten** (eingetragen am
+10. **Instagram-Profile der Clubs automatisch auswerten** (eingetragen am
     26.10.2026, vom Nutzer: „Und das du die Instagram Profile von den Clubs
     automatisch auswertest muss auch noch draufstehen“; gebaut auf dem
     Clubs-Branch `claude/clubs-feature-map-kycnmi`, Commit `b7997db1`, dort
@@ -7341,7 +7324,7 @@ Verweise auf alte Nummern stehen in Klammern.
     To-do-Liste des Clubs-Branches. Fehlt `daten/clubs-instagram` oder ist
     der Stand älter als drei Tage, meldet die Montagsaufgabe das. Das
     Posten bleibt bei der Anmeldung über Instagram.
-12. **Strava-Clubs beitreten** (26.10.2026, Nutzer, täglich 15; auf dem
+11. **Strava-Clubs beitreten** (26.10.2026, Nutzer, täglich 15; auf dem
     Clubs-Branch To-do 11): zuerst die 252 Clubs „nur Instagram“ aus
     `clubs_profile_fehlen.xlsx` – Strava liest die Montagsaufgabe sicher
     aus; Clubs ohne Termine auf Strava wieder verlassen (die Montagsmeldung
@@ -7350,7 +7333,7 @@ Verweise auf alte Nummern stehen in Klammern.
     `strava_kandidaten.xlsx` (neu erzeugen aus `scripts/clubs_kandidaten.json`,
     alle Einträge mit `strava`); ein Kandidat mit Treff wird als Club
     angelegt und aus der Kandidatenliste genommen.
-13. **Meta-App neu aufsetzen** – **im Kern erledigt am 22.11.2026**: Der Nutzer hat `--anmelden` in der Cloud Shell durchgeführt (Portfolio „Clipzz Media“, ausdauermaschine dort als Instagram-Profil hinzugefügt, ein leeres Werbekonto ließ sich nicht abwählen), Schlüssel im Tresor als Fassung 2 (Konto-Id 17841433983155724, läuft nicht ab); Probelauf von `instagram.yml` ohne Posten grün (Schlüssel angenommen, Vorschauen abgelegt, Beiträge lesbar). **Noch offen**: das erste echte Posten über den neuen Schlüssel (bei der ersten Freigabe ansehen), `instagram_manage_insights` fehlt in der Konfiguration, Slides als `CAROUSEL`. Die Geschichte: (20.11.2026: der Nutzer hat das
+12. **Meta-App neu aufsetzen** – **im Kern erledigt am 22.11.2026**: Der Nutzer hat `--anmelden` in der Cloud Shell durchgeführt (Portfolio „Clipzz Media“, ausdauermaschine dort als Instagram-Profil hinzugefügt, ein leeres Werbekonto ließ sich nicht abwählen), Schlüssel im Tresor als Fassung 2 (Konto-Id 17841433983155724, läuft nicht ab); Probelauf von `instagram.yml` ohne Posten grün (Schlüssel angenommen, Vorschauen abgelegt, Beiträge lesbar). **Noch offen**: das erste echte Posten über den neuen Schlüssel (bei der ersten Freigabe ansehen), `instagram_manage_insights` fehlt in der Konfiguration, Slides als `CAROUSEL`. Die Geschichte: (20.11.2026: der Nutzer hat das
     Facebook-Profil gelöscht, an dem Entwicklerkonto und App „AusdauerMaschine
     Content“ hingen – wohl auch der Grund für „API access blocked“). **Stand
     20.11.2026, mittags**: Neue Apps kennen den Instagram-Login nicht mehr
@@ -7396,7 +7379,7 @@ Verweise auf alte Nummern stehen in Klammern.
     Handlauf bleiben bei heute; Test in `test_instagram`. Offen bleibt nur
     der Teil des Nutzers; am 10.11.2026 meldete der Lauf weiter „API
     access blocked“.
-14. **Content: Video „Marathon in Zahlen“ entwerfen** (eingetragen am
+13. **Content: Video „Marathon in Zahlen“ entwerfen** (eingetragen am
     04.11.2026, vom Nutzer: „In Deutschland finishen XX Personen jährlich
     einen Marathon, davon in XX Zeit, Geschlecht usw … als content to-do
     das wir so ein Video entwerfen“). Idee: animierte Statistik-Grafik wie
@@ -7437,7 +7420,7 @@ Verweise auf alte Nummern stehen in Klammern.
     (README, Quellentabelle) – einzelne Zahlen mit Quellenangabe zu nennen
     ist nicht dasselbe wie die Analyse zu übernehmen, aber das entscheidet
     der Nutzer; ohne sein Ja nur (b) und offizielle Zahlen der Veranstalter.
-15. **Runway mit Claude testen** (eingetragen am 04.11.2026, vom Nutzer:
+14. **Runway mit Claude testen** (eingetragen am 04.11.2026, vom Nutzer:
     „Schreib in die To-do Liste das ich Runway mit Claude testen will“;
     Anlass: die Frage, wie sich das Cartoon-Erklärvideo für
     endurance-events.de bauen lässt – Skript liegt im Chat vom
@@ -7448,7 +7431,7 @@ Verweise auf alte Nummern stehen in Klammern.
     als Material. Offen: ob die Figur von Szene zu Szene gleich bleibt,
     und die Lizenz der erzeugten Clips (für Instagram und die Seite) vor
     der Veröffentlichung prüfen.
-16. **Wings for Life „App Runs“ ansehen** (eingetragen am 20.11.2026, vom
+15. **Wings for Life „App Runs“ ansehen** (eingetragen am 20.11.2026, vom
     Nutzer: „Nimm als to-do die App runs von wings for life auf. Die müssen
     wir uns mal anschauen“). Stand: 194 Zeilen „Wings for Life - <Ort>“ am
     09.05.2027 (161 Veranstaltungen, AT 128 / DE 60 / CH 6), fast alle mit
@@ -7463,7 +7446,7 @@ Verweise auf alte Nummern stehen in Klammern.
     Bsuch Bham Bsuch sind Ziele)? Bleiben die gut 100 kleinen Standorte
     sichtbar, oder nur die großen? Erst die Klasse zählen und dem Nutzer die
     Entscheidung vorlegen; keine `NICHT_AUSDAUER`-Zeile ohne sein Ja.
-17. **Frauen-Clubs: Filter „Nur Frauen“ und der Strava-Zugang**
+16. **Frauen-Clubs: Filter „Nur Frauen“ und der Strava-Zugang**
     (eingetragen am 25.11.2026, vom Nutzer: „lass das mal weg mit den Woman
     Only. Und schreibs auf die To-do Liste. Da müssen wir uns noch was
     einfallen lassen mit dem Strava Zugang“). Zwei Teile:
@@ -7490,7 +7473,8 @@ Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
 Wartungsmodus (38) – alle 13./14.10.2026; Instagram einrichten (39) –
 16.10.2026; RADRACE als Veranstalter (40) – 17.10.2026; Timeout des
 Datenlaufs auf 360 Minuten (41) – 27.10.2026; Datenläufe mit
-Instagram-Prüfung ansehen (42) – 10.11.2026.)
+Instagram-Prüfung ansehen (42) – 10.11.2026; Functions-Deploy für die
+neue Abo-Mail (43) – 28.11.2026.)
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
@@ -8156,6 +8140,17 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Veranstalter-Konto). Deploy 09.11. erst nach einem Neustart grün (siehe
     „Automatik“). Ob die Abo-Mail schon im neuen Aussehen kam, sieht nur
     der Nutzer (Punkt 10).
+43. ~~**Functions deployen für die neue Abo-Mail**~~ **erledigt**
+    (28.11.2026, 13:44, vom Nutzer in der Cloud Shell: `cd ~/Enduranceevents
+    && git pull && firebase deploy --only functions` – alle vier Funktionen
+    `unsubscribe`, `checkNewEvents`, `collect`, `aggregateStats` mit
+    „Successful update operation“, „Deploy complete!“; bis dahin Punkt 10 der
+    neuen Liste, eingetragen am 20.10.2026). Damit live: die neue Abo-Mail
+    (Karte je Veranstaltung, Sportfarbe, Knöpfe), die Duathlon-Namen vom
+    26.10.2026 und die Markierung „Nicht offizieller Marathon“ (Datenregel 26)
+    in Abo-Filter, Suche und Mail-Abzeichen. Die Montagsmail vom 30.11.2026 ist
+    die erste mit der neuen Vorlage – das Log des Jobs `abo` nennt die Zahl
+    der verschickten Mails, das Aussehen sieht nur der Nutzer.
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
     Termin – rein oder raus?~~ **erledigt** (09.10.2026, vom Nutzer: „Ne
