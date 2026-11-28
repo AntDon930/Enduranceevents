@@ -7311,7 +7311,7 @@ Verweise auf alte Nummern stehen in Klammern.
     `storage.googleapis.com/endurance-5177a-instagram/ig.html` eintippen,
     Zulassen, Adresse zurück) – erst dann zeigt die Auswertung
     Reichweite, Gespeichert und Geteilt.
-10. **Instagram-Profile der Clubs automatisch auswerten** (eingetragen am
+10. **Instagram-Profile der Clubs automatisch auswerten** (bis 28.11.2026 Punkt 11) (eingetragen am
     26.10.2026, vom Nutzer: „Und das du die Instagram Profile von den Clubs
     automatisch auswertest muss auch noch draufstehen“; gebaut auf dem
     Clubs-Branch `claude/clubs-feature-map-kycnmi`, Commit `b7997db1`, dort
@@ -7335,7 +7335,7 @@ Verweise auf alte Nummern stehen in Klammern.
     To-do-Liste des Clubs-Branches. Fehlt `daten/clubs-instagram` oder ist
     der Stand älter als drei Tage, meldet die Montagsaufgabe das. Das
     Posten bleibt bei der Anmeldung über Instagram.
-11. **Strava-Clubs beitreten** (26.10.2026, Nutzer, täglich 15; auf dem
+11. **Strava-Clubs beitreten** (bis 28.11.2026 Punkt 12) (26.10.2026, Nutzer, täglich 15; auf dem
     Clubs-Branch To-do 11): zuerst die 252 Clubs „nur Instagram“ aus
     `clubs_profile_fehlen.xlsx` – Strava liest die Montagsaufgabe sicher
     aus; Clubs ohne Termine auf Strava wieder verlassen (die Montagsmeldung
@@ -7344,7 +7344,7 @@ Verweise auf alte Nummern stehen in Klammern.
     `strava_kandidaten.xlsx` (neu erzeugen aus `scripts/clubs_kandidaten.json`,
     alle Einträge mit `strava`); ein Kandidat mit Treff wird als Club
     angelegt und aus der Kandidatenliste genommen.
-12. **Meta-App neu aufsetzen** – **im Kern erledigt am 22.11.2026**: Der Nutzer hat `--anmelden` in der Cloud Shell durchgeführt (Portfolio „Clipzz Media“, ausdauermaschine dort als Instagram-Profil hinzugefügt, ein leeres Werbekonto ließ sich nicht abwählen), Schlüssel im Tresor als Fassung 2 (Konto-Id 17841433983155724, läuft nicht ab); Probelauf von `instagram.yml` ohne Posten grün (Schlüssel angenommen, Vorschauen abgelegt, Beiträge lesbar). **Noch offen**: das erste echte Posten über den neuen Schlüssel (bei der ersten Freigabe ansehen), `instagram_manage_insights` fehlt in der Konfiguration, Slides als `CAROUSEL`. Die Geschichte: (20.11.2026: der Nutzer hat das
+12. **Meta-App neu aufsetzen** (bis 28.11.2026 Punkt 13) – **im Kern erledigt am 22.11.2026**: Der Nutzer hat `--anmelden` in der Cloud Shell durchgeführt (Portfolio „Clipzz Media“, ausdauermaschine dort als Instagram-Profil hinzugefügt, ein leeres Werbekonto ließ sich nicht abwählen), Schlüssel im Tresor als Fassung 2 (Konto-Id 17841433983155724, läuft nicht ab); Probelauf von `instagram.yml` ohne Posten grün (Schlüssel angenommen, Vorschauen abgelegt, Beiträge lesbar). **Noch offen**: das erste echte Posten über den neuen Schlüssel (bei der ersten Freigabe ansehen), `instagram_manage_insights` fehlt in der Konfiguration, Slides als `CAROUSEL`. Die Geschichte: (20.11.2026: der Nutzer hat das
     Facebook-Profil gelöscht, an dem Entwicklerkonto und App „AusdauerMaschine
     Content“ hingen – wohl auch der Grund für „API access blocked“). **Stand
     20.11.2026, mittags**: Neue Apps kennen den Instagram-Login nicht mehr
@@ -7390,7 +7390,7 @@ Verweise auf alte Nummern stehen in Klammern.
     Handlauf bleiben bei heute; Test in `test_instagram`. Offen bleibt nur
     der Teil des Nutzers; am 10.11.2026 meldete der Lauf weiter „API
     access blocked“.
-13. **Content: Video „Marathon in Zahlen“ entwerfen** (eingetragen am
+13. **Content: Video „Marathon in Zahlen“ entwerfen** (bis 28.11.2026 Punkt 14) (eingetragen am
     04.11.2026, vom Nutzer: „In Deutschland finishen XX Personen jährlich
     einen Marathon, davon in XX Zeit, Geschlecht usw … als content to-do
     das wir so ein Video entwerfen“). Idee: animierte Statistik-Grafik wie
@@ -7431,7 +7431,7 @@ Verweise auf alte Nummern stehen in Klammern.
     (README, Quellentabelle) – einzelne Zahlen mit Quellenangabe zu nennen
     ist nicht dasselbe wie die Analyse zu übernehmen, aber das entscheidet
     der Nutzer; ohne sein Ja nur (b) und offizielle Zahlen der Veranstalter.
-14. **Runway mit Claude testen** (eingetragen am 04.11.2026, vom Nutzer:
+14. **Runway mit Claude testen** (bis 28.11.2026 Punkt 15) (eingetragen am 04.11.2026, vom Nutzer:
     „Schreib in die To-do Liste das ich Runway mit Claude testen will“;
     Anlass: die Frage, wie sich das Cartoon-Erklärvideo für
     endurance-events.de bauen lässt – Skript liegt im Chat vom
@@ -7442,7 +7442,7 @@ Verweise auf alte Nummern stehen in Klammern.
     als Material. Offen: ob die Figur von Szene zu Szene gleich bleibt,
     und die Lizenz der erzeugten Clips (für Instagram und die Seite) vor
     der Veröffentlichung prüfen.
-15. **Wings for Life „App Runs“ ansehen** (eingetragen am 20.11.2026, vom
+15. **Wings for Life „App Runs“ ansehen** (bis 28.11.2026 Punkt 16) (eingetragen am 20.11.2026, vom
     Nutzer: „Nimm als to-do die App runs von wings for life auf. Die müssen
     wir uns mal anschauen“). Stand: 194 Zeilen „Wings for Life - <Ort>“ am
     09.05.2027 (161 Veranstaltungen, AT 128 / DE 60 / CH 6), fast alle mit
@@ -7480,7 +7480,7 @@ Verweise auf alte Nummern stehen in Klammern.
     virtuell)? (b) Länge: die Zielkilometer entfernen und „Open End“ zeigen
     wie beim Backyard, eine Zeile je Standort? (c) dann die 62 ausgeblendeten
     bestätigten App Runs und die 3 Flagships freigeben?
-16. **Frauen-Clubs: Filter „Nur Frauen“ und der Strava-Zugang**
+16. **Frauen-Clubs: Filter „Nur Frauen“ und der Strava-Zugang** (bis 28.11.2026 Punkt 17)
     (eingetragen am 25.11.2026, vom Nutzer: „lass das mal weg mit den Woman
     Only. Und schreibs auf die To-do Liste. Da müssen wir uns noch was
     einfallen lassen mit dem Strava Zugang“). Zwei Teile:
